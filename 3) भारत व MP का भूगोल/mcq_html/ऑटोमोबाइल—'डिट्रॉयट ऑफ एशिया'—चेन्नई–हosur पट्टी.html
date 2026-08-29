@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U3-150 – ऑटोमोबाइल—&#x27;डिट्रॉयट ऑफ एशिया&#x27;—चेन्नई–हosur पट्टी</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U3-150 – ऑटोमोबाइल—&#x27;डिट्रॉयट ऑफ एशिया&#x27;—चेन्नई–हosur पट्टी</h1>
+        <div class="note">क्षेत्र: TN | सामग्री: OEM–टियर सप्लायर—वर्कफोर्स; बंदरगाह–लॉजिस्टिक्स। | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 13-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># परिचय
+1. प्रश्न: &quot;ऑटोमोबाइल—&#x27;डिट्रॉयट ऑफ़ एशिया&#x27;—चेन्नई–Hosur पट्टी&quot; के संदर्भ में विश्लेषण कीजिए — यह दक्षिणी भारत का प्रमुख ऑटो क्लस्टर है जो OEM‑टियर सप्लायर संरचना, कार्यबल और लॉजिस्टिक्स के समन्वय पर आधारित है।  
+2. क्षेत्रीय संदर्भ: चेन्नई‑Hosur पट्टी तमिलनाडु/कर्नाटक सीमा के समीप स्थित एक सामरिक औद्योगिक धुरी है; चेन्नई पोर्ट/कमाराजार (Ennore) बंदरगाह लौजिस्टिक्स के कारण राष्ट्रीय और निर्यात‑उन्मुख विनिर्माण को सपोर्ट करती है।  
+
+# मुख्य विश्लेषण
+3. क्लस्टर संरचना और OEM–टियर नेटवर्क: चेन्नई‑Hosur में प्रमुख OEMs और सैकड़ों tier‑1/2/3 सप्लायर्स का घनत्व है; Hosur जैसी उपशहरी औद्योगिक नोड्स में मैन्युफैक्चरिंग‑परक मॉडल (assembly, stamping, powertrain) और नजदीकी चेन्नई में इलेक्ट्रॉनिक्स/IT‑संचालन का समन्वय पाया जाता है — परिणामस्वरूप इनपुट‑आपूर्ति समय और उत्पादन‑लूप छोटा रहता है।  
+4. कार्यबल व मानवभूगोल: क्षेत्र एक मिश्रित कार्यबल खींचता है — स्थानीय कृषि‑परिवर्तित आबादी, राज्यीय प्रवासी श्रमिक और तकनीकी/इंजीनियरिंग कर्मी; चेन्नई महानगर क्षेत्र और Hosur के बीच दैनिक/साप्ताहिक आवागमन, बस्तियों का peri‑urban विस्तार और मजदूर‑कम्पाउंड के स्वरूप स्पष्ट रूप से देखे जा सकते हैं।  
+5. निवास और शहरीकरण मॉडल: Hosur जैसी टाउनशिप्स में औद्योगिक नियुक्ति के बाद शहरी विस्तार, वर्कर‑कॉलोनियों और सर्विस‑इकोनॉमी (शॉपिंग, शिक्षा, स्वास्थ्य) का निर्माण होता है; इस प्रकार &#x27;उद्योग‑नेतृत्वित शहरीकरण&#x27; का क्लासिक मानचित्र बनता है।  
+6. लॉजिस्टिक्स व बुनियादी ढाँचा: चेन्नई पोर्ट, कमाराजार बंदरगाह, NH‑48/Chennai–Bengaluru corridor और रेल‑फ्रेट कनेक्टिविटी समर्थन देती हैं; बंदरगाह‑निकटता निर्यात‑समर्थन, कम इन्वेंट्री‑लागत और just‑in‑time आपूर्ति शृंखला के लिए निर्णायक है।  
+7. अर्थव्यवस्था, विनिर्माण संकेतक व क्षेत्रीय प्रभाव: यह पट्टी राज्य की औद्योगिक जीडीपी और वाहन‑निर्यात में प्रमुख योगदान देती है; स्थानीय MSMEs का विकास OEM‑आपूर्ति शृंखला से जुड़ा है जिससे रोजगार‑सर्जन और सेवा‑क्षेत्र में स्पिलओवर होता है।  
+8. चुनौतियाँ और पर्यावरणीय/सामाजिक प्रभाव: तेज शहरीरण से भूमि‑विकृति, जल‑दबाव और ट्रैफिक‑कंजेशन बढ़ते हैं; असंगठित श्रमिकों के लिए आवास/सेवाएँ और आपूर्ति‑श्रृंखला में छोटे सप्लायर्स की वित्तीय भार्यता दीर्घकालिक जोख़िम है।  
+9. नीति‑दिशा और अनुकरणीय पाठ (MP के लिए प्रासंगिक): क्षेत्रीय क्लस्टर के लिए बंदरगाह‑नियोजन, मल्टी‑मॉडल लॉजिस्टिक्स और स्किल‑पार्क/इम्प्लॉयर‑लिंक्ड ट्रेनिंग मॉडल आवश्यक हैं — MP जैसे आंतरिक राज्यों को औद्योगिक पट्टी विकसित करने हेतु लॉजिस्टिक्स‑कनेक्टिविटी, विशेष आर्थिक जोन और श्रम‑कौशल पहल अपनानी चाहिए।  
+
+# निष्कर्ष
+10. सार: चेन्नई–Hosur पट्टी &quot;डिट्रॉयट ऑफ़ एशिया&quot; का कार्यात्मक अर्थ क्लस्टर‑आधारित OEM‑टियर इंटीग्रेशन, बंदरगाह‑समर्थित लॉजिस्टिक्स और बहु‑स्तरीय कार्यबल गतिशीलता में निहित है; यह मॉडल संरचना, नियोजन और सामाजिक‑इन्फ्रास्ट्रक्चर के संतुलन पर टिकता है।  
+11. मार्ग आगे: समेकित क्षेत्रीय योजना—लॉजिस्टिक्स हब, पर्यावरण‑नियमों के साथ क्लस्टर‑विस्टा, और श्रम‑कौशल/आवासीय नीतियाँ—आवश्यक हैं ताकि वृद्धि टिकाऊ और समावेशी हो।  
+
+स्रोत 1: NCERT Geography (कक्षा 6–12) – सम्बंधित अध्याय  
+स्रोत 2: GC Leong / Majid Husain / D.R. Khullar – Geography (topic‑relevant chapters)  
+स्रोत 3: MP Government portals / MP Atlas / District Gazetteer (topic‑relevant)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">New NCERT कक्षा 6–12 भूगोल – Class 11: 'Fundamentals of Physical Geography', Class 12: 'India – Physical Environment', Class 12: 'India – People and Economy'; Top reference books – G.C. Leong (Physical & Human Geography), Majid Husain (Geography of India), Oxford/Orient Atlas (India + MP maps); MPPSC/MP-specific – Arihant 'Madhya Pradesh Samanya Gyan' (MP Geography खंड), Drishti IAS MPPSC (Bhopal) – MP Geography notes; Govt authorized portals – IMD (monsoon/climate), GSI (geology/minerals), Survey of India (maps), CGWB (groundwater), MoEFCC (forests/environment), CWC (water resources); MP Govt portals – MP जल संसाधन विभाग, MP Forest Department, MP Mines/Geology Department</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U3-150 – ऑटोमोबाइल—'डिट्रॉयट ऑफ एशिया'—चेन्नई–हosur पट्टी", "coverage_note": "क्षेत्र: TN | सामग्री: OEM–टियर सप्लायर—वर्कफोर्स; बंदरगाह–लॉजिस्टिक्स। | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# परिचय\n1. प्रश्न: \"ऑटोमोबाइल—'डिट्रॉयट ऑफ़ एशिया'—चेन्नई–Hosur पट्टी\" के संदर्भ में विश्लेषण कीजिए — यह दक्षिणी भारत का प्रमुख ऑटो क्लस्टर है जो OEM‑टियर सप्लायर संरचना, कार्यबल और लॉजिस्टिक्स के समन्वय पर आधारित है।  \n2. क्षेत्रीय संदर्भ: चेन्नई‑Hosur पट्टी तमिलनाडु/कर्नाटक सीमा के समीप स्थित एक सामरिक औद्योगिक धुरी है; चेन्नई पोर्ट/कमाराजार (Ennore) बंदरगाह लौजिस्टिक्स के कारण राष्ट्रीय और निर्यात‑उन्मुख विनिर्माण को सपोर्ट करती है।  \n\n# मुख्य विश्लेषण\n3. क्लस्टर संरचना और OEM–टियर नेटवर्क: चेन्नई‑Hosur में प्रमुख OEMs और सैकड़ों tier‑1/2/3 सप्लायर्स का घनत्व है; Hosur जैसी उपशहरी औद्योगिक नोड्स में मैन्युफैक्चरिंग‑परक मॉडल (assembly, stamping, powertrain) और नजदीकी चेन्नई में इलेक्ट्रॉनिक्स/IT‑संचालन का समन्वय पाया जाता है — परिणामस्वरूप इनपुट‑आपूर्ति समय और उत्पादन‑लूप छोटा रहता है।  \n4. कार्यबल व मानवभूगोल: क्षेत्र एक मिश्रित कार्यबल खींचता है — स्थानीय कृषि‑परिवर्तित आबादी, राज्यीय प्रवासी श्रमिक और तकनीकी/इंजीनियरिंग कर्मी; चेन्नई महानगर क्षेत्र और Hosur के बीच दैनिक/साप्ताहिक आवागमन, बस्तियों का peri‑urban विस्तार और मजदूर‑कम्पाउंड के स्वरूप स्पष्ट रूप से देखे जा सकते हैं।  \n5. निवास और शहरीकरण मॉडल: Hosur जैसी टाउनशिप्स में औद्योगिक नियुक्ति के बाद शहरी विस्तार, वर्कर‑कॉलोनियों और सर्विस‑इकोनॉमी (शॉपिंग, शिक्षा, स्वास्थ्य) का निर्माण होता है; इस प्रकार 'उद्योग‑नेतृत्वित शहरीकरण' का क्लासिक मानचित्र बनता है।  \n6. लॉजिस्टिक्स व बुनियादी ढाँचा: चेन्नई पोर्ट, कमाराजार बंदरगाह, NH‑48/Chennai–Bengaluru corridor और रेल‑फ्रेट कनेक्टिविटी समर्थन देती हैं; बंदरगाह‑निकटता निर्यात‑समर्थन, कम इन्वेंट्री‑लागत और just‑in‑time आपूर्ति शृंखला के लिए निर्णायक है।  \n7. अर्थव्यवस्था, विनिर्माण संकेतक व क्षेत्रीय प्रभाव: यह पट्टी राज्य की औद्योगिक जीडीपी और वाहन‑निर्यात में प्रमुख योगदान देती है; स्थानीय MSMEs का विकास OEM‑आपूर्ति शृंखला से जुड़ा है जिससे रोजगार‑सर्जन और सेवा‑क्षेत्र में स्पिलओवर होता है।  \n8. चुनौतियाँ और पर्यावरणीय/सामाजिक प्रभाव: तेज शहरीरण से भूमि‑विकृति, जल‑दबाव और ट्रैफिक‑कंजेशन बढ़ते हैं; असंगठित श्रमिकों के लिए आवास/सेवाएँ और आपूर्ति‑श्रृंखला में छोटे सप्लायर्स की वित्तीय भार्यता दीर्घकालिक जोख़िम है।  \n9. नीति‑दिशा और अनुकरणीय पाठ (MP के लिए प्रासंगिक): क्षेत्रीय क्लस्टर के लिए बंदरगाह‑नियोजन, मल्टी‑मॉडल लॉजिस्टिक्स और स्किल‑पार्क/इम्प्लॉयर‑लिंक्ड ट्रेनिंग मॉडल आवश्यक हैं — MP जैसे आंतरिक राज्यों को औद्योगिक पट्टी विकसित करने हेतु लॉजिस्टिक्स‑कनेक्टिविटी, विशेष आर्थिक जोन और श्रम‑कौशल पहल अपनानी चाहिए।  \n\n# निष्कर्ष\n10. सार: चेन्नई–Hosur पट्टी \"डिट्रॉयट ऑफ़ एशिया\" का कार्यात्मक अर्थ क्लस्टर‑आधारित OEM‑टियर इंटीग्रेशन, बंदरगाह‑समर्थित लॉजिस्टिक्स और बहु‑स्तरीय कार्यबल गतिशीलता में निहित है; यह मॉडल संरचना, नियोजन और सामाजिक‑इन्फ्रास्ट्रक्चर के संतुलन पर टिकता है।  \n11. मार्ग आगे: समेकित क्षेत्रीय योजना—लॉजिस्टिक्स हब, पर्यावरण‑नियमों के साथ क्लस्टर‑विस्टा, और श्रम‑कौशल/आवासीय नीतियाँ—आवश्यक हैं ताकि वृद्धि टिकाऊ और समावेशी हो।  \n\nस्रोत 1: NCERT Geography (कक्षा 6–12) – सम्बंधित अध्याय  \nस्रोत 2: GC Leong / Majid Husain / D.R. Khullar – Geography (topic‑relevant chapters)  \nस्रोत 3: MP Government portals / MP Atlas / District Gazetteer (topic‑relevant)", "mcqs": [{"question": "चेन्नई–Hosur पट्टी को भारत में ऑटोमोबाइल क्लस्टर के रूप में किस उपनाम से जाना जाता है?", "options": ["डिट्रॉयट ऑफ एशिया", "जापान ऑफ इंडियन ऑटो", "यूरोप का मैनचेस्टर", "अमेरिकी सिलिकॉन वैली"], "answer_index": 0, "explanation": "# व्याख्या: चेन्नई–Hosur पट्टी — \"डिट्रॉयट ऑफ एशिया\"\n- **परिचय:** चेन्नई–Hosur पट्टी दक्षिण भारत की एक प्रमुख ऑटोमोबाइल और ऑटो‑आवर्तक (auto‑ancillary) क्लस्टर है, जिसे औद्योगिक उत्पादन और वाहन निर्माण के उच्च घनत्व के कारण \"डिट्रॉयट ऑफ एशिया\" कहा जाता है।\n- **भौगोलिक विस्तार:** यह क्लस्टर चेन्नई शहर और कर्नाटक‑तमिलनाडु सीमा के पास स्थित Hosur और आसपास के औद्योगिक गलियारे को सम्मिलित करता है, जो बहु‑कोर (multi‑node) औद्योगिक क्षेत्र के रूप में विकसित हुआ है।\n- **उद्योग संरचना:** यहाँ बड़े OEM (Original Equipment Manufacturers) और संख्या में छोटे‑मध्यम ऑटो‑आवर्तक इकाइयाँ साथ‑साथ मौजूद हैं, जिससे उत्पादन‑श्रृंखला (supply chain) का पूरा इकोसिस्टम बनता है।\n- **कुशल श्रम और तकनीकी क्षमता:** इस पट्टी में कुशल तकनीशियन, अभियांत्रिकी प्रशिक्षण संस्थान और स्किल‑बेस उपलब्ध होने के कारण उच्च स्तर के विनिर्माण और अनुसंधान‑विकास सम्भव हैं।\n- **बाहरी कनेक्टिविटी:** नजदीकी बंदरगाह (Chennai Port), अंतरराष्ट्रीय हवाई अड्डा और राष्ट्रीय राजमार्गों के कारण निर्यात और सुगम इनपुट‑आपूर्ति संभव होती है, जो क्लस्टर की प्रतिस्पर्धात्मकता बढ़ाती है।\n- **निवेश और FDI आकर्षण:** नीतिगत स्थिरता, औद्योगिक नीतियाँ और बुनियादी ढांचे के कारण विदेशी और घरेलू निवेश आकर्षित हुआ है, जिससे तकनीकी हस्तांतरण और उत्पादन वृद्धि हुई है।\n- **रोजगार तथा आर्थिक प्रभाव:** वाहन निर्माण और इकट्ठा‑उद्योग के कारण स्थानीय स्तर पर व्यापक रूप से प्रत्यक्ष व परोक्ष रोजगार सृजित होते हैं और राज्य की औद्योगिक उत्पादन‑क्षमता में यह पट्टी महत्वपूर्ण योगदान देती है।\n- **उत्पादन क्षमता और विविधता:** यहाँ छोटे‑बड़े पैमाने पर कार, हल्के व भारी वाहन के घटक, विधानसभा इकाइयाँ और इंजीनियरिंग‑परक सेवाएँ एकत्रित हैं; इस विविधता से क्लस्टर लचीला व प्रतिस्पर्धी बनता है।\n- **आपूर्ति‑श्रृंखला के लाभ:** क्लस्टर के भीतर कच्चा माल, पुर्जे, टूलिंग और लॉजिस्टिक्स की निकटता से इन्वेंटरी‑लागत घटते हैं और समय‑बद्ध घटनाक्रम (just‑in‑time) विनिर्माण संभव होता है।\n- **नीति एवं औद्योगिक इन्फ्रास्ट्रक्चर:** राज्य और केन्द्र द्वारा समर्थित औद्योगिक पार्क, विशेष आर्थिक क्षेत्र और सिंगल‑विंडो क्लियरेंस जैसी व्यवस्थाएँ निवेश और विस्तार को प्रोत्साहित करती हैं।\n- **राष्ट्रीय और क्षेत्रीय महत्व:** चेन्नई–Hosur पट्टी दक्षिण भारत में ऑटो सेक्टर का प्रमुख केंद्र होने के नाते देश के वाहन निर्यात और ऑटोमोटिव क्लस्टर नीति दोनों के लिए रणनीतिक महत्त्व रखती है।", "priority_tag": "HIGH"}, {"question": "Hosur नगर किस राज्य में स्थित है और यह मोटर वाहन उद्योग के संदर्भ में क्यों महत्वपूर्ण है?", "options": ["तमिलनाडु; यह ऑटो पार्ट्स और मैन्युफैक्चरिंग हब है", "कर्नाटक; यह प्रमुख वाहन सॉफ्टवेयर हब है", "आंध्र प्रदेश; यह प्रमुख शिपिंग पोर्ट है", "कर्नाटक; यह केवल हल्की औद्योगिकीकरण वाली इकाईयों का केन्द्र है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर के पास निम्नलिखित कौन‑सा प्रमुख बंदरगाह स्थित है जो निर्यात-आधारित विनिर्माण के लिये महत्त्वपूर्ण है?", "options": ["चेन्नई पोर्ट", "विषाखापत्तनम पोर्ट", "कोच्चि पोर्ट", "मुंबई पोर्ट"], "answer_index": 0, "explanation": "# चेन्नई पोर्ट — चेन्नई–Hosur ऑटो क्लस्टर के लिए परीक्षा-केन्द्रीय व्याख्या (VYAKHYA)\n- चेन्नई पोर्ट (पूर्व में मिड्रास पोर्ट) बंगाल की खाड़ी के तटीय क्षेत्र पर स्थित प्रमुख वाणिज्यिक बंदरगाह है।\n- यह बंदरगाह चेन्नई–Hosur ऑटो क्लस्टर के समुद्री निकटतम प्रमुख बन्दरगाह के रूप में निर्यात-आधारित विनिर्माण के लिये उपयोगी है।\n- चेन्नई पोर्ट में ऑटोमोबाइल और वाहन निर्यात के लिये आवश्यक रो-रो (Ro‑Ro) और वाहन हैंडलिंग सुविधाएँ उपलब्ध हैं।\n- पोर्ट में कंटेनर टर्मिनल, बहु-कार्यात्मक टर्मिनल और वाहन-संग्रहण/स्टेकिंग क्षेत्र होने से वाहनों का त्वरित लोडिंग‑अनलोडिंग संभव है।\n- बंदरगाह का राज्य और राष्ट्रीय सड़क नेटवर्क (अंतरराज्यीय राजमार्गों के माध्यम से) तथा रेल कनेक्टिविटी ऑटो क्लस्टर को सीधे लॉजिस्टिक लाभ देती है।\n- चेन्नई पोर्ट के पास कस्टम्स और एक्सपोर्ट-इनसेंटिव व्यवस्थाएँ (FTWZ/CBU प्रक्रिया आदि) विनिर्माताओं को निर्यात प्रक्रियाओं में सरलता प्रदान करती हैं।\n- बंदरगाह का गहरे पानी का बर्थ और बड़े जहाजों को सूकारने की क्षमता निर्यात-आधारित ऑटो इकाइयों के लिये महत्वपूर्ण है।\n- चेन्नई-पोर्ट के क़रीबी इंडस्ट्रियल पार्क और लॉजिस्टिक्स हब (पोर्ट के रियर एरिया में) सप्लाई‑चेन को छोटा और कुशल बनाते हैं।\n- बंदरगाह पर मल्टीमॉडल कनेक्शन होने से इनपुट्स (पार्ट्स) और फिनिश्ड व्हीकल्स दोनों का त्वरित निर्यात/आयात आर्थिक रूप से लाभदायक होता है।\n- इसलिए, चेन्नई–Hosur ऑटो क्लस्टर के सन्दर्भ में प्रमुख और परीक्षात्मक उत्तर — चेन्नई पोर्ट — वह बन्दरगाह है जो निर्यात-आधारित विनिर्माण के लिये निर्णायक महत्व रखता है।", "priority_tag": "HIGH"}, {"question": "चेन्नई क्षेत्र के कौन‑से उपक्षेत्र को वाहन OEM निर्माण के लिये विशेष रूप से जाना जाता है (Sriperumbudur, Oragadam, Irungattukottai में से)?", "options": ["Sriperumbudur और Oragadam", "Irungattukottai ही अकेला", "केवल Oragadam नहीं Sriperumbudur", "इन्हें कंट्रीवाइड समान महत्व नहीं है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में \"OEM–टियर सप्लायर\" सम्बन्ध का सबसे सटीक वर्णन क्या है?", "options": ["OEM बड़े वाहन निर्माता होते हैं; टियर‑1/2 सप्लायर उनके लिए घटक और सब‑असेंबली बनाते हैं", "टियर‑1 निर्माता अंतिम वाहन बनाते हैं और OEM केवल ब्रांडिंग करते हैं", "टियर‑2 ही वाहन असेंबल करते हैं; OEM केवल डिजाइन करते हैं", "OEM और टियर‑सप्लायर में कोई स्पष्ट भेद नहीं होता"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर के लिए लॉजिस्टिक्स नेटवर्क में सबसे अधिक प्राथमिकता वाली सुविधा कौन‑सी है?", "options": ["समुद्री बंदरगाह से त्वरित पहुँच", "ऊँचे पहाड़ी मालवाहक स्टेशन", "सप्लाई‑चेन के लिए हवाई मार्ग का अकेला उपयोग", "नदी परिवहन पर निर्भरता"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur क्लस्टर के मानचित्र दृश्य में Oragadam शहर किस जिले में स्थित है?", "options": ["कांचेपुरम जिला (Kanchipuram)", "चेन्नई जिला", "कुड्डालोर जिला", "वेल्लोर जिला"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sriperumbudur औद्योगिक क्षेत्र अधिकतर किस प्रकार की ऑटोमोटिव इकाइयों के लिये जाना जाता है?", "options": ["OEM असेंबली प्लांट और हार्ड‑मेटल पार्ट्स मैन्युफैक्चरिंग", "केवल रिकवरी और रिपेयर वर्कशॉप", "मात्र लोकल छोटी‑दुकानों का क्लस्टर", "मुख्यतः कृषि उपकरण निर्माण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में उन स्थानों का κοινल फैक्टर क्या है जो ऑटो क्लस्टर विकसित हुए (Irungattukottai, Oragadam, Sriperumbudur, Hosur)?", "options": ["अच्छी सड़क‑निर्यात पहुँच और औद्योगिक अवसंरचना", "वही जल स्रोत जो खेती के लिये अनुकूल हैं", "उच्च हिमस्खलन जोखिम वाले क्षेत्र", "सिर्फ़ मध्यम क़्वालिटी का श्रम बाज़ार"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर में टियर‑1 सप्लायर्स आमतौर पर कौन‑सी वस्तुएँ प्रदाय करते हैं?", "options": ["बम्पर, डैशबोर्ड असेंबली, ब्रेक सिस्टम जैसी प्रमुख सब‑सिस्टम इकाइयाँ", "केवल रंगरोगन सामग्री", "सिर्फ़ कच्चा लोहा और स्टील बिना फिनिश के", "तकनीकी डिजाइन सेवाएँ जो बाहरी होती हैं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में उद्योग‑निवेश के लिये राज्य स्तर पर कौन‑सा स्थिर लाभ रहा है जो क्लस्टर के विकास में मददगार रहा?", "options": ["औद्योगिक नीतियाँ और विशेष औद्योगिक पार्क/SEZ की उपलब्धता", "उच्च आयकर दरों का प्रयोग", "कठोर तरल‑ईंधन प्रतिबंध", "नियोक्ता के लिए श्रम‑अनियंत्रित नीति"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर का श्रम‑विशेषतापूर्ण पहलू क्या है जो कंपनियों के लिये आकर्षक है?", "options": ["स्थानीय उपलब्ध अर्ध‑कुशल और कुशल कार्यबल", "सिर्फ बाहरी विदेशी विशेषज्ञों पर निर्भरता", "मात्र कृषि कार्यकर्ता उपलब्ध हैं", "उच्च शिक्षित परन्तु असंबद्ध श्रमशक्ति"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur क्लस्टर के संदर्भ में 'आउटलेट‑पोर्ट' कहा जाता है, तो उसका सबसे नज़दीकी प्राथमिक बंदरगाह कौन‑सा माना जाता है?", "options": ["चेन्नई पोर्ट", "पराडेप पोर्ट", "कोडियार्न कबटाचन पोर्ट", "बेसाख्पट्टनम पोर्ट"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में ऑटो क्लस्टर का पर्यावरणीय जोखिम‑मैनेजमेंट किस कारण अधिक महत्वपूर्ण है?", "options": ["उच्च औद्योगिक गतिविधि से वायु और जल प्रदूषण का जोखिम", "कम जनसंख्या होने के कारण सामाजिक दबाव ना होना", "अत्यधिक हिमपात की वजह से उत्पादन रुकना", "समुद्री सुनामी के कारण हमेशा बंदरगाह बंद रहते हैं"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur पट्टी में ऑटो क्लस्टर का फैलाव मैप पर किस प्रकार देखा जा सकता है?", "options": ["चेन्नई के पश्चिम-दक्षिण-पश्चिम दिशा में एक बेल्ट के रूप में फैला हुआ", "चेन्नई के उत्तर-पूर्व में एक केंद्रित क्लस्टर", "होसुर से केवल उत्तर की ओर फैला हुआ", "केवल चेन्नई के भीतर सीमित और ग्रामीण क्षेत्रों में नहीं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Hosur और Sriperumbudur के बीच का औद्योगिक तुलनात्मक लाभ (comparative advantage) मुख्यतः किस बात पर आधारित है?", "options": ["भौगोलिक निकटता‑लॉजिस्टिक्स और औद्योगिक पार्कों की उपलब्धता", "प्राकृतिक गैस का विशाल भंडार", "उच्च ऊँचाई व ठंडा जलवायु", "समुद्र तट पर प्रत्यक्ष प्लांटर्स का होना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur क्लस्टर में ऑटो‑मैन्युफैक्चरिंग का एक स्थिर फ़ायदा क्या है जो निवेशकों को आकर्षित करता है?", "options": ["प्रवासी‑श्रम का स्थिर प्रवाह और कुशल ट्रेनिंग संस्थान", "एकान्त भू‑क्षेत्र और शून्य कनेक्टिविटी", "उच्च भू‑दरों का आवरण", "कोई भी प्रत्यक्ष बंदरगाह सुविधा नहीं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में ऑटो क्लस्टर के संदर्भ में 'टियर‑2 सप्लायर' का प्रमुख कार्य क्या है?", "options": ["टियर‑1 सप्लायर्स को पुर्जे और कच्चे घटक प्रदान करना", "अंतिम वाहन की असेंबली करना", "सीधे उपभोक्ता को वाहनों की बिक्री करना", "बंदरगाह प्रबंधन और नेविगेशन"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur क्लस्टर का अंतर्राष्ट्रीय प्रतिस्पर्धात्मक लाभ किस रास्ते से बढ़ता है?", "options": ["समुद्री निर्यात हेतु बेहतर पोर्ट कनेक्टिविटी और निर्यात‑सेवा नेटवर्क", "केवल घरेलू रोड मार्केटिंग पर निर्भरता", "कठोर एक्सपोर्ट प्रतिबन्ध", "आइवी‑कम्पोनेंट की अनुपलब्धता"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में एक सफल ऑटो क्लस्टर के लिए किन प्रकार के इन्फ्रा‑इंवेस्टमेंट आवश्यक होते हैं?", "options": ["सड़क, बंदरगाह, विद्युत् आपूर्ति और औद्योगिक पार्क", "केवल हाई‑एंड रिटेल शोरूम", "वन्यजीव संवर्धन केंद्र", "अकेले कृषि सिंचाई नेटवर्क"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई‑Hosur क्षेत्र में टियर‑सप्लायर नेटवर्क के कारण किस प्रकार की आर्थिक गतिविधि स्थानीय स्तर पर बढ़ती है?", "options": ["लॉजिस्टिक्स, विनिर्माण सेवाएँ और छोटी मैन्युफैक्चरिंग यूनिट्स", "केवल पर्यटन और होटल उद्योग", "मुख्यतः खनन‑उद्योग", "मात्र सिक्योरिटी सर्विसेज़ का उभार"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई‑Hosur ऑटो क्लस्टर में 'एग्रीगेटर' या क्लस्टर‑एजेंसी का रोल सामान्यतः क्या होता है?", "options": ["供应链 समन्वय, प्रशिक्षण और निवेशकों के लिये इको‑सिस्टम बनाना", "ग्रामीण खेती के लिये मशीनरी बनाना", "केवल आयात‑निर्यात लाइसेंस जारी करना", "स्थानीय राजनीति‑प्रचार का आयोजन"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur पट्टी में ऑटो क्लस्टर का विकास मानचित्र पर किस प्रकार के परिवहन कनेक्टिविटी पर निर्भर रहा है?", "options": ["राष्ट्रीय राजमार्गों और बंदरगाही नेटवर्क दोनों पर निर्भरता", "सिर्फ़ रेल मार्ग पर निर्भरता", "सिर्फ़ हवाई मार्ग पर निर्भरता", "केवल स्थानीय ग्रामीण मार्गों पर निर्भरता"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर से संबंधित नीति‑सुविधाओं में से कौन‑सी सुविधा निवेश के लिये आम तौर पर दी जाती है और स्थायी तथ्य माना जाता है?", "options": ["औद्योगिक पार्क/SEZ और टैक्स इंसेंटिव्स (नीति‑आधारित प्रोत्साहन)", "हर कम्पनी को मुफ्त गैस की गारंटी", "किसी भी निवेशक को भूमि मुफ्त दी जाती है", "स्थानीय मजदूरी को स्वतंत्र रूप से घटाने का अधिकार"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी के ऑटो क्लस्टर में 'क्लस्टर इफेक्ट' का मतलब क्या है?", "options": ["आसपास की कंपनियों से साझा आपूर्ति‑श्रेणी, कौशल और लॉजिस्टिक्स से लागत में कमी", "एक ही कंपनी द्वारा सभी उद्योगों का नियंत्रण", "स्थानीय किसानों का उद्योगों में बंद होना", "केवल निर्यात नियंत्रण का संचय"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में मल्टी‑नैशनल ऑटो कंपनियों के कारण स्थानीय आर्थिक प्रभाव का प्रमुख तत्व क्या रहा है?", "options": ["स्थानीय एमएसएमई का विकास और रोजगार सृजन", "कृषि भूमि का तुरंत इलैक्ट्रॉनिक उत्पादन में परिवर्तन", "परमाणु ऊर्जा संयंत्रों का निर्माण", "सिर्फ़ विदेशी कर्मचारियों का आवागमन"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur पट्टी के औद्योगिक मानचित्र में Irungattukottai को आम तौर पर किस तरह की इकाइयों के लिये जाना जाता है?", "options": ["विभिन्न औद्योगिक पार्क और मैन्युफैक्चरिंग यूनिट्स (सिपकॉट/इंफ्रा क्लस्टर)", "केवल बुनकरों का ठिकाना", "हाई‑अल्ट्रा‑टेक्नोलॉजी हब जैसा क्षेत्र", "एक कृषि शिक्षा केंद्र"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में 'कम्पोनेंट‑जैविकता' (component‑ecosystem) से आशय क्या है?", "options": ["विभिन्न स्तरों के सप्लायर्स का एक दूसरे पर निर्भर नेटवर्क जो पूर्ण वाहन निर्माण के लिये आवश्यक है", "केवल एक ही कंपनी द्वारा पूरे घटक का उत्पादन", "ऑटोमोबाइल उद्योग से बिल्कुल अलग उद्योगों का समूह", "स्थानीय उपभोक्ता बाजार की कमी"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर को क्षेत्रीय प्रतिस्पर्धा में बनाए रखने के लिये किस तरह की रणनीति उपयोगी मानी जाती है?", "options": ["लॉजिस्टिक्स सुधार, कुशल कार्यबल प्रशिक्षण और क्लस्टर‑इन्फ्रा का विस्तार", "केवल उत्पाद मूल्य बढ़ाना", "स्थानीय बंदरगाहों का बंद कर देना", "कच्चा माल आयात पर पूर्ण प्रतिबन्ध"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी में ऑटो क्लस्टर के लिये 'मैप‑आधारित पहचान' के दृष्टिकोण से कौन‑सा कथन सही है?", "options": ["यह क्लस्टर चेन्नई के आसपास पश्चिम और दक्षिण‑पश्चिम दिशा में फैला है", "यह क्लस्टर चेन्नई के पूर्व तट पर पूरी तरह फैला है", "यह क्लस्टर केवल होसुर में सीमित है और चेन्नई से अलग है", "यह क्लस्टर केवल चेन्नई के उत्तर में स्थित है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "चेन्नई–Hosur पट्टी के सन्दर्भ में 'हाउसिंग और शहरी दबदबा' का अर्थ क्या है जो औद्योगिक विकास के साथ उत्पन्न होता है?", "options": ["कर्मचारियों के लिये आवासीय विस्तार और सहायक सेवाओं का विकास", "केवल औद्योगिक भवनों का अकारण निर्माण", "ग्रामीण जमीन का वापसी और खेती में पुनरागमन", "सिर्फ़ सरकारी कार्यालयों का निर्माण"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur क्षेत्र के ऑटो क्लस्टर के लिये निम्नलिखित में से कौन‑सा एक लॉजिस्टिक्स लाभ नहीं माना जाता?", "options": ["भीतरघाटी समुद्र‑रास्ते की अनुपलब्धता", "चेन्नई पोर्ट के माध्यम से त्वरित निर्यात", "राष्ट्रीय राजमार्गों द्वारा सूक्ष्म वितरण कनेक्टिविटी", "स्थानीय हब‑आधारित ट्रांसपोर्ट सुविधाएँ"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur पट्टी का ऑटो क्लस्टर नीति‑निर्माता दृष्टि से किस तरह से क्षेत्रीय अर्थव्यवस्था को प्रभावित करता है?", "options": ["विकासशील एमएसएमई इको‑सिस्टम और रोजगार सृजन बढ़ाकर", "केवल कृषि उत्पादन में वृद्धि करके", "स्थानीय शैक्षिक संस्थानों का क्षरण करके", "निजी उद्योगों की अनदेखी कर के"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "चेन्नई–Hosur ऑटो क्लस्टर के सन्दर्भ में 'सप्लाई‑चैन के लिए क्लस्टर‑आधारित लाभ' किसे कहा जाता है?", "options": ["घनिष्ठ प्रदाताओं की उपस्थिति जिससे ट्रांसपोर्ट लागत और समय घटें", "सारे पुर्जों का केवल एक ही स्थान से आयात होना", "उत्पादन को केवल अंतराष्ट्रीय बाजारों तक सीध पहुँचाना", "स्थानीय उपभोक्ता मांग को नज़रअंदाज़ करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

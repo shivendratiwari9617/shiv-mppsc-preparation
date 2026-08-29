@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-123 – ट्रेंड — हेरिटेज — इवेंट कैलेंडर — एकीकृत</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-123 – ट्रेंड — हेरिटेज — इवेंट कैलेंडर — एकीकृत</h1>
+        <div class="note">क्षेत्र: MP | सामग्री: शहर-शहर तालमेल—प्रमोशन | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 07-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना  
+ट्रेंड—हेरिटेज—इवेंट कैलेंडर एकीकृत करने का आशय यह है कि सांस्कृतिक/ऐतिहासिक धरोहरों (heritage) के संरक्षण, स्थानिक (city–city) तालमेल और पर्यटन/इवेंट प्रमोशन को एक समन्वित कैलेंडर के माध्यम से जोड़ा जाए ताकि अर्थव्यवस्था, पहचान और नियोजित विकास पर स्थायी प्रभाव पड़े; एमपीपीएससी की निबंध/GS दृष्टि से यह नीति-प्रशासन एवं क्षेत्रीय विकास का मध्यमकालीन प्रश्न है।  
+
+# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि  
+मध्यप्रदेश में खजुराहो (छतरपुर), उज्जैन का कुंभ/महाकुंभ‑प्रसंग, ग्वालियर‑तानसेन, भोपाल‑इंदौर‑सांस्कृतिक मेले जैसे स्थायी प्रदर्शन हैं; पर पिछले 15 वर्षों में (2010‑2025) शहर‑स्तरीय तालमेल और केंद्रीय/राज्य कार्यक्रम (जैसे PRASAD 2015 की तरह पर्यटन‑समेकन प्रयास) के बावजूद इवेंट कैलेंडर का एकीकृत और स्थायी ट्रेंड कम रहा है — परिणामस्वरूप overlapping आयोजन, संसाधन की दुहरान और सीमित आर्थिक मल्टीप्लायर प्रभाव देखे गये।  
+
+# संस्थागत और नीतिगत आयाम  
+NITI Aayog तथा MP Planning Dept के रिपोर्ट‑सिफारिशों में सांस्कृतिक परिसरों को बहु‑विषयक कैलेंडर में जोड़ने, district tourism committees और municipal corporations (जैसे Indore MC, Bhopal MC) के सह‑निर्धारण पर बल है; तथापि MP Tourism Board तथा जिलास्तरीय टूरिज्म काउंसिलों के बीच एकीकृत SOP और वित्तीय‑इंजनियरिंग अभी सीमित और असतत रही है।  
+
+# आर्थिक व सामाजिक प्रभाव (field-level micro-facts)  
+एकीकृत कैलेंडर से होटल‑व्यवसाय, हस्तशिल्प (जैसे Chanderi, Maheshwari वस्त्र), स्थानीय गाइडिंग‑समूह और SMEs को लगातार सीज़न मिलता है; उदाहरणतः खजुराहो डान्स फेस्टिवल और Orchha heritage walk को वर्षभर के टिकटिंग‑पैकेज में जोड़ने पर visitantes में 8–12% की वृद्धि सम्भव है—पर जब आयोजनों का तालमेल न हो तो छोटे व्यापारी और कलाकार seasonal unemployment झेलते हैं।  
+
+# कारण और बाधाएँ  
+कारणों में संस्थागत siloing (department of culture vs tourism vs municipal bodies), वित्तीय अनिश्चितताएँ, स्थानीय stakeholder engagement का अभाव और data‑driven planning का न होना प्रमुख है; उदाहरणतः जिलास्तर पर इवेंट लाइसेंसिंग अलग प्रक्रियाओं के कारण आयोजन समन्वय प्रभावित होता है।  
+
+# अवसर और रणनीतिक उपाय  
+राज्य‑स्तर heritage–event unified calendar के लिए एक केंद्रीयised digital portal (state tourism portal से लिंक), yearly master calendar जारी करना, district heritage managers नियुक्त करना और PPP मॉडल से festivals के कॉर्पोरेट‑स्पॉन्सरशिप प्रोटोकॉल अपनाने से coherence बढ़ेगी; छोटे उदाहरणों में Indore‑Ujjain cultural corridor को कॉमन‑कैलेंडर में पोजिशन करने से pilgrim‑tourist flow को शिफ्ट किया जा सकता है।  
+
+# चुनौतियाँ और जोखिम प्रबंधन  
+संवेदशील heritage conservation और mass‑events के बीच संतुलन, स्थानीय समुदायों का displacement और over‑commercialization रोकना आवश्यक है; इसलिए Environmental Impact Assessment और cultural‑impact clauses (heritage buffer zones) साधारण इवेंट‑परमिट का हिस्सा हों।  
+
+# निष्कर्ष व मार्ग‑आगे  
+एकीकृत ट्रेंड का सशक्तीकरण केवल प्रमोशन नहीं, बल्कि संस्थागत सुधार, डिजिटल समन्वय और स्थानीय अर्थव्यवस्था के साथ benefit‑sharing मॉडल से संभव है; मध्यप्रदेश के लिए राज्य‑स्तरीय master calendar, district heritage managers और PPP‑enabled festival clusters अपनाने पर tourism yield और सांस्कृतिक संरक्षण दोनों में दीर्घकालिक लाभ दिखाई देगा।  
+
+स्रोत 1: MP Budget / Planning Dept – नीति व योजना सम्बन्धी दस्तावेज  
+स्रोत 2: NITI Aayog / सरकारी reports – सम्बंधित सूचकांक व विश्लेषण  
+स्रोत 3: Drishti IAS MPPSC / Parikshadham – नीति व प्रशासनिक अध्याय</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-123 – ट्रेंड — हेरिटेज — इवेंट कैलेंडर — एकीकृत", "coverage_note": "क्षेत्र: MP | सामग्री: शहर-शहर तालमेल—प्रमोशन | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना  \nट्रेंड—हेरिटेज—इवेंट कैलेंडर एकीकृत करने का आशय यह है कि सांस्कृतिक/ऐतिहासिक धरोहरों (heritage) के संरक्षण, स्थानिक (city–city) तालमेल और पर्यटन/इवेंट प्रमोशन को एक समन्वित कैलेंडर के माध्यम से जोड़ा जाए ताकि अर्थव्यवस्था, पहचान और नियोजित विकास पर स्थायी प्रभाव पड़े; एमपीपीएससी की निबंध/GS दृष्टि से यह नीति-प्रशासन एवं क्षेत्रीय विकास का मध्यमकालीन प्रश्न है।  \n\n# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि  \nमध्यप्रदेश में खजुराहो (छतरपुर), उज्जैन का कुंभ/महाकुंभ‑प्रसंग, ग्वालियर‑तानसेन, भोपाल‑इंदौर‑सांस्कृतिक मेले जैसे स्थायी प्रदर्शन हैं; पर पिछले 15 वर्षों में (2010‑2025) शहर‑स्तरीय तालमेल और केंद्रीय/राज्य कार्यक्रम (जैसे PRASAD 2015 की तरह पर्यटन‑समेकन प्रयास) के बावजूद इवेंट कैलेंडर का एकीकृत और स्थायी ट्रेंड कम रहा है — परिणामस्वरूप overlapping आयोजन, संसाधन की दुहरान और सीमित आर्थिक मल्टीप्लायर प्रभाव देखे गये।  \n\n# संस्थागत और नीतिगत आयाम  \nNITI Aayog तथा MP Planning Dept के रिपोर्ट‑सिफारिशों में सांस्कृतिक परिसरों को बहु‑विषयक कैलेंडर में जोड़ने, district tourism committees और municipal corporations (जैसे Indore MC, Bhopal MC) के सह‑निर्धारण पर बल है; तथापि MP Tourism Board तथा जिलास्तरीय टूरिज्म काउंसिलों के बीच एकीकृत SOP और वित्तीय‑इंजनियरिंग अभी सीमित और असतत रही है।  \n\n# आर्थिक व सामाजिक प्रभाव (field-level micro-facts)  \nएकीकृत कैलेंडर से होटल‑व्यवसाय, हस्तशिल्प (जैसे Chanderi, Maheshwari वस्त्र), स्थानीय गाइडिंग‑समूह और SMEs को लगातार सीज़न मिलता है; उदाहरणतः खजुराहो डान्स फेस्टिवल और Orchha heritage walk को वर्षभर के टिकटिंग‑पैकेज में जोड़ने पर visitantes में 8–12% की वृद्धि सम्भव है—पर जब आयोजनों का तालमेल न हो तो छोटे व्यापारी और कलाकार seasonal unemployment झेलते हैं।  \n\n# कारण और बाधाएँ  \nकारणों में संस्थागत siloing (department of culture vs tourism vs municipal bodies), वित्तीय अनिश्चितताएँ, स्थानीय stakeholder engagement का अभाव और data‑driven planning का न होना प्रमुख है; उदाहरणतः जिलास्तर पर इवेंट लाइसेंसिंग अलग प्रक्रियाओं के कारण आयोजन समन्वय प्रभावित होता है।  \n\n# अवसर और रणनीतिक उपाय  \nराज्य‑स्तर heritage–event unified calendar के लिए एक केंद्रीयised digital portal (state tourism portal से लिंक), yearly master calendar जारी करना, district heritage managers नियुक्त करना और PPP मॉडल से festivals के कॉर्पोरेट‑स्पॉन्सरशिप प्रोटोकॉल अपनाने से coherence बढ़ेगी; छोटे उदाहरणों में Indore‑Ujjain cultural corridor को कॉमन‑कैलेंडर में पोजिशन करने से pilgrim‑tourist flow को शिफ्ट किया जा सकता है।  \n\n# चुनौतियाँ और जोखिम प्रबंधन  \nसंवेदशील heritage conservation और mass‑events के बीच संतुलन, स्थानीय समुदायों का displacement और over‑commercialization रोकना आवश्यक है; इसलिए Environmental Impact Assessment और cultural‑impact clauses (heritage buffer zones) साधारण इवेंट‑परमिट का हिस्सा हों।  \n\n# निष्कर्ष व मार्ग‑आगे  \nएकीकृत ट्रेंड का सशक्तीकरण केवल प्रमोशन नहीं, बल्कि संस्थागत सुधार, डिजिटल समन्वय और स्थानीय अर्थव्यवस्था के साथ benefit‑sharing मॉडल से संभव है; मध्यप्रदेश के लिए राज्य‑स्तरीय master calendar, district heritage managers और PPP‑enabled festival clusters अपनाने पर tourism yield और सांस्कृतिक संरक्षण दोनों में दीर्घकालिक लाभ दिखाई देगा।  \n\nस्रोत 1: MP Budget / Planning Dept – नीति व योजना सम्बन्धी दस्तावेज  \nस्रोत 2: NITI Aayog / सरकारी reports – सम्बंधित सूचकांक व विश्लेषण  \nस्रोत 3: Drishti IAS MPPSC / Parikshadham – नीति व प्रशासनिक अध्याय", "mcqs": [{"question": "खजुराहो समूह स्मारक (Khajuraho Group of Monuments) का UNESCO विश्व धरोहर सूची में सम्मिलन किस वर्ष हुआ था?", "options": ["1986", "1999", "1978", "2005"], "answer_index": 0, "explanation": "# व्याख्या — Khajuraho Group of Monuments का UNESCO में सम्मिलन (1986)\n- Khajuraho Group of Monuments को UNESCO विश्व धरोहर सूची में सम्मिलित किये जाने का वर्ष 1986 है।\n- यह सम्मिलन साइट की “Outstanding Universal Value” को अंतरराष्ट्रीय स्तर पर मान्यता देता है।\n- 1986 में शामिल होने के बाद Khajuraho को वैश्विक संरक्षण एवं सुरक्षा की प्राथमिकता मिली।\n- UNESCO सम्मिलन के बाद भारतीय पुरातत्व सर्वेक्षण (ASI) तथा राज्य सरकारों के बीच देखरेख और संरक्षण संबंधी समन्वय सशक्त हुआ।\n- यह समावेशन Khajuraho के स्थापत्य, मूर्तिकला और मध्यकालीन चंदेल स्थापत्य परंपरा की अंतरराष्ट्रीय मान्यता का संकेत है।\n- 1986 का वर्ष स्थानीय, राज्य और राष्ट्रीय स्तर पर संरक्षण-धारण और पर्यटन नीति निर्धारण में एक निर्णायक बिंदु माना जाता है।\n- विश्व धरोहर सूची में शामिल होने से साइट की प्रबंधन योजना, निगरानी और संवर्धन के लिए दिशानिर्देश लागू करने की आवश्यकता बढ़ी।\n- यह सम्मिलन Khajuraho को अंतरराष्ट्रीय पर्यटन और शैक्षिक अनुसंधान का केंद्र बनाता है, जिससे संरक्षण के समन्वित प्रयास अपेक्षित हुए।\n- 1986 के सम्मिलन के बाद Khajuraho का उपयोग क्षेत्रीय सांस्कृतिक कैलेंडर और हेरिटेज-इवेंट्स में प्रमुख स्थानीय महत्व के रूप में बढ़ा।\n- MP के समेकित हेरिटेज प्रबंधन में 1986 का UNESCO सम्मिलन एक निर्णायक संदर्भ बिंदु रहा, विशेषकर संरक्षण, प्रचार और स्थानीय समुदाय के सहभाग के संदर्भ में।", "priority_tag": "HIGH"}, {"question": "उज्जैन में आयोजित पारंपरिक 'सिम्हाष्टक' या कुंभ मेला किस आधार पर विशेष है?", "options": ["यह ब्रह्मा तीर्थ का मेला है", "यह ज्योतिषीय गणनाओं के अनुसार कुंभ के रूप में हर 12 साल में आयोजित होता है", "यह केवल स्थानीय व्यापार मेले के रूप में आयोजित होता है", "यह कृषि मेला है जो हर वर्ष होता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "ग्वालियर का 'तानसेन समारोह' मुख्यतः किस कला-शाखा को समर्पित है?", "options": ["नाट्य", "शास्त्रीय संगीत", "चित्रकला", "लोक नृत्य"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश में शहर-शहर तालमेल (city-to-city coordination) के माध्यम से इवेंट कैलेंडर एकीकृत करने का प्रमुख लाभ क्या है?", "options": ["स्थानीय कर दरों में कटौती", "त्योहारों और इवेंट्स के तालमेल से पर्यटन और संसाधन उपयोग का समन्वय और अधिकतम आर्थिक लाभ", "सिर्फ़ स्थानीय मनोरंजन की वृद्धि", "नियोजित शहरी विस्तार का रुकना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश में 'खोजी पर्यटन' और हेरिटेज प्रमोशन के लिए यह किस तरह का मॉडल अधिक उपयुक्त माना जाता है?", "options": ["केवल निजी निवेश पर निर्भर मॉडल", "सामुदायिक सहभागिता (community participation) आधारित मॉडल", "केवल केंद्रीय अनुदान पर आधारित मॉडल", "केवल अंतरराष्ट्रीय प्रायोजन पर आधारित मॉडल"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इवेंट कैलेंडर को एकीकृत करने का प्रशासनिक लक्ष्य निम्न में से कौन सा नहीं है?", "options": ["इवेंट्स में संसाधनों का अति-अवसर रोकना", "त्योहारों के तारिखों का टकराव रोकना", "स्थानीय सांस्कृतिक पहचान का नाश करना", "पर्यटन प्रवाह का संतुलन बनाना"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "किस प्रकार के संकेतक (indicators) शहर-शहर तालमेल और इवेंट कैलेंडर के प्रभाव का आकलन करने के लिए उपयोगी होते हैं?", "options": ["पर्यटक प्रवाह, होटल बुकिंग दरें और स्थानीय व्यापार राजस्व", "केवल वार्षिक वर्षा का डेटा", "केवल सड़क दूरी माप", "केवल स्थानीय स्कूलों की संख्या"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "हेरिटेज प्रमोशन में 'स्थानीय शिल्पकारों को सशक्त करना' किस लाभ से जुड़ा है?", "options": ["स्थानीय शिल्प पर निर्भरता समाप्त करना", "स्थानीय संस्कृति का संरक्षण व आय सृजन बढ़ाना", "पर्यटन घटाना", "सिर्फ़ सरकारी नौकरियों में वृद्धि"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश में पर्यटन और हेरिटेज इवेंट्स के मध्य तालमेल के लिए सबसे उपयुक्त नीति तत्व कौन सा होगा?", "options": ["कठोर केंद्रीकृत नियम बिना स्थानीय भागीदारी के", "सामूहिक इवेंट कैलेंडर और नगर-स्तरीय समन्वय मंच", "केवल अंतरराष्ट्रीय आयोजकों को संरक्षण", "साल में सभी इवेंट एक ही दिन आयोजित करने का अनिवार्य नियम"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "खजुराहो के नृत्य उत्सव (Khajuraho Dance Festival) किस जिले में आयोजित होता है?", "options": ["छतरपुर", "इंदौर", "भोपाल", "ग्वालियर"], "answer_index": 0, "explanation": "# खजुराहो नृत्य उत्सव — संक्षिप्त परीक्षा-विधि व्याख्या (उत्तर: छतरपुर)\n- खजुराहो नृत्य उत्सव मध्यप्रदेश के **छतरपुर जिले** के खजुराहो में प्रति वर्ष आयोजित किया जाता है।\n- यह समारोह खजुराहो के ऐतिहासिक मंदिर समूह (Western Group of Temples) के खुले मंच पर होता है, जहाँ पौराणिक मंदिरों को पृष्ठभूमि के रूप में उपयोग किया जाता है।\n- आयोजन का प्राथमिक उद्देश्य भारतीय शास्त्रीय नृत्य शैलियों का प्रदर्शन व संरक्षण है; इसमें कथक, भरतनाट्यम, ओडिसी, कुचीपुड़ी इत्यादि प्रमुख शैलियाँ प्रस्तुत होती हैं।\n- यह उत्सव राज्य सरकार/संस्कृति विभाग और लोक कला संस्थाओं के संयोजन में आयोजित होता है और मध्यप्रदेश की वार्षिक हेरिटेज—इवेंट कैलेंडर का स्थायी घटक माना जाता है।\n- कार्यक्रम का समय वार्षिक रूप से निर्धारित किया जाता है और पर्यटन व सांस्कृतिक कक्षाओं को बढ़ावा देने के लिए लोकप्रिय यात्रा सीज़न में रखा जाता है।\n- उत्सव के कारण छतरपुर जिले में सांस्कृतिक पर्यटन पर सकारात्मक प्रभाव पड़ता है; इससे स्थानीय आर्थिक गतिविधियाँ और हस्तशिल्प/घरेलू व्यवसाय लाभान्वित होते हैं।\n- आयोजन के दौरान स्मारक संरक्षण नियमों का पालन आवश्यक माना जाता है; यह—हेरिटेज संरक्षण तथा सांस्कृतिक प्रस्तुति के समन्वय का उदाहरण है।\n- खजुराहो नृत्य उत्सव को राज्य और राष्ट्रीय स्तर के कलाकार व शास्त्रीय गुरुकुल आमंत्रित करते हैं, जिससे छतरपुर का सांस्कृतिक प्रोफ़ाइल मजबूती से उभरता है।\n- मैदानी व्यवस्थाएँ, दर्शक-मंच और सुरक्षा/लॉजिस्टिक्स आयोजन समिति एवं जिले की प्रशासनिक इकाइयों (छतरपुर) द्वारा समन्वयित की जाती हैं।\n- परीक्षा‑दृष्टि से: यदि स्थान पूछा जाए तो संक्षेप उत्तर — “छतरपुर जिला (खजुराहो)”; अतिरिक्त बिंदु के लिए — मंदिरों के सामने ओपन‑एयर मंच, शास्त्रीय नृत्यों का केन्द्र और मध्यप्रदेश की हेरिटेज‑कैलेंडर में शामिल कार्यक्रम लिखें।", "priority_tag": "HIGH"}, {"question": "शहर-शहर तालमेल बनाते समय इवेंट कैलेंडर में शामिल प्राथमिकactors में से कौन सा नहीं माना जाता?", "options": ["स्थानीय समुदाय और कलाकार", "पर्यटन व्यापार और होटल उद्योग", "आस-पास के राज्यों के मौसम पैटर्न (जब तक आयोजन क्षेत्र से अप्रासंगिक हों)", "स्थानीय प्रशासकीय और कानून-प्रवर्तन संस्थाएँ"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "हेरिटेज साइट्स के चारों ओर आयोजनों को समन्वयित करने पर किस तरह की चुनौती उभरती है?", "options": ["स्थानीय संस्कृति का बढ़ना", "अधिक पर्यटक दबाव से संरक्षण संबंधी दबाव", "स्थानीय रोजगार के अवसरों का बढ़ना", "स्थानीय हस्तशिल्प का प्रचार"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इवेंट कैलेंडर एकीकृत करने में डिजिटल समाधान जैसे ऑनलाइन कैलेंडर और बुकिंग प्लेटफार्मों का प्रमुख योगदान क्या होगा?", "options": ["इवेंट शेड्यूल पारदर्शी बनाना और पर्यटन प्रवाह का समन्वय करना", "सिर्फ़ सरकारी डाटा छुपाना", "स्थानीय आयोजकों को हटा देना", "घटनाओं को अनियमित बनाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश के हेरिटेज प्रमोशन में 'स्थानीय शिक्षा व जागरूकता कार्यक्रम' का उद्देश्य क्या होता है?", "options": ["स्थानीय लोगों को अपने संस्कृतिक सम्पदा के संरक्षण के प्रति जागरूक करना", "स्थानीय लोगों को शहर छोड़ने के लिए प्रेरित करना", "केवल बाहरी शिक्षकों का रोजगार बढ़ाना", "स्थानीय परंपराओं को समाप्त करना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "शहरी तालमेल बनाकर इवेंट कैलेंडर को सुव्यवस्थित करने से स्थानीय अर्थव्यवस्था पर क्या असर अपेक्षित है?", "options": ["बाजार का पतन", "पर्यटन सीजन का विस्तार और आय सृजन में वृद्धि", "सिर्फ सरकारी व्यय में वृद्धि", "स्थायी रोजगार में कमी"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "जब कई शहरों में समान समय पर बड़े उत्सव होते हैं तो शहर-शहर तालमेल न होने पर कौन सा समस्या सबसे सामान्य है?", "options": ["पर्यटक और संसाधन का बँटवारा (dilution) जिससे किसी भी शहर को अपेक्षित लाभ नहीं मिलता", "स्थानीय संस्कृति का अचानक समृद्धि", "सरकार के राजस्व में तुरंत वृद्धि", "स्थानीय रोजगार का स्थायीत्व"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "हेरिटेज-आधारित इवेंट्स में 'ब्रांडिंग' और 'लॉजिस्टिक्स' के समन्वय का महत्व किस लिए है?", "options": ["केवल आयोजकों के निजी फायदे के लिए", "प्रभावी दर्शक सहभागिता, बेहतर अनुभव और दोहराव आने वाली यात्राओं के लिए", "स्थानिक संस्कृति को गुम करने के लिए", "केवल विदेशी निवेशकों को आकर्षित करने के लिए"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "एकीकृत इवेंट कैलेंडर लागू करते समय 'समय-वितरण (staggering of dates)' का क्या उद्देश्य होता है?", "options": ["सभी इवेंट्स को एक ही दिन में कर देना", "इवेंट्स के बीच टकराव घटाकर पर्यटक प्रवाह और संसाधनों का बेहतर प्रबंधन", "स्थानीय त्योहारों को हटा देना", "हर इवेंट की अवधि घटाना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "हेरिटेज प्रमोशन में 'मजबूत सार्वजनिक-निजी भागीदारी (PPP)' का प्रमुख जोखिम क्या हो सकता है यदि ठीक तरीके से प्रबंधित न किया जाए?", "options": ["साइटों का बेहतर संरक्षण", "हेरिटेज का वाणिजीकरण जिससे सांस्कृतिक मूल्यों में फेरबदल", "स्थानीय रोजगार का सृजन", "पर्यटन की गुणवत्ता में सुधार"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस तरह का मॉनिटरिंग संकेतक (monitoring indicator) एकीकृत इवेंट कैलेंडर के सफल कार्यान्वयन का प्रत्यक्ष संकेत देता है?", "options": ["घटनाओं के बीच तारीखों का आवधिक टकराव", "इवेंट्स के दौरान स्थानीय सेवाओं पर दबाव और उसे संभालने की क्षमता का आकलन", "सिर्फ आयोजनकर्ताओं की संख्या", "स्थानीय स्कूलों की उपस्थिति दर"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन सा पहलू शहर-शहर तालमेल के लिए 'कम-प्राथमिकता' माना जाना चाहिए (यदि संसाधन सीमित हों)?", "options": ["इवेंट्स के पर्यटक-आकर्षक क्षमता का सटीक मानकांकन", "अत्यधिक ओवरलैपिंग इवेंट्स को प्राथमिकता देकर सभी को एक साथ कर देना", "स्थानीय समुदायों की प्राथमिकताओं को समायोजित करना", "संसाधन-साझाकरण और आपातकालीन सेवाओं का समन्वय"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "हेरिटेज इवेंट्स में 'सस्टेनेबिलिटी' सुनिश्चित करने के लिए कौन सी नीति सर्वाधिक उपयुक्त है?", "options": ["अद्र्ध-स्थायी संसाधन उपयोग को बढ़ावा देना", "समुदाय-प्रेरित संरक्षण, पर्यावरणीय प्रभाव आकलन और सीमित दर्शक संख्या नीतियाँ", "बड़ी संख्या में पर्यटकों के लिए अनियंत्रित प्रवेश", "पर्यटन को केवल ऑनलाइन विज्ञापन तक सीमित करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इवेंट कैलेंडर का एकीकृत मॉडल तैयार करते समय 'डेटा-ड्रिवन निर्णय' किस लिए महत्वपूर्ण है?", "options": ["केवल ऐतिहासिक तारीखों का संग्रहण", "इवेंट्स के प्रभाव का मापन करके संसाधन आवंटन और तालमेल बेहतर बनाना", "सिर्फ बजट बढ़ाना बिना प्रभाव आकलन के", "स्थानीय आयोजकों को हटाना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश में हेरिटेज-संरक्षण और इवेंट प्रबंधन में सामुदायिक भागीदारी के क्या निहितार्थ होते हैं?", "options": ["स्थायी संरक्षण, स्थानीय स्वामित्व और आय के वैकल्पिक साधन", "स्थानीय संस्कृति का विस्थापन", "केवल बाहरी विशेषज्ञों पर निर्भरता बढ़ाना", "सरकार द्वारा सभी गतिविधियों का निजीकरण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस स्थिति में शहर-शहर तालमेल और इवेंट कैलेंडर एकीकृत करना सबसे अधिक कठिन माना जाएगा?", "options": ["जब सभी शहरों के पास समान और समृद्ध संसाधन हों", "जब विभिन्न शहरों की प्राथमिकताएँ, प्रतिस्पर्धी लक्ष्य और सीमित संसाधन हों", "जब केवल एक शहर ही इवेंट आयोजित करता हो", "जब इवेंट्स केवल डिजिटल हों"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "एकीकृत हेरिटेज-इवेंट कैलेंडर के सफल अनुप्रयोग के लिए 'लोकल ब्रांडिंग' का क्या महत्व है?", "options": ["स्थानीय पहचान को कम करना", "हेरिटेज के अनूठे पहलुओं को उजागर कर लक्षित पर्यटकों को आकर्षित करना", "केवल बाहरी ब्रांडों को प्राथमिकता देना", "स्थानीय शिल्प को अनदेखा करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

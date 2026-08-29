@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-002 – CPU आर्किटेक्चर—ALU/Control/Registers—आधार</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-002 – CPU आर्किटेक्चर—ALU/Control/Registers—आधार</h1>
+        <div class="note">क्षेत्र: Fundamentals | सामग्री: निर्देश चक्र/पाइपलाइन—परफॉर्मेंस लिंक। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+**CPU आर्किटेक्चर—ALU/Control/Registers—आधार** के विषय में चर्चा करते हुए यह स्पष्ट करना आवश्यक है कि CPU किसी भी कम्प्यूटिंग सिस्टम का केंद्रीय निष्पादन इकाई है, जिसमें Arithmetic Logic Unit (ALU), Control Unit और Registers मिलकर निर्देश चक्र (instruction cycle) एवं पाइपलाइनिंग के माध्यम से प्रदर्शन (performance) तय करते हैं। MPPSC के दृष्टिकोण से यह विषय डिजिटल गवर्नेंस, साइबर‑सिक्योरिटी और टेक्नोलॉजी नीति के निर्णयों में बुनियादी समझ देता है, जो योजनाओं के हार्डवेयर‑लेवल अनुप्रयोगों के लिए आवश्यक है।
+
+## अवधारणा एवं विकास
+CPU के मूल घटक—ALU, Control Unit और Registers—NCERT तथा मानक ICT ग्रंथों में परिभाषित रूप से दिए गए हैं। ALU अंकगणितीय एवं तार्किक संचलन (add, sub, AND, OR, shift) करता है; Control Unit निर्देशों का डिकोड व सिग्नल जनरेशन करता है; Registers (जैसे Program Counter, Instruction Register, Memory Address Register, Memory Data Register, General Purpose/Accumulator) तात्कालिक डेटा व पता संग्रहीत करते हैं। परफ़ॉर्मेंस पर इन घटकों का प्रभाव तीन मापदण्डों से देखा जाता है: क्लॉक स्पीड (Hz), CPI (cycles per instruction) और IPC (instructions per cycle) — परिणामस्वरूप throughput = IPC × Clock frequency.
+
+## तकनीकी संरचना और कार्यप्रणाली (निर्देश चक्र/पाइपलाइन‑कड़ी)
+निर्देश चक्र के सामान्य चार चरण IF(Instruction Fetch) → ID(Instruction Decode) → EX(Execute) → MEM(Access) → WB(Write Back) होते हैं; आधुनिक CPUs में इन्हें पाँच या उससे अधिक चरणों में विभाजित कर पाइपलाइनिंग कर दी जाती है। पाइपलाइनिंग से सैद्धान्तिक throughput गुणा‑गुना बढ़ता है पर व्यवहारिकता में hazards उत्पन्न होते हैं: 
+- डेटा hazards (RAW/WAR/WAW) — समाधान: forwarding/operand bypassing, scoreboarding (hardware technique), compiler‑level register renaming। 
+- कंट्रोल hazards (branches) — समाधान: branch prediction (static/dynamic), branch target buffer (BTB), speculative execution। 
+- स्टक्चर/hardware hazards — समाधान: संसाधन डुप्लिकेशन या स्टॉलिंग।
+
+Micro‑facts: पारंपरिक RISC pipelines (5‑stage) और CISC processors के micro‑ops के बीच mapping के कारण डिजाइन रणनीतियाँ बदलती हैं; superscalar architectures एक समय में कई निर्देश issue करते हैं (ISSUE width 2/4/8) और out‑of‑order execution के लिए reorder buffer (ROB) व register renaming आवश्यक होते हैं। Amdahl’s Law यह बताती है कि किसी सिस्टम के कुल स्पीडअप पर सीमाएँ होंगी अगर केवल कुछ हिस्सों का ही अनुकूलन हो रहा हो — इससे निर्णय‑निर्माता जानते हैं कि कौन‑सा सबसिस्टम (ALU को तेज करना या मेमोरी सेतु पर काम) वास्तविक प्रभाव डालेगा।
+
+## Registers का महत्त्व एवं micro‑facts
+Registers CPU के सबसे तेज़ मेमोरी ब्लॉक्स होते हैं; उनकी संख्या और प्रकार (special purpose vs general purpose) ISA (जैसे ARM, x86) पर निर्भर करते हैं। उदाहरणतः ARM‑A series में बड़ी संख्या में सामान्य‑इस्तेमाल रजिस्टर बेहतर compiler optimization को अनुमित करती है। Register file के access latency और pipeline timing पर प्रत्यक्ष प्रभाव पड़ता है—register read/write ports की संख्या और multi‑ported design area timing/area trade‑off दर्शाती है। राज्य/केंद्र सरकार के फंडेड कंप्यूटिंग क्रियान्वयन में (Data centers/NIC) CPU चयन करते समय per‑core performance के साथ energy efficiency (Joules per instruction) का आकलन अनिवार्य होता है।
+
+## ALU डिजाइन, ऑपरेशन्स और परफ़ॉर्मेंस लिंक
+ALU के डिजाइन में ripple‑carry adder, carry‑lookahead adder एवं carry‑skip जैसी तकनीकें latency‑area trade‑off पर काम करती हैं; modern ALUs में SIMD/vector extensions (जैसे ARM NEON, Intel AVX) multimedia व ML कार्यों के लिए throughput बढ़ाते हैं। ALU की bit‑width (32/64/128) और pipeline latency सीधे IPC को प्रभावित करते हैं; उदाहरणतः 64‑bit architecture बड़े integer व pointer arithmetic में बेहतर प्रदर्शन देता है और ऑपरेटिंग सिस्टम पोस्ट‑2010 के सर्वर‑डिप्लॉयमेंट में मानक बन गया। परिणामस्वरूप e‑Governance सेवाओं के बैकएंड में (UIDAI/Aadhaar की हैवी‑डेटा प्रोसेसिंग जैसे use‑cases) सेलेक्शन criteria में CPU के vector capabilities और cryptographic acceleration (AES‑NI/ARM Crypto extensions) महत्वपूर्ण बनते हैं।
+
+## नियंत्रण इकाई (Control Unit) और instruction decode
+Control Unit हार्डवेयर सिग्नल बनाती है; इसका प्रकार (hardwired vs microprogrammed) डिजाइन की जटिलता और फ्लेक्सिबिलिटी तय करता है—microprogrammed control जहाँ microcode के जरिये नए निर्देश जोड़ना आसान होता है, वहीं hardwired control latency घटाने में सक्षम। Instruction fetch/decode latency और pipeline flushes का प्रबंधन branch prediction accuracy तथा instruction cache (I‑cache) misses पर निर्भर है; cache miss penalty को घटाने के लिए multi‑level caches (L1, L2, L3) और prefetching strategies लागू की जाती हैं।
+
+## अनुप्रयोग — शासन, अर्थव्यवस्था व समाज में प्रभाव
+CPU आर्किटेक्चर के पारदर्शी निर्णय डिजिटल इंडिया (launched 2015) जैसे प्रयासों में महत्वपूर्ण हैं, जहाँ सरकारी सेवाओं के backend compute clusters में energy‑efficient, secure processors की आवश्यकता दिखती है। उदाहरणतः UIDAI के biometric authentication workloads में cryptographic acceleration व low latency response critical हैं; NIC व MeitY निर्देशांकित डेटा‑सेंटर्स में TLS termination व hardware crypto offload का उपयोग होता है। मध्यप्रदेश में e‑Governance पोर्टल्स एवं हेल्थ‑IT deployments के लिए चयनित सर्वर CPUs की computing capability सीधे user experience और SLA adherence से जुड़ी रहती है।
+
+## नीतिगत एवं संस्थागत संदर्भ
+सरकारें (MeitY, NIC, Digital India) ने data localization, security audits और accredited hardware procurement guidelines जारी की हैं; CPU‑level security जैसे speculative execution vulnerabilities (Spectre/Meltdown — disclosed 2018) ने hardware‑level patching और microcode updates का महत्व बढ़ाया। इसके चलते procurement में firmware update support, secure boot और Trusted Platform Module (TPM) जैसे micro‑facts को शामिल करना अनिवार्य हुआ। ऊर्जा दक्षता के दृष्टिकोण से National Data Centre guidelines में Power Usage Effectiveness (PUE) और processor energy profile को मापने का निर्देश मिलता है।
+
+## चुनौतियाँ एवं जोखिम
+पाइपलाइनिंग और speculative execution performance बढ़ाते हैं पर side‑channel vulnerabilities (cache timing, speculative leakage) का जोखिम भी बढ़ाते हैं; Spectre/Meltdown जैसी घटनाओं ने स्पष्ट किया कि hardware design में security trade‑offs का आकलन जरूरी है। दूसरा, Moore’s Law की धीमी गति और Dennard scaling के समाप्त होने से frequency boost पर निर्भरता घट रही है—इसके परिणामस्वरूप IPC बढ़ाने के लिए parallelism (multi‑core, many‑core), heterogeneous computing (CPU + GPU/TPU) अपनाना पड़ा है। तीसरा, legacy software का आधुनिक ISA पर अनुकूलन (compiler optimizations, register allocation) एक implementation bottleneck बनता है, विशेषकर सरकारी विभागों के पुराने applications के लिए।
+
+## समाधान एवं मार्ग‑निर्देश (Way forward)
+निर्णय‑निर्माताओं को CPU procurement और डिज़ाइन में performance के साथ security, energy efficiency और upgradability को एकीकृत करना चाहिए—यहां Amdahl’s Law और workload characterization (batch vs real‑time, latency sensitive vs throughput) पर आधारित benchmarking आवश्यक है। सरकारें MeitY/NIC के साथ हार्डवेयर‑आधारित सुरक्षा मानक (secure boot, microcode update policy), energy efficiency labels और indigenous semiconductor ecosystem को प्रोत्साहित करने वाली नीतियाँ अपनाएँ। व्यावहारिक तौर पर e‑Governance data centers में heterogeneous architectures (ARM‑based servers, accelerators for ML/crypto) के pilot projects चलाकर workload‑specific ROI मापना चाहिए।
+
+## निष्कर्ष
+CPU के ALU, Control Unit और Registers का सूक्ष्म‑डिज़ाइन निर्देश चक्र और पाइपलाइनिंग के माध्यम से प्रणाली‑परफ़ॉर्मेंस को निर्णायक रूप से प्रभावित करता है; इसलिए तकनीकी ज्ञान के साथ नीति‑स्तरीय निर्णय भी hardware‑level trade‑offs को ध्यान में रख कर लिए जाने चाहिए। दीर्घकाल में indigenous semiconductor capability, hardware‑level security mandates और workload‑aware procurement से डिजिटल गवर्नेंस व सार्वजनिक सेवाओं का प्रदर्शन और भरोसेमंदता दोनों बढ़ेंगे।
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक  
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-002 – CPU आर्किटेक्चर—ALU/Control/Registers—आधार", "coverage_note": "क्षेत्र: Fundamentals | सामग्री: निर्देश चक्र/पाइपलाइन—परफॉर्मेंस लिंक। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n**CPU आर्किटेक्चर—ALU/Control/Registers—आधार** के विषय में चर्चा करते हुए यह स्पष्ट करना आवश्यक है कि CPU किसी भी कम्प्यूटिंग सिस्टम का केंद्रीय निष्पादन इकाई है, जिसमें Arithmetic Logic Unit (ALU), Control Unit और Registers मिलकर निर्देश चक्र (instruction cycle) एवं पाइपलाइनिंग के माध्यम से प्रदर्शन (performance) तय करते हैं। MPPSC के दृष्टिकोण से यह विषय डिजिटल गवर्नेंस, साइबर‑सिक्योरिटी और टेक्नोलॉजी नीति के निर्णयों में बुनियादी समझ देता है, जो योजनाओं के हार्डवेयर‑लेवल अनुप्रयोगों के लिए आवश्यक है।\n\n## अवधारणा एवं विकास\nCPU के मूल घटक—ALU, Control Unit और Registers—NCERT तथा मानक ICT ग्रंथों में परिभाषित रूप से दिए गए हैं। ALU अंकगणितीय एवं तार्किक संचलन (add, sub, AND, OR, shift) करता है; Control Unit निर्देशों का डिकोड व सिग्नल जनरेशन करता है; Registers (जैसे Program Counter, Instruction Register, Memory Address Register, Memory Data Register, General Purpose/Accumulator) तात्कालिक डेटा व पता संग्रहीत करते हैं। परफ़ॉर्मेंस पर इन घटकों का प्रभाव तीन मापदण्डों से देखा जाता है: क्लॉक स्पीड (Hz), CPI (cycles per instruction) और IPC (instructions per cycle) — परिणामस्वरूप throughput = IPC × Clock frequency.\n\n## तकनीकी संरचना और कार्यप्रणाली (निर्देश चक्र/पाइपलाइन‑कड़ी)\nनिर्देश चक्र के सामान्य चार चरण IF(Instruction Fetch) → ID(Instruction Decode) → EX(Execute) → MEM(Access) → WB(Write Back) होते हैं; आधुनिक CPUs में इन्हें पाँच या उससे अधिक चरणों में विभाजित कर पाइपलाइनिंग कर दी जाती है। पाइपलाइनिंग से सैद्धान्तिक throughput गुणा‑गुना बढ़ता है पर व्यवहारिकता में hazards उत्पन्न होते हैं: \n- डेटा hazards (RAW/WAR/WAW) — समाधान: forwarding/operand bypassing, scoreboarding (hardware technique), compiler‑level register renaming। \n- कंट्रोल hazards (branches) — समाधान: branch prediction (static/dynamic), branch target buffer (BTB), speculative execution। \n- स्टक्चर/hardware hazards — समाधान: संसाधन डुप्लिकेशन या स्टॉलिंग।\n\nMicro‑facts: पारंपरिक RISC pipelines (5‑stage) और CISC processors के micro‑ops के बीच mapping के कारण डिजाइन रणनीतियाँ बदलती हैं; superscalar architectures एक समय में कई निर्देश issue करते हैं (ISSUE width 2/4/8) और out‑of‑order execution के लिए reorder buffer (ROB) व register renaming आवश्यक होते हैं। Amdahl’s Law यह बताती है कि किसी सिस्टम के कुल स्पीडअप पर सीमाएँ होंगी अगर केवल कुछ हिस्सों का ही अनुकूलन हो रहा हो — इससे निर्णय‑निर्माता जानते हैं कि कौन‑सा सबसिस्टम (ALU को तेज करना या मेमोरी सेतु पर काम) वास्तविक प्रभाव डालेगा।\n\n## Registers का महत्त्व एवं micro‑facts\nRegisters CPU के सबसे तेज़ मेमोरी ब्लॉक्स होते हैं; उनकी संख्या और प्रकार (special purpose vs general purpose) ISA (जैसे ARM, x86) पर निर्भर करते हैं। उदाहरणतः ARM‑A series में बड़ी संख्या में सामान्य‑इस्तेमाल रजिस्टर बेहतर compiler optimization को अनुमित करती है। Register file के access latency और pipeline timing पर प्रत्यक्ष प्रभाव पड़ता है—register read/write ports की संख्या और multi‑ported design area timing/area trade‑off दर्शाती है। राज्य/केंद्र सरकार के फंडेड कंप्यूटिंग क्रियान्वयन में (Data centers/NIC) CPU चयन करते समय per‑core performance के साथ energy efficiency (Joules per instruction) का आकलन अनिवार्य होता है।\n\n## ALU डिजाइन, ऑपरेशन्स और परफ़ॉर्मेंस लिंक\nALU के डिजाइन में ripple‑carry adder, carry‑lookahead adder एवं carry‑skip जैसी तकनीकें latency‑area trade‑off पर काम करती हैं; modern ALUs में SIMD/vector extensions (जैसे ARM NEON, Intel AVX) multimedia व ML कार्यों के लिए throughput बढ़ाते हैं। ALU की bit‑width (32/64/128) और pipeline latency सीधे IPC को प्रभावित करते हैं; उदाहरणतः 64‑bit architecture बड़े integer व pointer arithmetic में बेहतर प्रदर्शन देता है और ऑपरेटिंग सिस्टम पोस्ट‑2010 के सर्वर‑डिप्लॉयमेंट में मानक बन गया। परिणामस्वरूप e‑Governance सेवाओं के बैकएंड में (UIDAI/Aadhaar की हैवी‑डेटा प्रोसेसिंग जैसे use‑cases) सेलेक्शन criteria में CPU के vector capabilities और cryptographic acceleration (AES‑NI/ARM Crypto extensions) महत्वपूर्ण बनते हैं।\n\n## नियंत्रण इकाई (Control Unit) और instruction decode\nControl Unit हार्डवेयर सिग्नल बनाती है; इसका प्रकार (hardwired vs microprogrammed) डिजाइन की जटिलता और फ्लेक्सिबिलिटी तय करता है—microprogrammed control जहाँ microcode के जरिये नए निर्देश जोड़ना आसान होता है, वहीं hardwired control latency घटाने में सक्षम। Instruction fetch/decode latency और pipeline flushes का प्रबंधन branch prediction accuracy तथा instruction cache (I‑cache) misses पर निर्भर है; cache miss penalty को घटाने के लिए multi‑level caches (L1, L2, L3) और prefetching strategies लागू की जाती हैं।\n\n## अनुप्रयोग — शासन, अर्थव्यवस्था व समाज में प्रभाव\nCPU आर्किटेक्चर के पारदर्शी निर्णय डिजिटल इंडिया (launched 2015) जैसे प्रयासों में महत्वपूर्ण हैं, जहाँ सरकारी सेवाओं के backend compute clusters में energy‑efficient, secure processors की आवश्यकता दिखती है। उदाहरणतः UIDAI के biometric authentication workloads में cryptographic acceleration व low latency response critical हैं; NIC व MeitY निर्देशांकित डेटा‑सेंटर्स में TLS termination व hardware crypto offload का उपयोग होता है। मध्यप्रदेश में e‑Governance पोर्टल्स एवं हेल्थ‑IT deployments के लिए चयनित सर्वर CPUs की computing capability सीधे user experience और SLA adherence से जुड़ी रहती है।\n\n## नीतिगत एवं संस्थागत संदर्भ\nसरकारें (MeitY, NIC, Digital India) ने data localization, security audits और accredited hardware procurement guidelines जारी की हैं; CPU‑level security जैसे speculative execution vulnerabilities (Spectre/Meltdown — disclosed 2018) ने hardware‑level patching और microcode updates का महत्व बढ़ाया। इसके चलते procurement में firmware update support, secure boot और Trusted Platform Module (TPM) जैसे micro‑facts को शामिल करना अनिवार्य हुआ। ऊर्जा दक्षता के दृष्टिकोण से National Data Centre guidelines में Power Usage Effectiveness (PUE) और processor energy profile को मापने का निर्देश मिलता है।\n\n## चुनौतियाँ एवं जोखिम\nपाइपलाइनिंग और speculative execution performance बढ़ाते हैं पर side‑channel vulnerabilities (cache timing, speculative leakage) का जोखिम भी बढ़ाते हैं; Spectre/Meltdown जैसी घटनाओं ने स्पष्ट किया कि hardware design में security trade‑offs का आकलन जरूरी है। दूसरा, Moore’s Law की धीमी गति और Dennard scaling के समाप्त होने से frequency boost पर निर्भरता घट रही है—इसके परिणामस्वरूप IPC बढ़ाने के लिए parallelism (multi‑core, many‑core), heterogeneous computing (CPU + GPU/TPU) अपनाना पड़ा है। तीसरा, legacy software का आधुनिक ISA पर अनुकूलन (compiler optimizations, register allocation) एक implementation bottleneck बनता है, विशेषकर सरकारी विभागों के पुराने applications के लिए।\n\n## समाधान एवं मार्ग‑निर्देश (Way forward)\nनिर्णय‑निर्माताओं को CPU procurement और डिज़ाइन में performance के साथ security, energy efficiency और upgradability को एकीकृत करना चाहिए—यहां Amdahl’s Law और workload characterization (batch vs real‑time, latency sensitive vs throughput) पर आधारित benchmarking आवश्यक है। सरकारें MeitY/NIC के साथ हार्डवेयर‑आधारित सुरक्षा मानक (secure boot, microcode update policy), energy efficiency labels और indigenous semiconductor ecosystem को प्रोत्साहित करने वाली नीतियाँ अपनाएँ। व्यावहारिक तौर पर e‑Governance data centers में heterogeneous architectures (ARM‑based servers, accelerators for ML/crypto) के pilot projects चलाकर workload‑specific ROI मापना चाहिए।\n\n## निष्कर्ष\nCPU के ALU, Control Unit और Registers का सूक्ष्म‑डिज़ाइन निर्देश चक्र और पाइपलाइनिंग के माध्यम से प्रणाली‑परफ़ॉर्मेंस को निर्णायक रूप से प्रभावित करता है; इसलिए तकनीकी ज्ञान के साथ नीति‑स्तरीय निर्णय भी hardware‑level trade‑offs को ध्यान में रख कर लिए जाने चाहिए। दीर्घकाल में indigenous semiconductor capability, hardware‑level security mandates और workload‑aware procurement से डिजिटल गवर्नेंस व सार्वजनिक सेवाओं का प्रदर्शन और भरोसेमंदता दोनों बढ़ेंगे।\n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  \nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक  \nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "ALU (Arithmetic Logic Unit) का मुख्य कार्य क्या है?", "options": ["सिस्टम के लिए इंटरप्ट हैंडल करना", "अनुदेशों को मेमोरी से लाना", "अंकगणितीय और तार्किक संचालन करना", "प्रोग्राम काउंटर को अपडेट करना"], "answer_index": 2, "explanation": "# ALU (Arithmetic Logic Unit) — विस्तृत व्याख्या (MPPSC Prelims 2026 के लिए उपयोगी, Mains के लिए सीधे बिंदु)\n- ALU का मुख्य कार्य अंकगणितीय (जैसे जोड़, घटाव, गुणा, भाग, शिफ्ट) और तार्किक (जैसे AND, OR, NOT, XOR, तुलना) संचालन करना होता है।\n- अंकगणितीय संचालन में समाकलन/घटाव के साथ-साथ बाइनरी शिफ्ट और साइन/अनसाइन अंकगणना शामिल हैं; ALU इन ऑपरेशनों को हार्डवेयर स्तर पर तेज़ी से निष्पादित करता है।\n- तार्किक संचालन बूलियन लॉजिक पर आधारित होते हैं और वे बिट-स्तर पर डेटा की शर्तें और मास्किंग क्रियाएँ करते हैं, जो नियंत्रण और निर्णय बनाने में प्रयोग होती हैं।\n- ALU इनपुट के रूप में रजिस्टर से ऑपरेन्ड लेता है और परिणाम को पुनः रजिस्टर या फ्लैग रजिस्टर में स्टोर कर सकता है; यह रजिस्टर-ALU-रजिस्टर डेटा पाथ का केंद्रीय घटक है।\n- ALU ऑपरेशन के परिणाम के साथ-साथ स्थिति/स्टेटस फ्लैग्स (जैसे Zero, Carry, Sign, Overflow) अपडेट करता है; ये फ्लैग्स कंट्रोल यूनिट द्वारा आगे के निर्णयों में उपयोग होते हैं।\n- कंट्रोल यूनिट से आने वाले सिग्नल (opcode और कंट्रोल लाइन) ALU को यह निर्दिष्ट करते हैं कि कौन सा अंकगणितीय या तार्किक ऑपरेशन करना है; अतः ALU कार्यान्वयन कंट्रोल यूनिट पर निर्भर होता है।\n- सामान्य प्रोसेसर डिज़ाइन में ALU का प्रदर्शन (latency तथा throughput) CPU की समग्र गति और IPC (Instructions Per Cycle) को प्रभावित करता है; तेज़ ALU के लिए पाइपलाइ닝 और फॉरवर्डिंग तकनीकें उपयोग होती हैं।\n- ALU का डिजाइन बिट-चौड़ाई (8/16/32/64 बिट) पर निर्भर करता है; चौड़ाई बढ़ने पर एकल क्लक पर गणना क्षमता बढ़ती है लेकिन हार्डवेयर जटिलता और लेटेंसी भी बढ़ सकती है।\n- फ़्लोटिंग-पॉइंट ऑपरेशनों के लिए सामान्यतः अलग यूनिट (FPU) होती है, परन्तु बेसिक integer arithmetic और बिट-लॉजिक ऑपरेशन्स ALU का दायरा होते हैं।\n- Mains के उत्तर के लिए सीधे प्रयोग के लिये: \"ALU CPU का वह भाग है जो अंकगणितीय और तार्किक संचालन करता है, परिणामों को रजिस्टर में लौटाता है तथा स्टेटस फ्लैग्स अपडेट कर कंट्रोल निर्णयों को सक्षम बनाता है।\"\n- संक्षेप रिवीजन नोट: ALU = अंकगणितीय + तार्किक यूनिट; इनपुट रजिस्टर, आउटपुट/रिज़ल्ट रजिस्टर, और स्टेटस फ्लैग्स इसके मूल घटक हैं।", "priority_tag": "VERY_HIGH"}, {"question": "CPU में Control Unit का मुख्य काम कौन सा है?", "options": ["डेटा को स्थायी रूप से स्टोर करना", "क्लॉक सिग्नल उत्पन्न करना", "अनुदेशों का क्रम नियंत्रित कर आवश्यक नियंत्रण संकेत उत्पन्न करना", "सभी अंकगणितीय कार्य करना"], "answer_index": 2, "explanation": "# व्याख्या — CPU में Control Unit का मुख्य काम क्या है?\n**सही उत्तर:** _अनुदेशों का क्रम नियंत्रित कर आवश्यक नियंत्रण संकेत उत्पन्न करना_\n- Control Unit (CU) CPU का वह भाग है जो प्रोग्राम के अनुदेशों को क्रमबद्ध रूप से प्राप्त (fetch) कर उनके निष्पादन का नियंत्रण करती है।\n- CU का पहला काम Program Counter (PC) में संग्रहित अगली अनुदेश की पता लेकर उसे Instruction Register (IR) में लाना (fetch) है; यह क्रम नियंत्रण का आधार है।\n- Fetch के बाद CU अनुदेश को decode करती है और यह निर्धारित करती है कि CPU के किस हिस्से (ALU, Registers, Memory, I/O) को क्या-सा कार्य करना है।\n- CU उन निर्णयों के आधार पर नियन्त्रण संकेत (control signals) उत्पन्न करती है जो डेटा पथ के घटकों को सक्रिय/निष्क्रिय करते हैं—उदाहरण: Register से ALU में डेटा भेजना, ALU का ऑपरेशन चुनना, परिणाम को किसी रजिस्टर/मेमोरी में लिखना।\n- नियंत्रण संकेतों के प्रकार में timing signals (साइकिल-आधारित), control bus signals और enable/disable बंदोबस्त शामिल होते हैं; ये सुनिश्चित करते हैं कि सभी घटक तालमेल से काम करें।\n- CU क्रम नियंत्रण में शाखित निर्देशों (branch/jump) के लिए PC को संशोधित करती है, जिससे प्रोग्राम फ्लो में परिवर्तन संभव होता है।\n- Control Unit का व्यवहार हार्डवायर्ड (fixed logic) या माइक्रोप्रोग्राम्ड (microprogram) दोनों तरीकों से सैद्धांतिक रूप से लागू किया जा सकता है; पर दोनों ही कंट्रोल सिग्नल उत्पन्न करने और अनुक्रम नियंत्रित करने के लक्ष्य को पूरा करते हैं।\n- CU और ALU/Registers के बीच स्पष्ट विभाजन होता है: CU नियंत्रण संकेत देती है और ALU/Registers उन संकेतों के अनुसार गणना/डेटा हस्तांतरण करते हैं—यह विभाजन CPU के समन्वित संचालन के लिए आवश्यक है।\n- परीक्षात्मक दृष्टि से याद रखने योग्य बिंदु: “CU = अनुक्रम (sequence) + नियंत्रण संकेत (control signals)” — यानी CU अनुदेशों का क्रम नियंत्रित कर आवश्यक संकेत पैदा करके CPU के क्रियान्वयन को निर्देशित करती है।\n- Mains के लिए उपयोगी संक्षेप बिंदु: CU के कार्य — (1) अनुदेशों का क्रम नियंत्रित करना, (2) अनुदेश decode करना, (3) संबंधित control signals उत्पन्न करना, (4) PC का प्रबंधन और branch-handling — इन बिंदुओं को सीधे और क्रमबद्ध रूप में उत्तर में लिखें।\n- Revision tip: जब पूछा जाए “CU का मुख्य काम क्या है?”, बिल्कुल संक्षेप में लिखें — “अनुदेशों का क्रम नियंत्रित कर आवश्यक नियंत्रण संकेत उत्पन्न करना ताकि ALU, रजिस्टर और मेमोरी समन्वित होकर अनुदेश निष्पादित कर सकें।”", "priority_tag": "VERY_HIGH"}, {"question": "नीचे में से कौन-सा रजिस्टर अगले निष्पादित होने वाले निर्देश का पता रखता है?", "options": ["Instruction Register (IR)", "Memory Data Register (MDR)", "Program Counter (PC)", "Accumulator (AC)"], "answer_index": 2, "explanation": "# व्याख्या — Program Counter (PC)\n**प्रश्न:** नीचे में से कौन-सा रजिस्टर अगले निष्पादित होने वाले निर्देश का पता रखता है?\n**उत्तर (सर्वथा स्पष्ट):** Program Counter (PC)\n- Program Counter (PC) एक विशेष रजिस्टर है जो वर्तमान में निष्पादित होने वाले प्रोसेसर पर अगले निष्पादित होने वाले निर्देश का स्मृति पता (address) रखता है।\n- सामान्य रूप से PC में अगले निर्देश का मेमोरी एड्रेस रखा जाता है ताकि CPU उसे फेच कर सके; यह निर्देश-फेच चरण की शुरुआत के लिए आवश्यक है।\n- अधिकांश आर्किटेक्चर में फ़ेच चरण के बाद PC स्वतः ही अगले निर्देश के एड्रेस पर अपडेट (आमतौर पर वर्तमान एड्रेस + निर्देश की लंबाई) हो जाता है।\n- जंप, कॉल या ब्रांच निर्देश मिलने पर PC का मान बदलकर नई निर्देश-स्थिति (target address) सेट किया जाता है, जिससे नियंत्रण प्रवाह निर्देश के अनुसार परिवर्तित होता है।\n- सबरूटीन कॉल के समय वर्तमान PC को सेव करके रिटर्न के लिए वापसी पता रखा जाता है; इसलिए PC का मान नियंत्रण प्रवाह और रिटर्न मैकेनिज्म के लिए निर्णायक होता है।\n- इंटरप्ट या कंटेक्स्ट स्विच के दौरान CPU को वर्तमान PC का मान सुरक्षित रखना पड़ता है ताकि रूटीन समाप्ति पर सही स्थान से निष्पादन पुनः प्रारम्भ हो सके।\n- पाइपलाइन्ड प्रोसेसर में PC को सावधानीपूर्वक हैंडल किया जाता है; ब्रांच फैल-हैज़र्ड को कम करने के लिए PC के अनुमान/री-टार्गेटिंग के तंत्र उपयोग किए जाते हैं।\n- PC का आकार (बिट्स की संख्या) प्रोसेसर के पता-क्षमता (address space) को परिभाषित करता है — उदाहरण: 32‑bit PC से अधिकतम 2^32 मेमोरी एड्रेस दिखे जाते हैं।\n- कुछ आर्किटेक्चर में PC को अलग-अलग नामों से बुलाया जा सकता है (जैसे Instruction Pointer) पर कार्य हमेशा अगले निर्देश के एड्रेस का पोषण और अपडेट करना ही होता है।\n- निष्पादन के दौरान सही और समय पर PC अपडेट न होने पर निर्देशों का गलत क्रम या सिस्टम क्रैश हो सकता है; अतः PC का विश्वसनीय प्रबंधन आवश्यक है।\n- PC सीधे तौर पर प्रोग्राम काउंटर फ्लो को नियंत्रित करता है और इसलिए प्रोग्रामिंग, डिबगिंग (ब्रेकपॉइंट, स्टेप-थ्रू) तथा कंट्रोल-फ्लो विश्लेषण के लिए प्राथमिक सन्दर्भ होता है।\n- संक्षेप में — Program Counter CPU का वह रजिस्टर है जो अगले निष्पादित निर्देश का पता रखता है, नियंत्रित करता है कि CPU मेमोरी से कौन-सा निर्देश अगला लाएगा, और कंट्रोल फ्लो के लिए केंद्रीय भूमिका निभाता है।", "priority_tag": "VERY_HIGH"}, {"question": "Instruction Register (IR) का प्रमुख कार्य क्या है?", "options": ["मेमोरी पतों को स्टोर करना", "वर्तमान निष्पादित हो रहे निर्देश को होल्ड करना", "अगले निर्देश के लिए काउंटर रखना", "अंकगणितीय परिणाम को स्टोर करना"], "answer_index": 1, "explanation": "# व्याख्या — Instruction Register (IR) का प्रमुख कार्य: वर्तमान निष्पादित हो रहे निर्देश को होल्ड करना\n- Instruction Register (IR) एक विशेष प्रकार का सीपीयू रजिस्टर है जो वर्तमान में निष्पादित हो रहे निर्देश को संग्रहीत (hold) करता है।\n- IR में भंडारित निर्देश वही होता है जिसे फेच चरण के बाद फ़ेच/डिकोड/एक्ज़ीक्यूट चक्र में डिकोड और निष्पादन के लिए उपयोग किया जाता है।\n- IR का कंटेंट आम तौर पर ऑपकोड और आवश्यक तोड़-भाग (operand fields) से बना होता है, जिससे कंट्रोल यूनिट निष्पादन सिग्नल उत्पन्न कर सके।\n- IR का आकार (bit-length) मशीन के इंस्ट्रक्शन फॉर्मेट के अनुरूप होता है; उदाहरणतः n‑bit निर्देश सेट के लिए IR भी n‑bit हो सकता है या आवश्यक हिस्सों को अलग-अलग रजिस्टर में रखा जा सकता है।\n- IR और कंट्रोल यूनिट के बीच सीधा संबंध होता है: कंट्रोल यूनिट IR के ऑपकोड को पढ़कर नियंत्रण सिग्नल तथा माइक्रोऑपरेशन्स निर्धारित करती है।\n- Instruction Fetch के बाद IR में स्थानांतरित होने से अगले चरणों (Decode → Execute) के लिए निर्देश स्थिर और तेज़ी से उपलब्ध रहता है।\n- IR के होने से निर्देश डिकोडिंग के दौरान मेमोरी एक्सेस की आवश्यकता नहीं रहती, जिससे निष्पादन चक्र का समय घटता है।\n- IR का उपयोग पाइपलाइंड या सुपरस्केलर आर्किटेक्चर में भी केंद्रीय होता है; प्रत्येक पाइपलाइन स्टेज में संबंधित इंस्ट्रक्शन को होल्ड करने के लिए समकक्ष रजिस्टर होते हैं, पर मूल सिद्धांत वही — वर्तमान इंस्ट्रक्शन को पकड़ना।\n- IR वैकल्पिक रूप से माइक्रोऑपरेशन से जुड़े कंट्रोल शब्दों के निर्माण में इनपुट देता है, जिससे ALU, रजिस्टर फ़ाइल और डेटा पाथ पर सही कार्य निर्देशित होते हैं।\n- IR में भंडारित निर्देश का संरक्षण तब तक रहता है जब तक उस निर्देश का पूरा निष्पादन नहीं हो जाता या अगले निर्देश के लिए ओवरराइट नहीं होता।\n- MPPSC के लिखित उत्तर में इस बिंदु को सीधे और संक्षेप में लिखें: \"Instruction Register (IR) का प्रमुख कार्य वर्तमान निष्पादित हो रहे निर्देश को होल्ड करके कंट्रोल यूनिट के लिए ऑपकोड और ऑपेरैंड फील्ड उपलब्ध कराना है।\"", "priority_tag": "HIGH"}, {"question": "Memory Address Register (MAR) किसके लिए उपयोग होता है?", "options": ["वर्तमान निर्देश को डिकोड करने के लिए", "मेमोरी के किसी स्थान के पते को होल्ड करने के लिए", "अंकगणितीय संचालन को संचालित करने के लिए", "इनपुट/आउटपुट डिवाइस को नियंत्रित करने के लिए"], "answer_index": 1, "explanation": "# Memory Address Register (MAR) — विस्तृत व्याख्या (MPPSC Prelims 2026 के लिए)\n- **परिभाषा:** Memory Address Register (MAR) एक विशेष रजिस्टर है जो मेमोरी में किसी स्थान (लокаेशन) का बाइनरी पता (address) होल्ड करता है।\n- **मुख्य उपयोग:** CPU में MAR का मुख्य कार्य मेमोरी से डेटा/इंस्ट्रक्शन लाने या मेमोरी में स्टोर करने के लिए लक्षित मेमोरी स्थान का पता प्रस्तुत करना है।\n- **फेच चक्र में भूमिका:** जब CPU कोई इंस्ट्रक्शन फेच करता है, तब प्रोग्राम काउंटर (PC) या अन्य स्रोत द्वारा दिया गया पता MAR में लोड किया जाता है; इसके बाद उस पते को मेमोरी तक भेजा जाता है।\n- **एड्रेस बस इंटरफेस:** MAR में रखे पते को एड्रेस बस के माध्यम से मेमोरी यूनिट तक ट्रांसमिट किया जाता है; एड्रेस बस की चौड़ाई MAR की बिट-लंबाई से संबंधित होती है।\n- **रिड/राइट ऑपरेशन के साथ समन्वय:** किसी रीड या राइट सिग्नल के साथ MAR में मौजूद पता मेमोरी कंट्रोल सर्किट को यह बताता है कि किस लोकेशन पर ऑपरेशन करना है।\n- **टेम्पररी स्टोरेज:** MAR अस्थायी (temporary) स्टोरेज के रूप में काम करता है; यह केवल एड्रेस होल्ड करता है, डेटा को नहीं — डेटा के लिए अलग रजिस्टर (जैसे MDR) उपयोग होता है।\n- **अड्रेस स्पेस निर्धारण:** MAR की बाइनरी चौड़ाई (n-बिट) कुल मेमोरी एड्रेस स्पेस 2^n लोकेशन्स तक पहुँचने की क्षमता तय करती है।\n- **इंस्ट्रक्शन और डेटा दोनों के लिए:** MAR का उपयोग न केवल इंस्ट्रक्शन फेच के लिए बल्कि डेटा मेमोरी एक्सेस (लोड/स्टोर) के लिए भी किया जाता है।\n- **समानांतर हार्डवेयर कार्य:** MAR हार्डवेयर स्तर पर तेज़ी से एड्रेस प्रस्तुत करने के लिए डिज़ाइन किया जाता है ताकि मेमोरी एक्सेस लेटेंसी कम रहे।\n- **कंट्रोल यूनिट के साथ इंटरैक्शन:** कंट्रोल यूनिट MAR को नियंत्रित करती है—कब पता लोड करना है और कब मेमोरी साइकिल आरम्भ करना है—इस तरह MAR कंट्रोल सिग्नलों के अंतर्गत कार्य करता है।\n- **प्रोग्रामिंग स्तर पर प्रभाव:** किसी सिस्टम के MAR की चौड़ाई और व्यवहार सीधे रूप से उस सिस्टम की मेमोरी रेंज और तत्परता पर असर डालते हैं, जो OS/प्रोग्रामिंग मॉडल को प्रभावित कर सकता है।", "priority_tag": "HIGH"}, {"question": "Register File किसे संदर्भित करता है?", "options": ["CPU के अंदर सामान्य प्रयोजन और विशेष रजिस्टरों का समूह", "सिर्फ प्रोग्राम काउंटर और स्टैक पॉइंटर का सेट", "मेमोरी के पेज टेबल का संग्रह", "I/O पोर्ट्स का सेट"], "answer_index": 0, "explanation": "# **विषय: Register File — संक्षिप्त परीक्षा-केंद्रित व्याख्या (MPPSC Prelims & Mains उपयोग)**\n- Register File सी.पी.यू. के भीतर मौजूद रजिस्टरों का वह संग्रह है जिसमें सामान्य प्रयोजन (General-Purpose) और विशेष रजिस्टर (Special-Purpose) शामिल होते हैं।\n- यह संग्रह CPU के भीतर ऑपरेण्ड और इंटरमीडिएट परिणामों को तात्कालिक (on-chip) रूप से संगृहीत करने के लिए प्रयोग होता है, न कि मुख्य स्मृति (RAM) में।\n- Register File में रजिस्टरों की संख्या और प्रत्येक रजिस्टर की चौड़ाई (bits) आर्किटेक्चर पर निर्भर होती है — उदाहरण: 32×32 (32 रजिस्टर, प्रत्येक 32-बिट)।\n- Register File सामान्यतः बहुत कम पहुंच समय (low latency) और उच्च बैंडविड्थ के साथ डिज़ाइन किया जाता है ताकि ALU और कंट्रोल यूनिट को तेज़ी से डेटा उपलब्ध कर सके।\n- यह आमतौर पर मल्टीपल रीड और एक से अधिक राइट पोर्ट प्रदान करता है ताकि एक ही साइकिल में कई ऑपरेशन्स के लिए रजिस्टर वैल्यूज़ पढ़ी/लिखी जा सकें।\n- General-purpose रजिस्टर अंकगणित/तर्क व लोकेशन के मान रखने के लिए होते हैं; special-purpose रजिस्टर जैसे Status/Flags, Stack Pointer, Program Counter आदि नियंत्रण और स्थिति जानकारी रखते हैं और वही Register File का हिस्सा हो सकते हैं।\n- Instruction execution में operands को Register File से सीधे ALU को दिया जाता है और परिणाम वापस इसी File में स्टोर होते हैं, जिससे मेमोरी एक्सेस कम होती है और प्रदर्शन बढ़ता है।\n- Context switch या इंटरप्ट के दौरान CPU state का संदर्भ (प्रमुख रजिस्टरों के मान) save/restore किया जाता है; Register File इसी CPU state का मूल भाग होता है।\n- Register File के निर्माण में आमतौर पर फ्लिप-फ्लॉप्स या SRAM जैसी on-chip स्टोरेज तकनीक का उपयोग होता है, जो इसे कैश और मुख्य मेमोरी से तेज बनाती है।\n- आधुनिक प्रोसेसरों में पाईपलाइनिंग और आउट-ऑफ-ऑर्डर निष्पादन के कारण Register File के design (पोर्ट्स, आकार, बैंकिंग) का प्रदर्शन पर सीधा प्रभाव होता है।\n- संक्षेप में — Register File CPU के अंदर register के व्यवस्थित समूह को कहते हैं जो त्वरित स्टोरेज, ऑपरेण्ड सप्लाई, कंट्रोल-स्टेट होल्डिंग और तेज़ इंस्ट्रक्शन निष्पादन के लिए अनिवार्य है।", "priority_tag": "HIGH"}, {"question": "Accumulator (AC) आमतौर पर किस प्रकार के कार्यों में उपयोग होता है?", "options": ["मेमोरी से डेटा को पते में बदलने के लिए", "अपरिभाषित कंट्रोल सिग्नल बनाने के लिए", "ALU संचालन के मध्यवर्ती परिणामों को रखरखाव करने के लिए", "प्रोग्राम के स्टार्ट एड्रेस को स्टोर करने के लिए"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Fetch–Decode–Execute चक्र में 'Decode' चरण का मुख्य कार्य क्या है?", "options": ["मेमोरी से अगले निर्देश को लाना", "अनुदेश के ऑपकोड और ओपरेटेंड्स की व्याख्या कर नियंत्रण संकेत उत्पन्न करना", "ALU में गणना करना", "परिचालन समय (clock) को सिंक्रनाइज़ करना"], "answer_index": 1, "explanation": "# व्याख्या — Fetch–Decode–Execute चक्र में 'Decode' चरण का मुख्य कार्य\n- Decode चरण का मुख्य उद्देश्य है फ़etched instruction (जो Instruction Register में रहता है) के ऑपकोड और ओपरेटेंड फ़ील्ड्स की व्याख्या कर नियंत्राण (control) संकेत उत्पन्न करना।\n- सबसे पहले Instruction Register से ऑपकोड को अलग किया जाता है ताकि CPU यह तय कर सके कि कौन सा ऑपरेशन करना है (जैसे जोड़, सब्ट्रैक्शन, मेमोरी एक्सेस)।\n- ओपरेटेंड्स के फ़ील्ड (रजिस्टर नंबर, अस्थायी संकेत, इमीडिएट वैल्यू, मेमोरी एड्रेस मोड) की पहचान कर के आवश्यक स्रोतों और लक्ष्य रजिस्टरों को निर्धारित किया जाता है।\n- Decode में Addressing Mode की पहचान की जाती है ताकि पता चले कि ओपरेटेंड्स सीधे दिए हैं, रजिस्टर में हैं, मेमोरी में हैं या इंडायरेक्ट हैं; इससे अगले चरण के लिए ओपरेण्ड-फेच रणनीति बनती है।\n- Instruction Decoder (या Control Unit) ऑपकोड के अनुसार सिग्नल जनरेट करता है — जैसे ALU को कौन सा ऑपरेशन करना है, कौन से रजिस्टर पढ़े/लिखे जाएँ और मेमोरी कंट्रोल सिग्नल।\n- Decode चरण में माइक्रोऑपरेशंस की श्रृंखला (micro-operations) तय होती है; कठिन निर्देशों के लिए यह माइक्रो-प्रोग्राम या कंट्रोल शब्द सेट को सक्रिय करता है।\n- Control signals का स्वरूप synchronous या asynchronous समय-चक्र (clock cycle) के अनुसार तैयार होता है ताकि Execute चरण में सही क्रम में सिग्नल लागू हों।\n- Decode दौरान hazards और स्टॉल की सम्भावना का आकलन होता है (उदाहरण: डेटा निर्भरता), जिससे पाइपलाइन आर्किटेक्चर में अगला कदम निर्धारित होता है।\n- Decode चरण CPU के datapath और control path को बैंक करता है — यानी किन डेटा पाथ घटकों (ALU, MAR, MDR, PC, रजिस्टर फ़ाइल) को सक्रिय करना है।\n- Decode के परिणामस्वरूप उत्पन्न control signals Execute और Memory access चरणों के लिए आवश्यक सभी ट्रिगर्स और मल्टीप्लेक्सर चयन सुनिश्चित करते हैं।\n- संशेप में: Decode चरण ऑपकोड/ओपरेटेंड की व्याख्या करि कर CPU को निर्देशानुसार सटीक नियंत्राण संकेत देता है ताकि अगला चरण (Execute) बिना ambiguity के क्रियान्वित हो सके।", "priority_tag": "VERY_HIGH"}, {"question": "RISC और CISC आर्किटेक्चर में से RISC का प्राथमिक सिद्धांत क्या है?", "options": ["ज्यादा जटिल निर्देश सेट के साथ माइक्रोकोडिंग", "सरल, समान समय में निष्पादन होने वाले निर्देश और पाईपलाइनिंग के अनुकूल डिजाइन", "हार्डवेयर में कम पंजीकृत उपयोग", "सिर्फ सॉफ्टवेयर-आधारित निर्देश अनुवाद"], "answer_index": 1, "explanation": "# RISC का मुख्य सिद्धांत — संक्षेप व्याख्या (परीक्षा केंद्रित)\n- RISC का मूल सिद्धांत यह है कि निर्देश छोटे और सरल हों ताकि प्रत्येक निर्देश लगभग समान समय (one clock per instruction या fixed cycles) में निष्पादित हो सके।\n- सरल और स्थिर समय-सीमा वाले निर्देशों से प्रोसेसर में निष्पादन समय का अनुमान लगाना आसान होता है; यह रीयल‑टाइम और उच्च‑प्रदर्शन वातावरण के लिए फायदेमंद है।\n- निर्देशों की एकरूपता (uniform, fixed-length encoding) पाईपलाइनिंग को सरल और अधिक प्रभावी बनाती है।\n- पाईपलाइनिंग में हर चरण पर समान अवधि के निर्देश होने से hazards और stall की जटिलताएँ कम होती हैं।\n- RISC में अधिकांश निर्देश register-to-register होते हैं; memory access के लिए अलग load/store निर्देश होते हैं, जिससे datapath और pipeline सुव्यवस्थित होते हैं।\n- सरल निर्देश सेट से हार्डवेयर कंट्रोल यूनिट सरल होती है, जिससे instruction decode और dispatch तीव्र रहता है।\n- fixed-timing निर्देशों से compiler-आधारित ऑप्टिमाइज़ेशन सरल और प्रभावी बनते हैं; compiler पाईपलाइन का बेहतर उपयोग कर सकता है।\n- छोटे और नियमित निर्देशों से instruction fetch और cache utilization में सुधार होता है, जिससे throughput बढ़ता है।\n- RISC डिज़ाइन का उद्देश्य अधिक से अधिक निर्देशों को जल्दी और parallel तरीके से चलाना है, न कि प्रति‑निर्देश अधिक काम कराना।\n- कुल मिलाकर RISC का प्राथमिक लक्ष्य एक ऐसा प्रोसेसर आर्किटेक्चर तैयार करना है जो सरल, समान‑समय निष्पादन और पाईपलाइनिंग के लिए अनुकूल हो, जिससे कुल सिस्टम प्रदर्शन और स्केलेबिलिटी बेहतर हो।", "priority_tag": "HIGH"}, {"question": "CPU पाइपलाइनिंग से मुख्य लाभ क्या होता है?", "options": ["कुल निष्पादन समय घटाकर प्रति निर्देश CPI बढ़ाना", "अनुदेश निष्पादन में समांतरता बढ़ाकर थ्रूपुट (throughput) बढ़ाना", "मेरेरी की विलंबता को शून्य करना", "Instruction set को छोटा करना"], "answer_index": 1, "explanation": "# व्याख्या — CPU पाइपलाइनिंग से मुख्य लाभ: थ्रूपुट बढ़ना (अनुदेश निष्पादन में समांतरता)\n- **परिभाषा:** पाइपलाइनिंग वह तकनीक है जिसमें एक ही समय पर अलग‑अलग अनुदेशों के अलग‑अलग चरण (फेच, डिकोड, एक्सीक्यूट, मेमोरी, रजिस्टर राइट‑बैक आदि) समानतः चलाए जाते हैं।\n- **मुख्य लाभ (सार):** एक समयावधि में कई अनुदेशों के विभिन्न चरणों को समानांतर चलाकर कुल निष्पादन‑दर यानी थ्रूपुट बढ़ता है।\n- **थ्रूपुट बनाम लेटेंसी:** पाइपलाइनिंग सामान्यतः प्रति यूनिट समय में अधिक अनुदेश पूरे होने देती है (थ्रूपुट ↑), जबकि एक अकेले अनुदेश की पूर्ण समय‑लंबाई (लेटेंसी) में जरूरी नहीं कि कमी आए।\n- **स्टेजेज का योगदान:** हर पाइपलाइन स्टेज को छोटा और समान‑अवधि रखने से सिस्टम अधिक क्लॉक‑फ्रीक्वेंसी और अधिक इंस्ट्रक्शन/स्रकंड प्राप्त कर सकता है।\n- **अनुदेश‑स्तरीय समांतरता (ILP):** पाइपलाइनिंग अनुदेश‑स्तरीय समांतरता का उपयोग करती है — अलग‑अलग अनुदेशों के चरण एक साथ चलते हैं, जिससे समग्र throughput में वृद्धि होती है।\n- **प्रेत्यक्ष प्रभाव:** n‑स्टेज पाइपलाइन में आदर्श रूप से प्रति क्लॉक एक नया अनुदेश खत्म होने लगेगा, जिससे निष्पादन दर लगभग n गुना बढ़ सकती है (थ्योरीटिकल)।\n- **प्रयोज्यता:** नियमित सीपीयू‑वर्कलोड (суज़रप्रोग्राम्स, ओएस‑टास्क) में पाइपलाइनिंग से अधिक अनुदेश/सेकंड प्राप्त होते हैं, जिससे सिस्टम‑लेवल प्रदर्शन सुधरता है।\n- **डिज़ाइन लाभ:** उच्च थ्रूपुट के कारण मल्टीटास्किंग और थ्रेड‑लेवल पर भी प्रोसेसिंग क्षमता बढ़ती है—यह छोटे‑बड़े अनुप्रयोगों में समग्र सिस्टम थ्रूपुट बढ़ाने का प्राथमिक तरीका है।\n- **सीमाएँ एवं व्यवहारिकता:** वास्तविक दुनिया में hazards और स्टॉल के कारण आदर्श थ्रूपुट नहीं मिलता, परंतु सही हार्डवेयर तकनीक (फॉरवर्डिंग, ब्रांच प्रेडिक्शन) के साथ पाइपलाइन अभी भी स्पष्ट थ्रूपुट लाभ देती है।\n- **मापन:** थ्रूपुट मापने के लिए सामान्य मेट्रिक — इंस्ट्रक्शन्स पर सेकंड (IPS) या क्लॉक‑साइकिल में समाप्त होने वाले अनुदेशों की दर — पाइपलाइनिंग से यह मानक बढ़ता है।\n- **निष्कर्ष (exam‑point):** इसलिए CPU पाइपलाइनिंग का मुख्य लाभ यह है कि यह अनुदेश निष्पादन में समांतरता बढ़ाकर प्रति यूनिट समय अधिक अनुदेश पूरे करवाती है — यानि थ्रूपुट बढ़ाती है।", "priority_tag": "VERY_HIGH"}, {"question": "पाइपलाइन में 'हैज़र्ड' (hazard) किसे कहते हैं?", "options": ["मेमोरी ब्लॉक के आकार को", "ऐसी स्थिति जब पाइपलाइन का अगले चरण में निर्बाध निष्पादन बाधित हो जाता है", "कैल्कुलेशन में त्रुटि के कारण रिज़ल्ट गलत होना", "CPU के घड़ी के पॉइंट पर विफलता"], "answer_index": 1, "explanation": "# **विषय: पाइपलाइन में 'हैज़र्ड' (Hazard) — व्याख्या (MPPSC Prelims 2026 के लिए)**\n- **परिभाषा:** हैज़र्ड वह स्थिति है जब पाइपलाइन का अगले चरण में निर्बाध (seamless) निष्पादन बाधित हो जाता है और instruktion के सही क्रम/परिणाम प्रभावित होने का जोखिम रहता है।\n- **मूल कारण:** हालाँकि प्रत्येक चरण सामयिक रूप से स्वतंत्र दिखता है, पर संसाधन साझा होना, डेटा निर्भरता या नियंत्रण निर्णयों का समय पर न मिलना हैज़र्ड उत्पन्न करता है।\n- **प्रभाव (प्राथमिक):** हैज़र्ड से स्टॉल (pipeline stall), फ्लश या गलत डेटा उपयोग जैसी परिस्थितियाँ बनती हैं, जिससे थ्रूपुट घटता और CPI बढ़ता है।\n- **डेटा हैज़र्ड (data hazard):** जब किसी बाद की निर्देश को पहले निर्देश के परिणाम की आवश्यकता हो और वह परिणाम अभी उपलब्ध न हो, तब अवरुद्धता आती है।\n- **कंट्रोल हैज़र्ड (control hazard):** ब्रांच/जम्प निर्णयों के कारण अगले निर्देशों के बारे में अनिश्चितता होने से पाइपलाइन में बाधा आती है।\n- **स्ट्रक्चरल हैज़र्ड (structural hazard):** जब दो या अधिक चरण एक ही हार्डवेयर संसाधन को एक साथ चाहिए, तब संसाधन-संबंधी अवरोध उत्पन्न होता है।\n- **पहचान के संकेत:** असामान्य स्टॉल्स, गलत रीड/राइट के समय, ब्रांच के बाद अनिश्चित निर्देश प्रवाह — ये संकेत हैं कि हैज़र्ड हो सकता है।\n- **समाधान-प्रविधियाँ (सारांश):** स्टॉल/नोप-इंसर्ट करना, फ़ॉरवर्डिंग/बायपासिंग, ब्रांच प्रेडिक्शन, स्पेकुलेटिव एक्सिक्यूशन और हार्डवेयर पुनर्रचना जैसी तकनीकें हैज़र्ड को कम करती हैं।\n- **डिज़ाइन ट्रेड-ऑफ:** हैज़र्ड घटाने के उपाय थ्रूपुट बढ़ाते हैं पर हार्डवेयर जटिलता, नियंत्रण लॉजिक और पावर खपत बढ़ा सकते हैं; परीक्षात्मक उत्तर में यह संतुलन बताना उपयोगी है।\n- **मूल परीक्षा-टिप:** MCQ में हैज़र्ड की परिभाषा पूछे जाने पर उत्तर में स्पष्ट रूप से लिखें — “पाइपलाइन का अगले चरण में निर्बाध निष्पादन बाधित होना” — और संक्षेप में कारण/प्रभाव व एक समाधान थ्रो लाइन में जोड़ें।", "priority_tag": "HIGH"}, {"question": "Data hazard का मुख्य कारण कौन सा है?", "options": ["दो निर्देशों के बीच संसाधन (resource) की टकराहट", "इंटरप्ट सर्विस रूटीन का प्रवेश", "अनुदेशों के बीच डेटा निर्भरता जहाँ एक निर्देश दूसरे के परिणाम पर निर्भर हो", "कंट्रोल यूनिट का गलत रजिस्टर चयन"], "answer_index": 2, "explanation": "# व्याख्या — Data hazard का मुख्य कारण (MPPSC Prelims 2026 के लिये)\n- **परिभाषा (सार):** Data hazard तब होता है जब एक अनुदेश (instruction) का निष्पादन किसी पिछले अनुदेश के परिणाम (data) पर निर्भर होता है, और वह परिणाम अभी तक उपलब्ध नहीं हुआ होता।\n- **मुख्य कारण (एक पंक्ति):** अनुदेशों के बीच डेटा निर्भरता—यानी एक अनुदेश को दूसरे अनुदेश द्वारा उत्पन्न मान की आवश्यकता होना।\n- **प्रासंगिक उदाहरण (संक्षेप):** यदि Instruction I1 किसी रजिस्टर R में मान लिखता है और अगले Instruction I2 उसी R को पढ़ता है, तो I2 को I1 के लिखने के पूरा होने तक इंतजार करना पड़ेगा — यही डेटा डिपेंडेंसी है।\n- **पाइपलाइन में असर:** पाइपलाइन प्रक्रिया में ऐसा होने पर अगले स्टेज को वह डेटा नहीं मिलता, जिससे पाइपलाइन स्टॉल या बबल उत्पन्न होते हैं और CPI बढ़ता है।\n- **मुख्य प्रकार (डेटा निर्भरता के कारण प्रकट):** Read-After-Write (RAW) सबसे सामान्य रूप है — I2 को I1 द्वारा लिखे जाने के बाद पढ़ना; (RAW यही मूल कारण दर्शाता है)।\n- **प्रभाव (निष्पादन पर):** डेटा निर्भरता से थ्रूपुट घटता है, निष्पादन समय बढ़ता है और latency बढ़ती है — परीक्षात्मक उत्तर में सीधा-सीधा असर बताना चाहिए।\n- **हार्डवेयर समाधान (संक्षेप):** डेटा forwarding/ bypassing के जरिए कई RAW स्थितियों में स्टॉल कम किए जा सकते हैं ताकि अगले अनुदेश को सीधे पहले के आउटपुट मिल सके।\n- **सॉफ्टवेयर समाधान (संक्षेप):** कम्पाइलर द्वारा instruction reordering या instruction scheduling से निर्भरता के प्रभाव को घटाया जा सकता है जब अनुपालन (semantics) बनाये रखा जा सके।\n- **अन्य हार्डवेयर तकनीकें:** register renaming से false dependencies (नाम-आधारित) हटती हैं; scoreboard और Tomasulo जैसी तकनीकों से गतिशील निष्पादन में डेटा निर्भरताओं का प्रबंधन होता है।\n- **परिक्षात्मक टिप:** MPPSC के MCQ/Revision में प्रश्न अक्सर \"मुख्य कारण\" पूछते हैं — उत्तर में सीधे कहें: अनुदेशों के बीच डेटा निर्भरता जहाँ एक अनुदेश दूसरे के परिणाम पर निर्भर है, और एक-लाइन में RAW का उल्लेख देना पर्याप्त है।\n- **Mains के लिये उपयोगी बिंदु (थोड़ा विस्तृत):** उत्तर में परिभाषा → पाइपलाइन पर प्रभाव (स्टॉल, CPI) → उदाहरण (I1 write R; I2 read R) → दो/तीन mitigation तकनीकों का संक्षिप्त उल्लेख — यही क्रम उत्तर में प्रयोग करें।", "priority_tag": "HIGH"}, {"question": "Control hazard (branch hazard) से निपटने के लिए सामान्यतः कौन-सा तरीका उपयोग होता है?", "options": ["वर्तमान निर्देशों को डिलीट कर देना", "ब्रांच प्रेडिक्शन और फ्लश/स्टाल मैकेनिज़्म का उपयोग", "ALU की घड़ी गति को बढ़ाना", "मेमोरी रिप्लेसमेंट पॉलिसी बदलना"], "answer_index": 1, "explanation": "# व्याख्या — Control (Branch) Hazard से निपटने के लिए: ब्रांच प्रेडिक्शन और फ्लश/स्टाल मेकेनिज्म\n- ब्रांच हज़र्ड तब उत्पन्न होता है जब पाइपलाइन में निर्देश का अगला पता तभी निश्चित होता है जब ब्रांच/कंडीशनल निर्देश निष्पादित हो; इसका सामान्य समाधान ब्रांच प्रेडिक्शन है।\n- ब्रांच प्रेडिक्शन का उद्देश्य स्पेकुलेटिवली यह अनुमान लगाना है कि ब्रांच का फल (taken/not-taken) क्या होगा, ताकि पाइपलाइन को बिना रुके आगे बढ़ाया जा सके।\n- स्टैटिक प्रेडिक्शन (जैसे हमेशा नॉन‑टेकन या पिछला निर्णय) सरल है पर सटीकता सीमित; डायनामिक प्रेडिक्शन (ब्रंच हिस्ट्री/2-bit predictors) अधिक सटीकता देता है क्योंकि पिछली व्यवहार पैटर्न का उपयोग करता है।\n- हार्डवेयर संरचनाएँ जो प्रेडिक्शन में प्रयोग होती हैं: Branch Target Buffer (BTB) — ब्रांच लक्ष्य पता कैश; Branch History Table (BHT) / Pattern history table — ब्रांच व्यवहार का इतिहास; Return Address Stack — कॉल/रिटर्न के लिए।\n- यदि प्रेडिक्शन गलत निकले तो उस स्पेश से सभी स्पेकुलेटिव इंस्ट्रक्शन्स को \"फ्लश\" किया जाता है (pipeline flush) और सही मार्ग से फिर से फेच/डिकोड करना पड़ता है।\n- फ्लश के कारण जेनरेट होने वाली विलंबता को कम करने के लिए स्टाल (bubble) या रिकवरी मेकेनिज़्म लागू होते हैं; स्टाल अस्थायी रूप से पाइपलाइन के फ्रंट-एंड को रोक देता है ताकि सही निर्देश लाई जाएँ।\n- प्रभावकारिता मापने के लिए प्रेडिक्शन की सटीकता और CPI पर उसका प्रभाव महत्त्वपूर्ण मेट्रिक्स हैं — उच्च सटीकता कम फ्लश/स्टाल और बेहतर थ्रूपुट देती है।\n- प्रेडिक्शन के साथ स्पेसिक्यूलेटिव एक्जीक्यूशन में रिसोर्स और रजिस्टर स्पिल/रिकवर के मैकेनिज्म (renaming, checkpointing) जरूरी होते हैं ताकि गलत प्रेडिक्शन पर राज्य सुरक्षित रूप से वापस लाया जा सके।\n- आधुनिक प्रोसेसर में मल्टी‑लेवल/हाइब्रिड प्रेडिक्टर्स (local + global history) उपयोग होते हैं ताकि विभिन्न प्रकार के ब्रांच व्यवहार को कवर किया जा सके।\n- सॉफ्टवेयर/कम्पाइलर स्तर पर भी मदद मिलती है — प्रोफ़ाइल‑गाइडेड जम्प‑प्रतिस्थापन या लेआउट परिवर्तन से ब्रांच व्यवहार सुधारकर प्रेडिक्टर की सटीकता बढ़ाई जा सकती है।\n- सुरक्षा व स्थिरता के लिहाज से गलत प्रेडिक्शन रोकने के बजाय रिकवरी तंत्र अधिक भरोसेमंद माना जाता है; इसलिए फ्लश/स्टाल के प्रभाव को कम करने पर डिज़ाइन केंद्रित रहता है।\n- MPPSC के Mains में उपयोग के लिए सीधे बिंदु: \"ब्रांच हज़ार्ड के समाधान के रूप में ब्रांच प्रेडिक्शन + फ्लश/स्टाल — हार्डवेयर BTB/BHT और स्पेकुलेटिव एक्जीक्यूशन के साथ; गलत प्रेडिक्शन पर पाइपलाइन फ्लश कर रिकवरी; उद्देश्य = CPI घटाना एवं इंस्ट्रक्शन थ्रूपुट बढ़ाना।\"", "priority_tag": "HIGH"}, {"question": "Register के उद्देश्य से 'Status/Flag Register' में क्या संग्रहित होता है?", "options": ["सिर्फ प्रोग्राम का नाम", "ALU संचालन के परिणामों से संबंधित स्थिति-बिट जैसे Zero, Carry, Sign", "मेमोरी के पते", "I/O उपकरणों की सूची"], "answer_index": 1, "explanation": "# **व्याख्या — Status / Flag Register में क्या संग्रहित होता है**\n- Status/Flag Register में मुख्यतः ALU के संचालन (arithmetic/logic) के परिणामों से संबंधित बाइनरी स्थिति‑बिट्स संग्रहित होते हैं।\n- **Zero (Z) flag:** यदि ALU का परिणाम शून्य (0) है तो यह बिट 1 हो जाता है; शून्य‑जांच के लिए प्रयोग होता है।\n- **Carry (C) flag:** असाइन/अधिशेष बिट को दर्शाता है — unsigned addition/subtraction में कैरी/बोरो की उपस्थिति के संकेत के लिए।\n- **Sign (S) / Negative flag:** परिणाम का सर्वोच्च बिट (MSB) दर्शाता है, जिससे परिणाम सकारात्मक/नकारात्मक (two’s complement पर) का संकेत मिलता है।\n- **Overflow (V) flag:** signed गणना में परिणाम के साइन के अनपेक्षित परिवर्तन को दर्शाता है; signed overflow का पता लगाने के लिये प्रयोग होता है।\n- **Parity (P) flag:** परिणाम में 1-बिट की गिनती का सम/विषम होना दर्शाता है; कुछ निर्देश सेट्स में error‑check या विशेष शर्त के लिये उपयोगी।\n- **Auxiliary Carry / Half‑carry flag:** निबंधन में निचले निबंध (lower nibble) के बीच कैरी होने पर सेट होता है; BCD/decimal निर्देशों में आवश्यक।\n- Status‑flags का इस्तेमाल conditional branching, conditional execution, comparison और arithmetic decision‑making (जैसे set on less/greater) में त्वरित नियंत्रण के लिये किया जाता है।\n- CPU instruction set में कई निर्देश सीधे इन flag‑bits को पढ़कर या बदलकर कार्य करते हैं; इसलिए flag register से control flow और परिणाम‑निर्धारण में तेज निर्णय संभव होता है।\n- Context switch या interrupt के समय अक्सर इन status‑bits को सहेजा/पुनर्स्थापित किया जाता है ताकि प्रक्रियाओं के बीच ALU‑स्थिति सुरक्षित रहे।\n- Flag bits हार्डवेयर‑स्तर पर ALU द्वारा स्वतः अपडेट होते हैं (या कुछ निर्देशों में वैकल्पिक रूप से), अतः प्रोग्रामर/OS के लिये परिणाम‑स्थिति का त्वरित प्रमाण प्रदान करते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "Instruction Cycle में 'Execute' चरण किसके अंतर्गत आता है?", "options": ["कंट्रोल यूनिट द्वारा कथित नियंत्रण संकेतों के अनुरूप ALU/डेटा पाथ का वास्तविक संचालन", "मेमोरी से अगले निर्देश को लाना", "हार्ड डिस्क से प्रोग्राम लोड करना", "किसी भी रजिस्टर का रीसेट करना"], "answer_index": 0, "explanation": "# व्याख्या — Instruction Cycle का 'Execute' चरण\n**सही उत्तर सारांश:** Execute चरण में कंट्रोल यूनिट द्वारा उत्पन्न नियंत्रण संकेतों के अनुसार ALU और डेटा-पाथ का वास्तविक संचालन होता है।\n- Execute चरण का उद्देश्य निर्देश में निर्दिष्ट ऑपरेशन (जैसे जोड़, घटाव, लॉजिक, शिफ्ट, मेमोरी एक्सेस सिग्नल) को हार्डवेयर स्तर पर निष्पादित करना है।\n- इस चरण में कंट्रोल यूनिट निर्देश रजिस्टर में उपस्थित opcode को डिकोड कर आवश्यक नियंत्रण-सिग्नल (control signals) जनरेट करती है।\n- कंट्रोल-सिग्नल एलयू (ALU) को संकेत देते हैं कि किस प्रकार की गणना या लॉजिक ऑपरेशन करनी है और किन इनपुट रजिस्टरों/फ्लैग्स का उपयोग करना है।\n- ALU और डेटा-पाथ उन सिग्नलों के अनुरूप आंतरिक गेट्स/परिदानों को सक्रिय करके वास्तविक आर्लिथमेटिक/लॉजिक परिणाम उत्पन्न करते हैं।\n- Execute में स्रोत ऑपरेन्ड्स रजिस्टर/मेमोरी से डेटा-पाथ के माध्यम से ALU तक पहुँचते हैं और परिणाम फिर प्रासंगिक रजिस्टर में लिखे जा सकते हैं।\n- यदि निर्देश मेमोरी-लोड/स्टोर या ब्रांच से संबंधित है तो Execute चरण में प्रभावी पता (effective address) गणना और ब्रांच-निर्णय (branch decision) भी होता है।\n- कंट्रोल यूनिट के सिंक्रोनाइज़ेशन (clock pulses, control timing) सुनिश्चित करते हैं कि डेटा-पाथ के स्टेज क्रमशः और टिक-समय पर सक्रिय हों; यह Execute के समुचित समापन के लिए ज़रूरी है।\n- Execute चरण में उत्पन्न फ्लैग्स (जैसे zero, carry, overflow) अपडेट होते हैं जो अगले निर्देशों के निर्णयों व शर्तों के लिए इस्तेमाल होते हैं।\n- पाइपलाइन्ड आर्किटेक्चर में Execute स्टेज का समुचित समन्वय आवश्यक है; कंट्रोल यूनिट हर स्टेज के लिए विभिन्न नियंत्रण-सिग्नल तैयार कर ALU को समयानुकूल संचालन कराती है।\n- परीक्षा-केंद्रित सारांश: Execute = कंट्रोल यूनिट द्वारा जनरेट किए गए नियंत्रण-सिग्नल → ALU/डेटा-पाथ का सक्रिय संचालन → निर्देशात्मक परिणाम और फ्लैग अपडेट.", "priority_tag": "VERY_HIGH"}, {"question": "Micro-operation को परिभाषित करते समय कौन-सा कथन सही है?", "options": ["माइक्रो-ऑपरेशन पूरी प्रोग्रामिंग भाषा का एक ब्लॉक है", "यह CPU के भीतर एक छोटे, मौलिक डेटा ट्रांसफर या प्राथमिक गणितीय/तार्किक क्रिया है", "यह केवल I/O के साथ संवाद करने की प्रक्रिया है", "यह मेमोरी को शिफ्ट करने की तकनीक है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Von Neumann आर्किटेक्चर और Harvard आर्किटेक्चर में मूलभूत अंतर क्या है?", "options": ["Von Neumann में CPU नहीं होती; Harvard में होती है", "Von Neumann में निर्देश और डेटा शेयर मेमोरी; Harvard में अलग-अलग मेमोरी और बसेज़ होती हैं", "Harvard आर्किटेक्चर सिर्फ सॉफ्टवेयर-आधारित है", "Von Neumann में केवल विशेष रजिस्टर होते हैं"], "answer_index": 1, "explanation": "# Von Neumann बनाम Harvard — संक्षिप्त VYAKHYA (MPPSC Prelims 2026)\n- Von Neumann आर्किटेक्चर में निर्देश (instructions) और डेटा दोनों एक ही मेमोरी स्पेस में स्टोर होते हैं; यही मूलभूत विशेषता है।\n- Harvard आर्किटेक्चर में निर्देश और डेटा के लिए अलग-अलग मेमोरी स्पेस और अलग बस (bus) होते हैं, जिससे दोनों को समान समय पर एक्सेस किया जा सकता है।\n- Von Neumann मॉडल में एक ही बस (address और data lines) के माध्यम से मेमोरी और CPU के बीच संचरण होता है; इस कारण sequential fetch-execute चक्र में bottleneck आ सकता है।\n- Harvard में अलग-अलग बस होने से instruction fetch और data access एक साथ हो सकते हैं, जिससे throughput बढ़ता है और कुछ एप्लिकेशन में प्रदर्शन बेहतर होता है।\n- Von Neumann आर्किटेक्चर का इस्तेमाल सामान्य-purpose कंप्यूटर्स और अधिकांश आधुनिक CPUs के बेसिक मॉडल के रूप में होता है, क्योंकि प्रोग्राम और डेटा को समान स्थान पर रखना सरलता प्रदान करता है।\n- Harvard आर्किटेक्चर अक्सर embedded systems, DSPs, और माइक्रोकंट्रोलर्स में उपयोगी होता है जहाँ instruction और data access पर performance या deterministic timing आवश्यक हो।\n- Von Neumann में प्रोग्राम लिखते/लोड करते समय instruction और data के लिए एक ही memory protection/paging नीति लागू होती है; इसलिए सुरक्षा और memory management सामान्य रूप से unified होती है।\n- Harvard में अलग मेमोरी होने के कारण instruction और data के लिए अलग-अलग protection, caching और memory organization रणनीतियाँ अपनाई जा सकती हैं।\n- Von Neumann bottleneck का मतलब है कि जब CPU को लगातार instructions और data दोनों चाहिए होते हैं तो मेमोरी-बैंडविड्थ सीमित रहने के कारण CPU idle समय बढ़ सकता है; Harvard इस समस्या को आंशिक रूप से हल करता है।\n- व्यावहारिक सिस्टम अक्सर दोनों का मिश्रण (modified/modified Harvard या Harvard-like caches over Von Neumann main memory) अपनाते हैं — पर मूलभूत अंतर यही है: Von Neumann = साझा मेमोरी; Harvard = अलग मेमोरी और बसें।", "priority_tag": "HIGH"}, {"question": "Clock cycle और CPU के हार्डवेयर-स्तर पर instruction execution के बीच संबंध क्या है?", "options": ["एक instruction हमेशा एक ही clock cycle में पूरा होता है", "कई माइक्रोऑपरेशन अलग-अलग clock cycles में होते हैं; clock की फ्रिक्वेंसी से throughput प्रभावित होता है", "Clock cycle का CPU प्रदर्शन से कोई संबंध नहीं है", "Clock cycle केवल मेमोरी के लिए उपयोग होता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "'Pipeline stall' किस स्थिति को दर्शाता है?", "options": ["CPU का पूरी तरह बंद होना", "किसी पाइपलाइन स्टेज के चलते अगले स्टेज का निष्पादन अस्थायी रूप से रुक जाना", "मेमोरी की प्रतिलिपि बनाना", "ALU के आउटपुट को सर्किट से डिस्कनेक्ट करना"], "answer_index": 1, "explanation": "# प्रश्न: 'Pipeline stall' किस स्थिति को दर्शाता है?\n**सही उत्तर (संकलित अवधारणा):** किसी पाइपलाइन स्टेज के चलते अगले स्टेज का निष्पादन अस्थायी रूप से रुक जाना\n## व्याख्या — परीक्षा, त्वरित पुनरावलोकन और Mains के सीधे बिंदु\n- Pipeline stall वह स्थिति है जिसमें एक वा एक से अधिक पाइपलाइन स्टेज आगे के स्टेज को निष्पादित नहीं करने देता और अगला स्टेज अस्थायी रूप से रुका रहता है।\n- यह रुकावट केवल अस्थायी होती है; stall हटने पर निष्पादन पुनः शुरू होता है और instruction आगे बढ़ता है।\n- Stall का मतलब है कि पाइपलाइन में किसी स्टेज के लिए आवश्यक संसाधन, डेटा या नियंत्रण सूचना अभी उपलब्ध नहीं है।\n- स्टॉल होने पर संबंधित क्लॉक्स साइकिल में अगला स्टेज नया काम शुरू नहीं करता; यह CPU की इंस्ट्रक्शन थ्रूपुट को घटाता है।\n- Stall के कारणों में डेटा dependence (डाटा न होना), कंट्रोल dependence (ब्रांच अनिर्णय), और संसाधन conflict (एक ही संसाधन पर contention) प्रमुख हैं।\n- स्टॉल के दौरान पाइपलाइन में \"बबल\" प्रतीकात्मक रूप से उत्पन्न होता है — खाली या निष्क्रिय चरण जो थ्रूपुट घटाते हुए समय लेता है।\n- Stall का मापन आमतौर पर \"साइकिल्स पर स्टॉल\" या CPI (Cycles Per Instruction) में वृद्धि के रूप में होता है; अधिक stalls → उच्च CPI → कम प्रदर्शन।\n- स्टॉल को कम करने की तकनीकें: फॉरवर्डिंग/बायपासिंग, ब्रांच prediction, रिजर्वेशन बफर्स और स्पेशलाइज़्ड हार्डवेयर हैं; पर ये सभी stall के प्रभाव को घटाते हैं न कि मूल परिभाषा बदलते हैं।\n- OS/ISA स्तर पर भी stall के प्रभाव होते हैं: अधिक stall से एप्लिकेशन का latency बढ़ता है और सिस्टमिक प्रदर्शन प्रभावित होता है — Mains उत्तर में सीधा लिंक बनाकर लिखने के लिए उपयोगी बिंदु।\n- सरल परिभाषा के रूप में Mains में लिखते समय: \"Pipeline stall वह स्थिति है जब किसी पाइपलाइन स्टेज के कारण अगला स्टेज अस्थायी रूप से निष्पादन बंद कर देता है, जिससे थ्रूपुट और CPI प्रभावित होते हैं।\"", "priority_tag": "HIGH"}, {"question": "Superscalar प्रोसेसर का क्या अर्थ है?", "options": ["एक ही घड़ी पर कई निर्देशों को समानांतर में निष्पादित करने के लिए कई execution units होना", "सिर्फ एक ही प्रकार का ALU होना", "मेमोरी को स्वचालित रूप से अनुकूल बनाना", "I/O डिवाइसों को नेटवर्क से जोड़ना"], "answer_index": 0, "explanation": "# Superscalar प्रोसेसर का अर्थ — MPPSC Prelims 2026 व्याख्या (हिंदी)\n- Superscalar प्रोसेसर वह प्रोसेसर है जिसमें एक ही क्लॉक सायकल पर कई निर्देशों को समानांतर में निष्पादित करने के लिए एक से अधिक execution units (ALU, FPU, load/store units आदि) मौजूद होते हैं।\n- इसका मुख्य उद्देश्य Instruction-Level Parallelism (ILP) का लाभ उठाकर प्रति क्लॉक सायकल निर्देशों की संख्या बढ़ाना होता है, जिससे सिंगल-इंस्ट्रक्शन परफॉर्मेंस से अधिक थ्रूपुट मिलता है।\n- Superscalar डिज़ाइन में frontend में instruction fetch और decode को इस तरह व्यवस्थित किया जाता है कि एक से अधिक निर्देश एक साथ decode होकर अलग-अलग execution units को भेजे जा सकें।\n- प्रत्येक execution unit स्वतंत्र रूप से कार्य कर सकती है; ऐसे यूनिट्स में integer ALUs, floating-point units, load/store units और branch units शामिल हो सकते हैं।\n- प्रोसेसर को डायनामिक शेड्यूलिंग, रजिस्टर रीनामिंग और आउट-ऑफ-ऑर्डर निष्पादन जैसी तकनीकों की आवश्यकता होती है ताकि डेटा hazards और संसाधन प्रतिस्पर्धा से निपटा जा सके और निष्पादन यूनिट्स लगातार व्यस्त रहें।\n- Superscalar प्रोसेसर का प्रदर्शन निर्भर करता है कि कितनी स्वतंत्र निर्देशों की श्रृंखला उपलब्ध है; निर्भरता (data/control) होने पर समानांतर निष्पादन सीमित हो जाता है।\n- हार्डवेयर में instruction issue width (उदा. 2-way, 4-way) यह बताती है कि एक क्लॉक पर अधिकतम कितने निर्देश जारी किए जा सकते हैं — यह सीधे throughput पर प्रभाव डालता है।\n- Superscalar आर्किटेक्चर में pipeline depth और execution units की संख्या का संतुलन महत्वपूर्ण है; अधिक units और गहरा pipeline latency घटा कर throughput बढ़ा सकते हैं परन्तु डिजाइन जटिलता और power/area बढ़ती है।\n- वास्तविक प्रणालियों में superscalar निष्पादन के साथ branch prediction और speculative execution का उपयोग भी होता है ताकि ब्रांच के कारण होने वाले खाली चक्र कम हों और execution units का उपयोग अधिक बना रहे।\n- संक्षेप में: Superscalar का अर्थ है — एक ही घड़ी पर कई निर्देशों को समानांतर निष्पादित करने के लिए कई execution units का होना और उन्हें प्रभावी ढंग से उपयोग करने के लिए समन्वित हार्डवेयर तकनीकें।", "priority_tag": "HIGH"}, {"question": "MAR और MDR के बीच सही मेल क्या है?", "options": ["MAR — डेटा; MDR — पता", "MAR — पता; MDR — डेटा", "दोनों ही केवल नियंत्रण संकेत हैं", "MAR — ALU रजिस्टर; MDR — कंट्रोल यूनिट"], "answer_index": 1, "explanation": "# व्याख्या — MAR और MDR (सही मेल: MAR — पता; MDR — डेटा)\n- **MAR (Memory Address Register)** का मुख्य कार्य है: मेमोरी में पहुँचने वाले किसी स्थान का सटीक पता (address) रखना।\n- **MDR (Memory Data Register)** का मुख्य कार्य है: मेमोरी से लाये गए या मेमोरी में भेजने के लिए तैयार किए गए वास्तविक डेटा (data) को अस्थायी रूप से स्टोर करना।\n- MAR में संग्रहीत मान निर्देश या डेटा के मेमोरी लोकेशन को सूचित करता है; यह CPU से मेमोरी तक पता भेजने के लिए उपयोग होता है।\n- MDR में मौजूद कंटेंट वह ही बिट-पैटर्न होता है जो मेमोरी रीड या राइट ऑपरेशन के दौरान बस (data bus) पर स्थानांतरित होता है।\n- CPU- मेमोरी इंटरफ़ेस में MAR का आउटपुट एड्रेस बस (address bus) पर भेजा जाता है; MDR डेटा बस (data bus) के माध्यम से मेमोरी के साथ आदान-प्रदान करता है।\n- किसी रीड ऑपरेशन में पहले MAR में वह पता लिखा जाता है, उसके बाद मेमोरी से प्राप्त डेटा MDR में लोड होता है; राइट ऑपरेशन में MDR में डेटा रखा जाता है और MAR में संबंधित पता।\n- MAR और MDR दोनों आम तौर पर CPU के अंदर ओरेजिनल रजिस्टर होते हैं — MAR अधिकतर एड्रेस-स्पेस की आवश्यकता अनुसार बिट-चौड़ाई (address width) रखता है; MDR की चौड़ाई डेटा वर्ड साइज के अनुरूप होती है।\n- निर्देश फेच चक्र में प्रोसेसर प्रोग्राम काउंटर के द्वारा निर्धारित पता MAR में आता है; उस पते से मेमोरी में रखा निर्देश MDR में आकर आगे डीकोड/एक्जीक्यूट के लिए प्रयोग होता है।\n- MDR कभी-कभी 'Memory Buffer Register (MBR)' के नाम से भी जाना जाता है; इसका बुनियादी अर्थ वही — मेमोरी-बफर के रूप में डेटा का अस्थायी संचय।\n- MAR केवल पता-सूचना रखता है; MAR में जो बिटपैटर्न होता है वह डेटा नहीं, बल्कि मेमोरी लोकेशन की पहचान होती है—इस वजह से MAR और MDR का अलग-अलग कार्य और प्रकार निर्धारित होते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "Register-transfer language (RTL) का उपयोग किस लिए किया जाता है?", "options": ["हार्ड डिस्क लेआउट डिजाइन के लिए", "CPU के अंदर रजिस्टरों और डेटा पथ पर डेटा मूवमेंट और नियंत्रक संकेतों का वर्णन करने के लिए", "नेटवर्क प्रोटोकॉल को परिभाषित करने के लिए", "सिस्टम के लिए यूज़र इंटरफ़ेस डिजाइन करने के लिए"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Harvard आर्किटेक्चर कंप्यूटर किस परिस्थिति में सामान्यतः उपयोग होता है?", "options": ["जहाँ निर्देश और डेटा की समानता आवश्यक हो", "एम्बेडेड सिस्टम/डिजाइन जहाँ तेज़ और अलग मेमोरी एक्सेस आवश्यक हो", "सिर्फ वेब सर्वर के लिए", "सिंगल-कोर प्रोसेसर में कभी नहीं"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "'Operand forwarding' किस समस्या का समाधान है?", "options": ["कंट्रोल हैज़र्ड", "डेटा हैज़र्ड जिसमें एक निर्देश दूसरे के परिणाम का उपयोग कर रहा हो; परिणाम को सीधे उपयोग कर के स्टॉल कम करना", "मेमोरी से डेटा हटाने की समस्या", "I/O बफर ओवरफ्लो"], "answer_index": 1, "explanation": "# व्याख्या — Operand forwarding किस समस्या का समाधान है?\n- Operand forwarding (या data forwarding/bypass) का उद्देश्य डेटा हैज़र्ड (RAW — Read After Write) को दूर करना है, जहाँ एक निर्देश दूसरे के परिणाम का तात्कालिक उपयोग कर रहा हो।\n- पाइपलाइन में जब पहला निर्देश अपना परिणाम लिखने से पहले ही अगला निर्देश उस परिणाम को पढ़ने की आवश्यकता रखता है, तब RAW हैज़र्ड बनता है; forwarding इसे रोकता है।\n- तकनीकी रूप से forwarding में ALU या मेमोरी के आउटपुट को सीधे अगले स्टेज के इनपुट तक bypass कर दिया जाता है, बिना रजिस्टर-राइटबैक और रीड के इंतजार के।\n- हार्डवेयर में यह सामान्यतः मल्टीप्लेक्सर (MUX), कंडीशनल कंट्रोल सिग्नल और बायपास/फ़ॉरवर्डिंग पथों द्वारा लागू होता है।\n- Forwarding के कारण पाइपलाइन स्टॉल्स (bubble inserts) की संख्या घटती है, जिससे IPC (instructions per cycle) और कुल थ्रूपुट बेहतर होता है।\n- सीमाएँ: कुछ परिस्थितियों में (जैसे load-use hazard जहाँ डेटा मेमोरी से देर से आता है) forwarding पर्याप्त नहीं होता और एक स्टॉल/नॉप जरूरी हो सकता है।\n- Control unit में forwarding detection लॉजिक शामिल होता है जो स्रोत व गंतव्य रजिस्टरों की तुलना कर के सही फॉरवर्डिंग पथ सक्रिय करता है।\n- Registers की बजाय इंटरस्टेज लैचों/बफर्स से सीधे डेटा भेजने से लोड-स्टोर लेटेंसी को कम करके latency-sensitive ऑपरेशंस तेज होते हैं।\n- इम्प्लीकेशन: छोटे अतिरिक्त हार्डवेयर (COMPARATORS, MUXes) के माध्यम से सिस्टम-लेवल पर बेहतर परफ़ॉर्मेंस मिलता है—कम क्लॉक सायकल्स में अधिक निर्देश पूर्ण होते हैं।\n- Quick revision (एक लाइन): Operand forwarding = RAW डेटा हैज़र्ड को bypass पथ से हल करना ताकि स्टॉल घटे और पाइपलाइन throughput बढ़े।\n- Mains GS उत्तर के लिए सीधे बिंदु (उठाने योग्य): 1) परिभाषा, 2) RAW हैज़र्ड का संदर्भ, 3) forwarding कैसे काम करता है (bypass paths, MUX), 4) लाभ (स्टॉल घटना, थ्रूपुट वृद्धि), 5) सीमाएँ (load-use), 6) कंट्रोल यूनिट में detection का उल्लेख।", "priority_tag": "HIGH"}, {"question": "Microprogrammed control और Hardwired control में मुख्य भेद क्या है?", "options": ["Microprogrammed control सॉफ़्टवेयर-निरूपित नियंत्रण सिग्नल का उपयोग करता है; Hardwired control को तार (hardware) द्वारा सीधे इम्प्लीमेंट किया जाता है", "Hardwired control कंप्यूटर नेटवर्क के लिए उपयोग होता है", "Microprogrammed control में कंट्रोल यूनिट नहीं होता", "दोनों में कोई फर्क नहीं है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "General-purpose रजिस्टर और special-purpose रजिस्टर में क्या अंतर है?", "options": ["General-purpose रजिस्टर मात्र I/O के लिए होते हैं", "Special-purpose रजिस्टर विशिष्ट कार्यों (जैसे PC, SP, IR) के लिए आरक्षित होते हैं; general-purpose सामान्य डेटा संचालन के लिए बहु-उद्देश्य होते हैं", "दोनों बिल्कुल समान होते हैं", "Special-purpose रजिस्टर केवल मेमोरी में होते हैं"], "answer_index": 1, "explanation": "# व्याख्या: General-purpose रजिस्टर बनाम Special-purpose रजिस्टर\n- **परिभाषा (सार):** Special-purpose रजिस्टर विशिष्ट नियंत्रक/प्रोसेसिंग कार्यों के लिए आरक्षित होते हैं (जैसे Program Counter, Stack Pointer, Instruction Register), जबकि General-purpose रजिस्टर सामान्य डेटा और एड्रेस संचालन के लिए बहु-उद्देशीय होते हैं।\n- **उद्देश्य का भेद:** Special-purpose रजिस्टर किसी निर्धारित सिस्टम कार्य को सीधा समर्थन करते हैं; general-purpose रजिस्टर का उपयोग अंकगणित/तर्क, अस्थायी डेटा स्टोर और निर्देशों के ऑपरेंड के रूप में किया जाता है।\n- **प्रोग्रामर दृश्यता:** अधिकांश general-purpose रजिस्टर सीधे असेंबली/उच्च-स्तर भाषाओं में निर्देशों द्वारा एक्सेस किए जा सकते हैं; कुछ special-purpose रजिस्टर केवल नियंत्रक घटकों द्वारा पढ़े/लिखे जा सकते हैं या विशेष निर्देशों से ही संशोधित होते हैं।\n- **नियंत्रण और निष्पादन में भूमिका:** Special-purpose रजिस्टर (जैसे PC, IR) CPU के नियंत्रण प्रवाह और निर्देश निष्पादन चक्र के संचालन को नियंत्रित करते हैं; general-purpose रजिस्टर ALU में संचालन के लिए डेटा प्रदान करते हैं।\n- **कॉन्टेक्स्ट स्विच व इंटERRUPT हैंडलिंग:** सिस्टम कॉन्टेक्स्ट सेव/रीस्टोर में special-purpose रजिस्टर (PC, SP, status registers) महत्वपूर्ण होते हैं; general-purpose रजिस्टर भी कॉन्टेक्स्ट बचाने के लिए प्रयोग किये जाते पर special-purpose का अर्थ विशेष नियंत्रण जानकारी से जुड़ा रहता है।\n- **साइज़ व पोजिशन:** विशेष कार्यों के कारण कुछ special-purpose रजिस्टरों का बिट-विस्तार और फॉर्मेट (जैसे status/flag bits) अलग होता है; general-purpose रजिस्टर सामान्यतः समान चौड़ाई के रजिस्टर फाइल में होते हैं।\n- **निर्देश सेट और addressing:** Instruction Set Architecture (ISA) में general-purpose रजिस्टर अक्सर ऑपरेण्ड रेगिस्टर के रूप में सीधे उपयोग होते हैं; special-purpose रजिस्टर पर पहुँच या परिवर्तन के लिए विशेष निर्देश या नियंत्रण सिग्नल होते हैं।\n- **पाइपलाइन व प्रदर्शन प्रभाव:** Pipeline में PC/IR जैसे special-purpose रजिस्टर नियंत्रण प्रवाह और स्टेज सिंक्रोनाइज़ेशन सुनिश्चित करते हैं, जबकि general-purpose रजिस्टर ALU-इंटेंसिव स्टेज के प्रदर्शन पर प्रभाव डालते हैं।\n- **उदाहरण और प्रयोग:** PC (Program Counter) अगला निर्देश पता रखता है, SP (Stack Pointer) स्टैक फ्रेम्स को ट्रैक करता है, IR (Instruction Register) चालू निर्देश को होल्ड करता है; ये सब special-purpose रजिस्टर हैं, जबकि R0–Rn जैसे रजिस्टर सामान्य गणनाओं और अस्थायी संग्रह के लिए बहुउद्देशीय होते हैं।\n- **सारांश (एक पंक्ति):** Special-purpose रजिस्टर किसी विशिष्ट नियंत्रण/प्रबंधन फ़ंक्शन के लिए आरक्षित रहते हैं; general-purpose रजिस्टर सामान्य डेटा-प्रक्रिया के लिए बहु-उद्देश्यीय होते हैं और दोनों का सही संयोजन CPU के समुचित संचालन के लिए आवश्यक है।", "priority_tag": "VERY_HIGH"}, {"question": "Pipeline में 'instruction-level parallelism (ILP)' का अर्थ क्या है?", "options": ["कई CPUs को क्लस्टर करना", "एक ही समय में कई निर्देशों को overlapping तरीके से निष्पादित कर समेकित थ्रूपुट बढ़ाना", "मेमोरी पेजिंग को कम करना", "सिस्टम के पावर को घटाना"], "answer_index": 1, "explanation": "# **विषय: Pipeline में Instruction-Level Parallelism (ILP) — व्याख्या (MPPSC Prelims 2026 के लिए)**\n- **परिभाषा:** ILP का अर्थ है कि एक ही समयावधि में अलग-अलग निर्देशों के निष्पादन के चरणों को overlap करके प्रोसेसर का समग्र थ्रूपुट बढ़ाना।\n- **मूल विचार:** प्रत्येक निर्देश के fetch, decode, execute आदि चरणों को पाइपलाइन स्टेजेस में विभाजित कर कई निर्देशों को एक साथ विभिन्न स्टेजेस में रखा जाता है।\n- **लक्ष्य:** उद्देश्य प्रत्येक घड़ी चक्र पर अधिक से अधिक निर्देशों के निष्पादन को संभव बनाकर instructions per cycle (IPC) बढ़ाना है।\n- **पाइपलाइनिंग कैसे ILP उत्पन्न करती है:** जब एक निर्देश execution में है, तो अगले निर्देश का fetch और decode होते रहते हैं; इससे संसाधन का बेहतर उपयोग होता है और idle समय घटता है।\n- **प्रभाव:** ILP से latency पर प्रत्यक्ष प्रभाव सीमित हो सकता है, पर throughput (कुल निष्पादित निर्देश प्रति यूनिट समय) स्पष्ट रूप से बढ़ता है।\n- **सीमाएँ:** ILP की प्राप्ति data hazards, control hazards और resource conflicts जैसी बाधाओं से सीमित होती है; इन्हें सामना करने के लिए forwarding, stalling, branch prediction जैसी तकनीकें उपयोग में लायी जाती हैं।\n- **मापन:** ILP का आकलन आमतौर पर IPC (instructions per cycle) या throughput के माध्यम से किया जाता है — उच्च IPC = अधिक ILP।\n- **रिलेशन कंट्रोल/ALU/रजिस्टर से:** ALU, कंट्रोल यूनिट और रजिस्टर फाइल के समन्वित डिजाइन से समानांतर चरणों में संसाधनों का प्रबंधन करके ILP का पूरा लाभ मिलता है।\n- **व्यावहारिक उपयोग:** आधुनिक CPUs में superscalar और pipelined architectures ILP बढ़ाने के लिए डिज़ाइन किए जाते हैं, जिससे सामान्य अनुप्रयोगों और संगणक केंद्रों में कार्यकुशलता बढ़ती है।\n- **MP के सरकारी/ई‑गवर्नेंस संदर्भ में (सांकेतिक, संक्षेप):** राज्य‑स्तरीय ई‑गवर्नेंस सेवाओं और डेटा‑सर्वर पर तेज़ रिस्पांस और अधिक समकक्ष अनुरोधों के प्रबंधन में उच्च ILP‑सक्षम प्रोसेसर का प्रत्यक्ष लाभ होता है — यह थ्रूपुट बढ़ाकर सेवाओं की स्केलेबिलिटी सुधारता है।\n- **सार‑उद्धरण (exam‑oriented):** संक्षेप में, ILP वह तकनीकी क्षमता है जिसके द्वारा पाइपलाइनिंग के माध्यम से कई निर्देशों को overlapping तरीके से निष्पादित कर प्रोसेसर का कुल आउटपुट (throughput) बढ़ाया जाता है — यही MCQ का मूल कथ्य।", "priority_tag": "HIGH"}, {"question": "किस रजिस्टर में सामान्य तौर पर CPU द्वारा I/O ऑपरेशन के दौरान डाटा को अस्थायी रूप से रखा जाता है?", "options": ["Status Register", "Instruction Register", "Accumulator या सामान्य प्रयोजन रजिस्टर", "Program Counter"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "एक साधारण CPU में 'MDR' का नाम क्या संकेत करता है और इसका कार्य क्या है?", "options": ["Memory Data Register — मेमोरी से लाया गया या मेमोरी में लिखा जाने वाला डेटा होल्ड करता है", "Main Device Register — मुख्य डिवाइसों की सूची रखता है", "Microcode Data Register — माइक्रोकोड स्टोर करता है", "Memory Destination Register — केवल गंतव्य पता रखता है"], "answer_index": 0, "explanation": "# VYAKHYA — MDR (Memory Data Register) का नाम और कार्य\n- **MDR = Memory Data Register** — नाम से स्पष्ट: यह मेमोरी से आने या मेमोरी में जाने वाला *डेटा* होल्ड करता/रखता है।\n- **मुख्य कार्य:** CPU और मेमोरी के बीच read/write डेटा का अस्थायी भंडारण (temporary buffer) प्रदान करना।\n- **रिड/राइट में भूमिका:** मेमोरी से पढ़ते समय MDR में मेमोरी की वह शब्द (word/byte) आता है; लिखते समय MDR में रखा डेटा मेमोरी को भेजा जाता है।\n- **MAR से अंतर:** MAR (Memory Address Register) मेमोरी का पता बताता है, जबकि MDR उस पते पर पढ़े/लिखे जाने वाला वास्तविक *डेटा* रखता है।\n- **बाइट/वर्ड चौड़ाई:** MDR की चौड़ाई प्रोसेसर के डेटा-पाथ (data path) और बास्स width के अनुरूप होती है (उदा. 8, 16, 32, 64 बिट)।\n- **बसमार्ग (Bus) इंटरफेस:** MDR सामान्यतः CPU और मेमोरी बस के बीच डेटा भेजने/लेने के लिए इंटरफ़ेस का काम करता है; डेटा बस से सीधे जुड़ा होता है।\n- **सिन्क/असिन्क ट्रांसफर:** MDR CPU के अंदर नियंत्रक (control unit) द्वारा नियंत्रित साइकिलों में (read/write cycles) डेटा को स्थायी रूप से होल्ड करता है ताकि ALU/रजिस्टर आगे प्रोसेस कर सकें।\n- **ALU/रजिस्टर के साथ समन्वय:** मेमोरी से MDR में आया डेटा आवश्यकतानुसार सामान्य purpose रजिस्टर या ALU इनपुट में लोड किया जाता है; लिखते समय रजिस्टर का डेटा पहले MDR में आता है।\n- **कंट्रोल सिग्नल निर्भरता:** MDR का सही कार्य CPU के कंट्रोल सिग्नलों (जैसे MEM-read, MEM-write, bus-enable) पर निर्भर होता है।\n- **डेटा अखंडता और समय-निर्धारण:** MDR मेमोरी और CPU के बीच डेटा को सुरक्षित रूप से होल्ड कर समय-समानता (timing) और डेटा अखंडता सुनिश्चित करता है; इससे सायक्लिक और सिंक्रोनाइज़्ड एक्सचेंज संभव होता है।\n- **प्रैक्टिकल नोट (exam-use):** MPPSC के उत्तर में MDR को परिभाषित करते समय एक-लाइन पर नाम और मुख्य कार्य स्पष्ट रखें — “Memory Data Register: मेमोरी से लाया गया या मेमोरी में लिखा जाने वाला डेटा होल्ड करता है” — और एक-दो बिंदु MAR/ALU/Bus के साथ उसके इंटरैक्शन का उल्लेख करें।", "priority_tag": "VERY_HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

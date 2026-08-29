@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U4-006 – संविधान के भाग व अनुच्छेद—तेज़ रिविजन मैप</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U4-006 – संविधान के भाग व अनुच्छेद—तेज़ रिविजन मैप</h1>
+        <div class="note">क्षेत्र: India | सामग्री: भाग I–XXII का कार्यात्मक विभाजन; अनुच्छेद-समूहों का क्लस्टर—हाई-यील्ड। | 15-वर्षीय ट्रेंड: Very High</div>
+      </div>
+      <div class="date">Updated: 13-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># परिचय
+**संक्षेप:** संविधान के भाग (Parts I–XXII) और उनके संबद्ध अनुच्छेद/अनुसूचित क्लस्टर का तेज़ रिविजन मैप एक परीक्षा-पोस्टरियर दृष्टि से जरूरी उपकरण है।  
+**MPPSC प्रासंगिकता:** प्रशासनिक प्रश्नों, विधिक-प्रक्रिया और राज्य-स्तरीय नीति-निर्माण (विशेषतः पंचायत/नगर शासन—Part IX/IXA) में सीधे उपयोगी।  
+
+---
+
+## तेज़ रिविजन मैप — भागों का कार्यात्मक विभाजन (मुख्य हाइलाइट)
+- **Part I (Articles 1–4):** भारत का संघ/राष्ट्र के रूप का वर्णन; राज्य और केन्द्र संबंधी प्रारम्भिक प्रावधान।  
+  - Micro-fact: Article 1 — “India, that is Bharat” (राष्ट्र की परिभाषा); Article 3–4 — राज्यों के विभाजन/सङ्गठन के लिए संसद द्वारा विधि।  
+- **Part II (5–11):** नागरिकता से संबंधित प्रावधान।  
+- **Part III (Articles 12–35):** Fundamental Rights (नागरिकों/नागरिकता/कानून की गोद में अधिकार)।  
+  - Micro-fact: Article 32 — Writ jurisdiction of Supreme Court (मूलभूत अधिकारों की रक्षा हेतु राइट्स)।  
+- **Part IV (Articles 36–51):** Directive Principles of State Policy (DPSP)।  
+- **Part IVA (Article 51A):** Fundamental Duties — 42nd Amendment (1976) द्वारा जोड़ा गया।  
+- **Part V (Articles 52–151):** केंद्र सरकार (President, Parliament, Comptroller etc.) और संघीय व्यवस्था के केन्द्र पक्ष।  
+- **Part VI (Articles 152–237):** राज्य सरकारें — Governor, State Legislature, State Executive।  
+- **Part VII:** (अत्यन्त संक्षेप में) अब अप्रचलित (बाद के संशोधनों से हटाया गया)।  
+- **Part VIII–XI:** विभिन्न क्षेत्रीय/भाषायी/यथास्थिति-संबंधी प्रावधान (राज्यों/केंद्रशासित प्रदेशों आदि)।  
+- **Part XII (Articles 243–243O तक? — actually Part IX begins at 243):** मालुम रखें—(नोट: अनुच्छेद संख्या चेक करें) — (नीचे क्लस्टर में विस्तार)।  
+- **Part IX (Articles 243–243O):** Panchayats — 73rd Amendment (1992) द्वारा स्थापित; 3-tier structure और reservation provisions।  
+  - Micro-fact: Article 243D — seats reservation for SC/ST; Article 243T — Duration of Panchayats.  
+- **Part IXA (Articles 243P–243ZG):** Municipalities — 74th Amendment (1992).  
+  - Micro-fact: Article 243ZA/243ZD — Ward Committees (municipal governance details subject to state rules).  
+- **Part X–XII:** Union Territories, Services etc. (Article clusters: services, public service commissions)।  
+- **Part XIV (Articles 308–323):** Services under the Union and States; includes Article 311 (protection in dismissal) — very high-yield।  
+  - Micro-fact: Article 311 — protection against arbitrary dismissal of civil servants (procedural safeguards)।  
+- **Part XV (Articles 324–329):** Elections — Election Commission (Article 324).  
+- **Part XVI (Articles 330–342):** Special provisions for SC/ST and other backward classes; representation clauses (reservations in legislatures).  
+- **Part XVII–XVIII:** Official language and emergency provisions respectively।  
+  - Micro-fact: Article 352 — National Emergency (formerly “internal disturbance” changed by 44th Amendment); Article 356 — State Emergency (President’s Rule); Article 360 — Financial Emergency.  
+- **Part XIX–XXII:** Miscellaneous provisions — Constitutional amendment procedure (Part XX, Articles 368), temporary/ transitory provisions, short title and commencement.  
+  - Micro-fact: Article 368 — Procedure for amendment; Kesavananda Bharati (1973) ने &quot;basic structure&quot; doctrine स्थापित की — अमेन्मेंट की सीमाएं।  
+
+---
+
+## अनुच्छेद-समूहों का क्लस्टर — हाई-यील्ड सारांश (flow/steps जहाँ लागू)
+- **Fundamental Rights Cluster:** Art 12 (State की परिभाषा) → Art 14–18 (Equality cluster) → Art 19 (Freedom of speech etc.) → Art 21 (Right to life and personal liberty) → Art 32 (SC की रिट पावर)।  
+- **DPSP–Fundamental Duties Link:** Art 36–51 (DPSP) → Art 51A (duties) — policy direction vs. enforceability अंतर पर सवाल अक्सर आते हैं।  
+- **Centre–State Relations:** Art 245–255 (legislative relations) → 7th Schedule (Union, State, Concurrent lists) — विवाद के लिए Art 254 (Parliamentary law overriding state law on concurrent list)।  
+- **Amendment &amp; Judiciary Check:** Article 368 के तहत amendment procedure → Judiciary का नियंत्रण (Kesavananda Bharati; Minerva Mills ने संतुलन सिद्धांत दिये)।  
+- **Emergency Procedure (step-wise):** President proclamation (Art 352) → Parliamentary approval within prescribed time → effects on Fundamental Rights (कुछ हाल में संशोधित / judicial scrutiny)।  
+
+---
+
+## प्रमुख micro-facts / नोट्स (प्राकृतिक यादगार बिंदु)
+- 42nd Amendment (1976): Fundamental Duties (Art 51A) जोड़ा गया।  
+- 73rd &amp; 74th Amendments (1992): Part IX (Arts 243–243O) और Part IXA (Arts 243P–243ZG) — Panchayats और Municipalities को संवैधानिक दर्जा।  
+- Article 1 &amp; 4: संघीयता का प्रारम्भिक आधार — Parliament को राज्यों के सीमांकन/नए राज्यों के निर्माण का अधिकार।  
+- Article 311: सरकार सेवकों के लिए सुरक्षा—न्यायालय ने इसे व्याख्यात्मक रूप में कार्यपालिका की जवाबदेही के तंत्र के रूप में देखा।  
+- Article 368: Amendment पर Basic Structure doctrine (Kesavananda Bharati, 1973) — संसद के संशोधन के दायरे में मूल संरचना नहीं हट सकती।  
+
+---
+
+## न्यायिक व्याख्याएँ (संक्षेप में नाम/सिद्धांत)
+- Kesavananda Bharati v. State of Kerala (1973) — Basic Structure doctrine।  
+- Minerva Mills v. Union of India (1980) — Parliament के अधिकार और न्यायपालिका के संतुलन पर सख्त सीमा; DPSP व Fundamental Rights के बीच सामंजस्य।  
+- I.R. Coelho (2007) — Parliament के द्वारा हटाये गए कानूनों पर Basic Structure का प्रभार।  
+
+---
+
+## MP (Madhya Pradesh) प्रशासन से लिंक (grounded उदाहरण)
+- MP में 73rd Amendment के बाद Panchayati Raj की तीन-स्तरीय व्यवस्था लागू—Janpad/Gram Panchayat/ Zilla Parishad; राज्य ने आरक्षण की समय-सीमा और क्रियान्वयन के नियम अपने Panchayati Raj Act के माध्यम से निर्धारित किये।  
+- Local governance funds/14th Finance Commission के अंतर्गत recommendations का उपयोग—MP के पंचायत निधि प्रबंधन में Part IX के प्रावधानों का सीधे प्रभाव।  
+
+---
+
+## मूल्यांकन: महत्व, सीमाएँ और सुधार सुझाव
+- महत्व: भागों का क्लस्टर-रिविजन न्यायिक व प्रशासनिक प्रश्नों में त्वरित संदर्भ देता है; अनुच्छेद-नंबर याद होने से परीक्षा में तेजी से उत्तर बनते हैं।  
+- सीमाएँ: संविधान जीवित दस्तावेज है—केस लॉ और संशोधन बदलते रहते हैं; सिर्फ संख्याएँ याद रखना पर्याप्त नहीं, व्याख्या जरूरी।  
+- सुधार/Way Forward: रिवीजन मैप में case-law pointers, constitutional amendments की timeline and state-level statutes (जैसे MP Panchayat Act) जोड़ें; flowcharts (e.g., emergency proclamation steps, amendment steps) नियमित व्यायाम हेतु बनायें।  
+
+---
+
+## निष्कर्ष
+संविधान के भागों एवं अनुच्छेद-समूहों का तेज़ रिविजन मैप GS Mains के लिए उच्च-उपज है—यह न सिर्फ तथ्यों की त्वरित स्मृति देता है बल्कि विषयगत विश्लेषण और नीति/प्रशासनिक प्रभावों को जोड़कर आर-पार समझ बनाने में मदद करता है। MP प्रशासन के संदर्भ में Part IX/IXA और सेवाओं/न्यायिक सुरक्षा (Art 311) विशेष रूप से प्रयोज्य हैं। निरंतर अपडेटेड केस-लॉ और संशोधनों के साथ यह मैप बनाए रखें।
+
+स्रोत 1: NCERT (कक्षा 9–12) – polity/constitution सम्बंधित अध्याय  
+स्रोत 2: M. Laxmikanth – Indian Polity (topic-सम्बंधित अध्याय)  
+स्रोत 3: India Code / Constitution portal – authentic legal text (latest updated)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 9–12 Political Science (Constitution, organs of government, federalism) के core chapters; Laxmikanth – 'Indian Polity' (Articles, bodies, constitutional provisions; Prelims-focused); M. Puri / Subhash Kashyap (select chapters on Constitution & institutions—concept clarity); Arihant / Lucent – 'Indian Polity/Constitution' objective chapters (MPPSC Prelims orientation); Govt authorized portals & docs: Constitution of India (India Code / Legislative Dept), PRS Legislative Research (Bills/Acts summaries for understanding—non-gov but highly trusted), Election Commission of India (elections/constitutional bodies), Parliament of India (procedures/committees), Supreme Court of India (judgments info), MP Govt portals: MP Vidhan Sabha, MP Raj Bhavan, MP General Administration Dept (GAD), MP Law & Legislative Affairs, MP Panchayat & Rural Development / Urban Administration (MP administration links), MP local bodies & administrative rules/notifications where relevant.</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U4-006 – संविधान के भाग व अनुच्छेद—तेज़ रिविजन मैप", "coverage_note": "क्षेत्र: India | सामग्री: भाग I–XXII का कार्यात्मक विभाजन; अनुच्छेद-समूहों का क्लस्टर—हाई-यील्ड। | 15-वर्षीय ट्रेंड: Very High", "vyakhya": "# परिचय\n**संक्षेप:** संविधान के भाग (Parts I–XXII) और उनके संबद्ध अनुच्छेद/अनुसूचित क्लस्टर का तेज़ रिविजन मैप एक परीक्षा-पोस्टरियर दृष्टि से जरूरी उपकरण है।  \n**MPPSC प्रासंगिकता:** प्रशासनिक प्रश्नों, विधिक-प्रक्रिया और राज्य-स्तरीय नीति-निर्माण (विशेषतः पंचायत/नगर शासन—Part IX/IXA) में सीधे उपयोगी।  \n\n---\n\n## तेज़ रिविजन मैप — भागों का कार्यात्मक विभाजन (मुख्य हाइलाइट)\n- **Part I (Articles 1–4):** भारत का संघ/राष्ट्र के रूप का वर्णन; राज्य और केन्द्र संबंधी प्रारम्भिक प्रावधान।  \n  - Micro-fact: Article 1 — “India, that is Bharat” (राष्ट्र की परिभाषा); Article 3–4 — राज्यों के विभाजन/सङ्गठन के लिए संसद द्वारा विधि।  \n- **Part II (5–11):** नागरिकता से संबंधित प्रावधान।  \n- **Part III (Articles 12–35):** Fundamental Rights (नागरिकों/नागरिकता/कानून की गोद में अधिकार)।  \n  - Micro-fact: Article 32 — Writ jurisdiction of Supreme Court (मूलभूत अधिकारों की रक्षा हेतु राइट्स)।  \n- **Part IV (Articles 36–51):** Directive Principles of State Policy (DPSP)।  \n- **Part IVA (Article 51A):** Fundamental Duties — 42nd Amendment (1976) द्वारा जोड़ा गया।  \n- **Part V (Articles 52–151):** केंद्र सरकार (President, Parliament, Comptroller etc.) और संघीय व्यवस्था के केन्द्र पक्ष।  \n- **Part VI (Articles 152–237):** राज्य सरकारें — Governor, State Legislature, State Executive।  \n- **Part VII:** (अत्यन्त संक्षेप में) अब अप्रचलित (बाद के संशोधनों से हटाया गया)।  \n- **Part VIII–XI:** विभिन्न क्षेत्रीय/भाषायी/यथास्थिति-संबंधी प्रावधान (राज्यों/केंद्रशासित प्रदेशों आदि)।  \n- **Part XII (Articles 243–243O तक? — actually Part IX begins at 243):** मालुम रखें—(नोट: अनुच्छेद संख्या चेक करें) — (नीचे क्लस्टर में विस्तार)।  \n- **Part IX (Articles 243–243O):** Panchayats — 73rd Amendment (1992) द्वारा स्थापित; 3-tier structure और reservation provisions।  \n  - Micro-fact: Article 243D — seats reservation for SC/ST; Article 243T — Duration of Panchayats.  \n- **Part IXA (Articles 243P–243ZG):** Municipalities — 74th Amendment (1992).  \n  - Micro-fact: Article 243ZA/243ZD — Ward Committees (municipal governance details subject to state rules).  \n- **Part X–XII:** Union Territories, Services etc. (Article clusters: services, public service commissions)।  \n- **Part XIV (Articles 308–323):** Services under the Union and States; includes Article 311 (protection in dismissal) — very high-yield।  \n  - Micro-fact: Article 311 — protection against arbitrary dismissal of civil servants (procedural safeguards)।  \n- **Part XV (Articles 324–329):** Elections — Election Commission (Article 324).  \n- **Part XVI (Articles 330–342):** Special provisions for SC/ST and other backward classes; representation clauses (reservations in legislatures).  \n- **Part XVII–XVIII:** Official language and emergency provisions respectively।  \n  - Micro-fact: Article 352 — National Emergency (formerly “internal disturbance” changed by 44th Amendment); Article 356 — State Emergency (President’s Rule); Article 360 — Financial Emergency.  \n- **Part XIX–XXII:** Miscellaneous provisions — Constitutional amendment procedure (Part XX, Articles 368), temporary/ transitory provisions, short title and commencement.  \n  - Micro-fact: Article 368 — Procedure for amendment; Kesavananda Bharati (1973) ने \"basic structure\" doctrine स्थापित की — अमेन्मेंट की सीमाएं।  \n\n---\n\n## अनुच्छेद-समूहों का क्लस्टर — हाई-यील्ड सारांश (flow/steps जहाँ लागू)\n- **Fundamental Rights Cluster:** Art 12 (State की परिभाषा) → Art 14–18 (Equality cluster) → Art 19 (Freedom of speech etc.) → Art 21 (Right to life and personal liberty) → Art 32 (SC की रिट पावर)।  \n- **DPSP–Fundamental Duties Link:** Art 36–51 (DPSP) → Art 51A (duties) — policy direction vs. enforceability अंतर पर सवाल अक्सर आते हैं।  \n- **Centre–State Relations:** Art 245–255 (legislative relations) → 7th Schedule (Union, State, Concurrent lists) — विवाद के लिए Art 254 (Parliamentary law overriding state law on concurrent list)।  \n- **Amendment & Judiciary Check:** Article 368 के तहत amendment procedure → Judiciary का नियंत्रण (Kesavananda Bharati; Minerva Mills ने संतुलन सिद्धांत दिये)।  \n- **Emergency Procedure (step-wise):** President proclamation (Art 352) → Parliamentary approval within prescribed time → effects on Fundamental Rights (कुछ हाल में संशोधित / judicial scrutiny)।  \n\n---\n\n## प्रमुख micro-facts / नोट्स (प्राकृतिक यादगार बिंदु)\n- 42nd Amendment (1976): Fundamental Duties (Art 51A) जोड़ा गया।  \n- 73rd & 74th Amendments (1992): Part IX (Arts 243–243O) और Part IXA (Arts 243P–243ZG) — Panchayats और Municipalities को संवैधानिक दर्जा।  \n- Article 1 & 4: संघीयता का प्रारम्भिक आधार — Parliament को राज्यों के सीमांकन/नए राज्यों के निर्माण का अधिकार।  \n- Article 311: सरकार सेवकों के लिए सुरक्षा—न्यायालय ने इसे व्याख्यात्मक रूप में कार्यपालिका की जवाबदेही के तंत्र के रूप में देखा।  \n- Article 368: Amendment पर Basic Structure doctrine (Kesavananda Bharati, 1973) — संसद के संशोधन के दायरे में मूल संरचना नहीं हट सकती।  \n\n---\n\n## न्यायिक व्याख्याएँ (संक्षेप में नाम/सिद्धांत)\n- Kesavananda Bharati v. State of Kerala (1973) — Basic Structure doctrine।  \n- Minerva Mills v. Union of India (1980) — Parliament के अधिकार और न्यायपालिका के संतुलन पर सख्त सीमा; DPSP व Fundamental Rights के बीच सामंजस्य।  \n- I.R. Coelho (2007) — Parliament के द्वारा हटाये गए कानूनों पर Basic Structure का प्रभार।  \n\n---\n\n## MP (Madhya Pradesh) प्रशासन से लिंक (grounded उदाहरण)\n- MP में 73rd Amendment के बाद Panchayati Raj की तीन-स्तरीय व्यवस्था लागू—Janpad/Gram Panchayat/ Zilla Parishad; राज्य ने आरक्षण की समय-सीमा और क्रियान्वयन के नियम अपने Panchayati Raj Act के माध्यम से निर्धारित किये।  \n- Local governance funds/14th Finance Commission के अंतर्गत recommendations का उपयोग—MP के पंचायत निधि प्रबंधन में Part IX के प्रावधानों का सीधे प्रभाव।  \n\n---\n\n## मूल्यांकन: महत्व, सीमाएँ और सुधार सुझाव\n- महत्व: भागों का क्लस्टर-रिविजन न्यायिक व प्रशासनिक प्रश्नों में त्वरित संदर्भ देता है; अनुच्छेद-नंबर याद होने से परीक्षा में तेजी से उत्तर बनते हैं।  \n- सीमाएँ: संविधान जीवित दस्तावेज है—केस लॉ और संशोधन बदलते रहते हैं; सिर्फ संख्याएँ याद रखना पर्याप्त नहीं, व्याख्या जरूरी।  \n- सुधार/Way Forward: रिवीजन मैप में case-law pointers, constitutional amendments की timeline and state-level statutes (जैसे MP Panchayat Act) जोड़ें; flowcharts (e.g., emergency proclamation steps, amendment steps) नियमित व्यायाम हेतु बनायें।  \n\n---\n\n## निष्कर्ष\nसंविधान के भागों एवं अनुच्छेद-समूहों का तेज़ रिविजन मैप GS Mains के लिए उच्च-उपज है—यह न सिर्फ तथ्यों की त्वरित स्मृति देता है बल्कि विषयगत विश्लेषण और नीति/प्रशासनिक प्रभावों को जोड़कर आर-पार समझ बनाने में मदद करता है। MP प्रशासन के संदर्भ में Part IX/IXA और सेवाओं/न्यायिक सुरक्षा (Art 311) विशेष रूप से प्रयोज्य हैं। निरंतर अपडेटेड केस-लॉ और संशोधनों के साथ यह मैप बनाए रखें।\n\nस्रोत 1: NCERT (कक्षा 9–12) – polity/constitution सम्बंधित अध्याय  \nस्रोत 2: M. Laxmikanth – Indian Polity (topic-सम्बंधित अध्याय)  \nस्रोत 3: India Code / Constitution portal – authentic legal text (latest updated)", "mcqs": [{"question": "संविधान का भाग I किन अनुच्छेदों तक विस्तृत है और इसका मुख्य विषय क्या है?", "options": ["अनुच्छेद 1–4; भारत का भौगोलिक विभाजन (Union and its Territories)", "अनुच्छेद 1–11; नागरिकता से संबंधित नियम", "अनुच्छेद 1–35; मौलिक अधिकारों का परिचय", "अनुच्छेद 1–21; संघीय ढांचे के संस्थागत प्रावधान"], "answer_index": 0, "explanation": "# संविधान भाग I (अनुच्छेद 1–4) — तेज़ रिविजन मैप\n- भाग I का दायरा अनुच्छेद 1 से अनुच्छेद 4 तक है; इसका मुख्य विषय \"संघ तथा उसके क्षेत्र\" (Union and its Territories) है।\n- अनुच्छेद 1: “भारत, अर्थात् इंडिया, एक संघ है” — संविधान द्वारा भारत को एक संघात्मक इकाई के रूप में परिभाषित करता है।\n- अनुच्छेद 1 यह स्पष्ट करता है कि राज्यों का संघ से गठित होना संघ की प्रकृति को दर्शाता है, न कि राज्यों की सार्वभौमिक स्वतंत्रता।\n- अनुच्छेद 2: नए राज्यों के प्रवेश और स्थापना का संवैधानिक प्रावधान; संसद द्वारा राष्ट्रपति की सिफारिश पर विधि बन सकती है।\n- अनुच्छेद 3: मौजूदा राज्यों का विभाजन, सीमाओं में परिवर्तन या किसी राज्य का नाम बदलने का प्रावधान; संसद का विधिक अधिकार और राष्ट्रपति द्वारा संबंधित राज्य विधानसभाओं की राय माँगी जाती है।\n- अनुच्छेद 4: अनुच्छेद 2 और 3 के तहत पारित विधियों के संबंध में तकनीकी प्रावधान — वे विधियाँ संसद के समक्ष प्रस्तुत की जाएँ और प्रथम/चतुर्थ अनुसूचियों में आवश्यक संशोधन हो सकते हैं।\n- भाग I संघ के निरन्तर अस्तित्व (indestructible union) और केंद्र द्वारा राज्यों के सीमों/स्थिति में परिवर्तन के संवैधानिक साधनों को सुनिश्चित करता है।\n- इन अनुच्छेदों के अनुसार राज्य-निर्माण और सीमांत संशोधन का प्रमुख नियंत्रण संसद के पास है, जिससे केंद्र-संघ संबंधों का रूप निर्धारित होता है।\n- अनुच्छेद 1–4 का ज्ञान MPPSC प्रीलिम्स के लिए सीधा तथ्यात्मक प्रश्न-स्रोत है और मेन्स उत्तर में \"संघात्मक ढाँचा, राज्यों की प्रावस्था और संसद की भूमिका\" को बिंदुवार व्याख्यायित करने के लिए उपयोगी है।\n- उत्तर लेखन में उपयोगी की-फैक्ट्स: दायरा (1–4), विषय (Union & its Territories), मुख्य प्रावधान — प्रवेश/स्थापना (Art.2), सीमाएँ/विभाजन/नाम (Art.3), लागू विधियों के तकनीकी प्रावधान (Art.4)।", "priority_tag": "VERY_HIGH"}, {"question": "नागरिकता से संबंधित प्रावधान संविधान के किस भाग में और किन अनुच्छेदों में हैं?", "options": ["भाग II; अनुच्छेद 5–11", "भाग III; अनुच्छेद 12–35", "भाग IV; अनुच्छेद 36–51", "भाग V; अनुच्छेद 52–71"], "answer_index": 0, "explanation": "# व्याख्या — नागरिकता के प्रावधान (भाग II, अनु. 5–11)\n- संविधान में नागरिकता से संबंधित समग्र प्रावधान **भाग II (Citizenship)** में दिये गए हैं, जिनके अनुच्छेद **5 से 11** तक निर्धारित हैं।\n- **अनुच्छेद 5**: संविधान के लागू होने के समय (Commencement) भारतीय नागरिकता के प्रारम्भिक मापदण्ड — कौन‑कौन व्यक्ति संविधान लागू होते ही भारतीय नागरिक माने जायेंगे — को परिभाषित करता है (आधार: स्थान‑निवास/रहना)।\n- **अनुच्छेद 6**: भारत के किसी भाग में निहित निवास के आधार पर संविधान लागू होते समय पाकिस्तान से आकर बसे हुए लोगों की नागरिकता के विशेष नियम देता है।\n- **अनुच्छेद 7**: पाकिस्तान चले गये किन्हीं व्यक्तियों के किन परिस्थितियों में संविधान लागू होने पर भारतीय नागरिकता नहीं मानी जाएगी, इसका निर्धारण करता है (पुनर्वास/लौटना से संबन्धित शर्तें)।\n- **अनुच्छेद 8**: विदेशी‑प्रदेशों (e.g., विदेश में बसे भारतीय मूल के लोग) में रहने वाले व्यक्तियों के संविधान लागू होने पर नागरिकता के अधिकार निर्दिष्ट करता है।\n- **अनुच्छेद 9**: उस व्यक्ति का वर्णन जो स्वैच्छिक रूप से किसी विदेशी राज्य की नागरिकता ग्रहण कर चुका है — ऐसी स्थिति में भारतीय नागरिकता के संबंध में प्रभाव बताता है।\n- **अनुच्छेद 10**: नागरिकता के सम्बन्ध में सामान्य स्थिति — किसी व्यक्ति के संविधान लागू होने पर नागरिकता की वैधता व उसके प्रभावों का उल्लेख करता है (राष्ट्रीयता की सामान्य धारणा)।\n- **अनुच्छेद 11**: संसद को नागरिकता सम्बन्धी नियम बनाने, संशोधित करने या समाप्त करने का अभिशक्ति देता है — अर्थात् संविधान स्वयं बुनियादी ढाँचा देता है पर विस्तृत व्यवस्था संसद/कानून द्वारा की जाती है (उदा. Citizenship Act, 1955 का संवैधानिक आधार)।\n- भाग II के अनुच्छेदों का प्राथमिक उद्देश्य संविधान लागू होते समय नागरिक‑स्थिति की प्रारम्भिक स्थिति निर्धारित करना और भविष्य में संसद को नागरिकता का विनियमन करने का अधिरक्षण प्रदान करना है।\n- परीक्षात्मक उच्चारण: भाग II = Citizenship; प्रमुख अनुच्छेद = 5–11; और संसदीय अधिवाधिकार (Article 11) को ध्यान में रखते हुए नागरिकता से सम्बंधित विस्तृत नियम व संशोधन कानूनी (कानून/अधिनियम) माध्यम से होते हैं — यह बिंदु Prelims व Mains दोनों के लिये उपयोगी है।", "priority_tag": "VERY_HIGH"}, {"question": "मौलिक अधिकार (Fundamental Rights) संविधान के किस भाग व अनुच्छेद समूह में निहित हैं?", "options": ["भाग III; अनुच्छेद 12–35", "भाग IV; अनुच्छेद 36–51", "भाग XIV; अनुच्छेद 308–323", "भाग XX; अनुच्छेद 368–392"], "answer_index": 0, "explanation": "# व्याख्या — मौलिक अधिकार (Part III: अनु. 12–35)\n- मौलिक अधिकार संविधान के **भाग III (Part III)** में निहित हैं और इनके संवैधानिक अनुच्छेद **अनुच्छेद 12 से 35 तक** अंकित हैं।\n- अनुच्छेद 12 मौलिक अधिकारों के लिए \"State\" की परिभाषा देता है — इसमें केंद्र, राज्य, स्थानीय प्राधिकरण और संवैधानिक/कानूनी संस्थाएँ शामिल हैं।\n- अनुच्छेद 14 से 18 तक 'समानता' संबंधित अधिकार हैं (समानता का समानात्मक लाभ, भेदभाव निषेध और अलग-अलग उपबंधों पर प्रतिबंध)।\n- अनुच्छेद 19 व्यक्तिगत स्वतंत्रताओं का समूह देता है (विचार, अभिव्यक्ति, सभा, संघ, आवागमन, निवास और व्यवसाय की स्वतंत्रता) — ये स्वतंत्रताएँ विशिष्ट वैधानिक/न्यायिक सीमाओं के अधीन हैं।\n- अनुच्छेद 20–22 आपराधिक न्याय प्रक्रिया एवं गिरफ्तारी/निर्वासन के विरुद्ध सुरक्षा प्रदान करते हैं ( retrospective penal laws पर प्रतिबंध, दण्ड और प्रक्रिया-संबंधी सुरक्षा)।\n- अनुच्छेद 23 और 24 मानवतावादी सुरक्षा देते हैं (बल प्रयोग/मानव तस्करी निषेध; बच्चों के प्रति दुरुपयोग/श्रम पर रोक)।\n- अनुच्छेद 25–28 धार्मिक स्वतंत्रताओं से संबंधित हैं (व्यक्ति की धार्मिक स्वतंत्रता, धार्मिक संस्थाओं का संरक्षण और राज्य के धर्मनिरपेक्ष कर्तव्य के कुछ प्रावधान)।\n- अनुच्छेद 29–30 संस्कृति एवं शिक्षा के अधिकार देते हैं (अल्पसंख्यक समुदायों के सांस्कृतिक और शैक्षिक अधिकारों का संरक्षण)।\n- अनुच्छेद 32 मौलिक अधिकारों की रक्षा हेतु \"संवैधानिक उपचार\" का अधिकार प्रदान करता है — सर्वोच्च न्यायालय को हस्तक्षेप के लिए प्रत्यक्ष अधिकार देता है।\n- अनुच्छेद 33–35 विशेष परिस्थितियों में संसद/कानून द्वारा संशोधनों और सीमाओं का प्रावधान और इनके लागू करने के लिए विधायी शक्ति/प्रतिबंधों का प्रावधान करते हैं (सेना/कानून-व्यवस्था व आपातकाल के संबंध)।\n- मौलिक अधिकार न्यायिक रूप से सिर्फiciable हैं — अदालतें इनके उल्लंघन पर वैधानिक उपाय और हर्जाना उपलब्ध करा सकतीं; परंतु प्रत्येक अधिकार पर वैधानिक/सार्वजनिक हित के आधार पर 'न्यायोचित सीमाएँ' लग सकती हैं।\n- ऐतिहासिक रूप से \"अधिकार संपत्ति\" पहले मौलिक अधिकारों में था पर संवैधानिक संशोधनों के बाद वह मौलिक अधिकार सूची से हट चुका है; इसलिए वर्तमान संदर्भ में मौलिक अधिकारों की सूची में अनु.12–35 का ही उल्लेख मान्य है।\n(उपरोक्त बिंदु सीधे परीक्षात्मक तथ्य हैं; प्रीलिम्स में अनुच्छेद सीमा और पार्ट के नाम याद रखें, मेन्स उत्तर में उपयुक्त अनुच्छेद/धारा का सीधा संदर्भ दें।)", "priority_tag": "VERY_HIGH"}, {"question": "निर्देशक सिद्धांत (Directive Principles of State Policy) संविधान के किस भाग व अनुच्छेदों में स्थापित हैं?", "options": ["भाग IV; अनुच्छेद 36–51", "भाग III; अनुच्छेद 12–35", "भाग VI; अनुच्छेद 152–237", "भाग XXI; अनुच्छेद 369–392"], "answer_index": 0, "explanation": "# व्याख्या — निर्देशक सिद्धांत (Directive Principles of State Policy)\n- निर्देशक सिद्धांत भारतीय संविधान के **भाग IV** में स्थापित हैं और इन्हें संविधान में **अनुच्छेद 36–51** के रूप में क्रमबद्ध किया गया है।\n- **अनुच्छेद 36** में निर्देशक सिद्धांतों की परिभाषा और उनके दायरे का संकेत दिया गया है (ये नीति-निर्देश हैं जिन्हें राज्य को पालन करना है)।\n- **अनुच्छेद 37** स्पष्ट करता है कि निर्देशक सिद्धांतों का पालन करना राज्य के लिए मार्गदर्शक व अनिवार्य नैतिक दायित्व है, परन्तु ये न्यायालयों में लागू‑प्रवर्तनीय (justiciable) नहीं हैं।\n- भाग IV के अनुच्छेदों में सामाजिक और आर्थिक कल्याण, सामाजिक न्याय, ग्रामीण विकास (पंचायत), श्रमिकों का हित, शिक्षा और सार्वजनिक स्वास्थ्य जैसे नीति‑निर्देश शामिल हैं (केंद्र एवं राज्य दोनों के लिए राज्यनीति के लक्ष्‍य तय करते हैं)।\n- अनुच्छेद 38–46 वर्गीय व क्षेत्रीय कल्याण, समान आर्थिक अवसर, कमजोर वर्गों के लिए विशेष प्रावधान तथा मातृत्व व श्रमिक कल्याण से संबंधित नीतियाँ निर्दिष्ट करते हैं।\n- अनुच्छेद 47 में सार्वजनिक स्वास्थ्य और पोषण पर बल है; अनुच्छेद 39–39A में न्यायसंगत आर्थिक व्यवस्था और सस्ता कानूनी पहुँच सुनिश्चित करने के निर्देश हैं।\n- अनुच्छेद 40 पंचायतों के सशक्तिकरण का निर्देश देता है; अनुच्छेद 44 सर्वत्र एकात्मक नागरिक संहिता (Uniform Civil Code) के लिए राज्य को प्रोत्साहित करता है।\n- पर्यावरण संरक्षण और ऐतिहासिक स्मारकों की रक्षा जैसे निर्देश अनुच्छेद 48A और अनुच्छेद 49 में दिए गए हैं; न्यायपालिका और कार्यपालिका के पृथक्करण का निर्देश अनुच्छेद 50 में है।\n- अनुच्छेद 51 में भारत की विदेश नीति संबंधी उद्देश्य — शांति, अंतरराष्ट्रीय सहयोग तथा अंतरराष्ट्रीय कानून का सम्मान — को शामिल किया गया है।\n- व्यावहारिक परीक्षा‑नोट: Part IV (Art.36–51) को याद रखें जैसे “राष्ट्र की नीति दिशानिर्देश” — नीतिगत दायित्व, न्यायिक प्रवर्तन नहीं, परंतु राज्य‑नीति एवं कानून निर्माण पर प्रभावी।\n- MP‑मूलक mains उपयोग हेतु बिंदु: ये अनुच्छेद राज्य सरकारों (MP सहित) के लिए कल्याणकारी योजनाओं, ग्राम पंचायती व्यवस्था तथा सामाजिक व आर्थिक न्याय नीतियों के कानूनी और नीतिगत आधार प्रदान करते हैं; उत्तर में इन्हें नीति‑आधारित दायित्व के रूप में सीधा उद्धृत कर के लागू‑कदमों का संक्षिप्त उल्लेख किया जा सकता है।\n- त्वरित रिविजन संकेत: \"भाग IV = निर्देशक सिद्धांत, अनु.36–51; नॉन‑जस्टिसियेबल; सामाजिक‑आर्थिक कल्याण, पंचायती राज, पर्यावरण, विदेश नीति\" — इस एक पंक्ति से परीक्षा में तेज़ पहचान हो जाएगी।", "priority_tag": "VERY_HIGH"}, {"question": "मौलिक कर्तव्य (Fundamental Duties) संविधान में कौन-सा अनुच्छेद है और यह किस भाग का हिस्सा है?", "options": ["अनुच्छेद 51A; भाग IV-A", "अनुच्छेद 44; भाग IV", "अनुच्छेद 21; भाग III", "अनुच्छेद 368; भाग XX"], "answer_index": 0, "explanation": "# व्याख्या: मौलिक कर्तव्य — अनुच्छेद 51A; भाग IV‑A\n- **संदर्भ:** मौलिक कर्तव्य संविधान का अनुच्छेद **51A** में निर्दिष्ट है और यह **भाग IV‑A** (Part IV‑A) का हिस्सा है।\n- **परिचय:** भाग IV‑A को 42वें संवैधानिक संशोधन (1976) में जोड़ा गया था; इसी संशोधन के माध्यम से अनुच्छेद 51A अभिरुचि में आया।\n- **लागू होने वाले व्यक्ति:** मौलिक कर्तव्य केवल \"प्रत्येक नागरिक\" (every citizen) पर लागू होते हैं; अतः ये विदेशी निवासियों पर लागू नहीं होते।\n- **कानूनी स्वभाव:** मौलिक कर्तव्य मौलिक अधिकारों की तरह सीधे न्यायालय में लागू/व्यवहार्य (justiciable) नहीं थे; वे मुख्यतः नैतिक और अनिवार्य दिशानिर्देश के रूप में रखे गए हैं, पर संसद द्वारा कानून बनाकर कुछ कर्तव्यों को लागू भी किया जा सकता है।\n- **उद्देश्य:** इन कर्तव्यों का मुख्य उद्देश्य नागरिकों में राष्ट्रप्रेम, संवैधानिक मूल्यों की रक्षा, सामाजिक अनुशासन और सार्वजनिक हित के प्रति दायित्व की भावना जगाना है।\n- **विषय‑वस्तु (उदाहरणात्मक क्षेत्र):** अनुच्छेद 51A में संविधान की रक्षा, राष्ट्रगान/संघीय संस्थाओं का सम्मान, सार्वजनिक संपत्ति का संरक्षण, पारिस्थितिकी एवं पर्यावरण की रक्षा, वैज्ञानिक भाव व उद्यमिता, सामाजिक सद्भाव आदि जैसे दायित्व शामिल हैं।\n- **विवेचनात्मक उपयोगिता:** न्यायालयों ने मौलिक कर्तव्यों को मौलिक अधिकारों की व्याख्या और सीमाओं को निर्धारित करने में संदर्भ के रूप में उपयोग किया है; यानी वे अधिकारों की सीमाएं तय करने में सहायक स्रोत होते हैं।\n- **कानून निर्माण का आधार:** संसद/राज्य विधानमंडल मौलिक कर्तव्यों के अनुसार व्यवहारिक नियम और दण्डात्मक धाराएँ बनाकर कुछ कर्तव्यों को लागू कर सकते हैं; अतः ये नीतिगत और विधायी निर्देश भी हैं।\n- **पठनीयता परीक्षा‑केन्द्रित संकेत:** MPPSC Prelims/Mains के लिए याद रखें — प्रश्न का शुद्ध factual उत्तर: \"अनुच्छेद 51A; भाग IV‑A\" और परीक्षा में इसका इतिहास (42वां संशोधन, 1976), नागरिक‑केन्द्रित प्रकृति और न्यायालयों में इनके संदर्भित उपयोग को जोड़कर लिखें।\n- **MP‑विशेष उपयोग (Mains उत्तर हेतु बिंदु):** अगर MP‑संदर्भ में लागू करना हो तो राज्य स्तर पर नागरिकों में संवैधानिक शिक्षा, पर्यावरण संरक्षण या लोक सम्पत्ति सुरक्षा हेतु कानून/शिक्षा अभियानों का उल्लेख करते समय अनुच्छेद 51A को सन्दर्भ के रूप में सीधे उद्धृत किया जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "केंद्र तथा राज्य के बीच संबंध (Centre-State Relations) किस भाग और अनुच्छेदों में संकलित हैं?", "options": ["भाग XI; अनुच्छेद 245–263", "भाग XII; अनुच्छेद 264–300A", "भाग X; अनुच्छेद 244–244A", "भाग XIV; अनुच्छेद 308–323"], "answer_index": 0, "explanation": "# भाग XI — केंद्र तथा राज्य के बीच संबंध (अनुच्छेद 245–263) — तेज़ रिविजन व्याक्‍य = VYAKHYA\n- भाग XI का शीर्षक है \"Relations between the Union and the States\" और यह संविधान के अनुच्छेद 245 से 263 तक संकलित है; यह केंद्र-राज्य संबंधों के संवैधानिक ढांचे का सटीक स्रोत है।\n- अनुच्छेद 245–246 केंद्र और राज्यों द्वारा कानून निर्माण की सीमा और शक्तियों का वितरण निर्धारित करते हैं — केंद्रीय सूची, राज्य सूची और समवर्ती सूची की व्याख्या का कानूनी आधार इसी भाग के अंतर्गत आता है।\n- अनुच्छेद 248 इस बात को स्पष्ट करता है कि जो अधिकार संविधान में निरूपित नहीं हैं (residuary powers) वे संसद के पास ही समाहित रहते हैं; अत: नए विषयों पर कानून बनाना संसद का विशेषाधिकार है।\n- समवर्ती सूची में टकराव की स्थिति में अनुच्छेद 254 लागू होता है; यदि राज्य और संसद दोनों ने कानून बनाया हो तो संसद का कानून प्राथमिकता रखता है (मुख्य प्रावधान का संकेत)।\n- अनुच्छेद 245 संविधान की लागू क्षेत्र-सीमाएँ निर्दिष्ट करते हैं — किन क्षेत्रों में संघ या राज्य के कानून लागू होंगे इस भाग में स्पष्ट किया गया है।\n- अनुच्छेद 256–263 प्रशासनिक और कार्यकारी सम्बन्धों (executive relations) से संबंधित हैं — राज्यों को संविधान के अनुरूप अपने कर्तव्यों का पालन करना आवश्यक है और राष्ट्रपति/केंद्र को कुछ परिस्थितियों में हस्तक्षेप का संवैधानिक आधार मिलता है।\n- अनुच्छेद 263 के अंतर्गत अंतर-राज्य परिषद (Inter-State Council) के गठन और समन्वय के संवैधानिक प्रावधानों का स्रोत है, जो राज्यों के बीच और केंद्र-राज्य समन्वय के लिए प्रयोगी निकाय है।\n- इस भाग में अनुच्छेदों के माध्यम से केंद्र द्वारा राष्ट्रहित में राज्यों के विषयों पर कानून बनाने के संवैधानिक प्रावधान (विशेष परिस्थितियाँ) और उनका सीमांकन भी निहित है।\n- प्रशासनिक सहयोग और मंत्रिमंडलीय/कार्यपालिका समन्वय के नियम—जिन्हें राज्य-प्रशासनिक प्रक्रियाओं में लागू करना होता है—उनका संवैधानिक आधार भी अनुच्छेद 245–263 में मिलता है।\n- MP (मध्यप्रदेश) जैसे राज्य के लिए उपयोगी बिंदु: राज्य विधायिका द्वारा बनाए जा रहे कानूनों की वैधता, समवर्ती सूची के मुद्दों पर केन्द्र के कानूनों का प्रभाव, तथा अन्तर-राज्य परिषद के माध्यम से राज्य के हितों का संवैधानिक संरक्षण—ये सभी तर्क सीधे Part XI के अनुच्छेदों से सुसंगत हैं और Mains उत्तर में बिंदुवार उद्धरण के रूप में प्रयुक्त किए जा सकते हैं।\n- परीक्षा हेतु याद रखने योग्य त्वरित सूत्र: \"कानूनी वितरण (245–246), शेष शक्तियाँ संसद की (248), समवर्ती टकराव पर संसद प्राथमिक (254), प्रशासनिक/कार्यकारी सम्बन्ध व समन्वय (256–263), अन्तर-राज्य परिषद (263)।\"", "priority_tag": "HIGH"}, {"question": "संविधान के किस हिस्से में वित्त, संपत्ति और अनुबंध संबंधित प्रावधान हैं?", "options": ["भाग XII; अनुच्छेद 264–300A", "भाग XIII; अनुच्छेद 301–307", "भाग XV; अनुच्छेद 324–329A", "भाग VI; अनुच्छेद 152–237"], "answer_index": 0, "explanation": "# संविधान का भाग XII (अनु. 264–300A) — तेज़ रिविजन व व्याख्या\n- भाग XII संविधान के अनुच्छेद 264–300A को कवर करता है और इसका विषय **वित्त, संपत्ति और अनुबंध** से संबंधित संवैधानिक प्रावधान है।\n- अनुच्छेद 265 के अनुसार **कर केवल कानून के_authority_ से लगाया या वसूला जा सकता है** (\"No tax shall be levied or collected except by authority of law\") — यह कराधान के सिद्धांत को सुनिश्चित करता है।\n- अनुच्छेद 266 में **केंद्र और राज्यों के लिए Consolidated Fund तथा Public Accounts** का उल्लेख है — सभी राजस्व और प्राप्तियाँ पहले इन खातों में जाएँगी।\n- अनुच्छेद 267 के तहत **Contingency Fund** का प्रावधान है, जो आकस्मिक व्यय के लिए आरक्षित होता है और बाद में विधायी मंजूरी पर समायोजित होता है।\n- भाग XII में **राजस्व का वितरण, करों का आवंटन और सीमाएँ** (उदा. अनु. 268–279 के प्रावधानों के अनुरूप) निर्धारित हैं ताकि केन्द्र और राज्यों के वित्तीय अधिकारों का संतुलन बना रहे।\n- अनुच्छेद 280 **Finance Commission** की स्थापना का निर्देश देता है जो संघ और राज्यों के बीच करों के विभाजन तथा अनुदान-नियम निर्धारित करता है।\n- भाग में **उधार/ऋण लेने के नियम** (राज्यों और केंद्र के उधार-हितों संबंधी प्रावधान) और ऋण-सम्बन्धी सीमाएँ शामिल हैं ताकि सार्वजनिक ऋण का विनियमन संभव हो।\n- अनुच्छेद 286 जैसे प्रावधानों के माध्यम से **अंतर-राज्यीय व्यापार/वाणिज्य पर कर लगाने में सीमाएँ** और अन्य कर-सम्बन्धी प्रतिबंध निर्धारित किये गए हैं।\n- अनुच्छेद 300 सरकार के विरुद्ध और सरकार के द्वारा दायर मुकदमों तथा संविदाओं (contracts) से संबंधित **कानूनी प्रावधान** देता है — यह सरकारी संपत्ति व संविदात्मक दायित्वों का कानूनी ढाँचा तय करता है।\n- अनुच्छेद 300‑A ने संविधान में **संपत्ति का संवैधानिक अधिकार (right to property)** दिया है परन्तु इसे अब मौलिक अधिकार नहीं, बल्कि संवैधानिक अधिकार के रूप में परिभाषित किया गया है: “कोई व्यक्ति अपनी संपत्ति से विधि के अनुरूप ही वंचित किया जा सकता है।”\n- परीक्षा और उत्तर‑लेखन के लिए संक्षेप: \"भाग XII = अनु.264–300A ⇒ कराधान की वैधानिकता, Consolidated Fund/Contingency/Public Accounts, राजस्व-विभाजन/Grants, Finance Commission, उधार नियम, कर-सीमाएँ और सरकारी संपत्ति/संविदाएँ एवं अनु.300A द्वारा संपत्ति का संवैधानिक (पर न कि मौलिक) अधिकार।\"", "priority_tag": "HIGH"}, {"question": "संविधान के अनुसार राष्ट्रपति का पद किस भाग में और किन अनुच्छेदों द्वारा विनियमित है?", "options": ["भाग V; अनुच्छेद 52–78", "भाग V; अनुच्छेद 124–147", "भाग VI; अनुच्छेद 153–167", "भाग XVIII; अनुच्छेद 352–360"], "answer_index": 0, "explanation": "# संविधान के भाग व अनुच्छेद — राष्ट्रपति (त्वरित, परीक्षा-उन्मुख व्याख्या)\n- भाग V में राष्ट्रपति का प्रावधान है; संविधान के अनुच्छेद **52–78** राष्ट्रपति और केन्द्र प्रशासन से संबंधित मूल विनियम निर्धारित करते हैं।\n- अनुच्छेद **52** में राष्ट्रपति के पद की स्थापना का संवैधानिक प्रावधान दिया गया है।\n- अनुच्छेद **53** राष्ट्रपति को संवैधानिक रूप से सृष्टि-व्यवहारिक (executive) शक्तियाँ किस प्रकार दी गयीं हैं, उसका रूपरेखा बताता है।\n- राष्ट्रपति का चयन और निर्वाचन से संबंधित मूल प्रावधान अनुच्छेद **54–55** में दिये गए हैं (निर्वाचन मंडल, मतगणना आदि की रूपरेखा)।\n- राष्ट्रपति का पदकाल और उसके समाप्ति/नवीनीकरण के प्रावधान मुख्यतः अनुच्छेद **56–57** में संक्षेपित हैं।\n- राष्ट्रपति की नियुक्ति के लिए योग्यता और अर्हता का विवरण अनुच्छेद **58** में मौजूद है (वोटदाता/नागरिकता/आयु जैसे मानदंड)।\n- राष्ट्रपति शपथ/संघोषना का संवैधानिक नियम अनुच्छेद **60** में दिया गया है; शपथ के बिना कार्य सुरु नहीं होता।\n- राष्ट्रपति की हटाने की संवैधानिक प्रक्रिया (इम्पीचमेंट) अनुच्छेद **61** में निर्दिष्ट है; यह संसदीय प्रक्रिया कारगर बनाती है।\n- अनुच्छेद **72** राष्ट्रपति को क्षमा, दया और माफी (pardon, reprieve, respite, remission) प्रदान करने का केन्द्रशासित दंड निवारण अधिकार देता है।\n- अनुच्छेद **74–75** राष्ट्रपति और प्रधानमंत्री/मंत्रिमंडल के संबंध, मंत्रियों की नियुक्ति तथा उनके संवैधानिक स्थान—कार्यकारिणी के शासन-व्यवहार की रूपरेखा प्रस्तुत करते हैं।\n- अनुच्छेद **77–78** में सरकार के व्यवसाय के संचालन और प्रधानमंत्री की संवैधानिक जिम्मेदारियों के बारे में रेखांकन है (कार्यवाही, सूचना देना आदि)।\n- कुल मिलाकर अनुच्छेद 52–78 राष्ट्रपति के पद की स्थापना, निर्वाचन, पदकाल, योग्यता, शपथ, कार्यकारी शक्तियाँ, मंत्रिमंडल के साथ सम्बन्ध और हटाने/क्षमा के प्रावधानों का समष्टिगत ढांचा देते हैं — यह MPPSC प्रीलिम्स के लिये मुख्य तथ्यात्मक संदर्भ है।", "priority_tag": "VERY_HIGH"}, {"question": "उच्चतम न्यायालय (Supreme Court) के सम्बन्ध में प्रावधान संविधान के किस भाग और अनुच्छेदों में हैं?", "options": ["भाग V (Chapter IV); अनुच्छेद 124–147", "भाग VI (Chapter V); अनुच्छेद 214–231", "भाग XIV; अनुच्छेद 308–323", "भाग III; अनुच्छेद 32–35"], "answer_index": 0, "explanation": "# व्याख्या — उच्चतम न्यायालय: भाग V (Chapter IV), अनुच्छेद 124–147\n- संविधान का भाग V, अध्याय IV (अनु.124–147) सीधे उच्चतम न्यायालय (Supreme Court) की संवैधानिक व्यवस्ता का प्रावधान देता है।\n- इन अनुच्छेदों में सर्वोच्च न्यायालय की स्थापना और उसका आधिकारिक स्थान (सीट) निर्धारित करने का प्रावधान शामिल है।\n- अनुच्छेदों में न्यायाधीशों की नियुक्ति के मूल सिद्धांत दिए गए हैं: राष्ट्रपति द्वारा नियुक्ति और आवश्यक परामर्श का संवैधानिक प्रावधान।\n- उच्चतम न्यायालय के न्यायाधीशों के लिए योग्यता और शर्तें (कार्यकाल/आयु सीमा) और शपथ/प्रतिज्ञा से संबंधित व्यवस्था इन अनुच्छेदों में है।\n- न्यायाधीशों के विरुद्ध अनुशासन/हटाने (removal) का संवैधानिक प्रावधान—सिद्धांततः संसद द्वारा तय किये जाने वाले उपायों पर आधारित—भी इसी समूह में निर्धारित है।\n- सर्वोच्च न्यायालय की अधिकार-सीमाएँ: मूल (original), अपीलीय (appellate) तथा सलाहकार (advisory) अधिकारों का ढाँचा अनुच्छेदों में निर्धारित है।\n- अनुच्छेद 124–147 के भीतर सुप्रीम कोर्ट को \"कोर्ट ऑफ रिकॉर्ड\" घोषित करने व अपवित्रता/अवमानना पर कार्रवाई के अधिकार का प्रावधान है; निर्णयों की प्रभावशीलता की रूपरेखा भी यहाँ है।\n- सर्वोच्च न्यायालय के आचरण, कार्यप्रणाली और नियम बनाने की शक्तियाँ तथा प्रक्रिया-संबंधी प्रावधान इन्हीं अनुच्छेदों में दिए गए हैं (परीयोजना/रिव्यू से जुड़ी शक्तियाँ भी शामिल)।\n- अनुच्छेदों में न्यायालय की स्वतंत्रता सुनिश्चित करने के लिये न्यायाधीशों के वेतन, भत्ते और सेवा-शर्तों की संवैधानिक सुरक्षा का प्रावधान है।\n- इन अनुच्छेदों का महत्व परीक्षा और प्रशासनिक उत्तर लेखन के लिये: सर्वोच्च न्यायालय की संवैधानिक पहचान, अधिकार एवं स्वतंत्रता पर केन्द्रित सीधे और परिभाषित तथ्यों का स्रोत हैं — इन्हें MPPSC Prelims/Mains में सटीक संदर्भ के साथ उद्धृत किया जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "राज्यपाल (Governor) के संबंध में प्रावधान संविधान के किस भाग और अनुच्छेदों में हैं?", "options": ["भाग VI; अनुच्छेद 153–167", "भाग V; अनुच्छेद 52–78", "भाग VIII; अनुच्छेद 239–242", "भाग XIV; अनुच्छेद 300–323"], "answer_index": 0, "explanation": "# व्याख्या — राज्यपाल के प्रावधान (भाग VI; अनु. 153–167)\n- संविधान के भाग VI (Articles 153–167) में राज्यपाल से संबंधित समस्त संवैधानिक प्रावधान संकलित हैं।\n- अनु.153: प्रत्येक राज्य के लिए राज्यपाल की व्यवस्था करने का औपचारिक प्रावधान यही भाग प्रारम्भ करता है।\n- इन अनुच्छेदों में राज्यपाल के **नियुक्ति और पद** से जुड़े मूल नियम दिए गए हैं (कौन नियुक्त करता है, अवधि व स्थितियाँ)।\n- भाग में राज्यपाल के **कार्यादेश/कार्यकारिणी शक्ति** (State executive powers) और उन शक्तियों के प्रयोग के सामान्य ढाँचे का विवरण शामिल है।\n- राज्यपाल के **कार्यभार ग्रहण करने के लिए शपथ/कसम** के संदर्भ में प्रावधान भी इसी अनुच्छेद शृंखला में आते हैं।\n- भाग VI में राज्यपाल और राज्य सरकार (Council of Ministers) के बीच **'आदाय-ए-सलाह' (aid & advice)** तथा मंत्रियों के संबंधी प्रावधान स्पष्ट किए गए हैं।\n- राज्यपाल के **विशेष (डिस्क्रेशनरी) अधिकारों, सूचनाएँ राष्ट्रपति को भेजने और संवैधानिक परामर्श** की स्थिति के लिए प्रावधान इसी हिस्से में निहित हैं।\n- राज्यपाल को दिए गए **कृपापूर्ण शक्तियाँ** जैसे क्षमादान/माफी तथा दण्ड सम्बन्धी कुछ विशेष अधिकार भी (अनुच्छेदों में) उल्लेखित हैं।\n- भाग में राज्य के **अभियोजन व विधायी मामलों में राज्यपाल के सम्बन्ध** (विधेयक संधारण/रिजर्व करने, संदेश देना आदि) से जुड़े नियम सम्मिलित हैं।\n- राज्य सरकार के प्रशासन से सम्बंधित अन्य संवैधानिक नियुक्तियाँ जैसे **एडवोकेट जनरल (Advocate-General)** तथा मंत्रियों के कार्य-प्रवर्तन से जुड़ी व्यवस्थाएँ भी यहीं वर्णित हैं।\n- इसलिए MPPSC जैसी परीक्षाओं में जब पूछा जाए कि \"राज्यपाल के संबंध में प्रावधान किस भाग/अनुच्छेद में हैं\", तो उत्तर स्पष्ट और सीधे: **भाग VI; अनुच्छेद 153–167** देना पर्याप्त और संवैधानिक रूप से सटीक है।", "priority_tag": "HIGH"}, {"question": "आपातकाल (Emergency) संबंधी प्रावधान संविधान के किस भाग में और प्रमुख अनुच्छेद किसके हैं?", "options": ["भाग XVIII; अनुच्छेद 352–360", "भाग XX; अनुच्छेद 368–392", "भाग IV; अनुच्छेद 36–51", "भाग XII; अनुच्छेद 264–300A"], "answer_index": 0, "explanation": "# व्याख्या: आपातकाल संबंधी संवैधानिक प्रावधान — भाग XVIII, अनु. 352–360\n- भाग XVIII (अनुच्छेद 352–360) भारत के संवैधानिक आपातकाल (Emergency) के समग्र प्रावधानों को संगृहीत करता है।\n- अनुच्छेद 352 राष्ट्रीय आपातकाल (Proclamation of Emergency) से संबंधित है; इसका आधार युद्ध, बाहरी आक्रमण अथवा सशस्त्र विद्रोह (armed rebellion) है।\n- अनुच्छेद 353 संसद को राष्ट्रीय आपातकाल के दौरान राज्य-सूची विषयों पर भी विधेयक पास करने और कार्यपालिका शक्तियाँ केन्द्र को और विस्तृत करने का अधिकार देता है।\n- अनुच्छेद 354 संघीय वित्त और संसाधनों पर आपातकाल के प्रभावों का प्रावधान करता है; इसमें केंद्र द्वारा राज्य को अनुदान/वितरण में व्यवस्था करने की शक्ति शामिल है।\n- अनुच्छेद 356 (भाग XVIII के भीतर ही) राज्य में संवैधानिक मशीनरी की विफलता पर राष्ट्रपति शासन (President’s Rule) लगाने का प्रावधान देता है — राज्य की कार्यपालिका केन्द्र के नियंत्रण में आ जाती है।\n- अनुच्छेद 358 और 359 के तहत राष्ट्रीय आपातकाल के दौरान मूलभूत अधिकारों के प्रवर्तन पर निलंबन/प्रतिबंध के प्रावधान हैं; अनुच्छेद 359 विशेष रूप से अधिकारों के प्रवर्तन के निलंबन का प्रावधान करता है।\n- अनुच्छेद 360 वित्तीय आपातकाल (Financial Emergency) के प्रावधान रखता है; इसमें केन्द्र को राज्यों के वित्तीय प्रबंधन में अनूठी शक्ति दी जा सकती है।\n- राष्ट्रपति द्वारा आपातकाल की घोषणा संसद के अनुमोदन के अधीन होती है; घोषणा संसद में प्रस्तुत और समय-सीमा के भीतर स्वीकृति/अनुमोदन पर ही वैधानिक रूप पाती है।\n- इन प्रावधानों पर न्यायिक समीक्षा लागू है—घोषणा की वैधता और उसका आधार न्यायालयों द्वारा परखा जा सकता है तथा संवैधानिक सीमाओं की जांच संभव है।\n- परीक्षा-उपयोग हेतु संक्षेप: “आपातकाल — भाग XVIII; प्रमुख अनु. 352 (राष्ट्रीय), 353–354 (केंद्रिय शक्तियाँ/वित्त), 356 (राष्ट्रपति शासन), 358–359 (मूलभूत अधिकारों पर प्रभाव), 360 (आर्थिक आपातकाल)” — यह लाइन सीधे MCQ/रीविजन और Mains के बिंदु के रूप में उपयोगी है।", "priority_tag": "VERY_HIGH"}, {"question": "संविधान संशोधन की शक्ति किस अनुच्छेद में निहित है?", "options": ["अनुच्छेद 368", "अनुच्छेद 370", "अनुच्छेद 352", "अनुच्छेद 32"], "answer_index": 0, "explanation": "# अनुच्छेद 368 — तेज़ रिविजन मैप (MPPSC Prelims 2026 के लिए)\n- अनुच्छेद 368 संविधान में संविधान संशोधन करने की शक्ति और प्रक्रिया निर्धारित करता है।\n- संशोधन विधेयक संसद में प्रस्तुत होता है और उसे संविधान के अनुच्छेद 368 के तहत पारित करना होता है।\n- सामान्यतः संशोधन के लिए संसद में प्रस्ताव को दोनों सदनों में साधारण बहुमत से अधिक और संसद के सदन-सदस्यों की एक विशेष संख्या के संदर्भ में 'विशेष बहुमत' (सदन में उपस्थित सदस्यों के 2/3 और कुल सदस्य की सामान्य बहुमत नहीं) द्वारा पारित किया जाना आवश्यक है।\n- यदि संशोधन राज्यों के अधिकार, राज्यों का प्रतिनिधित्व, राज्य विधानसभाओं के संबंध, उच्च न्यायालयों के न्यायिक अधिकार क्षेत्र या किसी अन्य सूची में बदलाव से संबंधित है, तो उसे राज्यों की आधी से अधिक विधानसभाओं की स्वीकृति (ratification) भी चाहिए—यह प्रावधान अनुच्छेद 368 में निहित है।\n- संशोधन विधेयक को पारित करने के बाद राष्ट्रपति की अनुमोदन आवश्यक है; राष्ट्रपति अनुमोदन के पश्चात ही संशोधन संविधान का भाग बनता है।\n- सुप्रीम कोर्ट ने संविधान संशोधन पर न्यायिक समीक्षा की क्षमता को मान्यता दी है और 'बेसिक स्ट्रक्चर' सिद्धांत के तहत कुछ मौलिक विशेषताओं को संशोधन की पहुँच से बाहर रखा गया है—यह भी अनुच्छेद 368 के दायरे में लागू व्यवहारिक सीमा तय करता है।\n- अनुच्छेद 368 संसद और राज्यों के बीच संशोधन प्रक्रिया में विभाजन को स्पष्ट करता है: कुछ संशोधन केवल संसद के विशेष बहुमत से होंगे, जबकि कुछ के लिए राज्य-स्वीकृति अनिवार्य है।\n- संशोधन के प्रकार और आवश्यक प्रक्रिया की व्याख्या में प्रावधानों का प्रयोग करते हुए एमपी या अन्य राज्य के लिए महत्वपूर्ण है कि कौन से परिवर्तन राज्य के प्रशासन, विधान या प्रतिनिधित्व को प्रभावित करेंगे और इसलिए राज्य विधानसभाओं से स्वीकृति की आवश्यकता होगी।\n- अनुच्छेद 368 का उद्देश्य संवैधानिक अखंडता बनाए रखना और संवैधानिक संशोधनों के लिए एक निश्चित विधिक प्रक्रिया सुनिश्चित करना है ताकि संविधान का संशोधन संवैधानिक संस्थाओं और संघ-राज्य संबंधों के संतुलन के अनुरूप हो।\n- परीक्षा-दृष्टि से याद रखने योग्य: \"संशोधन की शक्ति — अनुच्छेद 368\", इसके तहत पारित प्रक्रिया (पार्लियामेंट स्पेशल मेजरिटी ± राज्य-रैटिफिकेशन), राष्ट्रपति की मंजूरी और सुप्रीम कोर्ट की judicial review/ basic structure सीमा।", "priority_tag": "VERY_HIGH"}, {"question": "लोक सेवा आयोग (Public Service Commission) के सम्बन्ध में प्रावधान किन अनुच्छेदों में हैं?", "options": ["अनुच्छेद 315–323", "अनुच्छेद 308–323", "अनुच्छेद 124–147", "अनुच्छेद 245–263"], "answer_index": 0, "explanation": "# व्याख्या — लोक सेवा आयोग (अनुच्छेद 315–323) — त्वरित रिविजन मैप (MPPSC Prelims & Mains उपयोग के लिए)\n- अनुच्छेद 315 से 323 तक समस्त प्रावधान संविधान में लोक सेवा आयोगों (Union और States) की स्थापना, अधिकार, कर्तव्य एवं सुरक्षा का कानूनी ढाँचा निर्धारित करते हैं।\n- अनुच्छेद 315: संघ और राज्य स्तर पर लोक सेवा आयोगों (UPSC व State PSCs) की संवैधानिक स्थापना की व्यवस्था करता है।\n- अनुच्छेद 316: आयोगों के अध्यक्ष व सदस्यों की नियुक्ति का प्रावधान देता है—राष्ट्रपति (केंद्र) अथवा राज्यपाल (राज्य) द्वारा नियुक्ति तथा उनके कार्यालय के कार्यकाल/मियाद से संबंधित प्रावधान शामिल हैं।\n- अनुच्छेद 317: अध्यक्ष/सदस्य के सेवा-निरस्तीकरण, निलंबन और हटाने के लिए संवैधानिक नियम और प्रक्रिया बताता है; गंभीर आरोपों पर न्यायालय-संदर्भ की आवश्यकता होती है।\n- अनुच्छेद 318: आयोगों के सदस्यों की सेवा शर्तें, वेतन और नियम बनाने का अधिकार (President/Governor द्वारा नियम निर्धारण) देता है; राज्य/केंद्र के अनुसार विनियम बनते हैं।\n- अनुच्छेद 319: पद पर रहते हुए कुछ सरकारी कार्यालय न रखने और सेवा संबंधी प्रतिषेध जैसे सीमाएँ दर्शाता है ताकि आयोग की स्वतंत्रता सुनिश्चित रहे।\n- अनुच्छेद 320: आयोगों के मुख्य कार्य‑क्षेत्र का वर्णन—नियुक्ति के लिए सिफारिशें, भर्ती नीतियाँ, सेवा नियमों पर परामर्श, संवैधानिक पदों पर चयन और अनुशासन संबंधी मामले।\n- अनुच्छेद 321: संसद/राज्य विधानमंडल को आवश्यकतानुसार आयोगों के कार्यों का विस्तार करने का अधिकार प्रदान करता है (कानून द्वारा अतिरिक्त कार्य सौंपे जा सकते हैं)।\n- अनुच्छेद 322: आयोगों की वार्षिक रिपोर्ट प्रस्तुत करने और उसे संबंधित विधानमंडल/परिषद के समक्ष रखवाने के सम्बन्ध में प्रावधान देता है; रिपोर्ट में भर्ती, सिफारिशें व अन्य गतिविधियाँ सम्मिलित होती हैं।\n- अनुच्छेद 323: कुछ मामलों में न्यायालयों की अधिकार-क्षेत्र पर रोक/सीमाएँ निर्धारित करता है, जिससे आयोगों के निर्णायों के कुछ भागों पर प्रत्यक्ष व्यवहार्यता सीमित हो सकती है।\n- वित्तीय स्वतंत्रता—आयोगों के खर्चों की व्यवस्था और वेतन-भत्ते पर संवैधानिक संरक्षण की संस्तुति इन अनुच्छेदों के अर्थ में निहित है ताकि आयोग निष्पक्ष और स्वतंत्र रहें।\n(ये बिंदु सीधे अनुच्छेद 315–323 के मूल ढाँचे एवं प्रासंगिक कार्य‑विधियों को संक्षेप में रेखांकित करते हैं — MPPSC Prelims के लिए तेज रिविजन और Mains में सीधे उद्धृत करने योग्य पॉइंट्स)।", "priority_tag": "HIGH"}, {"question": "कंट्रोलर और महालेखा परीक्षक (Comptroller and Auditor General) का प्रावधान संविधान के किस अनुच्छेद में है?", "options": ["अनुच्छेद 148–151", "अनुच्छेद 132–137", "अनुच्छेद 210–215", "अनुच्छेद 315–319"], "answer_index": 0, "explanation": "# व्याख्या — अनुच्छेद 148–151 (Comptroller and Auditor General) — त्वरित रिविजन नोट\n- अनुच्छेद 148 संविधान में Comptroller and Auditor-General (CAG) के कार्यालय की स्थापना का संवैधानिक प्रावधान है; CAG राष्ट्र के मुख्य लेखा परीक्षक होते हैं।\n- CAG की नियुक्ति राष्ट्रपति द्वारा की जाती है और यह संवैधानिक पद होने के कारण स्वतंत्रता और निष्पक्षता सुनिश्चित करने का लक्ष्य रखता है।\n- अनुच्छेद 149 के अंतर्गत CAG के कर्तव्य और अधिकार संसद द्वारा निर्धारित कानून के अनुसार होंगे; मूल रूप से यह संघ और राज्यों के खातों का लेखा-परीक्षण करता है।\n- CAG का कार्य क्षेत्र केंद्रीय और राज्य सरकारों के खातों के अलावा उन सार्वजनिक प्राधिकरणों, निगमों और ऐसे अन्य संस्थानों तक भी विस्तारित हो सकता है जिन्हें वित्तीय सहायता मिलती है या जिनपर सार्वजनिक धन खर्च होता है।\n- अनुच्छेद 150 में संघ और राज्यों के खातों के फॉर्म (Accounts) के संबंध में प्रावधान हैं — अर्थात् खातों का स्वरूप और प्रस्तुति किस प्रकार होगा, इस पर नियम लागू होते हैं।\n- अनुच्छेद 151 के अनुसार CAG अपनी ऑडिट रिपोर्टें राष्ट्रपति के समक्ष प्रस्तुत करता है; राष्ट्रपति इन्हें संसद के समक्ष प्रस्तुत करते हैं ताकि विधायी सत्यापन और निगरानी संभव हो।\n- राज्यों के लिए CAG की रिपोर्टें राज्य के राष्ट्रपति-वासन (Governor) के समक्ष प्रस्तुत होती हैं और वे उन्हें राज्य विधानमंडल के समक्ष प्रस्तुत कराते हैं।\n- CAG के वेतन तथा सेवा-स्थितियाँ संविदान या संसद द्वारा निर्धारित कानून के अनुरूप होती हैं; कई सुविधाएँ वित्तीय स्वायत्तता और संवैधानिक सुरक्षा के लिए चार्जेड फंड्स से जुड़ी होती हैं।\n- CAG की संवैधानिक स्वतंत्रता का अर्थ है कि उनका कार्यालय सरकार के रोज़मर्रा के प्रभाव से मुक्त होकर सार्वजनिक लेखा-परीक्षण कर सके; रिपोर्टों के माध्यम से वे निष्कर्ष और सिफारिशें प्रस्तुत करते हैं।\n- MPPSC/Mains के दृष्टिकोण से प्रमुख बिंदु — (1) नियुक्ति: राष्ट्रपति, (2) कर्तव्य: संघ/राज्य/अन्य सार्वजनिक संस्थाओं के लेखा-परीक्षण, (3) रिपोर्टिंग: राष्ट्रपति/राज्यपाल → संसद/विधानसभा, (4) सेवा-तथा वेतन संवैधानिक/कानूनी प्रावधानों के अधीन।", "priority_tag": "HIGH"}, {"question": "स्थानीय स्वराज्य—पंचायती राज के संवैधानिक प्रावधान किस भाग और अनुच्छेद समूह में हैं?", "options": ["भाग IX; अनुच्छेद 243–243O", "भाग IXA; अनुच्छेद 243P–243ZG", "भाग XIV; अनुच्छेद 308–323", "भाग XI; अनुच्छेद 245–263"], "answer_index": 0, "explanation": "# स्थानीय स्वराज्य—पंचायती राज (Part IX; अनुच्छेद 243–243O) — तेज़ रिविजन व व्याख्या\n- भाग IX संविधान का वह खंड है जो पंचायती राज संस्थाओं को संवैधानिक दर्जा देता है; इसमें अनुच्छेद 243 से 243O तक के प्रावधान सम्मिलित हैं।\n- यह खंड 73वां संवैधानिक संशोधन (1992) के माध्यम से सम्मिलित किया गया था और पंचायती राज को संविधान में सुदृढ़ वैधानिक रूप दिया।\n- संवैधानिक दर्जे से तीन-स्तरीय पंचायत व्यवस्था (ग्राम/ब्लॉक/जनपद या समकक्ष) को मान्यता दी जा सकती है—प्रादेशिक आवश्यकताओं के अनुसार राज्य स्तर पर लागू संरचना निर्धारित होती है।\n- ग्राम सभा का औपचारिक समावेश और उसके अधिकारों का विधान इस भाग के अंतर्गत किया गया है, जिससे सीधे सदस्यों की भागीदारी का संवैधानिक आधार बनता है।\n- आरक्षण: अनुसूचित जाति/अनुसूचित जनजाति के लिये आरक्षण और महिलाओं के लिये न्यूनतम आरक्षण (कम से कम एक-तिहाई) जैसे संवैधानिक प्रावधान इस खंड में दर्ज हैं, ताकि प्रतिनिधित्व सुनिश्चित हो।\n- पंचायती राज संस्थाओं की कार्यकाल अवधि, सदस्यता की योग्यता और निर्वाचित सदस्यों के लिये सामान्य नियम तथा रिक्ति की स्थिति के प्रावधान इसी अनुच्छेद-समूह में तय हैं (आम तौर पर 5 वर्ष के कार्यकाल का प्रावधान)।\n- वित्तीय स्वायत्तता से संबंधित व्यवस्था—राज्य वित्त आयोग की नियुक्ति हेतु प्रावधान और केन्द्र/राज्य से अनुदान, कराधिकार व स्थानीय संसाधनों के उपयोग का संवैधानिक संदर्भ इस खंड से जुड़ा है।\n- चुनावों के संचालन, मतदाता सूची तथा पंचायत चुनावों की तीव्रता पर निगरानी के लिये राज्य चुनाव आयोग का संवैधानिक प्रावधान और उसकी जिम्मेदारियां इस अनुच्छेद-समूह के तहत निर्दिष्ट की गई हैं।\n- न्यायालयों द्वारा पंचायत चुनावी मामलों में हस्तक्षेप पर रोक का विशेष प्रावधान (Article 243O) मौजूद है, ताकि चुनाव संबंधी विवादों का त्वरित निपटारा संवैधानिक रूप से सुनिश्चित हो सके।\n- पंचायतों को सौंपी जाने वाली सेवाएँ और कार्यसूची का मूल निर्देशिका Eleventh Schedule द्वारा दी गई है, जिसे Part IX के प्रावधानों के साथ लागू करके स्थानीय कार्यों का वितरण सुनिश्चित होता है।\n- इन अनुच्छेदों का उद्देश्य स्थानीय स्तर पर लोकतांत्रिक निर्णय-प्रक्रिया, सामाजिक समावेशन, वित्तीय जवाबदेही और पंचायतों की स्वायत्तता को संवैधानिक संरक्षण प्रदान करना है।", "priority_tag": "VERY_HIGH"}, {"question": "नागरिकों को संविधान द्वारा दिए गए मूलभूत अधिकारों में 'समानता का अधिकार' किस अनुच्छेदों से संबंधित है?", "options": ["अनुच्छेद 14–18", "अनुच्छेद 19–22", "अनुच्छेद 21–23", "अनुच्छेद 25–28"], "answer_index": 0, "explanation": "# अनुच्छेद 14–18: समानता के अधिकार — तेज़ रिविजन व व्याख्या (MPPSC Prelims & Mains उपयोग के लिए)\n- ये अनुच्छेद संविधान के भाग III (Fundamental Rights) में आते हैं और नागरिकों के \"समानता का अधिकार\" के मूल कानूनी ढांचे को निर्धारित करते हैं।\n- अनुच्छेद 14: समानता के दो आयाम देता है — \"कानून के समक्ष समानता\" (equality before law) और \"कानून की समान सुरक्षा\" (equal protection of laws)।\n- अनुच्छेद 15: राज्य द्वारा धर्म, नस्ल, जाति, लिंग, जन्मस्थान या किसी इनही आधारों पर भेदभाव करने पर रोक लगाता है; साथ ही सामाजिक व शैक्षिक रूप से पिछड़े वर्गों, अनुसूचित जाति/जनजाति तथा महिलाओं के कल्याण के लिये विशेष प्रावधानों की अनुमति देता है।\n- अनुच्छेद 16: सार्वजनिक नियुक्तियों में समान अवसर का अधिकार सुनिश्चित करता है; इसमें शिक्षा, सेवा तथा पदोन्नति में समानता के सिद्धांत निहित हैं और पिछड़े वर्गों के लिये विशेष भर्तियों (reservation) के मद्देनजर अपवाद भी मानता है।\n- अनुच्छेद 17: अस्पृश्यता (untouchability) को समाप्त करता है और किसी भी रूप में अस्पृश्यता को अपराध घोषित करता है।\n- अनुच्छेद 18: राज्य को सामान्य नागरिकों को किसी विरासतात्मक या उपाधि-आधारित शीर्षक (title) देने से रोकता है; पर पारम्परिक सैन्य/अकादमिक/विज्ञापन-भिन्न योग्यताओं पर आधारित भिन्नताएँ कानून में निर्दिष्ट रूप से व्याख्यायित रहती हैं।\n- अनुच्छेद 15(4)/16(4) जैसी सुविधा-धाराओं के कारण राज्यों (सहित मध्यप्रदेश) को सामाजिक-आर्थिक दृष्टि से पिछड़े वर्गों के लिये शैक्षिक एवं सरकारी नौकरियों में सकारात्मक कार्रवाई करने का संवैधानिक आधार मिलता है।\n- इन अनुच्छेदों की संवैधानिक परिकल्पना का उद्देश्य न केवल औपचारिक समानता देना है बल्कि सामाजिक-आर्थिक असमानताओं को दूर कर वास्तविक समता (substantive equality) को प्रोत्साहित करना भी है।\n- सर्वोच्च न्यायालय व उच्च न्यायालयों की दी गई व्याख्याएँ इन अनुच्छेदों के दायरे व \"समानता\" के सिद्धांतों (जैसे प्रतिस्थापन, सकारात्मक भेदभाव, समानता बनाम समान अवसर) को स्पष्ट करती हैं और प्रशासनिक नीतियों पर मार्गदर्शन देती हैं।\n- Mains के उत्तर में सीधे उपयोग के लिये: \"अनु.14–18—भाग III, समानता के अधिकार; अनु.14 न्यायिक-समानता, अनु.15 भेदभाव निषेध व विशेष प्रावधान, अनु.16 सार्वजनिक नियुक्तियों में समान अवसर, अनु.17 अस्पृश्यता का उन्मूलन, अनु.18 शीर्षकों पर प्रतिबंध\" — इस तरह बिंदुवार उल्लेख प्रभावी रहेगा।", "priority_tag": "VERY_HIGH"}, {"question": "कानूनी उपचार का मूल अधिकार (Right to Constitutional Remedies) और हैबियस कॉर्पस का प्रावधान किस अनुच्छेद में है?", "options": ["अनुच्छेद 32", "अनुच्छेद 21", "अनुच्छेद 19", "अनुच्छेद 226"], "answer_index": 0, "explanation": "# अनुच्छेद 32 — व्याख्या (तेज़ रिविजन / MPPSC उपयोगी बिंदु)\n- **अनुच्छेद 32 संविधान का मूल अधिकार \"न्यायिक उपचार का अधिकार\" प्रदान करता है**; यह विधानिक रूप में व्यक्त है कि व्यक्ति अपने Fundamental Rights के उल्लंघन पर सुप्रीम कोर्ट से उपचार माँग सकता है।\n- **हैबियस कॉर्पस का संरक्षण भी अनुच्छेद 32 के तहत उपलब्ध है**; सुप्रीम कोर्ट किसी भी अवैध हिरासत के विरुद्ध व्यक्तियों की रिहाई का आदेश दे सकती है।\n- **अनुच्छेद 32(1) न्यायिक आदेशों का अधिकार देता है** — सुप्रीम कोर्ट को पास्ट व वर्तमान उल्लंघनों के निवारण के लिए निर्देश/मंडामस/निर्णय जारी करने का अधिकार है।\n- **अनुच्छेद 32(2) में सुप्रीम कोर्ट को विधिक प्रक्रिया का प्रयोग करने का अधिकार दिया गया है**, अर्थात़ कोर्ट अपने प्रावधानों के माध्यम से उपयुक्त सूचनाएँ और आदेश जारी कर सकता है।\n- **अनुच्छेद 32 का संविधान में स्थान महत्वपूर्ण है — इसे \"हृदय\" या \"मूलाधार\" माना गया है**, क्योंकि यह अन्य मौलिक अधिकारों को व्यावहारिक और लागू बनाता है।\n- **हैबियस कॉर्पस का उद्देश्य व्यक्तिगत स्वतंत्रता की रक्षा है**; अनुच्छेद 32 के माध्यम से सुप्रीम कोर्ट यह सुनिश्चित करती है कि कोई भी व्यक्ति बिना कानूनी कारण के हिरासत में न रखा जाए।\n- **अनुच्छेद 32 के तहत दायर रिट/आवेदन सीधे सुप्रीम कोर्ट में जा सकते हैं**, जब मौलिक अधिकारों का उल्लंघन हो — यह त्वरित और प्रभावी राहत का साधन है।\n- **यह प्रावधान संवैधानिक समीक्षा तथा शासन की कार्यवाही पर न्यायिक नियंत्रण का साधन भी है**, जिससे प्रशासनिक दमन के विरुद्ध नागरिकों को न्याय मिलता है।\n- **MPPSC/Mains के उत्तर में उपयोग के लिए शॉर्ट पॉइंट**: \"अनु.32 — मौलिक अधिकारों के उल्लंघन पर सुप्रीम कोर्ट से प्रत्यक्ष उपचार; हैबियस कॉर्पस द्वारा अवैध हिरासत का निवारण।\"\n- **अनुच्छेद 32 का हक़ केवल मौलिक अधिकारों के लिए है**, अतः इसका प्रयोग अन्य संवैधानिक दावों के लिए प्रत्यक्ष रूप से नहीं किया जाता (उल्लंघन का आधार मौलिक अधिकार होना चाहिए)।\n- **नोट — अभ्यास के लिए:** MPPSC में इस विषय पर प्रश्न पूछते समय अनुच्छेद संख्या (32), उपचारों के प्रकार (हैबियस कॉर्पस, मंडामस, हिरासत-रिलीज आदि) और सुप्रीम कोर्ट की भूमिका को संक्षेप में जोड़ें।", "priority_tag": "VERY_HIGH"}, {"question": "संविधान के किस अनुच्छेद में कहा गया है कि यह संसद के द्वारा बदले जाने योग्य है परंतु मूल संरचना सिद्धांत लागू है? (संक्षेप में—संशोधन अधिकार)", "options": ["अनुच्छेद 368", "अनुच्छेद 352", "अनुच्छेद 13", "अनुच्छेद 32"], "answer_index": 0, "explanation": "# व्याख्या — अनुच्छेद 368 (संशोधन अधिकार) — तेज़ रिविजन मैप\n- अनुच्छेद 368 संसद को संविधान में संशोधन करने का विधिक अधिकार देता है — संशोधन जोड़ने, बदलने या हटाने के लिए प्रक्रिया निर्धारित करता है।\n- संशोधन विधेयक दोनों सदनों में पारित होना चाहिए: \"विशेष बहुमत\" — मतलब कुल सदस्यता का साधारण बहुमत तथा उपस्थित वोट देने वालों में दो-तिहाई मत।\n- कुछ संवैधानिक प्रावधानों के संशोधन के लिए राज्य विधानसभाओं के अनुमोदन की भी आवश्यकता है; यह सूची अनुच्छेद 368(2) द्वारा परिभाषित प्रावधानों पर लागू होती है।\n- जिन संशोधनों के लिए राज्य अनुमोदन आवश्यक है, उनमें संघ-राज्य संबंध, राष्ट्रपति चुनाव आदि से जुड़े संवैधानिक विषय शामिल हैं (अनुच्छेद 368(2) में निर्दिष्ट)।\n- संशोधन विधेयक पारित होने के बाद राष्ट्रपति की स्वीकृति की प्रक्रिया अपनाई जाती है और फिर संशोधन का अंकन होता है।\n- सुप्रीम कोर्ट ने केशवनंद भारती (1973) आदि समाधानों में कहा कि संसद का संशोधन अधिकार सीमित है — संविधान की \"मूल संरचना\" (basic structure) को नष्ट नहीं किया जा सकता।\n- \"मूल संरचना\" का सिद्धांत स्पष्ट करता है कि कुछ मौलिक तत्व — जैसे संघीयता, न्यायपालिका की स्वतंत्रता, संवैधानिक न्यायिक समीक्षा, लोकतांत्रिक संविधानिक ढांचा — संशोधन के द्वारा नष्ट नहीं किए जा सकते।\n- अतः अनुच्छेद 368 संसद को व्यापक संशोधन शक्ति देता है, परन्तु यह शक्ति न्यायिक समीक्षा के तहत नहीं होती कि वह संविधान की मूल संरचना को नकार दे।\n- संशोधन की प्रकृति: यह विधिक रूप से संविधान के किसी भी भाग, अनुच्छेद, तालिका या अनुच्छेदन में परिवर्तनों के लिए प्रयोज्य है (या तो जोड़, परिवर्धन या रद्दीकरण)।\n- कार्यपालिका/न्यायपालिका से संबंधित विवादों में भी अनुच्छेद 368 के तहत लाए गए संशोधनों की वैधता पर सर्वोच्च न्यायालय ने अनेक मामलों में निर्णय दिए हैं (उदा. केशवनंद, मिनर्वा मिल्स, I.R. Coelho) — परीक्षा में उदाहरण के तौर पर संक्षेप में उल्लेख उपयोगी होगा।\n- परीक्षा के नजरिए से त्वरित संकेत: अनुच्छेद 368 = संशोधन प्रक्रिया; पारित करने का विशेष बहुमत + कुछ मामलों में राज्य-निगम (रीटिफिकेशन); परंतु \"बेसिक स्ट्रक्चर\" के तहत न्यायिक प्रतिबंध लागू।", "priority_tag": "VERY_HIGH"}, {"question": "वाणिज्य, व्यापार एवं संपर्क से संबंधित प्रावधान संविधान के किस भाग में हैं?", "options": ["भाग XIII; अनुच्छेद 301–307", "भाग XII; अनुच्छेद 264–300A", "भाग XI; अनुच्छेद 245–263", "भाग X; अनुच्छेद 244–244A"], "answer_index": 0, "explanation": "# व्याख्या: भाग XIII — वाणिज्य, व्यापार एवं संपर्क (अनु. 301–307)\n- **भाग XIII का विषय**: संविधान का भाग XIII विशेष रूप से “वाणिज्य, व्यापार और संपर्क” (Trade, Commerce and Intercourse) से संबंधित प्रावधान समाहित करता है और इसका मुख्य उद्देश्य राज्यों के बीच निर्वाध आर्थिक एकता बनाए रखना है।\n- **अनुच्छेद 301 (मौलिक रूप)**: यह संविधान में राज्यों के बीच वाणिज्य, व्यापार और संपर्क की स्वतंत्रता का सामान्य सिद्धांत सुनिश्चित करता है — “भारत के भीतर व्यापार, वाणिज्य व संपर्क की स्वतंत्रता” का संरक्षण।\n- **अनुच्छेद 301 की सीमा**: इस स्वतंत्रता पर पूरी तरह से प्रतिबंध नहीं है; अनुच्छेद 301 को संविधान के अन्य प्रावधानों व वैध प्रतिबंधों के अधीन माना जाता है।\n- **अनुच्छेद 302 (केंद्र का अधिकार)**: संसद को राज्यों के बीच वाणिज्य पर प्रतिबंध लगाने का अधिकार तब मिलता है जब वह राष्ट्रहित के कारण आवश्यक समझे — अर्थात केंद्रीय कानून द्वारा सीमाएँ लगाई जा सकती हैं।\n- **अनुच्छेद 303 (भेदभाव व प्राथमिकता पर रोक)**: यह प्रावधान बताता है कि संसद या राज्य विधानमंडल ऐसे कानून नहीं बना सकते जो किसी राज्य/क्षेत्र को अन्य पर अनुचित प्राथमिकता दें; राज्य-आधारित भेदभाव व वरीयता पर रोक है।\n- **अनुच्छेद 304 (राज्य की सीमित शक्ति और सुरक्षा)**: राज्य विधानसभाओं को सार्वजनिक हित में कुछ सीमित और युक्तियुक्त प्रतिबंध लगाने की शक्ति दी गई है; पर यह शक्ति संवैधानिक शर्तों व केंद्र/राष्ट्रपति की अनुमोदन/समीक्षा से जुड़ी स्थितियों के अधीन हो सकती है।\n- **अनुच्छेद 305 (पूर्व के कानूनों की सुरक्षा)**: संविधान लागू होने से पहले अस्तित्व में रहे कुछ कानूनों और आदेशों को संरक्षण देने का प्रावधान है, ताकि अचानक अस्थिरता न हो; ऐसे “सेव्ड लॉज़” पर विशिष्ट शर्तें लागू हैं।\n- **अनुच्छेद 307 (प्राधिकार नियुक्ति)**: संसद को आवश्यकता होने पर ऐसा प्राधिकरण नियुक्त करने का अधिकार है जो भाग XIII के उद्देश्यों के क्रियान्वयन के लिए आवश्यक या उपयुक्त समझा जाए।\n- **न्यायिक व्याख्या (सार)**: सर्वोच्च न्यायालय ने बार-बार कहा है कि अनु.301-307 की स्वतंत्रता पूर्ण नहीं, बल्कि “न्यायसंगत और आवश्यक” प्रतिबंधों के अधीन है—लोकहित, सुरक्षा, कराधान व नियमन जैसे कारणों से सीमाएँ संविधानगत रूप से वैध मानी गई हैं।\n- **प्रायोगिक महत्व (MPPSC/MP संदर्भ)**: परीक्षा-उपयोगी बिंदु — भाग XIII (अनु.301–307) को याद रखें: यह राज्यों के बीच मुक्त व्यापार का मूल अधिकार देता है; पर केंद्र और राज्यों को वैध, सार्वजनिक-हित आधारित सीमाएँ लगाने के संविधानिक साधन भी देता है; MP जैसे राज्य के लिए यह अर्थपूर्ण है जब राज्य-स्तरीय नियमन और अंतर-राज्यीय व्यापार के मामलों में संविधानिक सीमाओं का हवाला देना हो।\nउपरोक्त बिंदु सीधे अनुच्छेद 301–307 के सिद्धांतों और उनके व्यावहारिक/न्यायिक सीमाओं पर केन्द्रित हैं — इन्हें Prelims MCQ रिविज़न तथा Mains में पॉइंट-बाय-पॉइंट उत्तर देने के लिए उपयोग करें।", "priority_tag": "HIGH"}, {"question": "न्यायिक समीक्षा के सम्बन्ध में संविधान का कौन-सा अनुच्छेद 'कानून' को संवैधानिकता के परीक्षण के लिए परिभाषित करता है?", "options": ["अनुच्छेद 13", "अनुच्छेद 32", "अनुच्छेद 368", "अनुच्छेद 124"], "answer_index": 0, "explanation": "# अनुच्छेद 13 — तेज़ रिविजन मैप (न्यायिक समीक्षा के संदर्भ में)\n- संविधान का अनुच्छेद 13 वह प्रावधान है जो \"कानून\" (law) की परिभाषा दे कर न्यायिक समीक्षा का कानूनी आधार तय करता है।\n- अनुच्छेद 13 का मूल उद्देश्य यह सुनिश्चित करना है कि भाग III (मौलिक अधिकार) के विरुद्ध कोई भी कानून वैध न माना जाए।\n- अनुच्छेद 13(1) के तहत, संविधान लागू होने से पहले लागू सभी ऐसे कानून जो मौलिक अधिकारों के विरुद्ध हैं, अपने विरोधी हिस्से तक शून्य (void) माने जाएंगे।\n- अनुच्छेद 13(2) के अनुसार, राज्य कोई ऐसा नया कानून नहीं बना सकता जो भाग III में दिए मौलिक अधिकारों को हटा या घटा दे; ऐसा कानून भी विरोधी हिस्से तक शून्य होगा।\n- अनुच्छेद 13 “कानून” की व्याख्या करता है — इसमें विधान द्वारा बनाए गए कानून के साथ-साथ अध्यादेश, नियम, विनियम, अधिसूचना, रिवाज आदि शामिल माने जाते हैं (अनुप्रयुक्त प्रावधानों के अनुसार)।\n- इस परिभाषा से न्यायपालिका को यह अधिकार मिलता है कि वह किसी भी प्रकार के नियम/अधिसूचना/रिवाज को भी मौलिक अधिकारों के विरुद्ध पाए जाने पर रद्द कर सके।\n- अनुच्छेद 13 न्यायिक समीक्षा की नींव है: भाग III को सर्वोपरि मानकर अदालतें किसी भी कानून के संवैधानिकता परीक्षण के लिए इसी अनुच्छेद का सहारा लेती हैं।\n- अनुच्छेद 13 का क्षेत्र वही तक सीमित है जहाँ तक भाग III के मौलिक अधिकार लागू होते हैं; अतः इसका प्रभाव मौलिक अधिकारों के संरक्षण पर केंद्रित है।\n- सुप्रीम कोर्ट व उच्च न्यायालयों के संवैधानिक निर्णयों में अनुच्छेद 13 को बार‑बार उद्धृत कर के यह तय किया गया है कि संविधान के साथ असंगत कानून स्वतः अवैध हैं।\n- MP/राज्य संदर्भ में उपयोगी बिंदु: जब भी किसी राज्य विधान या नियम को मौलिक अधिकारों के संदर्भ में परीक्षा में लाना हो, संवैधानिक वैधता जाँच के लिए प्राथमिकतापूर्वक अनुच्छेद 13 का हवाला दिया जा सकता है।\n- तेज़ नोट: अनुच्छेद 13 को याद करते समय तीन बातें याद रखें — (1) भाग III का संरक्षण, (2) \"कानून\" की विस्तृत व्याख्या, और (3) असंगति की स्थिति में कानून का void होना।", "priority_tag": "VERY_HIGH"}, {"question": "प्रशासनिक न्यायाधिकरणों (Administrative Tribunals) का संवैधानिक संदर्भ किन अनुच्छेदों में जोड़ा गया है?", "options": ["अनुच्छेद 323A–323B", "अनुच्छेद 308–309", "अनुच्छेद 315–319", "अनुच्छेद 124–126"], "answer_index": 0, "explanation": "# प्रश्न का संक्षिप्त उत्तर (संविधानिक संदर्भ)\n**उत्तर (कंसेप्ट): अनुच्छेद 323A–323B**\n## तेज़ रिविजन — अनुच्छेद 323A–323B (मुख्य तथ्य)\n- अनुच्छेद **323A** और **323B** को संविधान में **42वाँ संशोधन (1976)** के द्वारा जोड़ा गया था।\n- **अनुच्छेद 323A** संसद को अधिकार देता है कि वह सार्वजनिक सेवाओं/पदों से संबंधित नियुक्ति और सेवा-स्थितियों के विवादों का निपटारा करने के लिए प्रशासनिक न्यायाधिकरण (Administrative Tribunals) स्थापित करने का कानून बना सके।\n- 323A का दायरा विशेषकर **नियुक्ति और सेवा-स्थितियों (recruitment and conditions of service)** तक सीमित है और यह प्रावधान केवल संसद को कानून बनाने का अधिकार देता है (राज्य विधानसभाओं को नहीं)।\n- **अनुच्छेद 323B** संसद तथा राज्य विधानसभाओं — दोनों को कुछ विशिष्ट विषयों पर निपटान के लिए न्यायाधिकरण बनाने का संवैधानिक आधार प्रदान करता है; यानी 323B के तहत केंद्र और राज्यों दोनों कानून बना सकते हैं।\n- 323B के तहत बनाये जाने वाले न्यायाधिकरणों के विषयों में सामान्यतः कर, विदेशी विनिमय, व्यापार-निर्यात/आयात, औद्योगिक/श्रम विवाद आदि जैसे प्रशासनिक/निगमनात्मक मामले आते हैं (विवरण और सीमा कानून में निर्दिष्ट होती है)।\n- दोनों अनुच्छेद यह भी मानते हैं कि इन मामलों में सामान्य दीवानी/फौजदारी अदालतों की **क्षेत्राधिकार को नियमों के अनुसार सीमित या समाप्त** किया जा सकेगा — परंतु यह सब एक क़ानून द्वारा ही तय होगा।\n- सुप्रीम कोर्ट के निर्णय (उदा. L. Chandra Kumar वगैरह) ने स्पष्ट किया कि न्यायाधिकरण बनाए जा सकते हैं पर **हाई कोर्ट व सुप्रीम कोर्ट की संवैधानिक समीक्षा (Articles 226/32 के अंतर्गत)** पूर्णतः समाप्त नहीं की जा सकती; न्यायपालिका की समीक्षा का मूल अधिकार बना रहता है।\n- व्यावहारिक रूप से 323A-323B का उद्देश्य प्रशासनिक मामलों का शीघ्र, विशेषज्ञ और तकनीकी निपटान कराना है ताकि न्यायालयों का बोझ घटे, पर संवैधानिक सन्तुलन और न्यायिक समीक्षा को भी संरक्षित रखना अनिवार्य है।\n- परीक्षा-स्तर पर याद रखने योग्य संक्षेप: **323A = सेवा विवादों हेतु (संसद का अधिकार)**; **323B = अन्य प्रशासनिक/विशेष विषयों हेतु (केंद्र+राज्य दोनों का अधिकार)**; दोनों 42वें संशोधन से आए और दोनों पर न्यायपालिका की समीक्षा लागू रहती है।", "priority_tag": "HIGH"}, {"question": "निर्वाचन से संबंधित प्रमुख संवैधानिक प्रावधान (Election Commission) किस अनुच्छेद से संबंधित हैं?", "options": ["अनुच्छेद 324", "अनुच्छेद 326", "अनुच्छेद 368", "अनुच्छेद 315"], "answer_index": 0, "explanation": "# व्याख्या — अनुच्छेद 324 (निर्वाचन आयोग) — तेज़ रिविजन मैप (MPPSC Prelims & Mains उपयोग के लिए)\n- अनुच्छेद 324 संविधान में निर्वाचनों के लिए की गई प्रमुख व्यवस्था है और यह \"निर्वाचन आयोग\" को संसद व विधानसभाओं तथा राष्ट्रपति/उपराष्ट्रपति के निर्वाचन के संबंध में सुपरीम्प्टेन्डेंस, निर्देशन व नियंत्रण प्रदान करता है।\n- अनुच्छेद 324 के तहत नियुक्त मुख्य निर्वाचन आयुक्त तथा अन्य आयुक्त राष्ट्रपति द्वारा नियुक्त होते हैं; नियुक्ति संवैधानिक अधिकार क्षेत्र में आती है।\n- इस अनुच्छेद के अंतर्गत आयोग को संसद और राज्य विधानसभाओं के निर्वाचन, तथा राष्ट्रपति और उपराष्ट्रपति के निर्वाचन के संचालन की संवैधानिक शक्ति दी गई है।\n- अनुच्छेद 324 यह भी कहता है कि संसद या विधायिका इन शक्तियों के व्यायाम को कानून द्वारा विनियमित कर सकती है (उदा. Representation of the People Acts और चुनाव सम्बन्धी नियम)।\n- मुख्य निर्वाचन आयुक्त को सुरक्षा-परक सेवा-स्थायित्व दिया गया है; हटाने की प्रक्रिया न्यायालयीन भर्त्सना/न्यायिक शुल्क के समान गंभीर प्रक्रिया (संसदीय महाभियोग जैसी) के जरिए ही संभव है — इस वजह से आयोग की संवैधानिक स्वतंत्रता मजबूत रहती है।\n- निर्वाचन आयोग के अधिकारों में मतदाता सूची का रख-रखाव, चुनावी कार्यक्रम निर्धारण, मतदान के नियम बनाना, चुनाव रद्द/दोहराने के आदेश देना, राजनीतिक दलों के पंजीकरण व चुनाव चिन्हों का प्रबंधन शामिल हैं — ये सभी कार्य अनुच्छेद 324 के व्यापक नियंत्रण के दायरे में आते हैं।\n- अनुच्छेद 324 के कार्यों पर न्यायिक समीक्षा लागू होती है; आयोग के निर्णय संवैधानिक दायरे में रहते हुए न्यायालयों द्वारा समीक्षा के अधीन हो सकते हैं।\n- प्रायोगिक दृष्टि से MP के संदर्भ में अनुच्छेद 324 के आधार पर निर्वाचन आयोग मध्यप्रदेश विधान सभा के चुनाव आयोजित व नियंत्रित करता है; वहीं स्थानीय निकायों (पंचायती व नगर निकाय) के चुनावों के लिए अलग राज्य निर्वाचन आयोग (Article 243K/243ZA) लागू होते हैं — इस भेद को स्पष्ट करना Mains उत्तर में उपयोगी है।\n- Mains के लिए उपयोगी बिंदु: अनुच्छेद 324 को उद्धृत करते हुए वर्णन करें — (a) आयोग की संवैधानिक स्थिति व स्वतंत्रता, (b) विधायी विनियमन का स्थान, (c) आयोग द्वारा निर्वाचनीयता/अनिर्वाचनीयता व चुनावी शुद्धि सुनिश्चित करने के उपाय, तथा (d) न्यायिक समीक्षा व संवैधानिक जवाबदेही — ये सब सीधे और सटीक बिंदुओं के रूप में उत्तर में दिए जा सकते हैं।\n- त्वरित रिविजन नॉट: \"अनुच्छेद 324 = निर्वाचन आयोग — सुपरीम्प्टेन्डेंस, निर्देशन, नियंत्रण; नियुक्ति राष्ट्रपति; हटाने में संसदीय सुरक्षा; कार्य: चुनाव आयोजन, मतदाता सूची, पार्टियों के पंजीकरण, मतदान प्रक्रिया; संसद कानून से विनियमन; न्यायिक समीक्षा संभव\" — इसे एक लाइन में याद रखें।", "priority_tag": "VERY_HIGH"}, {"question": "संविधान का वह भाग जिसमें 'विशेष प्रावधान - अनुसूचित जाति/जनजाति' (reservations) संबंधी अनुच्छेद आते हैं, वह कौन-सा है?", "options": ["भाग XVI; अनुच्छेद 330–342", "भाग XIV; अनुच्छेद 308–323", "भाग III; अनुच्छेद 12–35", "भाग XI; अनुच्छेद 245–263"], "answer_index": 0, "explanation": "# भाग XVI (अनुच्छेद 330–342) — तेज़ रिविजन व्याख़्या (केवल अनुसूचित जाति/जनजाति से संबंधित प्रावधान)\n- **भाग XVI का विषय:** संविधान का वह भाग जो \"विशेष प्रावधान\" के अंतर्गत कुछ वर्गों के लिए आरक्षण और सुरक्षा सुनिश्चित करता है — यही भाग अनुसूचित जाति/जनजाति (SC/ST) सम्बन्धी संवैधानिक प्रावधान समाहित करता है।\n- **अनुच्छेद 330:** लोकसभा में अनुसूचित जाति और अनुसूचित जनजाति के लिए आरक्षित सीटों का संवैधानिक प्रावधान सीधे इसी अनुच्छेद में रखा गया है।\n- **अनुच्छेद 332:** राज्य विधानसभाओं में अनुसूचित जाति/जनजाति के लिए आरक्षण की व्यवस्था इसी अनुच्छेद के तहत निर्धारित होती है।\n- **अनुच्छेद 333:** राज्यपाल को कुछ निर्वाचन क्षेत्रों को आरक्षित घोषित करने का अधिकार देता है — यानी किन निर्वाचन क्षेत्रों को SC/ST के लिए रिज़र्व करना है, यह व्यवस्थापन इसी अनुच्छेद से जुड़ा है।\n- **अनुच्छेद 334:** आरक्षण की समयसीमा और उसकी अवधि (आदि प्रारम्भिक निहितार्थ — आरक्षण कब तक लागू रहेगा, मूलरूप से समाप्ति की शर्तें) का संवैधानिक ढाँचा इसी अनुच्छेद में निहित है।\n- **अनुच्छेद 335:** सरकारी सेवाओं और पदों में SC/ST के दावों और प्रशासनिक दक्षता के संतुलन के सम्बन्ध में निर्देश देता है — अर्थात आरक्षण लागू करते समय प्रशासनिक दक्षता पर ध्यान।\n- **अनुच्छेद 338–342:** अनुसूचित जाति/जनजाति के संवैधानिक संरक्षण, निगरानी और परामर्श के लिए आयोगों तथा अन्य विशेष प्रावधानों का ढाँचा इन्हीं अनुच्छेदों में रखा गया है (SC/ST से संबंधित संरक्षणात्मक संस्थागत प्रावधान)।\n- **व्यावहारिक उपयोग (Prelims/Mains):** जब प्रश्न विशेष रूप से \"आरक्षण (SC/ST) संबंधित संवैधानिक अनुच्छेद\" पूछे, तो उत्तर में स्पष्ट लिखें — भाग XVI; अनुच्छेद 330–342 — और आवश्यकतानुसार लोकसभा/राज्य सभा आरक्षण (330/332), आरक्षण-निर्देशन (333), अवधि (334), और सेवाओं/आयोग (335, 338–342) पर संक्षेप बिंदु दें।\n- **टिप फॉर रिविजन:** परीक्षा नोट में तुरंत याद रखने हेतु — \"भाग XVI = विशेष प्रावधान (330–342): लोकसभा-राज्यसभा आरक्षण, आरक्षित निर्वाचन क्षेत्र, अवधि/समाप्ति, प्रशासनिक और आयोगीय सुरक्षा\" — ऐसे कीवर्ड से तेज़ रिविजन संभव है।", "priority_tag": "HIGH"}, {"question": "संविधान का कौन-सा भाग और अनुच्छेद 'अस्थायी, संक्रमणकालीन और विशेष प्रावधान' (Temporary, Transitional and Special Provisions) को समेटता है?", "options": ["भाग XXI; अनुच्छेद 369–392", "भाग XX; अनुच्छेद 368", "भाग VIII; अनुच्छेद 239–242", "भाग XII; अनुच्छेद 264–300A"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "संविधान के किस भाग में 'शॉर्ट टाइटल, आरंभ और लागू होने की तारीख' (Short title, commencement, etc.) प्रावधान होते हैं?", "options": ["भाग XXII; अनुच्छेद 393–395", "भाग XXI; अनुच्छेद 369–392", "भाग XX; अनुच्छेद 368", "भाग I; अनुच्छेद 1–4"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "हाई कोर्टों के सम्बन्ध में संविधान का प्रावधान किस भाग व अनुच्छेदों में है?", "options": ["भाग VI (Chapter V); अनुच्छेद 214–231", "भाग V; अनुच्छेद 124–147", "भाग XIV; अनुच्छेद 308–323", "भाग VIII; अनुच्छेद 239–242"], "answer_index": 0, "explanation": "# व्याख्या: हाई कोर्ट — संविधानिक प्रावधान (भाग VI, Chapter V; अनु. 214–231)\n- अनुच्छेद 214 से 231 तक संविधान में हाई कोर्टों की स्थापना, संरचना और उनसे सम्बंधित मूल नियम दिए गए हैं।\n- अनु.214 स्पष्ट करता है कि प्रत्येक राज्य के लिए एक हाई कोर्ट होगा; संशोधन/विशेष व्यवस्थाएँ भी इन प्रावधानों में संभव हैं।\n- अनु.215 हाई कोर्ट के सम्‍न्याय (contempt of court) से संबंधित संवैधानिक प्रावधानों का उल्लेख करता है।\n- अनु.216–217 श्रेणी के प्रावधानों के अंतर्गत हाई कोर्ट के न्यायधीशों की संख्या, नियुक्ति और योग्यता (न्यायिक पद या कानूनी अभ्यास का अनुभव) का विनियमन आता है।\n- नियुक्ति राष्ट्रपति द्वारा की जाती है और इसमें मुख्य न्यायाधीश और राज्य के राज्यपाल/अन्य संवैधानिक परामर्श शामिल होते हैं — यह क्रम अनुच्छेदों में विनिर्दिष्ट है।\n- अनु.224 और संबंधित प्रावधान अतिरिक्त, अस्थायी या एक्टिंग न्यायधीशों की व्यवस्था करते हैं ताकि न्यायिक कार्यभार को संवैधानिक तरीके से संभाला जा सके।\n- हाई कोर्ट के न्यायाधीशों की सेवानिवृत्ति की आयु 62 वर्ष है; सेवाओं की शर्तें और तनख्वाह संवैधानिक प्रावधानों के तहत सुरक्षित और विनियमित हैं।\n- राज्य के लिए हाई कोर्ट का संवैधानिक दायित्व मूल (original), अपीलीय (appellate) और पर्यवेक्षी (supervisory) न्याय देने का है; यह अधिकार और सीमाएँ संबंधित अनुच्छेदों में व्यक्त हैं।\n- अनुच्छेदों में न्यायाधीशों के स्थानांतरण (transfer) और कार्यकाल संबंधी प्रक्रियाएँ भी शामिल हैं, जिससे केंद्र और उच्च न्यायालयों के बीच संवैधानिक समन्वय सुनिश्चित होता है।\n- हाई कोर्ट की संवैधानिक स्वतंत्रता, न्यायपालिका का शासन-निष्पक्ष कार्य और राज्य के शासकीय अधिकारों पर न्यायिक नियंत्रण इन अनुच्छेदों के उद्देश्य से जुड़े हैं।\n- परीक्षा एवं मेन्स उत्तर हेतु सीधे बिंदु — “हाई कोर्ट: भाग VI (Chapter V), अनु.214–231 — स्थापना, सम्‍न्याय, न्यायालय संरचना, नियुक्ति/योग्यता, अतिरिक्त/अस्थायी न्यायधीश, स्थानांतरण व सेवानिवृत्ति (62 वर्ष)” — याद रखें।", "priority_tag": "HIGH"}, {"question": "किस अनुच्छेद में कहा गया है कि राज्य का क्षेत्र वह होगा जो संसद के कानून द्वारा निर्धारित होगा—यानी परिसीमन/ क्षेत्र संबंधी शक्तियाँ? (संक्षेप)", "options": ["अनुच्छेद 1", "अनुच्छेद 246", "अनुच्छेद 239", "अनुच्छेद 368"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "कौन सा अनुच्छेद यह निर्धारित करता है कि संसद के कौन से कानून राज्य विधायिका के अधिकार क्षेत्र में आ सकते हैं—विभाजित सूची की व्याख्या के लिए प्रमुख अनुच्छेद कौन सा है?", "options": ["अनुच्छेद 245–255 श्रेणी में संबंध", "अनुच्छेद 32", "अनुच्छेद 51A", "अनुच्छेद 368"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

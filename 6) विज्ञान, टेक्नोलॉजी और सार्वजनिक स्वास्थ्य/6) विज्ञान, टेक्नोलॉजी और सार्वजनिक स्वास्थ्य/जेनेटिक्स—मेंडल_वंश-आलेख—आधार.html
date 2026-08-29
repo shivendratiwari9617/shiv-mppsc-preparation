@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-036 – जेनेटिक्स—मेंडल/वंश-आलेख—आधार</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-036 – जेनेटिक्स—मेंडल/वंश-आलेख—आधार</h1>
+        <div class="note">क्षेत्र: Fundamentals | सामग्री: डोमिनेंट/रिसेसिव/स्वतंत्र वर्गीकरण—MCQ क्लासिक। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 15-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- जेनेटिक्स का मूलभूत आधार मेंडल के नियमों पर टिकी है; *मेंडल का प्रथम नियम (विभाजन)* कहता है कि प्रत्येक जीनीय विशेषता के दो Alleles विभाजित होकर Gametes में अलग होते हैं, उदाहरण-साधारण Pea plant monohybrid cross से 3:1 phenotypic ratio प्राप्त होता और यह Prelims/GS Mains के MCQ व विश्लेषण दोनों के लिए उच्च-उपादेय है।  
+- *MPPSC प्रासंगिकता:* मेंडल/वंश-आलेख के सिद्धान्त जैव-प्रौद्योगिकी, आनुवंशिक सलाह और सार्वजनिक स्वास्थ्य नीति (जैसे ICMR की जन-स्वास्थ्य जीनोमिक्स पहल) के लिए बुनियादी ज्ञान हैं।
+
+## अवधारणा / विज्ञान-आधार
+- मेंडल का दूसरा नियम (स्वतंत्र वर्गीकरण) कहता है कि अलग-अलग लक्षण के Alleles स्वतंत्र रूप से segregate करते हैं; उदाहरण-दिहाइब्रिड cross (AaBb × AaBb) में 9:3:3:1 ratio मिलता है, जो Mendelian independent assortment का प्रत्यक्ष प्रमाण है।  
+- डोमिनेंट व रिसेसिव परिभाषा: डोमिनेंट allele heterozygote (Aa) में phenotype व्यक्त कराता है जबकि recessive allele को homozygous (aa) होना जरूरी है; उदाहरण-विलक्षणता के तौर पर जन्मजात रोग जैसे सिस्टिक फाइब्रोसिस (autosomal recessive) का निदान genotype पर निर्भर करता है।  
+- Punnett square एक मानकीकृत गणितीय उपकरण है; उदाहरण- monohybrid Punnett से genotype ratio 1:2:1 (AA:Aa:aa) निकलता है, जिसका implication breeding experiments और MCQ समाधान में त्वरित गणना है।  
+- Phenotype और genotype का भेद अनिवार्य है; उदाहरण-Blood groups में codominance (AB) का मॉडल दिखता है और इससे transfusion policy व forensic matching प्रभावित होते हैं।  
+- अनुप्रयोगीय अपवाद: linkage (chromosomal linkage) दोनों genes के साथ inherited होने पर independent assortment टूटता है; उदाहरण-T.H. Morgan के Drosophila प्रयोगों से linkage map विकसित हुआ और इससे recombination frequency द्वारा gene mapping संभव हुआ।  
+- अन्य अपवाद: incomplete dominance (Rr में intermediate phenotype) तथा epistasis (एक gene दूसरे के expression को mask करता है) — इनमें MCQ में नियमों का सटीक अनुप्रयोग बदल जाता है और परिणामस्वरूप genetic analysis में अतिरिक्त विचार आवश्यक होते हैं।
+
+## तकनीकी/प्रयोगशाला अनुप्रयोग
+- Genotyping तकनीकें (PCR, gel electrophoresis, sequencing) में Mendelian predictions का empirical testing संभव है; उदाहरण-PCR-based allele detection से carrier screening और ICMR के genetic counselling कार्यक्रमों में उपयोग होता है।  
+- Breeding और अभिजात्य नस्ल विकास में Mendelian principles से trait introgression और heterosis के लिए marker-assisted selection का design होता है; उदाहरण-CSIR/DST समर्थित कृषि-बायोटेक प्रोजेक्ट्स में specific dominant/recessive allele पर selective breeding लागू है।  
+- सार्वजनिक स्वास्थ्य में pedigree analysis व Hardy–Weinberg equilibrium का उपयोग population allele frequency और genetic disease prevalence का अनुमान लगाने हेतु होता है; implication—राज्य/केंद्र स्तर पर screening नीति निर्धारित करने में सहायता मिलती है।
+
+## शैक्षणिक व प्रश्नोत्तर रणनीति (MCQ क्लासिक्स)
+- MCQ में सामान्यतः monohybrid/dihybrid ratio, genotypic-phenotypic inference, और exceptions (linkage/incomplete dominance) से प्रश्न आते हैं; रणनीति—पहले genotype पहचानें (homozygous/heterozygous), फिर Punnett द्वारा progeny distribution निकालें, उदाहरण–F1 × F1 crosses में 3:1 व 9:3:3:1 चेक करें।  
+- केस-आधारित प्रश्नों में pedigree charts पढ़ना सीखें: square-male, circle-female, shaded-affected; उदाहरण-autosomal dominant disorders pedigree में vertical transmission मिलता है जबकि autosomal recessive में horizontal clustering दिखाई देती है।  
+- समयबद्ध टेस्टिंग के लिए micro-facts याद रखें: homozygote/heterozygote definitions, dominance types (complete, incomplete, codominance), linkage causes deviation from 9:3:3:1 — ये facts MCQ में fidelity बढ़ाते हैं।
+
+## नीति / संस्थागत ढाँचा व अनुपालन
+- राष्ट्रीय अनुसरण: आनुवंशिक परीक्षण और counselling के लिए ICMR guidelines व DST/DBT supported research ethics frameworks लागू होते हैं; implication—genetic data की confidentiality और informed consent अनिवार्य हैं।  
+- कृषि क्षेत्र में CSIR/DST सहायता से marker-assisted breeding और GMO शोध चल रहा है; Mendelian understanding से trait introgression की policy-निर्धारण में वैज्ञानिक तर्क मिलता है।  
+- जन-स्वास्थ्य screening कार्यक्रमों में Hardy–Weinberg आधारित prevalence estimation उपयोगी है; उदाहरण—hemoglobinopathies के carrier screening से राज्य-स्तरीय intervention planning संभव है।
+
+## चुनौतियाँ और जोखिम
+- Genetic concepts के oversimplification से misclassification का जोखिम है; उदाहरण-dominant label लगाने मात्र से phenotype expressivity और penetrance को अनदेखा करना गलत नीतिगत निर्णय दे सकता है।  
+- Ethical/social जोखिम: carrier status disclosure से stigmatization का खतरा; implication—ICMR/DST के ethical guidelines के अनुसार confidentiality व counselling जरूरी है।  
+- Pedigree/MCQ में linkage, multiple alleles, polygenic traits व environmental interactions के कारण Mendelian predictions असफल हो सकती हैं; परिणामस्वरूप प्रतियोगी परीक्षाओं में trick questions के लिए तैयार रहना चाहिए।
+
+## समाधान / Way forward
+- शैक्षिक सुधार: NCERT स्तर से ही Mendel के नियमों के साथ exceptions (linkage, epistasis, codominance) के क्लीन चार्ट और Punnett अभ्यास लागू करें; implication—MPPSC उम्मीदवारों का conceptual clarity बढ़ेगा।  
+- नीति-सुझाव: जन-स्वास्थ्य/genetic counselling programs में ICMR के मानदण्डों का कठोर पालन और DST-प्रायोजित जन-शिक्षा अभियानों से genetic literacy बढ़ाएं; दीर्घकाल में genetic testing का समाजिक स्वीकार्यता सुधरेगा।  
+- अनुसंधान-संबंधी पहल: CSIR/DST funded projects में genotype–phenotype correlation और population linkage mapping पर काम बढ़ाएँ ताकि applied breeding और public-health interventions evidence-based हों।
+
+## निष्कर्ष
+- संक्षेप में, Mendelian laws (segregation, independent assortment) और dominance–recessive classification जैव-विज्ञान का आधार हैं; उदाहरणों व exceptions (linkage, incomplete/codominance, epistasis) को समझना MCQ व GS Mains दोनों के लिए अनिवार्य है।  
+- नीति और शिक्षा के समन्वय से genetic testing, counselling व breeding programs को वैज्ञानिक तथा नैतिक रूप से मजबूत किया जा सकता है—परिणामस्वरूप दीर्घकाल में सार्वजनिक स्वास्थ्य व खाद्य सुरक्षा बेहतर होगी।
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-036 – जेनेटिक्स—मेंडल/वंश-आलेख—आधार", "coverage_note": "क्षेत्र: Fundamentals | सामग्री: डोमिनेंट/रिसेसिव/स्वतंत्र वर्गीकरण—MCQ क्लासिक। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n- जेनेटिक्स का मूलभूत आधार मेंडल के नियमों पर टिकी है; *मेंडल का प्रथम नियम (विभाजन)* कहता है कि प्रत्येक जीनीय विशेषता के दो Alleles विभाजित होकर Gametes में अलग होते हैं, उदाहरण-साधारण Pea plant monohybrid cross से 3:1 phenotypic ratio प्राप्त होता और यह Prelims/GS Mains के MCQ व विश्लेषण दोनों के लिए उच्च-उपादेय है।  \n- *MPPSC प्रासंगिकता:* मेंडल/वंश-आलेख के सिद्धान्त जैव-प्रौद्योगिकी, आनुवंशिक सलाह और सार्वजनिक स्वास्थ्य नीति (जैसे ICMR की जन-स्वास्थ्य जीनोमिक्स पहल) के लिए बुनियादी ज्ञान हैं।\n\n## अवधारणा / विज्ञान-आधार\n- मेंडल का दूसरा नियम (स्वतंत्र वर्गीकरण) कहता है कि अलग-अलग लक्षण के Alleles स्वतंत्र रूप से segregate करते हैं; उदाहरण-दिहाइब्रिड cross (AaBb × AaBb) में 9:3:3:1 ratio मिलता है, जो Mendelian independent assortment का प्रत्यक्ष प्रमाण है।  \n- डोमिनेंट व रिसेसिव परिभाषा: डोमिनेंट allele heterozygote (Aa) में phenotype व्यक्त कराता है जबकि recessive allele को homozygous (aa) होना जरूरी है; उदाहरण-विलक्षणता के तौर पर जन्मजात रोग जैसे सिस्टिक फाइब्रोसिस (autosomal recessive) का निदान genotype पर निर्भर करता है।  \n- Punnett square एक मानकीकृत गणितीय उपकरण है; उदाहरण- monohybrid Punnett से genotype ratio 1:2:1 (AA:Aa:aa) निकलता है, जिसका implication breeding experiments और MCQ समाधान में त्वरित गणना है।  \n- Phenotype और genotype का भेद अनिवार्य है; उदाहरण-Blood groups में codominance (AB) का मॉडल दिखता है और इससे transfusion policy व forensic matching प्रभावित होते हैं।  \n- अनुप्रयोगीय अपवाद: linkage (chromosomal linkage) दोनों genes के साथ inherited होने पर independent assortment टूटता है; उदाहरण-T.H. Morgan के Drosophila प्रयोगों से linkage map विकसित हुआ और इससे recombination frequency द्वारा gene mapping संभव हुआ।  \n- अन्य अपवाद: incomplete dominance (Rr में intermediate phenotype) तथा epistasis (एक gene दूसरे के expression को mask करता है) — इनमें MCQ में नियमों का सटीक अनुप्रयोग बदल जाता है और परिणामस्वरूप genetic analysis में अतिरिक्त विचार आवश्यक होते हैं।\n\n## तकनीकी/प्रयोगशाला अनुप्रयोग\n- Genotyping तकनीकें (PCR, gel electrophoresis, sequencing) में Mendelian predictions का empirical testing संभव है; उदाहरण-PCR-based allele detection से carrier screening और ICMR के genetic counselling कार्यक्रमों में उपयोग होता है।  \n- Breeding और अभिजात्य नस्ल विकास में Mendelian principles से trait introgression और heterosis के लिए marker-assisted selection का design होता है; उदाहरण-CSIR/DST समर्थित कृषि-बायोटेक प्रोजेक्ट्स में specific dominant/recessive allele पर selective breeding लागू है।  \n- सार्वजनिक स्वास्थ्य में pedigree analysis व Hardy–Weinberg equilibrium का उपयोग population allele frequency और genetic disease prevalence का अनुमान लगाने हेतु होता है; implication—राज्य/केंद्र स्तर पर screening नीति निर्धारित करने में सहायता मिलती है।\n\n## शैक्षणिक व प्रश्नोत्तर रणनीति (MCQ क्लासिक्स)\n- MCQ में सामान्यतः monohybrid/dihybrid ratio, genotypic-phenotypic inference, और exceptions (linkage/incomplete dominance) से प्रश्न आते हैं; रणनीति—पहले genotype पहचानें (homozygous/heterozygous), फिर Punnett द्वारा progeny distribution निकालें, उदाहरण–F1 × F1 crosses में 3:1 व 9:3:3:1 चेक करें।  \n- केस-आधारित प्रश्नों में pedigree charts पढ़ना सीखें: square-male, circle-female, shaded-affected; उदाहरण-autosomal dominant disorders pedigree में vertical transmission मिलता है जबकि autosomal recessive में horizontal clustering दिखाई देती है।  \n- समयबद्ध टेस्टिंग के लिए micro-facts याद रखें: homozygote/heterozygote definitions, dominance types (complete, incomplete, codominance), linkage causes deviation from 9:3:3:1 — ये facts MCQ में fidelity बढ़ाते हैं।\n\n## नीति / संस्थागत ढाँचा व अनुपालन\n- राष्ट्रीय अनुसरण: आनुवंशिक परीक्षण और counselling के लिए ICMR guidelines व DST/DBT supported research ethics frameworks लागू होते हैं; implication—genetic data की confidentiality और informed consent अनिवार्य हैं।  \n- कृषि क्षेत्र में CSIR/DST सहायता से marker-assisted breeding और GMO शोध चल रहा है; Mendelian understanding से trait introgression की policy-निर्धारण में वैज्ञानिक तर्क मिलता है।  \n- जन-स्वास्थ्य screening कार्यक्रमों में Hardy–Weinberg आधारित prevalence estimation उपयोगी है; उदाहरण—hemoglobinopathies के carrier screening से राज्य-स्तरीय intervention planning संभव है।\n\n## चुनौतियाँ और जोखिम\n- Genetic concepts के oversimplification से misclassification का जोखिम है; उदाहरण-dominant label लगाने मात्र से phenotype expressivity और penetrance को अनदेखा करना गलत नीतिगत निर्णय दे सकता है।  \n- Ethical/social जोखिम: carrier status disclosure से stigmatization का खतरा; implication—ICMR/DST के ethical guidelines के अनुसार confidentiality व counselling जरूरी है।  \n- Pedigree/MCQ में linkage, multiple alleles, polygenic traits व environmental interactions के कारण Mendelian predictions असफल हो सकती हैं; परिणामस्वरूप प्रतियोगी परीक्षाओं में trick questions के लिए तैयार रहना चाहिए।\n\n## समाधान / Way forward\n- शैक्षिक सुधार: NCERT स्तर से ही Mendel के नियमों के साथ exceptions (linkage, epistasis, codominance) के क्लीन चार्ट और Punnett अभ्यास लागू करें; implication—MPPSC उम्मीदवारों का conceptual clarity बढ़ेगा।  \n- नीति-सुझाव: जन-स्वास्थ्य/genetic counselling programs में ICMR के मानदण्डों का कठोर पालन और DST-प्रायोजित जन-शिक्षा अभियानों से genetic literacy बढ़ाएं; दीर्घकाल में genetic testing का समाजिक स्वीकार्यता सुधरेगा।  \n- अनुसंधान-संबंधी पहल: CSIR/DST funded projects में genotype–phenotype correlation और population linkage mapping पर काम बढ़ाएँ ताकि applied breeding और public-health interventions evidence-based हों।\n\n## निष्कर्ष\n- संक्षेप में, Mendelian laws (segregation, independent assortment) और dominance–recessive classification जैव-विज्ञान का आधार हैं; उदाहरणों व exceptions (linkage, incomplete/codominance, epistasis) को समझना MCQ व GS Mains दोनों के लिए अनिवार्य है।  \n- नीति और शिक्षा के समन्वय से genetic testing, counselling व breeding programs को वैज्ञानिक तथा नैतिक रूप से मजबूत किया जा सकता है—परिणामस्वरूप दीर्घकाल में सार्वजनिक स्वास्थ्य व खाद्य सुरक्षा बेहतर होगी।\n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)", "mcqs": [{"question": "मेंडल के प्रारम्भिक आनुवंशिक प्रयोगों में किस पौधे का उपयोग किया गया था, जिससे उनकी नियमावली विकसित हुई?", "options": ["Pisum sativum (मटर के पौधे)", "Arabidopsis thaliana", "Drosophila melanogaster", "Zea mays (मक्का)"], "answer_index": 0, "explanation": "# **व्यास्पष्ट व्याख्या — Mendel के प्रारम्भिक आनुवंशिक प्रयोग (Pisum sativum)**\n- Gregor Mendel ने अपने क्लासिकल आनुवंशिक प्रयोगों में Pisum sativum (मटर) का उपयोग किया था, जिससे उनके नियमों का विकास हुआ।\n- Pisum sativum को प्रयोग हेतु चुनने के प्रमुख कारण: स्पष्ट, अलग-अलग लक्षण (discrete traits) और तुलनात्मक रूप से शॉर्ट लाइफ‑साइकल।\n- मटर के पौधों में अनुवांशिक गुण अक्सर \"true-breeding\" स्ट्रेनों में मिलते थे, जिससे parent की पहचान और controlled crosses संभव हुए।\n- Mendel ने नियंत्रित क्रॉस‑परवरत (controlled pollination) कर माता‑पिता की पहचान बनाए रखी; इससे वंशानुक्रम के परिणाम साफ़ रूप से प्राप्त हुए।\n- उन्होंने निरपेक्ष अलग लक्षणों (जैसे फूल का रंग, बीज का आकार) पर परख की, जिससे phenotypic वर्गीकरण सरल रहा।\n- Mendel की प्रयोगात्मक श्रृंखला से प्रमुख निष्कर्ष निकले: एकल‑लक्षण पर monohybrid क्रॉस में F2 में 3:1 का phenotypic अनुपात।\n- बहु‑लक्षण पर dihybrid क्रॉस में F2 में 9:3:3:1 का अनुपात पाया गया, जिससे independent assortment का सिद्धांत स्पष्ट हुआ।\n- Mendel ने genotype और phenotype के बीच का अंतर स्थापित किया और dominant‑recessive व्यवहार का वर्णन किया।\n- उनके परिणामों ने hereditary units की अवधारणा (genes/alleles) और segregation के नियम को जन्म दिया — अर्थात प्रत्येक जीव में allele की जोड़ी होती है और gamete निर्माण में वे अलग‑होकर segregate होते हैं।\n- Pisum sativum पर किए गए ये नियंत्रित प्रयोग आधुनिक आनुवंशिकी के मूल सिद्धान्तों — नियमों की व्यावहारिक पुष्टि और सांख्यिकीय विश्लेषण (probability, ratios) — का आधार बने।\n- परीक्षा‑दृष्टि से याद रखने योग्य बिंदु: Mendel + Pisum sativum → true‑breeding strains, controlled crosses, discrete traits, 3:1 (monohybrid), 9:3:3:1 (dihybrid), segregation, independent assortment।", "priority_tag": "VERY_HIGH"}, {"question": "मेंडल का 'एकल गुण का नियम' (Law of Segregation) किस बात का वर्णन करता है?", "options": ["एक जीव में दो alleles अलग-अलग gametes में अलग-अलग segregate होते हैं", "दो अलग-अलग गुण स्वतंत्र रूप से assort होते हैं", "दो माता-पिता का प्रत्येक गुण हमेशा मध्यस्थता दिखाता है", "एक allele दूसरे allele को पूर्ण रूप से दबा देता है"], "answer_index": 0, "explanation": "# मेंडल का 'एकल गुण का नियम' — संक्षेप में व्याख्या (Law of Segregation)\n- मेंडल का एकल गुण का नियम बताता है कि किसी एक लक्षण के लिए एक जीव के पास मौजूद दो alleles विभाजन के समय अलग-अलग gametes में अलग हो जाते हैं।\n- प्रत्येक जीन की दो प्रतियां (alleles) माता-पिता से मिली होती हैं; ये दो alleles किसी वैयविक कोशिका (gamete) में केवल एक ही के रूप में जाते हैं।\n- यह अलगाव मेयोसिस के दौरान होता है जब homologous chromosomes अलग होते हैं; परिणामस्वरूप एक gamete में उस locus का केवल एक allele ही मौजूद रहता है।\n- यदि जीव heterozygous (दो भिन्न alleles) है तो उसके बनने वाले gametes दो प्रकार के होंगे, हर gamete में एक-एक allele होगा।\n- homozygous स्थितियों में दोनों alleles समान होने से सभी gametes में वही एक तरह का allele जाएगा।\n- इस नियम के कारण संयुग्मन (fertilization) के समय पुनः दोनों alleles एक साथ आ सकते हैं और संतान का genotype निर्धारित होता है।\n- Mendelian monohybrid cross के परिणामस्वरूप दिखाई देने वाला 3:1 phenotypic अनुपात इसी अलगाव के सिद्धांत से समझा जाता है (जहाँ एक allele प्रभुत्व दिखा सकता है)।\n- नियम का प्रयोग करके हम gamete के संभावित allele वितरण और संतानों के genotype-phenotype की भविष्यवाणी कर सकते हैं (Punnett square आदि के माध्यम से)।\n- यह नियम केवल एक locus पर allele के विभाजन को वर्णित करता है; यह allele के स्वरूप (dominant/recessive) और allele के स्वतंत्र अनुक्रमण (linked या unlinked loci पर) से अलग है।\n- परीक्षा-संबंधी उत्तरों में इसे संक्षेप में लिखें: “दो allele मेयोसिस में अलग-अलग segregate होकर हर gamete में केवल एक allele पहुँचाते हैं, जिससे संतानों में genotype वितरण होता है।”", "priority_tag": "VERY_HIGH"}, {"question": "मेंडल के द्वि-गुणीय (dihybrid) परीक्षण में अगर दोनों गुण स्वतंत्र रूप से assort होते हैं तो F2 पीढ़ी में फेनोटाइप अनुपात क्या होगा?", "options": ["9 : 3 : 3 : 1", "3 : 1", "1 : 2 : 1", "12 : 3 : 1"], "answer_index": 0, "explanation": "# व्याख्या — मेंडल का द्वि-गुणीय (dihybrid) परीक्षण: F2 में फेनोटाइप अनुपात 9 : 3 : 3 : 1\n- परिभाषा: द्वि-गुणीय क्रॉस में दो अलग‑अलग लक्षणों (दो जीन जो अलग‑अलग गुण निर्धारित करते हैं) का विचार होता है; प्रत्येक जीन के दो अलैल होते हैं (एक डोमिनेंट, एक रेसेसिव)।\n- प्रारम्भिक स्थिति: क्लासिक मेंडल प्रयोग में F1 हाइब्रिड अक्सर AaBb प्रकार के heterozygote होते हैं; F1 × F1 क्रॉस से F2 पीढ़ी बनती है।\n- स्वतंत्र assortement का अर्थ: दोनों जीन स्वतंत्र रूप से सेग्रीगेट करते हैं — यानी मीयोसिस के दौरान उनके अलैल स्वतंत्र रूप से gametes में विभाजित होते (आमतौर पर जब जीन अलग‑अलग क्रोमोसोम पर हों या बहुत दूर हों)।\n- एकल‑लक्षण का प्रभाव: प्रत्येक स्वतंत्र जीन के लिए heterozygote × heterozygote क्रॉस से फ़ेनोटाइप अनुपात 3 (डोमिनेंट) : 1 (रेसेसिव) आता है।\n- संयुक्त संभावना: दोनों लक्षणों के लिए स्वतंत्र परिणामों का गुणन किया जाता है; दोनों में डोमिनेंट होने की संभावना = 3/4 × 3/4 = 9/16।\n- अन्य घटक‑संभावनाएँ: पहला डोमिनेंट, दूसरा रेसेसिव = 3/4 × 1/4 = 3/16; पहला रेसेसिव, दूसरा डोमिनेंट = 1/4 × 3/4 = 3/16; दोनों रेसेसिव = 1/4 × 1/4 = 1/16।\n- इसलिए F2 में फेनोटाइप अनुपात = 9/16 : 3/16 : 3/16 : 1/16, जिसे सरल रूप में 9 : 3 : 3 : 1 लिखा जाता है।\n- श्रेणियाँ (phenotypic classes): (i) दोनों लक्षणों में डोमिनेंट फेनोटाइप, (ii) पहले डोमिनेंट दूसरे रेसेसिव, (iii) पहले रेसेसिव दूसरे डोमिनेंट, (iv) दोनों रेसेसिव — क्रमशः 9:3:3:1।\n- परीक्षण की शर्तें/सीमाएँ: पूरा अनुपात तभी लागू होगा जब पूर्ण डोमिनेंस हो, जीन स्वतंत्र रूप से assort हों, और पर्यावरणीय प्रभाव नगण्य हों; किसी linkage या incomplete dominance की स्थिति में यह बदल सकता है।\n- उपयोगिता (परीक्षा/मेन ऑप्शन लेखन के लिए): उत्तर में संक्षेप में गणितीय व्युत्पन्न दिखाएँ (3/4×3/4 आदि) और शर्तें स्पष्ट करें; MP‑संदर्भ में उत्तर में अनुपात लिखकर उसके वैज्ञानिक कारण (स्वतंत्र assortment) को एक‑दो बिंदुओं में जोड़ें।\n- संक्षेप में: द्वि‑गुणीय स्वतंत्र assortment का क्लासिक परिणाम F2 में फेनोटाइप अनुपात 9 : 3 : 3 : 1 है — इसे आप सीधे गणितीय गुणन के माध्यम से और शर्तों का उल्लेख कर के परीक्षा में प्रस्तुत करें।", "priority_tag": "VERY_HIGH"}, {"question": "टेस्ट-क्रॉस (test cross) का उपयोग किसलिए किया जाता है?", "options": ["किसी आनुवंशिक रूप से heterozygous या homozygous स्थिति की जाँच के लिए", "किसी जीव की उम्र निर्धारक करने के लिए", "कुछ गुणों को environment से अलग करने के लिए", "chromosome संख्या की गणना करने के लिए"], "answer_index": 0, "explanation": "# टेस्ट-क्रॉस (Test cross) — विस्तृत व्याख्या (MPPSC परीक्षा हेतु, हिंदी)\n- टेस्ट‑क्रॉस का मूल उद्देश्य यह जांचना है कि कोई व्यक्तिगत जो प्रबल (dominant) लक्षण व्यक्त कर रहा है, वह _हेटेरोजाइगस_ है या _होमोज़ाइगस_।\n- प्रयोगात्मक रूप से इसे किया जाता है: अज्ञात जीनोटाइप वाले संयुग्म (dominant phenotype) को उस लाइन के साथ क्रॉस किया जाता है जो _होमोज़ाइगस recessive_ (परखा हुआ tester) हो।\n- यदि अज्ञात प्रवक्ता होमोज़ाइगस डोमिनेंट है, तो सभी संतानों में डोमिनेंट लक्षण ही दिखाई देंगे (100% एकरस पैटर्न)।\n- यदि अज्ञात हेटेरोजाइगस है, तो संतानों में डोमिनेंट और रिसेसिव फिनोटाइप की अपेक्षित आनुपातिक विभाजन दिखेगी (मोनोहाइब्रीड के लिए ~1:1)।\n- यह विधि अलेल के संकरण (segregation) के नियम पर आधारित है: गुणसूत्रों के विभाजन से अलग‑अलग अलेल संतानों में अलग होते हैं।\n- बहु‑लक्षण (dihybrid या अधिक) टेस्ट‑क्रॉस में homozygous recessive tester के साथ क्रॉस करके स्वतंत्र विवर्तन या लिंकज और पुनर्संयोजन‑आवृत्ति (recombination frequency) का अध्ययन किया जा सकता है।\n- एकल‑जीन टेस्ट‑क्रॉस में प्राप्त फेनोटाइप अनुपात से genotype का निश्चित निर्धारण संभव है; बहु‑जीन में संतानों के अनुपात से जीनों के बीच लिंकज का संकेत मिलता है।\n- प्रयोगशाला/कृषि प्रजनन में टेस्ट‑क्रॉस का उपयोग नए पौधों/पशुओं में वांछित जीनोटाइप की पुष्टि करने के लिए किया जाता है।\n- Mendelian अनुवांशिकी का परीक्षण और प्रमाणन करने के लिए टेस्ट‑क्रॉस एक मूलभूत और स्पष्ट उपकरण है; यह जीन नियमों के प्रयोगात्मक सत्यापन में सहायक है।\n- टेस्ट‑क्रॉस के परिणामों का विश्लेषण सीधे फिनोटाइप गिनती पर आधारित होता है, इसलिए पर्याप्त संख्या में संतानों का निरीक्षण आवश्यक है ताकि सांख्यिकीय विचलन कम रहे।\n- यदि फेनोटाइप अनुपात अपेक्षित नहीं आता है, तो यह संकेत हो सकता है: अप्रत्यक्ष वंशानुगत प्रभाव (penetrance/expressivity), जीन‑लिंकज, या परीक्षण में तकनीकी त्रुटि।\nयह संक्षिप्त बिंदु‑रूप व्याख्या MPPSC प्रीलिम्स के MCQ और मेन्स के उत्तर दोनों में सीधे उपयोगी और उद्धरण‑उपयुक्त है।", "priority_tag": "HIGH"}, {"question": "मेंडल के नियम 'स्वतंत्र वर्गीकरण' (Law of Independent Assortment) के लिए कौन-सा शर्त अनिवार्य है?", "options": ["विवरण में वर्णित गुण भिन्न chromosomes पर या पर्याप्त दूर linked हों", "दोनों alleles कोडोमिनेंट हों", "गुणों का expression environment से स्वतंत्र हो", "माँ और पिता से मिलने वाले सभी alleles बराबर मात्रा में हों"], "answer_index": 0, "explanation": "# व्याख्या — मेंडल का नियम: **स्वतंत्र वर्गीकरण** के लिए अनिवार्य शर्त\n- **मुख्य शर्त:** जिन गुणों का स्वतंत्र वर्गीकरण माना जाता है, वे अलग–अलग क्रोमोसोमों पर स्थित हों या यदि एक ही क्रोमोसोम पर हों तो उनके बीच इतिश्री दूरी इतनी अधिक हो कि बहुलक के दौरान क्रॉसब्रिडिंग से वे स्वतंत्र रूप से assort हो सकें।\n- यदि दो जीन्स अलग क्रोमोसोमों पर हों तो मीओसिस के दौरान उनकी अलग-अलग segregation स्वतः सुनिश्चित होती है — यही स्वतंत्र वर्गीकरण की आधारभूत वजह है।\n- क्रोमोसोम विभाजन (independent assortment) की क्रियाविधि: होमोולוגस क्रोमोसोमों का यादृच्छिक ओरिएंटेशन और अनपेक्षित संयोजन प्रत्येक гамेट में विभिन्न allele संयोजनों का कारण बनता है।\n- यदि जीन्स पर्याप्त दूर linked हों, तो crossing over की सम्भावना अधिक होती है और परिणामतः ऐलिलों का स्वतंत्र संयोजन बनता है; इसलिए \"काफ़ी दूरी\" एक व्यवहारिक शर्त है।\n- स्वतंत्र वर्गीकरण केवल उन लक्षणों पर शुद्ध रूप से लागू होता है जिनकी inheritance में linkage या gene interaction का प्रभाव अनुपस्थित या नगण्य हो।\n- प्रयोगशाला प्रमाण: अलग क्रोमोसोमों पर स्थित जीनों के साथ किए गए dihybrid crosses में 9:3:3:1 जैसे संभाव्य अनुपात स्वतंत्र वर्गीकरण की पुष्टि करते हैं।\n- शैक्षिक अर्थ में परीक्षा‑उत्तर में यह शर्त स्पष्ट लिखें: “स्वतंत्र वर्गीकरण तब लागू होता है जब संबंधित जीन्स अलग क्रोमोसोमों पर हों या पर्याप्त रूप से दूर linked हों ताकि recombination स्वतंत्रता दे।”\n- Mains के नोट/उत्तर में सीधे बिंदु के रूप में जोड़ें: “अनिवार्य शर्त — भिन्न क्रोमोसोम या काफी दूरी पर linked genes (recombination सम्भव)”; यह संक्षेप में कारण व परिणाम दोनों बताता है।\n- उपयोगी याददाश्त संकेत: “अलग क्रोमोसोम = स्वतन्त्र; एक ही क्रोमोसोम पर — दूरी मापें (recombination संभाव्यता)” — इसे prelim के MCQ और mains के संक्षिप्त बिंदु दोनों में लगाएँ।\n- उदाहरण के रूप में उत्तर में रखें कि शर्त का मतलब है कि गुणों के allele की segregation एक‑दूसरे पर निर्भर नहीं होगी, इसलिए अलग‑अलग gametes में स्वतंत्र संयोजन बनता है।", "priority_tag": "HIGH"}, {"question": "यदि किसी व्यक्तिविशेष का genotype Aa है (जहाँ A डोमिनेंट है), तो उसके gametes में कौन-कौन से allele अपेक्षित होंगे?", "options": ["A और a समान अनुपात में", "केवल A", "केवल a", "A, a और Aa तीनों"], "answer_index": 0, "explanation": "# **व्याख्या — genotype Aa के gametes में A और a का समान अनुपात**\n- एक heterozygous व्यक्तिविशेष (genotype Aa) में दो भिन्न allele उपस्थित होते हैं: एक डोमिनेंट A और एक recessive a.\n- मेन्डेल का Law of Segregation के अनुसार हर allele जो एक युग्माणु (gamete) बनाने में शामिल होता है, अलग-अलग हो कर gametes में विभाजित होता है।\n- मीओसिस की अनाफेस-I विभाजन प्रक्रिया के दौरान homologous chromosomes अलग होते हैं; इसलिए A और a अलग-अलग gametes में जाते हैं।\n- अत: Aa genotype वाले व्यक्ति के gametes में allele A और allele a दोनों ही बनेंगे।\n- सैद्धान्तिक संभावना (probability) के अनुसार ये दोनों allele समान अनुपात यानी 1:1 (50% A, 50% a) में उपस्थित होते हैं।\n- यह अनुपात तब तक लागू रहता है जब तक allele पर कोई segregation distortion या linkage जैसे विशेष कारक प्रभाव न डालें।\n- gamete-स्तर पर यह 1:1 अनुपात next generation के genotype आवृतियों (offspring genotypic ratios) की बुनियाद बनाता है।\n- प्रायोगिक/प्राथमिक प्रयोगों में Punnett square का उपयोग कर Aa × (यदि आवश्यक हो) अन्य crosses के लिए gamete वितरण को स्पष्ट रूप से दर्शाया जाता है।\n- परीक्षा के उत्तर में संक्षेप में लिखें: “Aa heterozygote के gametes में A तथा a 1:1 अनुपात में मिलने की अपेक्षा होती है (50% A, 50% a) — मेन्डेलीय segregation के कारण।”\n- Mains GS में उपयोग के लिए सीधे बिंदु: मेन्डेल का segregation सिद्धांत — मीओसिस, allele separation, और अनुमानित 1:1 gametic अनुपात; किसी विशेषजन में deviation के कारणों का संक्षेप उल्लेख संभव (linkage, meiotic drive)।", "priority_tag": "VERY_HIGH"}, {"question": "इनकम्प्लीट डोमिनेंस (incomplete dominance) में F1 पीढ़ी के फेनोटाइप का व्यवहार कैसा होता है?", "options": ["दो parent फेनोटाइप का मध्यवर्ती (intermediate) फेनोटाइप", "केवल डोमिनेंट parent जैसा फेनोटाइप", "दोनों parent फेनोटाइप का संयोजन बारीक अलग हिस्सों में", "एक नया unrelated फेनोटाइप जो दोनों से अलग हो"], "answer_index": 0, "explanation": "# **व्याख्या — इनकम्प्लीट डोमिनेंस में F1 का मध्यवर्ती फेनोटाइप**\n- इनकम्प्लीट डोमिनेंस में दोनों parent अल्लीलों में से कोई भी पूर्ण रूप से प्रभुत्व नहीं करता; heterozygote में दोनों का संयुक्त प्रभाव मध्यवर्ती फेनोटाइप देता है।\n- जब दो homozygous parents (एक AA और दूसरा aa) क्रॉस होते हैं, तो F1 में सभी individuals एक समान intermediate फेनोटाइप (Aa) दिखाते हैं।\n- F1 का यह व्यवहार दर्शाता है कि heterozygote में एलीलों की मात्रा/गतिविधि पूरी तरह से किसी एक एलील द्वारा छिपी नहीं जाती; सामान्यतः दोनों एलीलों के उत्पाद का आंशिक योग फेनोटाइप बनाता है।\n- इनकम्प्लीट डोमिनेंस का सामान्य परिणाम है कि F2 पीढ़ी में फेनोटाइप अनुपात 1 : 2 : 1 होता है (homozygous parent1 : heterozygote intermediate : homozygous parent2)।\n- आणविक स्तर पर यह अक्सर प्रोटीन की मात्रा/गतिविधि के डोज‑इफेक्ट से जुड़ा होता है — heterozygote में उत्पादित प्रोटीन का स्तर दोनों homozygotes के बीच होता है।\n- यह अवधारणा पारंपरिक Mendelian पूर्ण डोमिनेंस से अलग है; Mendel के परिणामों में heterozygote parent के समान दिखाई देता, जबकि यहाँ F1 अलग और मध्यवर्ती होता है।\n- प्रयोगात्मक पहचान के लिए homozygous माता‑पिता का क्रॉस और F1 की समान intermediate उपस्थिति तथा F2 में 1:2:1 विभाजन देखना निर्णायक होता है।\n- उदाहरणों के रूप में कुछ पौधों में फूलों का intermediate रंग (जैसे लाल × सफेद → गुलाबी) क्लासिक दिखाते हैं; परीक्षा उत्तर में एक छोटा उदाहरण फोकस्ड रूप से दिया जा सकता है।\n- उत्तर लेखन में शीघ्र रिविजन‑नोट के रूप में लिखें: “इनकम्प्लीट डोमिनेंस — F1 में मध्यवर्ती फेनोटाइप; F2 में 1:2:1 फेनोटाइप अनुपात; आणविक आधार डोज‑इफेक्ट।”\n- Mains में MP‑संदर्भ या वैज्ञानिक व्याख्या में जोड़ें: यह गुणसूत्रीय विभाजन और एलील अभिव्यक्ति के सिद्धान्तों का स्पष्ट उदाहरण है, इसलिए परिणामों की व्याख्या करते समय genotype (AA, Aa, aa) और phenotype दोनों स्पष्ट लिखें।", "priority_tag": "HIGH"}, {"question": "कोडोमिनेंस (codominance) के किस उदाहरण में दोनों alleles स्वतंत्र रूप से व्यक्त होते हैं?", "options": ["ABO रक्तसमूह में A और B allele का एक साथ अभिव्यक्त होना", "किसी गुण का recessive allele का छुप जाना", "फेनोटाइप का मध्यवर्ती रंग बनना", "X-linked inheritance"], "answer_index": 0, "explanation": "# व्याख्या: कोडोमिनेंस — ABO रक्तसमूह में A और B alleles की समव्यक्ति\n- **परिभाषा (सार):** कोडोमिनेंस में heterozygote में दोनों alleles स्वतंत्र रूप से और पूर्ण रूप से व्यक्त होते हैं, न कि एक दूसरे पर प्रभुत्व बनाए रखते हुए।\n- **ABO प्रणाली में लागू:** मानव ABO रक्तसमूह में A और B allele (IA और IB) कोडोमीनेन्ट हैं; IAIB genotype दोनों A और B एंटीजन एक साथ व्यक्त करता है।\n- **अनुवांशिक-रासायनिक आधार:** IA और IB gene पर स्थित glycosyltransferase enzymes के विभिन्न रूप को कोड करते हैं — IA एन-ऐसिटाइलगेलक्टोसामाइन जोड़ता है, IB गैलेक्टोज जोड़ता है।\n- **i allele (null):** i allele कोई functional enzyme नहीं बनाता; इसलिए ii genotype में कोई A/B एंटीजन नहीं बनते (O समूह)।\n- **फेनोटाइपिक अभिव्यक्ति:** IAIB व्यक्तियों की RBC सतह पर दोनों A और B एंटीजन एक साथ उपस्थित रहते हैं; दोनों एंटीजन की उपस्थिति अलग-अलग नहीं मिलाई जाती।\n- **अनुवंशण का स्पष्ट नमूना (Punnett उपयोगी):** उदाहरण: IAi × IBi क्रॉस से संभावित संतति — IAIB (AB), IAi (A), IBi (B), ii (O) — वितरण 1:1:1:1 के तरह।\n- **क्लिनिकल प्रासंगिकता:** AB व्यक्तियों के RBC पर दोनों एंटीजन होने से रक्त समूह सन्दर्भ में प्रतिकूल प्रतिक्रियाओं और transfusion compatibility का निर्धारण सीधे प्रभावित होता है।\n- **प्रयोगशाला पहचान:** सेरोलॉजी में AB फेनोटाइप को anti-A और anti-B दोनों के साथ agglutination दिखने से पहचाना जाता है; यह कोडोमिनेंस का सीधा परीक्षण है।\n- **Mains उत्तर में उठाने योग्य बिंदु (संक्षेप):** कोडोमिनेंस की परिभाषा, ABO में IA और IB का समविकल्पी अभिव्यक्ति, जैव-रासायनिक कारण (glycosyltransferases), और इसका रक्तचिकित्सा/ट्रांसफ्यूज़न महत्व।\n- **सारांश व याददाश्त सूत्र:** “IA + IB → AB phenotype” — कोडोमिनेंस जहाँ heterozygote में दोनों एलील समान रूप से दृश्यमान होते हैं।", "priority_tag": "HIGH"}, {"question": "रेसिसिव क्रमिक (recessive) रोगों के pedigree चार्ट में कौन-सा पैटर्न सामान्यतः दिखाई देता है?", "options": ["दो unaffected heterozygous माता-पिता से affected संतान का उभरना", "हर पीढ़ी में affected व्यक्तियों का लगातार दिखना", "केवल पुरुषों का प्रभावित होना", "माँ से सीधे सभी संतान प्रभावित होना"], "answer_index": 0, "explanation": "# व्याख्या: रेसिसिव क्रमिक रोगों में Pedigree पैटर्न — _दो unaffected heterozygous माता-पिता से affected संतान_\n- रेसिसिव आनुवंशिकता में रोग व्यक्त (affected) होने के लिए व्यक्ति के दोनों एलिल (alleles) रोगजनक होने चाहिए (homozygous recessive: aa)।\n- यदि दोनों माता और पिता फेनोटाइप के अनुसार स्वस्थ हैं पर जेनेटिक रूप से heterozygous वाहक हों (Aa × Aa), तो वे रोग का लक्षण नहीं दिखाते पर रोग का एलिल उपजाते हैं।\n- Aa × Aa संयोग से संतान के जीनोटाइप के सम्भावित अनुपात शै‍द 1 AA : 2 Aa : 1 aa होते हैं; यानी प्रभावित (aa) होने की संभावना 25% रहती है।\n- इस प्रकार pedigree चार्ट में एक पीढ़ी के स्वस्थ माता-पिता के पास अचानक एक या कई प्रभावित संतान दिखाई दे सकती है — यही रेसिसिव मॉडल का क्लासिक संकेत है।\n- carriers (Aa) परिवार में दिखते नहीं; अतः pedigree में स्वस्थ बनावट के बीच भी रोग का अचानक प्रकट होना रिसेसिव विरासत का मजबूत प्रमाण है।\n- अगर माता-पिता दोनों heterozygous हों, तो हर संतान के लिए प्रभावित होने का जोखिम स्वतंत्र रूप से 25%, वाहक होने का 50% और स्वस्थ न वाहक होने का 25% माना जाता है।\n- Pedigree विश्लेषण में यह पैटर्न सामान्यतः पीढ़ियों के बीच \"skipping\" दिखा सकता है — एक पीढ़ी में लक्षण न दिखाई देना और अगले में प्रकट होना।\n- पारिवारिक अनुवांशिक सलाह (genetic counseling) में heterozygous जोड़ों को carrier जोखिम और 25% प्रभावित संतान के आंकड़े स्पष्ट रूप से बताए जाते हैं; यह पॉइंट MPPSC mains में नीति/स्वास्थ्य भाग में उपयोगी होगा।\n- consanguinity (निकट संबंधी विवाह) होने पर दोनों माता-पिता के heterozygous होने की संभावना बढ़ती है, जिससे इस 25% जोखिम का वास्तविक परिवारिक जोखिम बढ़ सकता है।\n- Pedigree में रेसिसिव रोग की पहचान के लिए unaffected माता-पिता से प्रभावित संतान का उदाहरण और समकक्ष जीनोटाइप अनुपात (1:2:1) याद रखना परीक्षा-दृष्टि से आवश्यक है।", "priority_tag": "VERY_HIGH"}, {"question": "एक pedigree में एक trait Y-linked माना जा रहा है। निम्न में से कौन-सा कथन Y-linked inheritance के अनुरूप है?", "options": ["केवल पुरुष व्यक्तियों में ही trait दिखाई देगा और पिता से सभी पुत्रों में संक्रामित होगा", "केवल महिलाएँ प्रभावित होंगी", "trait माता से पुत्रों में ही जाता है", "trait दोनों लिंगों में बराबर दिखेगा"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "यदि एक monohybrid cross (Aa x Aa) किया जाए तो F2 में जीनोटाइप अनुपात क्या होगा?", "options": ["1 AA : 2 Aa : 1 aa", "3 : 1", "9 : 3 : 3 : 1", "1 : 1"], "answer_index": 0, "explanation": "# व्याख्या — Monohybrid cross (Aa × Aa) में F2 जीनोटाइप अनुपात 1 : 2 : 1\n- परिभाषा: जब दोनों माता-पिता एक लक्षण के लिए एक-ही-जीन में heterozygous (Aa) हों, तो यह monohybrid cross कहलाता है।\n- गुणसूत्र पृथक्करण (Law of Segregation): हर जीव के दो allele अलग होकर gametes में जाती हैं; प्रत्येक gamete में केवल एक allele होता है।\n- Aa माता और Aa पिता दोनों से बनने वाले gametes की संभावनाएँ: प्रत्येक एकल gamete में A या a आने की संभावना 1/2 होती है।\n- Punnett वर्ग (2×2) के अनुसार संभावित संयोजन हैं: AA, Aa, aA, aa — कुल चार संयोजन।\n- जीनोटाइप गणना: चार संयोजनों में से 1 AA, 2 heterozygous (Aa और aA), और 1 aa आते हैं; अतः अनुपात 1 : 2 : 1।\n- सांख्यिकीय व्याख्या: AA की संभावना 1/4, Aa की 2/4 = 1/2, और aa की 1/4 होती है — यह वही 1:2:1 का अंशांतरण है।\n- फिनोटाइप बनाम जीनोटाइप: यदि A पूर्णतया प्रभु (dominant) हो तो फिनोटाइप अनुपात 3:1 होगा, पर जीनोटाइप 1:2:1 अलग से दर्शाता है कि heterozygotes और homozygotes अलग हैं।\n- प्रयोगात्मक सत्यापन: नियंत्रित क्रॉस करके और बड़े नमूने पर गणना कर के यह अनुपात प्रायोगिक रूप से प्राप्त होता है; छोटे नमूनों में विचलन सम्भव है।\n- MPPSC/मेन्स उपयोग हेतु बिंदु: जब प्रश्न में जीनोटाइप माँगा जाए, तो हेमोज़िगस और हेटेरोज़िगस की गिनती करके 1:2:1 लिखें; फिनोटाइप माँगा हो तो dominance के अनुसार उत्तर देना होगा।\n- लागू सिद्धांतें: यह परिणाम Mendel के प्रथम नियम (segregation) और आधारभूत संभाव्यता गणित पर निर्भर है — किसी भी monohybrid Aa × Aa क्रॉस के लिए सार्वभौमिक रूप से लागू।", "priority_tag": "VERY_HIGH"}, {"question": "यदि किसी recessive रोग का आवृत्ति population में q^2 है (Hardy-Weinberg संदर्भ में), तो heterozygote carrier का frequency क्या होगा?", "options": ["2pq, जहाँ p ≈ 1 − q", "q^2", "p^2", "p + q"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "जेनेटिक linkage क्या दर्शाता है?", "options": ["एक ही chromosome पर स्थित दो loci का मिलकर वंशानुगत होना", "दो genes का हमेशा independent assort होना", "दो allele का एक-दूसरे को suppress करना", "एक gene का केवल mitochondria में होना"], "answer_index": 0, "explanation": "# **व्याख्या — जेनेटिक linkage (जेनेटिक लिंकेज) — संक्षेप एवं परीक्षा-उपयोगी बिंदु**\n- **परिभाषा:** जेनेटिक linkage उस अवस्था को दर्शाता है जहाँ दो अलग-अलग loci (जीन स्थान) एक ही क्रोमोसोम पर स्थित होने के कारण साथ-साथ वंशानुगत होते हैं।\n- **कारण:** शारीरिक निकटता — एक ही क्रोमोसोम पर loci की नज़दीकी से दोनों जीन के साथ वारिस होने की संभावना बढ़ जाती है।\n- **मंडेलियन अनुपात पर प्रभाव:** लिंक्ड loci पारंपरिक स्वतंत्र विभाजन (Mendel के द्वितीय नियम) को तोड़ते हैं; जिससे वंशानुगत पैटर्न में अपेक्षित वर्ग अनुपात बदलते हैं।\n- **क्रॉसओवर और पुनर्संयोजन:** मेयोसिस के दौरान हो रहे क्रॉसओवर (recombination) ही लिंकेज को तोड़ सकते हैं; क्रॉसओवर जितना अधिक, जुड़ाव उतना कमजोर।\n- **पुनर्संयोजन आवृत्ति (Recombination frequency):** दो loci के बीच recombination की दर को प्रतिशत में मापा जाता है; यह loci के बीच आनुवंशिक दूरी का प्रत्यक्ष संकेतक है।\n- **सेन्टीमॉर्गन (cM) इकाई:** आनुवंशिक मानचित्र में दूरी को सेन्टीमॉर्गन में व्यक्त किया जाता है; 1 cM ≈ 1% recombination frequency माना जाता है।\n- **लिंकज समूह (linkage group):** एक क्रोमोसोम पर मौजूद सभी loci एक linkage group बनाते हैं; किसी प्रजाति में linkage groups की संख्या क्रोमोसोम की संख्या के बराबर होती है।\n- **आनुवंशिक मानचित्रण (mapping):** recombination frequency का उपयोग करके jीनों का क्रम और दूरी निर्धारित कर के क्रोमोसोम पर जीन मानचित्र बनाए जाते हैं।\n- **व्यावहारिक उपयोग:** linkage अध्ययन रोग-जन्य जीन की पहचान, रोग मानचित्रण और आनुवंशिक सलाह में मदद करते हैं क्योंकि वे disease-linked loci की समग्र स्थिति बताते हैं।\n- **सीमाएँ:** बहुत निकटस्थ loci पर recombination दुर्लभ होने से linkage स्पष्ट रहता है; बहुत दूरस्थ loci पर recombination अधिक होने पर linkage का पता नहीं चलता।\n- **निष्कर्ष (exam-takeaway):** संक्षेप में, जेनेटिक linkage का मूल अर्थ है — एक ही क्रोमोसोम पर स्थित दो loci का मिलकर वंशानुगत होना, जिसका माप recombination frequency और cM द्वारा होता है और जो मेयोसिस में क्रॉसओवर द्वारा प्रभावित होता है।", "priority_tag": "HIGH"}, {"question": "दो linked genes के बीच recombination frequency (recombination %) का प्रयोग किसके अनुमान के लिए किया जाता है?", "options": ["यीनों के बीच map distance (genetic map) का अनुमान", "प्रोटीन के tertiary structure का अनुमान", "phenotype की expressivity नापने के लिए", "chromosome संख्या तय करने के लिए"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "पेडिग्री विश्लेषण में सर्कल और स्क्वायर का क्या प्रतिनिधित्व होता है?", "options": ["सर्कल = महिला, स्क्वायर = पुरुष", "सर्कल = पुरुष, स्क्वायर = महिला", "दोनों = अनिर्दिष्ट लिंग", "सर्कल = affected, स्क्वायर = unaffected"], "answer_index": 0, "explanation": "# व्याख्या: पेडिग्री विश्लेषण में सर्कल और स्क्वायर का प्रतिनिधित्व\nप्रश्न संदर्भ — पेडिग्री विश्लेषण में सर्कल = महिला, स्क्वायर = पुरुष\n- पेडिग्री चार्ट जीनों के पारित होने का ग्राफिकल प्रतिनिधित्व होता है; इसमें प्रत्येक व्यक्ति को प्रतीक के रूप में दिखाया जाता है।\n- परंपरागत रूप से, वृत्त (सर्कल) का उपयोग किसी परिवार के महिला सदस्य को दर्शाने के लिए किया जाता है।\n- समतल कोना वाला चौकोन (स्क्वायर) पुरुष सदस्य को प्रदर्शित करने के लिए मानक प्रतीक है।\n- ये प्रतीक लिंग की स्पष्ट पहचान देते हैं और वंश-आलेख को पढ़ने में प्राथमिक संदर्भ प्रदान करते हैं।\n- पेडिग्री में रंग भरण (filled) या खाली रहने से रोग की अभिव्यक्ति (affected/unaffected) दिखती है; पर सर्कल/स्क्वायर केवल लिंग को प्रतिबिंबित करते हैं।\n- लिंकेज, गुण के वंशानुक्रम (dominant/recessive) और समभाव के विश्लेषण में सर्कल/स्क्वायर के आधार पर ही पैटर्न ट्रेस किए जाते हैं।\n- पेडिग्री के मानक प्रतीक वैज्ञानिक संचार को समानार्थी बनाते हैं; परीक्षात्मक उत्तर में इन्हें ठीक प्रकार उल्लेख करें।\n- Mains के उत्तर में पेडिग्री का चित्रण करते समय सर्कल और स्क्वायर के अर्थ को संक्षेप में लिखकर उदाहरण जोड़ना उत्तर को सटीक बनाता है।\n- त्वरित रिवीजन के लिए: “सर्कल = महिला, स्क्वायर = पुरुष” वाक्य को स्पष्ट रूप से याद रखें; यह प्रारंभिक पहचान के लिए बुनियादी नियम है।\n- नोट: पेडिग्री में अन्य प्रतीक (जैसे तैरती हुई रेखाएँ, कडीयां) भी होते हैं, पर सर्कल/स्क्वायर केवल लिंग निदर्शित करते हैं — इसलिए लिंग निर्धारित करते समय इन्हीं प्रतीकों पर भरोसा करें।", "priority_tag": "VERY_HIGH"}, {"question": "X-linked recessive रोगों के लिए कौन-सा वाक्य सत्य है?", "options": ["पुरुषों में अधिक प्रकट होते हैं क्योंकि वे hemizygous होते हैं", "महिलाएँ अधिक प्रभावित होती हैं क्योंकि उन्हें दो X मिलते हैं", "यह केवल mitochondria से प्रेषित होते हैं", "यह autosomal dominant की तरह पैतृक रूप से ही निकलते हैं"], "answer_index": 0, "explanation": "# व्याख्या — X-linked recessive रोगों में पुरुषों का अधिक प्रकट होना (MPPSC उद्देश्य)\n- X-linked recessive लक्षण वाले जीन्स X गुणसूत्र (chromosome) पर होते हैं और विकृत अल्लील रिसेसिव प्रकृति का होता है।\n- पुरुषों की जीनोटाइप संरचना XY होती है; वे X पर केवल एक ही allele रखते हैं — इसे hemizygous कहा जाता है।\n- Hemizygous पुरुष में यदि X क्रोमोसोम पर रोगजनक (mutant) रिसेसिव allele मौजूद हो तो उसे प्रतिस्पर्धी नॉर्मल allele नहीं मिलता; अतः रोग प्रकट हो जाता है।\n- महिलाओं की जीनोटाइप संरचना XX होने से एक स्वस्थ allele दूसरे mutant allele की उपस्थिति में अधिकांशतः वैरिएंट का प्रभाव छुपा सकता है (carrier स्थिति)।\n- इसलिए महिला तब तक रोग दिखाती हैं जब दोनों X क्रोमोसोम पर mutant allele homozygous रूप से मौजूद हों या skewed X-inactivation की स्थिति हो।\n- X-inactivation (Lyonization) के कारण महिलाएँ आमतौर पर मोज़ैइक एक्सप्रेशन दिखाती हैं; इससे भी बहुधा पूर्ण रोगी अवस्था नहीं बनती।\n- आनुवंशिक संचरण के दृष्टिकोण से एक carrier माँ रोगजनक X अपने पुत्रों को दे सकती है; पिता अपने X को पुत्रों को नहीं देते (पुत्रों को पिता Y देते हैं)।\n- यही कारण है कि आबादी स्तर पर X-linked recessive बीमारियाँ पुरुषों में अपेक्षाकृत अधिक दिखाई देती हैं और पुरुष-व्युत्पन्न प्रत्याशित अनुपात भी अधिक होता है।\n- परीक्षण और परामर्श के लिए यह समझ जरूरी है: पुरुष में एक ही रोगजनक allele से रोग का क्लिनिकल प्रकट होना अपेक्षित है, जबकि महिलाओं में जीनोटाइप-फेनोटाइप संबंध जटिल हो सकता है।\n- यह सिद्धांत प्रीक्विज़/मेन रिवीजन और MP-specfic जनस्वास्थ्य परिप्रेक्ष्य में आनुवंशिक परामर्श व स्क्रीनिंग रणनीतियों को निर्देशित करता है—क्योंकि पुरुष प्रभावी रूप से रोग दिखा देते हैं और carrier महिलाएँ परिवार में रोग को प्रसारित कर सकती हैं।", "priority_tag": "VERY_HIGH"}, {"question": "यदि दो parent heterozygous (AaBb) हों और genes independent assort करते हों, तो एक विशेष double recessive (aabb) जीनोटाइप की सम्भावना क्या होगी?", "options": ["1/16", "1/4", "1/2", "9/16"], "answer_index": 0, "explanation": "# व्याख्या — जेनेटिक्स (Mendelian: दो heterozygous AaBb माता-पिता से aabb की सम्भावना)\n- यदि दोनों माता-पिता heterozygous हों (AaBb), तो हर gene के लिए प्रत्येक माता-पिता से recessive allele (a या b) मिलने की सम्भावना 1/2 होती है।\n- Mendel के स्वतंत्र वितरण के सिद्धांत (Law of Independent Assortment) के अनुसार A/a और B/b allele स्वतंत्र रूप से assort करते हैं; अतः दोनों घटनाओं की सम्भावनाएँ गुणन नियम से मिलती हैं।\n- एक ही जीन (A locus) पर homozygous recessive (aa) बनने की सम्भावना = (1/2 from parent1 a) × (1/2 from parent2 a) = 1/4।\n- दूसरे जीन (B locus) पर homozygous recessive (bb) बनने की सम्भावना भी = 1/4।\n- दोनों loci एक साथ aabb बनने की संयुक्त सम्भावना = 1/4 × 1/4 = 1/16।\n- Punnett square द्वारा जाँचें तो Aa × Aa से 4 संभावित genotype में से 1 aa मिलता है; इसी तरह Bb × Bb से 1 bb मिलता है; संयुक्त 16 कोशिकाओं में 1 मृतक (aabb) आता है → 1/16।\n- यह गणना तभी मान्य है जब loci स्वतंत्र हों (कोई linkage न हो) और alleles में complete dominance/recessiveness माना गया हो।\n- परीक्षा‑स्तर पर उत्तर देते समय संक्षेप में लिखें: “प्रत्येक locus पर aa = 1/4, bb = 1/4; स्वतंत्र वितरण के कारण संयुक्त = 1/4×1/4 = 1/16।”\n- Mains में यदि MP‑संदर्भ में उपयोग करना हो तो जोड़ें: ऐसी जननिक सम्भावनाएँ पौधों/पशुओं के आनुवंशिक क्रॉस‑परिक्षण या सरकार द्वारा समर्थित breeding programmes में वर्गीकरण और चयन रणनीति समझाने में सीधे उपयोगी बिंदु हैं।\n- संक्षेप में: उत्तर की मुख्य अवधारणा = product rule + Mendel की independent assortment → विशेष double recessive genotype की सम्भावना = **1/16**।", "priority_tag": "HIGH"}, {"question": "मेंडल के नियमों का आधुनिक आनुवंशिकी में विस्तार करते समय किस खोज ने allele की भौतिक उपस्थिति की पुष्टि की?", "options": ["DNA की संरचना और chromosome theory of inheritance", "Cell membrane की fluid mosaic model", "Mendelian laws का अस्वीकृत होना", "प्लास्टिड DNA का discovery"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "पुनरावृत्ति (penetrance) का अर्थ क्या है?", "options": ["किसी genotype के होने पर कितनी बार expected phenotype प्रकट होता है", "किसी allele की आबादी में कितनी frequency है", "जिससे gene का स्थान chromosome पर मिलता है", "जीन के बीच recombination की दर"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "एक trait का expressivity का अर्थ कौन-सा है?", "options": ["एक ही genotype के होने पर phenotypic expression की तीव्रता या विविधता", "trait का population में frequency", "trait का केवल environmental control", "trait का autosomal या sex-linked होना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "यदि किसी pedigree में affected व्यक्ति माता-पिता दोनों unaffected दिखाई दें और रोग autosomal dominant नहीं है, तो यह सबसे अधिक संभावित कौन-सा प्रकार हो सकता है?", "options": ["autosomal recessive inheritance", "autosomal dominant inheritance", "Y-linked inheritance", "mitochondrial inheritance"], "answer_index": 0, "explanation": "# व्याख्या — Autosomal Recessive Inheritance (पैडिग्री में affected व्यक्ति के माता-पिता दोनों unaffected होने की सबसे संभावित व्याख्या)\n- **परिभाषा:** Autosomal recessive रोग वे होते हैं जिनमें रोग का लक्षण तभी व्यक्त होगा जब दोनों homologous autosomal alleles रोगजनक (recessive) हों (genotype: aa)।\n- **पैडिग्री पैटर्न:** अक्सर माता-पिता दोनों phenotypically unaffected (carrier: Aa) होते हैं और उनके बीच संयोग से उत्पन्न संतान में 25% संभावना होती है कि वह affected (aa) हो।\n- **कैरेर की उपस्थिति:** heterozygous व्यक्ति (Aa) सामान्यतः संयोजक होते हैं — वे रोग का प्रकट लक्षण नहीं दिखाते पर रोगजनक allele अगली पीढ़ी में ट्रांसमिट कर सकते हैं।\n- **पैरेंट्स दोनों unaffected क्यों?** क्योंकि दोनों माता-पिता में केवल एक pathogenic allele होता है (carrier) और recessive प्रकृति के कारण उनका phenotype सामान्य रहता है।\n- **रिस्क अनुपात (Mendelian गणना):** प्रत्येक गर्भ में affected की संभावना 1/4, carrier की 1/2 और unaffected non-carrier की 1/4 होती है जब दोनों माता-पिता heterozygous हों।\n- **कंसैंगुइनिटी का प्रभाव:** consanguineous विवाहों में समान विरासत वाले recessive alleles के मिलने का जोखिम बढ़ जाता है; इसलिए autosomal recessive बीमारियों की आवृत्ति अधिक देखी जा सकती है।\n- **औसत शुरुआत और विविधता:** कई autosomal recessive रोग बचपन में प्रकट होते हैं पर कुछ में देर से onset भी हो सकती है; expressivity और penetrance की भूमिका सीमित रहती है पर genotype–phenotype सम्बन्ध स्पष्ट रहता है।\n- **जनसंख्या प्रासंगिकता (Hardy–Weinberg):** यदि q = रोग allele की आवृत्ति है, तो affected का अनुपात q^2 होगा; carrier की आवृत्ति 2pq ≈ 2q (जब p≈1) का अनुमानित मान देता है।\n- **निरोधक उपाय/प्रबंधन:** चिन्हित carriers के लिए genetic counselling, प्री-कनसल्टेशन परीक्षण और यदि उपलब्ध हो तो prenatal या preimplantation genetic diagnosis उपयोगी होते हैं; यह सार्वजनिक स्वास्थ्य रणनीतियों में जागरूकता व स्क्रीनिंग से जुड़ता है।\n- **MP परीक्षा/MAINS के लिए उपयोगी बिंदु:** पैडिग्री में unaffected माता-पिता पर ध्यान, carrier concept, 25% recurrence risk और consanguinity का उल्लेख सीधे उत्तर में उपयोगी और निर्णायक बिंदु हैं।", "priority_tag": "HIGH"}, {"question": "मेंडल के experiments में किस प्रकार के traits को उन्होंने प्राथमिकता से चुना ताकि स्पष्ट प्रयोग-परिणाम मिलें?", "options": ["clear-cut contrasting (discrete) traits जिनमें intermediate forms कम हों", "polygenic traits जिनका continuous variation हो", "environmentally determined traits", "behavioral traits"], "answer_index": 0, "explanation": "# मेंडल के प्रयोगों में स्पष्ट-विरोधी गुणों का चयन — व्याख्या (MPPSC Prelims 2026 / Mains के लिए उपयोगी)\n**मुख्य अवधारणा:** मेंडल ने ऐसे clear-cut contrasting (discrete) traits चुने जिनमें मध्यवर्ती रूप न्यूनतम हों ताकि सूक्ष्म और अनविज्ञरूप (unambiguous) परिणाम मिलें।\n- मेंडल ने ऐसे गुण चुने जो दो अलग-अलग रूपों में स्पष्ट रूप से दिखते थे (उदा. पीला बनाम हरा बीज), ताकि वंशानुगत पैटर्न आसानी से पहचाने जा सकें।\n- स्पष्ट-विरोधी गुणों में जनन के बाद आने वाले संतानों में मिश्रित या intermediate रूप बहुत कम होते; इससे फेनोटाइपिक वर्गीकरण सरल बनता है।\n- discrete traits के चयन से मेंडल को प्रत्येक पीढ़ी में व्यक्तियों को दो स्पष्ट श्रेणियों में बाँटना आसान हुआ — यह गणितीय विश्लेषण एवं सांख्यिकीय अनुपात निकालने के लिए अनुकूल था।\n- ऐसे गुणों पर प्रयोग करने से पेरेंटल (P), F1 और F2 पीढ़ियों में 3:1 जैसे साफ आनुपातिक नियम आसानी से देखे और प्रमाणित किए जा सके।\n- स्पष्ट-विरोधी गुणों की उपस्थिति ने मेंडल को जीन के स्वतंत्र वर्गीकरण और पुनरुत्पादन नियमों के सिद्धांत विकसित करने में सहायता की।\n- इनमें allele की स्पष्ट अभिव्यक्ति और dominance–recessiveness का प्रत्यक्ष परीक्षण संभव हुआ क्योंकि intermediate अस्पष्टता कम रहती थी।\n- प्रयोगों के नियंत्रित सेटअप में discrete traits से मतभेद की त्रुटियाँ घटतीं और परिणामों की reproductibility बेहतर होती थी।\n- practical परीक्षा-उपयोग: Prelims के MCQ में “clear-cut contrasting traits” समझकर विकल्प पहचानें — मतलब traits जिनमें मध्यवर्ती स्वरूप कम और पेचीदگی न्यून हो।\n- Mains के उत्तर में mp–specific जोड़ने हेतु (सूत्रबद्ध बिंदु): मेंडल के प्रयोगों का आधार—कठोर रूप से अलग फेनोटाइप (discrete traits) चुनना; इससे नियम निकालने की वैज्ञानिक वैधता बनी रही।\n- रिवीजन टिप: याद रखें — मेंडल के सफल नियमों के पीछे प्रयोगात्मक रणनीति = ऐसे गुण जिनमें फेनोटाइप स्पष्ट और बीच के रूप न्यूनतम हों।", "priority_tag": "HIGH"}, {"question": "एक heterozygous parent (Aa) को homozygous recessive (aa) के साथ test cross करने पर offspring में किस अनुपात के genotype मिलेंगे?", "options": ["1 Aa : 1 aa", "3 Aa : 1 aa", "1 AA : 2 Aa : 1 aa", "सभी Aa"], "answer_index": 0, "explanation": "# व्याख्या — टेस्ट क्रॉस: Aa × aa का Genotype अनुपात\n- परीक्षण: heterozygous जनक (Aa) को homozygous recessive (aa) के साथ क्रॉस करने को टेस्ट क्रॉस कहते हैं, जिसका उद्देश्य heterozygote की जीनोटाइप पहचान करना है।\n- गमेट्स: Aa माता/पिता से दो प्रकार के गमेट बनेंगे — A और a; aa से केवल एक प्रकार का गमेट बनेगा — a।\n- संभावनाएँ: Aa से बनने वाले गमेट का अनुपात A : a = 1 : 1 होता है, जबकि aa से सभी गमेट a ही होंगे।\n- Punnett-स्क्वेयर विधि से मिलकर नतीजा: संभव संयोजन होंगे A × a = Aa और a × a = aa; अतः जीनोटाइप अनुपात = 1 Aa : 1 aa।\n- प्रतिशत व्याख्या: कुल offspring में औसतन 50% Aa और 50% aa होंगे।\n- फेनोटाइप (यदि A पूर्ण प्रभुत्व/complete dominance दिखाता हो): Aa और AA में एक ही प्रकट रूप होगा; इसलिए इस टेस्ट क्रॉस में फेनोटाइप अनुपात 1 (डोमिनेंट) : 1 (रिसेसिव) होगा क्योंकि Aa डोमिनेंट फेनोटाइप और aa रिसेसिव फेनोटाइप देगा।\n- Mendel सिद्धांत सम्बन्ध: यह परिणाम \"Law of Segregation\" पर आधारित है — प्रत्येक जीवदाणु में एक-जीन के दो एलिल अलग होकर गमेट्स में अलग-अलग जाते हैं।\n- प्रयोगात्मक उपयोग: टेस्ट क्रॉस क्लासिकल जीनोटाइप निर्धारण के लिए सरल और विश्वसनीय विधि है — heterozygote का पता लगाने के लिए रिसेसिव क्रॉस-पार्टनर का उपयोग किया जाता है।\n- परिकल्पनाएँ/सीमाएँ: यह अनुपात तभी मान्य है जब जीन पर पूर्ण प्रभुत्व हो, नयी म्यूटेशन न हों, और चयन/लिंकज या अन्य आनुवांशिक जटिलताएँ न हों; छोटे नमूने मात्रात्मक विचलन दिखा सकते हैं।\n- गणितीय आशय: प्रत्येक संतान की स्वतंत्र संभावना 0.5 होने के कारण बड़े नमूनों पर लॉ आस ऑफ लॉर्ज नंबर के अनुसार 1:1 अनुपात प्रकट होता है।\n- परीक्षा-केंद्रित नोट: MCQ में तुरंत कहें — Aa × aa के जीनोटाइप अनुपात = 1 Aa : 1 aa; और इसे एक लाइन में साबित करने के लिए गमेट्स A/a और a का उल्लेख पर्याप्त है।", "priority_tag": "HIGH"}, {"question": "यदि दो loci पर crossing over शून्य प्रतिशत हो (completely linked), तो parental और recombinant प्रकार क्या होंगे?", "options": ["सभी offspring parental प्रकार के होंगे, recombinant नहीं होंगे", "सभी offspring recombinant प्रकार के होंगे", "parental और recombinant बराबर होंगे", "phenotype का कोई भी परिवर्तन नहीं होगा"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Pedigree में 'half-shaded' symbol अक्सर किसका संकेत देता है?", "options": ["carrier (रिसेसिव allele का वाहक) जो phenotype तो नहीं दिखाता", "affected व्यक्ति", "unknown genotype व्यक्ति", "deceased व्यक्ति"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "मेंडलियन ratio (3:1) किस observational result से जुड़ा हुआ है?", "options": ["एकल गुण का monohybrid cross F2 फेनोटाइप अनुपात", "dihybrid cross का फेनोटाइप अनुपात", "codominance का सामान्य अनुपात", "sex-linked traits के पैटर्न"], "answer_index": 0, "explanation": "# **विषय: मेंडलियन अनुपात (3:1) — Monohybrid cross (F2 फेनोटाइप अनुपात) की व्याख्या**\n- मेंडल के नियमों में 3:1 अनुपात एक एकल गुण (monohybrid) के F2 पीढ़ी में प्रकट होने वाला फेनोटाइपिक अनुपात है।\n- यह अनुपात तब आता है जब माता-पिता दोनों अलग-अलग शुद्ध (homozygous) स्थितियों के मिश्रण से बने F1 हेटेरोजाईगस होते हैं और F1 × F1 क्रॉस होता है।\n- F1 जीवों में हेटेरोजाइगस जीनोटाइप (Aa) होने पर वरीय (dominant) लक्षण ही दिखाई देता है, पर जीन की उपस्थिति दोनों allele लिए बनी रहती है।\n- F1 के आत्म-परापतन (self-cross) पर संभावित जीनोटाइपिक विभाजन Mendel के Segregation (विभाजन) नियम के अनुसार 1 AA : 2 Aa : 1 aa बनाता है।\n- इन जीनोटाइप्स के फेनोटाइप परिवर्तन से 3 व्यक्तियों में वरीय लक्षण और 1 में अभिग्रहित (recessive) लक्षण दिखाई देते हैं — अतः फेनोटाइपिक अनुपात 3:1।\n- Punnett square से यह गणना स्पष्ट होती है: चार संभावित संयोजन (AA, Aa, aA, aa) में तीन में वरीय और एक में अभिग्रहित लक्षण होगा।\n- यह अनुपात केवल तब मान्य है जब एकल जीन, दो allele, पूर्ण वर्चस्व (complete dominance), और स्वतंत्र गुण संचरण के सादे परिदृश्यों की शर्तें पूरी हों।\n- प्रयोगों और प्रश्नोत्तरों में 3:1 अनुपात पहचानने के लिए जीनोटाइपिक अनुपात 1:2:1 और फेनोटाइपिक 3:1 की बातें याद रखें।\n- Mains उत्तर के लिए संक्षेप में लिखें: “Monohybrid cross में F1 के आत्म-परापतन से Mendelian segregation के कारण F2 में फेनोटाइपिक अनुपात 3:1 प्राप्त होता है,” और आवश्यक होने पर Punnett square जोड़ें।\n- संक्षेपिकरण / रिवीजन-नोट: शर्तें — single gene, two alleles, complete dominance, F1 heterozygous, selfing of F1 → F2 में 3:1 फेनोटाइपिक अनुपात।", "priority_tag": "VERY_HIGH"}, {"question": "Mendelian genetics के सन्दर्भ में 'allele' को सबसे उपयुक्त परिभाषा कैसे दी जा सकती है?", "options": ["किसी gene के विकल्पीय रूप जो loci पर उपस्थित होते हैं", "एक अलग chromosome", "कोई विशेष प्रकार का protein complex", "एक type का gamete"], "answer_index": 0, "explanation": "# **विषय: Allele — Mendelian genetics में सर्वाधिक उपयुक्त परिभाषा (व्याख्या)**\n- *Allele* वह वैकल्पिक रूप है जो किसी विशिष्ट gene का एक विशेष locus (स्थान) पर उपस्थित होता है।\n- हर gene के लिए दो loci होते हैं — एक माता से और एक पिता से — और उन loci पर मौजूद विकल्पी रूपों को alleles कहते हैं।\n- Alleles का स्थान समान locus पर होता है; अर्थात् वे gene के समान भौतिक स्थान में विभिन्न रूप लेते हैं।\n- यदि दोनों homologous chromosomes पर वही allele मौजूद हों तो स्थित‍ि को *homozygous* कहते हैं; यदि अलग-अलग alleles हों तो *heterozygous* कहते हैं।\n- Alleles genotype बनाते हैं (उदाहरण: Aa, AA, aa) जबकि phenotype उन alleles के संक्रियात्मक प्रभाव से दिखाई देता है।\n- Mendelian inheritance में कुछ alleles एक दूसरे के ऊपर *dominant* या *recessive* प्रभाव दिखा सकते हैं; यह allele के प्रकार और interaction पर निर्भर होता है।\n- एक locus पर तीन या अधिक वैकल्पिक alleles का समूह हो सकता है—इसे *multiple allelism* कहते हैं; पर एक व्यक्ति के पास किसी locus के लिए अधिकतम दो alleles ही होते हैं।\n- Alleles मूलतः DNA sequence के छोटे-छोटे परिवर्तनों (mutations) से उत्पन्न होते हैं, जो gene के कार्य या अभिव्यक्ति को बदल सकते हैं।\n- Alleles का अध्ययन आनुवंशिक रोगों, मनुसूची गुणों और breeding कार्यक्रमों में phenotype की भविष्यवाणी के लिए जरूरी है।\n- Mendel के सिद्धांतों के अनुरूप allele की पहचान और उनकी segregation ने hereditary units की व्याख्या संभव की — अर्थात alleles अलग-अलग gametes में segregate होते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "किसी pedigree में अगर trait हर पीढ़ी में दिखाई देता है और दोनों लिंग समान रूप से प्रभावित होते हैं, तो सबसे संभावित inheritance pattern क्या है?", "options": ["autosomal dominant", "autosomal recessive", "X-linked recessive", "mitochondrial"], "answer_index": 0, "explanation": "# व्याख्या: Autosomal dominant inheritance (पारिवारिक वंश-आलेख में पहचान)\n- Autosomal dominant वंशानुक्रम में रोग/लक्षण किसी ऑटोसोमिक (नॉन-सेक्स) क्रोमोसोम पर एक दोषपूर्ण Alelle की उपस्थिति से प्रकट होता है।\n- Pedigree में विशेषतः हर पीढ़ी में लक्षण दिखाई देना (vertical transmission) इस पैटर्न का प्रमुख लक्षण है।\n- दोनों लिंगों (पुरुष और महिला) समान अनुपात में प्रभावित होते हैं क्योंकि जीन X या Y से संबंधित नहीं होता।\n- प्रभावित व्यक्ति आमतौर पर heterozygous (Aa) होते हैं और हर संतान को इस Alelle मिलने की संभाव्यता 50% होती है (प्रत्येक गर्भाधान पर)।\n- अगर एक माता-पिता affected (Aa) और दूसरा सामान्य (aa) हो तो बच्चे के affected होने का जोखिम 1/2 होता है; दो affected माता-पिता के संयोजन से जीन की गंभीरता बढ़ सकती है।\n- Male-to-male transmission की उपस्थिति autosomal inheritance की पुष्टि कर सकती है (यानी पिता से पुत्र में प्रत्यक्ष संचार संभव)।\n- Penetrance और expressivity महत्वपूर्ण हैं: पूर्ण penetrance में सभी वाहक प्रभावित होते हैं; अलग-अलग व्यक्तियों में लक्षणों की तीव्रता (expressivity) बदल सकती है।\n- De novo म्यूटेशन से नया वेरिएंट पहली बार एक परिवार में उत्पन्न हो सकता है, परन्तु एक बार उत्पन्न होने पर यह dominant पैटर्न के अनुसार पीढ़ियों में स्थानांतरित हो सकता है।\n- Homozygous स्थिति (AA) आमतौर पर अधिक गंभीर या घातक हो सकती है, पर अधिकांश autosomal dominant रोगों में heterozygous ही रोगप्रद होता है।\n- क्लिनिकल/विरासत संबंधी परिक्षण और जेनेटिक काउंसलिंग में इस inheritance pattern के कारण परिवारों को संतान हेतु 50% जोखिम की व्याख्या दी जाती है।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

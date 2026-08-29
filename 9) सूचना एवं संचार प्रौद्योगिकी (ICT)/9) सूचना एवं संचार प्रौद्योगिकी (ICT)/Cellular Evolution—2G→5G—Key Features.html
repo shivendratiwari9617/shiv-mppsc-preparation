@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-061 – Cellular Evolution—2G→5G—Key Features</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-061 – Cellular Evolution—2G→5G—Key Features</h1>
+        <div class="note">क्षेत्र: Global | सामग्री: बैंडविड्थ/लेटेंसी/थ्रूपुट—यूज़‑केस मैप। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+Cellular Evolution—2G→5G के संदर्भ में यह चर्चा उन तकनीकी परिवर्तनों, बैंडविड्थ/लेटेंसी/थ्रूपुट के मापन और वास्तविक‑विश्व उपयोग‑केस मैपिंग पर केंद्रित है जो पिछले 15 वर्षों में तेज़ी से उभरे हैं। यह विषय MPPSC GS पेपर के ICT/Telecom खंड के लिए प्रासंगिक है क्योंकि राज्य‑स्तर पर सेवाओं (e‑Governance, स्वास्थ्य, शिक्षा, सुरक्षा) का डिजिटलीकरण मोबाइल नेटवर्क की क्षमता पर निर्भर है।
+
+# अवधारणा एवं विकास‑कालक्रम (Key milestones)
+2G (GSM) का वाणिज्यिक रोल‑आउट लगभग 1991 के आसपास हुआ; यह primarily सर्किट‑स्विच्ड आवाज और सीमित डेटाकम्युनिकेशन (GPRS ~56–114 kbps) पर केंद्रित था। 3G (UMTS/WCDMA, ~2001 onwards) ने packet‑switched डेटा और peak थ्रूपुट तक ~2 Mbps (initial) मुहैया कराया; HSPA/HSPA+ ने आरोहित करते हुए 2010 के आसपास ~42 Mbps तक theoretical speeds दी। 4G (LTE, initial deployments ~2009–2010) ने OFDMA, MIMO और carrier aggregation को अपनाकर मोबाइल‑थ्रूपुट को 100 Mbps (mobile) से लेकर LTE‑A में theoretical 1 Gbps तक बढ़ाया। 5G (NR — New Radio, commercial rollouts globally from 2019; भारत में spectrum auction 2022 और वाणिज्यिक सेवाओं का प्रारम्भ 2022–23) ने eMBB, URLLC और mMTC जैसे तीन प्रमुख service‑pillars पर काम कर के peak throughput ~10 Gbps, latency down to 1 ms (theoretical), और massive device density (10^6 devices/km^2 target) दिए।
+
+# तकनीकी संरचना एवं कार्यप्रणाली (Components &amp; How it works)
+प्रत्येक पीढ़ी में modulation, multiple access और core architecture बदलता है: 2G में TDMA/FDMA (GSM) और basic encryption; 3G में WCDMA/CDMA2000 और packet‑core (GPRS/EDGE से EPC तक); 4G ने end‑to‑end IP‑based Evolved Packet Core (EPC), OFDMA uplink/downlink, और MIMO अपनाया। 5G में Non‑Standalone (NSA) और Standalone (SA) modes, 5G Core (5GC) based on service‑based architecture (SBA), network slicing, CUPS (Control and User Plane Separation) और edge‑computing (MEC) की प्रवृत्ति है। स्पेक्ट्रम के संदर्भ में 5G millimeter‑wave (24–40 GHz और ऊपर) के साथ sub‑6 GHz मिश्रण करता है; स्पेक्ट्रल efficiency बढ़ाने हेतु massive MIMO (64×64 या अधिक), beamforming और higher order modulation (256QAM+) लागू होते हैं।
+
+# बैंडविड्थ—लेटेंसी—थ्रूपुट का तुलनात्मक विश्लेषण (Micro‑facts)
+2G: थ्रूपुट आमतौर पर 0.05–0.2 Mbps, RTT/लेटेंसी कई सौ ms; 3G: 0.5–2 Mbps (HSPA+ तक 42 Mbps), latency ~100–500 ms; 4G LTE: औसत मोबाइल रेट्स 10–50 Mbps, peak 100 Mbps‑1 Gbps (LTE‑A), latency ~20–50 ms; 5G: target eMBB peak 1–10 Gbps, URLLC latency 1–10 ms, spectral efficiency और throughput में order‑of‑magnitude सुधार। ये आकलन ITU‑ और 3GPP‑defined KPIs के अनुरूप हैं और नेटवर्क‑design decisions (carrier bandwidth, numerology, scheduling) पर निर्भर करते हैं।
+
+# यूज़‑केस मैपिंग (Use‑case mapping by capability)
+eMBB (Enhanced Mobile Broadband): high‑capacity video, AR/VR, cloud gaming — 5G में 1–10 Gbps peak और sub‑100 ms latency आवश्यक; राज्य‑स्तरीय virtual classrooms और high‑resolution telemedicine के लिए उपयुक्त।  
+URLLC (Ultra‑Reliable Low‑Latency Communication): remote surgery, industrial automation, autonomous vehicles — latency ≤1–10 ms और reliability 99.999% जैसी आवश्यकताएँ; MEC + network slicing के माध्यम से मेन‑नेटवर्क पर deterministic चैनल देते हैं।  
+mMTC (massive Machine Type Communication): IoT‑sensor नेटवर्क, smart‑metering — 5G का लक्ष्य 10^6 devices/km^2 और low energy consumption (e.g., NB‑IoT, LTE‑M पर 3GPP specifications) है।  
+इन यूज़‑केस मैपों से नीति‑निर्माताओं को पता चलता है कि किस सेवा के लिए कौन‑सा स्पेक्ट्रम, QoS और सुरक्षा नियम आवश्यक हैं।
+
+# नीतिगत और संस्थागत संदर्भ (India &amp; governance)
+भारत में DoT/TraI द्वारा स्पेक्ट्रम नीति, MeitY के 5G testbeds (IIT‑Madras/NITs आदि के सहयोग से 2020 onwards) और BharatNet (ग्राम्य ब्रॉडबैंड) जैसी योजनाओं ने बुनियादी ढांचा मुहैया कराया। 2022 में भारत में 5G spectrum auction और subsequent rollout ने telecom operators (Jio, Airtel, Vodafone Idea) को नवीन सेवाएँ देने के लिए regulatory framework दिया; TRAI‑defined QoS parameters और MeitY के cybersecurity guidelines (CERT‑In) 5G deployments पर लागू होते हैं। राज्य‑स्तर पर Digital India और National Health Stack/ eSanjeevani telemedicine platforms 4G/5G नेटवर्क के साथ scale हो सकते हैं, जबकि मध्यप्रदेश में भी राज्य‑e‑Governance परियोजनाओं के लिए मोबाइल‑broadband अपनाने की आवश्यकता है।
+
+# लाभ, आर्थिक प्रभाव और सामाजिक उपयोग (Benefits &amp; Impact)
+Cellular evolution ने डेटा‑उपयोग पर आधारित नई अर्थव्यवस्थाएँ जन्म दीं: OTT services, fintech, e‑commerce और gig‑economy; 5G से Industry 4.0, smart grids, precision agriculture और telemedicine में productivity वृद्धि संभावित है। आर्थिक अनुमान बताते हैं कि 5G deployments GDP में significant योगदान दे सकते हैं (various reports estimate multi‑billion USD uplift nationally), और rural connectivity के लिए BharatNet + 5G fixed wireless access (FWA) मॉडल cost‑effective विकल्प हो सकता है।
+
+# चुनौतियाँ और जोखिम (Challenges &amp; Constraints)
+स्पेक्ट्रम आवंटन और कीमतें, capital‑intensity (5G RAN + core + fiber backhaul) और ROI timelines छोटे ऑपरेटरों के लिए चुनौती हैं; backhaul पर ऑप्टिकल फाइबर की कमी latency को सीमित करती है—ITU/3GPP KPIs पाने के लिए fiberization आवश्यक है। security जोखिम में software‑defined cores और network slices के isolation failures, supply‑chain vulnerabilities और 3GPP‑specified authentication weaknesses शामिल हैं; CERT‑In/MeitY के मानक तथा operator‑level IPsec/5G‑AAG protocols का पालन अनिवार्य है। ग्रामीण और गरीब वर्गों के लिए device affordability और digital literacy भी बाधा हैं।
+
+# समाधान, नीति अनुशंसाएँ एवं राज्य‑स्तरीय कार्ययोजना (Way forward)
+1) स्पेक्ट्रम नीति: staggered auctions, rural coverage obligations और shared/virtualized spectrum models से औपचारिक निवेश‑बाधा कम की जाए; TRAI/DoT guidelines के तहत phased rollout की रणनीति अपनाई जाए।  
+2) Infrastructure: राज्य‑स्तरीय fiber backbone (mains: BharatNet extension), tower‑sharing और Open‑RAN (O‑RAN) adoption से CAPEX/ OPEX घटे—O‑RAN specifications 3GPP/ORAN Alliance के अनुरूप लागू हों।  
+3) Security &amp; Standards: MeitY/CERT‑In द्वारा 5G‑specific security baseline, supply‑chain audits और 3GPP Rel‑15/16 के परिपालन को अनिवार्य करें; network slicing में slice‑level SLA और monitoring implement हो।  
+4) Use‑case driven pilots: स्वास्थ्य (eSanjeevani), शिक्षा (virtual classrooms), कृषि (precision sensors + FWA) में 5G/edge pilots शुरू कर के ROI और social impact map करें—MP में district‑level pilots और capacity‑building जरूरी।  
+5) Affordability &amp; Inclusion: low‑cost 5G devices के लिए Make‑in‑India incentives तथा NB‑IoT/LTE‑M के माध्यम से IoT device subsidy मॉडल को प्रोत्साहित करें।  
+6) Skill &amp; Regulation: telecom engineers, field technicians के लिए state‑level training centres; regulatory sandboxes MeitY/DoT के साथ मिलकर परिनियोजित हों।
+
+# निष्कर्ष
+2G से 5G तक की यात्रा केवल गति‑वृद्धि नहीं बल्कि आर्किटेक्चर‑परिवर्तन रही है: circuit→packet→IP‑native core→service‑based core और आख़िर में sliceable, software‑defined नेटवर्क। बैंडविड्थ और थ्रूपुट में orders‑of‑magnitude सुधार और latency में dras­tic कमी ने नये applications (URLLC, mMTC, eMBB) संभव बनाए हैं। भारत/राज्य‑स्तर पर नीति‑समायोजन, fiberization, सुरक्षा मानक और inclusion‑driven deployment ही यह सुनिश्चित करेंगे कि 5G का लाभ शहरी‑ग्रामीण दोनों स्तरों पर सशक्त रूप से पहुंचे। दीर्घकाल में 5G‑to‑B5G/6G ट्रांज़िशन के लिए research, spectrum planning और cross‑sector collaboration अपरिहार्य हैं।
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक  
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-061 – Cellular Evolution—2G→5G—Key Features", "coverage_note": "क्षेत्र: Global | सामग्री: बैंडविड्थ/लेटेंसी/थ्रूपुट—यूज़‑केस मैप। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\nCellular Evolution—2G→5G के संदर्भ में यह चर्चा उन तकनीकी परिवर्तनों, बैंडविड्थ/लेटेंसी/थ्रूपुट के मापन और वास्तविक‑विश्व उपयोग‑केस मैपिंग पर केंद्रित है जो पिछले 15 वर्षों में तेज़ी से उभरे हैं। यह विषय MPPSC GS पेपर के ICT/Telecom खंड के लिए प्रासंगिक है क्योंकि राज्य‑स्तर पर सेवाओं (e‑Governance, स्वास्थ्य, शिक्षा, सुरक्षा) का डिजिटलीकरण मोबाइल नेटवर्क की क्षमता पर निर्भर है।\n\n# अवधारणा एवं विकास‑कालक्रम (Key milestones)\n2G (GSM) का वाणिज्यिक रोल‑आउट लगभग 1991 के आसपास हुआ; यह primarily सर्किट‑स्विच्ड आवाज और सीमित डेटाकम्युनिकेशन (GPRS ~56–114 kbps) पर केंद्रित था। 3G (UMTS/WCDMA, ~2001 onwards) ने packet‑switched डेटा और peak थ्रूपुट तक ~2 Mbps (initial) मुहैया कराया; HSPA/HSPA+ ने आरोहित करते हुए 2010 के आसपास ~42 Mbps तक theoretical speeds दी। 4G (LTE, initial deployments ~2009–2010) ने OFDMA, MIMO और carrier aggregation को अपनाकर मोबाइल‑थ्रूपुट को 100 Mbps (mobile) से लेकर LTE‑A में theoretical 1 Gbps तक बढ़ाया। 5G (NR — New Radio, commercial rollouts globally from 2019; भारत में spectrum auction 2022 और वाणिज्यिक सेवाओं का प्रारम्भ 2022–23) ने eMBB, URLLC और mMTC जैसे तीन प्रमुख service‑pillars पर काम कर के peak throughput ~10 Gbps, latency down to 1 ms (theoretical), और massive device density (10^6 devices/km^2 target) दिए।\n\n# तकनीकी संरचना एवं कार्यप्रणाली (Components & How it works)\nप्रत्येक पीढ़ी में modulation, multiple access और core architecture बदलता है: 2G में TDMA/FDMA (GSM) और basic encryption; 3G में WCDMA/CDMA2000 और packet‑core (GPRS/EDGE से EPC तक); 4G ने end‑to‑end IP‑based Evolved Packet Core (EPC), OFDMA uplink/downlink, और MIMO अपनाया। 5G में Non‑Standalone (NSA) और Standalone (SA) modes, 5G Core (5GC) based on service‑based architecture (SBA), network slicing, CUPS (Control and User Plane Separation) और edge‑computing (MEC) की प्रवृत्ति है। स्पेक्ट्रम के संदर्भ में 5G millimeter‑wave (24–40 GHz और ऊपर) के साथ sub‑6 GHz मिश्रण करता है; स्पेक्ट्रल efficiency बढ़ाने हेतु massive MIMO (64×64 या अधिक), beamforming और higher order modulation (256QAM+) लागू होते हैं।\n\n# बैंडविड्थ—लेटेंसी—थ्रूपुट का तुलनात्मक विश्लेषण (Micro‑facts)\n2G: थ्रूपुट आमतौर पर 0.05–0.2 Mbps, RTT/लेटेंसी कई सौ ms; 3G: 0.5–2 Mbps (HSPA+ तक 42 Mbps), latency ~100–500 ms; 4G LTE: औसत मोबाइल रेट्स 10–50 Mbps, peak 100 Mbps‑1 Gbps (LTE‑A), latency ~20–50 ms; 5G: target eMBB peak 1–10 Gbps, URLLC latency 1–10 ms, spectral efficiency और throughput में order‑of‑magnitude सुधार। ये आकलन ITU‑ और 3GPP‑defined KPIs के अनुरूप हैं और नेटवर्क‑design decisions (carrier bandwidth, numerology, scheduling) पर निर्भर करते हैं।\n\n# यूज़‑केस मैपिंग (Use‑case mapping by capability)\neMBB (Enhanced Mobile Broadband): high‑capacity video, AR/VR, cloud gaming — 5G में 1–10 Gbps peak और sub‑100 ms latency आवश्यक; राज्य‑स्तरीय virtual classrooms और high‑resolution telemedicine के लिए उपयुक्त।  \nURLLC (Ultra‑Reliable Low‑Latency Communication): remote surgery, industrial automation, autonomous vehicles — latency ≤1–10 ms और reliability 99.999% जैसी आवश्यकताएँ; MEC + network slicing के माध्यम से मेन‑नेटवर्क पर deterministic चैनल देते हैं।  \nmMTC (massive Machine Type Communication): IoT‑sensor नेटवर्क, smart‑metering — 5G का लक्ष्य 10^6 devices/km^2 और low energy consumption (e.g., NB‑IoT, LTE‑M पर 3GPP specifications) है।  \nइन यूज़‑केस मैपों से नीति‑निर्माताओं को पता चलता है कि किस सेवा के लिए कौन‑सा स्पेक्ट्रम, QoS और सुरक्षा नियम आवश्यक हैं।\n\n# नीतिगत और संस्थागत संदर्भ (India & governance)\nभारत में DoT/TraI द्वारा स्पेक्ट्रम नीति, MeitY के 5G testbeds (IIT‑Madras/NITs आदि के सहयोग से 2020 onwards) और BharatNet (ग्राम्य ब्रॉडबैंड) जैसी योजनाओं ने बुनियादी ढांचा मुहैया कराया। 2022 में भारत में 5G spectrum auction और subsequent rollout ने telecom operators (Jio, Airtel, Vodafone Idea) को नवीन सेवाएँ देने के लिए regulatory framework दिया; TRAI‑defined QoS parameters और MeitY के cybersecurity guidelines (CERT‑In) 5G deployments पर लागू होते हैं। राज्य‑स्तर पर Digital India और National Health Stack/ eSanjeevani telemedicine platforms 4G/5G नेटवर्क के साथ scale हो सकते हैं, जबकि मध्यप्रदेश में भी राज्य‑e‑Governance परियोजनाओं के लिए मोबाइल‑broadband अपनाने की आवश्यकता है।\n\n# लाभ, आर्थिक प्रभाव और सामाजिक उपयोग (Benefits & Impact)\nCellular evolution ने डेटा‑उपयोग पर आधारित नई अर्थव्यवस्थाएँ जन्म दीं: OTT services, fintech, e‑commerce और gig‑economy; 5G से Industry 4.0, smart grids, precision agriculture और telemedicine में productivity वृद्धि संभावित है। आर्थिक अनुमान बताते हैं कि 5G deployments GDP में significant योगदान दे सकते हैं (various reports estimate multi‑billion USD uplift nationally), और rural connectivity के लिए BharatNet + 5G fixed wireless access (FWA) मॉडल cost‑effective विकल्प हो सकता है।\n\n# चुनौतियाँ और जोखिम (Challenges & Constraints)\nस्पेक्ट्रम आवंटन और कीमतें, capital‑intensity (5G RAN + core + fiber backhaul) और ROI timelines छोटे ऑपरेटरों के लिए चुनौती हैं; backhaul पर ऑप्टिकल फाइबर की कमी latency को सीमित करती है—ITU/3GPP KPIs पाने के लिए fiberization आवश्यक है। security जोखिम में software‑defined cores और network slices के isolation failures, supply‑chain vulnerabilities और 3GPP‑specified authentication weaknesses शामिल हैं; CERT‑In/MeitY के मानक तथा operator‑level IPsec/5G‑AAG protocols का पालन अनिवार्य है। ग्रामीण और गरीब वर्गों के लिए device affordability और digital literacy भी बाधा हैं।\n\n# समाधान, नीति अनुशंसाएँ एवं राज्य‑स्तरीय कार्ययोजना (Way forward)\n1) स्पेक्ट्रम नीति: staggered auctions, rural coverage obligations और shared/virtualized spectrum models से औपचारिक निवेश‑बाधा कम की जाए; TRAI/DoT guidelines के तहत phased rollout की रणनीति अपनाई जाए।  \n2) Infrastructure: राज्य‑स्तरीय fiber backbone (mains: BharatNet extension), tower‑sharing और Open‑RAN (O‑RAN) adoption से CAPEX/ OPEX घटे—O‑RAN specifications 3GPP/ORAN Alliance के अनुरूप लागू हों।  \n3) Security & Standards: MeitY/CERT‑In द्वारा 5G‑specific security baseline, supply‑chain audits और 3GPP Rel‑15/16 के परिपालन को अनिवार्य करें; network slicing में slice‑level SLA और monitoring implement हो।  \n4) Use‑case driven pilots: स्वास्थ्य (eSanjeevani), शिक्षा (virtual classrooms), कृषि (precision sensors + FWA) में 5G/edge pilots शुरू कर के ROI और social impact map करें—MP में district‑level pilots और capacity‑building जरूरी।  \n5) Affordability & Inclusion: low‑cost 5G devices के लिए Make‑in‑India incentives तथा NB‑IoT/LTE‑M के माध्यम से IoT device subsidy मॉडल को प्रोत्साहित करें।  \n6) Skill & Regulation: telecom engineers, field technicians के लिए state‑level training centres; regulatory sandboxes MeitY/DoT के साथ मिलकर परिनियोजित हों।\n\n# निष्कर्ष\n2G से 5G तक की यात्रा केवल गति‑वृद्धि नहीं बल्कि आर्किटेक्चर‑परिवर्तन रही है: circuit→packet→IP‑native core→service‑based core और आख़िर में sliceable, software‑defined नेटवर्क। बैंडविड्थ और थ्रूपुट में orders‑of‑magnitude सुधार और latency में dras­tic कमी ने नये applications (URLLC, mMTC, eMBB) संभव बनाए हैं। भारत/राज्य‑स्तर पर नीति‑समायोजन, fiberization, सुरक्षा मानक और inclusion‑driven deployment ही यह सुनिश्चित करेंगे कि 5G का लाभ शहरी‑ग्रामीण दोनों स्तरों पर सशक्त रूप से पहुंचे। दीर्घकाल में 5G‑to‑B5G/6G ट्रांज़िशन के लिए research, spectrum planning और cross‑sector collaboration अपरिहार्य हैं।\n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  \nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक  \nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "2G (GSM) नेटवर्क में मुख्य multiple access तकनीक कौन‑सी थी?", "options": ["OFDM", "TDMA (Time Division Multiple Access)", "CDMA (Code Division Multiple Access)", "OFDMA"], "answer_index": 1, "explanation": "# TDMA (Time Division Multiple Access) — व्याख्या (MPPSC Prelims 2026 के लिए)\n- TDMA का पूरा नाम Time Division Multiple Access है; यह समय-आधारित multiple access तकनीक है जो 2G (GSM) नेटवर्क में मुख्य रूप से उपयोग की जाती थी।\n- TDMA में उपलब्ध फ़्रिक्वेंसी चैनल को समय-खंडों (time slots) में विभाजित किया जाता है, और प्रत्येक उपयोक्‍ता को निश्चित समय-खंड आवंटित किया जाता है।\n- GSM में एक फिजिकल चैनल (200 kHz का carrier) को आम तौर पर 8 time slots में विभाजित किया जाता है; एक carrier पर एक ही समय में 8 उपयोगकर्ता संचार कर सकते हैं।\n- प्रत्येक time slot एक फ्रेम संरचना का हिस्सा होता है; GSM में एक TDMA फ़्रेम की अवधि 4.615 ms होती है और 8 slots × 4.615 ms का उपयोग परिभाषित होता है।\n- TDMA का लाभ है कि यह स्पेक्ट्रम उपयोग में दक्षता बढ़ाता है क्योंकि एक ही फ्रिक्वेंसी बैंड को समय-आधारित sharing से कई यूज़र उपयोग कर सकते हैं।\n- TDMA में सिंक्रनाइज़ेशन महत्वपूर्ण होता है; बेस स्टेशन और मोबाइल को समय-खिड़कियों में सटीक तालमेल बनाए रखना पड़ता है ताकि समय-खिड़कियों का ओवरलैप न हो।\n- तकनीकी कारणों से TDMA प्रणाली में कॉल स्विचिंग और हैंडओवर समय-समन्वय द्वारा प्रबंधित होते हैं; टाइमिंग त्रुटि या latency से कॉल गुणवत्ता प्रभावित हो सकती है।\n- GSM में TDMA के साथ signaling और control channels भी time slots में मैप होते हैं; उदाहरण: BCCH, FCCH जैसी तरह के control information के लिए विशिष्ट समय-स्रोत निर्धारित होते हैं।\n- TDMA आधारित GSM नेटवर्क में क्षमता (capacity) और कॉल-सहिष्णुता (call robustness) का आकलन time slot allocation, modulation (GMSK) और error-correcting methods पर निर्भर करता है।\n- परीक्षा के दृष्टिकोण से सार: 2G (GSM) का मूल multiple access सिद्धांत time-domain पर आधारित TDMA था — यानी एक ही frequency को अलग-अलग उपयोगकर्ताओं को अलग-अलग समय-खिड़कियों में आवंटित कर उपयोग किया जाता था।", "priority_tag": "HIGH"}, {"question": "GPRS और EDGE को किस जनरेशन के अंदर 2G के साथ अक्सर enhancement माना जाता है और ये किस तरह की सेवाएँ प्रदान करते हैं?", "options": ["2.5G — पैकेट स्विच्ड डेटा सेवाएँ", "2.7G — केवल वॉइस कॉलिंग में सुधार", "2G — ऑल-आईपी कोर सेवाएँ", "2.1G — उच्च गति वीडियो स्ट्रीमिंग"], "answer_index": 0, "explanation": "# व्याख्या — सही उत्तर: **2.5G — पैकेट स्विच्ड डेटा सेवाएँ**\n- GPRS और EDGE को 2G के साथ अक्सर **2.5G (दो-बिंदु-पांच जी)** के enhancements माना जाता है क्योंकि वे GSM नेटवर्क में पैकेट-स्विच्ड डेटा क्षमता जोड़ते हैं।\n- 2.5G का मुख्य परिवर्तन यह था कि यह **सर्किट-स्विच्ड के बजाय पैकेट-स्विच्ड** मोड में डेटा ट्रांसमिशन संभव करता है, जिससे स्पेक्ट्रम और नेटवर्क संसाधनों का कुशल उपयोग होता है।\n- GPRS के सैद्धांतिक अधिकतम डेटा दर लगभग **~115 kbps** तक होती है; व्यावहारिक उपयोग में सामान्यतः **20–50 kbps** के बीच मिलता था।\n- EDGE (Enhanced Data rates for GSM Evolution) ने modulation और coding सुधार कर डेटा दरें बढ़ाईं; इसका सैद्धांतिक अधिकतम लगभग **~384 kbps**, और व्यावहारिक रूप से अक्सर **100–200 kbps** तक देखे गए।\n- 2.5G पर डेटा पैकेट्स के लिए नेटवर्क आर्किटेक्चर में **SGSN और GGSN** जैसे घटक और GTP (GPRS Tunneling Protocol) द्वारा टनलिंग का उपयोग होता है; इससे IP-आधारित सेवाएँ उपलब्ध हुईं।\n- पैकेट-स्विच्ड प्रकृति के कारण 2.5G ने **“always-on” इंटरनेट कनेक्शन**, तेज़ वेब ब्राउज़िंग, ईमेल और MMS जैसी सेवाएँ सम्भव बनाईं और कनेक्शन सेटअप समय घटाया।\n- बिलिंग मॉडल में भी बदलाव आया — पारंपरिक कॉल-क्षमिता के बजाय 2.5G में प्रायः **डेटा वॉल्यूम/पैकेट-आधारित बिलिंग** लागू हुई, जिससे मोबाइल डेटा उपयोग के व्यावसायिक मॉडल बदल गए।\n- तकनीकी उन्नयन के कारण 2.5G नेटवर्कें मौजूदा GSM इंफ्रास्ट्रक्चर पर **कम निवेश में** डेटा सेवाएँ देने लायक थीं, इसलिए वैश्विक रूप से शीघ्र अपनायी गईं।\n- 2.5G ने ग्रामीण व शहरी दोनों क्षेत्रों में मोबाइल-आधारित सरकारी सेवाओं (जैसे मोबाइल-आधारित सूचना, छोटे-स्केल ई-गवर्नेंस, SMS/MMS सूचनाएँ) के लिए आधार तैयार किया, जिससे डिजिटल सर्विसेज़ का पहुँच बढ़ा।\n- 2.5G के कार्यान्वयन ने अगले चरण (3G/4G) के लिए IP-आधारित सेवाओं और मोबाइल डेटा-इकोसिस्टम के विकास (APIs, मोबाइल वेब, कंटेंट सर्विसेज़) का मार्ग प्रशस्त किया।", "priority_tag": "VERY_HIGH"}, {"question": "3G (UMTS/WCDMA) की एक प्रमुख तकनीकी विशेषता क्या है जो 2G से भिन्न है?", "options": ["डाउनलिंक में OFDMA का उपयोग", "सिग्नलिंग के लिए अनेक small cells का परिचय", "CDMA आधारित air interface (WCDMA) और बेहतर डेटा दरें", "उपयोगकर्ता‑संसाधित network slicing"], "answer_index": 2, "explanation": "# व्याख्या — 3G (UMTS/WCDMA) की प्रमुख तकनीकी विशेषता (CDMA आधारित air interface और बेहतर डेटा दरें)\n- WCDMA 3G नेटवर्क में air interface पर CDMA (Code Division Multiple Access) सिद्धांत लागू होता है — प्रत्येक उपयोगकर्ता को अलग-अलग कोड देकर एक ही आवृत्ति बैंड में साझा ट्रांसमिशन संभव होता है।\n- WCDMA में प्रत्‍येक रेडियो चैनल के लिए व्यापक स्प्रेड स्पेक्ट्रम का उपयोग होता है; रेखीय बीम/समयान्तर कोडिंग के ज़रिए एक ही फ्रीक्वेंसी-सेगमेंट पर कई यूज़र्स सह-स्थित रह सकते हैं।\n- UMTS/WCDMA का फ़िजिकल चैनल बैंडविड्थ आमतौर पर 5 MHz होता है, जो 2G के टीवीसी/फ्रेम-आधारित संकीर्ण चैनलों (200 kHz) से व्यापक है — इसलिए उच्च डेटा थ्रूपुट संभव होता है।\n- तकनीकी परिणाम: मूविंग मोबाइल के लिए डाउनलोड दरें आमतौर पर सैकड़ों kbps तक और स्थिर/कम गति पर 1–2 Mbps तक के पिक थ्रूपुट तक पहुँच सकती हैं, जो 2G के तुलनात्मक रूप से बहुत अधिक हैं।\n- CDMA/WCDMA में स्पेक्ट्रल एफिशिएंसी बेहतर होती है — अधिक यूज़र्स को सीमित स्पेक्ट्रम पर बेहतर डेटा टॉर्फ़िक सर्विस दी जा सकती है।\n- WCDMA में सॉफ्ट-हैंडओवर (soft handover) की सुविधा होती है: एक UE एक से अधिक बेस स्टेशन से एक साथ जुड़ा रह सकता है, जिससे कॉल ड्रॉप कम होते हैं और रॉबस्ट कनेक्टिविटी मिलती है।\n- 3G आर्किटेक्चर में पैकेट-स्विच्ड डेटा सेवाओं का बेहतर समर्थन है; इससे मोबाइल इंटरनेट, मल्टीमीडिया और ब्रॉडबैंड-लाइक ऐप्स के लिए उपयुक्त थ्रूपुट और संसाधन प्रबंधन मिलता है।\n- मॉड्यूलेशन व कोडिंग तकनीकें (जैसे QPSK/π/चीन्हित कोडिंग) और रिसोर्स एलोकेशन मेथड्स के कारण लिंक-अडॉप्टेशन संभव है, जिससे चैनल कंडीशन के अनुसार डेटा रेट एडजस्ट होते हैं।\n- नेटवर्क-लेवल प्रभाव: उच्च डेटा दरों और CDMA आधारित इंटरफेस के कारण QoS मैकेनिज़्म और स्लाइसिंग के प्रारंभिक रूप बेहतर स्पष्ट हुए — वॉइस के साथ समुचित डेटा समन्वय संभव हुआ।\n- परीक्षात्मक नोड्स (quick revision): 1) WCDMA = CDMA air interface; 2) 5 MHz चैनल; 3) सॉफ्ट हैंडओवर; 4) कई सौ kbps → ~Mbps डेटा रेट; 5) बेहतर स्पेक्ट्रल एफिशिएंसी — ये 3G की प्रमुख तकनीकी पहचान हैं।", "priority_tag": "HIGH"}, {"question": "4G (LTE) के डाउनलिंक multiple access तकनीक क्या है और अपलिंक के लिए किस तकनीक का उपयोग किया जाता है?", "options": ["डाउनलिंक: CDMA, अपलिंक: TDMA", "डाउनलिंक: OFDMA, अपलिंक: SC‑FDMA", "डाउनलिंक: TDMA, अपलिंक: CDMA", "डाउनलिंक: OFDM, अपलिंक: CDMA"], "answer_index": 1, "explanation": "# व्याख्या — 4G (LTE) के डाउनलिंक और अपलिंक multiple access तकनीक\n**प्रश्न का सही उत्तर:** डाउनलिंक: **OFDMA**, अपलिंक: **SC‑FDMA**\n- OFDMA (Orthogonal Frequency Division Multiple Access) में कुल बैंडविथ को orthogonal सबकैरियर्स में बांटा जाता है; हर यूज़र को एक या अधिक सबकैरियर्स/Resource Blocks अलॉट किए जाते हैं।\n- OFDMA का मुख्य गुण है \"orthogonality\" — सबकैरियर्स पर अंतर नहीं आता, जिससे इंटर-कारियर इंटरफेरेंस कम होता है और स्पेक्ट्रल एफिशिएंसी बढ़ती है।\n- LTE में सबकैरियर स्पेसिंग सामान्यतः 15 kHz होती है; एक Resource Block में 12 सबकैरियर्स होते हैं (180 kHz)।\n- OFDMA डाउनलिंक पर फ्रीक्वेंसी‑डोमेन शेड्यूलिंग की अनुमति देता है — बेस स्टेशन (eNodeB) विभिन्न यूज़र्स को चैनल स्थितियों के अनुसार सबकैरियर्स डायनामिकली आवंटित करता है।\n- Cyclic Prefix (CP) का उपयोग OFDMA में किया जाता है ताकि मल्टीपाथ इफेक्ट से इंटरसिम्बॉल इंटरफेरेंस (ISI) कम हो सके और सरल फ्रीक्वेंसी‑डोमेन equalization सम्भव हो।\n- अपलिंक के लिए SC‑FDMA (Single Carrier Frequency Division Multiple Access) मूलतः single‑carrier संकेत के DFT‑precoding के बाद OFDM‑type सबकैरियर्स पर मैपिंग है — इसे DFT‑precoded OFDM भी कहते हैं।\n- SC‑FDMA का प्रमुख लाभ कम Peak‑to‑Average Power Ratio (PAPR) है, जो मोबाइल डिवाइस के ट्रांसमीटर की पावर एफिशिएंसी और RF amplifier की linearity आवश्यकताओं को घटाता है।\n- कम PAPR के कारण SC‑FDMA मोबाइल उपकरणों में बैटरी जीवन और ट्रांसमीटर डिजाइन के दृष्टिकोण से उपयुक्त है, इसलिए LTE ने अपलिंक के लिए इसे अपनाया।\n- SC‑FDMA भी Resource Block अवधारणा और 15 kHz सबकैरियर spacing का उपयोग करता है, जिससे फ्रिक्वेंसी‑डोमेन शेड्यूलिंग और मल्टीपाथ मिटिगेशन संभव होता है।\n- दोनों तकनीकों में MIMO और उन्नत मॉडुलैशन‑स्कीम (QPSK, 16QAM, 64QAM) का समर्थन होता है, पर अपलिंक पर SC‑FDMA की कम PAPR सीमा बेहतर मोबाइल ट्रांस्मिशन के लिए अनुकूल है।\n- LTE के टाइम फ्रेम संरचना (0.5 ms slot, 1 ms subframe) OFDMA/SC‑FDMA दोनों के लिए समान रहती है, जिससे सिंक्रोनाइज़ेशन और रिसोर्स मैनेजमेंट एकीकृत रहते हैं।\n- संक्षेप में: डाउनलिंक पर सर्वर‑साइड के उच्च स्पेक्ट्रल‑एफिशिएंसी और लचीले फ्रीक्वेंसी‑शेड्यूलिंग के लिए OFDMA, और अपलिंक पर मोबाइल‑साइड की पावर‑कुशलता के लिए SC‑FDMA अपनाया गया।", "priority_tag": "VERY_HIGH"}, {"question": "4G (LTE) को पारंपरिक से अलग किस वजह से 'all‑IP network' कहा जाता है?", "options": ["क्योंकि केवल वॉइस कॉल्स का IP में कन्वर्ज़न होता है", "क्योंकि सारा ट्रैफ़िक—including वॉइस और डेटा—IP आधारित पैकेट्स में होता है", "क्योंकि केवल signalling IP पर चलता है", "क्योंकि यह circuit‑switched नेटवर्क है"], "answer_index": 1, "explanation": "# व्याख्या — 4G (LTE) को 'all‑IP network' कहा जाने का कारण\n- 4G LTE नेटवर्क में सभी सेवाएँ (वॉइस, वीडियो, मैसेजिंग, डाटा) IP‑आधारित पैकेट्स के रूप में स्थानांतरित होती हैं।\n- पारंपरिक सर्किट‑स्विचिंग के बजाय 4G पूरी तरह पैकेट‑स्विच्ड आर्किटेक्चर पर काम करता है; नेटवर्क में डेटा यूनिट्स छोटे IP पैकेट बनकर भेजे जाते हैं।\n- वॉइस सेवाएँ भी IP पर भेजने के लिए VoLTE (Voice over LTE) या IMS (IP Multimedia Subsystem) जैसी तकनीकों का उपयोग करती हैं, जिससे वॉइस भी पैकेट स्वरूप हो जाती है।\n- 4G का Evolved Packet Core (EPC) कोर नेटवर्क purely IP‑based है — यह सिग्नलिंग और यूजर डेटा दोनों के लिए IP बियररों का प्रयोग करता है।\n- end‑to‑end IP होने का अर्थ: यूज़र‑डिवाइस से लेकर एप्लिकेशन सर्वर तक ट्रैफ़िक एकसमान IP फॉरमैट में प्रवाहित होता है, जिससे सर्विस इंटीग्रेशन आसान होता है।\n- IP‑आधारित दृष्टिकोण से QoS (Quality of Service) मैकेनिज़्म, ट्रैफ़िक शेपिंग और बैंडविड्थ अलोकेशन को पैकेट‑लेवल पर नियंत्रित किया जा सकता है।\n- नेटवर्क की स्केलेबिलिटी और मल्टी‑सर्विस सपोर्ट बेहतर होता है क्योंकि एक ही IP इंफ्रास्ट्रक्चर पर अलग‑अलग एप्लिकेशन चलाए जा सकते हैं।\n- IP‑नेटवर्क होने से इंटरनेट‑प्रोटोकॉल जैसे SIP (सिग्नलिंग), RTP (मीडिया स्ट्रीमिंग) और TCP/UDP का उपयोग सामान्य हो जाता है, जिससे इंटरऑपरेबिलिटी और स्टैंडर्डाइज़ेशन बढ़ता है।\n- पैकेट‑आधारित डिजाइन से लेटेंसी और स्पेक्ट्रम एफिशिएंसी में सुधार संभव होता है, जो रियल‑टाइम IP सेवाओं (जैसे वॉइस/वीडियो कॉल) के लिए आवश्यक है।\n- सभी ट्रैफ़िक का IP में होने से नेटवर्क‑नेटिव फीचर्स (एनएटी, फ़ायरवॉल, आईपी‑रूटिंग, पैकेट‑इंस्पेक्शन) लागू होते हैं; यही 4G को 'all‑IP' बनाता है।\n- परीक्षा/मेनस उपयोग के लिए सीधे बिंदु: 4G को all‑IP इसलिए कहा जाता है क्योंकि सारा यूज़र‑ट्रैफ़िक (वॉइस और डेटा) पारंपरिक सर्किट नहीं बल्कि IP पैकेट्स के माध्यम से ही ले जाया जाता है।", "priority_tag": "VERY_HIGH"}, {"question": "5G NR (New Radio) में latency का लक्षित न्यूनतम स्तर (theoretical नल) क्या है जो विशेषकर URLLC use‑cases के लिए महत्वपूर्ण है?", "options": ["~100–200 ms", "~10–20 ms", "~1 ms", "~500 ms"], "answer_index": 2, "explanation": "# 5G NR में latency का लक्ष्य — संक्षेप व्याख्या (URLLC के लिए ≈ 1 ms)\n- 5G NR (New Radio) का URLLC (Ultra‑Reliable Low Latency Communications) उद्देश्य सिग्नलिंग और डाटा ट्रांसमिशन के लिए लक्षित न्यूनतम राउंड‑ट्रिप latency लगभग **1 millisecond (ms)** निर्धारित करना है।\n- यह 1 ms का लक्ष्य तात्कालिक नियंत्रण, मिशन‑क्रिटिकल सेवाओं और वास्तविक‑समय एप्लिकेशनों (जैसे औद्योगिक ऑटोमेशन, रिमोट सर्जरी, autonomous vehicles के कुछ use‑cases) के लिए आवश्यक होता है।\n- 5G आर्किटेक्चर में यह उच्च‑प्राथमिकता latency कम करने के लिए सैद्धान्तिक डिजाइन परिवर्तन शामिल हैं: छोटे Transmission Time Intervals (TTIs), सविच्च हेरालिंग वाले numerologies और गति से प्रतिक्रिया देने वाले subframe टाइप।\n- शॉर्टened प्रोसेसिंग टाइम और डाइवर्सिटी‑आधारित संयुक्त चैनल‑वर्क 5G में latency घटाने के तकनीकी उपाय हैं, ताकि end‑to‑end विलंबता 1 ms के करीब पहुंच सके।\n- नेटवर्क‑साइड optimizations में edge computing (MEC), packet prioritization और slicing शामिल हैं, जिनका उद्देश्य डेटा पाथ को छोटा कर के overall latency घटाना है।\n- PHY और MAC स्तर पर HARQ round trip समय और retransmission का त्वरित प्रबंधन भी URLLC के 1 ms लक्ष्य के लिए महत्वपूर्ण है।\n- 1 ms का theoretical लक्ष्य नेटवर्क डिजाइन और spectrum allocation (उच्च‑bandwidth, low‑propagation delay विकल्प) पर निर्भर है; वास्तविक deployments में end‑to‑end latency कई घटकों से प्रभावित होती है।\n- परीक्षा के उत्तर/नोट में सीधे लिखने हेतु संक्षेप: “5G NR का URLLC‑targeted theoretical latency लगभग 1 ms — तात्कालिक, भरोसेमंद real‑time सेवाओं के लिए”।\n- MPPSC Mains में MP‑संदर्भ जोड़ने के लिए उपयोगी बिंदु: राज्य में औद्योगिक automation, स्मार्ट‑ग्रिड या दूरस्थ स्वास्थ्य सेवाओं के लिए 5G के URLLC (≈1 ms latency) के लाभ और आवश्यक इन्फ्रास्ट्रक्चर‑अपग्रेड पर एक सटीक विकल्प दिया जा सकता है।\n- संक्षेप उत्तर लिखते समय ध्यान दें: यह एक theoretical न्यूनतम लक्ष्‍य है; field‑level latency माप में अतिरिक्त नेटवर्क, बैक‑हॉल और processing देरी जोड़कर रिपोर्ट की जाती है।", "priority_tag": "VERY_HIGH"}, {"question": "5G में 'network slicing' का मुख्य उद्देश्य क्या है?", "options": ["एक ही frequency पर अधिक सेल ट्रांसमिशन करना", "नेटवर्क को कई वर्चुअल‑नेटवर्क्स में विभाजित कर विभिन्न सेवाओं के लिए अलग QoS प्रदान करना", "केवल वॉइस सर्विस के लिए अलग spectrum आरक्षित करना", "SIM कार्ड के बिना कनेक्टिविटी देना"], "answer_index": 1, "explanation": "# व्याख्या: 5G में 'Network Slicing' का मुख्य उद्देश्य क्या है?\n**सही उत्तर संक्षेप:** नेटवर्क को कई वर्चुअल‑नेटवर्क्स में विभाजित कर विभिन्न सेवाओं के लिए अलग QoS प्रदान करना\n- Network Slicing का मूल उद्देश्य एक भौतिक 5G नेटवर्क को एक से अधिक स्वतंत्र वर्चुअल नेटवर्क्स (स्लाइस) में विभाजित करना है, ताकि हर स्लाइस को अलग सेवात्मक व्यवहार और संसाधन मिल सके।\n- हर स्लाइस को उसके लक्ष्य अनुप्रयोग के अनुरूप विशेष QoS पैरामीटर (जैसे latency, bandwidth, reliability) से कॉन्फ़िगर किया जा सकता है, जिससे सेवा‑विशिष्ट SLA सुनिश्चित होते हैं।\n- स्लाइसिंग भौतिक हार्डवेयर को साझा करते हुए भी नेटवर्क आइसोलेशन प्रदान करती है; एक स्लाइस पर समस्या दूसरे स्लाइस की कार्यक्षमता को प्रभावित नहीं करती।\n- Network Slicing के क्रियान्वयन में SDN (Software‑Defined Networking) और NFV (Network Functions Virtualization) प्रमुख तकनीकें हैं, जो लचीली वर्चुअल नेटवर्क फ़ंक्शन (VNFs) और करीने से प्रोग्रामेबल नियंत्रण सुनिश्चित करती हैं।\n- स्लाइस स्तर पर संसाधन (CPU, मीडिया प्रोसेसिंग, बैंडविड्थ) डायनामिक रूप से ऑर्केस्ट्रेट और स्केल किए जा सकते हैं, जिससे नेटवर्क क्षमता का अधिक कुशल उपयोग होता है।\n- एंड‑टू‑एंड (radio access से core तक) स्लाइसिंग संभव है, इसलिए रेडियो‑लेयर, ट्रांसपोर्ट और कोर दोनों पर विशिष्ट QoS नीतियाँ लागू की जा सकती हैं।\n- अलग‑अलग उद्योग उपयोग‑केसेस (उदा. उन्नत IoT, इंडस्ट्रियल ऑटोमेशन, स्मार्ट‑सिटी सेवाएँ, हाई‑बैंडविड्थ मीडिया) के लिए अलग स्लाइस बनाकर उपयुक्त प्रदर्शन और विश्वसनीयता प्रदान की जाती है।\n- नेटवर्क स्लाइसिंग से नेटवर्क संचालन में स्वचालन और तेज सेवा तैनाती आसान होती है; नए सेवाओं के लिए स्लाइस की त्वरित रचना और परिनियोजन संभव है।\n- सुरक्षा एवं गोपनीयता नीतियाँ भी स्लाइस‑स्तर पर अलग‑अलग लागू की जा सकती हैं, जिससे संवेदनशील सेवाओं के लिए कड़े सुरक्षा नियंत्रण रखे जा सकते हैं।\n- शासकीय/सार्वजनिक सेवाओं के लिए समर्पित स्लाइस बनाकर इ‑गवर्नेंस और आपातकालीन सेवाओं को वांछित प्राथमिकता व निरंतरता दी जा सकती है।\n- Network Slicing व्यवसायिक मॉडल को सक्षम बनाता है: ऑपरेटर विभिन्न स्लाइस को अलग‑अलग ग्राहक/verticals को बेच सकते हैं, प्रत्येक के लिए अलग SLA और प्राइसिंग रखी जा सकती है।", "priority_tag": "VERY_HIGH"}, {"question": "5G में massive MIMO का क्या लाभ है?", "options": ["डेटा एनक्रिप्शन तेज करना", "एक हीantenna से केवल एक उपयोगकर्ता को सेवा देना", "एक बेस‑स्टेशन पर बहुत से एंटेना का उपयोग करके स्पेक्ट्रम दक्षता और थ्रूपुट बढ़ाना", "नेटवर्क latency बढ़ाना"], "answer_index": 2, "explanation": "# 5G में Massive MIMO — विस्तृत व्याख्या (प्रयोग: स्पेक्ट्रम दक्षता व थ्रूपुट बढ़ाना)\n- Massive MIMO का मूल सिद्धांत: एक बेस‑स्टेशन पर बहुत‑सारे (दसियों से सैकड़ों तक) ऐंटेना एक साथ प्रयोग करना।\n- अधिक ऐंटेना से स्पैटियलक मल्टिप्लेक्सिंग संभव होता है, जिससे एक ही समय‑पर एक ही फ्रीक्वेंसी चैनल पर कई यूजरों को अलग‑अलग डेटा स्ट्रीम भेजी जा सकती हैं।\n- यह स्पैटियलक विभाजन स्पेक्ट्रम दक्षता (bits/s/Hz) को सीधे बढ़ाता है, यानी प्रति हर्ट्ज उपलब्ध अधिक डेटा ट्रांसफर।\n- ऐंटेना की संख्या बढ़ने पर सिग्नल‑टू‑इंटरफेरेंस‑आॅर‑नॉइज़ अनुपात (SINR) में सुधार होता है, जिससे थ्रूपुट और लिंक‑विश्वसनीयता बढ़ती है।\n- बीमफॉर्मिंग के कारण ऊर्जा लक्षित यूजर की ओर केंद्रित होती है, जिससे इंटरफेरेंस घटता और स्पेक्ट्रल उपयोग प्रभावी बनता है।\n- Massive MIMO से सेल‑क्षमता (cell capacity) स्केल होती है — अधिक यूजरों को एक साथ सेवा देने पर कुल नेटवर्क थ्रूपुट बढ़ता है।\n- टाइम/फ्रीक्वेंसी संसाधनों का कुशल उपयोग: एक ही स्पेक्ट्रम संसाधन पर अधिक डेटा स्ट्रीम भेजने से स्पेक्ट्रम रीयूज़ दक्षता बढ़ती है।\n- उपयोगकर्ता‑विशिष्ट चैनल‑अनुमान और अडैप्टिव ट्रांसमिशन से मॉड्यूलेशन और कोडिंग अधिक प्रभावी ढंग से लागू हो पाता है, जिससे औसत गति (average data rate) बेहतर होती है।\n- ऊर्जा‑प्रति‑बिट दक्षता में सुधार: लक्षित बीमिंग कम ट्रांसमिट पावर में अधिक उपयोगी सिग्नल देती है, जिससे पावर‑इफिशिएंसी बेहतर होती है।\n- मोबाइल नेटवर्क में फीडबैक‑आधारित और टाई‑डाइवर्सिटी तकनीकों के साथ Massive MIMO मिश्रित लाभ देता है — बढ़ी हुई कनेक्टिविटी और विश्वसनीयता।\n- नेटवर्क‑लेवल प्रभाव: बेस‑स्टेशन‑साइड ऐंटेना बढ़ने से स्पेक्ट्रम‑लागत प्रति यूजर घटती है और अतिरिक्त स्पेक्ट्रम आवश्यकता कम हो सकती है।\n- व्यावहारिक विचार: बेस‑स्टेशन पर अधिक ऐंटेना होने पर चैनल‑अनुमानों, हार्डवेयर कॉम्प्लेक्सिटी और सिग्नल‑प्रोसेसिंग की आवश्यकता बढ़ती है, परन्तु स्पेक्ट्रम दक्षता व थ्रूपुट में प्रत्यक्ष लाभ मिलता है।\n(ये बिंदु MPPSC Prelims के MCQ तथा Mains के उत्तरों में सीधे प्रयोग के लिए संक्षेपित, तकनीकी और परीक्षा‑उपयोगी हैं।)", "priority_tag": "HIGH"}, {"question": "Millimeter wave (mmWave) बैंड्स जिन्हें अक्सर 5G में उपयोग किया जाता है, उनकी प्रमुख सीमा क्या है?", "options": ["बहुत लंबी रेंज पर उत्कृष्ट indoor penetration", "लघु रेंज और कम बाधा‑penetration (obstacle penetration)", "निचले latency के कारण बेहतर coverage in rural areas", "केवल voice transmissions के लिए उपयुक्त"], "answer_index": 1, "explanation": "# व्याख्या — Millimeter wave (mmWave) बैंड्स: लघु रेंज तथा कम बाधा‑penetration\n- mmWave सामान्यतः 24 GHz से ऊपर के आवृत्ति बैंड को सूचित करते हैं; इनकी तरंगदैर्घ्य मिलीमीटर स्तर पर होती है, जिससे इन्हें \"mmWave\" कहा जाता है।\n- उच्च आवृत्ति के कारण संकेतों का प्रसार सीमित होता है; सामान्यतः इनके लिए कवरेज रेंज कम (कुछ सौ मीटर तक, शहरी परिस्थितियों में अक्सर अनेक दसियों मीटर) होता है।\n- mmWave का बाधा‑penetration बहुत कम होता है; दीवारें, कंक्रीट, कांच और पेड़-पत्तियाँ संकेतों को तेज़ी से कम कर देती हैं।\n- इन बैंड्स में संकेतों की अवशोषण (attenuation) व समारोह अधिक होता है; वायुमंडलीय गैसों और वर्षा के संपर्क में सिग्नल शक्ति और घटती है।\n- इसलिए mmWave तंत्र में लाइन‑ऑफ‑साइट (LoS) कनेक्टिविटी महत्त्वपूर्ण होती है; ब्लॉकेज होने पर रिपीटर/बाहरी एंटीना या वैकल्पिक मार्ग आवश्यक होते हैं।\n- कम रेंज और कम penetration का परिणाम यह है कि अधिक घनत्व में छोटे सेल (small cells) और बेस‑स्टेशन की आवश्यकता होती है, जिससे नेटवर्क प्लानिंग और साइट‑एक्विजीशन की जटिलता बढ़ती है।\n- फ्रंटहॉल/बैकहॉल के लिए उच्च‑बैंडविड्थ फाइबर कनेक्टिविटी या रेडियो लिंक आवश्यक होते हैं, क्योंकि कई छोटे सेल्स को विश्वसनीय बैकऑफ की आवश्यकता रहती है।\n- सुरक्षा/प्राइवेसी के लिहाज़ से छोटी कवरेज रेंज से स्थानिक confinement संभव है — परन्तु छोटी दूरी पर भी मौसम या संरचनात्मक बाधा कनेक्टिविटी प्रभावित कर सकती है।\n- शहरी उच्च‑घनत्व उपयोग (stadiums, CBDs) में mmWave उच्च डेटा दर प्रदान करते हैं, परन्तु विश्वसनीय कवरेज सुनिश्चित करने के लिए अधिक इन्फ्रा‑स्टैक्चर जरूरी है।\n- परीक्षा‑उपयोग हेतु संक्षेप: mmWave = उच्च आवृत्ति → उच्च डेटा स्पीड पर छोटा कवरेज + कमजोर बाधा‑penetration; नेटवर्क में छोटे‑सेल और फाइबर/नज़दीकी बैकहॉल अनिवार्य।\n- Mains के लिए उठाने योग्य बिंदु (MP‑संदर्भ में लागू): कटौती‑स्तर (attenuation) और कम penetration के चलते ग्रामीण/हाशिये पर mmWave पर निर्भरता सीमित; शहरों में छोटे‑सेल तैनाती, साइट‑लाइसेंसिंग व फाइबर जोड़ने की नीति‑योजना आवश्यक है।", "priority_tag": "HIGH"}, {"question": "5G core (5GC) की architecture में किस सिद्धांत को प्रमुखता दी गई है जो 4G EPC से अलग है?", "options": ["Circuit‑switched control plane", "Monolithic centralized control", "Service‑based architecture (SBA) और microservices", "प्रत्येक सेवा के लिए fixed hardware appliances"], "answer_index": 2, "explanation": "# 5G Core (5GC) में Service‑Based Architecture (SBA) और Microservices — परीक्षा‑उन्मुख व्याख्या\n- **Service‑Based Architecture (SBA)** वह डिज़ाइन सिद्धांत है जिसमें 5G core network के फ़ंक्शन स्वतंत्र, पुनः प्रयोज्य और स्पष्ट रूप से परिभाषित सेवा इंटरफ़ेस के रूप में प्रस्तुत होते हैं।\n- प्रत्येक core function को एक या अधिक **microservices** के रूप में तैनात किया जाता है, जिससे बड़े monolithic ब्लॉक्स की बजाय छोटे, आसानी से प्रबंधनीय यूनिट बनते हैं।\n- SBA में सेवाएँ सामान्यतः **HTTP/RESTful APIs** या संबंधित service-based interfaces के माध्यम से संवाद करती हैं, जिससे इंटर‑ऑपरेबिलिटी और मानकीकरण सरल होता है।\n- microservices के कारण 5GC में **स्केलेबिलिटी** बढ़ती है — किसी विशिष्ट सेवा की मांग बढ़ने पर केवल वही सेवा स्केल की जा सकती है।\n- यह आर्किटेक्चर **तेज़ डेवलपमेंट और डिप्लॉयमेंट** की अनुमति देता है: प्रत्येक microservice को स्वतंत्र रूप से अपडेट, परीक्षण और रिलीज़ किया जा सकता है।\n- SBA से **रिज़िलिएन्स और fault isolation** बेहतर होता है — किसी एक microservice के फेल होने पर पूरे core पर प्रभाव सीमित रहता है।\n- 5GC में SBA को क्लाउड‑नेटिव प्लेटफ़ॉर्म और NFV/containers के साथ जोड़ा जाता है, इसलिए **ऑटोमेशन, ऑर्केस्ट्रेशन और CI/CD** मॉडल सरल होते हैं।\n- सेवा‑आधारित दृष्टिकोण सुरक्षा मॉडल को भी अनुकूल बनाता है — हर सेवा के लिए निर्दिष्ट authentication/authorization और नीति लागू की जा सकती है।\n- SBA से नेटवर्क फ़ंक्शन्स को **अनुप्रयोगों तथा अन्य नेटवर्क‑सर्विसेज़ के साथ एक्सपोज़** करना आसान हो जाता है, जिससे नेटवर्क‑सहगामी सेवाओं (network‑exposed services) का निर्माण संभव होता है।\n- इस आर्किटेक्चर का परिणाम है तेज़ नवोन्मेष (faster innovation), ऑपरेशनल कुशलता और बेहतर संसाधन उपयोग — जो 4G EPC के तुलनात्मक monolithic मॉडल से अलग है।", "priority_tag": "VERY_HIGH"}, {"question": "Voice over LTE (VoLTE) किस तकनीक पर आधारित है और यह किस जेनरेशन से जुड़ा हुआ माना जाता है?", "options": ["SIP/IMS पर आधारित — 4G", "Circuit switching पर आधारित — 2G", "CDMA signalling पर आधारित — 3G", "Pure SMS gateway पर आधारित — 5G"], "answer_index": 0, "explanation": "# व्याख्या: Voice over LTE (VoLTE) — SIP/IMS पर आधारित, 4G से संबंधित\n- VoLTE इंटरनेट-प्रोटोकॉल (IP) पर चलने वाली वॉइस सेवा है जो SIP (Session Initiation Protocol) और IMS (IP Multimedia Subsystem) आर्किटेक्चर पर निर्भर करती है।\n- यह LTE (Evolved Packet System) के ऊपर पूर्णतः packet‑switched वातावरण में वॉइस सिग्नलिंग और मीडिया ट्रांसपोर्ट प्रदान करती है, इसलिए इसे 4G से जोड़ा जाता है।\n- सिग्नलिंग के लिए SIP का उपयोग होता है (सेशन शुरू/समाप्त करने के लिए SIP INVITE/200 OK आदि), और मीडिया ट्रांसपोर्ट के लिए RTP/UDP पर वॉइस पैकेट भेजे जाते हैं।\n- IMS प्लेटफॉर्म पर रजिस्ट्रेशन, लोकेशन मैनेजमेंट, कॉल कंट्रोल और सेवाएँ (जैसे VoLTE, ViLTE) लागू होती हैं; यह carrier-grade सर्विस ऑर्केस्ट्रेशन और इंटरऑपेराबिलिटी सुनिश्चित करता है।\n- QoS के लिए LTE bearer और QCI (Quality of Service Class Identifier) का उपयोग होता है — वॉइस के लिए आमतौर पर conversational class (QCI=1) प्राथमिकता पाती है, जिससे नियत जिटर और लेटेंसी सीमित रहती है।\n- ऑडियो गुणवत्ता बेहतर होती है क्योंकि VoLTE आमतौर पर wideband/amr‑wb जैसे कोडेक सपोर्ट करता है, जिससे HD वॉइस उपलब्ध होती है।\n- कॉल सेटअप समय पारंपरिक सर्कิต‑स्विच कॉल की तुलना में कम होता है (तेज़ कॉल कनेक्शन) क्योंकि सिग्नलिंग IP पर डायरेक्ट होती है।\n- VoLTE से सबनेटवर्क पर डेटा और वॉइस दोनों एक ही LTE सत्र में coexist कर सकते हैं, जिससे स्पेक्ट्रल एफिशिएंसी और नेटवर्क यूज़ बेहतर होता है।\n- IMS‑आधारित सेवाएँ अतिरिक्त सुविधाएँ दे सकती हैं — वीडियो कॉलिंग (ViLTE), रिच कम्युनिकेशन फीचर्स और नेटवर्क‑लेवल कॉल कंट्रोल/बिलिंग।\n- मोबिलिटी एवं इंटर‑RAT हैंडओवर के लिए IMS के साथ ईकोसिस्टम में समाधान होते हैं (उदाहरण: SRVCC), जिससे LTE से बाहर जाते समय कॉल continuity की योजनाएँ लागू की जाती हैं।\n- सुरक्षा के लिए IMS/SIP स्तर पर सत्र‑स्तर ऑथेंटिकेशन और LTE पर निचले स्तर पर EPS सुरक्षा मैकेनिज्म लागू होते हैं, जिससे ट्रेफिक इन‑रूट और एनक्रिप्ट किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "Carrier Aggregation (CA) किस जेनरेशन/तकनीक के अंतर्गत अधिकतर उपयोगी फीचर है और इसका उद्देश्य क्या है?", "options": ["2G — वॉइस कॉल QoS बढ़ाना", "3G — हेंडओवर सिक्योरिटी बढ़ाना", "4G/LTE — अनेक frequency carriers जोड़ कर कुल बैंडविड्थ बढ़ाना", "5G — केवल mmWave का नामकरण"], "answer_index": 2, "explanation": "# व्याख्या — Carrier Aggregation (CA) — 4G/LTE (प्रमुख तथ्य)\n**प्रश्न सार**: Carrier Aggregation (CA) किस जेनरेशन/तकनीक में अधिकतर उपयोगी है और इसका उद्देश्य क्या है — उत्तर: 4G/LTE; अनेक frequency carriers को जोड़कर कुल बैंडविड्थ बढ़ाना।\n- Carrier Aggregation (CA) एक 4G LTE-Advanced (LTE‑A) फीचर है जिसका मूल उद्देश्य अलग-अलग frequency carriers को संयोजित करके यूज़र‑नेटवर्क के लिए उपलब्ध कुल बैंडविड्थ बढ़ाना है।\n- CA की वजह से एक ही समय में कई स्वतंत्र फिजिकल रैडियो बैंड (component carriers) को जोड़कर उपयोगकर्ता सेशन की समेकित डेटा रेट (aggregate throughput) बढ़ती है।\n- LTE-A में CA को मानकीकृत कर दिया गया; यह उपभोक्ता‑डिवाइस (UE) और बेस स्टेशन (eNodeB) दोनों के मध्यम समन्वय द्वारा काम करता है।\n- CA के प्रकार: एक ही बैंड के भीतर contiguous/non‑contiguous (intra‑band) और अलग-अलग बैंडों के बीच (inter‑band) aggregation — ये तीनों LTE‑A में प्रायोगिक और मानक विकल्प हैं।\n- CA से pysical layer पर कुल नॉमिनल बैंडविड्थ बढ़ती है (उदाहरण: कई 10 MHz carriers जोड़कर 50–100 MHz तक aggregate), जिससे peak और average throughput दोनों में सुधार होता है।\n- नेटवर्क स्तर पर CA spectral efficiency और कुल कैपेसिटी बढ़ाने में मदद करती है, विशेषकर स्पेक्ट्रम fragmented होने पर भी उपयोगी रहती है।\n- UE (user equipment) की capability के आधार पर Carrier Aggregation के लिए कुछ UE categories को support करना ज़रूरी होता है; सभी डिवाइस CA सक्षम नहीं होते।\n- CA लागू होने पर टाइम‑डोमेन और फ्रीक्वेंसी‑डोमेन scheduling अधिक जटिल होता है; इसलिए eNodeB में advanced scheduler और RF front‑end प्रदान करना आवश्यक है।\n- LTE‑A में CA का लक्ष्य मुख्यतः throughput और यूनिट स्पेक्ट्रम‑एप्टिमाइज़ेशन है — यह सीधे latency कम करने के लिए मुख्य उपाय नहीं परंतु अधिक बैंडविड्थ से एप्लिकेशन लेटेंसी पर सकारात्मक प्रभाव पड़ सकता है।\n- Carrier Aggregation से operators को मौजूदा स्पेक्ट्रम के fragmented हिस्सों का समेकन कर प्रभावी रूप से उपयोग करने का लाभ मिलता है, जिससे अतिरिक्त स्पेक्ट्रम आवंटन की आवश्यकता कम हो सकती है।\n- 4G/LTE नेटवर्कों में CA ने मोबाइल ब्रॉडबैंड के व्यावहारिक यूज़र‑अनुभव (वीडियो, फाइल‑डाउनलोड आदि) और नेटवर्क‑कूलिटी‑ऑफ़‑सेवा मानकों में सुधार लाने में महत्वपूर्ण भूमिका निभाई है।", "priority_tag": "HIGH"}, {"question": "Cellular evolution में 'spectral efficiency' का अर्थ क्या है?", "options": ["प्रति हर्ट्ज उपलब्ध ऊर्जा की मात्रा", "एक चैनल में उपयोगकर्ताओं की अधिकतम संख्या", "प्रति Hz पर डेटा थ्रूपुट (bits/s/Hz) जितना अधिक हो उतनी spectrally efficient", "कुल नेटवर्क latency का reciprocal"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "ई‑SIM (eSIM) का उपयोग किस लाभ के लिए किया जाता है जो 2G‑5G विकास में वृद्धि करता है?", "options": ["SIM को फिजिकल‑रूप से हटाने पर भी प्रोविजनिंग और प्रोफ़ाइल रिमोटली प्रबंधित करना", "केवल 2G नेटवर्क में बड़ी संख्या में call records संग्रहित करना", "SIM‑कार्ड की शक्ल बदलकर antenna gain बढ़ाना", "ऑफलाइन वॉइस कोडिंग के लिए आवश्यक hardware"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Latency, throughput, और connection density के हिसाब से 5G के तीन मुख्य use‑case वर्ग कौन‑से हैं (3GPP द्वारा परिभाषित)?", "options": ["eMBB, mMTC, URLLC", "HSPA, EDGE, GPRS", "IMS, EPC, HLR", "CDMA, TDMA, FDMA"], "answer_index": 0, "explanation": "# व्याख्या — 5G के तीन मुख्य use‑case वर्ग (3GPP): eMBB, mMTC, URLLC\n- **eMBB (enhanced Mobile Broadband)**: उच्च थ्रूपुट और व्यापक बैण्डविड्थ पर केंद्रित सर्विस क्लास है जो एचडी/4K/8K वीडियो स्ट्रीमिंग, AR/VR और मोबाइल ब्रॉडबैंड जैसी एप्लिकेशन को संभालती है।\n- eMBB के लिए नेटवर्क डिज़ाइन में बड़े डेटा दरों (गिगाबिट‑स्तर) और स्पेक्ट्रम एफिशियंसी पर जोर दिया जाता है; लो‑लेटेंसी अपेक्षित है पर यह मुख्य लक्ष्य नहीं है।\n- eMBB में सेल साइट्स, कैरियर एग्रीगेशन और मस्कुलर MIMO जैसी तकनीकों का उपयोग थ्रूपुट बढ़ाने के लिए प्रमुख है।\n- **mMTC (massive Machine Type Communications)**: बहुत उच्च कनेक्शन डेंसिटी (प्रति किमी² लाखों डिवाइस) और कम‑ऊर्जा, कम‑डेटा रेट IoT कनेक्टिविटी के लिए परिभाषित क्लास है।\n- mMTC का उद्देश्य स्केलेबल, विश्वसनीय कनेक्शन‑घनत्व और लंबी बैटरी लाइफ (सेंसर/डिवाइस के लिए) देना है; थ्रूपुट कम और लेटेंसी अपेक्षाकृत कम प्राथमिकता वाला है।\n- mMTC के केस में नेटवर्क में signaling‑efficiency, स्लो‑डेटा ट्रैफिक हैंडलिंग और लो‑पावर बिलॉन्ग‑रेंज तकनीकें महत्वपूर्ण होती हैं।\n- **URLLC (Ultra‑Reliable Low Latency Communications)**: अत्यंत न्यून लेटेंसी (मिलीसेकेंड-अनुक्रम) और उच्च विश्वसनीयता आवश्यक एप्लिकेशन जैसे इंडस्ट्रीयल ऑटोमेशन, रिमोट सर्जरी और कनेक्टेड व्हीकल्स के लिए डिज़ाइन क्लास है।\n- URLLC में लक्ष्य 1 ms के आसपास एंड‑टू‑एंड लेटेंसी और बेहद कम पैकेट लॉस/हाई रिलायबिलिटी होते हैं; थ्रूपुट माध्यमिक और कनेक्शन‑घनत्व सीमित सीमा पर योजनाबद्ध होता है।\n- URLLC के लिए नेटवर्क‑स्लाइसिंग, प्रोविनिंग ऑफ रिसोर्सेज, प्रायोरिटी‑सिग्नलिंग और लो‑लेटेंसी रूटिंग/एज‑कम्प्यूटिंग जैसे उपाय आवश्यक हैं।\n- तीनों वर्गों (eMBB, mMTC, URLLC) को समेकित 5G नेटवर्क आर्किटेक्चर में पैरामीट्रिकली अलग‑अलग QoS प्रोफ़ाइल और नेटवर्क‑स्लाइस के माध्यम से अलग किया जाता है।\n- परीक्षा और Mains के उत्तर में शॉर्ट प्वाइंट के रूप में: प्रत्येक वर्ग का प्राथमिक पैरामीटर — eMBB: throughput, mMTC: connection density, URLLC: latency/reliability — स्पष्ट रूप से अंकित करें।", "priority_tag": "VERY_HIGH"}, {"question": "2G से 5G तक के विकास में 'core network' का परिवर्तन किस रूप में देखा गया है?", "options": ["Circuit‑switched से धीरे‑धीरे packet‑switched तथा फिर service‑based virtualized core की ओर", "हमेशा से केवल circuit‑switched ही रहा", "Core network का कोई बदलाव नहीं हुआ; केवल air interface बदला", "सिर्फ physical cabling में परिवर्तन आया, architecture नहीं"], "answer_index": 0, "explanation": "# व्याख्या: 2G→5G में Core Network का परिवर्तन\n**प्रश्न का केंद्र:** 2G से 5G तक core network का रूपान्तरण — Circuit‑switched → Packet‑switched → Service‑based virtualized core\n- 2G प्रणालियों में core network मुख्यतः *circuit‑switched* था, जिसका उद्देश्य कॉल‑सेशन और निरन्तर चैनल आरक्षित करना था।\n- Circuit‑switched डिज़ाइन में कॉल सेटअप के दौरान नेटवर्क में समर्पित संसाधन बनाए जाते हैं, जो voice कॉलों के लिए उपयुक्त था।\n- बाद के चरणों में डेटा ट्रैफिक की माँग बढ़ने पर नेटवर्क ने *packet‑switched* मॉडल अपनाया; इसका अर्थ है कि जानकारी छोटे पैकेट्स में भेजी जाती है और संसाधन साझा होते हैं।\n- Packet‑switched कोर नेटवर्क से IP‑based सेवाएँ, बेहतर स्पेक्ट्रम उपयोग और उच्च दक्षता संभव हुई, जिससे डेटा‑केंद्रित एप्लिकेशन का विकास हुआ।\n- 4G/LTE ने packet‑switched कोर (EPC — Evolved Packet Core) को मानकीकृत किया; इसमें mobility management, bearer handling और IP multimedia support शामिल थे।\n- 5G में core network ने *service‑based architecture (SBA)* और virtualization को अपनाया; नेटवर्क फंक्शन्स को सॉफ्टवेयर‑बेस्ड माइक्रोसर्विसेज़ के रूप में परिभाषित किया गया।\n- 5G core virtualization से Network Function Virtualization (NFV) और Software‑Defined Networking (SDN) का उपयोग होता है, जिससे scaling, orchestration और तेज़ सर्विस डिलिवरी सम्भव होती है।\n- Service‑based virtualized core में अलग‑अलग नेटवर्क फंक्शन्स (AMF, SMF, UPF आदि) API‑driven सेवाओं के रूप में उपलब्ध होते हैं, जिससे नेटवर्क slicing और latency‑sensitive सेवाएँ (eMBB, URLLC, mMTC) संभव होती हैं।\n- इस परिवर्तन का लाभ: अधिक लचीलापन, स्वचालन, रिसोर्स़ की बेहतर उपयोगिता, तेज़ नए सर्विसेस लॉन्च और लागत‑कुशल नेटवर्क संचालन।\n- राज्य‑स्तर पर (MP जैसे राज्यों के लिए) service‑based virtualized core का अर्थ है कि स्थानीय डेटा सेंटर्स, edge deployments और सॉफ्टवेयर‑आधारित प्रबंध से सरकारी डिजिटल सेवाओं (e‑Gov, स्वास्थ्य, शिक्षा) के लिए अनुकूल नेटवर्क उपलब्ध कराया जा सकता है।\n- परीक्षात्मक कीवर्ड्स जो उत्तर में उपयोग करें: “circuit‑switched → packet‑switched → service‑based virtualized core”, “EPC (4G)”, “5G SBA”, “NFV/SDN”, “network slicing”, “low latency & scalability”。", "priority_tag": "HIGH"}, {"question": "OFDMA और OFDM में से किसका उपयोग 5G NR के downlink में होता है?", "options": ["OFDM नहीं, केवल CDMA", "OFDMA", "TDMA", "SC‑FDMA"], "answer_index": 1, "explanation": "# व्याख्या — 5G NR Downlink में प्रयोग: OFDMA (संक्षेप में परीक्षा-उन्मुख तथ्य)\n- OFDMA का पूरा नाम \"Orthogonal Frequency Division Multiple Access\" है; यह frequency-domain पर subcarriers को अलग-अलग users/flows को असाइन करके एक साथ डेटा ट्रांसमिट करने की multiple-access तकनीक है।\n- 5G NR के downlink में OFDMA का बेसिक PHY मॉड्यूलेशन में प्रयोग होता है; यह कई यूज़रों को एक ही समय-अवधि में अलग-अलग frequency रीसोर्स पर सेवा देने की अनुमति देता है।\n- OFDMA में रिसोर्स यूनिट को Physical Resource Block (PRB) कहा जाता है; हर PRB में कई contiguous subcarriers और समय-स्लॉट होते हैं, जिन्हें scheduler द्वारा यूज़र को अलॉट किया जाता है।\n- 5G NR में OFDMA की numerology (subcarrier spacing: 15, 30, 60, 120... kHz) स्केलेबल है, जिससे भिन्न-दूरी और लेटेंसी आवश्यकताओं के अनुरूप लो-अर्थोगोनल सेटिंग्स चुनी जा सकती हैं।\n- OFDMA के कारण frequency-domain multiplexing से spectral efficiency बढ़ती है और frequency-selective fading के समय selective allocation से link reliability सुधरती है।\n- OFDMA में हर यूज़र के लिए अलग-अलग subcarrier ग्रुपिंग से multi-user MIMO और beamforming के साथ बेहतर संयोजन संभव होता है, जो downlink throughput बढ़ाता है।\n- Cyclic Prefix (CP) का उपयोग OFDMA में inter-symbol interference कम करने के लिए किया जाता है; 5G NR में CP और subcarrier spacing के संयोजन से छोटे और बड़े सेल पर अनुकूल प्रदर्शन मिलता है।\n- Resource allocation और scheduling (time–frequency grid पर) OFDMA पर आधारित होते हैं, जिससे QoS, latency और throughput उद्देश्यों के लिए dynamical नियुक्ति संभव होती है।\n- OFDMA में FFT/IFFT बेस्ड मॉड्यूलेशन से implementation सरल और DSP-फ्रेंडली होता है; यह base station (gNodeB) के लिए scalable hardware पर काम करने में मदद करता है।\n- 5G NR downlink में OFDMA के प्रयोग से uplink/downlink के बीच समन्वय और coexistence बेहतर होता है, क्योंकि PHY स्तर पर resource mapping स्पष्ट और deterministic होती है।\n- OFDMA का design frequency-domain orthogonality पर आधारित है; यह inter-user interference को कम रखता है जब scheduler और synchronization सटीक हों।\n- परीक्षा‑मुख्य बिंदु: 5G NR के downlink PHY में multiple users को parallel subcarriers पर serve करने के लिए OFDMA का प्रयोग होता है — यही सही एवं सीधा हक़ीक़ी उत्तर व konsept।", "priority_tag": "HIGH"}, {"question": "4G में EPC का पूरा नाम क्या है और उसका प्राथमिक कार्य क्या है?", "options": ["Evolved Packet Core — IP‑based packet switching और mobility management प्रदान करना", "Enhanced Phone Controller — केवल वॉइस कॉल निर्देशित करना", "Enterprise Private Core — enterprise VPN के लिए", "Evolved Phone Circuit — circuit switching restore करना"], "answer_index": 0, "explanation": "# व्याख्या — 4G में EPC (Evolved Packet Core) और इसका प्राथमिक कार्य\n- EPC का पूरा नाम **Evolved Packet Core** होता है; यह 4G/LTE नेटवर्क का मुख्य कोर नेटवर्क आर्किटेक्चर है।\n- EPC का मूल उद्देश्य नेटवर्क में **IP‑आधारित packet switching** को लागू कर डेटा और सिग्नलिंग ट्रैफिक के लिए एक सर्विस‑ओरिएंटेड कोर प्रदान करना है।\n- EPC में **कंट्रोल प्लेन और यूजर प्लेन का विभाजन** होता है, जिससे सिग्नलिंग (सत्र/मॉबिलिटी नियंत्रण) और पैकेट डेटा का प्रभावी प्रबंधन संभव होता है।\n- EPC **मोबिलिटी मैनेजमेंट** (UE की लोकेशन/हैंडओवर/रिस्यूमिंग) को नियंत्रित करता है ताकि यूजर सेशन्स बिना किसी सिग्नल‑ब्रेकेज के जारी रह सकें।\n- EPC उपयोगकर्ता डेटा के लिए **bearer management** और QoS पैरामीटर्स लागू करता है — अलग‑अलग सेवाओं के लिए अलग‑अलग ट्रैफिक प्राथमिकता और बैंडविड्थ सुनिश्चित करता है।\n- EPC विभिन्न नोड्स के सहयोग से काम करता; इसमें सिग्नलिंग और पॉलिसी कंट्रोल के लिए आवश्यक फ़ंक्शंस होते हैं जो सेशन और रीसोर्स अलोकेशन संभालते हैं।\n- EPC का डिज़ाइन **all‑IP services** के अनुकूल है, जिससे डेटा‑केंद्रित एप्लिकेशन्स और IP‑based सेवाओं (जैसे VoIP/IMS आधारित VoLTE) का सुचारु संचालन होता है।\n- EPC अंतर‑नेटवर्क इंटरवर्किंग (रूमिंग/हैंडओवर 2G/3G के साथ) और पैकेट डेटा नेटवर्कों (PDN) से कनेक्टिविटी प्रदान करके व्यापक कवर और सेवाएँ सुनिश्चित करता है।\n- EPC में authentication, subscriber profile और पॉलिसी कंट्रोल के फ़ंक्शन्स होते हैं, जिससे सुरक्षा, बिलिंग और सेवा‑नीति (policy & charging) का प्रबंधन संभव होता है।\n- संक्षेप में: EPC 4G का कोर है जो **IP‑आधारित पैकेट स्विचिंग + मॉबिलिटी मैनेजमेंट** प्रदान करके LTE को वास्तविक समय और डेटा‑केंद्रित सेवाओं के लिए सक्षम बनाता है।", "priority_tag": "VERY_HIGH"}, {"question": "वर्चुअलाइज़ेशन और NFV (Network Functions Virtualization) का मोबाइल नेटवर्क विकास में मुख्य योगदान क्या है?", "options": ["सर्विस‑फंक्शन्स को dedicated hardware पर ही चलाना", "नेटवर्क फंक्शन्स को software‑based VNFs में बदलकर लचीलापन और स्केलेबिलिटी बढ़ाना", "केवल spectrum allocation को नियंत्रित करना", "RF transmission power को बढ़ाना"], "answer_index": 1, "explanation": "# व्याख्या — वर्चुअलाइज़ेशन और NFV का मोबाइल नेटवर्क विकास में मुख्य योगदान\n**सही उत्तर का संक्षेप:** नेटवर्क फंक्शन्स को software‑based VNFs में बदलकर लचीलापन और स्केलेबिलिटी बढ़ाना\n- NFV नेटवर्क फंक्शन्स (जैसे firewall, EPC, IMS) को हार्डवेयर से अलग कर सॉफ़्टवेयर रूप में (VNFs) चलाने का ढाँचा देता है।\n- VNFs सामान्य‑उद्देशीय COTS सर्वरों या क्लाउड इंफ्रास्ट्रक्चर पर तैनात होते हैं, जिससे विशेष हार्डवेयर पर निर्भरता घटती है।\n- सॉफ़्टवेयर‑आधारित फंक्शन्स के कारण नई सर्विसेज़ की त्वरित तैनाती (rapid deployment) सम्भव होती है; नेटवर्क‑अपडेट समय कम होता है।\n- स्केलेबिलिटी ऑटोमैटिक और डायनामिक होती है: ट्रैफिक के अनुसार VNFs को scale‑out/scale‑in किया जा सकता है, जिससे कैपैकिटी की आवश्यकता के अनुसार संसाधन मिलते/छूटते हैं।\n- संसाधन‑पूलिंग और multi‑tenancy संभव होते हैं; एक ही इन्फ्रास्ट्रक्चर पर कई सेवाएँ अलग‑अलग ग्राहक/सेगमेंट को दी जा सकती हैं।\n- ऑर्केस्ट्रेशन और मैनेजमेंट प्लेटफॉर्म (NFV MANO) के जरिए लाइफसाइकल मैनेजमेंट, ऑटो‑रिलाइसमेंट और निगरानी सुसंगत रूप से संचालित होती है।\n- CAPEX और OPEX कम होते हैं क्योंकि हार्डवेयर कमी, तेज़ provisioning और स्वचालित स्केलिंग लागत‑कुशलता बढ़ाते हैं।\n- NFV से नेटवर्क को क्लाउड/एज पर प्रभावित तरीके से वितरित किया जा सकता है (edge/cloud placement), जिससे 5G जैसे तकनीकी मानकों के लिए लो‑लेटेंसी और लो‑डिलिवरी संभव होती है।\n- SDN के साथ समेकन से नेटवर्क‑फंक्शन्स का नियंत्रण केन्द्रकृत और प्रोग्रामेबल होता है, जिससे नेटवर्क व्यवहार को सॉफ्टवेयर के माध्यम से तेज़ी से बदला जा सकता है।\n- VNFs के मॉड्यूलर डिज़ाइन से सर्विस‑चेनिंग और कस्टम नेटवर्क‑सर्विसेज़ बनाना आसान होता है, जो मोबाइल नेटवर्क evolution (2G→5G) में आवश्यक विविधता और दक्षता प्रदान करता है।", "priority_tag": "HIGH"}, {"question": "3GPP Release में 5G की NR technical specifications किस Release से commercial deployment के लिए परिभाषित हुईं?", "options": ["Release 8", "Release 15", "Release 10", "Release 5"], "answer_index": 1, "explanation": "# **विषय:** 3GPP Release 15 — 5G NR technical specifications (सही उत्तर: Release 15)\n- **Release 15 ने 5G की NR (New Radio) के व्यावसायिक परिनियोजन के लिए पहला पूर्ण तकनीकी फ्रेमवर्क परिभाषित किया।**\n- **NR के रेडियो और एयर इंटरफेस स्पेसिफिकेशंस 3GPP TS 38 श्रृंखला के रूप में Release 15 में संहिताबद्ध हैं।**\n- **Release 15 में NR को दो ऑपरेटिंग मोड के लिए परिभाषित किया गया — Non‑Standalone (NSA) और Standalone (SA) — जिससे व्यावसायिक त्वरित रोल‑आउट और बाद में पूर्ण 5G नेटवर्क दोनों संभव हुए।**\n- **इस रिलीज़ ने OFDM‑based फिजिकल लेयर और स्केलेबल न्यूमरोलॉजी (सबकारियर स्पेसिंग के विकल्प) को आधिकारिक रूप दिया, जो विभिन्न स्पेक्ट्रम बैंड्स (sub‑6 GHz व mmWave) में काम करने में सक्षम बनाता है।**\n- **Release 15 के स्पेक्स में उच्च बैंडविड्थ समर्थन, फ्लेक्सिबल फ्रेम स्ट्रक्चर और लो‑लेटेंसी ऑप्शन शामिल हैं — ये 5G के eMBB और URLLC जैसी सेवाओं के लिए बुनियादी तकनीकी क्षमताएँ हैं।**\n- **Beamforming और massive MIMO के लिए रेफरेंस आर्किटेक्चर और सिग्नलिंग मेकेनिज्म Release 15 में परिभाषित किए गए, जो स्पेक्ट्रम दक्षता व कवरेज सुधारते हैं।**\n- **Release 15 ने रेडियो उपकरणों और नेटवर्क तत्वों के लिए इंटरऑपरेबिलिटी और कम्प्लायंस के टेस्ट‑केसों की नींव रखी, जिससे अलग‑अलग विक्रेताओं के उपकरणों का व्यावसायिक उपयोग संभव हुआ।**\n- **नेटवर्क‑लेवल सुविधाओं—जैसे QoS पैरामीटर्स, सिंगल‑नेटवर्क एंकरिंग (NSA में LTE एंकर), और SA के लिए स्वतंत्र 5G कोर के साथ इंटरफेस—Release 15 में परिभाषित किए गए।**\n- **Release 15 के स्पेकिफिकेशंस ने 5G के व्यावसायिक तैनाती (commercial deployment) के लिए आवश्यक रेडियो और नेटवर्क बेसलाइन सेट कर दिए, इसलिए उद्योग ने Release 15 को 5G NR का प्रमाणिक प्रौद्योगिकी आधार माना।**\n- **परीक्षा‑उपयोग के लिए संक्षेप में याद रखें: 5G NR के व्यावसायिक‑स्तर के तकनीकी स्पेसिफिकेशंस — Release 15।**", "priority_tag": "HIGH"}, {"question": "Mobile network में 'handover' का उद्देश्य क्या है और किस जेनरेशन के साथ यह अवधारणा लागू नहीं होती?", "options": ["उद्देश्य: उपयोगकर्ता सेशन को बिना टूटे एक सेल से दूसरे सेल पर स्थानांतरित करना — यह सभी जेनरेशन्स में लागू होता है", "उद्देश्य: नेटवर्क encryption बदलना — केवल 5G में लागू", "उद्देश्य: SIM प्रोविजनिंग — केवल 2G में लागू", "उद्देश्य: spectrum refarming — केवल 3G में लागू"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंटरनेट ऑफ़ थिंग्स (IoT) के लिए 5G के किस प्रोफ़ाइल को प्राथमिकता दी जाती है जिसका उद्देश्य लाखों लो‑डेटा‑रेट डिवाइसेस को कवर करना है?", "options": ["eMBB (enhanced Mobile Broadband)", "mMTC (massive Machine Type Communications)", "URLLC (Ultra‑Reliable Low‑Latency Communications)", "IMS"], "answer_index": 1, "explanation": "# व्याख्या — mMTC (massive Machine Type Communications) — 5G प्रोफ़ाइल (IoT के लिए प्राथमिक)\n- mMTC 5G की वह प्रोफ़ाइल है जिसका मुख्य उद्देश्य एक ही नेटवर्क क्षेत्र में लाखों (massive) मशीन‑टाइप डिवाइसों को समेकित रूप से सपोर्ट करना है।\n- यह प्रोफ़ाइल विशेषकर इंटरनेट ऑफ थिंग्स (IoT) एप्लीकेशन्स के लिए डिज़ाइन की गई है जहाँ डिवाइस‑गणना बहुत अधिक और प्रति‑डिवाइस डेटा‑रेट बहुत कम होता है।\n- mMTC के तहत नेटवर्क को प्रति वर्ग किलोमीटर अत्यधिक डिवाइस घनत्व सहन करने के लिए स्केल करना होता है (आदेशगत रूप से 10^5–10^6 डिवाइस/km² के संदर्भ दिए जाते हैं)।\n- डेटा ट्रैफ़िक आमतौर पर लो‑डेटा‑रेट और बर्ट‑ट्रांसमिशन (छोटे पैकेट, स्पोरैडिक अपलिंक) का होता है; इसलिए सिग्नलिंग दक्षता और कन्केशन मैनेजमेंट महत्वपूर्ण होते हैं।\n- बैटरी‑लाइफ प्राथमिकता होती है—डिवाइसों को सालों तक कार्य करने के लिए पावर‑सेविंग मोड्स और उन्नत ऊर्जा‑अनुकूल प्रोटोकॉल आवश्यक होते हैं।\n- लेटेंसी की आवश्यकता सामान्यतः कम होती है; mMTC में अल्ट्रा‑लो‑लेटेंसी नहीं बल्कि विश्वसनीय कनेक्टिविटी और स्केलेबिलिटी प्रमुख लक्ष्य हैं।\n- नेटवर्क पक्ष पर सहनशक्ति बढ़ाने के लिए उच्च स्पेक्ट्रम एफिशिएंसी, उन्नत मैक्रो/स्मॉल‑सेल योजना, और सिग्नलिंग/रैंडम‑एक्सेस सुधारों की जरूरत होती है।\n- सुरक्षा और प्रमाणिकरण हल्के व सक्षम तरीके से होना चाहिए ताकि भारी संख्या में डिवाइसों के साथ भी पहचान, डेटा‑इंटीग्रिटी और गोपनीयता बनी रहे।\n- mMTC के प्रमुख उपयोग‑क्षेत्रों में स्मार्ट मीटरिंग, पर्यावरण/कृषि सेंसर नेटवर्क, स्मार्ट स्ट्रीटलाइटिंग, लॉजिस्टिक्स‑ट्रैकिंग और बड़े‑पैमाने पर सेंसर आधारित सार्वजनिक सेवाएँ शामिल हैं।\n- राज्य/स्थानीय स्तर पर mMTC लागू होने पर स्मार्ट‑सिटी सेवाओं, कृषि निगरानी और यूटिलिटी‑ऑटोमेशन के लिए किफायती तथा प्रमाणिक स्केलिंग संभव होती है।\n- परीक्षा‑दृष्टि से याद रखने योग्य बिंदु: \"mMTC = 5G प्रोफ़ाइल जो लाखों लो‑डेटा‑रेट, लो‑पावर डिवाइसों की विशाल संख्या को कनेक्ट करने पर केंद्रित है\" — यही इस MCQ का कॉर‑फैक्ट है।", "priority_tag": "HIGH"}, {"question": "'Sub‑6 GHz' और 'mmWave' शब्द अक्सर 5G में सुनने को मिलते हैं। Sub‑6 GHz के अपेक्षाकृत लाभ क्या हैं?", "options": ["उच्च बैंडविड्थ पर केवल indoor उपयोग", "बेहतर कवरेज और बाधा‑penetration पर लाभ, पर कुल स्पेक्ट्रम कम", "बहुत कम latency (0.1 ms)", "SIM‑लेस कनेक्टिविटी"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "LTE‑Advanced में 'HetNet' (Heterogeneous Network) का अर्थ क्या है?", "options": ["एक ही तरह के सभी macro cells का नेटवर्क", "macro cells, small cells (pico/femto) और relays का मिश्रित तंत्र जिससे capacity और coverage सुधरती है", "केवल peer‑to‑peer user devices का mesh नेटवर्क", "एक network जिसे सिर्फ एक vendor विकसित करता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "5G के context में 'URLLC' का प्राथमिक application कौन‑सा है?", "options": ["massive sensor data collection के लिए low reliability connections", "high throughput video streaming", "mission‑critical applications जैसे autonomous vehicles और remote surgery जिन्हें बहुत कम latency और उच्च reliability चाहिए", "traditional SMS delivery"], "answer_index": 2, "explanation": "# व्याख्या: 5G में URLLC (Ultra‑Reliable Low‑Latency Communications) — प्राथमिक उपयोग\n- URLLC का उद्देश्य अत्यधिक कम विलम्ब (latency) और बहुत उच्च विश्वसनीयता (reliability) प्रदान करना है, ताकि जटिल रीयल‑टाइम ऑपरेशन्स सुरक्षित रूप से संचालित हों।\n- URLLC के लिए target latency सामान्यतः 1 ms स्तर तक होता है, जो त्वरित प्रतिक्रिया आवश्यक अनुप्रयोगों के लिए अनिवार्य है।\n- उच्च reliability का अर्थ है पैकेट पहुंचाने की सफलता दर बहुत ऊँची रखना (उदाहरणतः 99.999% से ऊपर जैसे “five nines” तक), ताकि सिस्टम विफलता‑जोखिम न्यूनतम हो।\n- Mission‑critical applications जैसे autonomous vehicles में URLLC आवश्यक है क्योंकि निर्णय और कंट्रोल कम‑से‑कम विलम्ब में होना चाहिए वरना सुरक्षा जोखिम बढ़ जाता है।\n- Remote surgery (tele‑surgery) में URLLC के बिना नियंत्रक‑सिग्नल और फीडबैक में छोटा सा भी देरी या पैकेट ड्रॉप मरीज की जान के लिए खतरनाक हो सकता है।\n- URLLC में जाली‑तैयारी (redundancy), reliability‑oriented protocols, और नेटवर्क‑स्लाइसिंग का उपयोग हो सकता है ताकि संसाधन समर्पित रखकर सेवा की गारंटी दी जा सके।\n- Edge computing और स्थानीय डेटा प्रोसेसिंग URLLC के साथ जुड़ी होती है ताकि round‑trip delay न्यूनतम रहे और निर्णय नजदीकी सर्वर पर जल्दी हों।\n- URLLC के डिजाइन में link‑level retransmission सीमित रखकर latency‑reliability trade‑off को संभाला जाता है; समय‑सीमा के भीतर delivery प्राथमिकता रहती है।\n- URLLC का नियोजन और नेटवर्क कन्फ़िगरेशन safety‑critical QoS parameters (latency bounds, jitter, packet loss) के अनुकूल होना चाहिए, विशेषकर ऑटोमोबाइल और स्वास्थ्य‑सेवा क्षेत्रों में।\n- 5G में URLLC की उपलब्धता से स्वचालित वाहनों के V2X (vehicle‑to‑everything) नियंत्रण और रीयल‑टाइम रोबोटिक सर्जरी जैसे अनुप्रयोगों का व्यावहारिक उपयोग सम्भव होता है।", "priority_tag": "VERY_HIGH"}, {"question": "Mobile broadband में 'spectral efficiency' बढ़ाने के लिए MIMO तकनीक किस तरह मदद करती है?", "options": ["एक ही frequency पर कई parallel spatial data streams भेजकर overall throughput बढ़ाती है", "ट्रांसमिशन के लिए अधिक power लगाकर signal को amplify करती है", "सिग्नल को केवल एक चैनल में multiplex कर देती है जिससे interference बढ़ता है", "मॉड्यूलेशन टाइप को fixed कर देती है"], "answer_index": 0, "explanation": "# व्याख्या — MIMO कैसे बढ़ाती है Mobile broadband की spectral efficiency\n(प्रश्न केंद्र: एक ही frequency पर कई parallel spatial data streams भेजकर overall throughput बढ़ाना)\n- MIMO (Multiple-Input Multiple-Output) का मूल सिद्धांत है कि transmitter व receiver पर कई एंटीना लगाए जाते हैं ताकि एक ही समय-और-फ्रिक्वेंसी संसाधन पर कई स्वतंत्र spatial data streams भेजे जा सकें।\n- जब चैनल में पर्याप्त multipath / scattering हो, तो अलग-अलग एंटीना जो signals भेजते हैं वे spatially अलग तरीके से पहुंचते हैं; इससे receiver पर अलग-अलग streams को अलग किया जा सकता है।\n- इस प्रक्रिया को spatial multiplexing कहते हैं — एक ही frequency-band में N_tx × N_rx के संभावित स्वतंत्र चैनल चैनलों के माध्यम से बाइट/सेंक भेज कर throughput बढ़ाया जाता है।\n- spectral efficiency (bits/s/Hz) बढ़ती है क्योंकि एक ही Hz पर भेजे जाने वाले bits की संख्या बढ़ जाती है: यानी समान bandwidth में अधिक डेटा प्रवाहित होता है।\n- चैनल को मैट्रिक्स रूप में मॉडल किया जाता है; उस चैनल मैट्रिक्स के रैंक जितना अधिक होगा, उतने ही स्वतंत्र spatial streams संभव होते हैं — यह सीधे system capacity बढ़ाता है (Shannon-सदृश ढंग)।\n- receiver side पर channel state information (CSI) मौजूद होने पर signals को डिकोड करना आसान होता है; advanced linear receivers (जैसे ZF, MMSE) या MIMO decoding एल्गोरिद्म multiple streams को अलग कर throughput हासिल करते हैं।\n- MIMO से multiplexing gain मिलता है — यह diversity gain से अलग है; multiplexing gain throughput बढ़ाने पर केंद्रित होता है जबकि diversity fading से बचाव देता है।\n- practical systems (LTE, 5G NR) में MIMO के कारण प्रति-UE spectral efficiency और cell-level throughput दोनों में सुधार होता है; massive MIMO में यह प्रभाव और भी अधिक होता है।\n- MIMO की वास्तविक spectral efficiency उपयोगी होती है जब चैनल conditions (सिग्नल-टू-नॉइज़, scattering, antenna spacing) अनुकूल हों; सीमाएँ जैसे correlation या कम scattering रैंक घटा कर multiplexing क्षमता घटाते हैं।\n- उपयुक्त antenna configuration और signal processing के माध्यम से MIMO एक ही frequency resource की क्षमता को गुणात्मक रूप से बढ़ाकर मोबाइल ब्रॉडबैंड के spectral efficiency को बेहतर बनाती है।", "priority_tag": "HIGH"}, {"question": "5G नेटवर्क में 'edge computing' लगाने का मुख्य लाभ क्या है?", "options": ["सबकुछ centralized cloud पर भेजकर latency बढ़ाना", "विधुत खपत बढ़ाना", "डेटा‑प्रोसेसिंग को यूज़र के नजदीक लाकर latency कम करना और रीयल‑टाइम सेवाएँ सक्षम करना", "सिर्फ billing system को decentralize करना"], "answer_index": 2, "explanation": "# **व्याख्या — 5G में 'Edge Computing' लगाने का मुख्य लाभ**\n- **परिभाषा:** Edge computing का तात्पर्य है डेटा‑प्रोसेसिंग और एप्लिकेशन लॉजिक को यूज़र/डिवाइस के नजदीक (नेटवर्क के एज‑नोड्स) पर तैनात करना, बजाय कि सभी डेटा को दूरस्थ क्लाउड तक भेजने के।\n- **मुख्य लाभ (सार):** यूज़र के नज़दीक प्रोसेसिंग होने से नेटवर्क‑latency घटती है और रीयल‑टाइम सेवाएँ संभव होती हैं।\n- **लैटेंसी में कमी:** 5G के लक्ष्य में \"अल्ट्रा‑लो लैटेंसी\" शामिल है (एक अंक में मापा जाने वाला विलंब), और एज पर प्रोसेसिंग यह लक्ष्य हासिल करने में निर्णायक है।\n- **रीयल‑टाइम एप्लिकेशन सक्षम करना:** एज पर प्रोसेसिंग से स्वतः चलने वाली प्रणालियाँ (autonomous systems), औद्योगिक ऑटोमेशन, AR/VR और रिमोट‑सर्जरी जैसी विलंब‑संवेदनशील सेवाएँ चलन में आ सकती हैं।\n- **बैकहॉल और कोर नेटवर्क पर लोड घटाना:** स्थानीय प्रोसेसिंग से लगातार बड़े‑बड़े डेटा प्रवाह को दूरस्थ क्लाउड तक भेजने की आवश्यकता कम होती है, जिससे बैकहॉल ट्रैफिक और कंजेशन घटता है।\n- **क्वालिटी‑ऑफ‑सर्विस (QoS) में सुधार:** एज‑लेवल संसाधन प्रबंधन से संवेदनशील ट्रैफिक के लिए प्राथमिकता देना और स्थिर रेस्पॉन्स टाइम सुनिश्चित करना आसान होता है।\n- **डेटा‑प्राइवेसी और लोकल‑कम्प्लायंस:** संवेदनशील डेटा को स्थानीय रूप से प्रोसेस करके भेजने से गोपनीयता नियंत्रण और राज्य/स्थानीय नियमों के अनुरूपत\nा बनाए रखना सरल होता है।\n- **स्रोत‑नजदीक निर्णय‑निर्माण (near‑source decision making):** IoT और सेंसर नेटवर्क में तेजी से निर्णय‑निर्माण (event filtering, aggregation) संभव होता है, जिससे अनावश्यक डेटा क्लाउड पर न भेजा जाए।\n- **ऊर्जा और संसाधन कुशलता:** सीमित या अनावश्यक डेटा ट्रांसमिशन घटने से अस्थायी ऊर्जा बचत और नेटवर्क संसाधनों का बेहतर उपयोग होता है।\n- **स्केलेबिलिटी और गतिशील सेवा तैनाती:** एज‑नोड्स पर कंटेनर/फंक्शन तैनाती से नए रीयल‑टाइम सर्विस मॉडल (microservices, edge AI) तेज़ी से स्केल और डिप्लॉय किए जा सकते हैं।\n- **नेटवर्क रेसिलिएन्स:** नेटवर्क के एज पर प्रोसेसिंग होने से कोर‑लिंक विफलता की स्थिति में भी स्थानीय सेवाएँ जारी राखी जा सकती हैं, जिससे सिस्टम की विश्वसनीयता बढ़ती है।\n(उपरोक्त बिंदु सीधे उस अवधारणा की व्याख्या करते हैं कि 5G में edge computing लगाने का मुख्य लाभ—यूज़र के नजदीक डेटा‑प्रोसेसिंग करके लैटेंसी कम करना और रीयल‑टाइम सेवाएँ सक्षम करना—और परीक्षा/मेनज़ उत्तर में उपयोगी संक्षेप तथा बिंदुगत नोट के रूप में तैयार हैं।)", "priority_tag": "HIGH"}, {"question": "Mobile generations में 'backhaul' का क्या अर्थ है?", "options": ["यूजर‑डिवाइस और बेस‑स्टेशन के बीच last‑mile air interface", "बेस‑स्टेशन और core network के बीच की कनेक्टिविटी (wireless/fiber) जो ट्रैफ़िक को core तक पहुँचाती है", "SIM‑कार्ड का physical slot", "network slicing का एक component"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "LTE में 'eNodeB' का क्या रोल है?", "options": ["Centralized core element for charging only", "Radio access node जो RAN का base‑station है और सीधे UE को serve करता है", "User equipment का एक प्रकार", "IMS core का भाग"], "answer_index": 1, "explanation": "# VYAKHYA — LTE में eNodeB का रोल (MPPSC Prelims 2026 हेतु)\n**नोट:** केवल LTE के eNodeB (Evolved Node B) से संबंधित तथ्य; मूल्यांकन केंद्रित, सीधे बिंदु।\n1. eNodeB LTE नेटवर्क का रेडियो‑एक्सेस नोड (Radio Access Node) होता है जो RAN (Radio Access Network) का बेस‑स्टेशन है।\n2. यह सीधे UE (User Equipment — जैसे मोबाइल/डेटा डिवाइस) को एयर इंटरफेस पर सर्व (serve) करता है।\n3. eNodeB रेडियो रिसोर्सेज़ (स्लॉट्स, फ्रिक्वेंसी, पॉवर, MIMO पोर्ट्स) को नियंत्रित और आवंटित करता है।\n4. यह रिमोट रेडियो हेड और बेसबैंड यूनिट का संयोजन हो सकता है और PHY/MAC/RLC/PDCP जैसे पैकेट‑लेवल फंक्शन्स को संभालता है।\n5. eNodeB सीग्नलिंग (RRC — Radio Resource Control) प्रक्रियाएँ UE के साथ संचालित करता है, जैसे कनेक्शन सेटअप, पुनर्स्थापना और हैंडओवर सूचनाएँ।\n6. यह सीधे यूजर‑डेटा का फ्रेमिंग और शेड्यूलिंग करता है, जिससे डाउनलिंक और अपलिंक डेटा थ्रूपुट नियंत्रित होता है।\n7. eNodeB को मोबाइल कोर‑नेटवर्क (EPC — Evolved Packet Core) के साथ इंटरफेस करने के लिए S1‑U (यूजर‑प्लेन) और S1‑AP (सिग्नलिंग/कंट्रोल‑प्लेन) इंटरफेस होते हैं।\n8. यह रीयल‑टाइम रेडियो पॉलिसी और QoS (Quality of Service) लागू करता है ताकि विभिन्न सर्विस प्रोफाइल्स के लिए संसाधन प्राथमिकता मिले।\n9. eNodeB हैंडओवर निर्णयों में सहयोग करता है (X2 इंटरफेस के माध्यम से पड़ोसी eNodeB से सूचना साझा कर सकता है) ताकि UE के बीच Seamless mobility सुनिश्चित हो।\n10. सुरक्षा के संदर्भ में eNodeB एन्क्रिप्शन/इंटीग्रिटी प्रोटेक्शन के लिए सिग्नलिंग और यूजर‑डाटा के प्रारंभिक क्रिप्टोग्राफिक प्रक्रियाओं का समर्थन करता है।\n11. नेटवर्क मॉनिटरिंग और परफॉर्मेंस मेजरमेंट के लिए eNodeB रेडियो‑मैट्रिक्स (RSRP, RSRQ, SINR, throughput इत्यादि) संग्रह करता और रिपोर्ट करता है।\n12. ऑपरेशनल दृष्टि से eNodeB का रोल वायरलेस कवरेज और क्षमता (capacity) प्रदान करना है — कटिंग‑edge LTE सेवाओं का पहला और मुख्य संपर्क‑बिंदु UE के लिए।", "priority_tag": "HIGH"}, {"question": "Cellular evolution के संदर्भ में 'refarming' का मतलब क्या होता है?", "options": ["स्पेक्ट्रम को नए services के लिए पुनः नियत करना—उदाहरण: 2G स्पेक्ट्रम का उपयोग 4G/5G के लिए करना", "hardware को physical रूप से repurpose करना", "SIM cards को नई form में बदलना", "बेस‑स्टेशनों की संख्या घटाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

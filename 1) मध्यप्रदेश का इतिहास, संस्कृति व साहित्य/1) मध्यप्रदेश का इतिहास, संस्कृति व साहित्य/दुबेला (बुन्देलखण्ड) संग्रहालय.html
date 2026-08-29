@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-131 – दुबेला (बुन्देलखण्ड) संग्रहालय</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-131 – दुबेला (बुन्देलखण्ड) संग्रहालय</h1>
+        <div class="note">क्षेत्र: Chhatarpur | सामग्री: क्षेत्रीय मूर्तिकला/शिल्प—स्थानीय विरासत | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 07-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना  
+दुबेला (बुन्देलखण्ड) संग्रहालय, Chhatarpur जिले के बुन्देलखण्डीय स्थापत्य‑और मूर्तिकला पर केन्द्रित स्थानीय संग्रहालय है, जिसकी प्रासंगिकता MPPSC में क्षेत्रीय विरासत, सांस्कृतिक नीतियों और ग्रामीण विकास के प्रश्नों से सीधे जुड़ती है।  
+
+# ऐतिहासिक और सांस्कृतिक पृष्ठभूमि  
+संग्रहालय के संग्रह में प्राचीन‑मध्यकालीन बुन्देली शिल्प‑नमूने, स्थानीय देवी‑देवताओं के मूर्तिचित्र तथा मंदिरावशेषों के स्थापत्य-टुकड़े होते हैं; यह नज़दीकी खजुराहो (Chhatarpur) के मन्दिरपरंपरा और बुन्देली लोकशिल्प के अन्तर्सम्बन्ध को दर्शाता है, जो क्षेत्रीय कला史 के अध्ययन के लिए महत्त्वपूर्ण प्राथमिक स्रोत है।  
+
+# संग्रहगत विशेषताएँ और माईक्रो‑फैक्ट्स  
+दुबेला संग्रहालय में पत्थर‑काट (sandstone) की खण्डिकाएँ, स्तम्भ‑प्रशस्ति, स्थानीय परिवेश के तमाम पारम्परिक प्रतीक (yali, makara, stambha‑motifs) और ग्रामदेवी मूर्तियाँ संग्रहित हैं; इनमें से कुछ आइटम स्थानीय पुरातात्विक उत्खनन और ग्राम‑दानों के माध्यम से 1990s–2000s में शामिल किये गए थे।  
+
+# संरक्षित स्थिति व प्रवृत्ति (पिछले 15 वर्ष)  
+पिछले डेढ़ दशक में संग्रहालय की गतिविधि और निवेश Low रहा है—नीहित कारणों में सीमित राज्य‑अनुदान, क्यूरेटोरियल स्टाफ की कमी और संरक्षण सुविधाओं (preservation lab, climate control) का अभाव प्रमुख हैं; परिणामस्वरूप प्रलेख‑अभिलेख अपूर्ण और प्रदर्शन सीमित रहे।  
+
+# आर्थिक, शैक्षिक और पर्यटन महत्व  
+संग्रहालय स्थानीय हस्तशिल्पी (stone carvers, metalworkers) और ग्रामीण पर्यटन के लिए एंकर प्वाइंट बन सकता है; खजुराहो heritage‑circuit से जोड़कर daily‑visitor inflow व ग्रामीण अर्थव्यवस्था पर सकारात्मक प्रभाव सम्भव है, बशर्ते interpretive signage, multilingual labels और guided‑tour व्यवस्था लागू हो।  
+
+# नीतिगत/संस्थागत पहलें और इंटरलिंक्स  
+संरक्षण के लिए राज्य संस्कृति-विभाग (Sanskriti Vibhag), MP Tourism तथा राष्ट्रीय संस्थाएँ (जैसे INTACH/ASI के साथ समन्वय) को जोड़ने की आवश्यकता है; डिजिटल कैटलॉगिंग, सरकारी heritage‑circuit योजनाओं में शामिल करना और CSR/NGO फंडिंग से minor conservation projects चलाये जा सकते हैं।  
+
+# चुनौतियाँ विश्लेषणात्मक रूप में  
+लंबी अवधि में चुनौती है: स्थानीय समुदाय की संलग्नता में कमी, वैज्ञानिक संरक्षण का अभाव और पर्यटन‑प्रबंधन की अनभिज्ञता—इनका परिणाम वस्तुओं के क्षरण, संग्रह के बिखराव और अवसर लागत की हानि के रूप में सामने आता है।  
+
+# समाधान एवं मार्ग‑प्रस्ताव (Way forward)  
+त्वरित उपायों में स्थलीय condition‑survey, حفاظात्मक परदों/कंट्रोल्ड‑गैलरी, bilingual interpretation, school outreach programmes, और मोहल्ला‑संग्रहालय (satellite displays) शामिल होने चाहिए; दीर्घकाल में Bundelkhand heritage trail में औपचारिक समावेशन व capacity‑building से संग्रहालय को sustainability मिलेगी।  
+
+# निष्कर्ष  
+दुबेला संग्रहालय बुन्देलखण्डीय शिल्प‑परम्परा का महत्वपूर्ण स्थानीय नोड है; Targeted conservation, समेकित नीतिगत समर्थन व सामुदायिक भागीदारी से यह सांस्कृतिक संरक्षण के साथ-साथ क्षेत्रीय विकास का प्रभावी माध्यम बन सकता है।  
+
+स्रोत 1: NCERT &quot;An Introduction to Indian Art&quot; – सम्बंधित अध्याय  
+स्रोत 2: Arihant – &quot;Madhya Pradesh Samanya Gyan&quot; (Kala‑Sanskriti evam Lokparampara अध्याय)  
+स्रोत 3: Sanskriti Vibhag / MP Tourism – Madhya Pradesh Government – आधिकारिक पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-131 – दुबेला (बुन्देलखण्ड) संग्रहालय", "coverage_note": "क्षेत्र: Chhatarpur | सामग्री: क्षेत्रीय मूर्तिकला/शिल्प—स्थानीय विरासत | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना  \nदुबेला (बुन्देलखण्ड) संग्रहालय, Chhatarpur जिले के बुन्देलखण्डीय स्थापत्य‑और मूर्तिकला पर केन्द्रित स्थानीय संग्रहालय है, जिसकी प्रासंगिकता MPPSC में क्षेत्रीय विरासत, सांस्कृतिक नीतियों और ग्रामीण विकास के प्रश्नों से सीधे जुड़ती है।  \n\n# ऐतिहासिक और सांस्कृतिक पृष्ठभूमि  \nसंग्रहालय के संग्रह में प्राचीन‑मध्यकालीन बुन्देली शिल्प‑नमूने, स्थानीय देवी‑देवताओं के मूर्तिचित्र तथा मंदिरावशेषों के स्थापत्य-टुकड़े होते हैं; यह नज़दीकी खजुराहो (Chhatarpur) के मन्दिरपरंपरा और बुन्देली लोकशिल्प के अन्तर्सम्बन्ध को दर्शाता है, जो क्षेत्रीय कला史 के अध्ययन के लिए महत्त्वपूर्ण प्राथमिक स्रोत है।  \n\n# संग्रहगत विशेषताएँ और माईक्रो‑फैक्ट्स  \nदुबेला संग्रहालय में पत्थर‑काट (sandstone) की खण्डिकाएँ, स्तम्भ‑प्रशस्ति, स्थानीय परिवेश के तमाम पारम्परिक प्रतीक (yali, makara, stambha‑motifs) और ग्रामदेवी मूर्तियाँ संग्रहित हैं; इनमें से कुछ आइटम स्थानीय पुरातात्विक उत्खनन और ग्राम‑दानों के माध्यम से 1990s–2000s में शामिल किये गए थे।  \n\n# संरक्षित स्थिति व प्रवृत्ति (पिछले 15 वर्ष)  \nपिछले डेढ़ दशक में संग्रहालय की गतिविधि और निवेश Low रहा है—नीहित कारणों में सीमित राज्य‑अनुदान, क्यूरेटोरियल स्टाफ की कमी और संरक्षण सुविधाओं (preservation lab, climate control) का अभाव प्रमुख हैं; परिणामस्वरूप प्रलेख‑अभिलेख अपूर्ण और प्रदर्शन सीमित रहे।  \n\n# आर्थिक, शैक्षिक और पर्यटन महत्व  \nसंग्रहालय स्थानीय हस्तशिल्पी (stone carvers, metalworkers) और ग्रामीण पर्यटन के लिए एंकर प्वाइंट बन सकता है; खजुराहो heritage‑circuit से जोड़कर daily‑visitor inflow व ग्रामीण अर्थव्यवस्था पर सकारात्मक प्रभाव सम्भव है, बशर्ते interpretive signage, multilingual labels और guided‑tour व्यवस्था लागू हो।  \n\n# नीतिगत/संस्थागत पहलें और इंटरलिंक्स  \nसंरक्षण के लिए राज्य संस्कृति-विभाग (Sanskriti Vibhag), MP Tourism तथा राष्ट्रीय संस्थाएँ (जैसे INTACH/ASI के साथ समन्वय) को जोड़ने की आवश्यकता है; डिजिटल कैटलॉगिंग, सरकारी heritage‑circuit योजनाओं में शामिल करना और CSR/NGO फंडिंग से minor conservation projects चलाये जा सकते हैं।  \n\n# चुनौतियाँ विश्लेषणात्मक रूप में  \nलंबी अवधि में चुनौती है: स्थानीय समुदाय की संलग्नता में कमी, वैज्ञानिक संरक्षण का अभाव और पर्यटन‑प्रबंधन की अनभिज्ञता—इनका परिणाम वस्तुओं के क्षरण, संग्रह के बिखराव और अवसर लागत की हानि के रूप में सामने आता है।  \n\n# समाधान एवं मार्ग‑प्रस्ताव (Way forward)  \nत्वरित उपायों में स्थलीय condition‑survey, حفاظात्मक परदों/कंट्रोल्ड‑गैलरी, bilingual interpretation, school outreach programmes, और मोहल्ला‑संग्रहालय (satellite displays) शामिल होने चाहिए; दीर्घकाल में Bundelkhand heritage trail में औपचारिक समावेशन व capacity‑building से संग्रहालय को sustainability मिलेगी।  \n\n# निष्कर्ष  \nदुबेला संग्रहालय बुन्देलखण्डीय शिल्प‑परम्परा का महत्वपूर्ण स्थानीय नोड है; Targeted conservation, समेकित नीतिगत समर्थन व सामुदायिक भागीदारी से यह सांस्कृतिक संरक्षण के साथ-साथ क्षेत्रीय विकास का प्रभावी माध्यम बन सकता है।  \n\nस्रोत 1: NCERT \"An Introduction to Indian Art\" – सम्बंधित अध्याय  \nस्रोत 2: Arihant – \"Madhya Pradesh Samanya Gyan\" (Kala‑Sanskriti evam Lokparampara अध्याय)  \nस्रोत 3: Sanskriti Vibhag / MP Tourism – Madhya Pradesh Government – आधिकारिक पोर्टल", "mcqs": [{"question": "दुबेला (बुन्देलखण्ड) संग्रहालय किस जिले में स्थित है और इसकी मुख्य सांस्कृतिक फोकस क्या है?", "options": ["छतरपुर; क्षेत्रीय बुन्देला मूर्तिकला और लोकहस्तशिल्प", "पन्ना; मौर्य काल की सिक्के और शिल्पकृतियाँ", "टीकमगढ; मध्यकालीन मुस्लिम कलात्मक चित्रकला", "इन्दौर; मराठा-कालीन हथियार और दस्तावेज"], "answer_index": 0, "explanation": "# व्याख्या — दुबेला (बुन्देलखण्ड) संग्रहालय\n**प्रश्न का संक्षिप्त उत्तर:** छतरपुर; **मुख्य सांस्कृतिक फोकस:** क्षेत्रीय बुन्देला मूर्तिकला और लोकहस्तशिल्प\n- दुबेला (बुन्देलखण्ड) संग्रहालय छतरपुर जिले में स्थित है और यह संग्रहालय जिले के ऐतिहासिक व सांस्कृतिक संदर्भ के अध्ययन के लिए प्रमुख केंद्र है।\n- संग्रहालय का प्राथमिक प्रदर्शन क्षेत्र बुन्देला मूर्तिकला पर केंद्रित है, जिसमें क्षेत्रीय शैली, रूपविधान और शिल्पकला के स्थानीय स्वर स्पष्ट रूप से दर्शाये गये हैं।\n- प्रदर्शन में बुन्देला शैली की मूर्तियाँ—पूज्य प्रतिमाएँ, स्थापत्य-सजावटी पट्टिकाएँ और मंदिरों से जुड़े शिल्प तत्व शामिल होते हैं, जो क्षेत्रीय पहचान को संक्षेप में प्रस्तुत करते हैं।\n- लोकहस्तशिल्प का संग्रह पारंपरिक जीवन यापन, उपयोगी घरेलू वस्तुएँ और त्यौहार संबंधित शिल्पप्रथाओं का प्रतिनिधित्व करता है (जैसे बुनाई, लोहार एवं लकड़कार शिल्प)।\n- संग्रहालय में प्रदर्शित वस्तुएँ बुन्देलखण्ड की स्थानीय सामग्री, तकनीक और रूपांकन पर आधारित हैं, जो शिल्पियों के कारीगरी-प्रकारों को समझने में मदद करती हैं।\n- इन प्रदर्शनियों के जरिए क्षेत्रीय कला के सामाजिक-सांस्कृतिक संदर्भ—धार्मिक प्रथाएँ, लोककथाएँ और उत्सव परंपराएँ—से जुड़े शिल्प का ऐतिहासिक परिवेश स्पष्ट होता है।\n- संग्रहालय के नमूने क्षेत्रीय शिल्प की समय-सीमा (कालक्रम), शैलीगत विकास और पड़ोसी क्षेत्रों से होने वाले प्रभावों का प्रमाण देते हैं, जो शोध और पाठ्य-उद्धरण के लिए उपयोगी हैं।\n- छतरपुर स्थित होने के कारण यह संग्रहालय स्थानीय पहचान और क्षेत्रीय संवर्धन नीतियों (म्यूзеियम-आधारित संरक्षण, प्रदर्शन व लोकसंचार) के सत्यापन व प्रचार के लिए उपयोगी है।\n- छात्र-प्रवीनों और प्रतियोगी परीक्षाओं के लिए संग्रहालय का फोकस सीधे तौर पर बुन्देला मूर्तिकला और लोकहस्तशिल्प की पहचान, विशेषताएँ और सामाजिक-सांस्कृतिक प्रासंगिकता के बिंदुओं को प्रश्नोत्तर में उद्धृत करने लायक बनाता है।\n- उत्तर लेखन में इस तथ्य का प्रमाणिक उपयोग: “दुबेला (बुन्देलखण्ड) संग्रहालय — छतरपुर: क्षेत्रीय बुन्देला मूर्तिकला और लोकहस्तशिल्प के संरक्षण व प्रदर्शनी का केंद्र” — यह पंक्ति सीधे Mains के MP-संबंधित भाग में शामिल की जा सकती है।", "priority_tag": "HIGH"}, {"question": "दुबेला संग्रहालय में विशिष्ट रूप से किस प्रकार के स्थानीय कलात्मक पदार्थ का प्रदर्शन प्रमुखता से होता है?", "options": ["बुन्देला-शैली की शिल्प और मंदिरीय मूर्तियाँ", "दक्षिण भारतीय ठाठ भित्ति चित्र", "बंगाल-पट्ट चित्रकला", "राजस्थानी कालीन और गलीचा"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देलखण्ड की पारंपरिक लकड़ी और पत्थर की नक्काशी के संरक्षण के लिए संग्रहालय किस तरह का योगदान देता है?", "options": ["स्थानीय शिल्पकारों के कारीगरी के दस्तावेजीकरण और प्रदर्शनी", "केवल विदेशी कलाकोशों के साथ सांझेदारी", "आधुनिक कला प्रदर्शनियों में लकड़ी का प्रयोग बंद करना", "स्थानीय कृतियों को नीलामी के माध्यम से निर्यात करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय का संग्रह मुख्यतः किस काल के स्थानीय अवशेषों पर केन्द्रित माना जा सकता है?", "options": ["मध्यकालीन और आधुनिक बुन्देलखण्डीय शिल्प एवं मूर्तिकला", "हड़प्पा-समय के नगर योजनात्मक अवशेष", "ब्रिटिश-कालीन औद्योगिक मशीनरी का संग्रह", "प्राचीन वैदिक लेखन प्रतिलेख"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देलखण्ड की स्थापत्य परंपरा से जुड़ा प्रमुख शहर जो संग्रहालय के ऐतिहासिक संदर्भ के लिए प्रासंगिक है, कौन सा है?", "options": ["ओरछा", "भोपाल", "इंदौर", "सागर"], "answer_index": 0, "explanation": "# व्याख्या — उत्तर: **ओरछा**\n- ओरछा मध्य प्रदेश के छतरपुर जिले के निकट बेतवा नदी के तट पर स्थित ऐतिहासिक शहर है और बुन्देलखण्ड की स्थापत्य परंपरा का प्रमुख केंद्र माना जाता है।\n- ओरछा की स्थापना बुन्देला वंश के शासक रुद्र प्रताप सिंह ने 16वीं सदी के आरम्भ में की थी (लगभग 1501 ई.) — यही कारण है कि यहाँ का स्थापत्य बुन्देला-युग से सीधे जुड़ा हुआ है।\n- ओरछा किला परिसर में राजमहल, जहाँगीर महल, छतरों और विशाल राजकीय इमारतों का समूह बुन्देला स्थापत्य के प्रमुख उदाहरण हैं; ये संरचनाएँ संग्रहालय के ऐतिहासिक संदर्भ के लिए प्रत्यक्ष साक्ष्य प्रदान करती हैं।\n- जहाँगीर महल (17वीं सदी के प्रारम्भ में बने) में मुगल और राजपूत स्थापत्य तत्वों का संगम दिखता है — गुंबद, जालियाँ, जहरोखा और विशाल प्रासादीय संरचना — जो बुन्देला शैली की विशिष्ट विशेषताएँ हैं।\n- राम राजा मंदिर का विशेष महत्व है: यह पुराने राजमहल के हिस्से का धार्मिक रूप में रूपांतरण है और ओरछा के साम्राज्यिक-धार्मिक संबंध तथा स्थानीय समृद्ध वास्तु-संस्कृति को दर्शाता है।\n- ओरछा में दीवारों पर पाइंटिंग्स, भित्ति-चित्र और मिनिएचर शैली के चित्रकला अवशेष मिलते हैं; संग्रहालय में प्रदर्शित उपकरणों—चित्रों व शिलालेखों के साथ इन्हें जोड़कर ऐतिहासिक व्याख्या की जाती है।\n- ओरछा की इमारतों में प्रयुक्त स्थानीय बलुआ पत्थर, नक़्क़ाशी, झरोखा-डिजाइन और गोलाकार छतरियाँ बुन्देला स्थापत्य की तकनीकी पहचान हैं — ये म्यूजियम के वास्तुशिल्प प्रसंगों के लिए संदर्भ बनते हैं।\n- ओरछा का किला-नगर तथा उसके आसपास के संरचनात्मक अवशेषों से क्षेत्रीय शहरी योजना, किला-रक्षा और राजकीय आवासीय व्यवस्था की जानकारी मिलती है; संग्रहालय इन्हीं आँकड़ों पर आधारित व्याख्यात्मक सामग्री देता है।\n- ओरछा से प्राप्त सिक्के, शिलालेख और राजनैतिक अभिलेख बुन्देला शासन काल की कालक्रमिक जानकारी देते हैं; म्यूजियम में ये ओरछा के ऐतिहासिक महत्व को प्रमाणित करते हैं।\n- परीक्षात्मक उत्तर/नोट में ओरछा को बुन्देलखण्ड की स्थापत्य परंपरा का मूल संदर्भ बताकर — प्रमुख स्मारक (राजमहल, जहाँगीर महल, राम राजा मंदिर), शैलीगत विशेषताएँ (राजपूत-मुगल मेल, छतरियाँ, जहरोखे) और संग्रहालय में मिलने वाले अवशेषों को संक्षेप में जोड़ा जा सकता है।", "priority_tag": "HIGH"}, {"question": "दुबेला (बुन्देलखण्ड) संग्रहालय स्थानीय पर्यटन को किस प्रमुख तरीके से बढ़ावा देता है?", "options": ["क्षेत्रीय कलाकृतियों का प्रदर्शन और सांस्कृतिक शिक्षा कार्यक्रम", "केवल टिकट राजस्व से स्थानीय व्यापार पर कर लगाना", "संग्रहालय प्रवेश पर विदेशी मीडिया प्रतिबंध", "स्थानीय गाइडों की नियुक्ति पर प्रतिबंध"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देलखण्डीय शिल्प में अक्सर दिखने वाली एक लोक-हस्तकला कौन-सी है जो संग्रहालयों में प्रदर्शित होती है?", "options": ["मिट्टी/टेरेकोटा मूर्तिकला", "कागज़-प्रिंट बैग उत्पादन", "ग्लास-फ्यूज़िंग ज्वैलरी", "सोना-चांदी का भारी औद्योगिक ढांचा"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय के संग्रह में निम्नलिखित में से कौन-सा आइटम सर्वाधिक सम्बंधित है?", "options": ["मंदिर निर्मित शिल्प और स्थानीय मूर्तियाँ", "भारतीय रेल की पुरानी लोकोमोटिव मिडिया", "समकालीन डिजिटल कला इंस्टॉलेशन", "आधुनिक विदेशी सिरेमिक्स"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देलखण्ड क्षेत्र की मूर्तिकला शैली में किस प्रकार की आकृतियाँ और थीम सामान्यतः देखने को मिलती हैं, जो दुबेला संग्रहालय में भी प्रदर्शित होती हैं?", "options": ["धार्मिक देव-देवता, जैन-दर्शन और लोकनायिकाएँ", "अफ़्रीकी वन्यजीव चित्रकला", "पूर्वी एशियाई शिसु-मूर्ति शैलियाँ", "अमेरिकी आदिवासी टोtems"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय जैसे क्षेत्रीय संग्रहालयों का मध्यप्रदेश की सांस्कृतिक-पहचान पर क्या प्रमुख प्रभाव माना जाता है?", "options": ["स्थानीय विरासत की पहचान मजबूत करना और सांस्कृतिक पर्यटन को प्रोत्साहित करना", "केवल तकनीकी शिक्षा के अवसर बढ़ाना", "राज्य के अन्य हिस्सों से कला आयात को रोकना", "स्थानीय भाषा के प्रयोग पर प्रतिबंध लगाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय में सुरक्षा-और संरक्षण के कौन से पारंपरिक उपाय एक क्षेत्रीय संग्रहालय में आमतौर पर लागू होते हैं?", "options": ["वस्तुओं का जलवायु-नियंत्रित प्रदर्शन और दस्तावेजीकरण", "सभी कलाकृतियों को खुले आँगन में रखने की नीति", "कोई रिकॉर्ड न रखना और हाथ से छूने की अनुमति देना", "संग्रहालय में केवल प्रतिकृतियाँ रखना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्नलिखित में से कौन-सा कथन दुबेला (बुन्देलखण्ड) संग्रहालय के कार्य-क्षेत्र के संदर्भ में सबसे उपयुक्त है?", "options": ["स्थानीय ऐतिहासिक और कलात्मक धरोहर का संरक्षण तथा प्रदर्शनी", "केवल अंतरराष्ट्रीय आधुनिक कला का प्रदर्शन", "संग्रहालय का कार्य केवल शैक्षिक नहीं बल्कि औद्योगिक उत्पादन है", "भौतिक वस्तुओं का संग्रह न करके केवल डिजिटल संग्रहण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देला-शैली स्थापत्य की एक पहचान जो संग्रहालय प्रदर्शन में भी दिखाई देती है, वह क्या है?", "options": ["मंदिरों में विस्तृत नक्काशी और स्तंभों पर सजीव आकृतियाँ", "बड़े कच्चे इमारती शीशे-फेसैड", "आधुनिक कंक्रीट-बॉक्स फ्रेम", "उच्च-ऊर्जा इंटीरियर ग्लॉसिंग"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "दुबेला संग्रहालय में प्रदर्शन की जाने वाली लोककथाओं/स्थानीय कथाओं का मुख्य उद्देश्य क्या होता है?", "options": ["स्थानीय सांस्कृतिक स्मृति और परंपराओं का संरक्षण एवं जन-साक्षरता", "केवल विदेशी दर्शकों को आकर्षित करना", "स्थानीय कहानियों को बदलकर पेश करना", "संग्रहालय के बाहर अनाधिकृत विक्रय को बढ़ावा देना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "बुन्देलखण्ड की मूर्तिकला परंपरा का अध्ययन करने के लिए दुबेला संग्रहालय किस प्रकार की प्राथमिक सामग्री प्रदान कर सकता है?", "options": ["स्थानीय मंदिरों से निकाले गए प्राचीन शिलाएँ, ताबीज़ और मूर्तिकाएँ", "केवल आधुनिक चित्रों की डिजिटल प्रतियाँ", "विदेशी देशों से आयातित पेंटिंग का संग्रह", "सम्पूर्णतः साहित्यिक ग्रंथों के संग्रह"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय और स्थानीय शिल्पकारों के बीच किस तरह का संबंध अक्सर देखा जाता है?", "options": ["कला-कार्यशाला और कौशल-संरक्षण कार्यक्रमों के माध्यम से सहयोग", "संग्रहालय द्वारा शिल्प पर पूर्ण प्रतिबंध", "संग्रहालय का शिल्पकारों से कोई सम्बन्ध न होना", "केवल विदेशी कलाकारों को समर्थन देना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्नलिखित में से कौन-सा संग्रहालय क्रियाकलाप स्थानीय युवाओं को पारंपरिक शिल्प सीखने के लिए प्रेरित करता है, और इसी प्रकार दुबेला संग्रहालय में भी किया जाता है?", "options": ["कला-शिल्प कार्यशालाएँ और प्रशिक्षण कार्यक्रम", "केवल प्रौद्योगिकी-प्रशिक्षण कक्षाएँ", "संग्रहालय कक्षाओं में प्रवेश निषेध", "विदेशी दिखावट प्रतियोगिताएँ"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "बुन्देलखण्डीय शिल्प में 'टेरेकोटा' का क्या महत्त्व है, जो दुबेला संग्रहालय में भी दिख सकता है?", "options": ["मिट्टी से बने धार्मिक और सजावटी छोटे-आकृतियाँ, लोककला का महत्वपूर्ण अंग", "खास तरह की धातु-चालक औद्योगिक सामग्री", "काँच से बनी आधुनिक मूर्तियाँ", "बने हुए कपड़ों की विशेष कढ़ाई"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "दुबेला संग्रहालय के संग्रह से सम्बंधित एक सामान्य संरक्षण चुनौती क्या हो सकती है?", "options": ["परिवेशीय नमी और कीटों से लकड़ी व मिट्टी की वस्तुओं का क्षय", "अत्यधिक डिजिटल-डुप्लीकेशन", "वस्तुओं का अत्यधिक निर्यात", "संग्रहालय का केवल रात में खुलना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय की भौगोलिक प्रासंगिकता के कारण कौन-सा ऐतिहासिक दृष्टिकोण वहाँ दर्शाने के लिए उपयुक्त है?", "options": ["बुन्देलखण्डीय राजवंशों और स्थानीय मंदिर-परंपराओं का ऐतिहासिक विकास", "दक्षिण भारत के चोल प्रशासन का विस्तृत परिदृश्य", "सोवियत कला आंदोलन का विस्तार", "पूर्वी यूरोप की साम्राज्यवादी नीतियाँ"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "संग्रहालयों में 'डॉक्यूमेंटेशन' का क्या महत्व है, विशेषकर दुबेला जैसी संस्थाओं के संदर्भ में?", "options": ["विरासत वस्तुओं का अभिलेखीय संरक्षण और भविष्य के शोध के लिए रिकॉर्ड", "संग्रह के बारे में कोई जानकारी न रखना", "केवल मौखिक परंपरा पर निर्भर रहना", "वस्तुओं को छिपाकर रखना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय यदि स्थानीय धार्मिक उत्सवों तथा मेले से जुड़ा कार्यक्रम आयोजित करता है, तो उसका प्रमुख उद्देश्य क्या होगा?", "options": ["स्थानीय संस्कृतिक परंपराओं का संवर्धन और पर्यटन को जोड़ना", "उत्सवों को शहर से बाहर रखना", "केवल विदेशी पर्यटन को प्राथमिकता देना", "स्थानीय सहभागिता को रोकना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन-सा कथन बुन्देलखण्ड की स्थापत्य परंपरा और दुबेला संग्रहालय के सम्बन्ध के दृष्टिकोण से सही है?", "options": ["स्थानीय राजवंशों द्वारा निर्मित मंदिरों की मूर्तिकला संग्रहालय की प्रमुख सामग्री हो सकती है", "बुन्देलखण्ड का स्थापत्य पूरी तरह से स्टील-फ्रेम पर आधारित है", "क्षेत्र में केवल आधुनिक आवासीय इमारतों का ही महत्व रहा है", "स्थानीय स्थापत्य का संग्रहण केवल डिजिटल रूप में ही सम्भव है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय तथा राज्य पर्यटन विभाग के संयुक्त प्रयोजन में किस प्रकार की पहल अपेक्षित है?", "options": ["सांस्कृतिक पर्यटन मार्गों का विकास और स्थानीय कला-मार्ग की प्रमोशन", "शहर में सभी संग्रहालयों को बंद कर देना", "टूरिस्टों के लिए स्थानीय कला पर प्रतिबंध लगाना", "केवल ऑनलाइन टिकटिंग पर निर्भर रहना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "बुन्देलखण्ड की लोक-कथाओं और शिल्प पर आधारित शैक्षिक प्रदर्शनी का प्राथमिक लाभ क्या होगा, जो दुबेला संग्रहालय आयोजित कर सकता है?", "options": ["युवा पीढ़ी में स्थानीय विरासत के प्रति जागरूकता और कौशल-संचार", "केवल व्यापारिक गतिविधियों को प्राथमिकता देना", "विदेशी भाषाओं का पूर्ण अनुवाद", "स्थानीय शिक्षकों की नियुक्ति समाप्त करना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "दुबेला संग्रहालय में संग्रह हेतु क्षेत्र से प्राप्त वस्तुओं की पहचान करते समय कौन-सा मानदण्ड अधिक प्रासंगिक है?", "options": ["ऐतिहासिक और सांस्कृतिक प्रासंगिकता तथा मूल स्थान की प्रमाणिकता", "केवल मौजूदा बाजार मूल्य", "वस्तु का पूर्णतः विदेशी होना", "वस्तु का बड़ा आकार"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बुन्देलखण्डीय मूर्तिकला में 'स्तम्भ' और 'टोरेना' जैसी संरचनाएँ दिखती हैं; दुबेला संग्रहालय में इन्हें प्रदर्शित करने का शैक्षिक उद्देश्य क्या होगा?", "options": ["स्थापत्य तकनीकें और धार्मिक प्रतीकवाद छात्रों को समझाना", "वक्ताओं को भ्रमित करना", "केवल सौंदर्यशास्त्रीय दृष्टि से छुपाना", "संग्रहालय की जगह कम करना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "दुबेला संग्रहालय के माध्यम से स्थानीय शिल्प का आर्थिक लाभ बढ़ाने के लिए किस प्रकार की नीति अपनाई जा सकती है?", "options": ["लोकल कलाकारों के काम की प्रदर्शनी व विपणन सहायता", "शिल्पकारों को भौतिक सामग्री से वंचित करना", "विक्री पर उच्च कर लगाना", "शिल्पकारों के कार्यों को नीलाम करना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "दुबेला संग्रहालय की क्यूरेटिंग में 'कन्टेक्स्टुअलाइजेशन' का क्या अर्थ होता है, विशेषकर क्षेत्रीय शिल्प के सन्दर्भ में?", "options": ["वस्तु को उसके ऐतिहासिक, सांस्कृतिक और सामाजिक पृष्ठभूमि के साथ प्रदर्शित करना", "वस्तु को बस सुंदर फ्रेम में रखना", "वस्तु का मालिक बदल देना", "वस्तु को केवल स्थानांतरित कर देना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुबेला संग्रहालय और निकटवर्ती धरोहर स्थलों के बीच तालमेल का प्रमुख लाभ क्या है?", "options": ["पर्यटक आकर्षण बढ़ना और समग्र सांस्कृतिक अनुभव का सशक्तिकरण", "धरोहरों के संरक्षण पर नकारात्मक प्रभाव", "स्थानीय अर्थव्यवस्था का पतन", "स्थानीय समुदायों का विस्थापन"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "बुन्देलखण्ड के शिल्प में प्रयोग होने वाली पारंपरिक सामग्रियाँ कौन-सी हैं, जिन पर दुबेला संग्रहालय का संग्रह आधारित हो सकता है?", "options": ["पत्थर, लकड़ी, मिट्टी (टेरेकोटा) और धातु", "प्लास्टिक-आधारित उद्योगिक घटक", "कम्पोजिट फाइबर केवल", "किसी भी पारंपरिक सामग्री का पूर्ण अभाव"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

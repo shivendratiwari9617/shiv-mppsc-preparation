@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-113 – Payment Security—Tokenisation/3‑DS—कॉन्सेप्ट</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-113 – Payment Security—Tokenisation/3‑DS—कॉन्सेप्ट</h1>
+        <div class="note">क्षेत्र: Fintech | सामग्री: फ्रॉड कमी/उपभोक्ता सुरक्षा। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+Payment Security—Tokenisation और 3‑DS (3‑Domain Secure) आधुनिक डिजिटल भुगतानों की दो मुख्य सुरक्षा तकनीकें हैं जो फ्रॉड कमी और उपभोक्ता सुरक्षा सुनिश्चित करने में महत्वपूर्ण भूमिका निभाती हैं। MPPSC की GS‑III/ICT परीक्षाओं के परिप्रेक्ष्य से यह विषय आर्थिक सुरक्षा, डिजिटलीकरण और सायबर‑सुरक्षा के केंद्रीय मुद्दों से जुड़ा हुआ है और नीतिगत निर्णयों के लिए तकनीकी समझ अनिवार्य है।  
+
+## अवधारणा एवं विकास — संक्षेप में
+Tokenisation वह प्रक्रिया है जिसमें संवेदनशील भुगतान विवरण (जैसे कार्ड PAN) को एक अप्रत्यक्ष वैरिएबल‑token से प्रतिस्थापित कर दिया जाता है ताकि मूल डेटा का भंडारण और प्रसार कम से कम हो। आधुनिक भुगतान प्रणालियों में यह EMVCo द्वारा परिभाषित टोकनाइजेशन मॉडल और PCI DSS के अनुपालन के साथ लागू होता है। 3‑DS एक authentication protocol है (विकसित EMVCo/ कार्ड नेटवर्क सहयोग से) जो online card‑not‑present लेनदेन के दौरान cardholder authentication हेतु issuer, acquirer और cardholder के बीच अतिरिक्त domain‑level प्रमाणीकरण सुनिश्चित करता; 3‑DS का नया संस्करण 2.x मोबाइल व frictionless flows को समर्थन देता है।  
+
+## तकनीकी संरचना और कार्यप्रणाली
+Tokenisation में तीन प्रमुख घटक होते हैं: (1) Tokenisation Requestor (merchant या PSP), (2) Token Service Provider (TSP) या token vault, और (3) Token Reference/Mapping database। जब कार्ड‑डेटा को tokenise किया जाता है तो PAN के स्थान पर डायनेमिक/स्टैटिक token पैदा होता है; यह token format‑preserving भी हो सकता है ताकि लेनदेन प्रसंस्करण में back‑end बदलाव न्यूनतम रहें। Tokenisation के साथ cryptographic controls (HSM—Hardware Security Module) और key‑management (KMS के RFC/standard practices के अनुरूप) अनिवार्य होते हैं ताकि token↔PAN मैपिंग सुरक्षित रहे।  
+
+3‑DS में तीन डोमेन होते हैं: अक्षमतापूर्ण रूप से issuer domain (cardholder issuer), acquirer domain (merchant/PSP) और interoperability domain (3DS Server, Directory Server)। 3‑DS2.0 में device‑fingerprinting, risk‑based authentication और EMV® 3‑D Secure protocol के अनुरूप SDKs शामिल हैं जो frictionless authentication के लिए 300+ data‑points का उपयोग कर सकते हैं (जैसे device‑IP, geolocation, transaction‑history, token presence), जिससे false declines घटते हैं और challenge‑flows केवल high‑risk cases में चलते हैं।  
+
+## भारत में नीतिगत/प्रशासनिक संदर्भ और अनुप्रयोग
+भारत में भुगतान सुरक्षा के संदर्भ में RBI, MeitY, CERT‑In, NPCI और card networks की नीतियाँ निर्णायक रहीं। RBI ने Oct‑2021 के आसपास card‑on‑file/tokenisation पर दिशा‑निर्देश जारी कर tokenisation framework अपनाने को प्रोत्साहित किया तथा tokenisation के लिए consent‑based model और Token Service Providers के नियमन पर बल दिया। NPCI के UPI मॉडल में भी dynamic intents और token‑like mechanisms (प्रति‑लेनदेन‑QR/collect‑auth) ने fraud surface घटाया है। PCI DSS compliance और EMVCo standards भारतीय PSPs/merchants के लिए अनिवार्य‑जैसी प्रैक्टिस बन चुकी हैं; सरकारी डिजिटल भुगतान पोर्टलों (बंद पर digital India/MeitY initiatives) में PSD/PSP के साथ secure tokenised flows को बढ़ावा मिला है।  
+
+## प्रमुख लाभ (Fraud reduction / Consumer protection)
+Tokenisation से stored card data breach risk बहुत घटता है क्योंकि merchants के पास PAN नहीं रहता; परिणामस्वरूप data‑breach‑liability और remediation‑costs कम होते हैं। HSM‑backed token vault और token lifecycle management (issuance, mapping, revocation, expiry) नेटवर्क स्तर पर fraud‑surface कंट्रोल करते हैं। 3‑DS का risk‑based authentication false acceptance और chargeback को कम कर देता है; 3‑DS2.x की biometric/behavioural data‑use से OTP‑dependence घटती है और UX सुधरता है। संयोजनतः दोनों तकनीकें liability‑shift models और regulatory compliance को सहज बनाती हैं।  
+
+## चुनौतियाँ एवं जोखिम
+Tokenisation का centralized TSP मॉडल single‑point‑of‑failure और concentration‑risk पैदा कर सकता है; यदि token vault compromise हुआ तो mapping leak गंभीर होगा—इसलिए HSM, multi‑party key management और regular third‑party audits अनिवार्य हैं। Interoperability की समस्या है—विभिन्न card networks/PSPs के token formats और lifecycle policies में असमानता merchant integration complexity बढ़ाती है। 3‑DS के पहले संस्करणों में high friction और cart‑abandonment दरें बढ़ीं; हालांकि 2.x ने सुधार किए हैं, पर privacy‑sensitive behavioural data का संग्रह regulatory compliance (Data Protection Bill/DPDP‑like frameworks) के साथ तालमेल मांगता है। तकनीकी रूप से latency, SDK integration failures और backwards compatibility भी चुनौतियाँ हैं।  
+
+## व्यवहारिक/स्टेट‑लेवल पर उदाहरण एवं प्रभाव (MP और राष्ट्रीय)
+राष्ट्रीय स्तर पर RBI‑driven tokenisation frameworks और NPCI के UPI innovations ने digital payments में consumer trust बढ़ाया; परिणामतः 2010‑2025 के दशक में card/UPI adoption तेज हुआ। मध्यप्रदेश के ई‑गवर्नेंस पेमेंट‑गेटवे और राज्य‑स्तरीय फिस‑कलेक्शन पोर्टलों में tokenisation एवं 3‑DS जैसे authentication mechanisms का पायलट या संबंधी अनुप्रयोग POS/online fee‑collections में लागू करने से PCI DSS‑compliance और data‑leak‑risks घटे हैं; राज्य विभागों द्वारा PSPs को token‑enabled APIs अपनाने के लिए tender terms में security‑clauses शामिल किए जा सकते हैं।  
+
+## नीतिगत सुधार और संस्थागत सिफारिशें (प्रस्तावित way‑forward)
+1) राष्ट्रीय स्तर पर token‑interoperability standardisation के लिए MeitY‑RBI‑NPCI संयुक्त तकनीकी कार्यदल आवश्यक है ताकि token formats, revocation policies और liability norms harmonise हों।  
+2) Token Service Providers के लिए minimum security baselines: FIPS‑140‑2 HSM, PCI DSS v4.0 compliance, periodic red‑team testing और CERT‑In में incident‑reporting SLAs अनिवार्य करें।  
+3) 3‑DS को state‑level digital payments में mandatory‑विकल्प के तौर पर लागू करते समय merchant‑UX, fallback‑flows और challenge thresholds पर evidence‑based thresholds रखें ताकि digital inclusion बाधित न हो।  
+4) Consumer awareness campaigns (Digital Saksharta) में tokenisation और 3‑DS की सरल व्याख्या और consent‑mechanisms सिखाने चाहिए; राज्य वित्त विभागों को recurring payments के लिए token‑based card‑on‑file arrangements adopt करने हेतु guidelines जारी करने चाहिए।  
+5) Data protection framework के साथ alignment: behavioural data‑use in 3‑DS को explicit consent और data minimisation के सिद्धांतों के अंतर्गत लाना होगा; यह DPDP या उसके समकक्ष के अनुरूप होना चाहिए।  
+
+## कार्यान्वयन‑सम्बन्धी तकनीकी सुझाव (operational)
+Token lifecycle को design करते समय tokenisation policies में token‑scoping (merchant‑specific vs network‑wide), token‑domain restrictions, expiry and rotation policies और emergency revocation procedures शामिल हों। 3‑DS deployment में risk‑scoring engines को machine‑learning based fraud models से अपडेट रखें और issuer‑side challenge thresholds को adaptive रखें। दोनों तकनीकों के लिए centralized monitoring via SIEM, PCI‑compliant logging और CERT‑In/RBI को near‑real‑time alerts की सुविधा होनी चाहिए।  
+
+## निष्कर्ष
+Tokenisation और 3‑DS मिलकर digital payments के fraud‑surface को काफी हद तक घटाते हैं और उपभोक्ता‑विश्वास को बढ़ाते हैं; पर उनकी प्रभावशीलता तकनीकी‑डिटेल, संस्थागत‑नियमन और उपयोगकर्ता‑शिक्षा पर निर्भर करती है। इसलिए राष्ट्रीय और राज्य‑स्तर पर सुसंगत नीतियाँ, मानकीकरण, नियमित ऑडिट और पारदर्शी उपभोक्ता‑consent mechanisms को प्राथमिकता देना होगा ताकि दीर्घकाल में सुरक्षित, समावेशी और विश्वसनीय भुगतान पारिस्थितिकी तंत्र सुनिश्चित हो सके।  
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक  
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-113 – Payment Security—Tokenisation/3‑DS—कॉन्सेप्ट", "coverage_note": "क्षेत्र: Fintech | सामग्री: फ्रॉड कमी/उपभोक्ता सुरक्षा। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\nPayment Security—Tokenisation और 3‑DS (3‑Domain Secure) आधुनिक डिजिटल भुगतानों की दो मुख्य सुरक्षा तकनीकें हैं जो फ्रॉड कमी और उपभोक्ता सुरक्षा सुनिश्चित करने में महत्वपूर्ण भूमिका निभाती हैं। MPPSC की GS‑III/ICT परीक्षाओं के परिप्रेक्ष्य से यह विषय आर्थिक सुरक्षा, डिजिटलीकरण और सायबर‑सुरक्षा के केंद्रीय मुद्दों से जुड़ा हुआ है और नीतिगत निर्णयों के लिए तकनीकी समझ अनिवार्य है।  \n\n## अवधारणा एवं विकास — संक्षेप में\nTokenisation वह प्रक्रिया है जिसमें संवेदनशील भुगतान विवरण (जैसे कार्ड PAN) को एक अप्रत्यक्ष वैरिएबल‑token से प्रतिस्थापित कर दिया जाता है ताकि मूल डेटा का भंडारण और प्रसार कम से कम हो। आधुनिक भुगतान प्रणालियों में यह EMVCo द्वारा परिभाषित टोकनाइजेशन मॉडल और PCI DSS के अनुपालन के साथ लागू होता है। 3‑DS एक authentication protocol है (विकसित EMVCo/ कार्ड नेटवर्क सहयोग से) जो online card‑not‑present लेनदेन के दौरान cardholder authentication हेतु issuer, acquirer और cardholder के बीच अतिरिक्त domain‑level प्रमाणीकरण सुनिश्चित करता; 3‑DS का नया संस्करण 2.x मोबाइल व frictionless flows को समर्थन देता है।  \n\n## तकनीकी संरचना और कार्यप्रणाली\nTokenisation में तीन प्रमुख घटक होते हैं: (1) Tokenisation Requestor (merchant या PSP), (2) Token Service Provider (TSP) या token vault, और (3) Token Reference/Mapping database। जब कार्ड‑डेटा को tokenise किया जाता है तो PAN के स्थान पर डायनेमिक/स्टैटिक token पैदा होता है; यह token format‑preserving भी हो सकता है ताकि लेनदेन प्रसंस्करण में back‑end बदलाव न्यूनतम रहें। Tokenisation के साथ cryptographic controls (HSM—Hardware Security Module) और key‑management (KMS के RFC/standard practices के अनुरूप) अनिवार्य होते हैं ताकि token↔PAN मैपिंग सुरक्षित रहे।  \n\n3‑DS में तीन डोमेन होते हैं: अक्षमतापूर्ण रूप से issuer domain (cardholder issuer), acquirer domain (merchant/PSP) और interoperability domain (3DS Server, Directory Server)। 3‑DS2.0 में device‑fingerprinting, risk‑based authentication और EMV® 3‑D Secure protocol के अनुरूप SDKs शामिल हैं जो frictionless authentication के लिए 300+ data‑points का उपयोग कर सकते हैं (जैसे device‑IP, geolocation, transaction‑history, token presence), जिससे false declines घटते हैं और challenge‑flows केवल high‑risk cases में चलते हैं।  \n\n## भारत में नीतिगत/प्रशासनिक संदर्भ और अनुप्रयोग\nभारत में भुगतान सुरक्षा के संदर्भ में RBI, MeitY, CERT‑In, NPCI और card networks की नीतियाँ निर्णायक रहीं। RBI ने Oct‑2021 के आसपास card‑on‑file/tokenisation पर दिशा‑निर्देश जारी कर tokenisation framework अपनाने को प्रोत्साहित किया तथा tokenisation के लिए consent‑based model और Token Service Providers के नियमन पर बल दिया। NPCI के UPI मॉडल में भी dynamic intents और token‑like mechanisms (प्रति‑लेनदेन‑QR/collect‑auth) ने fraud surface घटाया है। PCI DSS compliance और EMVCo standards भारतीय PSPs/merchants के लिए अनिवार्य‑जैसी प्रैक्टिस बन चुकी हैं; सरकारी डिजिटल भुगतान पोर्टलों (बंद पर digital India/MeitY initiatives) में PSD/PSP के साथ secure tokenised flows को बढ़ावा मिला है।  \n\n## प्रमुख लाभ (Fraud reduction / Consumer protection)\nTokenisation से stored card data breach risk बहुत घटता है क्योंकि merchants के पास PAN नहीं रहता; परिणामस्वरूप data‑breach‑liability और remediation‑costs कम होते हैं। HSM‑backed token vault और token lifecycle management (issuance, mapping, revocation, expiry) नेटवर्क स्तर पर fraud‑surface कंट्रोल करते हैं। 3‑DS का risk‑based authentication false acceptance और chargeback को कम कर देता है; 3‑DS2.x की biometric/behavioural data‑use से OTP‑dependence घटती है और UX सुधरता है। संयोजनतः दोनों तकनीकें liability‑shift models और regulatory compliance को सहज बनाती हैं।  \n\n## चुनौतियाँ एवं जोखिम\nTokenisation का centralized TSP मॉडल single‑point‑of‑failure और concentration‑risk पैदा कर सकता है; यदि token vault compromise हुआ तो mapping leak गंभीर होगा—इसलिए HSM, multi‑party key management और regular third‑party audits अनिवार्य हैं। Interoperability की समस्या है—विभिन्न card networks/PSPs के token formats और lifecycle policies में असमानता merchant integration complexity बढ़ाती है। 3‑DS के पहले संस्करणों में high friction और cart‑abandonment दरें बढ़ीं; हालांकि 2.x ने सुधार किए हैं, पर privacy‑sensitive behavioural data का संग्रह regulatory compliance (Data Protection Bill/DPDP‑like frameworks) के साथ तालमेल मांगता है। तकनीकी रूप से latency, SDK integration failures और backwards compatibility भी चुनौतियाँ हैं।  \n\n## व्यवहारिक/स्टेट‑लेवल पर उदाहरण एवं प्रभाव (MP और राष्ट्रीय)\nराष्ट्रीय स्तर पर RBI‑driven tokenisation frameworks और NPCI के UPI innovations ने digital payments में consumer trust बढ़ाया; परिणामतः 2010‑2025 के दशक में card/UPI adoption तेज हुआ। मध्यप्रदेश के ई‑गवर्नेंस पेमेंट‑गेटवे और राज्य‑स्तरीय फिस‑कलेक्शन पोर्टलों में tokenisation एवं 3‑DS जैसे authentication mechanisms का पायलट या संबंधी अनुप्रयोग POS/online fee‑collections में लागू करने से PCI DSS‑compliance और data‑leak‑risks घटे हैं; राज्य विभागों द्वारा PSPs को token‑enabled APIs अपनाने के लिए tender terms में security‑clauses शामिल किए जा सकते हैं।  \n\n## नीतिगत सुधार और संस्थागत सिफारिशें (प्रस्तावित way‑forward)\n1) राष्ट्रीय स्तर पर token‑interoperability standardisation के लिए MeitY‑RBI‑NPCI संयुक्त तकनीकी कार्यदल आवश्यक है ताकि token formats, revocation policies और liability norms harmonise हों।  \n2) Token Service Providers के लिए minimum security baselines: FIPS‑140‑2 HSM, PCI DSS v4.0 compliance, periodic red‑team testing और CERT‑In में incident‑reporting SLAs अनिवार्य करें।  \n3) 3‑DS को state‑level digital payments में mandatory‑विकल्प के तौर पर लागू करते समय merchant‑UX, fallback‑flows और challenge thresholds पर evidence‑based thresholds रखें ताकि digital inclusion बाधित न हो।  \n4) Consumer awareness campaigns (Digital Saksharta) में tokenisation और 3‑DS की सरल व्याख्या और consent‑mechanisms सिखाने चाहिए; राज्य वित्त विभागों को recurring payments के लिए token‑based card‑on‑file arrangements adopt करने हेतु guidelines जारी करने चाहिए।  \n5) Data protection framework के साथ alignment: behavioural data‑use in 3‑DS को explicit consent और data minimisation के सिद्धांतों के अंतर्गत लाना होगा; यह DPDP या उसके समकक्ष के अनुरूप होना चाहिए।  \n\n## कार्यान्वयन‑सम्बन्धी तकनीकी सुझाव (operational)\nToken lifecycle को design करते समय tokenisation policies में token‑scoping (merchant‑specific vs network‑wide), token‑domain restrictions, expiry and rotation policies और emergency revocation procedures शामिल हों। 3‑DS deployment में risk‑scoring engines को machine‑learning based fraud models से अपडेट रखें और issuer‑side challenge thresholds को adaptive रखें। दोनों तकनीकों के लिए centralized monitoring via SIEM, PCI‑compliant logging और CERT‑In/RBI को near‑real‑time alerts की सुविधा होनी चाहिए।  \n\n## निष्कर्ष\nTokenisation और 3‑DS मिलकर digital payments के fraud‑surface को काफी हद तक घटाते हैं और उपभोक्ता‑विश्वास को बढ़ाते हैं; पर उनकी प्रभावशीलता तकनीकी‑डिटेल, संस्थागत‑नियमन और उपयोगकर्ता‑शिक्षा पर निर्भर करती है। इसलिए राष्ट्रीय और राज्य‑स्तर पर सुसंगत नीतियाँ, मानकीकरण, नियमित ऑडिट और पारदर्शी उपभोक्ता‑consent mechanisms को प्राथमिकता देना होगा ताकि दीर्घकाल में सुरक्षित, समावेशी और विश्वसनीय भुगतान पारिस्थितिकी तंत्र सुनिश्चित हो सके।  \n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  \nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक  \nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "पेमेंट टोकनाइज़ेशन (Tokenisation) का मूल उद्देश्य क्या है?", "options": ["ग्राहक का वास्तविक कार्ड नंबर (PAN) को एक अनूठे प्रतीक (token) से बदलकर ट्रांजैक्शन सुरक्षा बढ़ाना", "लेन-देन के दौरान पैसे की मात्रा को सीमित करना", "बैंकों के बीच समयसीमा कम करना", "वॉलेट प्रदाताओं को ग्राहक के पिन की प्रतिलिपि देना"], "answer_index": 0, "explanation": "# पेमेंट टोकनाइज़ेशन — संक्षिप्त व्याख्या (MPPSC Prelims 2026 हेतु)\n- पेमेंट टोकनाइज़ेशन का मूल उद्देश्य ग्राहक का वास्तविक कार्ड नंबर (PAN) को एक अनूठे प्रतीक (token) से बदलकर ट्रांजैक्शन सुरक्षा बढ़ाना है।\n- टोकन एक अप्रत्यक्ष पहचानकर्ता है जो केवल प्राधिकृत भुगतान नेटवर्क या टोकन-प्रोवाइडर द्वारा ही मूल PAN से जोड़ा या अनलिंक किया जा सकता है।\n- टोकन का उपयोग भुगतान प्रक्रिया में PAN की जगह होता है, इसलिए व्यापारियों और एप्लिकेशनों में संवेदनशील कार्ड डेटा स्टोर या प्रोसेस नहीं किया जाता।\n- यदि कोई डेटा उल्लंघन होता है तो चुराया गया token व्यवहार में बेकार रहता है क्योंकि वह केवल विशिष्ट संदर्भ (merchant, device या transaction) के लिए वैध हो सकता है।\n- टोकनाइज़ेशन से कार्ड-निर्धारित क्रेडेंशियल्स का प्रत्यक्ष एक्सपोज़र कम होने से फ्रॉड जोखिम घटता है और ग्राहक सुरक्षा बढ़ती है।\n- टोकन प्रबंधन में आम तौर पर रिवर्सिबल मैपिंग रहती है—टोकन को मूल PAN में केवल अधिकृत टोकनाइज़र ही परिवर्तित कर सकता है; इससे नियंत्रण व ऑडिट संभव होते हैं।\n- टोकनाइज़ेशन PCI-DSS जैसी सुरक्षा आवश्यकताओं के दायरे (scope) को सीमित करने में मदद करता है क्योंकि संवेदनशील PAN सिस्टम में मौजूद नहीं रहता।\n- मोबाइल व डिजिटल वॉलेट, ई‑कॉमर्स recurring payments और सेव किए गए कार्ड (card-on-file) मामलों में टोकनाइज़ेशन सामान्य रूप से लागू होता है।\n- टोकन अलग-अलग प्रकार के हो सकते हैं: स्थानीकृत (merchant-specific) या वैश्विक, तथा फॉर्मेट‑प्रिज़र्विंग या नॉन‑फॉर्म‑प्रिज़र्विंग, जिनका चयन इस्तेमाल के परिप्रेक्ष्य पर निर्भर करता है।\n- कार्यान्वयन में टोकन‑प्रोवाइडर, भुगतान नेटवर्क और भुगतान सर्विस प्रोवाइडर का सहयोग आवश्यक होता है ताकि tokenization, detokenization और लाइफ‑साइकल मैनेजमेंट सुरक्षित तरीके से हो।\n- नीतिगत और नियामकीय दृष्टि से टोकनाइज़ेशन व्यवहारिक उपाय है जो डिजिटलीकरण के दौरान उपभोक्ता डेटा सुरक्षा व भरोसा बढ़ाने में सहायक होता है।", "priority_tag": "VERY_HIGH"}, {"question": "निम्न में से कौन-सा घटक '3-D Secure' प्रणाली का मूल है?", "options": ["Issuer’s Access Control Server (ACS)", "Payment Token Service Provider (TSP)", "Network Token Vault", "Payment Card Interface (PCI)"], "answer_index": 0, "explanation": "# व्याख्या — Issuer’s Access Control Server (ACS) — 3‑D Secure की मूल इकाई\n- Issuer’s Access Control Server (ACS) वह सर्वर है जिसे कार्ड जारीकर्ता बैंक संचालित करता है और 3‑D Secure प्रमाणीकरण का केंद्रीय घटक होता है।\n- ACS कार्डधारक की पहचान सत्यापित करने के लिए रियल‑टाइम में प्रमाणीकरण नीतियाँ लागू करता है (उदा. पासवर्ड, OTP, मोबाइल/ऐप‑आधारित टोकन)।\n- चेकआउट के दौरान जब पेमेंट ऑथेंटिकेशन आरंभ होता है, तो ACS कार्डधारक से आवश्यक क्रेडेंशियल या चुनौती (challenge) मांगकर सत्यापन प्रक्रिया चलाता है।\n- ACS और कार्डधारक के बीच संवाद सुरक्षित चैनल पर होता है; ACS प्रमाणीकरण परिणाम (सफल/असफल/चैलेंज) 3‑D Secure प्रोटोकॉल के माध्यम से रिटर्न करता है।\n- ACS कार्ड जारीकर्ता की जोखिम नीति के अनुरूप रियल‑टाइम निर्णय लेता है — आसान रिवॉर्ड ऑथेंटिकेशन या मजबूत मल्टी‑फैक्टर चैलेंज लागू करना।\n- आधुनिक EMV 3‑D Secure संस्करणों में ACS मोबाइल ऐप, SDK या ब्राउज़र‑आधारित प्रमाणीकरण विधियों को सपोर्ट करता है और उपयोगकर्ता अनुभव में सुधार करता है।\n- ACS प्रमाणीकरण के दौरान उपयोग किए गए प्रमाण और परिणामों का लॉग बनाकर डिस्प्यूट/लायबिलिटी शिफ्ट और फ़ैलेयर‑एनालिसिस के लिए रिकॉर्ड प्रदान करता है।\n- ACS, जारीकर्ता के KYC/सिक्योरिटी डेटाबेस से कार्डधारक की जानकारी मिलाकर फ्रॉड‑स्कोरिंग और वैरिफिकेशन करने में महत्वपूर्ण भूमिका निभाता है।\n- ACS का रेस्पांस 3‑D Secure संदेश स्वरूप में आता है ताकि मर्चेंट/पेमेन्ट‑फ्रेमवर्क को स्पष्ट ऑथेंटिकेशन स्टेटस मिल सके और लेन‑देने की वैधता सुनिश्चित हो।\n- ACS के सही और सिक्योर संचालन से ऑनलाइन कार्ड‑पेमेंट में कार्ड‑फ्रॉड की संभावना कम होती है और जारीकर्ता बैंक को जोखिम‑आधारित नियंत्रण लागू करने में मदद मिलती है।\n- परीक्षा और Mains के उत्तरों में बताने हेतु संक्षेप: “ACS = issuer‑operated server जो कार्डधारक प्रमाणीकरण और रियल‑टाइम ऑथराइज़ेशन निर्णयों का हृदय है।”", "priority_tag": "VERY_HIGH"}, {"question": "टोकन और वास्तविक PAN (Primary Account Number) के बीच सबसे महत्वपूर्ण सुरक्षा अंतर क्या है?", "options": ["टोकन केवल निर्दिष्ट डोमेन/मर्चेंट या डिवाइस के लिए वैध हो सकता है, जबकि PAN सार्वभौमिक रूप से उपयोग होता है", "PAN हमेशा छोटे आकार का होता है जबकि टोकन बड़ा होता है", "टोकन को दोबारा जनरेट नहीं किया जा सकता जबकि PAN बदला जा सकता है", "PAN केवल डिजिटल लेन-देन में प्रयोग होता है जबकि टोकन फिजिकल कार्ड पर होता है"], "answer_index": 0, "explanation": "# टोकन बनाम वास्तविक PAN — मुख्य सुरक्षा अंतर (विवरण / व्याख्या)\n- **मूलभूत अंतर:** टोकन किसी विशेष डोमेन/मर्चेंट/डिवाइस के लिए सीमित वैधता रखता है, जबकि वास्तविक PAN हर जगह और किसी भी भुगतान चेन में सार्वभौमिक रूप से प्रयोग हो सकता है।\n- **डोमेन-निर्दिष्ट बंधन:** टोकन को भुगतान नेटवर्क या कार्ड-इश्यूअर द्वारा उस विशिष्ट डोमेन/मर्चेंट/डिवाइस के साथ क्रिप्टोग्राफ़िक रूप से बाइंड किया जाता है; उसी टोकन का उपयोग अन्य डोमेनों पर नहीं किया जा सकेगा।\n- **जोखिम-नियंत्रण:** चूंकि टोकन का उपयोग सीमित है, किसी मर्चेंट के डेटाब्रिच में लीक होने पर भी वास्तविक PAN उजागर नहीं होता और हमला सतह न्यून होती है।\n- **दोबारा उपयोग और रिप्ले अटैक पर नियंत्रण:** डोमेन- या डिवाइस-बाउंड टोकन रिप्ले अटैक की संभावना घटाते हैं क्योंकि ट्रांज़ैक्शन केवल निर्दिष्ट संदर्भ में वैध होंगे।\n- **रेट्रोएक्टिव निष्क्रियकरण (Revocation):** अगर किसी टोकन के साथ समस्या हो तो उसे उस विशेष डोमेन/डिवाइस के लिए रद्द कर देना पर्याप्त रहता है; PAN को बदलना या ब्लॉक करना अधिक व्यापक प्रभाव रखता है।\n- **स्टोरेज और अनुपालन लाभ:** मर्चेंट और वॉलेट प्रदाता PAN स्टोर करने के बजाय टोकन स्टोर कर सकते हैं, जिससे PCI-DSS जैसे अनुपालन और संवेदनशील डेटा एक्सपोज़र का बोझ घटता है।\n- **प्राइवेसी और लेस ट्रेसबिलिटी:** टोकन के कारण उपभोक्ता के वास्तविक कार्ड नंबर का प्रसार सीमित रहता है; इससे व्यक्तिगत वित्तीय पहचान का जोखिम घटता है।\n- **ट्रांज़ैक्शन ऑथराइज़ेशन फ्लो:** भुगतान सत्यापन के समय टोकन को इश्यूअर के पास मैप करके वास्तविक PAN/खाता से रूपांतरित किया जाता है; यह मैपिंग सुरक्षित, नियंत्रित और संदर्भ-लक्षित रहता है।\n- **लाइफ़साइकल प्रबंधन:** टोकन की उत्पत्ति, वैधता अवधि और नवीनीकरण इश्यूअर द्वारा नियंत्रित होते हैं; PAN के स्थायी प्रकृति की बजाय टोकन को नीतिगत जरूरत के अनुसार बदलना आसान है।\n- **डिवाइस-आधारित सुरक्षा:** मोबाइल वॉलेट/टोकन में हार्डवेयर-आधारित चिप या HSM बाइंडिंग होना संभव है, जिससे टोकन केवल उस डिवाइस से प्रयोग योग्य रहता है—PAN के साथ ऐसा बाइंडिंग सामान्यतः नहीं होता।\n- **व्यावहारिक निहितार्थ (MP-Fintech संदर्भ):** राज्य-स्तरीय डिजिटल भुगतान पहल में टोकनायज़ेशन अपनाने से स्थानीय सेवाप्रदाता और सरकारी पोर्टलों में संवेदनशील कार्ड डेटा का जोखिम कम होगा और डेटा होस्टिंग/प्रोसेसिंग की नीतियाँ सरल होंगी।", "priority_tag": "VERY_HIGH"}, {"question": "किसे सामान्यतः 'Token Service Provider (TSP)' कहा जाता है?", "options": ["वह संस्था जो PAN का मानचित्रण करके टोकन जारी और प्रबंधित करती है", "वह संस्था जो केवल मोबाइल एप्लिकेशन बनाती है", "वह संस्था जो ग्राहक के बैंक खाते में सीधे राशि जमा करती है", "वह संस्था जो POS हार्डवेयर का निर्माण करती है"], "answer_index": 0, "explanation": "# **विस्तृत व्याख्या — Token Service Provider (TSP)**\n- **परिभाषा (प्राइमरे):** Token Service Provider वह संस्था है जो मूल PAN को एक सुरक्षित टोकन में मैप कर के टोकन जारी और प्रबंधित करती है।\n- **मैपिंग का स्वरूप:** TSP मूल PAN और उससे जुड़े टोकन के बीच एक-तरफा (non-reversible) या नियंत्रित री‑वर्सिबल मैपिंग रखता है ताकि PAN सीधे एक्सेस न हो।\n- **टोकन लाइफसाइकल प्रबंधन:** TSP टोकन जारी करना, नवीनीकरण (refresh), रिवोकेशन/निष्क्रिय करना और मैपिंग अपडेट रखना सुनिश्चित करता है।\n- **स्टोरेज और सुरक्षा:** मूल PAN को सुरक्षित वॉल्ट/सिक्योर स्टोरेज में रखा जाता है; ग्राहक‑सामना वाले सिस्टमों में केवल टोकन उपलब्ध रहता है।\n- **ऑथराइज्ड डि-टोकनाइज़ेशन:** आवश्यक होने पर और अनुमोदित प्रक्रियाओं के तहत ही TSP रिकॉर्ड से टोकन को मूल PAN में बदलने की सुविधा देता है — यह प्रक्रिया लॉग और ऑडिटेबल होती है।\n- **डिवाइस/मर्चेंट बाइंडिंग:** TSP टोकन को किसी विशेष डिवाइस, एप या मर्चेंट के साथ बाँध सकता है ताकि टोकन का दुरुपयोग सीमित रहे।\n- **ट्रांज़ैक्शन फ्लो में भूमिका:** भुगतान करते समय भुगतान नेटवर्क/प्रोसेसर टोकन का उपयोग कर लेन‑देन सत्यापित करते हैं; वास्तविक PAN की आवश्यकता नहीं पड़ती।\n- **कम्प्लायंस व ऑडिटिंग:** TSP को Token‑management से जुड़े सुरक्षा मानकों और नीतियों के अनुरूप लॉगिंग, एक्सेस‑कंट्रोल और नियमित ऑडिट रखना होता है।\n- **डेटा मिनिमाइज़ेशन:** टोकन की उपस्थिति से व्यापारी/मर्चेंट के पास संवेदनशील PAN का भंडारण कम या समाप्त हो जाता है, जिससे जोखिम घटता है।\n- **रोकथाम और रिकवरी:** किसी सुरक्षा घटना पर TSP टोकन रिवोकेशन, री‑इश्यु और प्रभावित टोकन के ट्रैकिंग की जिम्मेदारी निभाता है।\n- **इंटरऑपरेबिलिटी:** TSP अन्य भुगतान घटकों (नेटवर्क, अवमूल्यन सेवा, पेमेंट गेटवे) के साथ इंटरऑपरेबल फ़ॉर्मैट और प्रोटोकॉल में टोकन उपलब्ध कराता है।\n- **उद्देश्यगत सीमाएँ:** TSP का कार्य केवल PAN का सुरक्षित टोकनाइज़ेशन और उसके प्रबंधन तक सीमित रहता है; भुगतान प्रमाणीकरण और पारि‌‌वहन व्यवस्थाएँ उसी इकोसिस्टम के अन्य घटक संभालते हैं।", "priority_tag": "HIGH"}, {"question": "3‑D Secure फ्लो में Merchant Plug‑In (MPI) का मुख्य कार्य क्या है?", "options": ["मर्चेंट की साइट से कार्ड होल्डर की सत्यापन अनुरोध को Directory Server/ACS की ओर अग्रेषित करना", "PAN को टोकन में परिवर्तित करना", "डिवाइस पर सुरक्षित एन्क्रिप्शन कीज़ स्टोर करना", "लेन-देन के बाद रिफंड आदेशों को निष्पादित करना"], "answer_index": 0, "explanation": "# 3‑D Secure में Merchant Plug‑In (MPI) — परीक्षा केन्द्रित व्याख्या (हिंदी)\n- **MPI एक सर्वर‑साइड सॉफ्टवेयर घटक होता है जो मर्चेंट की पेमेंट साइट/पेमेंट सर्वर पर इंस्टॉल रहता है।**\n- **MPI का मुख्य काम मर्चेंट की साइट से कार्ड‑होल्डर की ऑथेंटिकेशन अनुरोध (PAReq/Authentication Request) को Directory Server/ACS की ओर अग्रेषित करना है।**\n- **MPI मर्चेंट के द्वारा भेजे गए ट्रांज़ैक्शन‑डिटेल्स से 3‑D Secure अनुरोध पैकेट तैयार करता है (जैसे PAReq) और उसे उपयुक्त Directory Server/ACS को भेजता है।**\n- **Directory Server/ACS तक अग्रेषण के लिए MPI सामान्यतः कार्ड के BIN या Directory Lookup के आधार पर सही ACS/Directory Server का चयन करता है।**\n- **MPI प्रमाणीकरण के बाद ACS से प्राप्त उत्तर (PARes/Authentication Response) को प्राप्त कर, उसे मर्चेंट के पेमेंट प्रोसेसिंग फ्लो को वापस फॉरवर्ड करता है ताकि मर्चेंट ट्रांज़ैक्शन निर्णय ले सके।**\n- **MPI ऑथेंटिकेशन संदेशों की संरचना और प्रोटोकॉल संगतता (3‑DS वर्जन, फील्ड्स) सुनिश्चित करता है ताकि Directory Server/ACS के साथ इंटरऑपरेबिलिटी बनी रहे।**\n- **सुरक्षा के लिहाज़ से MPI संदेशों के ट्रांसमिशन में TLS/HTTPS का उपयोग करता है और संदेशों की वैधता व सिग्नेचर/इंटीग्रिटी चेक कर सकता है।**\n- **MPI को मर्चेंट‑साइट और पेमेंट‑गेटवे/इश्यूअर के बीच मध्यवर्ती ब्रिज के रूप में देखा जा सकता है जो ऑथेंटिकेशन‑राउंड ट्रिप का मैपिंग और समन्वय करता है।**\n- **MPI के कारण मर्चेंट को सीधे ACS के साथ जटिल कनेक्शन नहीं बनाना पड़ता; MPI व्यापारिक अनुप्रयोग और 3‑D Secure नेटवर्क के बीच इंटरफ़ेस का कार्य करता है।**\n- **MPI का व्यवहार ऑथेंटिकेशन के परिणाम (सफल/चैलेंज/असफल) को पकड़कर मर्चेंट के निर्णय तंत्र (अवरुद्ध/स्वीकृत/फ्रॉड‑स्कोरिंग) को आवश्यक जानकारी उपलब्ध कराता है।**", "priority_tag": "VERY_HIGH"}, {"question": "निम्न में से कौन-सा कथन टोकनाइज़ेशन के संदर्भ में सत्य है?", "options": ["टोकन सामान्यतः कार्ड नेटवर्क या टोकन सर्विस प्रोवाइडर के द्वारा जारी होते हैं और PAN की प्रत्यक्ष प्रकटीकरण को रोकते हैं", "टोकन हमेशा सीधा कार्ड बैलेंस दिखाते हैं", "टोकन को किसी भी बैंक द्वारा सीधा नकद निकासी के लिए प्रयोग किया जा सकता है", "टोकन PAN की तरह ही बैंकिंग रिकॉर्ड में सहेजा जाता है"], "answer_index": 0, "explanation": "# व्याख्या: टोकनाइज़ेशन (Tokenization) — मुख्य बिंदु (MPPSC परीक्षा हेतु)\n**सही अवधारणा:** टोकन सामान्यतः कार्ड नेटवर्क या टोकन सर्विस प्रोवाइडर द्वारा जारी होते हैं और PAN की प्रत्यक्ष प्रकटीकरण को रोकते हैं।\n- टोकनाइज़ेशन का मूल उद्देश्य वास्तविक कार्ड नंबर (PAN) को बदलकर एक वैकल्पिक पहचानांक (token) जारी करना है ताकि मूल PAN का एक्सपोजर न हो।\n- इन टोकनों को कार्ड नेटवर्क (जैसे–नेटवर्क लेवल टोकन) या सर्विस प्रोवाइडर (Token Service Provider) जारी करते हैं; बैंकों के अलावा नेटवर्क/टीएसपी का रोल महत्वपूर्ण होता है।\n- जारी किया गया टोकन मूल PAN का सीधा प्रतिनिधि नहीं होता; यह एक अपरिवर्तनीय या नियंत्रित रूप में मैप होता है जिसे केवल प्राधिकृत सिस्टम ही पुनः PAN में बदल (detokenize) सकते हैं।\n- टोकन प्रायः एक-विशिष्ट (unique) और संदर्भ-आधारित (context-specific) होते हैं — उदाहरण: एक ही कार्ड के लिए अलग-भगत दुकान/डिवाइस/मर्चेंट के संदर्भ में अलग टोकन जारी हो सकते हैं।\n- टोकन इस्तेमाल से भुगतान प्रक्रिया में PAN का भौतिक ट्रैफिक कम होता है, जिससे डेटा चोरी या लीकेज का जोखिम घटता है।\n- नेटवर्क-आधारित टोकन और सर्विस-प्रोवाइडर-आधारित टोकन दोनों में जारी करने और सत्यापन के लिए क्रिप्टोग्राफिक मैकेनिज्म और टोकन मैपिंग सर्वर (token vault) होते हैं।\n- टोकनाइज़ेशन अपनाने से PCI DSS कॉम्प्लायंस का बोझ घट सकता है क्योंकि संवेदनशील PAN के प्रसंस्करण एवं स्टोरेज को सीमित किया जा सकता है—हालाँकि व्यवस्थापकीय आवश्यकताएँ बने रहती हैं।\n- पेटर्न में इस्तेमाल होने वाले टोकन कभी-कभी गतिशील होते हैं (dynamic cryptograms) ताकि प्रत्येक ट्रांज़ैक्शन के लिए अलग सुरक्षा मान लागू हो सके और replay attacks रोके जा सकें।\n- मोबाइल व डिजिटल वॉलेट, ई‑कॉमर्स और कार्ड-नियर-फील्ड कम्युनिकेशन में टोकनाइज़ेशन व्यापक रूप से लागू होता है ताकि व्यापारियों और तीसरे पक्षों के पास PAN न पहुँचे।\n- तकनीकी कार्यप्रणाली में टोकन निर्गमन, सत्यापन और detokenization के स्पष्ट नियंत्रित फ्लो होते हैं; केवल अधिकृत एन्टीटीज़ (जैसे जारीकर्ता बैंक या नेटवर्क/TSP) ही detokenize कर सकते हैं।\n- टोकनाइज़ेशन से उपभोक्ता गोपनीयता और लेन-देन सुरक्षा दोनों बेहतर होते हैं, क्योंकि वास्तविक कार्ड डेटा के बजाय सीमित उपयोग वाले टोकन का ही आदान‑प्रदान होता है।", "priority_tag": "VERY_HIGH"}, {"question": "Device‑bound token का अर्थ क्या होता है?", "options": ["टोकन केवल उसी विशिष्ट डिवाइस पर कार्य करता है जिसके लिए वह जारी किया गया है", "टोकन केवल उसी बैंक शाखा में प्रयोग हो सकता है जहाँ कार्ड जारी हुआ था", "टोकन किसी भी डिवाइस पर बिना प्रतिबंध के कार्य करता है", "टोकन केवल POS टर्मिनल पर ही मान्य रहता है"], "answer_index": 0, "explanation": "# **VYAKHYA — Device‑bound token क्या है?**\n**प्रश्न:** Device‑bound token का अर्थ क्या होता है?\n**सही उत्तर का सार:** टोकन केवल उसी विशिष्ट डिवाइस पर कार्य करता है जिसके लिए वह जारी किया गया है\n- Device‑bound token वह टोकन है जिसे किसी लेन‑देन योग्य क्रेडेंशियल (जैसे कार्ड नंबर) की जगह जारी किया जाता है और वह केवल एक निर्दिष्ट फिजिकल/लॉजिकल डिवाइस पर मान्य रहता है।\n- इस टोकन को डिवाइस‑बांधने (device binding) के लिए क्रिप्टोग्राफिक कुंजी या डिवाइस‑विशेष पहचान (device key/ID) के साथ जोड़ा जाता है; बिना उस कुंजी के टोकन उपयोग योग्य नहीं होता।\n- टोकन सामान्यतः डिवाइस के सुरक्षित स्टोरेज (Secure Element, Trusted Execution Environment/TEE, या हार्डवेयर सिक्योरिटी मॉड्यूल) में प्रोविजन किया जाता है ताकि क्लियर‑टेक्स्ट क्रेडेंशियल डिवाइस के बाहर न निकले।\n- Device‑bound होने का अर्थ है कि वही टोकन दूसरे मोबाइल/डिवाइस पर क्लोन या रीयूज़ नहीं किया जा सकता — यदि टोकन किसी अन्य डिवाइस पर कॉपी किया जाता है तो वह अमान्य रहेगा।\n- प्रोविजनिंग के समय डिवाइस की पहचान और टोकन को जोड़ने के लिए प्रमाणीकरण आवश्यक होता है; इसमें डिवाइस‑सर्टिफिकेट, प्लेटफ़ॉर्म‑अटेस्टेशन या डिवाइस‑विशेष क्रिप्टो‑की का उपयोग होता है।\n- भुगतान प्रक्रिया में सर्वर‑साइड सत्यापन के दौरान टोकन के साथ भेजी गई डिवाइस‑सिग्नेचर/प्रूफ से यह पुष्टि होती है कि अनुरोध उसी बाउंड डिवाइस से आ रहा है।\n- Device‑bound token सुरक्षा परत बढ़ाता है — कार्ड नम्बर्स का खुलासा कम होता है और कार्ड‑टोकन का उपयोग तभी संभव जब डिवाइस और टोकन दोनों वैध हों।\n- टोकन का लाइफसायकल (issue, renew, revoke) डिवाइस‑प्राधिकरण पर निर्भर होता है; डिवाइस बदलने पर नया टोकन जारी करना या मौजूदा टोकन को रिवोक करना सामान्य प्रक्रिया है।\n- यह मॉडल मोबाइल वॉलेट और फोन‑आधारित भुगतान में विशेष रूप से उपयोगी है, जहाँ डिवाइस‑लिंक्ड टोकन संपर्कहीन और ऑनलाइन लेन‑देन दोनों में फ्रॉड जोखिम घटाते हैं।\n- Device‑bound token अपनाने से रेगुलेटरी और कॉम्प्लायंस आवश्यकताएँ (जैसे कार्ड‑डेटा‑प्रोटेक्शन की शर्तें) पूरी करने में मदद मिलती है क्योंकि संवेदनशील डेटा सर्वर/क्लाइंट पर सुरक्षित रूप से नियंत्रित रहता है।\n- संक्षेप: Device‑bound token का मूल सिद्धांत यह है कि टोकन की वैधता और उपयोगिता उस एक विशेष डिवाइस तक सीमित रखी जाती है, जिससे क्लोनिंग, चोरी या रीयूज़ के जरिए भुगतान‑धोखाधड़ी के जोखिम घटते हैं।", "priority_tag": "HIGH"}, {"question": "3‑D Secure के तहत 'Authenticated' लेन‑देन का अर्थ सर्वाधिक सटीक रूप में क्या है?", "options": ["कार्ड इशूअर द्वारा कार्डहोल्डर की पहचान/ऑथेंटिकेशन सफलतापूर्वक सत्यापित हो चुकी है", "टोकनाइज़ेशन प्रक्रिया सफलतापूर्वक पूरी हो चुकी है", "लेन‑देन को मर्चेंट द्वारा मैन्युअली अप्रूव किया गया है", "लेन‑देन का अमाउंट 3,000 रुपये से कम है"], "answer_index": 0, "explanation": "# VYAKHYA — 3‑D Secure में \"Authenticated\" लेन‑देन का अर्थ (MPPSC Prelims 2026 के लिए)\n- **Authenticated का मूल अर्थ:** 3‑D Secure में 'Authenticated' का मतलब है कि कार्ड इशूअर ने कार्डहोल्डर की पहचान/ऑथेंटिकेशन सफलता‑पूर्वक सत्यापित कर ली है।\n- **ऑथेंटिकेशन किसने किया:** ऑथेंटिकेशन प्रक्रिया और परिणाम कार्ड इशूअर‑बैंक के Authentication Server (ACS) द्वारा निर्धारित और सूचित होता है।\n- **प्रमाणीकरण के साधन:** सफल ऑथेंटिकेशन में आमतौर पर OTP, बैंकिंग‑ऐप आधारित प्रमाणीकरण, पिन या बायोमेट्रिक/फेडरेटेड लॉगिन जैसे मानक तरीकों का उपयोग होता है।\n- **लेन‑देन फ्लो में स्थान:** जब ACS ने सकारात्मक ऑथेंटिकेशन दिया, तब ट्रांज़ैक्शन को \"Authenticated\" चिह्नित किया जाता है और भुगतान प्रोसेसिंग आगे बढ़ती है।\n- **लेन‑देन की वैधता संबंध:** Authenticated लेन‑देन पर कार्ड‑इशूअर का दावा होता है कि उसने ग्राहक‑पहचान की जिम्मेदारी पूरी कर ली है; इससे फ्रॉड‑रिस्क प्रूफिंग बेहतर मानी जाती है।\n- **दावेदारी/लायबिलिटी असर:** 3‑D Secure में एक घोषित Authenticated स्टेटस अक्सर लायबिलिटी शिफ्टिंग को प्रभावित करता है — सफल ऑथेंटिकेशन मिलने पर इशूअर का फ्रॉड‑लायबिलिटी का दायित्व बदल सकता है।\n- **रिस्क मैनेजमेंट संकेत:** “Authenticated” संकेतक भुगतान‑नेटवर्क और मर्चेंट को बताता है कि कार्डहोल्डर की पहचान पेमेंट‑इशूअर स्तर पर वेरिफाई हो चुकी है, इसलिए अतिरिक्त सत्यापन की आवश्यकता कम हो सकती है।\n- **ऑथेंटिकेशन का प्रमाण:** भुगतान में ऑथेंटिकेशन का रिकॉर्ड (एसीएस प्रतिक्रिया कोड) भुगतान‑रिपोर्टिंग और विवाद निपटान में प्रमाण के रूप में उपयोग होता है।\n- **सुरक्षा और प्रयोगकर्ता अनुभव का संतुलन:** सफल Authenticated स्टेटस फ्रॉड को घटाता है और मर्चेंट के लिए चेकआउट फेल्यर कम कर सकता है, पर प्रक्रिया में उपयोगकर्ता‑इंटरैक्शन (जैसे OTP) हो सकता है।\n- **नियामकीय/बैंकिय़ प्रासंगिकता (MP के संदर्भ में):** राज्य‑स्तरीय डिजिटल भुगतान पहल और बैंकिंग‑संबंधी शिकायत निवारण में Authenticated लेन‑देन को प्राथमिक प्रमाण माना जा सकता है, इसलिए सरकारी पेमेंट पोर्टलों पर 3‑D Secure अपनाना विश्वसनीयता बढ़ाता है।\n- **निष्कर्ष (संक्षेप):** अतः 3‑D Secure के तहत 'Authenticated' का सर्वाधिक सटीक अर्थ यही है कि कार्ड इशूअर द्वारा कार्डहोल्डर की पहचान/ऑथेंटिकेशन सफलतापूर्वक सत्यापित हो चुकी है और इसका रिकॉर्ड लेन‑देन में संलग्न है।", "priority_tag": "VERY_HIGH"}, {"question": "नेटवर्क‑टोकन (Network Token) को किस संस्था सामान्यतः कॉर्डन करती/प्रबंधित करती है?", "options": ["कार्ड नेटवर्क (जैसे Visa, Mastercard) या उनके द्वारा प्रतिष्ठित टोकन सर्विस प्रोवाइडर", "स्थानीय मर्चेंट", "ग्राहक का स्मार्टफोन ऑपरेटिंग सिस्टम निर्माता", "केवल जारीकर्ता बैंक"], "answer_index": 0, "explanation": "# व्याख्या — नेटवर्क‑टोकन (Network Token) का प्रबंधन कौन करता है\n- नेटवर्क‑टोकन कार्ड नेटवर्क द्वारा जारी और प्रबंधित किए जाने वाले एक प्रकार के टोकन होते हैं ताकि वास्तविक कार्ड संख्या (PAN) की जगह सुरक्षित प्रतिनिधि प्रयोग हो।\n- कार्ड नेटवर्क का उद्देश्य है कार्डधारक की वास्तविक क्रेडिट/डेबिट कार्ड संख्या को ट्रांज़ैक्शन में डायरेक्ट एक्सपोज़ न होने देना।\n- नेटवर्क‑टोकन औपचारिक रूप से कार्ड नेटवर्क या उनसे मान्यताप्राप्त टोकन सर्विस प्रोवाइडर (Token Service Provider) द्वारा कॉर्डन/प्रविष्टि और लाइफसाइकिल मैनेज किया जाता है।\n- यह प्रबंधन टोकन का निर्माण (token issuance), टोकन‑to‑PAN मैपिंग, द्वितीयक पहचान (binding) और रिवोकेशन/रिन्यूअल शामिल करता है।\n- नेटवर्क‑टोकन का उपयोग 3‑DS और अन्य प्रमाणीकरण/ऑथराइजेशन फ्लो में वास्तविक PAN की बजाय किया जाता है, जिससे डेटा‑लिकेज का जोखिम घटता है।\n- कार्ड नेटवर्क टोकन नीति में उपयोग‑विशिष्ट गुणधर्म (जैसे भुगतान चैनल, डिवाइस क्लॉस्टर, मेर्चेंट‑कॉन्फ़िग) और टोकन का वैधता‑इंटरवल निर्धारित करते हैं।\n- टोकन सर्विस प्रोवाइडर सुरक्षा माप (encryption, secure vaulting, access control) लागू करके PAN‑टोकन मैपिंग को सुरक्षित रखते हैं और रेगुलेटरी अनुवर्तीता सुनिश्चित करते हैं।\n- नेटवर्क‑टोकन के प्रबंधन का लक्ष्य है भुगतानोचित संचालन में संशोधन के बिना फ्रॉड रिडक्शन और कार्ड‑डेटा स्कोप को कम करना।\n- कार्ड नेटवर्क द्वारा केंद्रीकृत नियंत्रण से टोकन का इंटर‑ऑपरेबिलिटी सुनिश्चित होता है — यानी विभिन्न बैंक, पेमेंट गेटवे और मर्चेंट टोकन को मान्यता दे सकते हैं।\n- परीक्षा‑दृष्टि से मुख्य तथ्य: नेटवर्क‑टोकन सामान्यतः कार्ड नेटवर्क या उनके द्वारा मान्यताप्राप्त टोकन सेवा प्रदाता द्वारा कॉर्डन/प्रबंधित किए जाते हैं — न कि व्यक्तिगत बैंकों या मर्चेंट द्वारा सीधे।", "priority_tag": "HIGH"}, {"question": "Tokenisation लागू करने से फ्रॉड में किस प्रकार की कमी अपेक्षित होती है?", "options": ["कॉन्फिडेंशियल कार्ड डेटा (PAN) के चोरी/लीक होने पर वास्तविक कार्ड नंबर के दुरूपयोग में बड़ी कमी", "भौतिक कार्ड चोरी पूरी तरह बंद हो जाएगी", "बेनियंत्रित मोबाइल स्पैम की मात्रा घट जाएगी", "लेन‑देन को पूरी तरह अनाम बनाना"], "answer_index": 0, "explanation": "# व्याख्या: Tokenisation लागू करने से फ्रॉड में कमी — मुख्य बिंदु\n- Tokenisation वह प्रक्रिया है जिसमें वास्तविक कार्ड नंबर (PAN) को अनुलिप्य (irreversible) या प्रतिस्थापित पहचानकर्ता (token) से बदल दिया जाता है, ताकि वास्तविक PAN व्यवसाय/मर्चेंट के सिस्टम में न रहे।\n- जब PAN बदलकर टोकन रख दिया जाता है, तो किसी डेटाबेस लीक या चोरी की स्थिति में प्राप्त मूल्य (token) का वास्तविक कार्ड नंबर में रूपांतरण बिना Tokenisation‑Vault/Issuer की मदद के संभव नहीं होता।\n- टोकन और वास्तविक PAN के बीच मैपिंग सुरक्षित, पृथक और नियंत्रित टोकन‑वॉल्ट/टोकन सेवा प्रदाता (TSP) में रहती है; डिटोकनाइज़ेशन केवल अधिकृत प्रमाणीकरण के बाद होता है।\n- परिणामतः PAN के चोरी/लीक होने पर उसी PAN के प्रयोग से अन्य व्यापारी/डोमेन पर सीधे दुरूपयोग की संभावना बहुत घट जाती है क्योंकि व्यापारी के पास वास्तविक PAN नहीं होता।\n- टोकन सामान्यतः डोमेन‑विशिष्ट (merchant‑specific), डिवाइस‑specific या एक‑बार प्रयोग (single‑use) हो सकते हैं; इससे किसी टोकन का चोरी होना केवल उस सीमित डोमेन/डिवाइस पर ही असर डालता है।\n- टोकन के कारण कंपनियों/मर्चेंट्स का संवेदनशील डाटा रखने का दायरा कम होता है, जिससे डेटा‑कम्प्रोमाइज़ पर फ्रॉड‑सतह (attack surface) घटती है और अनुपालन (PCI‑DSS) भार भी कम होता है।\n- भुगतान प्रसंस्करण में टोकन का उपयोग करने पर, किसी बाहरी दुर्भावनापूर्ण पक्ष द्वारा प्राप्त मूल्य से नए भुगतान ट्रांज़ैक्शन आरंभ करना कठिन होता है क्योंकि ऑथराइज़ेशन के लिए इश्यूअर/नेटवर्क‑लेवल सत्यापन आवश्यक होता है।\n- टोकन व्यवस्था में रिवोकेशन और रीइश्यू करने की सुविधा होती है; यदि टोकन संदिग्ध हुआ तो उसे तुरंत निरस्त कर दिया जाता है बिना ग्राहक के कार्ड नंबर बदलने की आवश्यकता के — इससे फॉरेंसिक और जोखिम नियंत्रण आसान होता है।\n- कार्ड‑ऑन‑फाइल और रीकर्निंग पेमेंट्स में भी टोकन रखने से मर्चेंट के सिस्टम में वास्तविक PAN न होने के कारण व्यापक कार्ड‑डेटा दुरुपयोग की घटनाएँ घटती हैं।\n- टोकनाइज़ेशन से स्कीम‑लेवल और इश्यूअर‑लेवल जोखिम नियंत्रण बेहतर होते हैं क्योंकि ट्रांज़ैक्शन समय पर टोकन का सत्यापन/मैपिंग इश्यूअर द्वारा किया जाता है, जिससे फ्रॉड‑डिटेक्शन और ब्लॉकिंग त्वरित होता है।\n- कुल मिलाकर, जब PAN प्रतिस्थापित होकर सुरक्षित टोकन में परिवर्तित होता है, तो PAN के चोरी/लीक होने पर वास्तविक कार्ड नंबर के दुरुपयोग में महत्वपूर्ण कमी अपेक्षित है।", "priority_tag": "HIGH"}, {"question": "3‑D Secure में 'Directory Server (DS)' का प्रमुख रोल क्या है?", "options": ["मर्चेंट/पेयमेंट सर्वर और इशूअर के Access Control Server के बीच रूटिंग और एनरोलमेंट जानकारी की जांच करना", "टोकन को डिक्रिप्ट करना", "लेन‑देन राशि का निर्धारण", "कस्टमर की बैंक बैलेंस चेक करना"], "answer_index": 0, "explanation": "# व्याख्या: 3‑D Secure में Directory Server (DS) का प्रमुख रोल क्या है?\n- Directory Server (DS) 3‑D Secure फ्रेमवर्क में कार्ड‑इशूअर (Issuer) के Access Control Server (ACS) और मर्चेंट/पेयमेंट सर्वर के बीच मध्यस्थ (routing) का काम करता है।\n- जब मर्चेंट/पेयमेंट सर्वर एक ऑरिजिनेशन ऑथेंटिकेशन रिक्वेस्ट भेजता है, तो DS यह निर्धारित करता है कि कौन‑सा इशूअर/ACS उस कार्ड के लिए उत्तरदायी है और रिक्वेस्ट उस ACS को रूट करता है।\n- DS कार्ड पहचान के लिए आमतौर पर BIN/Issuer पहचान का उपयोग करता है ताकि सही इशूअर ACS की ओर ट्रैफिक निर्देशित किया जा सके।\n- DS यह भी जाँचता है कि दिए गए कार्ड/पेमेंट मेथड 3‑D Secure के लिए एनरोल (enrolled) है या नहीं तथा एनरोलमेंट स्थिति (enrolled, not enrolled, unavailable) की जानकारी लौटाता है।\n- यदि कार्ड एनरोल्ड है, तो DS मर्चेंट को आगे की ऑथेन्टिकेशन प्रक्रिया (challenge या frictionless flow) आरंभ करने के लिए आवश्यक रूटिंग और मैटा‑डेटा प्रदान करता है।\n- DS और मर्चेंट/पीएमटी सर्वर के बीच संदेश विनिमय में DS प्रोटोकॉल और संस्करण‑नेगोशिएशन का समन्वय करता है ताकि अनुरोध/प्रतिक्रिया संगत हों।\n- DS आमतौर पर सुरक्षित चैनल (TLS) और प्रमाणिकता नियंत्रणों का उपयोग कर संदेशों को सुरक्षित ढंग से मार्गित और सत्यापित करता है।\n- 3‑D Secure ट्रांसक्शन के संदर्भ में DS ऑथेन्टिकेशन स्टेटस (authentication result), एरर कोड और समयसीमा (timeouts) जैसी महत्वपूर्ण संकेतक मर्चेंट को रिटर्न करता है।\n- DS कार्ड‑एनरोलमेंट और रूटिंग निर्णय के कारण होने वाली लॉगिंग और ट्रेज़ैबिलिटी को संभालता है, जो डिस्प्यूट/सुरक्षा जाँच में उपयोगी होते हैं।\n- समेकित रूप से, DS का कार्य मर्चेंट और इशूअर ACS के बीच सही, सुरक्षित और त्वरित रूटिंग तथा एनरोलमेंट‑स्थिति की जाँच सुनिश्चित कर के 3‑D Secure ऑथेन्टिकेशन फ्लो को सक्षम बनाना है।", "priority_tag": "HIGH"}, {"question": "किसे 'domain restriction' कहा जाता है टोकनाइज़ेशन संदर्भ में?", "options": ["टोकन को केवल एक विशिष्ट मर्चेंट, प्लेटफार्म या डोमेन के भीतर उपयोग की अनुमति होना", "टोकन का केवल एक बार उपयोग होने पर स्वतः नष्ट होना", "टोकन का ओवरसीज़ में उपयोग हेतु प्रतिबंध", "टोकन का निश्चित मुद्रास्फीति दर से जुड़ा होना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्न में से कौन‑सा कथन 3‑D Secure 2.x मॉडल से जुड़ा हुआ प्रमुख लाभ है?", "options": ["रिस्पॉन्सिव फ्रॉड-रिस्क असेसमेंट के लिए अधिक फील्ड्स और रिच ऑथेन्टिकेशन डेटा भेजना जिससे फ्रिक्शन कम हो", "यह टोकन को सीधे PAN में बदल देता है", "यह सिर्फ POS लेन‑देन के लिए बनाया गया है", "यह कार्ड‑पिन को सार्वजनिक रूप से साझा करता है"], "answer_index": 0, "explanation": "# व्याख्या: 3‑D Secure 2.x — रिस्पॉन्सिव फ्रॉड‑रिस्क असेसमेंट के लिए अधिक फील्ड्स और रिच ऑथेन्टिकेशन डेटा भेजना जिससे फ्रिक्शन कम होता है\n- 3‑D Secure 2.x प्रोटोकॉल में कार्ड‑इशूअर (issuer) को भेजे जाने वाले ट्रांजेक्शन डेटा की संख्या और विविधता केंद्रीय रूप से बढ़ाई गई है, जिससे अधिक संदर्भ उपलब्ध होते हैं।\n- इन अतिरिक्त फील्ड्स में डिवाइस जानकारी (device fingerprint), ब्राउज़र/एप संदर्भ, लोकेशन संकेत, ट्रांजेक्शन इतिहास, और मर्चेन्ट‑संबंधी विवरण शामिल होते हैं — जिससे फ्रॉड रिस्क की सटीक परख संभव होती है।\n- इशूअर अब सिर्फ राशि/कार्ड डिटेल पर निर्भर नहीं रहते; रिच ऑथेन्टिकेशन डेटा की मदद से जोखिम का अधिक सूक्ष्म और संदर्भात्मक आकलन करते हैं।\n- जब इशूअर जोखिम को कम दर्जा (low‑risk) मानता है तो वह \"फ्रिक्शनलेस\" या बिना अतिरिक्त ग्राहक इंटरैक्शन के ऑथेन्टिकेशन की अनुमति दे सकता है, जिससे पेमेंट पूरा करने में रुकावट घटती है।\n- उच्च‑रिस्क स्थिति में इशूअर लक्ष्यित चुनौती (challenge) भेजता है — यथा OTP, बायोमेट्रिक या अन्य मजबूत प्रमाणीकरण — जिससे अनावश्यक चुनौतियाँ कम और सुरक्षा बनी रहती है।\n- यह रेस्पॉन्सिव/रिस्क‑बेस्ड अप्रोच फाल्स‑पोजिटिव रिटर्न्स (सही लेन‑देन का असफल होना) घटाकर मर्चेन्ट कन्वर्ज़न रेट सुधारने में सहायक है।\n- 3‑DS 2.x मोबाइल‑फर्स्ट डिज़ाइन और SDK सपोर्ट के कारण ऐप्स से सुरक्षित और विस्तृत ऑथेन्टिकेशन डेटा भेजना आसान हुआ; इससे मोबाइल पेमेंट्स पर भी फ्रिक्शन न्यूनतम रहता है।\n- प्रोटोकॉल में भेजे जाने वाले रिच डेटा पर सुरक्षा‑नियम और एन्क्रिप्शन लागू होते हैं, ताकि संवेदनशील जानकारी ट्रांज़िट में सुरक्षित बनी रहे और गोपनीयता बनाए रखी जाए।\n- यह मॉडल मर्चेन्ट और इशूअर दोनों को वास्तविक‑समय जोखिम निर्णय लेने की क्षमता देता है, जिससे धोखाधड़ी रोकथाम और ग्राहक अनुभव के बीच संतुलन बेहतर होता है।\n- कुल मिलाकर, 3‑D Secure 2.x का विस्तारित डेटा मॉडल रिस्पॉन्सिव फ्रॉड‑रिस्क असेसमेंट संभव बनाकर अनावश्यक ग्राहक इंटरैक्शन घटाता और वैध ट्रांजेक्शन की सफलता बढ़ाता है।", "priority_tag": "HIGH"}, {"question": "RBI या वैश्विक मानकों के सन्दर्भ में टोकनाइज़ेशन लागू करते समय सबसे संवेदनशील डेटा जिसे टोकनाइज़ नहीं करना चाहिए, वह है:", "options": ["कार्ड का पूरा CVV (Card Verification Value) सार्वजनिक रूप से स्टोर न करना", "कार्डहोल्डर का नाम", "लेन‑देन तिथि", "मर्चेंट आईडी"], "answer_index": 0, "explanation": "# व्याख्या: कार्ड का पूरा CVV सार्वजनिक रूप से स्टोर/टोकनाइज़ न करना — संक्षिप्त, परीक्षा-उन्मुख बिंदु\n- टोकनाइज़ेशन का उद्देश्य कार्ड-संवेदनशील डेटा को असली मान (PAN आदि) से अलग कर देना है; परंतु पूरा CVV कभी भी स्थायी रूप से स्टोर या टोकनाइज़ करके उपयोग के लिए उपलब्ध नहीं कराया जाना चाहिए।\n- CVV (Card Verification Value) केवल लेन-देन के समय सत्यापन हेतु प्रयोग होता है और इसे ट्रांजैक्शन के बाद सेव/रिटेन नहीं करना चाहिए।\n- नियामकीय दिशा-निर्देश यह स्पष्ट करते हैं कि CVV को किसी भी फॉर्म में persistent storage में नहीं रखा जाना चाहिए—ना एन्क्रिप्टेड फाइल में, ना टोकन स्टोर में।\n- यदि CVV सर्वर-साइड में अस्थायी रूप से उपयोग होता भी है तो उसे तुरंत सुरक्षित तरीके से क्रिप्टोग्राफिक तरीके से पारगमन के बाद डिलीट कर देना चाहिए।\n- टोकनाइज़ेशन के अंतर्गत सुरक्षित माना जाने वाला डेटा वह है जो पुनरावृत्ति योग्य या पेमेंट-फ्रेंडली टोकन में बदला जा सके; पूरा CVV पुनः उत्पन्न/री-यूज के लिए उपयुक्त नहीं है, इसलिए उसे टोकनाइज़ न करें।\n- CVV के न होने पर भी टोकन + बैंक-स्तरीय ऑथेन्टिकेशन (3‑D Secure, OTP, EMV) द्वारा लेन-देन सत्यापन किया जाता है; इससे CVV की स्थायी आवश्यकता समाप्त होनी चाहिए।\n- किसी भी पेमेंट-इंफ्रास्ट्रक्चर में CVV के न-स्टोर करने का नियम डेटा-ब्रीच में उपभोक्ता जोखिम और संस्थागत दायित्व दोनों कम करता है।\n- भुगतान सेवा प्रदाता और मर्चेंट नीति में स्पष्ट retention policy होनी चाहिए: CVV न स्टोर करने का तरीका, लॉगिंग सीमाएँ और ऑडिट ट्रेल।\n- टेक्निकल इम्प्लीमेंटेशन में CVV के लिए “no-store” नियम को एप्लिकेशन, डेटाबेस और बैकअप नीतियों तक लागू करना अनिवार्य है; बैकअप में भी CVV न जाए।\n- निगरानी और अनुपालन में नियमित परीक्षण (pen-testing, audits) यह सुनिश्चित करें कि कोई भी सिस्टम पूरा CVV किसी भी स्टोर में रिकॉर्ड नहीं कर रहा।\n- उपभोक्ता चेतावनी और पारदर्शिता: भुगतान-प्रक्रिया में CVV एकरूप रूप से केवल transient input के रूप में मांगा जाए और उसकी non-retention नीति स्पष्ट हो।\n- शासन व दंडात्मक प्रावधानों के दृष्टिकोण से CVV का अनधिकृत संग्रह या भंडारण वित्तीय संस्थाओं के लिए नियामकीय कार्रवाई और जुर्माने का कारण बन सकता है।", "priority_tag": "HIGH"}, {"question": "किस स्थिति में टोकनाइज़ेशन का उपयोग सर्वथा आवश्यक माना जाता है?", "options": ["जब मर्चेंट/पेमेंट प्रोसेसर PAN को स्टोर करना चाहते हैं तो PCI‑DSS अनुपालन हेतु टोकन का उपयोग करना", "जब ग्राहक नकद दे रहा हो", "जब केवल आंतरिक रिपोर्टिंग की आवश्यकता हो और कोई पेमेंट प्रोसेस न हो", "जब कार्ड वैधता कभी जांची नहीं जाती"], "answer_index": 0, "explanation": "# व्याख्या: टोकनाइज़ेशन का उपयोग जब मर्चेंट/पेमेंट प्रोसेसर PAN स्टोर करना चाहें — PCI‑DSS अनुपालन हेतु आवश्यक\n- PAN (Primary Account Number) अर्थात कार्ड संख्या को स्थायी रूप से स्टोर करना संवेदनशील भुगतान डेटा का स्टोरेज माना जाता है।\n- PCI‑DSS मानक का मूल उद्देश्य कार्डहोल्डर डेटा (विशेषकर PAN) की सुरक्षा सुनिश्चित करना है; इसलिए PAN के जोखिमपूर्ण भंडारण को सुरक्षित बनाना अनिवार्य है।\n- टोकनाइज़ेशन में वास्तविक PAN को एक अद्वितीय, अप्रासंगिक टोकन से प्रतिस्थापित किया जाता है, ताकि सिस्टम में वास्तविक कार्ड नंबर न रहे।\n- जब मर्चेंट या पेमेंट प्रोसेसर PAN को अपने सिस्टम में स्टोर करना चाहते हैं, तब PAN को हटाकर उसकी जगह टोकन रखना PCI‑DSS अनुपालन के लिए आवश्यक उपाय माना जाता है।\n- टोकन वापसी योग्य या अपरिवर्तनीय हो सकता है; असली PAN केवल सुरक्षित टोकन वॉल्ट में या टोकन सर्विस प्रदाता के पास रहता है।\n- टोकनाइज़ेशन से डेटाब्रीच की स्थिति में वास्तविक कार्ड डेटा का जोखिम घटता है, क्योंकि टोकन का उपयोग बाहर के सिस्टमों में अर्थहीन होता है।\n- टोकनाइज्ड डेटा से कई PCI‑DSS नियंत्रणों का अनुपालन आसान होता है—जैसे एन्क्रिप्शन, एक्सेस कंट्रोल और लॉगिंग का प्रभावी क्रियान्वयन।\n- फाइनटेक परिदृश्य में रीकर्लिंग पेमेंट्स, सब्सक्रिप्शन और कार्ड‑ऑन‑फाइल सेवाओं के लिए टोकनाइज़ेशन व्यावहारिक और अनिवार्य सुरक्षा उपाय है।\n- टोकनाइज़ेशन लागू करते समय टोकन जनरेशन, मैपिंग, सेविंग पॉलिसी और टोकन वॉल्ट की सुरक्षा नीतियाँ स्पष्ट और ऑडिटेबल होनी चाहिए।\n- PCI‑DSS अनुपालन जांच में यह देखा जाता है कि वास्तविक PAN कहाँ स्टोर है; यदि मर्चेंट/प्रोसेसर के पास PAN नहीं और केवल टोकन मौजूद हैं तो उनके PCI‑स्कोप में कमी आती है।\n- निष्कर्ष: स्तोरेज‑आधारित जोखिम हटाने और PCI‑DSS अनिवार्यता के कारण, जब भी मर्चेंट/पेमेंट प्रोसेसर PAN स्टोर करना चाहें, टोकनाइज़ेशन का उपयोग सर्वथा आवश्यक माना जाता है।", "priority_tag": "VERY_HIGH"}, {"question": "3‑D Secure के संदर्भ में 'Challenge' चरण का क्या अर्थ होता है?", "options": ["कार्डहोल्डर से अतिरिक्त ऑथेंटिकेशन जानकारी माँगी जाती है (जैसे OTP या बायोमेट्रिक) ताकि इशूअर सत्यापन कर सके", "टोकन को PAN में पुनर्स्थापित किया जाता है", "मर्चेंट द्वारा लेन‑देन रद्द कर दिया जाता है", "लेन‑देन राशि पर स्वचालित छूट दी जाती है"], "answer_index": 0, "explanation": "# VYAKHYA — 3‑D Secure में \"Challenge\" चरण का अर्थ (MPPSC Prelims 2026 हेतु)\n- \"Challenge\" चरण में कार्डहोल्डर से अतिरिक्त ऑथेंटिकेशन की माँग की जाती है ताकि इशूअर कार्डधारक की वास्तविकता सत्यापित कर सके।\n- यह चरण तब आता है जब 3‑D Secure प्रक्रिया के दौरान रिस्क‑बेस्ड या नॉर्मल चेक के बाद अतिरिक्त पुष्टिकरण आवश्यक माना जाता है।\n- आवश्यक ऑथेंटिकेशन में सामान्यतः एक‑बार प्रयोज्य पासकोड (OTP), मोबाइल ऐप‑जनरेटेड कोड, या बायोमेट्रिक प्रमाणीकरण शामिल हो सकता है।\n- चैलेंज इशूअर द्वारा संचालित Authentication Server (ACS) के माध्यम से प्रस्तुत किया जाता है; कार्डहोल्डर को यह उत्तर देना/प्रमाणित करना होता है।\n- इसका उद्देश्य अनधिकृत कार्ड‑उपयोग और फ्रॉड को रोकना है — केवल कार्ड विवरण होना पर्याप्त नहीं, लेन‑देन को कार्डधारक‑केंद्रित पुष्टिकरण चाहिए।\n- चैलेंज पूरा होने पर इशूअर लेन‑देन को सत्यापित कर सकता है और 3‑D Secure प्रमाणिकता (authentication) प्रदान कर सकता है।\n- यदि कार्डधारक सफलतापूर्वक अतिरिक्त ऑथेंटिकेशन देता है, तो लेन‑देन आगे बढ़ता है; असफल या अनुत्तरित चैलेंज पर लेन‑देन रिजेक्ट या अतिरिक्त नियंत्रण लागू हो सकता है।\n- चैलेंज प्रोसेस में यूजर‑इंटरफेस (मोबाइल/वेब) पर तुरंत मध्यस्थ इंटरैक्शन होता है — इसलिए यह “फ्रिक्शन” जोड़ता है, पर सुरक्षा बढ़ाता है।\n- चैलेंज के माध्यम से प्राप्त पुष्टिकरण Strong Customer Authentication (SCA) के सिद्धांतों से मेल खाता है क्योंकि इसमें कार्ड‑इन्हेरिटेड और कार्ड‑नॉलेज दोनों तत्वों का उपयोग हो सकता है।\n- सरकार/वित्तीय नियामक नीतियों के संदर्भ में चैलेंज‑आधारित ऑथेंटिकेशन डिजिटल पेमेंट्स की विश्वसनीयता और उपभोक्ता सुरक्षा बढ़ाने का प्रमुख साधन है।\n- MP‑संदर्भ में FinTech उपक्रमों को 3‑D Secure के चैलेंज मैकेनिज़म का सही कार्यान्वयन करना चाहिए ताकि लोकल डिजिटल लेन‑देन में फ्रॉड‑रिस्क घटे और इशूअर‑कार्डधारक भरोसा बढ़े।", "priority_tag": "VERY_HIGH"}, {"question": "टोकनाइज़ेशन में 'Detokenization' किसे कहते हैं?", "options": ["सुरक्षित वातावरण में टोकन को उसके संबंधित असली PAN में पुनः बदलने की प्रक्रिया", "टोकन को नष्ट करने की प्रक्रिया", "टोकन का सार्वजनिक रूप से प्रकाशन", "टोकन को किसी अन्य मर्चेंट को हस्तांतरित करना"], "answer_index": 0, "explanation": "# व्याख्या — Detokenization (टोकनाइज़ेशन संदर्भ में)\n**परिभाषा**\n- Detokenization वह प्रक्रिया है जिसमें किसी टोकन को उसके संबंधित असली PAN (Primary Account Number) में सुरक्षित वातावरण के भीतर पुनः परिवर्तित किया जाता है।\n**परिणामस्वरूप क्या होता है**\n- Detokenization के बाद वास्तविक संवेदनशील डेटा (जैसे PAN) अस्थायी रूप से पुनः प्राप्त हो जाता है ताकि भुगतान या सत्यापन संबंधी आवश्यकताएँ पूरी की जा सकें।\n**स्थान/परिसर (Environment)**\n- यह रूपांतरण केवल एक नियंत्रित और प्रमाणित सुरक्षा-पर्यावरण (secure, isolated environment) में ही किया जाना चाहिए जहाँ पहुँच नियंत्रित लॉगिंग और ऑडिट मौजूद हों।\n**प्रवेश-अधिकार और अनुज्ञाएँ**\n- Detokenization तभी संभव है जब अनुरोधकर्ता के पास आवश्यक प्रमाणीकरण और अधिकृत नीति हो; इसे रोल‑बेस्ड और न्यूनतम विशेषाधिकार (least privilege) के सिद्धांत के अनुसार लागू किया जाता है।\n**मैपिंग और लौटने योग्य व्यवहार**\n- टोकन और वास्तविक PAN के बीच मैपिंग रिवर्सिबल होती है; Detokenization उस मैपिंग के उपयोग से वास्तविक मान लौटाती है—यह टोकनाइज़ेशन के one‑to‑one मैपिंग पर निर्भर करता है।\n**सुरक्षा नियंत्रण**\n- Detokenization पर मल्टी‑लेयर सुरक्षा लागू होती है — एन्क्रिप्शन, एक्सेस कंट्रोल, HSM/की प्रबंधन और ऑडिट‑ट्रेल ताकि संवेदनशील डेटा का अनधिकृत खुलासा न हो।\n**ऑडिट और लॉगिंग**\n- हर Detokenization अनुरोध, उपयोगकर्ता और कारण के साथ लॉग किया जाना चाहिए ताकि बाद में जाँच एवं अनुपालन रिपोर्टिंग संभव हो।\n**उपयोग के सीमित परिदृश्य**\n- Detokenization को केवल आवश्यक कार्यों (जैसे भुगतान प्रोसेसिंग, कॉम्पलाईंस चेक) के लिए सीमित किया जाना चाहिए; सामान्य संचालन में टोकन का ही उपयोग जारी रहे।\n**डेटा संरक्षण और अवधि**\n- Detokenization के बाद वास्तविक PAN को सिस्टम में लंबे समय तक स्टोर नहीं करना चाहिए; केवल आवश्यक अवधि के लिए ही अस्थायी रूप में एक्सेस और प्रोसेसिंग की अनुमति दी जाती है।\n**कानूनी और अनुपालन पहलू**\n- Detokenization की प्रक्रियाएँ लागू सुरक्षा मानकों और नियामक आवश्यकताओं के अनुरूप होनी चाहिए और नियमित रूप से वैलिडेशन/रिव्यू के अधीन रहनी चाहिए।\n**फिनटेक संदर्भ (प्रायोगिक प्रभाव)**\n- फिनटेक ऑपरेटरों के लिए Detokenization सही कॉन्फ़िगरेशन और निगरानी के साथ भुगतान की प्रक्रिया सुरक्षित बनाती है—टोकन को सामान्य परिचालन में रखा जाता है और वास्तविक PAN केवल नियंत्रित स्थितियों में ही बहाल होता है।", "priority_tag": "HIGH"}, {"question": "किसके पास सामान्यतः अलग-अलग टोकन-रिस्क नीतियाँ और टोकनें जारी करने का अधिकार होता है?", "options": ["कार्ड नेटवर्क (जैसे Visa/Mastercard) और संबंधित Token Service Providers", "केवल मर्चेंट बैंक", "सरकारी कर विभाग", "ग्राहक स्वयं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्न में से कौन‑सा कथन टोकनाइज़ेशन के लाभ के रूप में सही नहीं है?", "options": ["टोकनाइज़ेशन से पूरी तरह PCI‑DSS अनुपालन की आवश्यकता समाप्त हो जाती है", "टोकनाइज़ेशन PAN के जोखिम को घटाकर मर्चेंट के संवेदनशीलता स्तर को कम कर सकता है", "टोकन बदलने योग्य होते हैं, जिससे लीक होने पर नुकसान सीमित होता है", "टोकन को डोमेन या डिवाइस के लिए प्रतिबंधित किया जा सकता है"], "answer_index": 0, "explanation": "# व्याख्या: टोकनाइज़ेशन और PCI‑DSS अनुपालन (MPPSC Prelims 2026 — फ़ोकस्ड पॉइंट्स)\n- **टोकनाइज़ेशन क्या है:** कार्ड नंबर (PAN) जैसे संवेदनशील भुगतान डेटा को एक अद्वितीय, अन्टाई-रिवर्सिबल या नियंत्रित रूप से रिवर्सिबल टोकन में बदलने की प्रक्रिया, ताकि वास्तविक डाटा सिस्टम में संग्रहित ना रहे।\n- **टोकन बनाम एन्क्रिप्शन:** एन्क्रिप्शन में डेटा गणितीय रूप से बदला जाता है और डिक्रिप्शन की चाबी से पुनः प्राप्त हो सकता है; टोकनाइज़ेशन में टोकन का अर्थ केवल टोकन‑वॉल्ट या टोकन प्रदाता ही जानता है।\n- **वॉल्टिंग और detokenization:** वास्तविक PAN को सुरक्षित वॉल्ट में संग्रहीत रखा जाता है; आवश्यक होने पर ही नियंत्रित तरीके से detokenization के माध्यम से पुनर्प्राप्त किया जाता है।\n- **PCI‑DSS पर प्रभाव — स्कोप में कमी:** टोकनाइज़ेशन से व्यापारी के नेटवर्क और सिस्टम में सेंसिटिव कार्ड डेटा की उपस्थिति घटती है, जिससे PCI‑DSS का आकलन और ऑडिट स्कोप कम हो सकता है (scope reduction)।\n- **PCI‑DSS आवश्यकता समाप्त नहीं होती:** टोकनाइज़ेशन PCI‑DSS अनुपालन की आवश्यकता को पूरी तरह समाप्त नहीं करता; व्यापारी और सेवा प्रदाताओं को जो सिस्टम वास्तविक कार्ड डेटा को हैंडल करते हैं, उनके लिए PCI‑DSS मानक लागू रहेंगे।\n- **टोकन प्रदाता की भूमिका और जिम्मेदारी:** यदि टोकनाइज़ेशन प्रदाता वॉल्ट में वास्तविक कार्ड डेटा रखता है, तो उस प्रदाता पर PCI‑DSS की जितनी भी आवश्यकताएँ लागू हैं, वे बनी रहेंगी; व्यापारी का अपना कॉन्फ़िगरेशन भी अनुपालन पर निर्भर रहेगा।\n- **Tokenization और जोखिम न्यूनीकरण:** टोकनाइज़ेशन डेटा‑लिकेज़ के जोखिम और ट्रेडफ्रॉड के असर को कम करता है, पर यह सुरक्षा नियंत्रण, लॉगिंग, एसेस मैनेजमेंट और नेटवर्क‑सिक्योरिटी जैसे PCI‑DSS नियंत्रणों की जगह नहीं लेता।\n- **रिस्क ट्रांसफर नहीं बराबर नो‑रिस्क:** टोकन प्रयोग से कुछ जोखिम तीसरे पक्ष (टोकन प्रदाता) की ओर स्थानांतरित हो सकते हैं; इसलिए कॉन्ट्रैक्चुअल, ऑपरेशनल और टेक्निकल नियंत्रणों का अनुपालन आवश्यक होता है।\n- **रेगुलेटरी और बैंकिंग दिशानिर्देश:** भुगतान और बैंकिंग नियामक टोकनाइज़ेशन को स्वीकार करते हैं परन्तु संबंधित संस्थाओं से उचित सुरक्षा, ऑडिट और अनुपालन बनाए रखने की अपेक्षा रखते हैं; टोकनाइज़ेशन को अनुपालन का विकल्प नहीं माना जाता।\n- **व्यावहारिक परीक्षा‑दृष्टिकोण:** परीक्षा‑उत्तर में स्पष्ट रूप से लिखें — “टोकनाइज़ेशन PCI‑DSS अनुपालन की आवश्यकता को घटा सकता है पर पूरी तरह समाप्त नहीं करता; जहाँ वास्तविक पैन को स्टोर या प्रोसेस किया जाता है, वहाँ PCI‑DSS लागू रहेगा।”\n- **3‑DS से भिन्नता (संदर्भ):** 3‑D Secure प्रमाणीकरण का उद्देश्य लेनदेन‑स्तर पर कार्डधारक सत्यापन है; यह टोकनाइज़ेशन की तरह डेटा‑प्रोटेक्शन का तरीका नहीं है — दोनों अलग‑अलग सुरक्षा परतें हैं और एक दूसरे का प्रतिस्थापन नहीं।", "priority_tag": "HIGH"}, {"question": "3‑D Secure के माध्यम से होने वाले 'Incremental Authentication' का क्या तात्पर्य है?", "options": ["जोखिम के आधार पर आवश्यकतानुसार अतिरिक्त ऑथेंटिकेशन चरणों (जैसे पासवर्ड, OTP, बायोमेट्रिक) को लागू करना", "लेन‑देन का अमाउंट स्वतः बढ़ाना", "एक ही कार्ड के लिए कई टोकन जारी करना", "मर्चेंट के लिए फिक्स्ड ऑथेंटिकेशन नीतियाँ लागू करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "ऑनलाइन पेमेंट सुरक्षा के संदर्भ में 'Card‑on‑File' टोकनाइज़ेशन का उद्देश्य क्या है?", "options": ["मर्चेंट के पास स्टोर किए गए कार्ड विवरणों की जगह टोकन स्टोर कर के सुरक्षा बढ़ाना और रिटर्न कस्टमर के लिए सहज पेमेंट संभव बनाना", "ग्राहक के कच्चे PAN को सार्वजनिक रूप से दिखाना", "हर एक लेन‑देन के लिए नया बैंक खाता खोलना", "मर्चेंट के सर्वर पर CVV समेत संपूर्ण कार्ड डाटा स्टोर करना"], "answer_index": 0, "explanation": "# व्याख्या — Card‑on‑File टोकनाइज़ेशन का उद्देश्य (MPPSC Prelims 2026 के लिए)\n- Card‑on‑File टोकनाइज़ेशन का मुख्य उद्देश्य मर्चेंट के सिस्टम में वास्तविक कार्ड विवरण (PAN, एक्सपायरी आदि) की जगह एक अप्रत्यक्ष पहचानकर्ता (token) स्टोर करना है।\n- यह token एक अनूठा, गैर‑समझने योग्य पहचान संख्या होता है जो कार्ड नंबर का प्रत्यक्ष प्रतिनिधि नहीं होता; वास्तविक कार्ड डेटा सुरक्षित टोकनाइजेशन सर्विस‑प्रोवाइडर (token vault) में रखा जाता है।\n- टोकन और वास्तविक कार्ड नंबर के बीच एक‑तरफा मैपिंग या सुरक्षित री‑इंजेक्शन मैकेनिज्म रहता है; मर्चेंट के पास कार्ड का रिवर्स‑इंजेक्टेबल डेटा नहीं होता।\n- इससे डेटा‑ब्रिच की स्थिति में भी मर्चेंट के सिस्टम से संवेदनशील कार्ड डेटा लीक होने की संभावना बहुत कम हो जाती है, क्योंकि स्टोर किए token का उपयोग करके कार्ड नकल नहीं की जा सकती।\n- Card‑on‑File टोकन ग्राहकों के लिए रिटर्न/सब्सक्राइबर पेमेंट में सहजता प्रदान करते हैं—“वन‑क्लिक” या बचाए गए कार्ड से पुनरावर्ती भुगतान संभव होते हैं बिना हर बार पूरा कार्ड दर्ज किए।\n- टोकन सामान्यतः डोमेन‑/मर्चेंट‑विशिष्ट होते हैं, यानी एक ही कार्ड के लिए अलग‑अलग मर्चेंट के लिए अलग token जारी किया जा सकता है, जिससे क्रॉस‑मर्चेंट दुरुपयोग की सम्भावना घटती है।\n- टोकनाइज़ेशन से मर्चेंट का PCI‑DSS अनुपालन भार कम होता है क्योंकि संवेदनशील कार्ड डेटा उनके वातावरण में नहीं रहता; सुरक्षा और अनुपालन लागत में कमी आती है।\n- अगर कार्ड बदलता या चोरी हो जाता है तो token को रिवोक/रिप्लेस किया जा सकता है बिना ग्राहक पर नया कार्ड‑नंबर दर्ज कराने के, जिससे उपयोगकर्ता अनुभव बेहतर रहता है।\n- टोकनाइजेशन के साथ ऑथेन्टिकेशन/ऑथोराइजेशन (जैसे 3‑D Secure) मिलकर अतिरिक्त सुरक्षा परत देते हैं; परन्तु टोकनाइज़ेशन स्वयं मुख्य रूप से डेटा‑एक्सपोजर रोकने और सहज पुनरावर्ती पेमेंट सक्षम करने हेतु प्रयुक्त होता है।\n- व्यावहारिक रूप में यह मॉडल पेमेंट‑गेटवे, बैंक या विश्वसनीय टोकन सर्विस‑प्रोवाइडर द्वारा लागू होता है और मर्चेंट केवल token का उपयोग कर लेन‑देन आरंभ/अनुकरण कर पाते हैं।", "priority_tag": "HIGH"}, {"question": "निम्न में से कौन‑सा घटक 3‑D Secure संदेश‑परिवहन में आम तौर पर प्रयोग नहीं होता?", "options": ["टोकन की डिकोडिंग के लिए असंरक्षित टेक्स्ट ईमेल", "Browser‑based redirects या SDK‑based flows", "ACS द्वारा आवंटित Authentication response", "Directory Server के माध्यम से एनरोलमेंट जांच"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

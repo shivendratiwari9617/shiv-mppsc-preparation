@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-043 – AI बेसिक्स—Supervised/Unsupervised/Reinforcement</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-043 – AI बेसिक्स—Supervised/Unsupervised/Reinforcement</h1>
+        <div class="note">क्षेत्र: Digital | सामग्री: समस्या वर्ग/डेटा आवश्यकताएँ—कॉन्सेप्ट। | 15-वर्षीय ट्रेंड: Very High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+**AI बेसिक्स — Supervised, Unsupervised, Reinforcement** के सिद्धांत और डेटा‑आवश्यकताओं का ज्ञान भारतीय प्रशासनिक उपयोग (जैसे e‑Governance, स्वास्थ्य, शिक्षा) के लिए अनिवार्य हो चला है; यह MPPSC के GS‑III/ICT विषय के लिए प्रत्यक्ष प्रासंगिक है क्योंकि नीति‑निर्माण, कार्यान्वयन और जोखिम‑प्रबंधन के निर्णय इसी तकनीकी समझ पर आधारित होते हैं।
+
+# अवधारणा एवं परिभाषा
+Supervised learning वह श्रेणी है जहाँ मॉडल को इनपुट‑आउटपुट (X, Y) वाले लेबल्ड डेटा से प्रशिक्षित किया जाता है; प्रमुख घटक हैं labeled dataset, loss function (जैसे cross‑entropy, MSE), optimizer (SGD, Adam) और evaluation metrics (accuracy, precision, recall, F1, ROC‑AUC)।  
+Unsupervised learning में लक्ष्य संरचनाएँ/पैटर्न खोजना है बिना लेबल के; प्रमुख प्रक्रियाएँ clustering (K‑means, hierarchical), dimensionality reduction (PCA, t‑SNE, UMAP) और anomaly detection शामिल हैं।  
+Reinforcement learning (RL) में agent, environment, state, action और reward का चक्र होता है; लक्ष्य है policy π(a|s) सीखना ताकि दीर्घकालिक reward (discounted return) अधिकतम हो — algorithms में Q‑learning, SARSA, Policy Gradients, Deep Q‑Networks (DQN) आते हैं।
+
+# तकनीकी संरचना और डेटा आवश्यकताएँ
+Supervised के लिए उच्च‑गुणवत्ता लेबलिंग आवश्यक है — class imbalance के मामले में SMOTE/oversampling, stratified sampling और cross‑validation अपनाई जाती है; train/validation/test (70/15/15 या cross‑validation) splitting सम्बन्धित best practice है।  
+Unsupervised के लिए feature‑scaling (normalization, standardization), distance metrics (Euclidean, cosine) और dimensionality reduction आवश्यक हैं; large‑scale datasets के लिये approximate nearest neighbor (Annoy, FAISS) का उपयोग होता है।  
+RL के लिए Markov Decision Process (MDP) का formalisation जरुरी है; simulation environments (OpenAI Gym जैसे) या real‑world control में sample efficiency, exploration‑exploitation trade‑off और reward‑shaping महत्वपूर्ण हैं।  
+सार्वजनिक/सरकारी संदर्भ में डेटा स्रोतों का उल्लेख महत्वपूर्ण है — Open Government Data (data.gov.in), UIDAI/Aadhaar‑aggregated डेटा (privacy constraints), DigiLocker दस्तावेज़, और राज्य‑स्तर पर MP e‑Governance पोर्टल के datasets; इन स्रोतों की उपलब्धता और गुणवत्ता ही मॉडल की विश्वसनीयता तय करती है।
+
+# कार्यप्रणाली (How it works) — प्रमुख steps
+Problem formulation: classification/regression/clustering/seq‑decision को पहचानना; यह नीति‑निर्धारण के लिए आवश्यक है ताकि समाधान विवादास्पद न हो।  
+Data collection &amp; preprocessing: missing value imputation, encoding categorical features (one‑hot, embeddings), feature engineering; India Stack और APIs (REST/JSON) के माध्यम से interoperable डेटा एकत्र करना एक व्यावहारिक आवश्यकता है।  
+Model selection &amp; training: algorithm select कर hyperparameter tuning (grid/random/Bayesian) करना; compute resources हेतु GPUs/TPUs और cloud infra (MeitY‑promoted cloud services, GCloud/AWS/Azure) का उपयोग प्रचलित है।  
+Validation &amp; deployment: model governance, MLOps pipelines, continuous monitoring (drift detection), और explainability tools (LIME, SHAP) नीतिगत जवाबदेही के लिये आवश्यक हैं।
+
+# प्रमुख अनुप्रयोग और केस‑स्टडी (Governance &amp; Public Services)
+Supervised learning: स्वास्थ्य में रोग‑डायग्नोसिस (image classification), शिक्षा में छात्र‑प्रदर्शन‑prediction, राजस्व में fraudulent claims detection; उदाहरण: NITI Aayog के सुझावों के अनुरूप AI‑driven healthcare pilots और MeitY के AI initiatives।  
+Unsupervised learning: नागरिक शिकायतों के clustering से grievance redressal में प्राथमिकता निर्धारण; सामाजिक सुरक्षा में anomaly detection से duplicate/ghost beneficiaries पहचान।  
+Reinforcement learning: ट्रैफिक‑लाइट optimization (smart cities जैसे Indore/ Bhopal pilot), ऊर्जा‑grid control, और dynamical resource allocation में प्रयोग; Deep RL का प्रयोग simulated environment से policy सीखने में बढ़ा है।  
+स्थानीय स्तर पर MP के e‑Governance प्रोजेक्ट्स में predictive maintenance और citizen service prioritization के लिये supervised/un supervised तकनीकें लागू की जा सकती हैं।
+
+# नीतिगत और संस्थागत संदर्भ
+राष्ट्रीय स्तर पर NITI Aayog (2018) की AI रणनीति ने कृषि, स्वास्थ्य, शिक्षा पर फोकस दिया; MeitY/DIT द्वारा National AI Portal और इंडस्ट्री‑अकादमिक सहभागिता को बढ़ावा मिला है।  
+डेटा‑शेयरिंग एवं प्राइवेसी हेतु Digital Personal Data Protection Act (DPDP) 2023 और CERT‑In जैसी संस्थाएँ साइबर‑जोखिम और डेटा‑सुरक्षा के मानक तय करती हैं; सरकारी projects में डेटा‑गवर्नेंस, consent mechanisms और anonymization obligatoire होना चाहिए।  
+मॉडल‑नियमों के लिए Responsible AI guidelines, explainability, audit trails और algorithmic impact assessments की आवश्यकता है — उदाहरणतः MeitY/India AI forum के दिशानिर्देश।
+
+# लाभ एवं अवसर (Opportunity)
+सटीकता व गति में सुधार से सरकारी सेवाओं का दक्षता‑लाभ; targeted subsidy/benefit delivery में leakage घटाना (anomaly detection/record linkage)।  
+Resource allocation में optimization (RL आधारित), predictive maintenance से अवसंरचना‑खर्च में कमी।  
+डेटा‑आधारित नीतियां (evidence‑based policymaking) बनकर निर्णय अधिक पारदर्शी और समयोचित हो सकते हैं; Open Data और APIs से नवाचार‑इकोसिस्टम को बल मिलता है (startups, academia).
+
+# जोखिम, चुनौतियाँ एवं सीमाएँ
+डेटा‑गुणवत्ता और लेबलिंग लागत: supervised मॉडलों के लिये labeled datasets महंगे और समय‑खपाने वाले होते हैं; low‑resource languages और region‑specific data की कमी खासकर प्रदेश स्तर पर चुनौती है।  
+Bias और fairness: historical data में मौजूद सामाजिक偏ता (gender/caste/region) मॉडल में amplify हो सकती है;इसका समाधान fairness metrics, representative sampling और algorithmic audits से हो सकता है।  
+Privacy और कानूनी compliance: DPDP 2023 के अनुरूप data processing, storage limitations और cross‑border data transfer rules का पालन आवश्यक।  
+Technical deployment challenges: compute cost (GPU/TPU), latency requirements, और MLOps maturity के अभाव से production failures होते हैं।  
+Explainability और accountability: black‑box deep models के कारण निर्णयनिर्णय के लिए XAI techniques और human‑in‑the‑loop mechanisms आवश्यक हैं।
+
+# समाधान एवं Way‑Forward (नीतिगत एवं तकनीकी सिफारिशें)
+डेटा‑इन्फ्रास्ट्रक्चर: राज्य/केंद्र के संयुक्त data lakes (with access controls) एवं standardized metadata schemas अपनाना; data.gov.in की तर्ज पर MP‑level खुला डेटा पोर्टल।  
+Capacity building: राज्यों में MeitY/NIC‑सहायता से AI labs, training programs और NPTEL/SWAYAM style localized content के जरिए skill development।  
+Governance framework: algorithmic impact assessments, periodic independent audits, mandatory explainability for high‑stakes systems और grievance redressal mechanism।  
+Privacy‑preserving techniques: federated learning, differential privacy और secure multi‑party computation को अपनाकर UIDAI/DigiLocker जैसे systems से जुड़ाव।  
+Pilot‑to‑scale pathway: छोटे pilot (smart city, स्वास्थ्य) → outcome evaluation (predefined KPIs) → scale with SOPs; MeitY और state e‑Governance units द्वारा model registry और CI/CD के लिये MLOps standards लागू होने चाहिए।
+
+# निष्कर्ष
+Supervised, Unsupervised और Reinforcement learning के बुनियादी सिद्धांत न केवल तकनीकी हैं बल्कि नीति‑निर्णय, डेटा‑गवर्नेंस और सार्वजनिक कल्याण के लिए निर्णायक हैं। समस्या‑वर्ग निर्धारण और स्पष्ट डेटा‑आवश्यकताएँ (labels, quality, representativeness) के साथ तकनीकी controls (MLOps, XAI, privacy techniques) तथा मजबूत नियामक ढांचा (DPDP 2023, algorithmic audits) मिलकर भारत/MP में AI के लाभों को न्यायसंगत और टिकाऊ तरीके से सुनिश्चित कर सकते हैं। दीर्घकाल में राज्य‑स्तरीय डेटा‑इकोसिस्टम, क्षमता‑निर्माण और नीतिगत जवाबदेही ही AI‑driven शासन को स्थायी बनाएंगे।
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक  
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-043 – AI बेसिक्स—Supervised/Unsupervised/Reinforcement", "coverage_note": "क्षेत्र: Digital | सामग्री: समस्या वर्ग/डेटा आवश्यकताएँ—कॉन्सेप्ट। | 15-वर्षीय ट्रेंड: Very High", "vyakhya": "# प्रस्तावना\n**AI बेसिक्स — Supervised, Unsupervised, Reinforcement** के सिद्धांत और डेटा‑आवश्यकताओं का ज्ञान भारतीय प्रशासनिक उपयोग (जैसे e‑Governance, स्वास्थ्य, शिक्षा) के लिए अनिवार्य हो चला है; यह MPPSC के GS‑III/ICT विषय के लिए प्रत्यक्ष प्रासंगिक है क्योंकि नीति‑निर्माण, कार्यान्वयन और जोखिम‑प्रबंधन के निर्णय इसी तकनीकी समझ पर आधारित होते हैं।\n\n# अवधारणा एवं परिभाषा\nSupervised learning वह श्रेणी है जहाँ मॉडल को इनपुट‑आउटपुट (X, Y) वाले लेबल्ड डेटा से प्रशिक्षित किया जाता है; प्रमुख घटक हैं labeled dataset, loss function (जैसे cross‑entropy, MSE), optimizer (SGD, Adam) और evaluation metrics (accuracy, precision, recall, F1, ROC‑AUC)।  \nUnsupervised learning में लक्ष्य संरचनाएँ/पैटर्न खोजना है बिना लेबल के; प्रमुख प्रक्रियाएँ clustering (K‑means, hierarchical), dimensionality reduction (PCA, t‑SNE, UMAP) और anomaly detection शामिल हैं।  \nReinforcement learning (RL) में agent, environment, state, action और reward का चक्र होता है; लक्ष्य है policy π(a|s) सीखना ताकि दीर्घकालिक reward (discounted return) अधिकतम हो — algorithms में Q‑learning, SARSA, Policy Gradients, Deep Q‑Networks (DQN) आते हैं।\n\n# तकनीकी संरचना और डेटा आवश्यकताएँ\nSupervised के लिए उच्च‑गुणवत्ता लेबलिंग आवश्यक है — class imbalance के मामले में SMOTE/oversampling, stratified sampling और cross‑validation अपनाई जाती है; train/validation/test (70/15/15 या cross‑validation) splitting सम्बन्धित best practice है।  \nUnsupervised के लिए feature‑scaling (normalization, standardization), distance metrics (Euclidean, cosine) और dimensionality reduction आवश्यक हैं; large‑scale datasets के लिये approximate nearest neighbor (Annoy, FAISS) का उपयोग होता है।  \nRL के लिए Markov Decision Process (MDP) का formalisation जरुरी है; simulation environments (OpenAI Gym जैसे) या real‑world control में sample efficiency, exploration‑exploitation trade‑off और reward‑shaping महत्वपूर्ण हैं।  \nसार्वजनिक/सरकारी संदर्भ में डेटा स्रोतों का उल्लेख महत्वपूर्ण है — Open Government Data (data.gov.in), UIDAI/Aadhaar‑aggregated डेटा (privacy constraints), DigiLocker दस्तावेज़, और राज्य‑स्तर पर MP e‑Governance पोर्टल के datasets; इन स्रोतों की उपलब्धता और गुणवत्ता ही मॉडल की विश्वसनीयता तय करती है।\n\n# कार्यप्रणाली (How it works) — प्रमुख steps\nProblem formulation: classification/regression/clustering/seq‑decision को पहचानना; यह नीति‑निर्धारण के लिए आवश्यक है ताकि समाधान विवादास्पद न हो।  \nData collection & preprocessing: missing value imputation, encoding categorical features (one‑hot, embeddings), feature engineering; India Stack और APIs (REST/JSON) के माध्यम से interoperable डेटा एकत्र करना एक व्यावहारिक आवश्यकता है।  \nModel selection & training: algorithm select कर hyperparameter tuning (grid/random/Bayesian) करना; compute resources हेतु GPUs/TPUs और cloud infra (MeitY‑promoted cloud services, GCloud/AWS/Azure) का उपयोग प्रचलित है।  \nValidation & deployment: model governance, MLOps pipelines, continuous monitoring (drift detection), और explainability tools (LIME, SHAP) नीतिगत जवाबदेही के लिये आवश्यक हैं।\n\n# प्रमुख अनुप्रयोग और केस‑स्टडी (Governance & Public Services)\nSupervised learning: स्वास्थ्य में रोग‑डायग्नोसिस (image classification), शिक्षा में छात्र‑प्रदर्शन‑prediction, राजस्व में fraudulent claims detection; उदाहरण: NITI Aayog के सुझावों के अनुरूप AI‑driven healthcare pilots और MeitY के AI initiatives।  \nUnsupervised learning: नागरिक शिकायतों के clustering से grievance redressal में प्राथमिकता निर्धारण; सामाजिक सुरक्षा में anomaly detection से duplicate/ghost beneficiaries पहचान।  \nReinforcement learning: ट्रैफिक‑लाइट optimization (smart cities जैसे Indore/ Bhopal pilot), ऊर्जा‑grid control, और dynamical resource allocation में प्रयोग; Deep RL का प्रयोग simulated environment से policy सीखने में बढ़ा है।  \nस्थानीय स्तर पर MP के e‑Governance प्रोजेक्ट्स में predictive maintenance और citizen service prioritization के लिये supervised/un supervised तकनीकें लागू की जा सकती हैं।\n\n# नीतिगत और संस्थागत संदर्भ\nराष्ट्रीय स्तर पर NITI Aayog (2018) की AI रणनीति ने कृषि, स्वास्थ्य, शिक्षा पर फोकस दिया; MeitY/DIT द्वारा National AI Portal और इंडस्ट्री‑अकादमिक सहभागिता को बढ़ावा मिला है।  \nडेटा‑शेयरिंग एवं प्राइवेसी हेतु Digital Personal Data Protection Act (DPDP) 2023 और CERT‑In जैसी संस्थाएँ साइबर‑जोखिम और डेटा‑सुरक्षा के मानक तय करती हैं; सरकारी projects में डेटा‑गवर्नेंस, consent mechanisms और anonymization obligatoire होना चाहिए।  \nमॉडल‑नियमों के लिए Responsible AI guidelines, explainability, audit trails और algorithmic impact assessments की आवश्यकता है — उदाहरणतः MeitY/India AI forum के दिशानिर्देश।\n\n# लाभ एवं अवसर (Opportunity)\nसटीकता व गति में सुधार से सरकारी सेवाओं का दक्षता‑लाभ; targeted subsidy/benefit delivery में leakage घटाना (anomaly detection/record linkage)।  \nResource allocation में optimization (RL आधारित), predictive maintenance से अवसंरचना‑खर्च में कमी।  \nडेटा‑आधारित नीतियां (evidence‑based policymaking) बनकर निर्णय अधिक पारदर्शी और समयोचित हो सकते हैं; Open Data और APIs से नवाचार‑इकोसिस्टम को बल मिलता है (startups, academia).\n\n# जोखिम, चुनौतियाँ एवं सीमाएँ\nडेटा‑गुणवत्ता और लेबलिंग लागत: supervised मॉडलों के लिये labeled datasets महंगे और समय‑खपाने वाले होते हैं; low‑resource languages और region‑specific data की कमी खासकर प्रदेश स्तर पर चुनौती है।  \nBias और fairness: historical data में मौजूद सामाजिक偏ता (gender/caste/region) मॉडल में amplify हो सकती है;इसका समाधान fairness metrics, representative sampling और algorithmic audits से हो सकता है।  \nPrivacy और कानूनी compliance: DPDP 2023 के अनुरूप data processing, storage limitations और cross‑border data transfer rules का पालन आवश्यक।  \nTechnical deployment challenges: compute cost (GPU/TPU), latency requirements, और MLOps maturity के अभाव से production failures होते हैं।  \nExplainability और accountability: black‑box deep models के कारण निर्णयनिर्णय के लिए XAI techniques और human‑in‑the‑loop mechanisms आवश्यक हैं।\n\n# समाधान एवं Way‑Forward (नीतिगत एवं तकनीकी सिफारिशें)\nडेटा‑इन्फ्रास्ट्रक्चर: राज्य/केंद्र के संयुक्त data lakes (with access controls) एवं standardized metadata schemas अपनाना; data.gov.in की तर्ज पर MP‑level खुला डेटा पोर्टल।  \nCapacity building: राज्यों में MeitY/NIC‑सहायता से AI labs, training programs और NPTEL/SWAYAM style localized content के जरिए skill development।  \nGovernance framework: algorithmic impact assessments, periodic independent audits, mandatory explainability for high‑stakes systems और grievance redressal mechanism।  \nPrivacy‑preserving techniques: federated learning, differential privacy और secure multi‑party computation को अपनाकर UIDAI/DigiLocker जैसे systems से जुड़ाव।  \nPilot‑to‑scale pathway: छोटे pilot (smart city, स्वास्थ्य) → outcome evaluation (predefined KPIs) → scale with SOPs; MeitY और state e‑Governance units द्वारा model registry और CI/CD के लिये MLOps standards लागू होने चाहिए।\n\n# निष्कर्ष\nSupervised, Unsupervised और Reinforcement learning के बुनियादी सिद्धांत न केवल तकनीकी हैं बल्कि नीति‑निर्णय, डेटा‑गवर्नेंस और सार्वजनिक कल्याण के लिए निर्णायक हैं। समस्या‑वर्ग निर्धारण और स्पष्ट डेटा‑आवश्यकताएँ (labels, quality, representativeness) के साथ तकनीकी controls (MLOps, XAI, privacy techniques) तथा मजबूत नियामक ढांचा (DPDP 2023, algorithmic audits) मिलकर भारत/MP में AI के लाभों को न्यायसंगत और टिकाऊ तरीके से सुनिश्चित कर सकते हैं। दीर्घकाल में राज्य‑स्तरीय डेटा‑इकोसिस्टम, क्षमता‑निर्माण और नीतिगत जवाबदेही ही AI‑driven शासन को स्थायी बनाएंगे।\n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  \nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक  \nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "सुपरवाइज़्ड लर्निंग में मॉडल को प्रशिक्षण देने के लिए जो मुख्य आवश्यकता होती है वह क्या है?", "options": ["लेबल्ड (labelled) प्रशिक्षण डेटा", "लेबल्स रहित (unlabelled) डेटा", "एक नीति (policy) और इनाम फ़ंक्शन", "सिर्फ फीचर स्केलिंग"], "answer_index": 0, "explanation": "# व्याख्या — सुपरवाइज़्ड लर्निंग में मुख्य आवश्यकता: **लेबल्ड प्रशिक्षण डेटा**\n- सुपरवाइज़्ड लर्निंग वह मशीन लर्निंग पद्धति है जिसमें मॉडल को इनपुट‑आउट जोड़ों (input–output pairs) से सीखाया जाता है; ये आउटपुट यानी लक्ष्य मान पहले से उपलब्ध और टैग किए हुए होते हैं—इन्हें लेबल्ड डेटा कहते हैं।\n- लेबल्ड डेटा का अर्थ है कि प्रत्येक प्रशिक्षण उदाहरण (जैसे छवि, टेक्स्ट, रिकॉर्ड) के साथ उसका सही उत्तर/टैग लगा होता है, जिससे मॉडल त्रुटि की गणना कर सके।\n- मॉडल प्रशिक्षण में loss (त्रुटि) की गणना और gradient‑based optimisation तभी संभव है जब वास्तविक लक्ष्य लेबल्स मौजूद हों; इसलिए लेबल्ड डेटा अनिवार्य है।\n- लेबल्ड डेटा supervised algorithms (जैसे regression, classification) को लक्ष्य‑निर्देशित तरीके से पैटर्न सीखने की अनुमति देता है—यहाँ मॉडल सटीक इनपुट→आउटपुट मैपिंग सीखता है।\n- लेबल्ड डेटा की गुणवत्ता (सटीकता, निरंतरता) और विविधता सीधे मॉडल की प्रदर्शन‑क्षमता और सामान्यीकरण (generalization) पर प्रभाव डालती है।\n- प्रशिक्षण सेट में लेबल का संतुलन (class balance) महत्वपूर्ण है; असंतुलित लेबलिंग से मॉडल किसी वर्ग के प्रति पक्षपातपूर्ण व्यवहार कर सकता है।\n- वास्तविक दुनिया के डिजिटल अनुप्रयोगों (जैसे दस्तावेज़ वर्गीकरण, नागरिक शिकायतों का स्वचालित टैगिंग, OCR के बाद मान्यता) में सुपरवाइज़्ड मॉडल के लिए उच्च‑गुणवत्ता लेबल्ड डेटा की आवश्यकता रहती है।\n- लेबलिंग की प्रक्रिया मानव विशेषज्ञता, नियम‑आधारित एनोटेशन या हाइब्रिड एनोटेशन टूल्स से होती है; इससे डेटा को मशीन सीखने के लिए उपयुक्त बनाया जाता है।\n- लेबल्ड डेटा की मात्रा भी निर्णायक है: अधिक प्रतिनिधि और विविध लेबल्ड उदाहरण बेहतर मॉडल प्रशिक्षण और कम ओवरफिटिंग सुनिश्चित करते हैं।\n- डेटा सुरक्षा और गोपनीयता के मानदंडों के भीतर लेबलिंग करनी चाहिए, खासकर सरकारी/राज्य‑स्तरीय डिजिटल रिकॉर्ड्स के लिए; अनामिकरण और अनुमति‑आधारित एनोटेशन व्यावहारिक उपाय हैं।\n- संक्षेप में: सुपरवाइज़्ड लर्निंग में मॉडल को लक्ष्य‑आधारित त्रुटि सुधार के लिए वास्तविक (labelled) लक्ष्य मानों से प्रशिक्षित करना आवश्यक है—इसी कारण लेबल्ड प्रशिक्षण डेटा मूल आवश्यकता है।", "priority_tag": "VERY_HIGH"}, {"question": "अनसुपरवाइज़्ड लर्निंग का मुख्य उद्देश्य क्या है?", "options": ["डाटा में छिपे पैटर्न या समूह (clusters) पहचानना", "टार्गेट वैरिएबल का पूर्वानुमान करना", "रिवॉर्ड मैक्सिमाइज़ करना", "लेबलिंग के लिए मानव इनपुट देना"], "answer_index": 0, "explanation": "# **व्याख्या — अनसुपरवाइज़्ड लर्निंग का मुख्य उद्देश्य**\n**प्रश्न:** अनसुपरवाइज़्ड लर्निंग का मुख्य उद्देश्य क्या है?\n**सही उत्तर:** डाटा में छिपे पैटर्न या समूह (clusters) पहचानना\n## त्वरित, परीक्षा-उन्मुख बिंदु (हर पंक्ति एक फेक्ट)\n- अनसुपरवाइज़्ड लर्निंग का प्राथमिक लक्ष्य बिना लेबल के इनपुट डाटा में निहित संरचना, पैटर्न और समूहों की पहचान करना है।\n- यह तरीका क्लस्टरिंग (जैसे K-Means, hierarchical clustering) और dimensionality reduction (जैसे PCA, t-SNE) जैसी तकनीकों पर निर्भर करता है जो छिपे पैटर्न उजागर करती हैं।\n- क्लस्टरिंग से समान गुणों वाले ऑब्जेक्ट्स को एक समूह में बाँटा जाता है ताकि अनदेखे समूहों की पहचान संभव हो।\n- dimensionality reduction उच्च-आयामी डाटा को कम आयामों में बदलकर छिपे संरचनात्मक पैटर्न को स्पष्ट बनाती है और विज़ुअलाइज़ेशन में मदद करती है।\n- अनसुपरवाइज़्ड तकनीकें अनोमली डिटेक्शन में उपयोगी हैं—डाटा के सामान्य पैटर्न पहचान कर असामान्य प्रवृतियों को अलग करती हैं।\n- फीचर लर्निंग के माध्यम से यह नए प्रतिनिधि (representative) फीचर खोजती है, जो बाद के किसी सुपरवाइज़्ड मॉडल के लिए इनपुट सुधार सकती हैं।\n- वास्तविक दुनिया के उपयोग: उपयोगकर्ता/नागरिक सेगमेंटेशन, सेवा-पसंदगी विश्लेषण, और बड़े सरकारी डेटा में समूहों की पहचान — जो डिजिटल गवर्नेंस निर्णयों में सहायक है।\n- MP और राज्य-स्तरीय डिजिटल पहल में अनसुपरवाइज़्ड लर्निंग नागरिक डेटा से उपयोगकर्ता-समूह निकालकर लक्षित सेवाएँ, संसाधन नियोजन और धोखाधड़ी पैटर्न खोजने में मदद कर सकती है।\n- परिणामस्वरूप यह अनवांछित लेबल के अभाव में भी डाटा की अंतर्निहित जानकारी उजागर कर नीति-निर्धारण और ऑपरेशनल सुधार के लिए उपयोगी इनसाइट देती है।\n- परीक्षा में लिखते समय संक्षेप: “बिना लेबल के डाटा में छिपे पैटर्न/समूह पहचानना — क्लस्टरिंग व डायमेंशनलिटी रिडक्शन हेतु” — यह एक लाइन Mains उत्तर में सीधे उपयोग हो सकती है।", "priority_tag": "VERY_HIGH"}, {"question": "रिइन्फोर्समेंट लर्निंग (Reinforcement Learning) में एजेंट को किसके आधार पर निर्णय सीखने के लिए प्रेरित किया जाता है?", "options": ["इनाम (reward) और दंड (punishment)", "पूर्वनिर्धारित लेबल", "क्लस्टर की दूरी", "डेटा के सांख्यिकीय माध्य"], "answer_index": 0, "explanation": "# व्याख्या — रिइन्फोर्समेंट लर्निंग में निर्णय सीखने के प्रेरक तत्व : **इनाम (reward) और दंड (punishment)**\n1. रिइन्फोर्समेंट लर्निंग (RL) में \"इनाम\" एक स्केलर फीडबैक सिग्नल होता है जो हर क्रिया (action) के परिणाम के बाद एजेंट को मिलता है और निर्णय-कृत्रिम नीति को सुधारने का मूल आधार होता है।\n2. दंड (negative reward) को साधारणतः नकारात्मक इनाम के रूप में मॉडल किया जाता है; दोनों मिलकर एजेंट का लक्ष्य परिभाषित करते हैं — कुल अपेक्षित इनाम को अधिकतम करना।\n3. एजेंट की नीति (policy) का उद्देश्य है किसी भी स्थिति में ऐसे कार्य चुनना जिससे दीर्घकालिक (cumulative) इनाम सर्वाधिक हो; यह वर्तमान इनाम के साथ भविष्य के इनाम को भी ध्यान में रखता है।\n4. डिस्काउंट फैक्टर (γ) का उपयोग भविष्य के इनाम को वर्तमान में परिभाषित करने के लिए होता है, जिससे एजेंट निकटवर्ती और दूरस्थ इनाम के बीच संतुलन कर सके।\n5. क्रेडिट असाइनमेंट समस्या: किसी क्रिया के बाद मिलने वाला इनाम यह नहीं बताता कि कौन-सी पहले की कार्रवाई ने कितनी भूमिका निभाई — इसी वजह से इनाम-सिग्नल को सही तरह से डिजाइन करना आवश्यक है।\n6. इनाम/दंड का स्वरूप (इर्रिगुलर: sparse vs dense) सीखने की गति और स्थिरता पर प्रभाव डालता है — घने इनाम से तेज़ सीखना संभव है, पर गलत shaped इनाम गलत व्यवहार को भी बढ़ावा दे सकता है।\n7. रिवार्ड इंजीनियरिंग और पेनल्टी स्कीम—अच्छी नीति के लिए इनाम फ़ंक्शन को स्पष्ट, ब्याहृत और लक्ष्य-उन्मुख रखना चाहिए; अनपेक्षित पुरस्कार व्यवहार (reward hacking) से रोकने हेतु दंड/कन्स्ट्रेंट जोड़ना पड़ता है।\n8. एक्सप्लोरेशन‑एक्सप्लॉइटेशन ट्रेड‑ऑफ को सही रखने में इनाम संकेत मद्दत करता है: अप्रत्याशित अच्छे इनाम मिलने पर एजेंट नए विकल्प खोजने (explore) या स्थापित अच्छे कार्यों का दोहराव (exploit) चुनता है।\n9. एल्गोरिदमिक कार्यान्वयन में इनाम/दंड का उपयोग वेल्यू फंक्शन (value) और एक्शन‑वेल्यू (Q‑value) को अपडेट करने के लिए होता है — यही अपडेट नीति को बेहतर बनाकर भविष्य के निर्णयों को प्रभावित करता है।\n10. व्यवहारिक परिदृश्यों में (डिजिटल सेवाओं/ऑटोमेशन) इनाम‑आधारित RL का मतलब: उपयोगकर्ता संतुष्टि, समय की बचत या सिस्टम प्रदर्शन को सकारात्मक इनाम, और त्रुटि/अनुपालन उल्लंघन को नकारात्मक इनाम के रूप में परिभाषित करना।\n11. नीति की समापनशीलता (convergence) और स्थिरता इनाम सिग्नल की सुस्पष्टता, पर्याप्त अन्वेषण और उचित लर्निंग‑रेट पर निर्भर करती है; इसलिए इनाम-दंड की सही परिमार्जन परीक्षा‑स्तर के अनुप्रयोगों में आवश्यक है।\n(प्रत्येक बिंदु सीधे इनाम/दंड के रोल और प्रभाव पर केंद्रित है — MP डिजिटल अनुप्रयोगों में निर्णय‑लर्निंग के सैद्धान्तिक और व्यावहारिक पहलुओं के लिए उपयोगी)", "priority_tag": "VERY_HIGH"}, {"question": "किसी सुपरवाइज़्ड लर्निंग समस्या में 'Classification' और 'Regression' के बीच मुख्य अंतर क्या है?", "options": ["Classification में आउटपुट कैटेगोरिकल, Regression में सतत (continuous)", "Classification में डेटा अनलेबल्ड, Regression में लेबल्ड", "Classification में इनाम फंक्शन होता है, Regression में नहीं", "Regression में क्लस्टरिंग लागू होती है, Classification में नहीं"], "answer_index": 0, "explanation": "# **व्याख्या — Classification बनाम Regression (Supervised Learning में मुख्य अंतर)**\n- सुपरवाइज़्ड लर्निंग में मॉडल को लेबल्ड ट्रेनिंग डेटा दिया जाता है; यहाँ लक्ष्य इनपुट से अपेक्षित आउटपुट सीखना है।\n- **Classification में आउटपुट कैटेगोरिकल (श्रेणी/वर्ग) होते हैं**—अर्थात् सीमित, पृथक वर्ग (जैसे हाँ/ना, श्रेणी A/B/C)।\n- **Regression में आउटपुट सतत (continuous) मान होते हैं**—अर्थात् रीयल-नंबर या वास्तविक मान जो एक रेंज में बदलते हैं (जैसे कीमत, तापमान)।\n- Classification समस्याएँ अक्सर निर्णय-सीमा (decision boundary) सीखती हैं; Regression समस्याएँ निरन्तर फ़ंक्शन या रुझान (trend) का अनुमान लगाती हैं।\n- Evaluation में Classification के लिए accuracy, precision, recall, F1-score आदि उपयुक्त मेट्रिक्स होते हैं; Regression के लिए MSE, RMSE, MAE जैसे त्रुटि-आधारित मेट्रिक्स उपयोग होते हैं।\n- Classification आउटपुट की प्रकृति डिस्क्रीट होने से प्रेडिक्शन पर संभावना-संख्या (probability) और वर्ग-लेबल दोनों दिए जा सकते हैं; Regression में प्रत्यक्ष संख्यात्मक अनुमान दिया जाता है।\n- मॉडल चयन और हानि फ़ंक्शन भी अलग होते हैं: Classification में cross-entropy/hinge loss सामान्य है; Regression में mean squared error या absolute error सामान्य है।\n- डेटा लेबलिंग के प्रकार भी भिन्न: Classification के लिए श्रेणीबद्ध लेबल चाहिए, Regression के लिए वास्तविक संख्यात्मक लक्ष्य लेबल चाहिए।\n- फीचर स्केलिंग, आउटलेयर संवेदनशीलता और मॉडल की व्याख्यात्मकता दोनों प्रकारों पर प्रभाव डालते हैं, पर Regression में आउटलेयर का प्रभाव आमतौर पर अधिक प्रत्यक्ष होता है।\n- सरकारी डिजिटल परियोजनाओं में (उदा. MP के ई‑गवर्नेंस डेटा) यदि लक्ष्य किसी रिकॉर्ड को श्रेणी में बाँटना है तो Classification, और यदि किसी मेट्रिक‑मान का पूर्वानुमान करना है (जैसे उपयोग का समय, लागत) तो Regression लागू होगा।\n- परीक्षार्थी के लिए सारांश: आउटपुट का प्रकार ही निर्णायक है — यदि लक्ष्य \"वर्ग/लेबल\" है तो Classification, यदि \"सतत संख्या/मान\" है तो Regression।", "priority_tag": "VERY_HIGH"}, {"question": "कौन-सा एल्गोरिथ्म आमतौर पर अनसुपरवाइज़्ड क्लस्टरिंग के लिए उपयोग किया जाता है?", "options": ["K-Means", "Linear Regression", "Logistic Regression", "Q-Learning"], "answer_index": 0, "explanation": "# **विषय: K‑Means (अनसुपरवाइज़्ड क्लस्टरिंग) — परीक्षा-केन्द्रित व्याख्या**\n- K‑Means एक अनसुपरवाइज़्ड क्लस्टरिंग एल्गोरिथ्म है जिसका मुख्य उद्देश्य डेटा को पूर्वनिर्धारित K समूहों (clusters) में विभाजित करके प्रत्येक समूह के भीतर डेटा-पॉइंट्स की समानता बढ़ाना है।\n- यह एल्गोरिथ्म प्रत्येक क्लस्टर के लिए एक सेंटर (centroid) रखता है और समरूपता को नापने के लिए आमतौर पर यूक्लिडियन दूरी (Euclidean distance) का उपयोग करता है।\n- K‑Means का अनुकूलन लक्ष्य प्रत्येक क्लस्टर के अंदर दूरी का सम (sum of squared distances from centroids) न्यूनतम करना होता है (within‑cluster sum of squares या inertia)।\n- सामान्य कार्य-पद्धति: (1) K सेडीया प्रारंभिक centroids चुनना, (2) हर डेटा पॉइंट को सबसे नज़दीकी centroid से जोड़ना (assignment), (3) प्रत्येक क्लस्टर के लिए नए centroid गणना करना (update), और (4) जब तक centroids स्थिर न हो जाएँ तब तक दोहराना (iterative convergence)।\n- अभिसमापन‑शर्त: एल्गोरिथ्म तब बंद होता है जब क्लस्टर असाइनमेंट में परिवर्तन न हो या centroid परिवर्तन एक सूक्ष्म सीमा से कम हो; इसलिए K‑Means सामान्यतः स्थानीय न्यूनतम पर मिलता है।\n- समय जटिलता: साधारण रूप से O(n · k · t) जहाँ n = डेटा बिंदु, k = क्लस्टर संख्या, t = इटरेशन्स; इसलिए बड़े डेटासेट पर स्केलेबिलिटी विचारणीय है।\n- सीमा/ध्यान देने योग्य बिंदु: K‑Means केवल संख्यात्मक/सतत (continuous) अक्षों पर प्रभावी होता है, एल्गोरिथ्म K का मान पहले से आवश्यक रूप से देना पड़ता है और शुरुआत पर संवेदनशील होता है।\n- क्लस्टर की आकृति: K‑Means गोले जैसे (spherical) और समान आकार के क्लस्टर के लिए बेहतर काम करता है; अत्यधिक असमान घनत्व या गैर‑गोल आकार वाली संरचनाओं में प्रदर्शन घट सकता है।\n- प्रैक्टिकल उपयोग (डिजिटल क्षेत्र/सरकारी सेवाओं में प्रयोज्य): उपयोगकर्ता‑वर्गीकरण (user segmentation) — जैसे सेवाओं का उपयोग पैटर्न, ऑनलाइन पोर्टल लॉग‑इन व्यवहार, या डिजिटल भुगतान/ट्रांज़ैक्शन समूह बनाना; इससे नीतिगत निर्णय और लक्षित सेवा डिज़ाइन में मदद मिलती है।\n- MP की डिजिटल पहल में संभावित अनुप्रयोग: MPOnline/ई‑गवर्नेंस पोर्टल उपयोगकर्ताओं की सेगमेंटेशन, राज्य‑स्तरीय सेवाओं के लिए संसाधन आवंटन का प्राथमिकता निर्धारण और सेवा‑वित्तीय विश्लेषण के लिए K‑Means से तेजी से क्लस्टर विश्लेषण किया जा सकता है।\n- एमपीपीएससी परीक्षा के लिए नुक्ता: K‑Means का मूल सिद्धांत — centroid‑आधारित, दूरी‑मिनिमाइज़ेशन, iterative update — याद रखें; प्रश्न में \"आम तौर पर अनसुपरवाइज़्ड क्लस्टरिंग के लिए उपयोग\" पूछा हो तो K‑Means को प्राथमिक उत्तर मानें।", "priority_tag": "VERY_HIGH"}, {"question": "किस विधि का उपयोग आउटलाइन-आउट-ऑफ-डिस्ट्रीब्यूशन (OOD) या अनजाने डेटा का पता लगाने के लिए अक्सर अनसुपरवाइज़्ड सेटिंग में किया जाता है?", "options": ["Autoencoder reconstruction error", "Linear Discriminant Analysis", "Gradient Boosting", "Policy Gradient"], "answer_index": 0, "explanation": "# **विषय:** Autoencoder Reconstruction Error — OOD (Out-of-Distribution) / अनजाने डेटा पता लगाने के लिए उपयोग\n- **Autoencoder क्या है:** Autoencoder एक अनसुपरवाइज़्ड न्यूरल नेटवर्क है जिसमें इनपुट को छोटा-सा कोड (latent representation) में संकुचित किया जाता है और फिर पुनर्निर्मित (reconstruct) किया जाता है।\n- **Reconstruction error की परिभाषा:** Reconstruction error वह मापन है जो असली इनपुट और Autoencoder द्वारा पुनर्निर्मित आउटपुट के बीच अंतर (जैसे MSE - mean squared error) को दर्शाता है।\n- **OOD पता लगाने का मूल सिद्धान्त:** Autoencoder को केवल सामान्य (in-distribution) डेटा पर प्रशिक्षित किया जाता है; अनजाना या OOD डेटा सामान्य पैटर्न को ठीक से पुनर्निर्मित नहीं कर पाता और इसलिए उसका reconstruction error उच्च रहता है।\n- **अनसुपरवाइज़्ड सेटिंग में उपयुक्तता:** चूँकि प्रशिक्षण लेबल की आवश्यकता नहीं रहती और मॉडल केवल सामान्य डेटा के पैटर्न सीखता है, यह OOD डिटेक्शन के लिए अनसुपरवाइज़्ड रूप से सीधे लागू होता है।\n- **थ्रेशोल्ड आधारित निर्णय:** OOD का निर्धारण अक्सर reconstruction error के लिए पूर्वनिर्धारित/सीखाए गए थ्रेशोल्ड से किया जाता है — थ्रेशोल्ड ऊपर जाने पर उदाहरण को अनजाना माना जाता है।\n- **प्रयोग में ध्यान देने योग्य बातें:** थ्रेशोल्ड सेट करना, डेटा स्केलिंग, latent dimension का चुनाव और overfitting रोकना (regularization) मॉडल की प्रभावशीलता तय करते हैं।\n- **मापन और वैधता:** OOD पहचान के प्रदर्शन को ROC-AUC, precision-recall आदि मैट्रिक्स से मापा जाता है; अलग-अलग प्रकार के OOD पर मॉडल की संवेदनशीलता बदलती है।\n- **सीमाएँ और जोखिम:** यदि Autoencoder बहुत शक्तिशाली हो या training data में विविधता अधिक हो, तो वह कुछ अनजान नमूनों को भी ठीक पुनर्निर्मित कर सकता है — इससे false negatives हो सकते हैं; इसलिए ensemble या auxiliary methods के साथ प्रयोग किया जाता है।\n- **व्यावहारिक उपयोग (डिजिटल/राज्य स्तर):** राज्य-स्तरीय डिजिटल सेवाओं (जैसे पोर्टल लॉग, फॉर्म सबमिशन, डिजिटल भुगतान लॉग) में Autoencoder reconstruction error का उपयोग असामान्य गतिविधि, fraude/बोट्स या मैलवेयर-जनित ट्रैफिक के प्रारम्भिक संकेत के रूप में किया जा सकता है।\n- **इंटीग्रेशन टिप्स:** वास्तविक तंत्र में निर्देशित alerts, मानव-पुनरावलोकन और अन्य anomaly-detection तरीकों (e.g., density estimation) के साथ reconstruction-error आधारित मॉनिटरिंग को संयोजित करना बेहतर परिणाम देता है।\n- **सारांश (Exam-ready line):** Autoencoder मूल पर आधारित reconstruction error एक प्रभावी अनसुपरवाइज़्ड तरीका है क्योंकि यह सामान्य डेटा पैटर्न सीखकर अनजाने/OOD उदाहरणों के लिए उच्च त्रुटि दिखाता है और उन्हें पहचानने में उपयोगी संकेत देता है।", "priority_tag": "HIGH"}, {"question": "सुपरवाइज़्ड लर्निंग में 'overfitting' क्या दर्शाता है?", "options": ["मॉडल प्रशिक्षण डेटा पर बहुत अच्छा परफॉर्म करे पर टेस्ट डेटा पर खराब करे", "मॉडल का हमेशा सत्य भविष्यवाणी करना", "डेटा क्लस्टर्स में विभाजन की कमी", "एजेंट का पुरस्कृत नीति को ना अपनाना"], "answer_index": 0, "explanation": "# व्याख्या — सुपरवाइज़्ड लर्निंग में \"overfitting\" क्या दर्शाता है\n- Overfitting का मूल मतलब: मॉडल प्रशिक्षण (training) डेटा पर अत्यधिक अनुकूल (too well-fitted) हो जाना जिससे वह नए/अज्ञात (test) डेटा पर खराब प्रदर्शन करे।\n- यह संकेत मिलता है कि मॉडल ने प्रशिक्षण डेटा की सामान्य पैटर्न के बजाय उसमें मौजूद शोर (noise) और अनावश्यक विवरण सीख लिए हैं।\n- पहचान का साधारण मापक: प्रशिक्षण त्रुटि (training error) बहुत कम व परीक्षण/वैलिडेशन त्रुटि (validation/test error) अपेक्षाकृत अधिक होना।\n- यह समस्या विशेषकर तब होती है जब मॉडल की जटिलता (parameters/complexity) डेटा की उपलब्धता के मुकाबले अधिक हो।\n- overfitting का नतीजा: सामान्यीकरण क्षमता (generalization) कम हो जाती है — मॉडल असल दुनिया के डेटा पर भरोसेमंद भविष्यवाणी नहीं कर पाता।\n- रोकथाम के प्रमुख उपाय: रेगुलराइज़ेशन (L1/L2), अधिक प्रशिक्षण डेटा, क्रॉस-वैधेशन (k-fold), प्रारंभिक रोकथाम (early stopping) और मॉडल सरल बनाना (pruning/simpler architecture)।\n- व्यवहारिक संकेतक व निगरानी: प्रशिक्षण व परीक्षण लॉस को एप्पिसोड्स/epochs के साथ प्लॉट करना — divergence स्पष्ट रूप से overfitting दिखाता है।\n- मेट्रिक्स का उपयोग: accuracy के साथ precision/recall, ROC-AUC आदि पर भी प्रशिक्षण–परीक्षण अंतर देखकर overfitting का मूल्यांकन किया जा सकता है।\n- डिजिटल परियोजनाओं में अर्थ: सरकारी/राज्य स्तर के सर्विस मॉडल (जैसे यूजर-लॉगिन, भुगतान फ्रॉड डिटेक्शन) में overfitting से फॉल्स एलार्म या missed cases बढ़ते हैं, इसलिए सामान्यीकरण पर विशेष ध्यान आवश्यक है।\n- समेकित नियम: लक्ष्य एक ऐसा मॉडल बनाना है जो प्रशिक्षण डेटा ठीक से समझे पर उसकी विशेषताओं में फँसकर वास्तविक जीवन के परिवर्तनीय डेटा पर विफल न हो।", "priority_tag": "VERY_HIGH"}, {"question": "किस तकनीक का उपयोग overfitting कम करने के लिए किया जाता है?", "options": ["Regularization (जैसे L1/L2)", "क्लस्टर केंद्र बढ़ाना", "Q-Table initialization", "Unsupervised pretraining हमेशा"], "answer_index": 0, "explanation": "# व्याख्या — Regularization (L1 / L2) द्वारा Overfitting कम करना\n- Regularization का उद्देश्य मॉडल के जटिलता (complexity) को नियंत्रित कर के training data पर overfitting घटाना और generalization बढ़ाना है।\n- सामान्य रूप से Regularization loss function में एक penalty term जोड़ती है: कुल loss = original loss + λ × penalty, जहाँ λ (lambda) regularization strength को नियंत्रित करता है।\n- L2 regularization (Ridge): penalty = Σ w_i^2; यह बड़े weights को चौकस तरीके से छोटा करता है और मॉडल को स्मूद बनाता है, जिससे variance घटता है।\n- L1 regularization (Lasso): penalty = Σ |w_i|; यह weights को शून्य कर सकती है, जिससे feature selection भी हो जाती है और sparse मॉडल बनता है।\n- λ का चयन validation या cross-validation से किया जाता है — छोटा λ → कम regularization, बड़ा λ → अधिक bias; इसलिए bias–variance trade-off पर संतुलन आवश्यक है।\n- Regularization मॉडल के parameters को shrink कर के noise-fitting को रोकता है; परिणामस्वरूप unseen डेटा पर error घटता है।\n- Regularization का प्रयोग neural networks में भी किया जाता है (weight decay तकनीक समस्यातः L2 के समान), और अन्य methods (जैसे dropout) के साथ संयोजन संभव है।\n- गणितीय रूप में L2 के कारण gradient update में अतिरिक्त term आता है जो weights को प्रतियुग्मित रूप से घटाता है; L1 के कारण gradient में discontinuity और sparsity मिलती है।\n- Practical tip (exam/quick revision): अगर मॉडल बहुत complex है और सभी features आवश्यक नहीं दिखते → L1; अगर आप छोटे परन्तु गैर‑zero weights चाहें → L2।\n- Mains के MP‑डिजिटल संदर्भ में बिंदु: सरकारी/राज्य‑स्तरीय डाटा मॉडल (जैसे लोक-सेवा उपयोगिता, पहचान-निर्भर सेवाएँ) में Regularization अपनाकर मॉडल की विश्वसनीयता व जनरलाइजेबिलिटी बढ़ाई जा सकती है, जिससे गलत निर्णय/बायस की संभावना कम होती है।\n- मूल्यांकन हेतु बताएं: Regularization लगाने के बाद training‑validation error curves दिखाकर overfitting में कमी और generalization में सुधार स्पष्ट किया जा सकता है — यह Mains उत्तर में प्रयोग योग्य स्पर्श‑बिंदु है।", "priority_tag": "VERY_HIGH"}, {"question": "किसे 'हाइपरपैरामीटर' कहा जाता है?", "options": ["वह पैरामीटर जिसे प्रशिक्षण से पहले सेट किया जाता है (जैसे learning rate)", "वह वजन जो मॉडल प्रशिक्षण के दौरान सीखा जाता है", "डेटा का आउटपुट लेबल", "क्लस्टर का सेंटर सिर्फ़ एनालिटिक रूप से"], "answer_index": 0, "explanation": "# व्याख्या: हाइपरपैरामीटर क्या है? (Hyperparameter)\n- हाइपरपैरामीटर वह पैरामीटर है जिसे मशीन लर्निंग मॉडल का प्रशिक्षण शुरू करने से पहले तय किया जाता है, न कि प्रशिक्षण के दौरान डेटा से सीधे सीखा जाता है।\n- उदहारण स्वरूप सामान्य हाइपरपैरामीटर: learning rate, batch size, number of epochs, संख्या में छुपे हुए लेयर/न्यूरॉन्स, regularization strength (जैसे λ), optimizer का प्रकार, dropout rate।\n- ये हाइपरपैरामीटर मॉडल के प्रशिक्षण की प्रक्रिया, अभिसरण (convergence) और सामान्यीकरण (generalization) पर प्रत्यक्ष प्रभाव डालते हैं; उदाहरण: बहुत बड़ा learning rate प्रशिक्षण को अस्थिर कर सकता है।\n- मॉडल के वास्तविक वज़न और बायस जैसे पैरामीटर प्रशिक्षण के दौरान डेटा से अनुकूलित किए जाते हैं; इसलिए इन्हें हाइपरपैरामीटर से अलग माना जाता है।\n- हाइपरपैरामीटर खोज के सामान्य तरीके: grid search, random search, और Bayesian optimization; इनके लिए validation set या cross-validation का उपयोग होता है।\n- सही हाइपरपैरामीटर सेटिंग से overfitting और underfitting को नियंत्रित कर बेहतर प्रदर्शन और मजबूत मॉडल मिलते हैं।\n- हाइपरपैरामीटर ट्यूनिंग में computation और समय की लागत आती है; इसलिए संसाधन-सीमाओं को ध्यान में रखकर trade-offs तय करने होते हैं।\n- परिनियोजन (deployment) के संदर्भ में भी—जैसे मोबाइल या सरकारी वेब-एप्लिकेशन—हाइपरपैरामीटर की सेटिंग मॉडल की inference गति और संसाधन खपत तय करती है।\n- MP के डिजिटल प्रोजेक्ट्स और e-Governance एप्लिकेशन में भी मशीन लर्निंग मॉडल का विश्वसनीय प्रदर्शन सुनिश्चित करने के लिए उपयुक्त हाइपरपैरामीटर चयन आवश्यक होता है।\n- परीक्षा-नोट (quick-revision): \"हाइपरपैरामीटर = प्रशिक्षण से पहले सेट किए जाने वाले पैरामीटर (जैसे learning rate) — मॉडल की ट्रेनिंग डायनेमिक्स और सामान्यीकरण नियंत्रित करते हैं।\"", "priority_tag": "HIGH"}, {"question": "रिइन्फोर्समेंट लर्निंग में 'exploration' का क्या अर्थ है?", "options": ["नए एक्शन्स आज़माना जिससे संभवतः बेहतर इनाम मिले", "हमेशा अब तक का सर्वश्रेष्ठ एक्शन चुनना", "डेटा को लेबल करना", "क्लस्टर में डेटा जोड़ना"], "answer_index": 0, "explanation": "# **विषय:** रिइन्फोर्समेंट लर्निंग में *exploration* का अर्थ — विस्तृत व्याख्या (MPPSC Prelims 2026 हेतु)\n- **परिभाषा:** *Exploration* का अर्थ है एजेंट द्वारा उन क्रियाओं (actions) का अनुभव करना जिन्हें पहले कम या कभी आज़माया नहीं गया, ताकि नए व्यवहारिक विकल्प मिल सकें।\n- **उद्देश्य:** इसका मुख्य उद्देश्य ऐसी एक्शन-रीति ढूँढना है जो दीर्घकालिक (long-term) इनाम को बढ़ा सके, न कि केवल तात्कालिक इनाम।\n- **अनिवार्यता:** जब पर्यावरण का मॉडल या इनाम-संरचना पूर्णतः ज्ञात न हो, तब exploration आवश्यक होता है ताकि सही नीति (policy) खोजी जा सके।\n- **समस्याओं से निपटना:** exploration एजेंट को स्थानीय सर्वोच्च (local optimum) में फँसने से बचाता है और वैश्विक सर्वोच्च (global optimum) की खोज में मदद करता है।\n- **नाप-तौल:** exploration और exploitation (पहले ज्ञात सर्वश्रेष्ठ क्रियाओं का उपयोग) के बीच संतुलन आवश्यक है ताकि सीखने की दक्षता बनी रहे।\n- **रणनीतियाँ:** exploration के सामान्य तरीकों में ε-greedy, Boltzmann sampling और Upper Confidence Bound (UCB) जैसी नीति-आधारित तकनीकें शामिल हैं जो अन्वेषण को नियंत्रित करती हैं।\n- **खर्च और लाभ:** अधिक exploration शुरू में उच्च परीक्षण लागत या कम तात्कालिक इनाम दे सकता है, लेकिन भविष्य में बेहतर नीतियाँ और अधिक कुल इनाम सुनिश्चित करता है।\n- **अभ्यासिक संकेतक:** exploration के प्रभाव को मापा जा सकता है—उदा. इनाम की वैरिएंस, खोजे गए नए राज्यों/एक्शनों की संख्या, और सीखने की दर (convergence speed)।\n- **समय के साथ घटाना:** अक्सर training के प्रारम्भिक चरण में अधिक exploration और बाद में धीरे-धीरे उसे कम कर के exploitation बढ़ाया जाता है (decay schedules)।\n- **डिजिटल अनुप्रयोगों में महत्त्व:** डिजिटल प्रणालियों/सिस्टमों में exploration से एजेंट नई नीतियाँ सीखकर बेहतर सेवाएँ, अनुकूलन और स्वत: सुधार ला सकता है—परिणामी रूप से दीर्घकालिक लाभ सुनिश्चित होते हैं।", "priority_tag": "HIGH"}, {"question": "K-Means क्लस्टरिंग में K मान किसे दर्शाता है?", "options": ["क्लस्टर की संख्या", "डेटा फीचर की संख्या", "रेनफोर्समेंट के स्टेप्स", "लेबल की श्रेणियों की संख्या"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सुपरवाइज़्ड लर्निंग के लिए commonly used loss function 'Cross-Entropy' किस प्रकार की समस्या के लिये उपयुक्त है?", "options": ["Classification", "Regression", "Clustering", "Dimensionality Reduction"], "answer_index": 0, "explanation": "# व्याख्या — Cross-Entropy Loss और इसका Classification के लिये उपयुक्त होना\n- Cross-Entropy loss एक सांख्यिकीय माप है जो मॉडल द्वारा अनुमानित संभावना वितरण और वास्तविक (true) वितरण के बीच अंतर को मापता है।\n- Classification में लक्ष्य प्रत्येक उदाहरण के लिये सही वर्ग की उच्चतम संभावना देना होता है; Cross-Entropy सीधे probabilities पर काम करके यह सुनिश्चित करता है।\n- सामान्यतः neural networks के आउटपुट पर softmax लागू कर के वर्गों के लिये probability distribution बनायी़ जाती है; Cross-Entropy इस probability distribution पर negative log-likelihood की तरह कार्य करता है।\n- खासकर one‑hot encoded labels के साथ Cross-Entropy loss सरल और स्पष्ट रूप से वास्तविक वर्ग के लिये log-probability को अधिकतम (loss को न्यूनतम) करने की दिशा देता है।\n- Binary classification के लिये binary cross-entropy (log loss) और बहुवर्गी समस्या के लिये categorical cross-entropy का उपयोग प्रचलित है; दोनों का मूल विचार negative log-likelihood है।\n- Cross-Entropy का gradient सिग्नल साफ़ होता है — सही वर्ग के probability को बढ़ाने पर gradient घटता है, जिससे प्रशिक्षण स्थिर और प्रभावी बनता है।\n- Logistic regression और neural network के सन्दर्भ में Cross-Entropy अक्सर convex/छोटी समस्याओं में अनुकूल रूप से व्यव्हार करता है, जिससे optimization (SGD, Adam) बेहतर काम करता है।\n- यह loss असमान वर्ग वितरण में भी probability पर penalize करता है, इसलिए calibrated probability outputs देने के लिये अच्छा है (आउटपुट पर thresholding और जोखिम-आधारित निर्णय संभव)।\n- Supervised classification pipelines में Cross-Entropy को नियमितकरण (L2, dropout) के साथ जोड़कर overfitting घटाया जाता है और सामान्यीकरण बेहतर होता है।\n- MP के डिजिटल/ई‑गवर्नेंस अनुप्रयोगों (दस्तावेज़ वर्गीकरण, शिकायत श्रेणीकरण, धोखाधड़ी पहचान आदि) में supervised classification मॉडल के लिये Cross-Entropy loss का प्रयोग व्यावहारिक और मानक होता है — क्योंकि वहाँ स्पष्ट लेबल और probability‑आधारित निर्णय आवश्यक होते हैं।\n- परीक्षा‑दृष्टि से मुख्य बिंदु: Cross-Entropy loss का मूल उपयोग supervised learning में class‑probability prediction को सिखाने और सही वर्ग के लिए log‑likelihood को अधिकतम करने के लिये ही है — अतः यह classification के लिये उपयुक्त है।", "priority_tag": "VERY_HIGH"}, {"question": "Principal Component Analysis (PCA) किस प्रकार की तकनीक है?", "options": ["अनसुपरवाइज़्ड dimensionality reduction", "सुपरवाइज़्ड classification", "रिइन्फोर्समेंट बेस्ड policy optimization", "हेयूरिस्टिक डाटा लेबलिंग"], "answer_index": 0, "explanation": "# व्याख्या — Principal Component Analysis (PCA): अनसुपरवाइज़्ड dimensionality reduction\n- PCA एक अनसुपरवाइज़्ड तकनीक है जिसका मुख्य उद्देश्य उच्च-आयामी डेटा को कम आयामों में बदलकर सूचना का अधिकतमVariance संरक्षित करना है।\n- यह तकनीक लेबल-फ्री (label-less) डेटा पर काम करती है, यानी प्रशिक्षण के दौरान किसी लक्ष्य वैरिएबल की आवश्यकता नहीं होती।\n- गणितीय रूप से PCA डेटा के सहविकरण (covariance) मैट्रिक्स के प्रमुख Eigenvectors (principal components) निकालकर काम करता है; ये वे दिशा हैं जिनमें डेटा का वैरिएंस अधिकतम होता है।\n- प्रारंभिक प्री-प्रोसेसिंग में mean-centering और आवश्यकतानुसार स्केलिंग (standardization) अनिवार्य है, ताकि विभिन्न माप इकाइयों से व्याप्ति प्रभावित न हो।\n- पहले principal component वह दिशा है जिसमें डेटा का सबसे अधिक वैरिएंस होता है; दूसरा component पहले के ortho-normal (orthogonal) होता है और शेष वैरिएंस को कैप्चर करता है।\n- आयामों की संख्या चुनने के लिए cumulative explained variance ratio का उपयोग किया जाता है — सामान्यतः 90–95% वैरिएंस संरक्षित करते हुए घटक चुने जाते हैं।\n- उपयोगिता: कॉम्प्यूटेशनल दक्षता बढ़ाना, विज़ुअलाइज़ेशन (2D/3D), शोर (noise) घटाना और downstream मॉडल के लिए फीचर-स्पेस को सरल बनाना।\n- सीमाएँ: PCA रैखिक (linear) रूपांतरण है; गैर-रेखीय संरचनाओं को कैप्चर करने में कमी रह सकती है और मुख्य घटकों की व्याख्या हमेशा सीधे-सीधी नहीं होती।\n- डिजिटल क्षेत्र में PCA का प्रयोग डेटा संपीड़न, फीचर इंजीनियरिंग, विज़ुअलाइज़ेशन और अनोमली/फ्रॉड डिटेक्शन के पूर्व-प्रसंस्करण में प्रयोगात्मक तौर पर उपयोगी है।\n- MP ई-गवर्नेंस/डिजिटल परियोजनाओं में उच्च आयामी लॉग/ट्रांज़ैक्शन डेटा को समझने और मॉडलिंग के लिए PCA प्राथमिक कदम हो सकता है।\n- PCA की अनसुपरवाइज़्ड प्रकृति इसे अनलैबेल्ड सर्वेक्षण, सेंसर-डेटा और बड़े प्रशासनिक डेटासेट के अन्वेषण के लिये उपयुक्त बनाती है।\n- परीक्षा के लिए याद रखने योग्य सूत्रधार पॉइंट: \"PCA = अनसुपरवाइज़्ड dimensionality reduction via eigen-decomposition of covariance (variance-maximizing orthogonal components)\".", "priority_tag": "HIGH"}, {"question": "Q-Learning किस प्रकार की रिइन्फोर्समेंट लर्निंग तकनीक है?", "options": ["Model-free, off-policy", "Model-based, on-policy", "Supervised learning technique", "Unsupervised clustering method"], "answer_index": 0, "explanation": "# Q-Learning — संक्षिप्त व्याख्या (Model-free, Off-policy)\n- Q-Learning एक रिइन्फोर्समेंट लर्निंग एल्गोरिथ्म है जो स्पष्ट रूप से *model-free* होता है; इसका मतलब यह है कि एजेंट पर्यावरण के ट्रांज़िशन मॉडल (state-transition probability) या reward मॉडल का पूर्वज्ञान नहीं रखता।\n- *Model-free* होने के कारण Q-Learning सीधे अनुभव (experience) से मान (Q-values) सीखता है, बिना पर्यावरण का अनुकूलन या सिमुलेशन मॉडल बनाए।\n- Q-Learning *off-policy* टेकनीक है; इसका अर्थ है कि सीखने के दौरान प्रयुक्त लक्ष्य नीति (target policy) अलग हो सकती है जो व्यवहार नीति (behavior policy) से वास्तविक रूप में एक्शन चुनती है।\n- Off-policy होने के कारण एजेंट अनुभवों का उपयोग कर सकता है जो किसी और नीति द्वारा उत्पन्न हुए हों — यानी सीखने की दिशा (target) और एक्शन जनरेशन (behavior) अलग रखी जा सकती है।\n- Q-Learning का अपडेट नियम Q(s,a) ← Q(s,a) + α [r + γ max_a' Q(s',a') − Q(s,a)] है; यहाँ लक्ष्य में अगली स्थिति का अधिकतम Q इस्तेमाल होता है, जो off-policy लर्निंग को परिभाषित करता है।\n- learning rate (α) और discount factor (γ) जैसे पैरामीटर Q-Learning के अभिसरण और स्थिरता तय करते हैं; उपयुक्त सेटिंग्स पर Q-Learning अनिश्चित समय में सही Q-values के पास अभिसरित हो सकता है।\n- Q-Learning पारम्परिक रूप से डिस्क्रीट स्टेट-एक्शन स्थानों के लिए Q-table उपयोग करता है; बड़े या सतत स्थानों में फ़ंक्शन-अपरोक्ष (function approximation) जैसे डीप Q-Network (DQN) अपनाए जाते हैं।\n- ऑफ-पॉलिसी प्रकृति के कारण Q-Learning अनुभव पुनःप्रयोग (experience replay) और ऑफलाइन लॉग्ड डेटा से भी सीखने में सक्षम है, जो व्यावहारिक तंत्रों के लिए लाभकारी है।\n- Q-Learning में exploration–exploitation trade-off (जैसे ε-greedy) अहम है; व्यवहार नीति में अन्वेषण की अनुमति होते हुए भी लक्ष्य नीति greedy लक्ष्य की ओर सीखती है।\n- डिजिटल सेक्टर में (उदा. सेवा प्रोसेस ऑप्टिमाइज़ेशन, संसाधन आवंटन) Q-Learning का उपयोग नीति-निर्धारण के लिये किया जा सकता है क्योंकि इसे पर्यावरण मॉडल की आवश्यकता नहीं रहती और रिकॉर्ड किये गए व्यवहारिक डेटा से भी सीख सकता है।\n- परीक्षा/मेनस उत्तर के लिए उपयोगी शॉर्ट-पॉइंट: \"Q-Learning = model-free (कोई पर्यावरण मॉडल नहीं) + off-policy (सीखने वाली नीति और व्यवहार नीति अलग) — अपडेट में max over next actions प्रयुक्त होता है।\"", "priority_tag": "HIGH"}, {"question": "सुपरवाइज़्ड लर्निंग में 'precision' और 'recall' मेट्रिक्स किस प्रकार की समस्याओं के लिये महत्व रखते हैं?", "options": ["Classification (विशेषकर imbalance class scenarios)", "Regression prediction error", "Unsupervised clustering quality", "Dimensionality reduction robustness"], "answer_index": 0, "explanation": "# व्याख्या — सुपरवाइज़्ड लर्निंग में 'precision' और 'recall' का महत्व (Classification, विशेषकर class imbalance)\n- Precision और Recall दोनों मैट्रिक्स supervised learning की classification समस्याओं में प्रयुक्त होते हैं, जहाँ लक्ष्य इनपुट को पहले से परिभाषित वर्गों (labels) में बाँटना होता है।\n- Precision का अर्थ है — मॉडल द्वारा positive (लक्षित) के रूप में जो भविष्यवाणी की गई, उनमें से कितनी वास्तविक में सही थीं; फ़ॉर्मूला: Precision = TP / (TP + FP)।\n- Recall (सेंसिटिविटी या TPR) बताता है — वास्तविक positive मानों में से मॉडल ने कितने सही पकड़ लिये; फ़ॉर्मूला: Recall = TP / (TP + FN)।\n- Confusion matrix (TP, FP, TN, FN) पर Precision और Recall परिभाषित होते हैं; ये दोनों false positives और false negatives के अलग–अलग प्रभाव को दिखाते हैं।\n- जब class imbalance हो (एक वर्ग बहुत कम और दूसरा बहुत अधिक उदाहरणों वाला), तब सामान्य accuracy बहुतेरी बार भ्रामक होती है; ऐसे मामलों में Precision और Recall अधिक सचेतक और उपयोगी होते हैं।\n- Imbalanced classification के परिप्रेक्ष्य में: यदि positive वर्ग दुर्लभ पर महत्वपूर्ण है (जैसे धोखाधड़ी के लेन-देन), तो उच्च Recall सुनिश्चित करता है कि अधिक वास्तविक धोखाधड़ी पकड़ी जाएँ; Precision भी आवश्यक है ताकि False alarms सीमित रहें।\n- Precision–Recall trade-off को समझकर threshold adjustment द्वारा मॉडल को विशेष उद्देश्य (कम FP या कम FN) के अनुसार ट्यून किया जा सकता है; F1-score (2·Precision·Recall/(Precision+Recall)) एक समेकित माप है जब दोनों की साम्य आवश्यकता हो।\n- डिजिटल क्षेत्र में MP जैसे राज्य के ई‑गवर्नेंस अनुप्रयोगों (उदा. दस्तावेज़ सत्यापन, ऑनलाइन शिकायत वर्गीकरण, डिजिटल भुगतान धोखाधड़ी पहचान) में गलत चेतावनियाँ और चूकें अलग-अलग प्रशासनिक और उपयोगकर्ता लागत उत्पन्न करती हैं; इसलिए Precision और Recall दोनों का विश्लेषण आवश्यक है।\n- मॉडल का चयन और मूल्यांकन करते समय Precision‑Recall curve का उपयोग ROC से बेहतर हो सकता है, खासकर जब positive class अनुपात बहुत कम हो।\n- प्रशिक्षण/मूल्यांकन चरण में class imbalance से निपटने के लिए re-sampling, class weights, और threshold tuning जैसे उपाय अपनाए जाते हैं ताकि Precision और Recall लक्षित अनुप्रयोग के अनुसार उपयुक्त रहें।\n- Mains उत्तर लिखते समय सीधे बिंदु के रूप में उल्लेख करें: \"Precision और Recall classification metrics हैं, विशेषकर class imbalance वाले परिदृश्यों (जैसे डिजिटल भुगतान धोखाधड़ी) में मॉडल की उपयोगिता और व्यवहारिक लागत का स्पष्ट संकेत देती हैं।\"", "priority_tag": "VERY_HIGH"}, {"question": "Unsupervised learning में 'hierarchical clustering' का मुख्य लाभ क्या है?", "options": ["डाटा के मल्टी-लेवल समूह संरचना को दिखाना", "टार्गेट वैरिएबल का अनुमान लगाना", "रिइन्फोर्समेंट पॉलिसी बनाना", "लेबल्स को स्वतः उत्पन्न कर देना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सुपरवाइज़्ड एल्गोरिथ्म 'Support Vector Machine (SVM)' का मुख्य लक्ष्य क्या है?", "options": ["दो क्लासेज के बीच margin को maximize करना", "डेटा को सीमांत त्रुटि से पुनर्निर्माण करना", "रिवॉर्ड को अधिकतम करना", "फीचर स्पेस को घटाना"], "answer_index": 0, "explanation": "# सुपरवाइज़्ड एल्गोरिथ्म: Support Vector Machine (SVM) — व्याख्या (MPPSC Prelims 2026 हेतु)\n- SVM का मुख्य गणितीय उद्देश्य दो अलग-अलग क्लासेज के बीच ऐसा निर्णय-रेखा (decision boundary) खोजना है जो दोनों क्लासेज के बीच का margin अधिकतम करे।\n- यहाँ “margin” का अर्थ है निर्णय-रेखा और सबसे नज़दीकी प्रशिक्षण उदाहरणों (support vectors) के बीच की न्यूनतम दूरी।\n- अधिकतम margin से मॉडल की सामान्यीकरण क्षमता (generalization) बेहतर होती है; अर्थात् unseen डेटा पर गलती कम होने की सम्भावना घटती है।\n- SVM में वही प्रशिक्षण बिंदु जिनकी दूरी margin को परिभाषित करती है, उन्हें support vectors कहते हैं; ये मॉडल के परिणामों को स्थिर रूप से प्रभावित करते हैं।\n- SVM का इष्टतम समाधान एक convex optimization समस्या के रूप में रूपांतरित होता है और इसका समाधान global optimum देता है।\n- लाइनarly separable केस में SVM एक hyperplane खोजता है जो margin को maximize करने के लिए परिमित समिकरण (constraints) के तहत कार्य करता है।\n- Non-linear मामलों में kernel ट्रिक का उपयोग कर डेटा को उच्च-आयामी स्थान में मैप किया जाता है ताकि वहाँ पर margin maximize करने योग्य hyperplane मिल सके।\n- SVM में margin maximize करने के लिए Lagrange multipliers और quadratic programming तकनीकों का उपयोग सामान्य है।\n- Margin maximize करने का सिद्धान्त overfitting को नियंत्रित करने में सहायक होता है क्योंकि यह जटिलता के बजाय स्पष्ट अलगाव को प्राथमिकता देता है।\n- प्रैक्टिकल सेटिंग्स में soft-margin SVM उपयोगी है, जो margin maximize करते हुए कुछ misclassification की अनुमति देकर noisy या overlapping क्लासेज के साथ संतुलन बनाता है।\n- परीक्षा और Mains के उत्तर में संक्षेप में लिखें: “SVM का प्रमुख लक्ष्य दो क्लासेज के बीच margin को maximize कर एक स्थिर तथा बेहतर सामान्यीकरण वाला decision boundary प्राप्त करना है।”", "priority_tag": "HIGH"}, {"question": "अनसुपरवाइज़्ड 'density estimation' का उद्देश्य क्या होता है?", "options": ["डेटा वितरण का अनुमान लगाना", "लेबल्स का पूर्वानुमान करना", "एजेंट के लिए इनाम सेट करना", "हाइपरपैरामीटर तय करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सुपरवाइज़्ड मॉडल की generalization क्षमता मापने के लिए सबसे उपयुक्त तरीका क्या है?", "options": ["Train-test split या cross-validation पर परफॉर्मेंस देखना", "इंटरप्रेटेबिलिटी स्कोर बढ़ाना", "क्लस्टर सेंटर की दूरी नापना", "नैमरोड मॉडल पर regularization हटाना"], "answer_index": 0, "explanation": "# व्याख्या: सुपरवाइज़्ड मॉडल की Generalization क्षमता मापने का उपयुक्त तरीका\n_सही अवधारणा: Train–test split या cross‑validation पर परफॉर्मेंस देखना_\n1. Generalization का अर्थ: मॉडल का उन नए (unseen) उदाहरणों पर अच्छा प्रदर्शन देना जिन पर उसे ट्रेनिंग दौरान नहीं दिखाया गया था।\n2. Train–test split: उपलब्ध डेटा को अलग‑अलग भागों में बाँटना — एक हिस्सा मॉडल प्रशिक्षित करने (train set) और दूसरा परीक्षण के लिए (test set) — यही बेसिक तरीका है।\n3. Test set का उद्देश्य: ट्रेनिंग प्रक्रिया में उपयोग न होने वाला स्वतंत्र डेटा देकर वास्तविक अनुमानक्षमता (generalization) का मापन करना।\n4. Cross‑validation (उदा. k‑fold): डेटा को k हिस्सों में बाँटकर कई बार ट्रेन‑टेस्ट विभाजन कर प्रदर्शन का औसत निकालना; इससे मूल्यांकन का variance कम होता है।\n5. Metrics का उपयोग: accuracy, precision, recall, F1‑score, ROC‑AUC आदि का परीक्षण (test set / cross‑validation folds पर) करके मॉडल की सामान्यीकरण क्षमता संख्यात्मक रूप में मापते हैं।\n6. Overfitting/Underfitting पहचान: ट्रेनिंग पर बेहतर परफॉर्मेंस परोक्ष संकेत है; test/cross‑validation पर घटती परफॉर्मेंस overfitting का प्रमाण देती है।\n7. Hyperparameter tuning के लिए cross‑validation: मॉडल के पैरामीटर चुनते समय validation folds या nested cross‑validation का प्रयोग करके overfitting से बचा जाता है।\n8. डेटा विभाजन का नियम: test set को तब तक प्रयोग न करें जब तक अंतिम मूल्यांकन न करना हो — इससे अनजाने में डेटा‑लीकेज और अतिअनुकूलन टलता है।\n9. Imbalanced डेटा पर stratified splitting: वर्गों के अनुपात को बनाए रखने वाला (stratified) train‑test या cross‑validation विभाजन वर्ग‑संतुलन का ध्यान रखता है और विश्वसनीय मापन देता है।\n10. MP Digital पर लागू संदर्भ: सरकारी/स्थानीय डेटा पोर्टलों से लिए गए datasets पर मॉडल तैनाती से पहले train‑test split और cross‑validation करके सुनिश्चित करें कि मॉडल वास्तविक लोक उपयोग मामलों में भी सामान्यीकृत प्रदर्शन देगा।\n11. Reproducibility: डेटा विभाजन और random seed को मानकीकृत रखें ताकि परीक्षण के परिणाम दोहराए जा सकें और मॉडल प्रदर्शन सत्यापित हो सके।", "priority_tag": "VERY_HIGH"}, {"question": "Autoencoder मुख्यतः किसके लिये उपयोग होते हैं?", "options": ["Dimensionality reduction और anomaly detection", "Supervised classification", "Reinforcement policy learning", "Hyperparameter tuning"], "answer_index": 0, "explanation": "# Autoencoder — संक्षेप व्याख्या (Dimensionality reduction और Anomaly detection के लिए)\n- **Autoencoder** एक न्यूरल नेटवर्क संरचना है जो इनपुट डेटा को कम-आयामी प्रतिनिधित्व (latent space) में संकुचित कर फिर पुनर्निर्मित करता है।\n- नेटवर्क में दो भाग होते हैं: **Encoder** (इम्पुट को latent vector में बदलता है) और **Decoder** (latent vector से मूल डेटा पुनर्निर्माण करता है)।\n- **Dimensionality reduction** में Autoencoder का लक्ष्य सूचना को कम मात्राओं में समेटना है, जिससे डेटा की प्रमुख विशेषताएँ (features) संचित रहती हैं।\n- Autoencoder द्वारा सीखे गए latent representation को PCA/other techniques के विकल्प के रूप में उपयोग किया जा सकता है, विशेषकर जब नॉन‑लिनियर संबंध मौजूद हों।\n- **Reconstruction error** (मूल इनपुट और पुनर्निर्मित आउटपुट के बीच त्रुटि) dimensionality reduction के साथ-साथ anomaly detection का मूल संकेत बनता है।\n- **Anomaly detection** में सामान्य (normal) डेटा पर प्रशिक्षित Autoencoder कम reconstruction error देता है; असामान्य नमूनों में त्रुटि अपेक्षाकृत अधिक रहती है, जिससे अनोमली का पता चलता है।\n- विभिन्न प्रकार के Autoencoders (जैसे Denoising, Variational) विशिष्ट परिस्थितियों में बेहतर फीचर पकड़ने और अनोमली पहचानने में उपयुक्त होते हैं।\n- प्रशिक्षण के समय reconstruction loss (जैसे MSE) को न्यूनतम कर के Autoencoder सामान्य डेटा की प्रतिनिधि संरचना सीखता है; यह supervised लेबल की आवश्यकता के बिना काम कर सकता है।\n- Dimensionality reduction से डेटा स्टोरेज, विज़ुअलाइज़ेशन और कंप्यूटेशनल लागत कम होती है — जबकि अनोमली डिटेक्शन से डिजिटल लेनदेन, लॉग मॉनिटरिंग और साइबर‑सुरक्षा में त्वरित चेतावनी संभव है।\n- राज्य‑स्तरीय डिजिटल प्रणालियों (जैसे e‑Governance लॉग, भुगतान ट्रांज़ैक्शन) में Autoencoder आधारित anomaly detection का प्रयोग संदिग्ध गतिविधियों का प्राथमिक संकेत देने के लिये किया जा सकता है।\n- Autoencoder का latent space क्लस्टरिंग और downstream supervised मॉडल के लिए बेहतर इनपुट फीचर्स भी प्रदान कर सकता है, जिससे डिजिटल सेवाओं की निगरानी और विश्लेषण सशक्त बनते हैं।", "priority_tag": "HIGH"}, {"question": "Gradient Descent किस प्रकार की समस्या का समाधान ढूँढने में मदद करता है?", "options": ["Loss function को minimize करना", "डेटा को क्लस्टर में बाँटना", "रिइन्फोर्समेंट में इनाम निकालना", "लेबल जनरेशन"], "answer_index": 0, "explanation": "# **विषय: Gradient Descent — Loss Function को minimize करना (सटीक व्याख्या)**\n- Gradient Descent एक अनुकूलन (optimization) एल्गोरिद्म है जिसका उद्देश्य किसी मॉडल की **loss function** का मान न्यूनतम करना होता है।\n- Loss function वह गणितीय फलन है जो मॉडल की भविष्यवाणी और वास्तविक मानों के बीच त्रुटि को मापता है; Gradient Descent इसे कम करने के लिए पैरामीटर समायोजित करता है।\n- एल्गोरिथ्म प्रत्येक पुनरावृत्ति (iteration) में loss के ढाल (gradient) की दिशा और परिमाण का उपयोग करके पैरामीटर में परिवर्तन करता है।\n- पैरामीटर अपडेट का सामान्य सूत्र:\n  ```\n  θ := θ − α * ∇L(θ)\n  ```\n  जहाँ θ मॉडल पैरामीटर, α learning rate और ∇L(θ) loss का gradient है।\n- Learning rate (α) का चयन संतुलन है: बहुत बड़ा होने पर divergence, बहुत छोटा होने पर धीमी अभिसरण (slow convergence) होता है।\n- Convex loss functions में Gradient Descent ग्लोबल न्यूनतम (global minimum) तक पहुँचना सुनिश्चित कर सकता है; non-convex मामलों में यह अक्सर स्थानीय न्यूनतम या saddle points पर रुक सकता है।\n- बैचिंग के आधार पर विभिन्न प्रकार: Batch Gradient Descent (संपूर्ण डेटा), Stochastic Gradient Descent (एक सैंपल), और Mini-batch Gradient Descent—ये तरीक़े व्यवहार्य प्रशिक्षण समय और स्थिरता प्रभावित करते हैं।\n- Gradient Descent में रोकने के मानदंड (stopping criteria) जैसे: loss में परिवर्तन का बहुत छोटा होना, gradient का अभ्यास में छोटा होना, या अधिकतम epoch पहुँचना—ये convergence का संकेत देते हैं।\n- नियमितीकरण (regularization) जैसे L1/L2 loss में जोड़ने से Gradient Descent पैरामीटर का आकार नियंत्रित कर लक्ष्य loss के साथ जनरलाइज़ेशन बेहतर बनाता है।\n- प्रायोगिक सेटिंग में Gradient Descent के प्रदर्शन को सुधारने के लिए momentum, RMSProp, Adam जैसे उन्नत अनुकूलन विधियाँ उपयोग की जाती हैं; ये gradient की दिशा एवं learning rate के अनुकूलन से तेज और स्थिर convergence देते हैं।\n- सुपरवाइज्ड लर्निंग में मॉडल प्रशिक्षण का प्रमुख चरण Gradient Descent के ज़रिये loss minimize करना ही होता है — इसलिए यह मॉडल की गुणवत्ता और भविष्यवाणी शुद्धता निर्धारित करने में केंद्रीय भूमिका निभाता है।", "priority_tag": "VERY_HIGH"}, {"question": "Mini-batch gradient descent का मुख्य लाभ क्या है?", "options": ["कम्प्यूटेशनल efficiency और स्टोकेस्टिक नॉइज़ के साथ स्थिर convergence", "हमेशा global minimum सुनिश्चित करना", "डेटा को लंबे समय तक स्टोर करना", "क्लस्टर संख्या अपने आप चुनना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Unsupervised learning में 'silhouette score' किस काम आता है?", "options": ["क्लस्टरिंग गुणवत्ता का मात्रात्मक मूल्यांकन", "रिइन्फोर्समेंट में इनाम स्केलिंग", "सुपरवाइज़्ड accuracy बढ़ाने", "डेटा और लेबल का मॅपिंग तय करने"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Policy Gradient विधियाँ रिइन्फोर्समेंट लर्निंग में किसके प्रत्यक्ष अनुकूलन के लिए प्रयुक्त होती हैं?", "options": ["पॉलिसी के पैरामीटरों द्वारा expected reward को maximize करना", "Q-values का reconstruction करना", "डेटा का dimensionality घटाना", "लेबल की सटीकता बढ़ाना"], "answer_index": 0, "explanation": "# व्याख्या: Policy Gradient विधियाँ — पॉलिसी के पैरामीटरों द्वारा Expected Reward को Maximize करना\n- Policy Gradient विधियाँ रिइन्फोर्समेंट लर्निंग (RL) का एक प्रमुख वर्ग हैं जिनका उद्देश्य पॉलिसी πθ(a|s) के पैरामीटर θ को सीधे अनुकूलित करके अपेक्षित (expected) reward को अधिकतम करना होता है।\n- यहाँ \"पॉलिसी\" एक पैरामीट्रिक फंक्शन होती है जो किसी राज्य s में क्रिया a चुनने की प्रायिकता देता है; पैरामीटर θ को अपडेट कर के निर्णय-नीति बदली जाती है।\n- अनुकूलन का लक्ष्य J(θ) = E_{τ∼πθ}[R(τ)] जैसी अपेक्षित reward फ़ंक्शन को बढ़ाना होता है, जहाँ τ trajectory और R(τ) उसकी कुल reward है।\n- Policy Gradient नियम गणितीय रूप से ∇θ J(θ) = E[∇θ log πθ(a|s) · G] के रूप में व्यक्त होता है; यह सीधे पैरामीटर θ के संदर्भ में gradient प्रदान करता है।\n- इस ग्रेडिएंट अनुमान में सामान्यतः Monte Carlo सैंपलिंग या advantage estimators (जैसे G - baseline) उपयोग किए जाते हैं ताकि variance घटे और सीखने की स्थिरता बढ़े।\n- विधियों में Stochastic Gradient Ascent का उपयोग कर θ अपडेट किया जाता है: θ ← θ + α ∇θ J(θ), जहाँ α learning rate है।\n- Policy Gradient सक्षम हैं continuous action spaces और stochastic policies को सीधे हैंडल करने के लिए, क्योंकि वे प्रायिकता वितरण के पैरामीटरों को अनुकूलित करते हैं।\n- Actor-Critic संरचनाएँ Policy Gradient का व्यावहारिक विस्तार हैं जहाँ Actor पॉलिसी θ को अपडेट करता है और Critic मूल्य फ़ंक्शन से advantage/gradient संकेत देता है।\n- Policy Gradient विधियाँ reward सिग्नल पर सीधे काम करती हैं; इसलिए reward shaping, baseline और entropy regularization जैसे तकनीकें सीखने की गति और स्थिरता सुधारने के लिए जरूरी हैं।\n- MP डिजिटल क्षेत्र में नीति-आधारित RL का सीधा उपयोग सिमुलेटेड decision-making (उदा. स्मार्ट सर्विस डिलीवरी योजना, ऑटो-टूकाॅल रूटिंग) में किया जा सकता है जहाँ नीतियों के पैरामीटर को expected उपयोगकर्ता-लाभ (reward) अधिकतम करने के लिए ट्यून किया जाता है।\n- Mains GS उत्तर में इस बिंदु को सीधे लिखें: \"Policy Gradient विधियाँ पॉलिसी के पैरामीटरों को सीधे अनुकूलित करके अपेक्षित reward अधिकतम करती हैं; इसलिए वे stochastic/continuous action समस्याओं और actor-critic फ्रेमवर्क में उपयोगी हैं।\"\n- परीक्षा के लिए याद रखने योग्य सारांश बिंदु: लक्ष्य — J(θ) maximize; तरीका — ∇θ log πθ × reward; अपडेट — gradient ascent; उपयोग — continuous actions और नीति-आधारित निर्णय सुधार।", "priority_tag": "HIGH"}, {"question": "Cross-validation में 'k-fold' के प्रयोग का मुख्य उद्देश्य क्या है?", "options": ["मॉडल की generalization क्षमता کا अधिक विश्वसनीय अनुमान देना", "सिर्फ ट्रेनिंग टाइम घटाना", "लेबल्स को स्वतः generate करना", "रिइन्फोर्समेंट step को बढ़ाना"], "answer_index": 0, "explanation": "# व्याख्या: k‑fold Cross‑validation का मुख्य उद्देश्य — मॉडल की generalization क्षमता का अधिक विश्वसनीय अनुमान देना\n- k‑fold cross‑validation में उपलब्ध डाटा को k बराबर हिस्सों (folds) में बांटा जाता है और हर बार एक fold परीक्षण (validation) के लिए तथा शेष k‑1 folds प्रशिक्षण के लिए इस्तेमाल होते हैं, जिससे मॉडल की सामान्यीकरण क्षमता का औसत गुणांक मिलता है।\n- यह पद्धति सीमित डेटा सेट पर भी बाहर‑सैंपल (out‑of‑sample) प्रदर्शन का अधिक भरोसेमंद अनुमान देती है क्योंकि हर उदाहरण कई बार ट्रेन और एक बार वैलिडेशन में आता है।\n- अलग‑अलग folds पर प्राप्त मानदण्डों (metrics) का औसत निकाल कर मॉडल के वास्तविक दुनिया में प्रदर्शन के अनुमान से आवेग‑(variance) प्रभावित परिणाम कम होते हैं।\n- k‑fold से मिलने वाला औसत मान मॉडल के overfitting या underfitting का संकेत देता है: यदि प्रशिक्षण पर बहुत अच्छा और cross‑validation पर कमजोर है तो overfitting की आशंका होती है।\n- hyperparameter tuning (जैसे regularization, tree depth, learning rate) करते समय k‑fold cross‑validation भरोसेमंद वैधता देता है — अलग सेटिंग्स का तुलनात्मक औसत मूल्यांकन संभव बनता है।\n- सामान्यतः k की मानक मान्यताएँ 5 या 10 हैं; छोटे k (जैसे 2) से उतार‑चढ़ाव बढ़ता है और बड़े k (जैसे LOOCV) से कम्प्यूटेशनल लागत तथा संभावित उच्च वैरिएंस होता है।\n- यदि वर्ग‑असंतुलन हो तो stratified k‑fold का उपयोग किया जाता है ताकि प्रत्येक fold में वर्ग वितरण मूल डेटा के अनुरूप बना रहे और जनरलाइज़ेशन अनुमान सटीक रहे।\n- k‑fold cross‑validation के परिणाम से मॉडल चयन (model selection) और संसाधन नियोजन (deployment readiness) के निर्णय अधिक प्रमाणिक तरीके से लिए जा सकते हैं, विशेषकर सरकारी डिजिटल एप्लिकेशन में जहाँ वास्तविक‑विश्व विविधता मौजूद है।\n- MP जैसे क्षेत्रीय डिजिटल पहल (उदा. ई‑गवर्नेंस मॉड्यूल) में मॉडल को विभिन्न जिलों/जनसंख्या समूहों पर लागू करने से पहले k‑fold से मिली जनरलाइज़ेशन रिपोर्ट से विहंगम भरोसा मिलता है कि मॉडल अलग‑अलग क्षेत्रों में व्यवहार कर सकेगा।\n- k‑fold cross‑validation के साथ प्राप्त मानदण्डों (जैसे accuracy, precision, recall, F1, AUC) का संयोजन निर्णय‑निर्माण में प्रयुक्त किया जा सकता है ताकि नीति‑स्तर पर मॉडल की विश्वसनीयता साबित होगी।\n- व्यावहारिक उपयोग में k‑fold को प्रशिक्षण‑वैलिडेशन के मानक अभ्यास के रूप में अपनाया जाता है क्योंकि यह single train/test split से मिलने वाले बेतथ्य (biased) और अस्थिर अनुमान से सुरक्षित रखता है।", "priority_tag": "VERY_HIGH"}, {"question": "कौन-सा इंडिकेटर supervised classification में imbalance classes के प्रभाव को मापने के लिए ज़्यादातर उपयोगी नहीं है?", "options": ["Accuracy", "F1-score", "Precision", "Recall"], "answer_index": 0, "explanation": "# व्याख्या: क्यों **Accuracy** imbalance classes वाले supervised classification में ज़्यादातर उपयोगी नहीं है\n- **Accuracy का परिभाषा**: कुल सही भविष्यवाणियों (True Positives + True Negatives) का कुल परीक्षणों पर अनुपात; सरलता से कुल मिलाकर सही दर बताता है।\n- **इम्पेलेंस क्लास समस्या**: जब किसी क्लास का अनुपात बहुत छोटा (rare event) या बहुत बड़ा हो, तो Accuracy वास्तविक वर्गीकरण प्रदर्शन की भ्रामक छवि दे सकता है।\n- **बस 'majority' का लाभ**: imbalance में मॉडल सिर्फ बहुसंख्यक क्लास अनुमान कर भी ऊँचा Accuracy दे सकता है; परन्तु दुर्लभ परकार की पहचान न के बराबर हो सकती है।\n- **कम संवेदनशीलता (Sensitivity) छिप सकती है**: Accuracy बताती है कि कुल कितने सही हुए, पर यह यह नहीं बताती कि दुर्लभ पॉज़िटिव केस कितने सही पकड़े गए (false negatives का प्रभाव)।\n- **संदर्भ-निर्भर लागत अनदेखा करती है**: रक्षा, स्वास्थ्य, या फ्रॉड जैसे अनुप्रयोगों में दुर्लभ गलती की लागत अधिक होती है; Accuracy इन लागतों को परिभाषित या परख नहीं पाती।\n- **कन्फ्यूज़न मैट्रिक्स की आवश्यकता**: imbalance का सही आकलन करने के लिए TP, FP, TN, FN का विभाजन देखना ज़रूरी है; केवल Accuracy से यह विभाजन स्पष्ट नहीं होता।\n- **बेटर विकल्पों की आवश्यकता**: imbalance स्थिति में Precision, Recall (Sensitivity), F1-score, ROC-AUC आदि मेट्रिक्स अधिक सूचनात्मक होते हैं क्योंकि वे class-wise प्रदर्शन और trade-offs दिखाते।\n- **MP डिजिटल अनुप्रयोगों का प्रत्यक्ष असर**: राज्य के डिजिटल सर्विसेज (जैसे फ्रॉड डिटेक्शन, विरल स्वास्थ्य चेतावनी) में दुर्लभ परमानियों का सही पता लगाना ज़रूरी है; इसलिए सिर्फ Accuracy पर भरोसा गलत नीति/डिप्लॉयमेंट निर्णय दे सकता है।\n- **मॉडल मूल्यांकन का समग्र दृष्टिकोण**: imbalance datasets पर मॉडल का मूल्यांकन करते समय class-wise मैट्रिक्स, कॉस्ट-सेंसिटिव मूल्यांकन और समायोजित thresholds ज़रूरी हैं — केवल Accuracy अपर्याप्त और कभी-कभी भ्रामक रहती है।\n- **प्रैक्टिकल चेतावनी**: आकड़ों में imbalance होने पर रिपोर्टिंग में हमेशा class-wise रिपोर्ट और confusion matrix शामिल करें; Accuracy को सहायक सूचना के रूप में ही रखें, निर्णय के लिए प्रमुख मापदंड न बनायें।", "priority_tag": "HIGH"}, {"question": "किस विधि से labeled data की कमी में अनसुपरवाइज़्ड डेटा का उपयोग कर सुपरवाइज़्ड मॉडल में सुधार किया जा सकता है?", "options": ["Semi-supervised learning", "Q-Learning", "K-Means only", "Pure PCA"], "answer_index": 0, "explanation": "# व्याख्या: Semi-supervised learning (अर्द्ध‑नियंत्रित अधिगम)\n**परिभाषा और मूल सिद्धान्त**\n- Semi‑supervised learning वह विधि है जिसमें थोड़े से labeled डेटा और बड़े पैमाने पर unlabeled डेटा को एक साथ उपयोग कर supervised मॉडल का प्रशिक्षण और प्रदर्शन बेहतर किया जाता है।\n- इसका मुख्य विचार यह है कि unlabeled डेटा से संरचना (structure), क्लस्टरिंग या डेटा वितरण के पैटर्न सीख कर labels की कमी को पूरा किया जा सकता है।\n**प्रमुख तकनीकें (संदर्भ के तौर पर परीक्षा में संक्षेप में लिखने योग्य)**\n- Self‑training / pseudo‑labeling: मॉडल पहले labeled डेटा पर प्रशिक्षित होता है, फिर unlabeled उदाहरणों पर confident predictions को pseudo‑labels बनाकर पुनः प्रशिक्षण में जोड़ा जाता है।\n- Consistency regularization: मॉडल को data perturbations (augmentation) के तहत स्थिर predictions देने के लिए नियमितीकृत किया जाता है—यह unlabeled डेटा से उपयोगी संकेत निकालता है।\n- Graph‑based methods: डेटा पॉइंट्स को ग्राफ में नोड्स माना जाता है और लेबल्स को ग्राफ पर फैलाने (label propagation) से unlabeled नोड्स के लिए अनुमान लगाए जाते हैं।\n- Co‑training / multi‑view methods: यदि डेटा के अलग‑अलग व्यूज़ उपलब्ध हों तो अलग मॉडलों को अलग-अलग व्यू पर प्रशिक्षित कर एक दूसरे से pseudo‑labels प्राप्त किए जाते हैं।\n**लाभ और उपयोगिता (MP/Digital संदर्भ में परीक्षा‑उत्तर के लिए)**\n- labeled डेटा की लागत/समय अधिक होने पर semi‑supervised approach लागत कम कर मॉडल की सटीकता और सामान्यीकरण क्षमता बढ़ाती है।\n- ई‑गवर्नेंस, डिजिटल सेवाओं या शिकायत वर्गीकरण जैसे MP‑स्तरीय कार्यों में सीमित annotated केस व विशाल unlabeled लॉग/फॉर्म/टिकट डेटा के उपयोग से मॉडल स्केल किया जा सकता है।\n- यदि labeled डेटा असंतुलित हो तो unlabeled डेटा के उपयोग से दुर्लभ क्लासेस के लिए भी प्रदर्शन सुधारा जा सकता है।\n**मूल धारणा और मूल्यांकन**\n- Semi‑supervised methods अक्सर \"smoothness\", \"cluster\" या \"manifold\" जैसी धारणाओं पर निर्भर करते हैं — समान डेटा पॉइंट्स/क्लस्टर समान लेबल साझा करते हैं।\n- मूल्यांकन के लिए पारंपरिक supervised metrics (accuracy, precision, recall, F1) उपयोग होते हैं; साथ ही pseudo‑label के confidence और unlabeled डेटा से होने वाले drift पर निगरानी आवश्यक है।\n**व्यवहारिक विचार और सीमाएँ**\n- यदि unlabeled डेटा में वितरण labeled डेटा से बहुत अलग हो तो गलत संकेत मिल सकते हैं—डेटा की गुणवत्ता एवं वितरण जाँचना अनिवार्य है।\n- pseudo‑labeling में गलत pseudo‑labels से error propagation का जोखिम होता है; इसलिए confidence thresholds और validation पर खास ध्यान रखें।\n- गोपनीयता और संवेदनशीलता (privacy) के मामलों में unlabeled नागरिक डाटा के उपयोग के लिए डेटा‑प्रोटेक्शन नियमों का पालन आवश्यक है।\n**सारांश (इम्तिहान/मेनस उत्तर के लिए त्वरित बिंदु)**\n- Semi‑supervised learning = labeled + unlabeled डेटा का संयोजनकर supervised मॉडल बेहतर बनाना।\n- प्रमुख विधियाँ: pseudo‑labeling, consistency regularization, graph‑based, co‑training।\n- उपयोग: कम labeled संसाधन में लागत‑प्रभावी, MP के डिजिटल/ई‑गवर्नेंस अनुप्रयोगों के लिए उपयुक्त, पर डेटा‑गुणवत्ता और privacy के अनुरूप सावधानी जरूरी।", "priority_tag": "VERY_HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

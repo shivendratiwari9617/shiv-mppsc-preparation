@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-128 – मोनोक्लोनल एंटीबॉडी—डायग्नोस्टिक्स/थेरेपी</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-128 – मोनोक्लोनल एंटीबॉडी—डायग्नोस्टिक्स/थेरेपी</h1>
+        <div class="note">क्षेत्र: Health | सामग्री: टार्गेटेड; इम्यूनोथेरेपी/रैपिड टेस्ट। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 16-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- मोनोक्लोनल एंटीबॉडी (mAb) एक विशिष्ट क्लोन से उत्पन्न एक ही एंटीजन‑एपिटोप को पहचानने वाले इम्युनोग्लोब्युलिन हैं; हाइब्रिडोमा तकनीक (Köhler–Milstein, hybridoma) एवं recombinant DNA प्लेटफ़ॉर्म ने इन्हें therapeutics और diagnostics के लिए टार्गेटेबल बना दिया है, इसलिए MPPSC स्वास्थ्य-सिलेबस में यह विषय सार्वजनिक स्वास्थ्य और बायोटेक नीति दोनों से जुड़ता है।  
+
+# अवधारणा / विज्ञान‑आधार
+- mAb का उत्पादन पारंपरिक hybridoma (mouse B‑cell + myeloma fusion) और recombinant expression (CHO/HEK सेल लाइन पर humanized sequences) से होता है; recombinant platforms glycosylation और Fc‑engineering के माध्यम से ADCC/CDC प्रभाव नियंत्रित करते हैं।  
+- mAb का कार्य‑तंत्र मुख्यतः neutralization (वायरल एंटीज़न को ब्लॉक), opsonization/ADCC (NK‑cell mediated), और receptor blockade (जैसे anti‑PD1) के रूप में होता है; Fc‑region modifications half‑life (FcRn binding) और effector functions को प्रभावित करते हैं।  
+- आधुनिक mAb विविध रूपों में उपलब्ध हैं: humanized mAb, fully human mAb, antibody‑drug conjugates (ADC), bispecific antibodies (BsAb) और fragment (Fab/scFv) — प्रत्येक का clinical/pharmacokinetic profile अलग होता है और manufacturing complexity बढ़ाता है।  
+
+# डायग्नोस्टिक्स में उपयोग (Rapid tests / Point‑of‑care)
+- Lateral flow immunoassays (LFIA) में capture और detection के रूप में मात्र दो विशिष्ट mAb उपयोग होते हैं; उदाहरण‑सूरत: COVID‑19 antigen rapid tests जहाँ mAb ने antigen capture कर कर शीघ्र परिणाम दिए।  
+- Sandwich ELISA में capture‑mAb और enzyme‑linked detection‑mAb का संयोजन quantitative biomarker detection (hormones, infectious antigens) के लिए मानक है; ELISA से confirmatory testing के साथ rapid antigen tests का diagnostic algorithm जोड़ा गया।  
+- mAb आधारित immunoassays nucleic acid tests (RT‑PCR) के पूरक हैं: PCR genotype/viral load detect करता है जबकि mAb rapid tests antigen presence का तेज़ clinical decision support देते हैं; परिणामस्वरूप screening और surveillance धारित किए जा सकते हैं।  
+
+# थेरेपी/इम्यूनोथेरेपी में उपयोग
+- oncology में checkpoint inhibitors (anti‑PD1/PDL1, anti‑CTLA4) जैसे mAb ट्यूमर microenvironment में T‑cell exhaustion को उलटते हैं; ADCs cytotoxic payload target‑specific delivery करते हैं जिससे systemic toxicity कम होती है।  
+- संक्रमणों में neutralizing mAb (e.g., monoclonals against SARS‑CoV‑2 spike) passive immunotherapy के रूप में high‑risk रोगियों में प्रोफाइल्ड protection/therapy देती हैं; बादल‑variant sensitivity के कारण mAb cocktails और epitope mapping आवश्यक है।  
+- targeted immunotherapy के साथ combination therapy (mAb + small molecule inhibitors, mAb + radiotherapy) tumor heterogeneity और resistance mechanisms को address करने का वैज्ञानिक आधार है; companion diagnostics (IHC/flow cytometry using mAb) patient selection में जरूरी हैं।  
+
+# भारत‑केंद्रित नीतिगत एवं संस्थागत परिप्रेक्ष्य
+- DBT/BIRAC जैसी संस्थाएँ biopharma translation और indigenous mAb manufacturing को प्रमोट करती हैं; ICMR clinical trials और therapeutic guidelines के लिए protocol‑level oversight देती है, अतः public‑private partnerships के जरिए Make‑in‑India mAb capacity बढ़ सकती है।  
+- regulatory oversight clinical trial phases, biosimilar approval pathways और pharmacovigilance के लिए आवश्यक है; India में biotherapeutics के लिए वैश्विक GMP, biosimilar guidance और post‑marketing surveillance लागू किए जाने चाहिए।  
+- नीति‑स्तर पर cold‑chain logistics (2–8°C या deeper cold for some) और high cost of goods के कारण सार्वजनिक स्वास्थ्य कार्यक्रमों में mAb integration के लिए वित्तीय रणनीति (subsidy, pooled procurement) और local manufacturing incentives अनिवार्य हैं।  
+
+# सामाजिक‑आर्थिक प्रभाव और स्वास्थ्य सेवा परिणाम
+- mAb therapies की उच्च therapeutic efficacy कई गंभीर रोगों (cancer, autoimmune, severe infections) में mortality/morbidity घटा सकती है, पर उनकी प्रति‑dose लागत और biologics manufacturing CAPEX PHI/insurance‑coverage पर दबाव डालती है।  
+- rapid mAb‑based diagnostics तेजी से point‑of‑care screening को सक्षम करते हैं, जिससे outbreak response और antimicrobial stewardship में सुधार होता है; पर false‑negative due to antigenic drift का जोखिम surveillance के साथ mitigate करना पड़ेगा।  
+- स्थानीय biologics ecosystem विकसित करने से employment, skills (bioprocess engineering, QC, regulatory affairs) और research translation को लाभ होगा; परिणामस्वरूप health equity के लिए access‑driven pricing models ज़रूरी बनते हैं।  
+
+# चुनौतियाँ (technical, regulatory, ethical)
+- manufacturing challenges में consistent glycosylation, lot‑to‑lot variability, and viral clearance validation प्रमुख हैं; CHO‑based processes CAPEX और skilled workforce मांगते हैं।  
+- antigenic variation (viral mutations) और epitope escape mAb efficacy घटा सकते हैं; इसलिए epitope mapping, structural biology (cryo‑EM/X‑ray) और in‑vitro neutralization panels आवश्यक हैं।  
+- ethical/regulatory issues में equitable access, compassionate use protocols, biosimilar interchangeability और IPR/licensing agreements आते हैं; transparency in clinical trial data और pharmacovigilance reporting अनिवार्य है।  
+
+# समाधान/Way forward (policy + technical)
+- राष्ट्रीय स्तर पर integrated strategy: DBT/BIRAC‑ICMR coordination से translational pipelines, subsidized manufacturing hubs (biologics parks) और skill development (bioprocess engineering courses) से capability build करें; इससे supply security और cost reduction संभव है।  
+- technical roadmap में platform technologies (modular mammalian expression, single‑use bioreactors, continuous downstream processing) और analytic platforms (LC‑MS glycoanalysis, SPR affinity assays) का adoption बढ़ाएँ ताकि quality‑by‑design सुनिश्चित हो।  
+- diagnostics‑therapeutic integration: companion diagnostics regulation, real‑world evidence collection और adaptive approval pathways pandemic/critical care settings के लिए बनाएँ; परिणामस्वरूप timely access और safety दोनों सुनिश्चित होंगे।  
+
+# निष्कर्ष
+- संक्षेप में, मोनोक्लोनल एंटीबॉडी आधुनिक targeted immunotherapy और rapid diagnostics के केंद्र में हैं—hybridoma/recombinant प्लेटफॉर्म, ADC/BsAb/neutralizing mAbs और LFIA/ELISA‑based tests इनके प्रमुख उपकरण हैं; परन्तु manufacturing complexity, cost और regulatory governance पर केंद्रित नीतियाँ व तकनीकी निवेश आवश्यक हैं।  
+- दीर्घकाल में India‑centric manufacturing, DBT/BIRAC‑ICMR समन्वय और subsidized access models से mAb‑based interventions सार्वजनिक स्वास्थ्य के लिए सुलभ और टिकाऊ बन सकते हैं।  
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: DBT / BIRAC / ICMR</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-128 – मोनोक्लोनल एंटीबॉडी—डायग्नोस्टिक्स/थेरेपी", "coverage_note": "क्षेत्र: Health | सामग्री: टार्गेटेड; इम्यूनोथेरेपी/रैपिड टेस्ट। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n- मोनोक्लोनल एंटीबॉडी (mAb) एक विशिष्ट क्लोन से उत्पन्न एक ही एंटीजन‑एपिटोप को पहचानने वाले इम्युनोग्लोब्युलिन हैं; हाइब्रिडोमा तकनीक (Köhler–Milstein, hybridoma) एवं recombinant DNA प्लेटफ़ॉर्म ने इन्हें therapeutics और diagnostics के लिए टार्गेटेबल बना दिया है, इसलिए MPPSC स्वास्थ्य-सिलेबस में यह विषय सार्वजनिक स्वास्थ्य और बायोटेक नीति दोनों से जुड़ता है।  \n\n# अवधारणा / विज्ञान‑आधार\n- mAb का उत्पादन पारंपरिक hybridoma (mouse B‑cell + myeloma fusion) और recombinant expression (CHO/HEK सेल लाइन पर humanized sequences) से होता है; recombinant platforms glycosylation और Fc‑engineering के माध्यम से ADCC/CDC प्रभाव नियंत्रित करते हैं।  \n- mAb का कार्य‑तंत्र मुख्यतः neutralization (वायरल एंटीज़न को ब्लॉक), opsonization/ADCC (NK‑cell mediated), और receptor blockade (जैसे anti‑PD1) के रूप में होता है; Fc‑region modifications half‑life (FcRn binding) और effector functions को प्रभावित करते हैं।  \n- आधुनिक mAb विविध रूपों में उपलब्ध हैं: humanized mAb, fully human mAb, antibody‑drug conjugates (ADC), bispecific antibodies (BsAb) और fragment (Fab/scFv) — प्रत्येक का clinical/pharmacokinetic profile अलग होता है और manufacturing complexity बढ़ाता है।  \n\n# डायग्नोस्टिक्स में उपयोग (Rapid tests / Point‑of‑care)\n- Lateral flow immunoassays (LFIA) में capture और detection के रूप में मात्र दो विशिष्ट mAb उपयोग होते हैं; उदाहरण‑सूरत: COVID‑19 antigen rapid tests जहाँ mAb ने antigen capture कर कर शीघ्र परिणाम दिए।  \n- Sandwich ELISA में capture‑mAb और enzyme‑linked detection‑mAb का संयोजन quantitative biomarker detection (hormones, infectious antigens) के लिए मानक है; ELISA से confirmatory testing के साथ rapid antigen tests का diagnostic algorithm जोड़ा गया।  \n- mAb आधारित immunoassays nucleic acid tests (RT‑PCR) के पूरक हैं: PCR genotype/viral load detect करता है जबकि mAb rapid tests antigen presence का तेज़ clinical decision support देते हैं; परिणामस्वरूप screening और surveillance धारित किए जा सकते हैं।  \n\n# थेरेपी/इम्यूनोथेरेपी में उपयोग\n- oncology में checkpoint inhibitors (anti‑PD1/PDL1, anti‑CTLA4) जैसे mAb ट्यूमर microenvironment में T‑cell exhaustion को उलटते हैं; ADCs cytotoxic payload target‑specific delivery करते हैं जिससे systemic toxicity कम होती है।  \n- संक्रमणों में neutralizing mAb (e.g., monoclonals against SARS‑CoV‑2 spike) passive immunotherapy के रूप में high‑risk रोगियों में प्रोफाइल्ड protection/therapy देती हैं; बादल‑variant sensitivity के कारण mAb cocktails और epitope mapping आवश्यक है।  \n- targeted immunotherapy के साथ combination therapy (mAb + small molecule inhibitors, mAb + radiotherapy) tumor heterogeneity और resistance mechanisms को address करने का वैज्ञानिक आधार है; companion diagnostics (IHC/flow cytometry using mAb) patient selection में जरूरी हैं।  \n\n# भारत‑केंद्रित नीतिगत एवं संस्थागत परिप्रेक्ष्य\n- DBT/BIRAC जैसी संस्थाएँ biopharma translation और indigenous mAb manufacturing को प्रमोट करती हैं; ICMR clinical trials और therapeutic guidelines के लिए protocol‑level oversight देती है, अतः public‑private partnerships के जरिए Make‑in‑India mAb capacity बढ़ सकती है।  \n- regulatory oversight clinical trial phases, biosimilar approval pathways और pharmacovigilance के लिए आवश्यक है; India में biotherapeutics के लिए वैश्विक GMP, biosimilar guidance और post‑marketing surveillance लागू किए जाने चाहिए।  \n- नीति‑स्तर पर cold‑chain logistics (2–8°C या deeper cold for some) और high cost of goods के कारण सार्वजनिक स्वास्थ्य कार्यक्रमों में mAb integration के लिए वित्तीय रणनीति (subsidy, pooled procurement) और local manufacturing incentives अनिवार्य हैं।  \n\n# सामाजिक‑आर्थिक प्रभाव और स्वास्थ्य सेवा परिणाम\n- mAb therapies की उच्च therapeutic efficacy कई गंभीर रोगों (cancer, autoimmune, severe infections) में mortality/morbidity घटा सकती है, पर उनकी प्रति‑dose लागत और biologics manufacturing CAPEX PHI/insurance‑coverage पर दबाव डालती है।  \n- rapid mAb‑based diagnostics तेजी से point‑of‑care screening को सक्षम करते हैं, जिससे outbreak response और antimicrobial stewardship में सुधार होता है; पर false‑negative due to antigenic drift का जोखिम surveillance के साथ mitigate करना पड़ेगा।  \n- स्थानीय biologics ecosystem विकसित करने से employment, skills (bioprocess engineering, QC, regulatory affairs) और research translation को लाभ होगा; परिणामस्वरूप health equity के लिए access‑driven pricing models ज़रूरी बनते हैं।  \n\n# चुनौतियाँ (technical, regulatory, ethical)\n- manufacturing challenges में consistent glycosylation, lot‑to‑lot variability, and viral clearance validation प्रमुख हैं; CHO‑based processes CAPEX और skilled workforce मांगते हैं।  \n- antigenic variation (viral mutations) और epitope escape mAb efficacy घटा सकते हैं; इसलिए epitope mapping, structural biology (cryo‑EM/X‑ray) और in‑vitro neutralization panels आवश्यक हैं।  \n- ethical/regulatory issues में equitable access, compassionate use protocols, biosimilar interchangeability और IPR/licensing agreements आते हैं; transparency in clinical trial data और pharmacovigilance reporting अनिवार्य है।  \n\n# समाधान/Way forward (policy + technical)\n- राष्ट्रीय स्तर पर integrated strategy: DBT/BIRAC‑ICMR coordination से translational pipelines, subsidized manufacturing hubs (biologics parks) और skill development (bioprocess engineering courses) से capability build करें; इससे supply security और cost reduction संभव है।  \n- technical roadmap में platform technologies (modular mammalian expression, single‑use bioreactors, continuous downstream processing) और analytic platforms (LC‑MS glycoanalysis, SPR affinity assays) का adoption बढ़ाएँ ताकि quality‑by‑design सुनिश्चित हो।  \n- diagnostics‑therapeutic integration: companion diagnostics regulation, real‑world evidence collection और adaptive approval pathways pandemic/critical care settings के लिए बनाएँ; परिणामस्वरूप timely access और safety दोनों सुनिश्चित होंगे।  \n\n# निष्कर्ष\n- संक्षेप में, मोनोक्लोनल एंटीबॉडी आधुनिक targeted immunotherapy और rapid diagnostics के केंद्र में हैं—hybridoma/recombinant प्लेटफॉर्म, ADC/BsAb/neutralizing mAbs और LFIA/ELISA‑based tests इनके प्रमुख उपकरण हैं; परन्तु manufacturing complexity, cost और regulatory governance पर केंद्रित नीतियाँ व तकनीकी निवेश आवश्यक हैं।  \n- दीर्घकाल में India‑centric manufacturing, DBT/BIRAC‑ICMR समन्वय और subsidized access models से mAb‑based interventions सार्वजनिक स्वास्थ्य के लिए सुलभ और टिकाऊ बन सकते हैं।  \n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: DBT / BIRAC / ICMR", "mcqs": [{"question": "मोनोक्लोनल एंटीबॉडी (mAb) की परिभाषा में कौन-सा वाक्य शुद्ध है?", "options": ["एक ही B‑कोशिका क्लोन से उत्पन्न और एक ही एंटीजन एपिटोप को मान्यता देने वाली पहचानात्मक समान एंटीबॉडी का समूह", "विभिन्न B‑कोशिका क्लोन से उत्पन्न कई प्रकार की एंटीबॉडी का मिश्रण जो एक से अधिक एपिटोप को मान्यता देता है", "न केवल प्रोटीन बल्कि किसी भी छोटे मॉलिक्यूल को केवल T‑सेल द्वारा पहचाना जाने वाला एंटीबॉडी", "कोशिका के अनौपचारिक संक्रमण पर बनने वाली अस्थायी बहुलक एंटीबॉडी श्रेणी"], "answer_index": 0, "explanation": "# व्याख्या — मोनोक्लोनल एंटीबॉडी (mAb) की परिभाषा (MPPSC Prelims/ Mains उपयोग हेतु)\n- मोनोक्लोनल एंटीबॉडी वही एंटीबॉडी समूह हैं जो एक ही B‑कोशिका क्लोन से उत्पन्न होते हैं, इसलिए उनकी संरचना और गुण एकरस (identical) होते हैं।\n- ये एंटीबॉडी एक ही एंटीजन के एक ही एपिटोप (विशेष बाँधने वाली साइट) को मान्यता देते हैं — इसलिए उनकी विशिष्टता बहुत उच्च होती है।\n- एकरसता के कारण mAb का प्रयोग डायग्नोस्टिक्स में अत्यधिक संवेदनशील और विशिष्ट परीक्षण देने के लिए होता है (जैसे ELISA, इम्यूनोहिस्टोकेमिस्ट्री)।\n- थेरेपी में mAb लक्षित अणु/रिसेप्टर को सीधे अवरुद्ध कर सकते हैं, रोगजनक प्रोटीन को neutralize कर सकते हैं, या इम्यूनो-फ़ंक्शनों (ADCC, CDC) के माध्यम से कोशिकाओं का नाश करवा सकते हैं।\n- मोनोक्लोनल एंटीबॉडी सामान्यतः एक ही आइसोटाइप की होती हैं और उनकी बाइंडिंग साइटें समान होने से उत्पादन में मानकीकरण और गुणात्मक नियंत्रण सुगम होता है।\n- उत्पादन के पारंपरिक तरीके में एक B‑कोशिका को म्यूरिन/हाइब्रिडोमा तकनीक द्वारा स्थायी क्लोन में बदला जाता है; आधुनिक recombinant तकनीकें मानवीकृत या पूरी तरह मानव mAb बनाती हैं।\n- नैदानिक उपयोगों में mAb का लाभ: लक्षित कार्रवाई, कम ओवरऑल टॉक्सिसिटी (परंतु इम्यूनोजेनिसिटी का जोखिम शेष रह सकता है)।\n- गुणवत्ता/सुरक्षा हेतु mAb का शुद्धिकरण, टाइटर निर्धारण और बायोएक्टिविटी परीक्षण अनिवार्य होते हैं; नियमन के तहत इनके क्लीनिकल ट्रायल और लाइसेंसिंग मानक कड़े होते हैं।\n- फार्माकोविजिलेंस और ठोस रेपोर्तिंग जरूरी है क्योंकि थेरेप्यूटिक mAb का دیرینہ प्रभाव, प्रतिरक्षा प्रतिक्रिया या साइड‑इफेक्ट्स मॉनिटर करना आवश्यक होता है।\n- Mains GS (MP संदर्भ में) के लिये सीधे उपयोगी बिंदु: mAb आधारित डायग्नोस्टिक्स और थेरेपी स्वास्थ्य सेवाओं में लक्षित रोग प्रबंधन (जैसे संक्रमण, कैंसर, ऑटोइम्यून बीमारियाँ) में अहम हैं और राज्य स्वास्थ्य योजनाओं में इन्हें शामिल करने पर मूल्यांकन‑आधारित निर्णय चाहिए।", "priority_tag": "VERY_HIGH"}, {"question": "हाइब्रिडोमा तकनीक किस जोड़ी द्वारा विकसित की गयी थी, जिसके कारण मोनो‑क्लोनल एंटीबॉडी का उत्पादन संभव हुआ?", "options": ["कोहलर (Köhler) और मिलस्टीन (Milstein)", "फ्लेमिंग (Fleming) और पाजेट (Pascal)", "गरोल्ड और मौलिस (Garrod & Moulis)", "वॉटसन और क्रिक (Watson & Crick)"], "answer_index": 0, "explanation": "# व्याख्या — हाइब्रिडोमा तकनीक एवं मोनोक्लोनल एंटीबॉडी (संक्षेप में परीक्षा‑उन्मुख)\n- हाइब्रिडोमा तकनीक एक प्रयोगशाला विधि है जिससे किसी विशिष्ट एंटीजन के खिलाफ एकरूप (monoclonal) एंटीबॉडी लगातार मात्रा में उत्पन्न किए जा सकते हैं।\n- इस तकनीक का मूल सिद्धांत है रोग‑विशिष्ट B‑कोशिकाओं को अनन्त प्रतिकृति देने वाले कोशिकाओं के साथ जोड़कर स्थायी हाइब्रिड कोशिका (hybridoma) बनाना।\n- प्रक्रिया के मुख्य चरण: प्रयोगशाली जानवर में एंटीजन से टीकाकरण → एंटीजन‑विशेष B‑कोशिकाओं के लिये तिलिया (spleen) से कोशिकाएँ लेना → B‑कोशिकाओं का माइलोमा (immortal) कोशिकाओं के साथ फ्यूज़न।\n- फ्यूज़न के बाद चयनात्मक माध्यम (जैसे HAT माध्यम) में केवल सफल hybridoma ही जीवित रहते हैं; इससे गैर‑चाहे कोशिकाएँ हट जाती हैं और विशिष्ट antibody उत्पादक कोशिकाएँ चुनी जाती हैं।\n- चुने गए hybridoma क्लोन को स्क्रीन करके उस क्लोन का पता लगाया जाता है जो लक्ष्य एंटीजन के प्रति उच्च-स्पेसिफिसिटी और उच्च‑अवधि का monoclonal antibody बनाता है।\n- चुने हुए क्लोन को क्लोनल विस्तार करके बड़े पैमाने पर पदार्थ (culture/bioreactors) में उगाकर मूत्र‑रक्त/सीरम या रिकॉम्बिनेंट तरीकों से शुद्ध monoclonal antibody प्राप्त किया जाता है।\n- मोनोक्लोनल एंटीबॉडी की विशेषताएँ: उच्च‑विशिष्टता, पुनरुत्पादनशीलता, लक्षित बाइंडिंग; इन्हें डायग्नोस्टिक्स (रैपिड टेस्ट, ELISA, इम्युनोफ्लोरोसेंस) तथा थेरपी (न्यूट्रलाइज़ेशन, टार्गेटेड ड्रग‑डिलीवरी) में उपयोग किया जाता है।\n- क्लिनिकल/उत्पादन पहलुओं में GMP‑मानक, स्ट्रेन/क्लोन स्थिरता, शुद्धिकरण, एंडोटॉक्सिन‑नियंत्रण और बायोसिमिलर नियमन महत्वपूर्ण होते हैं; इन्हें राष्ट्रीय तथा वैश्विक गुणवत्ता दिशानिर्देशों के अनुसार नियंत्रित किया जाता है।\n- सीमाएँ और चुनौतियाँ: जिस स्रोत जीव में से B‑कोशिकाएँ ली जाती हैं, उसी प्रकार के एंटीबॉडी इम्युनोजेनिसिटी (humanization की आवश्यकता) और लागत‑सम्बन्धी मुद्दे उत्पन्न कर सकते हैं; इसलिए मानव-अनुकूलकरण और लागत‑कुशल उत्पादन तकनीकें विकसित की जाती हैं।\n- राज्य स्वास्थ्य कार्यक्रमों के संदर्भ में मोनोक्लोनल एंटीबॉडी आधारित डायग्नोस्टिक्स तेज, संवेदनशील और लक्षित रोग‑निगरानी (जैसे संक्रामक रोगों के लिए परीक्षण किट) में सहायक होते हैं और प्रभावी थेरपी के रूप में विशेष रोगों (जैसे कुछ संक्रमण, ऑटोइम्यून और कैंसर) के इलाज में उपयोगी साबित हुए हैं।\n- परिक्षण या नीतिगत उत्तर लेखन में सीधे उपयोग हेतु: हाइब्रिडोमा = B‑कोशिका + immortal कोशिका का fusion → HAT‑selection → क्लोनिंग → स्क्री닝 → बड़े पैमाने पर उत्पादन → डायग्नोस्टिक्स/थेरेपी में अनुप्रयोग।", "priority_tag": "VERY_HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी के नामकरण में '-ximab' प्रत्यय का क्या अर्थ है?", "options": ["पूरी तरह मानव निर्मित एंटीबॉडी (fully human)", "चरितार्थ चिरोमिक एंटीबॉडी (chimeric) — मानव और गैर‑मानव मिश्रित", "मानवाइज़्ड (humanized) एंटीबॉडी — गैर‑मानव का केवल CDR हिस्सा", "मानव‑स्वरूप (humanized) के बजाय कोंज़्यूगेटेड एंटीबॉडी संकेतक"], "answer_index": 1, "explanation": "# मोनोक्लोनल एंटीबॉडी में '-ximab' प्रत्यय — विस्तृत व्याख्या (MPPSC परीक्षा हेतु)\n- '-ximab' प्रत्यय बताता है कि एंटीबॉडी \"चिरोमिक\" (chimeric) है, अर्थात् इसमें मानव और गैर‑मानव (आमतौर पर माउस) अंश मिलकर बने होते हैं।\n- चिरोमिक एंटीबॉडी में आमतौर पर एंटीबॉडी के वैरिएबल (antigen‑binding) क्षेत्र गैर‑मानव स्रोत के होते हैं और कॉन्‍स्टैंट (Fc) भाग मानव स्रोत का होता है।\n- यह संरचनात्मक मिश्रण जेनेटिक इंजीनियरिंग द्वारा बनाया जाता है—गैर‑मानव वैरिएबल जीनों को मानव कॉन्‍स्टैंट जीनों के साथ जोड़ा जाता है।\n- WHO/INN नामकरण प्रणाली में '-ximab' का उपयोग चिरोमिक मोनोक्लोनल एंटीबॉडी की पहचाने के लिए मानकीकृत संकेत है।\n- चिरोमिक एंटीबॉडी का उद्देश्य गैर‑मानव हिस्से से लक्षित बाइंडिंग बनाए रखना और मानव हिस्से से मानव में बेहतर कार्यसमर्थता एवं Fc‑मध्यस्थ इम्यून फ़ंक्शन प्राप्त करना है।\n- चिरोमिक प्रकार की वजह से मानव प्रतिरक्षा प्रणाली द्वारा इम्यूनोजेनिसिटी (प्रतिक्रिया पैदा होना) मानव‑पूर्ण (fully human) एंटीबॉडी से अधिक हो सकती है; इसलिए क्लिनिकल उपयोग में निगरानी आवश्यक है।\n- डायग्नोस्टिक्स और थेरेपी में चिरोमिक एंटीबॉडी का प्रयोग ट्यूमर मार्कर पहचान, इम्यूनोऐसेे सीज तथा लक्षित दवा वितरण में होता है—नामकरण से चिकित्सकों और फार्माकोविजिलेंस टीमों को आण्विक प्रकृति तुरंत समझ में आती है।\n- क्लीनिकल इस्तेमाल के दौरान दवा‑निर्देश एवं सुरक्षा संकेतों में '-ximab' होना चिकित्सकीय निर्णय (जैसे प्रतिरक्षा निगरानी, एलर्जी‑जोखिम) प्रभावित कर सकता है।\n- विनिर्माण में हायब्रिडोमा या रीकॉम्बिनेंट एक्सप्रेशन प्लेटफॉर्म से चिरोमिक एंटीबॉडी बनती हैं; इसलिए गुणवत्ता नियंत्रण और रेगुलेटरी मूल्यांकन मानवीकृत किस्मों से भिन्न हो सकता है।\n- परीक्षा‑नोट के रूप में: '-ximab' = chimeric monoclonal antibody = मानवीय और गैर‑मानवीय हिस्सों का संयोजन — यह नामकरण से तुरंत अण्विक स्रोत और संभावित इम्यूनोजेनिसिटी संकेतित होता है।", "priority_tag": "HIGH"}, {"question": "नीचे दिए गए में से कौन‑सा suffix पूरी तरह 'human' monoclonal antibody को दर्शाता है?", "options": ["-omab", "-ximab", "-zumab", "-umab"], "answer_index": 3, "explanation": "# व्याख्या: suffix **-umab** — पूरी तरह 'human' monoclonal antibody को दर्शाता है\n- **-umab** अंतर्राष्ट्रीय गैर‑संज्ञात्मक नाम (INN) प्रणाली में उस मोनोक्लोनल एंटीबॉडी का suffix है जो पूरी तरह मानव (fully human) अमीनो एसिड अनुक्रम से बनी होती है।\n- पूरी तरह human एंटीबॉडी का उद्देश्य अंतःप्रतिक्रियाशीलता (immunogenicity) को न्यूनतम कर के रोगी में प्रतिरक्षा‑प्रतिक्रिया घटाना है।\n- मानव अनुक्रम होने से रोगी में नॉन‑न्यूट्रलाइज़िंग या एंटी‑ड्रग एंटीबॉडी (ADA) बनने की संभावना अन्य गैर‑मानव/हाइब्रिड एंटीबॉडी की तुलना में कम रहती है।\n- चिकित्सा उपयोग में **-umab** एंटीबॉडी लंबे समय तक उपचारात्मक और पुनरावृत्ति‑रहित प्रभाव दे सकती हैं क्योंकि इम्युनोजेनेसिस कम होता है।\n- डायग्नोस्टिक्स में fully human एंटीबॉडी का उपयोग संवेदनशील और विशिष्ट इम्यूनोएस्से में किया जा सकता है क्योंकि क्रॉस‑रिएक्टिविटी और पृष्ठभूमि‑प्रतिक्रियाएँ कम होती हैं।\n- विकास विधियाँ: fully human एंटीबॉडी प्राप्त करने के लिए फेज‑डिस्प्ले या ट्रांसजेनिक मानव एंटीबॉडी‑उत्पादन मॉडल जैसी तकनीकें प्रयोग होती हैं, जिससे मानव समान अनुक्रम मिलते हैं।\n- उपचार के संदर्भ में सुरक्षा–प्रोफ़ाइल और दवा‑अनुकूलता पर ध्यान देना आवश्यक है; नियामक अनुमोदन में immunogenicity और क्लिनिकल सुरक्षा डेटा अहम भूमिका निभाते हैं।\n- कार्यप्रणाली में ये एंटीबॉडी किसी लक्ष्य‑एंटीजन के प्रति उच्च विशिष्टता से बाँधती हैं और न्यूट्रलाइजेशन, ADCC या CDC जैसे प्रभाव दिखा सकती हैं—लक्षित चिकित्सा नियोजन पर निर्भर।\n- प्रशासनिक पहलू: अधिकांश monoclonal antibodies वयस्क चिकित्सा में इंट्रावेनस (IV) या सबक्यूटेनियस (SC) मार्ग से दी जाती हैं; रोगी‑प्रबंधन और cold‑chain का पालन आवश्यक है।\n- MP स्वास्थ्य सेवाओं में इनका प्रयोग विशेष रोगों (जैसे गंभीर इम्यूनोमॉड्यूलेटरी स्थितियाँ या लक्षित कैंसर उपचार) के लिए प्रासंगिक है और स्थानीय सुविधा‑तैयारी व नियामक अनुपालन पर निर्भर होगा।\n- Mains उत्तर में इस बिंदु का उपयोग करते समय लिखें: “suffix **-umab** दर्शाता है कि एंटीबॉडी पूरी तरह मानव स्रोत की है; इससे immunogenicity कम, सुरक्षा बेहतर और दीर्घकालिक प्रभाव की संभावना बढ़ती है”—और आवश्यक होने पर नियामक/लॉजिस्टिक पहलुओं का संक्षेप जोड़ें।", "priority_tag": "VERY_HIGH"}, {"question": "किस प्रक्रिया में मोनोक्लोनल एंटीबॉडी रोग‑दायी कोशिका पर बाइंड कर उसे immune effector cells के माध्यम से मारने की क्षमता बढ़ाती है (ADCC)?", "options": ["Fab‑mediated neutralization", "Antibody‑dependent cellular cytotoxicity — Fc mediated interaction with NK cells", "Complement activation via direct antigen degradation without immune cells", "Antibody‑mediated opsonization exclusively by B‑cells"], "answer_index": 1, "explanation": "# व्याख्या — Antibody‑dependent cellular cytotoxicity (ADCC) — Fc‑mediated interaction with NK cells\n- ADCC वह प्रतिरक्षा प्रक्रिया है जिसमें मोनोक्लोनल एंटीबॉडी रोग‑दायी कोशिका की सतह के एंटीजन से Fab भाग द्वारा बाइंड करती है और उसका Fc भाग प्रभावक इफेक्टर कोशिकाओं को आकर्षित करता है।\n- मानव NK (Natural Killer) कोशिकाओं पर मुख्य Fc रिसेप्टर FcγRIIIa (CD16) होता है, जो IgG के Fc भाग को पहचानकर ADCC आरम्भ करता है।\n- Fc‑FcγRIIIa इंटरैक्शन NK कोशिका में संकेत (signaling) उत्पन्न करता है, जिससे NK कोशिका से perforin और granzyme जैसे साइटोटॉक्सिक मॉलिक्यूल रिलीज होते हैं जो लक्ष्य कोशिका को मृत्यु की ओर ले जाते हैं।\n- मोनोक्लोनल एंटीबॉडी‑थेरेपी में ADCC का योगदान ट्यूमर या संक्रमित कोशिकाओं के प्रत्यक्ष नाश में एक प्रमुख तंत्र होता है।\n- एंटीबॉडी के Fc क्षेत्र की संरचना और ग्लाइकोसिलेशन (विशेषकर फ्यूरोजीलैशन की कमी) ADCC क्षमता को बढ़ा‑घटा सकती है; इसलिए कुछ एमएब को ADCC बढ़ाने के लिए इंजीनियर किया जाता है।\n- ADCC‑आधारित प्रभावशीलता का आकलन इन‑vitro में NK‑cell mediated killing assays से किया जाता है (उदा. flow cytometry या cytotoxicity release assays)।\n- क्लिनिकल सेटिंग में ADCC‑सक्षम मोनोक्लोनल एंटीबॉडी का उपयोग कैंसर और कुछ वायरल/इम्यून लक्ष्यित उपचारों में होता है और उपचारीय डिजाइन में Fc‑engineering एक निर्णायक पहलू है।\n- रोगी‑विशिष्ट कारक (जैसे FcγRIIIa के allelic polymorphisms) ADCC की तीव्रता और मरीज में थेरेपी के परिणाम को प्रभावित कर सकते हैं।\n- ADCC सामान्य रूप से इन्फ्लेमेटरी साइटोसिस के बिना लक्षित कोशिका‑नाश कराता है और यह सेल‑मध्यस्थता पर आधारित है, न कि सीधा कम्प्लिमेन्ट सक्रियण पर।\n- MP स्वास्थ्य प्रबंधन में, मोनोक्लोनल एंटीबॉडी‑थेरपी के चयन और उपयोग के समय ADCC‑उन्मुख क्षमताओं और परीक्षण योग्यता को नीति/प्रोटोकॉल में ध्यान में रखना उपयोगी होगा (उपयुक्त मरीज चयन और दवाइयों की प्रभावशीलता के लिए)।", "priority_tag": "HIGH"}, {"question": "किस निम्नलिखित उपयोग में मोनोक्लोनल एंटीबॉडी सबसे सामान्य रूप से डायग्नोस्टिक्स में प्रयोग होती हैं (rapid tests/lateral flow) — सही कारण क्या है?", "options": ["क्योंकि mAb की उच्च विशिष्टता एकल एपिटोप पर लक्षित करके तेज़ और विशिष्ट पहचान देती है", "क्योंकि mAb हमेशा छोटे अणुओं को पहचान सकती हैं, जिससे सभी प्रकार के रोग पहचान संभव है", "क्योंकि polyclonal antibodies की तुलना में mAb का उत्पादन सस्ता और तेज़ होता है", "क्योंकि mAb प्लेट‑फार्म में DNA‑सिग्नल को सीधे amplify कर देती हैं"], "answer_index": 0, "explanation": "# व्याख्या — मोनोक्लोनल एंटीबॉडी (mAb) और Rapid/Lateral‑Flow डायग्नोस्टिक्स\n**मुख्य कारण (सही उत्तर): mAb की उच्च विशिष्टता — एकल एपिटोप पर लक्षित होकर तेज़ और विशिष्ट पहचान देती है।** नीचे इसी कॉन्सेप्ट को परीक्षा‑उन्मुख बिंदुओं में संक्षेपित किया गया है:\n- मोनोक्लोनल एंटीबॉडी एक ही B‑cell क्लोन से उत्पन्न होती हैं और इसलिए एक ही एपिटोप (antigenic determinant) को लक्षित करती हैं; यह एकरूप और पूर्वानुमान्य बाइंडिंग सुनिश्चित करती है।\n- एकल‑एपिटोप लक्ष्यीकरण से क्रॉस‑रिएक्टिविटी कम होती है, यानी गैर‑लक्ष्य जीवाणु/प्रोटीन के साथ गलत सकारात्मक कम मिलते हैं; यह rapid tests की विशिष्टता बढ़ाता है।\n- उच्च विशिष्टता के कारण छोटे मात्रा के लक्षित एंटीजन का भी सटीक पहचान संभव है जब एंटीबॉडी की affinity पर्याप्त हो; इससे परीक्षण का वास्तविक‑विश्व प्रदर्शन बेहतर रहता है।\n- mAb का निरंतर और मानकीकृत उत्पादन संभव है (मोलेक्यूलर रूप से एक समान), जिससे टेस्ट स्ट्रिप्स की बैच‑टू‑बैच समानता बने रहती है।\n- lateral‑flow प्रारूप में टेस्ट लाइन पर immobilized mAb को प्रयोग कर कैप्चर और detector mAb को लेबल (जैसे कोलॉइडल गोल्ड/फ्लोरोफोर) से जोड़ा जा सकता है; विशिष्ट बाइंडिंग तुरंत विज़ुअल सिग्नल में बदलती है।\n- मॉलिक्यूलर‑स्तर पर एक एपिटोप की पहचान होने से टेस्ट का रीड‑आउट तेज़ होता है; एंटीबॉडी‑एंटिजन इंटरैक्शन के kinetics तेज़ होने पर परिणाम मिनटों में मिलते हैं।\n- mAb का उपयोग पॉइंट‑ऑफ‑केयर सेटिंग्स के लिए उपयुक्त है क्योंकि इन्हें स्थिर फ़ॉर्मुलेशन में पैक किया जा सकता है और ठंड श्रृंखला की सीमित आवश्यकता के साथ इस्तेमाल किया जा सकता है।\n- विशिष्टता के कारण सार्वजनिक स्वास्थ्य निगरानी में false alarms कम होते हैं, जो रोग‑निगरानी और त्वरित निर्णय (treatment/containment) के लिए लाभकारी है।\n- मॉलिक्यूलर‑लेवल पर एपिटोप का चयन (antigenic region choice) और mAb का characterization (epitope mapping, affinity measurement) परीक्षण की सेंसिटिविटी‑विशिष्टता संतुलन तय करता है।\n- mAb‑आधारित lateral‑flow assays विभिन्न नमूनों (सिरम, लार, नासोफैरिंजियल स्वैब) में सीधे उपयोग के लिए अनुकूलित किए जा सकते हैं क्योंकि बाइंडिंग सीधे लक्ष्य अणु पर होती है।\n- नियामकीय और गुणवत्ता मानकों के अनुरूप मानकीकरण आसान होने से mAb‑आधारित rapid tests का बड़े पैमाने पर वितरण और अपनाना सरल रहता है।\nउपरोक्त बिंदु स्पष्ट करते हैं कि मोनोक्लोनल एंटीबॉडी की उच्च विशिष्टता और एकरूपता ही rapid/lateral‑flow डायग्नोस्टिक्स में इनके सामान्य और प्रभावी उपयोग का मुख्य कारण है।", "priority_tag": "VERY_HIGH"}, {"question": "कोई मोनोक्लोनल एंटीबॉडी जब रोगनिरोधी एजेण्ट के साथ जोड़कर लक्षित‑दवा भेजती है (Antibody‑Drug Conjugate, ADC), तब उसका मुख्य लाभ क्या है?", "options": ["दवा को सामान्य रक्त प्रवाह में अधिक समय तक घुलने देना ताकि दवा का पूरी तरह systemic वितरण हो", "विशिष्ट लक्षित कोशिकाओं पर दवा पहुँचाकर off‑target toxicity कम करना", "एंटीबॉडी केवल एक सिग्नल मोडुलेटर के रूप में कार्य कर दवा की आवश्यकता खत्म कर देती है", "ADC का उपयोग केवल डायग्नोस्टिक‑इमेजिंग के लिए होता है, न कि थेरपी में"], "answer_index": 1, "explanation": "# मोनोक्लोनल एंटीबॉडी‑ड्रग कंक्जुगेट (ADC) — परीक्षा‑केंद्रित व्याख्या (सही उत्तर: विशिष्ट लक्षित कोशिकाओं पर दवा पहुँचाकर off‑target toxicity कम करना)\n- ADC की मूल संरचना: एक मोनोक्लोनल एंटीबॉडी (लक्ष्य‑विशेष), एक शक्तिशाली साइटोटॉक्सिक पे‑लोड (दवा) और एंटीबॉडी व दवा को जोड़ने वाला लिंक‑क्लिप होता है।\n- लक्ष्य‑विशेषता: एंटीबॉडी विशिष्ट सतही एंटीजन या रीसেপ্টर को पहचानकर केवल लक्षित कोशिकाओं पर बाइंड करता है, जिससे दवा वितरण का स्थानिक फोकस मिलता है।\n- दवा की एकाग्रता लक्षित कोशिकाओं में बढ़ती है; रक्त एवं सामान्य ऊतकों में दवा का स्तर अपेक्षाकृत कम रहता है—यही off‑target toxicity में कमी का मुख्य कारण है।\n- लिंक‑मेकैनिज़्म नियंत्रित रिलीज़ सुनिश्चित करता है: लिंक डिज़ाइन के अनुसार दवा तभी सक्रिय/रिलीज़ होती है जब ADC लक्षित कोशिका में आंतरिक होकर प्रोसेस हो (जैसे lysosomal cleavage)।\n- इस पद्धति से सिस्टमिक साइड‑इफेक्ट्स (जैसे सामान्य साइटो‑टॉक्सिसिटी) कम होकर रोगी‑सहनशीलता और उपचार अनुशासन बेहतर होता है।\n- लक्षित दवा पहुँचने से चिकित्सकीय प्रभावशीलता बढ़ती है — कम कुल खुराक में भी ट्यूमर/लक्षित कोशिकाओं पर उच्च प्रभाव मिलता है, जिससे therapeutic index सुधरता है।\n- ADC प्रयोग के लिए लक्ष्य‑एंटीजन का चयन महत्वपूर्ण है: एंटीजन का टार्गेट‑स्तर ऊँचा और सामान्य ऊतकों में न्यूनतम होना चाहिए ताकि off‑target प्रभाव और ड्रग‑वेस्टेज कम रहे।\n- क्लीनिकल सेटिंग में ADC के उपयोग से अस्पताल में होने वाली सहायक देखभाल (जैसे गंभीर साइड‑इफेक्ट्स का प्रबंधन) की आवश्यकता घट सकती है, जिससे संसाधन‑उपयोग पर लाभ के संकेत मिलते हैं।\n- नियमन एवं निगरानी आवश्यक है: ADCs की सुरक्षा‑प्रोफ़ाइल और दवा‑लिंक संरचना के कारण रोगी‑निगरानी, दुष्प्रभाव रिपोर्टिंग और गाइडलाइन‑अनुपालन जरूरी रहता है।\n- MP‑स्वास्थ्य प्रणाली के लिए प्रासंगिक बिंदु: off‑target toxicity में कमी से गंभीर परिवहन/रिफरल और लंबी‑अवधि पुनर्वास जरूरतों में कमी आ सकती है, जिससे प्राथमिक और सेकेंडरी केयर पर दबाव कम होता है।\n- सारांश में: ADC का मुख्य लाभ यही है कि यह दवा‑मॉलिक्यूल को विशिष्ट लक्षित कोशिकाओं तक पहुंचाकर सामान्य ऊतकों में अनावश्यक एक्सपोज़र घटाता है — परिणामस्वरूप off‑target toxicity कम और उपचार‑प्रभाव बढ़ता है।", "priority_tag": "HIGH"}, {"question": "भारत में मोनोक्लोनल एंटीबॉडी के जैव‑समान (biosimilar) उत्पादों के नियामकीय मूल्यांकन में किस संस्था/दिशा‑निर्देश को सबसे ज्यादा संदर्भित किया जाता है?", "options": ["National Health Mission (NHM) के वैक्सीन‑दायरे निर्देश", "Central Drugs Standard Control Organization (CDSCO) एवं ICMR/DBT द्वारा निर्दिष्ट बायोलाजिकल/बायोसिमिलर दिशानिर्देश", "Reserve Bank of India (RBI) के चिकित्सा‑निवेश दिशा‑निर्देश", "Department of Space के बायो‑इलेक्ट्रॉनिक्स मानक"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "रिटक्सिमैब (Rituximab) किस सेल सतह मार्कर को लक्षित करता है और किस प्रकार की बीमारी में मुख्या उपयोगिता है?", "options": ["HER2; स्तन कैंसर के लिए प्राथमिक उपचार", "CD20; B‑cell non‑Hodgkin lymphoma और कुछ autoimmune रोगों में", "PD‑1; सोलिड ट्यूमर में immune checkpoint blockade के लिए", "VEGF; एंजियोजेनेसिस रोधी कैंसर थेरपी में"], "answer_index": 1, "explanation": "# व्याख्या — रिटक्सिमैब (Rituximab) और CD20\n- रिटक्सिमैब एक मोनोक्लोनल एंटीबॉडी है जो मानव B‑कोशिकाओं की सतह पर मौजूद **CD20 प्रोटीन** को लक्षित करता है।\n- CD20 एक B‑cell‑specific चार्मराने प्रोटीन है जो प्रारंभिक प्रो‑B से लेकर मेमोरी B‑सेल तक व्यक्त होता है; प्लाज्मा कोशिकाओं पर यह सामान्यतः नहीं मिलता।\n- रिटक्सिमैब का प्रकार **chimeric (म्यूरीन‑ह्यूमन) IgG1** मोनोक्लोनल एंटीबॉडी है, जो CD20‑बॉइंडिंग के माध्यम से प्रभाव दिखाती है।\n- मैकेनिज़्म: रिटक्सिमैब CD20‑बाइंडिंग के बाद B‑सेलों को हटाने के लिए मुख्यतः **ADCC (antibody‑dependent cellular cytotoxicity), CDC (complement‑dependent cytotoxicity)** और प्रत्यक्ष apoptosis को प्रेरित करता है।\n- प्रमुख क्लिनिकल उपयोग: यह विशेष रूप से **B‑cell non‑Hodgkin lymphoma (NHL)** में प्रमुख उपचार एजेंट के रूप में उपयोगी है; कई B‑cell NHL उपप्रकारों में रोग‑नियंत्रण और रोग‑मुक्ति दर बढ़ाता है।\n- ऑटोइम्यून रोगों में भूमिका: कुछ ऑटोइम्यून स्थितियों (जैसे रिफ्रैक्टरी rheumatoid arthritis, कुछ प्रकार के autoimmune hemolytic anemia और ANCA‑associated vasculitis के कुछ मामलों) में B‑cell को टार्गेट कर के उपयोगी साबित हुआ है।\n- सुरक्षा‑विचार: मुख्य जोखिमों में **इन्फ्यूज़न‑रिएक्शन्स** (पहली डोज पर उच्च), संक्रमणों का बढ़ा जोखिम और विशेषकर **HBV (हैपेटाइटिस B) reactivation** का खतरा शामिल है — इसलिए उपचार से पूर्व HBV स्क्रीनिंग आवश्यक है।\n- अनुशासन और निगरानी: रिटक्सिमैब इन्ट्रावेनस दिया जाता है, अस्पताल/क्लिनिक सेटिंग में मॉनिटरिंग के साथ; टीकाकरण (विशेषकर लाइव वैक्सीन) को उपचार से पहले/बाद सावधानी से समयबद्ध करना चाहिए।\n- प्रशासनात्मक/नीतिगत प्रासंगिकता (MP स्वास्थ्य के लिए): यह दवा उच्च लागत और विशेष निगरानी‑आवश्यकता के कारण रेफरल/स्पेशलिस्ट के माध्यम से दी जाती है; राज्य स्तर पर कैंसर/इम्यूनोथेरेपी सेवाओं में स्टैंडर्ड‑प्रोटोकॉल का पालन आवश्यक है।\n- परीक्षा‑योग्यता के लिए संक्षेप: रिटक्सिमैब = CD20‑targeting monoclonal antibody → मुख्य रूप से B‑cell non‑Hodgkin lymphoma में उपयोगी; साथ ही कुछ ऑटोइम्यून रोगों में भी लाभप्रद।", "priority_tag": "VERY_HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी की half‑life को बढ़ाने के लिए Fc क्षेत्र में किस प्रोटीन रिसेप्टर की बातचीत को मॉडिफाई किया जाता है?", "options": ["T‑cell receptor (TCR)", "neonatal Fc receptor (FcRn)", "complement C1q receptor", "insulin receptor"], "answer_index": 1, "explanation": "# व्याख्या — FcRn और मोनोक्लोनल एंटीबॉडी की half‑life वृद्धि (MPPSC Prelims 2026)\n- **FcRn (neonatal Fc receptor)** एक सेलुलर प्रोटीन रिसेप्टर है जो IgG एंटीबॉडी के Fc क्षेत्र के साथ जुड़कर उनकी सर्कुलेटिंग आधी-आयु (half‑life) बढ़ाता है।\n- **क्रिया का मूल सिद्धांत**: FcRn एंडोसोम्स में pH‑निर्भर बंधन करता है — अम्लीय pH (~6.0) पर Fc के साथ बॉउंडिंग होती है और सामान्य शारीरिक pH (~7.4) पर रिलीज हो जाता है।\n- **रिसाइकलिंग मेकॅनिज्म**: कोशिका द्वारा एंडोसिटोसिस के बाद FcRn बॉउंड IgG को लाइसोसोमल विघटन से बचाकर पुनः सतह पर रिलीज कर देता है, जिससे IgG का क्लियरेंस धीमा होता है।\n- **अल्ब्यूमिन के लिए भी प्रभाव**: FcRn न केवल IgG बल्कि अल्ब्यूमिन को भी बांधकर उसकी half‑life बढ़ाता है; यह प्रोटीन होमियोस्टेसिस में योगदान देता है।\n- **थेरप्यूटिक आवेदन**: मोनोक्लोनल एंटीबॉडी की half‑life बढ़ाने के लिए Fc क्षेत्र में ऐसे परिवर्तन (Fc‑engineering) किए जाते हैं जो FcRn के साथ उच्च‑प्रभावी pH‑निर्भर इंटरैक्शन बढ़ाएँ।\n- **क्लिनिकल लाभ**: FcRn‑मॉडिफिकेशन से दवा की डोज़ अंतराल लंबा किया जा सकता है, जिससे मरीजों को कम बार दवा लगानी पड़ती है और पहुँच‑सुविधा व उपचार‑अनुपालन में सुधार होता है।\n- **स्वास्थ्य‑प्रणाली पर असर (MP के संदर्भ में उपयोगी बिंदु)**: लंबी half‑life वाले mAb से राज्य स्तरीय कार्यक्रमों में अस्पतालों/आउटपेशेंट सेवाओं पर बोझ कम हो सकता है और आपूर्ति‑शृंखला को सुव्यवस्थित किया जा सकता है।\n- **दुष्प्रभाव/नियामक ध्यान**: Fc‑engineering के बाद immunogenicity, फार्माकोकाइनेटिक्स और सुरक्षा प्रोफ़ाइल का क्लिनिकल मूल्यांकन आवश्यक होता है; नियामक अनुमोदन के लिए ये डेटा निर्णायक होते हैं।\n- **पॉलीसी और लागत‑प्रभाव**: half‑life बढ़ाने से प्रति‑रोगी दवा की आवृत्ति घटने पर कुल ट्रीटमेंट‑लागत और लॉजिस्टिक्स पर सकारात्मक प्रभाव पड़ सकता है; राज्य स्वास्थ्य नीतियों में यह विचार उपयोगी है।\n- **रिसर्च और विकास**: FcRn‑लक्षित रणनीतियाँ mAb डिज़ाइन में एक मानक तकनीक बन चुकी हैं और स्थानीय क्लिनिकल ट्रायल्स/फार्माकोविजिलेंस के माध्यम से राज्य स्तर पर अनुकूलता परखा जाना चाहिए।\n- **निष्कर्ष (एक लाइन)**: मोनोक्लोनल एंटीबॉडी की half‑life बढ़ाने के लिए Fc क्षेत्र में किये गए परिवर्तन सीधे FcRn के साथ बंधन/रिसाइकलिंग इंटरैक्शन को मॉडिफाई करते हैं, जो थेरपी की असरशीलता, डोज़िंग और सार्वजनिक स्वास्थ्य प्रबंधन दोनों को प्रभावित करते हैं।", "priority_tag": "HIGH"}, {"question": "लैटरल‑फ्लो इम्यूनोएस्से (LFIA) में विज़ुअल संकेत के लिए आम तौर पर किस प्रकार के लेबल्ड एंटीबॉडी उपयोग में लाये जाते हैं?", "options": ["चोकोलेट‑आधारित सिग्नल मार्कर", "radioactive isotopes‑labelled antibodies", "colloidal gold या रंगीन नैनोपार्टिकल्स से लेबल्ड एंटीबॉडी", "enzyme‑labelled antibodies जो टेस्ट में colorless रहते हैं"], "answer_index": 2, "explanation": "# व्याख्या: LFIA में विज़ुअल संकेत के लिए उपयोग किए जाने वाले लेबल्ड एंटीबॉडी — *colloidal gold / रंगीन नैनोपार्टिकल्स*\n- LFIA (लैटरल‑फ्लो इम्यूनोएस्से) में विज़ुअल संकेत के लिए आम तौर पर एंटीबॉडी को छोटे रंगीन नैनोपार्टिकल्स (विशेषकर colloidal gold) के साथ लेबल किया जाता है।\n- Colloidal gold नैनोपार्टिकल्स प्रकाश को स्थानीयकृत तरीके से अवशोषित/बिखेरते हैं, जिससे टेस्ट लाइन पर स्पष्ट लाल‑भूरा विज़ुअल बैंड बनता है जिसे नेत्रेशः देखा जा सकता है।\n- ये नैनोपार्टिकल्स बायोकैमिस्ट्रीली सतह पर अमाइन/थियोल समूहों के माध्यम से एंटीबॉडी से जोड़ दिए जाते हैं ताकि बायो‑लिगैंड की बाइंडिंग क्षमता बनी रहे।\n- रंगीन नैनोपार्टिकल्स का आकार और सतह गुणधर्म (surface chemistry) सिग्नल की तीव्रता और स्थिरता को निर्धारित करते हैं; सामान्यतः 20–40 nm के गोल्ड नैनो कण प्रयोग में आते हैं।\n- Colloidal gold आधारित लेबल्स को किसी विशेष उपकरण के बिना ही नेत्रीय रूप से पढ़ा जा सकता है, इसलिए ये त्वरित बिंदु‑of‑care डायग्नोस्टिक के लिए उपयुक्त हैं।\n- इन कणों की भौतिक स्थिरता और pH‑अनुकूलता ध्यान में रखकर बफर और ब्लॉकिंग एजेंट डिजाइन किए जाते हैं ताकि नॉन‑स्पेसिफिक बाइंडिंग कम हो।\n- LFIA में संकेत की संवेदनशीलता और सीमा (limit of detection) नैनोपार्टिकल सिग्नल की संदिग्धता और एंटीबॉडी‑आन्टीजेन अभिसंयोजन (affinity) पर निर्भर होती है।\n- रंगीन नैनोपार्टिकल्स का उपयोग क्वांटिटेटिव रीडआउट के साथ भी किया जा सकता है जब मोबाइल कैमरा या रिडर द्वारा सिग्नल इंटेंसिटी को मेजर किया जाए।\n- Colloidal gold लेबल्स बायोसेंसिंग के लिए लंबी पहचानी हुई तकनीक हैं क्योंकि इन्हें बनाना, स्टोर करना और असेंबल करना तुलनात्मक रूप से सरल है।\n- LFIA में लेबल्ड एंटीबॉडी की गुणवत्ता (विशेषकर शुद्धता और स्थिरता) प्रत्यक्ष रूप से टेस्ट की पुनरुत्पादकता और फेल/फॉल्स‑निगेटिव दर को प्रभावित करती है।\n- स्वास्थ्य कार्यक्रमों और त्वरित स्क्रीनिंग में प्रयोग के लिए colloidal gold‑labelled एंटीबॉडी वाले LFIA की लागत‑प्रभावशीलता और फील्ड‑योग्यता महत्वपूर्ण लाभ देती है।", "priority_tag": "VERY_HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी का 'humanized' रूप किसका प्रतिस्थापन करके बनाया जाता है?", "options": ["मानव IgG के Fc हिस्से को पूरी तरह हटाकर", "नॉन‑मानव एंटीबॉडी के सिर्फ CDR (complementarity‑determining regions) को मानव फ्रेमवर्क में प्रत्यारोपित करके", "purified human polyclonal serum के साथ मिश्रण करके", "एंटीबॉडी को छोटे‑छोटे पेप्टाइड्स में काटकर"], "answer_index": 1, "explanation": "# व्याख्या — मोनोक्लोनल एंटीबॉडी (Humanized रूप)\n- **Humanized एंटीबॉडी** वह रूप है जिसमें गैर‑मानव स्रोत की केवल antigen‑binding भाग की छोटी लूप‑सी श्रृंखलाएँ (CDRs) मानव एंटीबॉडी के फ्रेमवर्क में प्रत्यारोपित की जाती हैं।\n- **CDR (complementarity‑determining regions)** एंटीबॉडी के वे विशेष क्षेत्र होते हैं जो सीधे एंटीजन से जुड़कर विशिष्टता (antigen specificity) तय करते हैं।\n- एंटीबॉडी इकाई में CDRs के अलावा अन्य हिस्से होते हैं जिन्हें **फ्रेमवर्क रीजियन्स (FRs)** कहते हैं; humanized डिजाइन में ये फ्रेमवर्क मानव के रखे जाते हैं ताकि शरीर‑के‑खिलाफ प्रतिक्रिया कम हो।\n- इस CDR‑grafting से एंटीजन‑लक्ष्य (target) के प्रति जुड़ाव अधिकांशतः बना रहता है, पर कभी‑कभी FR में छोटे बदलाव (back‑mutations) आवश्यक होते हैं ताकि बाइंडिंग पूरा बरकरार रहे।\n- Humanized रूप बनवाने का मुख्य उद्देश्य रोगी में **इम्यूनोजेनिसिटी घटाना** है; इससे उपचार के दौरान शरीर द्वारा एंटीबॉडी के खिलाफ बनने वाले प्रतिकिया (anti‑antibody response) कम होते हैं।\n- क्लिनिकल उपयोग में humanized एंटीबॉडी से दीर्घकालिक थेरपी और दोहराए जाने वाले प्रशासन में सुरक्षा और प्रभावशीलता बेहतर रहती है, इसलिए डायग्नोस्टिक्स और थेरेपी दोनों में उपयोगी हैं।\n- प्राय: humanized एंटीबॉडी को बड़े‑पैमाने पर बनाने के लिए सेल‑कल्चर‑आधारित एक्सप्रेशन सिस्टम (जैसे मामूली मानव/वाणिज्यिक लाइनें) का उपयोग किया जाता है ताकि मानवीय पोस्ट‑translational संशोधन मिल सके।\n- दवा‑नॉमेनक्लचर में humanized therapeutic monoclonal antibodies के नामकरण में विशेष प्रत्यय लागू होते हैं, जो उनके मानवकरण के स्तर के संकेत देते हैं और क्लिनिकल पहचान में सहायक होते हैं।\n- सीमाएँ: CDR गार्फ़्टिंग से इम्यूनोजेनिसिटी काफी घटती है पर पूरी तरह समाप्त नहीं होती; इसलिए रोगी‑निगरानी और प्रतिकिया परीक्षण आवश्यक होते हैं।\n- MP स्वास्थ्य प्रासंगिकता: मानवीकृत माब का उपयोग प्रत्यक्ष रोग‑थेरपी और विशिष्ट डायग्नोस्टिक किट में हो सकता है—सार्वजनिक स्वास्थ्य कार्यक्रमों में इनका सुरक्षित और प्रभावी उपयोग नीति तथा विनियमन के अनुरूप किया जाना चाहिए।", "priority_tag": "HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी द्वारा संचालित 'complement‑dependent cytotoxicity' (CDC) में निम्नलिखित में से कौन‑सा घटक सीधे सक्रिय होता है?", "options": ["FcRn‑mediated recycling मार्ग", "Classical complement pathway के C1q द्वारा complement cascade उद्घाटित होना", "T‑cell mediated perforin/granzyme pathway", "Antibody की variable region के द्वारा सीधे DNA क्षति"], "answer_index": 1, "explanation": "# व्याख्या — मोनोक्लोनल एंटीबॉडी द्वारा संचालित Complement‑Dependent Cytotoxicity (CDC)\n- CDC की शुरुआत Classical complement pathway के आरंभिक घटक C1q के सीधे लक्ष्य‑बॉधक (antibody‑Fc) से मान्यता और बाइंडिंग से होती है।\n- C1q एक बहु‑शाखीय प्रोटीन होता है जो antibody के Fc क्षेत्र (विशेषकर IgG/IgM के क्लस्टर) से बाइंड कर C1 complex (C1q‑C1r‑C1s) को सक्रिय करता है।\n- C1q के सक्रिय होने पर C1r और C1s प्रोटीज़ सक्रिय हो जाते हैं जो आगे C4 और C2 को क्रमशः काटकर C4b और C2a उत्पन्न करते हैं।\n- C4b और C2a मिलकर C3 convertase (C4b2a) बनाते हैं, जो C3 को C3a और C3b में क्लेव करता है; यह CDC में मध्यवर्ती और निर्णायक कदम है।\n- C3b के टार्गेट सेल सतह पर जमा होने से C5 convertase बनता है, जो C5 को क्लेव कर C5b बनाता है; यह MAC (C5b‑9) निर्माण की दिशा देता है।\n- अंततः C5b‑9 या Membrane Attack Complex कोशिका جھिल्ली में छिद्र बनाकर लक्षित कोशिका का लाइसिस (सीधी कोशिका मृत्यु) कर देता है — CDC का प्रमुख घातक तंत्र।\n- मोनोक्लोनल एंटीबॉडी‑थेरेपी में CDC की दक्षता पर antigen की सतह पर घनत्व, antibody की isotype और Fc‑क्षमता, तथा रोगी में complement प्रोटीन की उपलब्धता निर्भर करते हैं।\n- क्लिनिकल दृष्टि से CDC मोनोक्लोनल एंटीबॉडी द्वारा टार्गेट सेल (जैसे ट्यूमर कोशिकाएँ या संक्रमित कोशिकाएँ) को नष्ट करने का एक प्रत्यक्ष तंत्र है; इसलिए therapeutic antibody डिजाइन में C1q‑बाइंडिंग क्षमता महत्व रखती है।\n- निदान/लैब संदर्भ में CDC‑आधारित assays और functional tests antibody‑mediated complement activation को माप सकते हैं — यह therapeutic‑efficacy और संभावित complement‑संबंधी adverse events की निगरानी में उपयोगी है।\n- MP‑संदर्भ में सार्वजनिक स्वास्थ्य या क्लिनिकल सेटअप में मोनोक्लोनल एंटीबॉडी उपयोग के समय complement‑पर आधारित प्रभावों और संभावित हेमोलिटिक/इन्फ्लेमेटरी प्रतिक्रियाओं की जानकारी आवश्यक है।", "priority_tag": "HIGH"}, {"question": "डायग्नोस्टिक ELISA में 'capture antibody' का कार्य क्या होता है?", "options": ["सैंपल में मौजूद लक्ष्य‑एंटीजन को प्लेट पर बन्ध कर उसे पकड़ना", "substrate को सीधे colorless से colored में बदलना", "secondary antibody को समाप्त करना ताकि सिग्नल कम हो", "लैटरल‑फ्लो के बजाय PCR signal उत्पन्न करना"], "answer_index": 0, "explanation": "# व्याख्या — डायग्नोस्टिक ELISA में 'capture antibody' का कार्य क्या होता है?\n- **मुख्य कार्य:** कैप्चर एंटीबॉडी प्लेट की सतह पर बन्ध कर सैंपल में उपस्थित लक्ष्य‑एंटीजन को स्थिर रूप से पकड़ती है।\n- **इममोबिलाइज़ेशन:** यह एंटीबॉडी प्लेट‑वेलों (आम तौर पर कॉटेड माइक्रोटाइटर वेल) पर फिजिकल/केमिकल रूप से कोट की जाती है ताकि एंटीजन वेल में बने रहे।\n- **विशेषता (Specificity):** कैप्चर एंटीबॉडी का एंटीजन‑विशिष्ट बाइंडिंग साइट लक्षित एंटीजन को पहचानकर केवल उसे पकड़ती है, जिससे परिक्षण की विशुद्धता बढ़ती है।\n- **एंटीजन की उपलब्धता:** सही एपिटोप को पहचानने वाली कैप्चर एंटीबॉडी सुनिश्चित करती है कि सैंपल में मौजूद एंटीजन उस स्थिति में भी वेल पर बने जब उसकी सांद्रता कम हो।\n- **Sandwich ELISA में भूमिका:** यह प्रथम चरण में एंटीजन को “सैंडविच” के नीचे वाला भाग बनाती है; बाद में डिटेक्शन एंटीबॉडी उसी पकड़े हुए एंटीजन से बन्धकर संकेत उत्पन्न करती है।\n- **वाशिंग और पृष्ठभूमि सिग्नल घटाना:** कैप्चर एंटीबॉडी से बन्धे हुए एंटीजन को वेल में स्थिर रखकर गैर‑बन्धक सामग्री को वाश स्टेप द्वारा हटाया जा सकता है, जिससे सिग्नल‑टू‑नॉइज़ अनुपात सुधरता है।\n- **संवेेदनशीलता तथा सीमित पहचान:** कैप्चर एंटीबॉडी की बांधने की शक्ति (affinity) और संख्या डायग्नोस्टिक की संवेदनशीलता और न्यूनतम पहचान सीमा (limit of detection) निर्धारित करती है।\n- **स्थिरता और रिप्रोड्यूसिबिलिटी:** अच्छी तरह फ़िक्स्ड और मानकीकृत कैप्चर एंटीबॉडी वेल‑कोटिंग से परिणामों का दोहराव और लैब‑दर‑लैब संगतता सुनिश्चित होती है।\n- **नियंत्रण प्रयोग:** नेगेटिव और पोजिटिव कंट्रोल वेल्स में समान कैप्चर एंटीबॉडी का उपयोग परिणामों की वैधता की पुष्टि के लिए आवश्यक है।\n- **प्रयोगशाला/सार्वजनिक स्वास्थ्य अनुप्रयोग (MP संदर्भ):** दिये गए रोगप्रवर्तनकर्ताओं के त्वरित स्क्रीनिंग में कैप्चर एंटीबॉडी आधारित ELISA से संदिग्ध नमूनों में लक्षित एंटीजन की विश्वसनीय पहचान मिलती है, जो रोग‑निगरानी और उपचार‑प्रबंधन में सहायक है।", "priority_tag": "VERY_HIGH"}, {"question": "फेज‑डिस्प्ले (phage display) तकनीक का मोनोक्लोनल एंटीबॉडी के संदर्भ में मुख्य लाभ क्या है?", "options": ["यह सीधे मानव B‑cells को क्लोन करने का पारंपरिक तरीका है", "इन‑vitro तरीके से विशाल लाइब्रेरी से उच्च‑विशिष्टता वाले एंटीबॉडी‑वेरिएन्ट चुनने की क्षमता देता है", "यह केवल polyclonal antiserum के उत्पादन के लिए उपयोगी है", "यह mRNA‑vaccines के साप्ताहिक अद्यतन के लिए अनिवार्य है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस तरह के मोनोक्लोनल एंटीबॉडी विशेष रूप से कैंसर के इम्यूनोथेरेपी में checkpoints पर कार्य करते हैं?", "options": ["एंटीबॉडी जो B‑cell विकास को रोकते हैं", "checkpoint inhibitors जो PD‑1/PD‑L1 या CTLA‑4 जैसे प्रतिरोधी मार्गों को ब्लॉक करते हैं", "एंटीबॉडी जो केवल complement pathway को सक्रिय करते हैं", "एंटीबॉडी जो RNA‑polymerase को इनहिबिट करते हैं"], "answer_index": 1, "explanation": "# मोनोक्लोनल एंटीबॉडी — Checkpoint inhibitors (PD‑1/PD‑L1, CTLA‑4) — परीक्षा केंद्रित व्याख्या\n- Checkpoint inhibitors मोनोक्लोनल एंटीबॉडी की वह श्रेणी है जो टी‑सेल पर या ट्यूमर‑साइट पर उपस्थित प्रतिरोधी (inhibitory) मार्गों को रोककर प्रतिरक्षा प्रणाली की कैंसर‑रोधी क्षमता को पुनर्जीवित करती है।\n- प्रमुख लक्ष्यों में PD‑1 (टी‑सेल रिसेप्टर), PD‑L1 (ट्यूमर/एंटीजन‑प्रस्तुत कोशिकाओं पर लिगैंड) और CTLA‑4 (प्रारम्भिक टी‑सेल सक्रियता का नियामक) शामिल हैं; इन्हें ब्लॉक करने से टी‑सेल सक्रियता और ट्यूमर कोशिकाओं पर हमला बढ़ता है।\n- ये एंटीबॉडी सीधे कोशिका‑नाशक नहीं होते; उनका कार्य प्रतिरक्षा नियंत्रण बिंदुओं को हटाकर शरीर की अपनी प्रतिरक्षा प्रणाली को ट्यूमर पर प्रभावी बनाना है।\n- क्लिनिकल उपयोग: विभिन्न प्रकार के ठोस ट्यूमर (जैसे कुछ फेफड़ा, किडनी, मेलोनोमा, ब्लैडर) और कुछ रक्त कैंसरों में दीर्घकालिक प्रतिक्रिया और सुरक्षित‑सुधार दिखा चुके हैं; रोगियों में प्रतिक्रिया का समय और अवधि असमान हो सकती है।\n- डायग्नोस्टिक्स की भूमिका: PD‑L1 अभिव्यक्ति परीक्षण और अन्य बायोमार्कर (जैसे ट्यूमर म्युटेशन लोड) मरीजों के चयन और उपचार प्रत्याशा निर्धारित करने में सहायक होते हैं; इम्पोर्टेन्ट—मानक परीक्षण और रिपोर्टिंग प्रोटोकॉल आवश्यक हैं।\n- प्रतिकूल प्रभाव (immune‑related adverse events): चूंकि प्रतिरक्षा सक्रिय होती है, त्वचा, आंत, जिगर, फेफड़े और एंडोक्राइन ग्रंथियों में ऑटोइम्यून प्रकार के दुष्प्रभाव हो सकते हैं; प्रारम्भिक पहचान और कॉर्टिकोस्टेरोइड/इम्यूनोसप्रेसिव उपचार की आवश्यकता होती है।\n- प्रशासन और निगरानी: थेरेपी नियमित इंट्रावेनस दिया जाता है; उपचार के दौरान क्लिनिकल, लैब और इमेजिंग निगरानी से शुरुआती दुष्प्रभाव और जवाब का मूल्यांकन किया जाता है।\n- स्वास्थ्य‑प्रणाली और नीतिगत पहलू (MP के सन्दर्भ में): प्रभावी उपयोग के लिए उच्च‑स्तरीय ऑन्कोलॉजी केन्द्र, बायोप्सी/PD‑L1 परीक्षण की पहुँच, और दवा‑प्रवेश/किफायतीकरण नीतियाँ आवश्यक हैं ताकि उपचार योग्य मरीजों का समय पर लाभ हो सके।\n- प्रशिक्षण और जागरूकता: ऑनकोलॉजिस्ट, इंटेंसिव केयर और प्राथमिक स्वास्थ्य कर्मियों में ऑटोइम्यून दुष्प्रभावों की पहचान व त्वरित हस्तक्षेप की प्रशिक्षण आवश्यकता होती है।\n- लागत‑और‑वित्तीय तैयारी: ये थेरेपी महंगी हैं; सार्वजनिक स्वास्थ्य योजनाओं में लक्षित कवरेज, रोगी चयन और जाँच‑आधारित प्राथमिकता से संसाधनों का बेहतर उपयोग संभव है।\n- परीक्षा‑लक्ष्य प्वाइंट्स (संक्षेप में): ये मोनोक्लोनल एंटीबॉडी इम्यूनोलॉजिकल checkpoints को ब्लॉक करती हैं (PD‑1/PD‑L1, CTLA‑4), प्रतिरक्षा को सक्रिय कर ट्यूमर पर हमला बढ़ाती हैं, जवाब व दुष्प्रभाव के कारण चयनात्मक डायग्नोस्टिक्स व निगरानी आवश्यक है।", "priority_tag": "VERY_HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी के निर्माण में 'चैनब्रेकर' तकनीक (cell line engineering) का उद्देश्य क्या है?", "options": ["केवल antibody‑fragment (Fab) को स्थिर करने के लिए Glycosylation हटाना", "उत्पादन क्षमता (yield), glycosylation pattern और स्थिरता को अनुकूलित करके बड़े‑पैमाने पर गुणवत्तापूर्ण mAb उत्पादन सुनिश्चित करना", "mAb को DNA‑vaccines में बदलना", "लैटरल‑फ्लो टेस्ट का रंग तेज़ करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस बात से मोनोक्लोनल एंटीबॉडी‑आधारित डायग्नोस्टिक टेस्ट की specificity प्रभावित होती है?", "options": ["टेस्ट में प्रयुक्त antibody का cross‑reactivity अन्य समान एपिटोप्स के साथ होना", "टेस्ट के लिए उपयोग किए गये प्लेटफॉर्म का आकार सिर्फ", "sample collection समय के साथ किसी प्रकार का कोई संबंध नहीं है", "सिर्फ़ antibody का Fc isotype ही specificity तय करता है"], "answer_index": 0, "explanation": "# मोनोक्लोनल एंटीबॉडी‑आधारित डायग्नोस्टिक टेस्ट की specificity पर प्रभाव — विस्तृत व्याख्या\n**केंद्रित अवधारणा:** टेस्ट में प्रयुक्त मोनोक्लोनल एंटीबॉडी का अन्य समान एपिटोप्स के साथ cross‑reactivity होना specificity कम कर देता है।\n- मोनोक्लोनल एंटीबॉडी किसी विशिष्ट एपिटोप (epitope) को टार्गेट करती है; यदि वही या समान एंटीजेनिक संरचना अन्य पैथोजेन/प्रोटीन में मौजूद हो तो antibody अन्य लक्ष्यों से भी बंध सकती है (cross‑reactivity)।\n- एपिटोप‑समानता में अमीनो‑आसिड अनुक्रम की homology, संरचनात्मक (conformational) मिलावट और पोस्ट‑translational modifications (जैसे glycosylation) शामिल हो सकती हैं, जो cross‑reactivity बढ़ाती है।\n- उच्च affinity होना जरूरी है पर affinity अकेले specificity सुनिश्चित नहीं करता; एक उच्च‑affinity antibody गलत लक्ष्य (shared epitope) से भी मजबूत बंध सकती है।\n- छोटे या सरल एपिटोप (linear peptides) अधिक संभावित हैं अन्य प्रोटीन के साथ समानता दिखाने के लिए, जिससे cross‑reactivity बढ़ सकती है।\n- प्रयोगशाला में पेस्‍ट‑मैट्रिक्स (खून, सीरम) में मौजूदा समान प्रोटीन/एंटिबॉडी भी नॉन‑स्पेसिफिक बाइंडिंग बढ़ा सकते हैं, जिससे apparent cross‑reactivity दिखती है।\n- specificity पर प्रत्यक्ष प्रभाव: cross‑reactivity से false‑positive परिणाम बढ़ते हैं, जिससे पॉजिटिव प्रीडिक्टिव वैल्यू (PPV) ख़राब होता है, विशेषकर रोग की कम प्रचलितता वाले क्षेत्र में।\n- रोकथाम/कम करने के उपाय — सटीक एपिटोप‑मैपिंग और in‑silico/इनो‑विट्रो क्रॉस‑रिएक्टिविटी स्क्रीनिंग से ऐसे antibodies का चयन करें जिनके लक्षित एपिटोप अन्य मानव/पाथोजन प्रोटीन से भिन्न हों।\n- assay‑design में blocking steps, competitive formats, और उपयोग किए गए antibody का isotype/clone की पुष्टि करके नॉन‑स्पेसिफिक इंटरैक्शन घटाए जा सकते हैं।\n- वैलिडेशन में व्यापक panels (संबंधित समान एंटीजेन वाले नमूने, सीरम नमूने) पर परीक्षण कर के cross‑reactivity की मात्रा और प्रकार दर्ज करना आवश्यक है।\n- क्लीनिकल/पब्लिक‑हेल्थ निहितार्थ — MP स्तर पर प्रयोगशालाओं को विशिष्टता रिपोर्टिंग, confirmatory tests और QC प्रोटोकॉल अपनाने से गलत निदान और अनावश्यक सार्वजनिक‑स्वास्थ्य क्रियाओं से बचाव होगा।", "priority_tag": "VERY_HIGH"}, {"question": "भारत में सस्ती पहुँच के लिए मोनोक्लोनल एंटीबॉडी‑थेरपी के उत्पादन‑क्षमता बढ़ाने हेतु कौन‑सा मार्ग सबसे व्यवहारिक माना जाता है?", "options": ["महंगे imported hybridoma clones पर पूरी निर्भरता बनाए रखना", "स्थानीय biologics मैन्युफैक्चरिंग, बायोसिमिलर विकास और सार्वजनिक‑निजी भागीदारी को प्रोत्साहित करना", "केवल छोटे‑दवा (small molecule) विकल्पों पर लौटना और mAb प्रोत्साहन बंद करना", "नियामकों को छोड़कर बिना गुणवत्ता‑नियंत्रण वाले उत्पादन को बढ़ावा देना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मोनोक्लोनल एंटीबॉडी का diagnostic immunohistochemistry (IHC) में उपयोग मुख्यतः किस लिए किया जाता है?", "options": ["ट्यूमर‑मार्कर की टिशू‑स्तरीय अभिव्यक्ति का स्थानिक पता लगाने के लिए", "RNA‑expression को सीधे amplify करने के लिए", "किसी भी microbe को culture करने के उद्देश्य से", "patient के whole genome sequencing के विकल्प के रूप में"], "answer_index": 0, "explanation": "# मोनोक्लोनल एंटीबॉडी का IHC में उपयोग — विस्तृत व्याख्या (परिक्षा‑निगमित बिंदु)\n- मोनोक्लोनल एंटीबॉडी IHC में विशिष्ट प्रोटीन (ट्यूमर‑मार्कर) के टिशू‑स्तरीय स्थान और वितरण को स्थानिक रूप से पहचानने के लिए उपयोग किए जाते हैं।\n- ये एंटीबॉडी एक ही एपीटोप को लक्ष्य करते हैं, इसलिए टिशू में किसी विशेष मार्कर की सटीक और रिप्रोड्यूसिबल पहचान संभव होती है।\n- IHC में प्राप्त संकेत (कलर/बाधक सिग्नल) दिखाता है कि मार्कर कोशिका‑न्यूक्लियस, साइटोप्लाज्म या मेम्ब्रेन पर किस स्थान पर अभिव्यक्त है — जो निदान और टाइपिंग के लिए निर्णायक होता है।\n- ट्यूमर‑मार्कर का स्थानिक पैटर्न (उदा. मेम्ब्रेन‑लक्षित, साइटोप्लाज्मिक या नाभिकीय) कोशिकीय पहचान और ओरिजिन (tissue of origin) तय करने में मदद करता है।\n- मोनोक्लोनल एंटीबॉडी की उच्च विशिष्टता से फाल्स‑पॉजिटिवता कम होती है, जिससे ट्यूमर‑मार्कर की वास्तविक अभिव्यक्ति का भरोसेमंद मानचित्र मिलता है।\n- IHC परिणामों का clinical interpretation, ट्यूमर ग्रेड/स्टेजिंग और टार्गेटेड थेरेपी के निर्णय (उदा. लक्षित दवा के चयन के लिए मार्कर की उपस्थिति) में उपयोगी होते हैं।\n- फिक्सेशन और टिशू‑प्रोसेसिंग का प्रभाव IHC सिग्नल पर पड़ता है; इसलिए मानकीकृत प्रोटोकॉल और कंट्रोल्स के साथ मोनोक्लोनल एंटीबॉडी का उपयोग जरूरी है।\n- परिणाम अक्सर semi‑quantitative स्कोरिंग (ऊर्जा/percent‑positive सेल्स, तीव्रता) पर आधारित होते हैं, जो उपचार‑निर्णय और रिपोर्टिंग के लिए उपयोगी संकेत देती है।\n- मोनोक्लोनल एंटीबॉडी से प्राप्त स्थानिक जानकारी बायोप्सी‑टिशू में heterogeneity (असमान अभिव्यक्ति) को भी उजागर करती है, जो उपचार प्रत्याशा और रोग‑प्रवृत्ति के आकलन में मायने रखती है।\n- प्रयोगशाला‑संदर्भ मानकों और controls के साथ IHC‑आधारित मोनोक्लोनल एंटीबॉडी प्रयोग चिकित्सकीय निर्णयों के लिए reproducible और clinically actionable सूचना प्रदान करता है।\n- स्वास्थ्य‑प्रबंधन के परिप्रेक्ष्य से, IHC पर आधारित टिशू‑स्तरीय मार्कर पहचान निदान की पुष्टि, रोग‑वर्गीकरण और राज्य/क्षेत्रीय कैंसर नेविगेशन में उपयोगी डेटा देती है।", "priority_tag": "HIGH"}, {"question": "किसे 'chimeric antibody' कहा जाता है?", "options": ["एंटीबॉडी जिसका variable और constant दोनों हिस्से मानव के ही हों", "एंटीबॉडी जिसमें मानव constant region और गैर‑मानव variable region शामिल हो", "एंटीबॉडी जिसमें केवल CDR मानव से लिए गए हों और बाकी non‑human हों", "एक एंटीबॉडी जो दो अलग‑अलग रोगों को एक साथ लक्षित करती है"], "answer_index": 1, "explanation": "# व्याख्या: **Chimeric antibody** — परिभाषा और प्रमुख बिंदु\n- **परिभाषा:** Chimeric antibody वह एंटीबॉडी होती है जिसमें *मानव (human) constant region* और *गैर‑मानव (non‑human) variable region* सम्मिलित होते हैं।\n- **रचनात्मक अर्थ:** यहाँ \"variable region\" एंटीजन‑पहचान हेतु जिम्मेदार है और \"constant region\" इम्यूनो‑एफ़ेक्टर कार्यों (Fc‑mediated) के लिए होती है।\n- **उद्देश्य:** गैर‑मानव variable region को बनाए रखते हुए मानव constant region जोड़ने से एंटीबॉडी की इफिकेसी बनाये रखते हुए मानव प्रतिरक्षा के साथ अनुकूलता बढ़ती है।\n- **इम्युनोजेनिसिटी कम होना:** मानव constant region होने से पूरी तरह गैर‑मानव एंटीबॉडी की तुलना में रोगी में प्रतिरक्षा‑प्रतिक्रिया (anti‑drug antibodies) की संभावना घटती है।\n- **फंक्शनल लाभ:** मानव Fc क्षेत्र के कारण एडाप्टर फंक्शन (जैसे ऑप्सोनाइज़ेशन, कम्प्लीमेंट सक्रियण और Fcγ रिसेप्टर‑मीडिएटेड सेल‑मेडिएटेड साइटोटॉक्सिसिटी) बनाए रखे जा सकते हैं।\n- **उपयोग क्षेत्र:** डायग्नोस्टिक्स और थेरेपी दोनों में चिमेरिक एंटीबॉडी का उपयोग होता है — विशेषकर बायो‑टार्गेटेड औषधियों और इम्यूनो‑निदान टीस्ट में।\n- **निर्माण विधि (संक्षेप):** जेनेटिक इंजीनियरिंग द्वारा गैर‑मानव V‑जीन सीक्वेंस और मानवीय C‑जीन को जोड़कर रेकॉम्बिनेंट प्रोटीन के रूप में उत्पादित किया जाता है।\n- **नियामकीय और क्लिनिकल ध्यान:** थेराप्यूटिक उपयोग में स्वच्छता, क्लिनिकल‑फेज़ परीक्षण और ड्रग‑इंजेक्शन सुरक्षात्मक प्रोफाइल जांच आवश्यक है क्योंकि variable भाग अभी भी गैर‑मानव है।\n- **उदाहरणात्मक प्रभाव:** मानव constant होने से फार्माको‑डायनेमिक्स/फार्माको‑किनेटिक्स और सहनशीलता बेहतर होने की संभावना रहती है बनिस्बत पूरी‑तरह non‑human एंटीबॉडी के।\n- **MP स्वास्थ्य संदर्भ (संगीन रूप से संक्षेप):** राज्य‑स्तर पर बायोथेराप्यूटिक्स के उपयोग में चिमेरिक एंटीबॉडीज़ को लक्षित क्लिनिकल मार्गदर्शिकाएँ और रेगुलेटरी जरूरीताएँ ध्यान में रखनी चाहिए।\n- **संक्षेप में परीक्षा‑नोट:** Chimeric = human constant + non‑human variable — यह ही मूल सिद्धांत और परीक्षा‑योग्य तथ्य है; इसी बिंदु को स्पष्ट व संक्षेप में याद रखें।", "priority_tag": "HIGH"}, {"question": "मोनोक्लोनल एंटीबॉडी‑आधारित थेरपी में 'immunogenicity' से तात्पर्य है:", "options": ["थेरपी द्वारा रोग का प्रत्यक्ष रूप से इलाज होना", "मरीज के immune system द्वारा द्वेषी‑प्रतिक्रिया (anti‑drug antibodies) उत्पन्न होना, जो efficacy घटा सकते हैं", "एंटीबॉडी की molecular weight में वृद्धि", "नेशनल गाइडलाइंस द्वारा अनाधिकृत उपयोग"], "answer_index": 1, "explanation": "# मोनोक्लोनल एंटीबॉडी‑आधारित थेरपी में \"immunogenicity\" — स्पष्ट व्याख्या\n- Immunogenicity का अर्थ है रोगी के प्रतिरक्षा तंत्र द्वारा दवा‑विरुद्ध प्रतिकणों (anti‑drug antibodies, ADA) का निर्माण।\n- ADA बनना एक जैविक प्रतिक्रिया है जिसमें शरीर मोनोक्लोनल एंटीबॉडी को परजीवी/अनजान समझ कर प्रतिरक्षा प्रतिक्रिया शुरू करता है।\n- ADA बनने से थेरपी की प्रभावशीलता (efficacy) घट सकती है क्योंकि ये प्रतिकण दवा को बाँधकर उसका क्रियात्मक युद्ध कर देते हैं।\n- ADA के कारण दवा का क्लियरेंस बढ़ सकता है और दवा का रक्त में आधा‑जीवन (half‑life) घट सकता है, जिससे दवा का स्तर therapeutic range से बाहर जा सकता है।\n- ADA नेत्रहीन प्रभाव के साथ‑साथ नकारात्मक नैदानिक परिणाम दे सकते हैं — रोग नियंत्रण में कमी, रोग का अग्रगमन या उपचार विफलता।\n- कुछ ADA न केवल ड्रग की कार्यक्षमता कम करते हैं बल्कि एलर्जिक या हाइपरसेंसेटिविटी प्रतिक्रियाएँ भी करवा सकते हैं, जिससे सुरक्षा संबंधी चिंताएँ आती हैं।\n- Immunogenicity का मूल्यांकन क्लीनिकल ट्रायल और पोस्ट‑मार्केटिंग के दौरान serological परीक्षणों से किया जाता है — ADA के प्रकार, मात्रा और न्यूट्रलाइज़िंग क्षमता को मापा जाता है।\n- Immunogenicity पर असर डालने वाले कारक: ड्रग की संरचना (मानव/मानवीकृत/चिमेरिक), खुराक और प्रशासन आवृत्ति, रोगी की प्रतिरक्षा‑स्थिति और सह‑उपचार (जैसे इम्युनो-सप्रेसन)।\n- कम करने की रणनीतियाँ: अधिक मानवीकृत mAb बनाना, उपयुक्त डोजिंग तकनीक, इम्युनो‑मॉड्यूलेटरी उपाय और रोगी‑मानचित्रण; इनसे ADA निर्माण का जोखिम घटाया जा सकता है।\n- Regulatory और क्लिनिकल निर्णय‑निर्माण में immunogenicity data आवश्यक हैं — यह सुरक्षा/प्रभावशीलता प्रोफ़ाइल और रोगियों के लिए निगरानी रणनीतियों को प्रभावित करता है।\n- MP स्वास्थ्य सेवा में यह अवधारणा रोगियों के उपचार विकल्प चुनते समय, दवा निगरानी और फार्माकोविजिलेंस योजनाओं में प्रत्यक्ष रूप से लागू होती है।", "priority_tag": "VERY_HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

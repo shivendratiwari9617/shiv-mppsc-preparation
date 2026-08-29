@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-030 – उज्जैन — सांदीपनि आश्रम</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-030 – उज्जैन — सांदीपनि आश्रम</h1>
+        <div class="note">क्षेत्र: Ujjain | सामग्री: गुरुकुल परंपरा—पुराण/कथा संदर्भ | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 07-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना  
+उज्जैन का सांदीपनि आश्रम प्राचीन गुरुकुल परंपरा का प्रतीक है, जिसे पारंपरिक रूप से शांडिल्य-संप्रदाय और श्रीकृष्ण के गुरु — सामाजिक तथा धार्मिक स्मृति से जोड़ा जाता है; यह MPPSC के Heritage और Culture टॉपिक्स में स्थानीय-ऐतिहासिक सन्दर्भ के लिए महत्वपूर्ण है।  
+
+# ऐतिहासिक एवं पौराणिक पृष्ठभूमि  
+सांदीपनि (Sandipani) मुनि को पुराण और भागवत में कृष्ण-बलराम के गुरु के रूप में उल्लेखित किया गया है और पारंपरिक मान्यता के अनुसार उनका आश्रम प्राचीन उज्जयिनी क्षेत्र (उज्जैन) से सम्बद्ध है; यह पौराणिक संदर्भ उज्जैन की अवंती/उज्जयिनी की संस्कृतिवैभव से जुड़ता है और लोकस्मरण में शिक्षाधर्म की प्रामाणिकता प्रदान करता है।  
+
+# स्थापत्य व स्थलपर्यटन आयाम  
+ऐतिहासिक उत्खनन या स्थापत्य अवशेष सीमित पाए गए हैं; मौजूदा संरचनाएँ अधिकतर मध्यकालीन-आधुनिक काल में हुए पुर्ननिर्माण/स्थापना पर टिकी हैं, परिणामस्वरूप साइट का वास्तुशिल्पीय अध्ययन सीमित है और यह heritage-tourism के लिये विशेष संवहन नीति की मांग करता है।  
+
+# सामाजिक-शैक्षिक महत्व और स्थानीय परंपराएँ  
+गुरुकुल परम्परा का प्रतिकात्मक केंद्र होने के नाते सांदीपनि आश्रम स्थानीय धार्मिक आयोजनों, संस्कृतिकला कार्यशालाओं और शैक्षिक अनुष्ठानों (जैसे कलाशला; पारंपरिक शास्त्रीय शिक्षण) का केन्द्र रहा है, जिससे स्थानीय अर्थव्यवस्था और सांस्कृतिक पर्यटन पर सकारात्मक प्रभाव पड़ता है यदि इसे व्यवस्थित रूप से संवर्धित किया जाए।  
+
+# संरक्षण स्थिति व नीति-संदर्भ  
+पिछले पंद्रह वर्षों की प्रवृत्ति अपेक्षाकृत कम रही है; सरकारी संरक्षण-रजिस्टर तथा MP Tourism के स्मारक सूचीकरण में आंशिक रूप से शामिल होने के बावजूद संरचनात्मक संरक्षण व interpretive signage की कमी है—इसलिए ASI/State Sanskriti Vibhag के समन्वित संरक्षण-कार्यक्रम तथा लोक-भागीदारी मॉडल जरूरी हैं।  
+
+# चुनौतियाँ और नीतिगत सुझाव  
+मुख्य चुनौतियाँ हैं: पौराणिक-ऐतिहासिक स्रोतों की सीमित ठोसता, वित्तीय संसाधनों का अभाव, और स्थानीय अवसंरचना की कमजोर स्थिति; समाधान के रूप में स्थानीय समुदाय-आधारित heritage management, डिजिटल आर्काइविंग (3D मॉडेलिंग), और MP Tourism के तहत भीतरी-स्थानीय यात्रा मार्गों में शामिल करना प्रभावी रहेगा।  
+
+# तुलनात्मक संदर्भ (MP में अन्य उदाहरण)  
+इसी तरह के धार्मिक-गुरुकुलीय स्थलों की तुलना में (जैसे महेश्वर या ओंकारेश्वर के सांस्कृतिक केन्द्र) उज्जैन का सांदीपनि आश्रम यदि समेकित interpretive plan व इवेंट-कलेंडर के साथ जोड़ा जाए तो यह धार्मिक-शैक्षिक पर्यटन को नियमित कर सकता है।  
+
+# निष्कर्ष व मार्ग आगे के लिये  
+सांदीपनि आश्रम उज्जैन की पौराणिक-शैक्षिक पहचान का संवाहक है; दीर्घकाल में समेकित संरक्षण, शैक्षिक कार्यक्रमों का पुनरुद्धार और सरकारी–स्थानीय साझेदारी उसके ऐतिहासिक महत्व को जीवंत रख सकती है तथा MP के सांस्कृतिक पर्यटन पोर्टफोलियो में इसकी उपयोगिता बढ़ा सकती है।  
+
+स्रोत 1: NCERT &quot;An Introduction to Indian Art&quot; – सम्बंधित अध्याय  
+स्रोत 2: Arihant – &quot;Madhya Pradesh Samanya Gyan&quot; (Kala-Sanskriti evam Lokparampara अध्याय)  
+स्रोत 3: Sanskriti Vibhag / MP Tourism – Madhya Pradesh Government – आधिकारिक पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-030 – उज्जैन — सांदीपनि आश्रम", "coverage_note": "क्षेत्र: Ujjain | सामग्री: गुरुकुल परंपरा—पुराण/कथा संदर्भ | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना  \nउज्जैन का सांदीपनि आश्रम प्राचीन गुरुकुल परंपरा का प्रतीक है, जिसे पारंपरिक रूप से शांडिल्य-संप्रदाय और श्रीकृष्ण के गुरु — सामाजिक तथा धार्मिक स्मृति से जोड़ा जाता है; यह MPPSC के Heritage और Culture टॉपिक्स में स्थानीय-ऐतिहासिक सन्दर्भ के लिए महत्वपूर्ण है।  \n\n# ऐतिहासिक एवं पौराणिक पृष्ठभूमि  \nसांदीपनि (Sandipani) मुनि को पुराण और भागवत में कृष्ण-बलराम के गुरु के रूप में उल्लेखित किया गया है और पारंपरिक मान्यता के अनुसार उनका आश्रम प्राचीन उज्जयिनी क्षेत्र (उज्जैन) से सम्बद्ध है; यह पौराणिक संदर्भ उज्जैन की अवंती/उज्जयिनी की संस्कृतिवैभव से जुड़ता है और लोकस्मरण में शिक्षाधर्म की प्रामाणिकता प्रदान करता है।  \n\n# स्थापत्य व स्थलपर्यटन आयाम  \nऐतिहासिक उत्खनन या स्थापत्य अवशेष सीमित पाए गए हैं; मौजूदा संरचनाएँ अधिकतर मध्यकालीन-आधुनिक काल में हुए पुर्ननिर्माण/स्थापना पर टिकी हैं, परिणामस्वरूप साइट का वास्तुशिल्पीय अध्ययन सीमित है और यह heritage-tourism के लिये विशेष संवहन नीति की मांग करता है।  \n\n# सामाजिक-शैक्षिक महत्व और स्थानीय परंपराएँ  \nगुरुकुल परम्परा का प्रतिकात्मक केंद्र होने के नाते सांदीपनि आश्रम स्थानीय धार्मिक आयोजनों, संस्कृतिकला कार्यशालाओं और शैक्षिक अनुष्ठानों (जैसे कलाशला; पारंपरिक शास्त्रीय शिक्षण) का केन्द्र रहा है, जिससे स्थानीय अर्थव्यवस्था और सांस्कृतिक पर्यटन पर सकारात्मक प्रभाव पड़ता है यदि इसे व्यवस्थित रूप से संवर्धित किया जाए।  \n\n# संरक्षण स्थिति व नीति-संदर्भ  \nपिछले पंद्रह वर्षों की प्रवृत्ति अपेक्षाकृत कम रही है; सरकारी संरक्षण-रजिस्टर तथा MP Tourism के स्मारक सूचीकरण में आंशिक रूप से शामिल होने के बावजूद संरचनात्मक संरक्षण व interpretive signage की कमी है—इसलिए ASI/State Sanskriti Vibhag के समन्वित संरक्षण-कार्यक्रम तथा लोक-भागीदारी मॉडल जरूरी हैं।  \n\n# चुनौतियाँ और नीतिगत सुझाव  \nमुख्य चुनौतियाँ हैं: पौराणिक-ऐतिहासिक स्रोतों की सीमित ठोसता, वित्तीय संसाधनों का अभाव, और स्थानीय अवसंरचना की कमजोर स्थिति; समाधान के रूप में स्थानीय समुदाय-आधारित heritage management, डिजिटल आर्काइविंग (3D मॉडेलिंग), और MP Tourism के तहत भीतरी-स्थानीय यात्रा मार्गों में शामिल करना प्रभावी रहेगा।  \n\n# तुलनात्मक संदर्भ (MP में अन्य उदाहरण)  \nइसी तरह के धार्मिक-गुरुकुलीय स्थलों की तुलना में (जैसे महेश्वर या ओंकारेश्वर के सांस्कृतिक केन्द्र) उज्जैन का सांदीपनि आश्रम यदि समेकित interpretive plan व इवेंट-कलेंडर के साथ जोड़ा जाए तो यह धार्मिक-शैक्षिक पर्यटन को नियमित कर सकता है।  \n\n# निष्कर्ष व मार्ग आगे के लिये  \nसांदीपनि आश्रम उज्जैन की पौराणिक-शैक्षिक पहचान का संवाहक है; दीर्घकाल में समेकित संरक्षण, शैक्षिक कार्यक्रमों का पुनरुद्धार और सरकारी–स्थानीय साझेदारी उसके ऐतिहासिक महत्व को जीवंत रख सकती है तथा MP के सांस्कृतिक पर्यटन पोर्टफोलियो में इसकी उपयोगिता बढ़ा सकती है।  \n\nस्रोत 1: NCERT \"An Introduction to Indian Art\" – सम्बंधित अध्याय  \nस्रोत 2: Arihant – \"Madhya Pradesh Samanya Gyan\" (Kala-Sanskriti evam Lokparampara अध्याय)  \nस्रोत 3: Sanskriti Vibhag / MP Tourism – Madhya Pradesh Government – आधिकारिक पोर्टल", "mcqs": [{"question": "सांदीपनि आश्रम से सम्बन्धित पौराणिक कथानुसार किस देव-पुरुष ने यहाँ गुरुकुल में अध्ययन किया था और अपने गुरु से शिक्षा प्राप्त की थी?", "options": ["श्रीकृष्ण", "राम", "हनुमान", "भार्गव"], "answer_index": 0, "explanation": "# व्याख्या — श्रीकृष्ण और सांदीपनि आश्रम (उज्जैन)\n- **पौराणिक परम्परा के अनुसार श्रीकृष्ण ने सांदीपनि मुनि के गुरुकुल में शिक्षा ग्रहण की।**\n- सांदीपनि मुनि का आश्रम प्राचीन अवन्ति क्षेत्र (उज्जैन के आसपास) से जुड़ा मान्य स्थान है, जहाँ वरुण-काल में गौत्रीय पाठ्य एवं वेदाध्ययन होते थे।\n- श्रीकृष्ण ने यहाँ वेद, शास्त्र, युद्धकला, तर्कशास्त्र और शिल्प संबंधी पारंपरिक विद्याएँ सीखी थीं — यह पारंपरिक गुरुकुल शिक्षण का स्वरूप दर्शाता है।\n- कथा अनुसार गुरु-शिष्य परम्परा के अनुसार श्रीकृष्ण ने अपने गुरु को आदरपूर्वक शिक्षा ग्रहण की तथा गुरु-दक्षिणा का विधान भी निभाया।\n- एक प्रमुख आख्यान में गुरु-दान (गुरु-दक्षिणा) के अवसर पर श्रीकृष्ण ने सांदीपनि के खोए हुए पुत्र की मृत्यु से पुनरुत्थान कराकर गुरु को लौटाया; यह कथा गुरु-भक्ति व दायित्व का प्रतीक मानी जाती है।\n- इस पौराणिक संबंध के कारण उज्जैन क्षेत्र में सांदीपनि आश्रम से जुड़े स्थल स्थानीय धार्मिक और सांस्कृतिक स्मारक के रूप में प्रतिष्ठित हैं।\n- श्रीकृष्ण का सांदीपनि आश्रम में अध्ययन करने का किस्सा उपन्यासिक और पुराणिक ग्रंथों तथा लोककथाओं में बार-बार प्रकट होता है और क्षेत्रीय स्मृति में संरक्षित है।\n- यह कथानक उज्जैन के धार्मिक-शैक्षिक इतिहास के लोक-मानचित्र में गुरु- शिष्य परंपरा तथा ब्राह्मणिक शिक्षण प्रणाली के संवर्धन के रूप में उद्धृत किया जाता है।\n- परीक्षा और उत्तर लेखन के लिए संक्षेप बिंदु: \"श्रीकृष्ण — सांदीपनि मुनि के गुरुकुल में वेद व शास्त्रों का अध्ययन; गुरु-भक्ति का प्रतीक; उज्जैन क्षेत्रीय सांस्कृतिक संबंध।\"\n- मेन्स उत्तर में उज्जैन से संबंधित भाग में इसे गुरु-शिष्य परंपरा, धार्मिक-सांस्कृतिक स्मृति और स्थानीय तीर्थ/स्मारक के संदर्भ में सीधे उल्लेख किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "उज्जैन प्राचीन काल में किस नाम से प्रसिद्ध था और जिसे शिक्षा-केन्द्रों और गुरुकुलों का प्रचलित केन्द्र माना जाता था?", "options": ["अवन्तिका", "उज्जयिनीपुर", "मागध", "कौशाम्बी"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सांदीपनि आश्रम के पौराणिक संदर्भ में किस प्राचीन ग्रंथ में गुरु-संप्रदाय और कृष्ण के आध्यात्मिक प्रशिक्षण का उल्लेख आता है?", "options": ["भागवतम् पुराण", "अथर्ववेद", "मनुस्मृति", "विक्रम संवत"], "answer_index": 0, "explanation": "# व्याख्या — भागवतम् पुराण में सांदीपनि आश्रम का संदर्भ\n**सार:** भागवतम् पुराण में सांदीपनि आश्रम का स्पष्ट वर्णन मिलता है, जहाँ भगवान कृष्ण ने गुरु-संप्रदाय के अंतर्गत आध्यात्मिक-शैक्षिक प्रशिक्षण प्राप्त किया था।\n- भागवतम् पुराण (विशेषतः दशम स्कंध से संबंधित कथानक में) में श्रीकृष्ण के बाल्यकाल का विस्तृत विवरण है और उसी में सांदीपनि मुनि के आश्रम का उल्लेख आता है।\n- पुराण में सांदीपनि आश्रम को गुरु-आश्रय व शिक्षा के केंद्र के रूप में प्रस्तुत किया गया है, जहाँ गुरुः शिष्य परंपरा के अनुसार दीक्षा और अध्ययन होता था।\n- भागवतम् के वर्णनानुसार कृष्ण ने सांदीपनि से वेद, शास्त्र, दण्डनुशास्त्र और अन्य विद्या-शाखाओं का प्रशिक्षण ग्रहण किया।\n- पाठ में गुरु‑सम्प्रदाय की अवधारणा (गुरु की भूमिका, शिष्य का अनुशासन, दीक्षा व पारम्परिक पाठ्यक्रम) को सांदीपनि–कृष्ण संबंध की कथा के माध्यम से उजागर किया गया है।\n- भागवतम् पुराण में गुरु‑शिष्य के आध्यात्मिक अनुशासन, मनोव्यवहार और नैतिक शिक्षा पर भी बल दिया गया है, जो सांदीपनि आश्रम के प्रसंग से स्पष्ट होता है।\n- दैहिक और संगीतात्मक कला, हथियारशिक्षा व धार्मिक शिक्षा के मिश्रित प्रशिक्षण की परंपरा का संकेत भागवतम् के वर्णन में मिलता है, जहाँ कृष्ण के बहुआयामी प्रशिक्षण का उल्लेख है।\n- कथे के अनुसार गुरु का आदर, गुरु-आदेशपालन और गुरु के प्रति श्रद्धा का महत्व भागवतम् में सांदीपनि आश्रम के प्रसंग से सिद्ध होता है।\n- भागवतम् में प्रस्तुत सांदीपनि‑कृष्ण प्रसंग की नाटकीयता और पाठ‑संरचना से यह स्पष्ट होता है कि पुराण ने गुरु‑सम्प्रदाय की प्राचीन शैक्षिक परंपराओं को संरक्षित और प्रसारित किया।\n- प्रतियोगी परीक्षा के दृष्टिकोण से भागवतम् का यह प्रसंग मोती‑प्रमाण है कि सांदीपनि आश्रम का ऐतिहासिक एवं पौराणिक स्थान पुराणिक साहित्य में स्थापित है—यही कारण प्रश्न का सही उत्तर “भागवतम् पुराण” है।\n- Mains के लिए उपयोगी पॉइंट: भागवतम् का सांदीपनि‑प्रसंग MP के लोकसांस्कृतिक संदर्भों (उज्जैन में सांस्कृतिक स्मृति) के लिए स्रोतसिद्ध पौराणिक समर्थन देता है और गुरु‑परंपरा पर पुराणिक दृष्टिकोण प्रस्तुत करता है।", "priority_tag": "HIGH"}, {"question": "गुरुकुल परम्परा के सन्दर्भ में 'अश्रम' की पारम्परिक वैशिष्ट्य क्या है?", "options": ["गुरु के आश्रय में शिष्य का नैतिक, शैक्षिक और जीवनोपयोगी प्रशिक्षण", "राजाओं द्वारा स्थापित केवल राजकीय विद्यालय", "केवल युद्ध-कला का प्रशिक्षण केंद्र", "शहरी विश्वविद्यालयों की तरह परीक्षा-आधारित पाठ्यक्रम"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "उज्जैन के सांस्कृतिक और पर्यटन पहचान में गुरुकुलों/पौराणिक आश्रमों का योगदान सबसे अधिक किस प्रकार से रहा है?", "options": ["धार्मिक-आस्था और तीर्थयात्रा, लोककथाओं पर आधारित पर्यटन", "औद्योगिक निवेश और वाणिज्यिक हब", "आधुनिक तकनीकी विश्वविद्यालयों का विकास", "मौसम विज्ञान अनुसंधान केंद्र"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सांदीपनि आश्रम से जुड़ी प्रसिद्ध कथा में कृष्ण ने अपने गुरु से कौन-सा महत्वपूर्ण उपदेश प्राप्त किया—ऐसा पौराणिक विवरण किस रूप में मिलता है?", "options": ["धर्म, संस्कार और जीवन-नियमों के निर्देशन के रूप में", "केवल धन-वृद्घि के व्यावहारिक सूत्र के रूप में", "रजबन्धों की सैन्य रणनीतियों के रूप में", "कृषि-विज्ञान के तकनीकी निर्देशों के रूप में"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सांदीपनि आश्रम के ऐतिहासिक/परम्परिक स्थानों का उल्लेख करते हुए आधुनिक पर्यटन मार्ग में किस प्रकार की गतिविधियाँ प्रमुख रूप से आयोजित होती हैं?", "options": ["तीर्थ-यात्रा, सांस्कृतिक विरासत भ्रमण एवं लोककथाओं पर आधारित कार्यक्रम", "औद्योगिक प्रदर्शनियाँ और व्यापार मेलों", "जलवायु शोध संगोष्ठियाँ", "खेल प्रतियोगिताएँ और ऑटो-शो"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "गुरुकुल परम्परा के तहत पारम्परिक शिक्षा-पद्धति की प्रमुख विशेषता कौन-सी नहीं है?", "options": ["शिष्य का गुरु-निवास में दीर्घकालिक सामंजस्य और व्यवहारिक शिक्षा", "सैद्धान्तिक और व्यवहारिक दोनों प्रकार की शिक्षा का समावेश", "केवल विचारकों द्वारा लिखित किताबी पाठ्यक्रम और दूरस्थ ट्यूशन", "आदर्श-आचार और संस्कारों पर विशेष बल"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "उज्जैन में सांदीपनि आश्रम की पौराणिक मान्यता के अनुसार गुरु 'सांदीपनि' का वर्णन किस श्रेणी से संबंधित है?", "options": ["ऋषि/मुनि", "राजा", "युद्ध-नायक", "व्यापारी"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सांदीपनि आश्रम जैसी पौराणिक शिक्षण-स्थापनों का स्थानीय हस्तकला एवं स्थापत्य पर क्या प्रभाव दिखा है?", "options": ["धार्मिक मूर्तिकला, शिलालेख और मंदिरीय वास्तुकला के रूपों का विकास", "आधुनिक शीशे-स्टील भवनों का जन्म", "न्यायालय और प्रशासनिक भवनों का परम्परागत रूपांतरण", "समुद्री बन्दरगाहों का निर्माण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "उज्जैन की सांस्कृतिक पहचान में पौराणिक गुरुकुलों का महत्व किस कारण से आधुनिक समय में भी बना हुआ है?", "options": ["लोक-मान्यताओं, महाकाव्यों और तीर्थ-परम्पराओं से जुड़ी सांस्कृतिक विरासत के कारण", "भौतिक औद्योगिक आधारशिलाओं के कारण", "वैदेशिक सेना आवास के कारण", "आधुनिक उच्च तकनीकी अनुसंधान के कारण"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "परम्परागत गुरुकुल पद्धति में 'गुरु' और 'शिष्य' के सम्बन्ध का प्रमुख लक्ष्य क्या था?", "options": ["समग्र जीवन-शिक्षा अर्थात् ज्ञान, आचार, कर्म और संस्कार का प्रशिक्षण", "केवल व्यापारिक लेन-देन सिखाना", "राजनीतिक सत्ता हस्तगत करना", "केवल करदाताओं की सूची बनाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "पौराणिक दृष्टि से सांदीपनि आश्रम का उल्लेख किस भू-भाग या नगर से पारंपरिक रूप से जोड़ा जाता है?", "options": ["अवन्तिका (उज्जैन)", "मथुरा", "काशी", "श्रृंगवेरपुर"], "answer_index": 0, "explanation": "# व्याख्या — पौराणिक रूप से **सांदीपनि आश्रम** का पारंपरिक जुड़ाव: **अवन्तिका (उज्जैन)**\n- पारंपरिक पौराणिक कथाओं के अनुसार **सांदीपनि** वेद और शास्त्रों के आचार्य थे जिनके आश्रम में कृष्ण और बalarाम ने शिक्षा ली।\n- प्राचीन साहित्य में सांदीपनि आश्रम को पारंपरिक रूप से **अवन्तिका** के भू-भाग से जोड़ा गया है, जो आधुनिक नाम **उज्जैन** से प्रतिष्ठित है।\n- **अवन्तिका/उज्जैन** मालवा के दक्षिण-पश्चिमी भाग में स्थित ऐतिहासिक नगर है और प्राचीन धार्मिक-शैक्षिक केन्द्र के रूप में विख्यात रहा।\n- पौराणिक वर्णनों में अवन्तिका को सांस्कृतिक और धार्मिक अध्ययन का केन्द्र बताया गया है; इसलिए सांदीपनि जैसे गुरुकुल का अवन्तिका से संबन्ध साहित्यिक परंपरा में स्थापित है।\n- उज्जैन का भौगोलिक संकेत — **शिप्रा नदी के किनारे स्थित प्रमुख नगर** — इसे प्राचीन तीर्थ और विद्या-केंद्र के रूप में दर्शाता है, जो आश्रम-परंपरा के अनुकूल है।\n- स्थानीय स्मृति और मठ-मंदिर परंपराएँ उज्जैन को सांदीपनि आश्रम के पारंपरिक स्थान के रूप में मानती हैं; यह तथ्य MP-संबंधी सांस्कृतिक चर्चा में प्रयुक्त होता है।\n- उत्तर-प्राचीन और मध्यकालीन ग्रंथों व लोककथाओं में अवन्तिका का नाम सांस्कृतिक संदर्भ में बार-बार आता है, जिससे सांदीपनि आश्रम का जुड़ाव सुस्पष्ट रूप से परंपरा में प्रबल होता है।\n- प्रश्नोत्तर और संक्षिप्त तथ्य-नोट में: “सांदीपनि आश्रम — पारंपरिक स्थान: अवन्तिका (उज्जैन)” यह एक प्रत्यक्ष और स्वीकार्य तथ्य के रूप में लिखा जाए।\n- मार्गदर्शक बिंदु (Mains के लिए): उज्जैन को सांदीपनि आश्रम से जोड़कर लिखते समय पौराणिक-देवotional शिक्षा, विद्या के केन्द्र के रूप में नगर का ऐतिहासिक महत्व और स्थानीय सांस्कृतिक स्मृति का उल्लेख संक्षेप में करें।\n- परीक्षात्मक उत्तर में उपयोग के लिए संक्षेप: “सांदीपनि आश्रम पारंपरिक रूप से अवन्तिका अर्थात् उज्जैन से जोड़ा जाता है — उज्जैन का प्राचीन वैदिक-धार्मिक एवं शैक्षिक चरित्र इस संबन्ध का आधार है।”", "priority_tag": "HIGH"}, {"question": "उज्जैन के सांस्कृतिक पर्यटन में 'कथा-आधारित' स्थल जैसे सांदीपनि आश्रम के संरक्षण से सबसे अधिक किस क्षेत्र को लाभ होता है?", "options": ["स्थानीय पारंपरिक अर्थव्यवस्था और सांस्कृतिक संरक्षण", "ग्लोबल वित्तीय बाजार", "जैविक कृषि मात्र", "अंतरिक्ष अनुसंधान केंद्र"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "गुरुकुल परम्परा में शिक्षा के दिए जाने के पारंपरिक माध्यम कौन-से थे?", "options": ["श्रवण, स्मरण, चिंतन, अनुभव और आचार-भावना", "ऑनलाइन वीडियो और MOOCs", "छात्र-रिश्तेदारों द्वारा ही सीमित पुस्तकें", "केवल शासकीय आयोजनों के माध्यम से"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "सांदीपनि आश्रम को यदि मध्यप्रदेश की सांस्कृतिक विरासत के परिप्रेक्ष्य में देखा जाए तो यह किस प्रकार का प्रतीक माना जा सकता है?", "options": ["गुरुकुलीय शिक्षा और पौराणिक-आस्था का प्रतीक", "औपनिवेशिक प्रशासनिक नियंत्रण का प्रतीक", "औद्योगिकीकरण की मुख्य पहचान", "मध्ययुगीन किलेबंदी का उदाहरण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "अनुसंधान और संरक्षण के दृष्टिकोण से पौराणिक आश्रमों पर किया गया कार्य मुख्यतः किस पर केन्द्रित होता है?", "options": ["स्थानीय कथाओं का दस्तावेजीकरण और ऐतिहासिक-स्थापत्य का संरक्षण", "नए औद्योगिक यूनिटों का निर्माण", "सेंट्रल बैंक शाखाओं का विस्तार", "वायुयान अड्डों का निर्माण"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "सांदीपनि आश्रम सम्बन्धी पौराणिक कथाओं में गुरु द्वारा दिये गये 'गुरु-दक्षिणा' की प्रथा का सांकेतिक अर्थ क्या दर्शाता है?", "options": ["गुरु के प्रति सम्मान और शिष्य के समर्पण को", "शिष्य का राज-कर चुकाना", "गुरु का सैनिक प्रशिक्षण करवाना", "वाणिज्यिक करार मानना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "उज्जैन क्षेत्र में स्थित पौराणिक आश्रमों का स्थापत्य रूप आमतौर पर किस तत्व से प्रभावित रहा है?", "options": ["स्थानीय मंदिर स्थापत्य और धार्मिक मूर्तिकला शैलियों से", "आधुनिक ग्लास-फैक्ट्री शैलियों से", "मध्यपूर्वी किलेबंदी से", "समुद्रीय स्थापत्य से"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "सांदीपनि आश्रम की कथा-परंपरा के हवाले से लोक-उत्सवों और पर्वों में किस प्रकार का योगदान देखा जाता है?", "options": ["कथाकथन, नाट्य-प्रस्तुति और तीर्थ-यात्रा आयोजनों के रूप में स्थानीय आकर्षण", "केवल औद्योगिक प्रदर्शनी का आयोजन", "आधुनिक संगीत समारोहों का पूर्णतः वर्जन", "केवल विदेशी कला प्रदर्शनियों का आयोजन"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "गुरुकुल प्रणाली और सांदीपनि जैसे आश्रमों के अध्ययन से मध्यप्रदेश की कौन-सी सांस्कृतिक विशेषता प्रमुख रूप से उजागर होती है?", "options": ["पौराणिक कथाओं के साथ जीवित पारंपरिक शैक्षिक मूल्य", "केवल औपचारिक शहरी शिक्षा", "विकासशील औद्योगिक मापदण्ड", "भौगोलिक विपणन नीतियाँ"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "पौराणिक स्रोतों के आधार पर सांदीपनि का नाम किस रूप में तकनीकी या धार्मिक रूप से संदर्भित किया जाता है?", "options": ["गुरु / मुनि जो शिष्य को शिक्षा देता है", "केवल राजपरिवार का महाजन", "युद्ध-सेना का सरदार", "व्यापारिक गिल्ड का प्रमुख"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "स्थानीय संरक्षण नीतियों के सन्दर्भ में सांदीपनि आश्रम जैसे विरासत स्थलों के लिए किस प्रकार की पहल सबसे उपयुक्त मानी जाती है?", "options": ["कथाओं का दस्तावेजीकरण, संवेदनशील स्थापत्य संरक्षण और सामुदायिक भागीदारी", "स्थल का पूरी तरह वाणिज्यीकरण और औद्योगिकरण", "स्थल का बंद कर देना और सभी यात्राओं पर रोक", "निगरानी के बिना अज्ञात निजी विकास"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "पौराणिक गुरुकुलों के सन्दर्भ में 'आश्रय' और 'शिक्षण' का पारम्परिक स्थान किसने संकेतित किया है?", "options": ["गुरु का आश्रम या तपोस्थान", "नगर के बाजार", "सैनिक शिविर", "राजसी महल"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "उज्जैन में सांदीपनि आश्रम जैसे पौराणिक स्थलों का समेकित संरक्षण योजना में किस विभाग/क्षेत्र का सहयोग आवश्यक माना जाता है?", "options": ["संस्कृति/पर्यटन और स्थानीय सामुदायिक संस्थाएँ", "केवल रक्षा मंत्रालय", "केंद्रित बैंकिंग विभाग", "विभिन्न अंतरिक्ष एजेंसियाँ"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

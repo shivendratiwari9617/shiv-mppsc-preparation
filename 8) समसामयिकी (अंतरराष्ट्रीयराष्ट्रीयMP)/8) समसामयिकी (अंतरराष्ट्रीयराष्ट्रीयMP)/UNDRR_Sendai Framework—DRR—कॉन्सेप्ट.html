@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U8-144 – UNDRR/Sendai Framework—DRR—कॉन्सेप्ट</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U8-144 – UNDRR/Sendai Framework—DRR—कॉन्सेप्ट</h1>
+        <div class="note">क्षेत्र: Global/India | सामग्री: लक्ष्य/प्राथमिकताएँ—जोखिम न्यूनीकरण। | 15-वर्षीय ट्रेंड: Medium</div>
+      </div>
+      <div class="date">Updated: 18-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># UNDRR / Sendai Framework — DRR — कॉन्सेप्ट (Mains‑style उत्तर)
+
+Intro
+- Sendai Framework for Disaster Risk Reduction 2015–2030 को UN Member States ने तीसरे UN विश्व आपदा जोखिम न्यूनीकरण सम्मेलन, Sendai (March 2015) में अपनाया; इसका संचालन UNDRR (United Nations Office for Disaster Risk Reduction) करता है और यह 7 स्पष्ट वैश्विक लक्ष्यों (a–g) और 4 प्राथमिकताओं (प्रीवेंशन, तैयारी, पुनर्प्राप्ति, पुनर्निर्माण) पर केंद्रित है।  
+- भारत ने Sendai Framework को अपनाया और राष्ट्रीय स्तर पर Disaster Management Act, 2005 के अंतर्गत NDMA (National Disaster Management Authority) तथा 2019 के National Disaster Management Plan के माध्यम से Sendai के लक्ष्यों को अनुकूलित किया; गृह मंत्रालय (MHA) तथा NDMAs राज्य इकाइयाँ (जैसे MPSDMA) नीति‑कार्यान्वयन में प्रमुख स्टेकहोल्डर हैं।
+
+Body (core points — high‑density lines)
+1. अवधारणा/परिभाषा: Sendai का DRR risk‑centric दृष्टिकोण है—जो जोखिम विश्लेषण (hazard, exposure, vulnerability) और resilience मेट्रिक्स पर आधारित है; UNDRR की Global Assessment Report (GAR) हर 2–4 वर्ष में जोखिम ग्लोबल ट्रेंड दिखाती है।  
+2. लक्ष्यों का measurable स्वरूप: Framework के 7 लक्ष्यों में 2030 तक आपदा‑मृत्यु, प्रभावित व्यक्तियों, आर्थिक क्षति और बुनियादी ढांचे पर प्रभाव घटाने के लिए स्पष्ट संकेतक शामिल हैं; उदाहरणतः लक्ष्य (a) मृत्यु दर घटाना और (b) प्रभावित लोगों की संख्या कम करना।  
+3. चार प्राथमिकताएँ: Priority 1 (understand disaster risk), Priority 2 (strengthen governance), Priority 3 (invest in DRR), Priority 4 (enhance preparedness) — भारत ने NDMA दिशानिर्देश (2016–2020) और State DM Plans में इन्हें शामिल किया है; NDRF (National Disaster Response Force, 2006) जैसे संस्थागत निवेश Priority 3–4 से मेल खाते हैं।  
+4. विधिक‑संसदीय संदर्भ: Disaster Management Act, 2005 ने NDMA/SDMAs/DDMAs की व्यवस्था की; Sendai ने Member States से सार्वजनिक‑निजी भागीदारी तथा बजटीय आवंटन बढ़ाने को कहा—भारत का Finance Commission और State budgets अब DM contingency funds स्पष्ट करते हैं।  
+5. डेटा, सूचकांक और निगरानी: Sendai monitoring framework के तहत सूचनाएँ Sendai Monitor पोर्टल पर रिपोर्ट होती हैं; भारत ने National Risk Atlas और Geo‑tagged loss databases के माध्यम से exposure और loss data संकलित करना शुरू किया है, पर reporting frequency व राज्य‑स्तर समरूपता चुनौती है।  
+6. क्लाइमेट कनेक्शन और ट्रेंड (15 साल): 2008–2023 में मौसम‑जनित आपदाओं (cyclones, floods, heatwaves) में वृद्धि रिपोर्ट हुई; World Bank/UN रिपोर्ट बताते हैं कि climate‑induced hazards economic losses बढ़ाते हैं—इससे Sendai‑aligned mitigation और adaptation का समन्वय जरूरी है।  
+7. राज्य‑स्पेसिफिक (Madhya Pradesh) relevance: MP में 2013–2022 में floods और drought hotspots की पहचान हुई; MPSDMA ने district‑level contingency plans और community‑based early warning systems अपनाए हैं—यह Sendai Priority 1‑2 का लोकल अनुप्रयोग है।  
+8. वित्तीय उपकरण और निवेश: Sendai urges pre‑disaster investments; India ने SDRF (State Disaster Response Fund), NDRF और PM‑CARES/PMRelief frameworks के माध्यम से वित्तीय तैयारियां कीं; पर insurance penetration (crop &amp; property) सीमित है—Global index दिखाता है कि insured losses का अनुपात कम है।  
+9. समाजिक समावेशन और vulnerable groups: Sendai में gender, disability और marginalised groups के लिए targets हैं; भारत के NDMA guidelines (2010, 2018) में inclusive evacuation और special assistance की निर्दशिका है, पर ground‑level implementation में capacity gaps मौजूद हैं।  
+10. टेक्नोलॉजी और इन्नोवेशन: Early Warning Systems, GIS‑based risk mapping, mobile alerts और satellite data को UNDRR/Sendai ने प्रमोट किया; IISc/ISRO और state disaster cells के collaboration से India में pilot EWS projects बढ़े हैं—लेकिन interoperability व real‑time data sharing में बाधाएँ हैं।  
+11. क्षमता‑निर्माण और स्थानीय स्तर: Sendai emphasize local DRR; भारत ने Gram‑level disaster management plans और School Safety programmes (NDMA‑aligned) लागू किए—school safety audits और community drills को केंद्र/राज्य अनुदान से प्रोत्साहन मिला।  
+12. अंतरराष्ट्रीय सहयोग और वित्तपोषण: Sendai ने South‑South cooperation और Sendai‑aligned international funding (e.g., Green Climate Fund links) को प्रेरित किया; भारत ने DRR में तकनीकी सहयोग के रूप में SAARC और BIMSTEC मंचों पर अनुभव साझा किए हैं, जिससे cross‑border disaster resilience में योगदान बढ़ा है।
+
+Conclusion / Way‑forward (2–3 lines)
+- सार: Sendai Framework का risk‑reduction मॉडल (2015–2030) भारत के कानून (2005 Act), संस्थागत सेट‑अप (NDMA, NDRF, SDRF) और राष्ट्रीय योजनाओं (NDMP 2019) के साथ जुड़ा है; सफलता के लिए measurable targets (Sendai Monitor), बेहतर data governance और वित्तीय‑इंशुरन्स समाधान जरूरी हैं।  
+- Exam‑ready भविष्य सूझाव: केंद्र‑राज्य (MHA, NDMA, Finance Ministry) को Sendai monitoring के लिए unified MIS, state‑wise loss registry, insurance incentives और community‑based EWS पर 3‑year action plan देनी चाहिए; MP जैसे राज्य को district hazard‑specific resilience indices और school/community capacity audits हर साल रिपोर्ट करने के निर्देश चाहिए।
+
+स्रोत 1: PIB / MEA – भारत की official releases/briefs  
+स्रोत 2: UN / WHO / World Bank / IMF – संबंधित official report/summary  
+स्रोत 3: Drishti / Vision – Current Affairs compilation (exam-oriented notes)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">Latest NCERT कक्षा 6–12 (राजनीति, भूगोल, अर्थशास्त्र, विज्ञान—समसामयिकी की conceptual बुनियाद); Latest India Year Book (Publication Division, Govt of India) तथा MP के आधिकारिक वार्षिक प्रकाशन/दस्तावेज; Latest भारत सरकार के latest/official sources: PIB, MEA, MoF (Union Budget + Economic Survey), RBI (Reports/Notifications), Latest MoSPI (Data/Indicators), NITI Aayog (Reports), संबंधित मंत्रालयों/विभागों की प्रेस-रिलीज/रिपोर्ट; Latest मध्यप्रदेश सरकार के latest/official sources: MP Finance Dept (MP Budget + MP Economic Survey), Latest MP Planning/Directorate of Economics & Statistics, MP Govt के विभागीय पोर्टल/प्रेस-रिलीज; Latest अंतरराष्ट्रीय आधिकारिक sources: UN/UNDP, WHO, World Bank, IMF, WTO, IPCC (जहाँ लागू हो); Latest विश्वसनीय समसामयिकी compilation: Vision IAS / Drishti IAS MPPSC के Current Affairs (monthly) + Yojana/Kurukshetra (Govt magazines)</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U8-144 – UNDRR/Sendai Framework—DRR—कॉन्सेप्ट", "coverage_note": "क्षेत्र: Global/India | सामग्री: लक्ष्य/प्राथमिकताएँ—जोखिम न्यूनीकरण। | 15-वर्षीय ट्रेंड: Medium", "vyakhya": "# UNDRR / Sendai Framework — DRR — कॉन्सेप्ट (Mains‑style उत्तर)\n\nIntro\n- Sendai Framework for Disaster Risk Reduction 2015–2030 को UN Member States ने तीसरे UN विश्व आपदा जोखिम न्यूनीकरण सम्मेलन, Sendai (March 2015) में अपनाया; इसका संचालन UNDRR (United Nations Office for Disaster Risk Reduction) करता है और यह 7 स्पष्ट वैश्विक लक्ष्यों (a–g) और 4 प्राथमिकताओं (प्रीवेंशन, तैयारी, पुनर्प्राप्ति, पुनर्निर्माण) पर केंद्रित है।  \n- भारत ने Sendai Framework को अपनाया और राष्ट्रीय स्तर पर Disaster Management Act, 2005 के अंतर्गत NDMA (National Disaster Management Authority) तथा 2019 के National Disaster Management Plan के माध्यम से Sendai के लक्ष्यों को अनुकूलित किया; गृह मंत्रालय (MHA) तथा NDMAs राज्य इकाइयाँ (जैसे MPSDMA) नीति‑कार्यान्वयन में प्रमुख स्टेकहोल्डर हैं।\n\nBody (core points — high‑density lines)\n1. अवधारणा/परिभाषा: Sendai का DRR risk‑centric दृष्टिकोण है—जो जोखिम विश्लेषण (hazard, exposure, vulnerability) और resilience मेट्रिक्स पर आधारित है; UNDRR की Global Assessment Report (GAR) हर 2–4 वर्ष में जोखिम ग्लोबल ट्रेंड दिखाती है।  \n2. लक्ष्यों का measurable स्वरूप: Framework के 7 लक्ष्यों में 2030 तक आपदा‑मृत्यु, प्रभावित व्यक्तियों, आर्थिक क्षति और बुनियादी ढांचे पर प्रभाव घटाने के लिए स्पष्ट संकेतक शामिल हैं; उदाहरणतः लक्ष्य (a) मृत्यु दर घटाना और (b) प्रभावित लोगों की संख्या कम करना।  \n3. चार प्राथमिकताएँ: Priority 1 (understand disaster risk), Priority 2 (strengthen governance), Priority 3 (invest in DRR), Priority 4 (enhance preparedness) — भारत ने NDMA दिशानिर्देश (2016–2020) और State DM Plans में इन्हें शामिल किया है; NDRF (National Disaster Response Force, 2006) जैसे संस्थागत निवेश Priority 3–4 से मेल खाते हैं।  \n4. विधिक‑संसदीय संदर्भ: Disaster Management Act, 2005 ने NDMA/SDMAs/DDMAs की व्यवस्था की; Sendai ने Member States से सार्वजनिक‑निजी भागीदारी तथा बजटीय आवंटन बढ़ाने को कहा—भारत का Finance Commission और State budgets अब DM contingency funds स्पष्ट करते हैं।  \n5. डेटा, सूचकांक और निगरानी: Sendai monitoring framework के तहत सूचनाएँ Sendai Monitor पोर्टल पर रिपोर्ट होती हैं; भारत ने National Risk Atlas और Geo‑tagged loss databases के माध्यम से exposure और loss data संकलित करना शुरू किया है, पर reporting frequency व राज्य‑स्तर समरूपता चुनौती है।  \n6. क्लाइमेट कनेक्शन और ट्रेंड (15 साल): 2008–2023 में मौसम‑जनित आपदाओं (cyclones, floods, heatwaves) में वृद्धि रिपोर्ट हुई; World Bank/UN रिपोर्ट बताते हैं कि climate‑induced hazards economic losses बढ़ाते हैं—इससे Sendai‑aligned mitigation और adaptation का समन्वय जरूरी है।  \n7. राज्य‑स्पेसिफिक (Madhya Pradesh) relevance: MP में 2013–2022 में floods और drought hotspots की पहचान हुई; MPSDMA ने district‑level contingency plans और community‑based early warning systems अपनाए हैं—यह Sendai Priority 1‑2 का लोकल अनुप्रयोग है।  \n8. वित्तीय उपकरण और निवेश: Sendai urges pre‑disaster investments; India ने SDRF (State Disaster Response Fund), NDRF और PM‑CARES/PMRelief frameworks के माध्यम से वित्तीय तैयारियां कीं; पर insurance penetration (crop & property) सीमित है—Global index दिखाता है कि insured losses का अनुपात कम है।  \n9. समाजिक समावेशन और vulnerable groups: Sendai में gender, disability और marginalised groups के लिए targets हैं; भारत के NDMA guidelines (2010, 2018) में inclusive evacuation और special assistance की निर्दशिका है, पर ground‑level implementation में capacity gaps मौजूद हैं।  \n10. टेक्नोलॉजी और इन्नोवेशन: Early Warning Systems, GIS‑based risk mapping, mobile alerts और satellite data को UNDRR/Sendai ने प्रमोट किया; IISc/ISRO और state disaster cells के collaboration से India में pilot EWS projects बढ़े हैं—लेकिन interoperability व real‑time data sharing में बाधाएँ हैं।  \n11. क्षमता‑निर्माण और स्थानीय स्तर: Sendai emphasize local DRR; भारत ने Gram‑level disaster management plans और School Safety programmes (NDMA‑aligned) लागू किए—school safety audits और community drills को केंद्र/राज्य अनुदान से प्रोत्साहन मिला।  \n12. अंतरराष्ट्रीय सहयोग और वित्तपोषण: Sendai ने South‑South cooperation और Sendai‑aligned international funding (e.g., Green Climate Fund links) को प्रेरित किया; भारत ने DRR में तकनीकी सहयोग के रूप में SAARC और BIMSTEC मंचों पर अनुभव साझा किए हैं, जिससे cross‑border disaster resilience में योगदान बढ़ा है।\n\nConclusion / Way‑forward (2–3 lines)\n- सार: Sendai Framework का risk‑reduction मॉडल (2015–2030) भारत के कानून (2005 Act), संस्थागत सेट‑अप (NDMA, NDRF, SDRF) और राष्ट्रीय योजनाओं (NDMP 2019) के साथ जुड़ा है; सफलता के लिए measurable targets (Sendai Monitor), बेहतर data governance और वित्तीय‑इंशुरन्स समाधान जरूरी हैं।  \n- Exam‑ready भविष्य सूझाव: केंद्र‑राज्य (MHA, NDMA, Finance Ministry) को Sendai monitoring के लिए unified MIS, state‑wise loss registry, insurance incentives और community‑based EWS पर 3‑year action plan देनी चाहिए; MP जैसे राज्य को district hazard‑specific resilience indices और school/community capacity audits हर साल रिपोर्ट करने के निर्देश चाहिए।\n\nस्रोत 1: PIB / MEA – भारत की official releases/briefs  \nस्रोत 2: UN / WHO / World Bank / IMF – संबंधित official report/summary  \nस्रोत 3: Drishti / Vision – Current Affairs compilation (exam-oriented notes)", "mcqs": [{"question": "Sendai Framework for Disaster Risk Reduction को आधिकारिक रूप से किस वर्ष और किस शहर में अपनाया गया था?", "options": ["2015, सेनडई (जापान)", "2005, कोबे (जापान)", "2019, जिनीवा (स्विटजरलैंड)", "2010, न्यूयॉर्क (यूएसए)"], "answer_index": 0, "explanation": "# **विषय:** Sendai Framework for Disaster Risk Reduction — अपनाने का वर्ष और स्थान (२०१५, सेनडई)\n- **Sendai Framework को आधिकारिक रूप से वर्ष 2015 में अपनाया गया था।**\n- **यह अपनाना जापान के सेनडई शहर में हुआ था (Sendai, Miyagi Prefecture)।**\n- यह फ्रेमवर्क आवधिक कार्यकाल के रूप में 2015–2030 के लिये लक्षित है;灾प्रवर्तन रोकथाम एवं जोखिम कटौती का वैश्विक ढाँचा है।\n- Sendai Framework का उद्देश्य प्रकोप-जोखिम के कारण हुए मानवीय व आर्थिक हानियों को कम करना और असरदार रिस्क मैनेजमेंट को बढ़ावा देना है।\n- इसमें चार प्राथमिकताएँ अंकित हैं: जोखिम की समझ, जोखिम-रहित नीतियाँ/व्यवस्था, आपातत तैयारी व त्वरित बचाव, और पुनरुद्धार/लचीलापन।\n- Sendai में सात भरोसेमंद लक्ष्यों का उल्लेख है — उदाहरणस्वरूप मृत्यु में कमी, प्रभावित लोगों की संख्या में कमी, आर्थिक हानि में कमी, बुनियादी ढांचे व सेवा की क्षति में कमी आदि — जिन्हें 2030 तक मापा जाना था।\n- यह फ्रेमवर्क राष्ट्रों, क्षेत्रों, स्थानीय निकायों, निजी क्षेत्र और समुदायों को समन्वित कार्रवाई के लिये मार्गदर्शित करता है; राष्ट्रीय स्तर पर नीति और कार्ययोजना बनाना अनिवार्य माना गया है।\n- भारत सहित अनेक देशों ने इसे अपनाकर राष्ट्रीय/राज्य स्तर पर आपदा जोखिम न्यूनीकरण नीतियों और संस्थागत तंत्रों का अनुकूलन शुरू किया।\n- Sendai Framework का फोकस केवल आपात उत्तरदाता कार्रवाइयों पर नहीं बल्कि जोखिम की रोकथाम, तैयारियों और दीर्घकालिक पुनर्निर्माण पर भी है — जिससे सतत विकास लक्ष्यों के साथ तालमेल बनता है।\n- इसकी निगरानी के लिये इण्डिकेटर्स और डेटा संग्रह की आवश्यकता पर ज़ोर दिया गया है, ताकि प्रगति का वैश्विक और राष्ट्रीय स्तर पर तुलनात्मक मूल्यांकन संभव हो सके।\n- राज्य/जिला/स्थानीय स्तर पर इसका अनुवाद नीति, जन-भागीदारी, जोखिम मानचित्रण और आपदा-लघुकरण निवेश के माध्यम से किया जाता है; यही कारण है कि यह MP समेत सभी उप-राष्ट्रीय इकाइयों के लिये उपयोगी फ्रेमवर्क है।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework का कार्यकाल (target year तक का लक्ष्य) किस वर्ष तक निर्धारित है?", "options": ["2030", "2025", "2040", "2020"], "answer_index": 0, "explanation": "# Sendai Framework — कार्यकाल / Target Year (स्पष्टीकरण)\n- Sendai Framework for Disaster Risk Reduction आधिकारिक रूप से 2015 में अपनाया गया और इसका समयावधि/लक्षित वर्ष 2030 तक निर्धारित है।\n- इसका पूरा कार्यकाल 2015–2030 है, अर्थात् इसके глобल लक्ष्यों को 2030 तक हासिल करने का उद्देश्य रखा गया है।\n- Framework के सात विशिष्ट वैश्विक Targets (जैसे मृत्यु, प्रभावित लोगों की संख्या, आर्थिक हानि, बुनियादी ढांचे की क्षति इत्यादि) का समय-सीमा भी 2030 तक निर्धारित है।\n- Sendai का उद्देश्य 2030 तक जोखिम में कमी के मानकीकृत, मापनीय परिणाम देना है ताकि प्रगति का आकलन संभव हो।\n- 2030 लक्ष्य वर्ष के कारण ही राज्यों और केन्द्रों को मध्यावधि नीति, योजनाओं व बजट को 2015–2030 फ्रेम में समन्वयित करना होता है।\n- भारत/राज्यों के लिए यह स्पष्ट समय-सीमा राष्ट्रीय/राज्य स्तरीय डिजास्टर रिस्क रिडक्शन (DRR) रणनीतियों को 2030 के लक्ष्यों से लिंक करने का निर्देश देती है।\n- 2030 तक की टाइमलाइन नीतिगत लक्ष्यों को SMART (Specific, Measurable, Achievable, Relevant, Time-bound) बनाने में सहायक है—इसमें समय-सीमा “2030” ही Time-bound घटक है।\n- Sendai में 2030 के लक्ष्य नियमित प्रगति रिपोर्टिंग और वैश्विक संकेतकों के माध्यम से मॉनिटर किए जाते हैं; इसलिए राज्यों/नगरपालिकाओं को भी 2030-सम्बन्धी डेटा संग्रह पर ध्यान देना आवश्यक है।\n- MP और अन्य राज्य 2015–2030 फ्रेमवर्क के अनुरूप आपदा-प्रबंध योजना, आपदा संवेदनशील क्षेत्र मानचित्रण और रोकथाम-निवेशों को 2030 लक्ष्य के अनुरूप प्राथमिकता दें।\n- परीक्षा-संदर्भ: यदि प्रश्न में Sendai Framework का “target year” या कार्यकाल पूछा गया है तो संयोजित उत्तर में संक्षेप में लिखें — “Sendai Framework का कार्यकाल 2015‑2030 है; लक्षित वर्ष 2030।”\n- Mains के लिए उपयोगी बिंदु (सीधे जोड़े जा सकेंगे): Sendai के 2030 लक्ष्यों के अनुरूप राज्य नीति, मापन योग्य लक्ष्य (मृत्यु-दर, आर्थिक-हानि घटाना, बेसिक सर्विसेस की बहाली) और समय-सीमा पर आधारित वित्तीय/प्रोजेक्ट योजनाएं तैयार करने का औचित्य।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework के अनुसार कितने प्राथमिकता-क्षेत्र (Priorities for Action) निर्धारित किए गए हैं?", "options": ["4", "3", "5", "7"], "answer_index": 0, "explanation": "# **Sendai Framework — प्राथमिकता‑क्षेत्र (Priorities for Action) — व्याख्या (MPPSC Prelims 2026 के लिए)**\n- Sendai Framework for Disaster Risk Reduction 2015–2030 के अनुसार कुल **चार प्राथमिकता‑क्षेत्र** निर्धारित किए गए हैं।\n- पहला प्राथमिकता‑क्षेत्र: जोखिम की समझ बढ़ाना — इसमें जोखिम मानचित्रण, जोखिम आकलन, डेटा‑संग्रह और चेतना/शिक्षा शामिल हैं।\n- दूसरा प्राथमिकता‑क्षेत्र: जोखिम कमी के उपाय और क्षमताओं को सुदृढ़ करना — इसमें नीतिगत एकीकरण, सतत बुनियादी ढांचा और जोखिम‑कम करने वाले निर्माण‑मानक शामिल हैं।\n- तीसरा प्राथमिकता‑क्षेत्र: आपदा से पहले तैयारी और आपदा‑प्रतिक्रिया क्षमताओं को सुदृढ़ करना — इसमें आपदा‑प्रबंधन योजना, अलर्ट सिस्टम, आपातत्कालीन सेवाओं की क्षमता और संसाधन व्यवस्थित करना शामिल है।\n- चौथा प्राथमिकता‑क्षेत्र: आपदा के बाद पुनर्निर्माण और रिकवरी में जोखिम‑संवर्धन से बचना — इसमें पुनर्निर्माण में \"बिल्ड बैक बेटर\" सिद्धांत, सतत पुनर्वास और जोखिम घटाने के उपाय शामिल हैं।\n- ये चार प्राथमिकताएँ नीतिगत स्तर से लेकर स्थानीय‑सामुदायिक स्तर तक लागू करने योग्य हैं और राष्ट्रीय रणनीतियों में समेकित करने के लिये निर्देश देती हैं।\n- भारत के संदर्भ में ये प्राथमिकताएँ राष्ट्रीय आपदा प्रबंधन नीति और राज्य‑स्तरीय योजनाओं में समायोजन (e.g., जोखिम‑आधारित योजना, Early Warning Systems) के लिए मार्गदर्शक सिद्ध होती हैं।\n- मध्यप्रदेश जैसे राज्यों के लिए प्राथमिकताएँ कार्यान्वयन‑फोकस देती हैं: जोखिम‑मानचित्रण, आपदा‑तैयारी, स्थानीय आपदा‑इकाइयों की ट्रेनिंग तथा पुनर्निर्माण में मानक अपनाना।\n- परीक्षा‑दोस्त नोट: Sendai Framework = 4 Priorities — याद रखने योग्य संक्षेप: Risk understanding; Risk reduction; Preparedness/response; Recovery with reduced future risk.\n- Mains के लिए सीधे उपयोगी बिंदु: नीति‑सुझाव लिखते समय प्रत्येक Priority के तहत स्पष्ट, समयबद्ध और क्षेत्रीय क्रियान्वयन कदम (e.g., डेटा सिस्टम, स्थानीय प्रशिक्षण, resilient infrastructure, build‑back‑better) सुझाएँ।\n- संक्षेप में, Sendai के चार प्राथमिकता‑क्षेत्र न केवल आपदा‑प्रबंधन के चक्र (prevention, preparedness, response, recovery) को कवर करते हैं बल्कि जोखिम‑निवारण को दीर्घकालीन नीतिगत ढांचे में जोड़ने पर बल देते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework की पहली प्राथमिकता-क्षेत्र (Priority 1) क्या है?", "options": ["आपदा जोखिम की बेहतर समझ (Understanding disaster risk)", "आपदा तात्कालिक राहत और बचाव (Emergency relief and rescue)", "बिल्ड-बैक-बेटर (Build Back Better)", "आर्थिक सहायता उपलब्ध कराना (Providing financial aid)"], "answer_index": 0, "explanation": "# **व्याख्या — Sendai Framework की Priority 1: \"Understanding disaster risk\"**\n- **परिभाषा:** \"आपदा जोखिम की बेहतर समझ\" का अर्थ है hazards, vulnerabilities, exposure और जोखिम के आपसी संबंधों का समग्र ज्ञान व आंकलिकी (hazard, exposure, vulnerability, capacity)।\n- **उद्देश्य:** निर्णयकर्ताओं को जोखिम-आधारित नीतियाँ, निवेश और पूर्व-तैयारी के लिए वैज्ञानिक व सूचना-आधारित आधार उपलब्ध कराना।\n- **डेटा और जानकारी:** इसमें खतरे के मानचित्रण, जोखिम-मॉडलिंग, ऐतिहासिक घटना-डेटा, और वास्तविक समय निगरानी (early warning, remote sensing) शामिल हैं।\n- **स्थानिक और सामाजिक आयाम:** जोखिम की समझ में भौतिक जोखिम (भूकंप, बाढ़ आदि) के साथ सामाजिक संवेदनशीलता—आय, जातीयता, लिंग, आयु और अवसंरचनात्मक क्षमता की पहचान भी आवश्यक है।\n- **परिमाण व संकेतक:** जोखिम-मूल्यांकन के मानकीकृत संकेतक (probability, impact, loss estimates, exposure metrics) नीति-निर्माण और संसाधन आवंटन में उपयोगी होते हैं।\n- **समावेशी जानकारी पहुँच:** स्थानीय समुदाय, पंचायत/नगर निकाय और कमजोर समूहों तक जोखिम-संबंधी जानकारी प्रभावी, स्पष्ट व बहुभाषी रूप में पहुँचानी चाहिए ताकि स्थानीय निर्णय सार्थक हों।\n- **प्रौद्योगिकी और विज्ञान का उपयोग:** GIS, सैटेलाइट डेटा, मॉडलिंग, तथा हाइजेनिक/इंडिकेटर-आधारित मूल्यांकन जोखिम की सटीक पहचान और पूर्वानुमान के लिए आवश्यक हैं।\n- **नीतिगत असर:** बेहतर जोखिम समझ से आपदाओं के प्रबंधन में प्राथमिकता निर्धारण, लागत‑लाभ विश्लेषण और जोखिम-नियंत्रण निवेश (mitigation) का प्रमाणिक आधार बनता है।\n- **समन्वय व पारदर्शिता:** जोखिम-डेटा के साझा प्लेटफॉर्म, खुला डेटा नीतियाँ और इंटर-एजेंसी समन्वय निर्णयों को तेज व प्रमाणिक बनाते हैं।\n- **मॉनिटरिंग और समयानुकूलता:** जोखिम की समझ निरंतर अपडेट होती रहे—जलवायु परिवर्तन, शहरीकरण और अवसंरचना परिवर्तन के कारण जोखिम प्रोफाइल बदलते रहते हैं; इसलिए नियमित पुनर्मूल्यांकन जरूरी है।\n- **स्थानीय से राष्ट्रीय स्केल तक उपयोगिता:** स्थानीय स्तर पर किए गए जोखिम आंकलन को राज्य और राष्ट्रीय योजना में समेकित कर नीतिगत कार्रवाई और वित्तीय सहायता के लिए उपयोग किया जाना चाहिए।\n- **निष्कर्ष/प्रयोजन‑वाक्य:** Sendai Priority 1 का केन्द्र लक्ष्य है—ज्ञान व सूचना को सशक्त कर के आपदा‑जोखिम को मापना, समझना और उसी आधार पर निवारक व प्रतिकरणात्मक निर्णय लेना।", "priority_tag": "HIGH"}, {"question": "UNISDR का नाम बदलकर किस नाम से जाना जाता है (2019 के बाद)?", "options": ["UN Office for Disaster Risk Reduction (UNDRR)", "UN Office for Humanitarian Affairs (UNOCHA)", "UN Disaster Mitigation Agency (UNDMA)", "UN Risk Management Bureau (UNRMB)"], "answer_index": 0, "explanation": "# UNDRR (UN Office for Disaster Risk Reduction) — परीक्षा के लिए कुरकुरा व्याख्या\n**प्रश्न का संक्षिप्त उत्तर:** 2019 के बाद UNISDR का नाम बदलकर **UN Office for Disaster Risk Reduction (UNDRR)** रखा गया।\n1. UNDRR का पूरा नाम **United Nations Office for Disaster Risk Reduction** है और यह वैश्विक स्तर पर आपदा जोखिम न्यूनीकरण (DRR) का प्रमुख संयुक्त राष्ट्र कार्यालय है।\n2. इसका प्राथमिक उद्देश्य देशों और समुदायों को आपदा जोखिम कम करने के लिए नीति, योजना और कार्यान्वयन में तकनीकी व सलाहकार समर्थन प्रदान करना है।\n3. UNDRR Sendai Framework 2015–2030 का समन्वयक संस्थान है, जो आपदा-हानि घटाने के चार प्रमुख प्राथमिकताओं (priorities) को आगे बढ़ाता है।\n4. Sendai Framework की प्राथमिकताएँ — जोखिम समझना, जोखिम घटाना के लिए नीतियाँ लागू करना, आपदा तैयारी व आपात प्रतिक्रिया क्षमता मजबूत करना, तथा पुनरुद्धार में जोखिम घटाना — UNDRR इनके कार्यान्वयन में मार्गदर्शन देता है।\n5. UNDRR राष्ट्रीय सरकारों के साथ मिलकर आपदा जोखिम के आंकड़ों और संकेतकों (Sendai indicators) के माध्यम से प्रगति की निगरानी और रिपोर्टिंग में सहायता करता है।\n6. यह कार्यालय जोखिम-आधारित नीतियों, संवेदनशीलता और जोखिम मानचित्रण, बहु-खतरों के विश्लेषण और स्थानीय-स्तर की क्षमता निर्माण पर तकनीकी गाइडलाइन जारी करता है।\n7. UNDRR अंतरराष्ट्रीय मंचों पर DRR को सतत विकास लक्ष्यों (SDGs) और जलवायु परिवर्तन कार्यों से सिंक्रोनाइज़ कराने का काम करता है ताकि नीति-निर्माण समेकित हो।\n8. भारतस्तर पर UNDRR राज्यों के आपदा प्रबंधन संस्थाओं और राष्ट्रीय आपदा प्रबंधन प्राधिकरण (NDMA) के साथ सहयोग कर नीतिगत सलाह, प्रशिक्षण और Sendai Monitor रिपोर्टिंग में मदद देता है।\n9. UNDRR की रिपोर्टिंग और बेंचमार्किंग से राज्य/केंद्र दोनों को आपदा-अनुकूल निवेश, पूर्व सूचनाएँ और जोखिम-न्यूनीकरण पर बजट निर्धारण में मार्गदर्शन मिलता है।\n10. परीक्षा/मेनस उत्तर में प्रयुक्त करने हेतु संक्षेप में: UNDRR = संयुक्त राष्ट्र का आधिकारिक DRR कार्यालय; Sendai Framework का समन्वयक; नीति, तकनीकी मार्गदर्शन, निगरानी (Sendai indicators) और देशों के साथ क्षमता निर्माण पर केंद्रित।", "priority_tag": "HIGH"}, {"question": "Sendai Framework में कुल कितने वैश्विक लक्ष्य (global targets) हैं जिन्हें A से G तक नामित किया गया है?", "options": ["7", "5", "10", "4"], "answer_index": 0, "explanation": "# Sendai Framework — वैश्विक लक्ष्य (A–G) — व्याख्या (MPPSC Prelims 2026)\n**प्रश्न:** Sendai Framework में कुल कितने वैश्विक लक्ष्य (global targets) हैं जिन्हें A से G तक नामित किया गया है?\n**सही उत्तर:** 7\n- Sendai Framework for Disaster Risk Reduction 2015–2030 में कुल सात वैश्विक लक्ष्य (A से G) निर्धारित हैं; इन्हीं लक्ष्यों के आधार पर देशों की प्रगति मापी और रिपोर्ट की जाती है।\n- ये सात लक्ष्य समग्र रूप से मृत्यु, प्रभावित लोगों की संख्या, प्रत्यक्ष आर्थिक हानि, बुनियादी ढाँचे/सामाजिक सेवाओं पर प्रभाव, जोखिम-प्रबंधन नीतियों का क्रियान्वयन, बहाली / पुनर्निर्माण और जोखिम सूचना व चेतना से संबंधित हैं।\n- लक्ष्य A का फोकस आपदाओं के कारण प्रत्यक्ष मानवीय हानि (deaths) को कम करने पर है; इसे जीवन की रक्षा और मृत्यु दर में कमी के संदर्भ में मापा जाता है।\n- लक्ष्य B प्रभावित व्यक्तियों (people affected) की संख्या घटाने पर केन्द्रित है; इसमें विस्थापन, स्वास्थ्य प्रभाव और जीवनयापन पर नकारात्मक प्रभाव शामिल होते हैं।\n- लक्ष्य C प्रत्यक्ष आर्थिक हानि (economic loss) को संबोधित करता है, विशेषकर राष्ट्रीय GDP और आर्थिक परिसम्पत्तियों पर आपदात्मक नुक़सान को कम करने की आवश्यकता।\n- लक्ष्य D बुनियादी सेवाओं और बुनियादी ढाँचे (critical infrastructure, including health, education, water, energy, transport) पर होने वाले नुकसान को कम करने पर केंद्रित है और बहाली क्षमता को मजबूत करने का निर्देश देता है।\n- लक्ष्य E नीति, योजना और प्रबंधन ढाँचे की उपलब्धता और उनके लागू होने (priority actions and national/local disaster risk reduction strategies) को सुनिश्चित करने के लिए रखा गया है; यह जोखिम-सूचना, जोखिम मूल्यांकन और जोखिम-आधारित निर्णय प्रक्रियाओं के विस्तार से जुड़ा है।\n- लक्ष्य F बहाली (reconstruction) और जोखिम-लघुकरण को योजनाबद्ध और टिकाऊ तरीके से शामिल करने पर जोर देता है ताकि पुनर्निर्माण के दौरान नवीन जोखिम उत्पन्न न हों और भविष्य के खतरों के प्रति मजबूती बढ़े।\n- लक्ष्य G जोखिम-संबंधी जानकारी, जागरूकता और शिक्षा को बढ़ाने, तथा सर्वेक्षण/डेटा-संग्रह और अंतरराष्ट्रीय सहयोग के माध्यम से जोखिम-समझ को सुदृढ़ करने से संबंधित है।\n- इन सात लक्ष्यों के लिए वैश्विक संकेतक (global indicators) विकसित हुए हैं, जिनके माध्यम से सदस्य-राष्ट्रों की वार्षिक/अवधिगत रिपोर्टिंग और प्रगति ट्रैक की जाती है।\n- MPPSC/GS मेन्स में Sendai के इन लक्ष्यों का उपयोग करते समय सीधे और संक्षेप में ये बिंदु लिखें: कुल 7 लक्ष्य (A–G) थे, प्रत्येक लक्ष्य का विषय (death, affected, economic loss, critical infrastructure, policy/strategy implementation, resilient recovery, risk information/awareness) और इन्हें मापने के लिए विश्व स्तर पर संकेतक मौजूद हैं।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework का मुख्य फोकस निम्नलिखित में से किस पर है?", "options": ["आपदा जोखिम का न्यूनीकरण और प्रतिरोधी क्षमता बनाना", "केवल आपदा के बाद राहत वितरण", "सिर्फ़ आर्थिक नūkसान की भरपाई", "वैश्विक शस्त्र नियंत्रण"], "answer_index": 0, "explanation": "# Sendai Framework — मुख्य फोकस: आपदा जोखिम न्यूनीकरण और प्रतिरोधी क्षमता बनाना\n- Sendai Framework का केंद्रीय उद्देश्य है आपदा-प्रवण परिस्थितियों में होने वाले नुकसान को घटाना और दीर्घकालिक सामाजिक आर्थिक प्रतिरोधक क्षमता (resilience) बनाना।\n- यह फ्रेमवर्क आपदाओं को केवल प्रतिक्रिया‑केंद्रित समस्या न मानकर जोखिम‑न्यूनिकरण (risk reduction) और पूर्वतैयारी पर जोर देता है।\n- नीति‑दृष्टि से इसका आशय है विकास नीतियों में आपदा‑जोखिम को मुख्यधारा में शामिल कर बचाव से पहले रोकथाम और जोखिम प्रबंधन पर निवेश करना।\n- फ्रेमवर्क बहु‑जोखिम (multi‑hazard) और बहु‑स्तरीय (local, राज्य, राष्ट्रीय, अंतरराष्ट्रीय) अप्रोच अपनाता है ताकि स्थानीय संवेदनशीलता और जोखिम का त्वरित मूल्यांकन और समाधान हो।\n- यह समुदाय‑आधारित क्षमता निर्माण, स्थानीय आपदा योजना और कमजोर समूहों (गरीब, स्त्रियाँ, वृद्ध, आदिवासी आदि) की सुरक्षा को प्राथमिकता देता है।\n- आर्थिक दृष्टि से Sendai का फोकस है पूर्वावधान में निवेश कर आपदा‑सम्बन्धी आर्थिक हानि, जीवन‑क्षति और बुनियादी ढांचे के नुकसान को कम करना।\n- नीती निर्माण में यह पारदर्शी जोखिम‑जानकारी, बहु‑विषयक डेटा और जोखिम का मानचित्रण (risk assessment & mapping) लागू करने की वकालत करता है।\n- शासन‑तंत्र पर जोर देकर यह बताता है कि स्पष्ट जिम्मेदारियाँ, संसाधन आवंटन और सामंजस्यित आपदा प्रबंधन संरचनाएँ प्रतिरोधक क्षमता के निर्माण में अनिवार्य हैं।\n- Sendai में निगरानी के स्पष्ट लक्ष्य और संकेतक हैं (उदा. मृत्यु, प्रभावित लोगों, अर्थव्यवस्था पर आर्थिक नुकसान में कमी), जिनसे नीतियों की प्रभावशीलता मापी जा सकती है।\n- फ्रेमवर्क का इरादा है पुनर्निर्माण चरण में \"Build Back Better\" लागू कर आपदा के बाद भी अधिक प्रतिरोधी बुनियादी ढांचा और सेवाएँ सुनिश्चित करना।\n- यह जलवायु अनुकूलन और विकास लक्ष्यों के साथ तालमेल बैठाकर दीर्घकालिक जोखिम‑न्यूनिकरण को समेकित करने पर जोर देता है।\n- राज्य/जिला स्तर पर लागू करने योग्य नीतिगत संदेश: जोखिम का मानचित्रण, स्थानीय क्षमता‑निर्माण, प्रिवेंटिव‑इन्फ्रास्ट्रक्चर में निवेश और पुनर्निर्माण में प्रतिरोधी मानक अपनाना — यही Sendai का केंद्रबिंदु है।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework का एक प्रमुख लक्ष्य (Target A) किससे संबंधित है?", "options": ["2030 तक वैश्विक आपदा से होने वाली मौतों में कमी", "2030 तक सभी देशों में आपदा बीमा अनिवार्य करना", "2025 तक प्राकृतिक आपदाएँ समाप्त करना", "2040 तक सभी आपदा-घटनाओं की रिपोर्टिंग"], "answer_index": 0, "explanation": "# व्याख्या — Sendai Framework Target A (MPPSC Prelims 2026 योग्य)\n- Target A Sendai Framework का स्पष्ट लक्ष्य है: \"2030 तक वैश्विक आपदा से होने वाली मौतों में उल्लेखनीय कमी लाना\"।\n- यह लक्ष्य मौत (deaths) को घटाने पर केन्द्रित है — न केवल आर्थिक क्षति या प्रभावित लोगों की संख्या पर।\n- निगरानी के लिए उपयोगी संकेतक mortality count तथा mortality rate (प्रतिशत/100,000 आबादी) समान रूप से महत्वपूर्ण माने जाते हैं।\n- लक्ष्य बहु-खतरे (multi-hazard) दृष्टिकोण अपनाता है — भूकंप, बाढ़, चक्रवात, सूखा, उष्णकटिबंधीय तूफान आदि से होने वाली मौतों में कमी शामिल है।\n- इससे जुड़ी नीतियाँ प्राथमिक रूप से जोखिम-आधारित मानव जीवन सुरक्षा, जल्दी चेतावनी प्रणालियाँ और आपातकालीन स्वास्थ्य प्रतिक्रिया मजबूत करने पर केंद्रित होती हैं।\n- डेटा-संग्रह और रिपोर्टिंग (यूनिफॉर्म, समय-समिति और भौगोलिक रूप से disaggregated) Target A के मूल्यांकन के लिए अनिवार्य है।\n- राष्ट्रीय/राज्य स्तर पर इस लक्ष्य को हासिल करने के लिए जनस्वास्थ्य अवसंरचना, अस्पतालों की आपदा-तैयारी और सामुदायिक-आधारित आपदा-प्रबंधन योजनाएँ महत्व रखती हैं।\n- Target A का प्रगति मूल्यांकन अक्सर SDG लक्ष्यों तथा राष्ट्रीय आपदा-जोखिम कमी नीतियों के साथ संयोजित निगरानी से किया जाता है।\n- कमजोर समूहों (बुजुर्ग, बच्चे, महिलाएँ, विकलांगता वाले) के प्रति लक्षित संरक्षण सतत मृत्यु-घटाने की रणनीतियों का हिस्सा है।\n- वित्तीय निवेश (जलवायु-लचीला स्वास्थ्य-इंफ्रास्ट्रक्चर, चेतावनी सिस्टम) और क्षमता निर्माण सीधे तौर पर Target A की सफलता से जुड़े होते हैं।\n- स्थानीय-स्तर पर रोकथाम, बचाव और पुनर्वास के त्वरित उपायों से तत्काल मृत्यु-दरों में कमी लाई जा सकती है — यही Target A का कार्यक्षेत्र है।", "priority_tag": "HIGH"}, {"question": "Sendai Framework की चौथी प्राथमिकता-क्षेत्र (Priority 4) का मुख्य तत्त्व क्या है?", "options": ["आपदा प्रतिक्रिया के लिए तैयारियाँ और रिकवरी में 'Build Back Better' को लागू करना", "वैश्विक आपदा-डेटा संग्रह बंद करना", "केवल स्थानीय स्तर पर राहत सामग्री का भंडारण", "आपदा-जोखिम को केवल सैन्य तरीके से संभालना"], "answer_index": 0, "explanation": "# व्याख्या — Sendai Framework Priority 4: \"Build Back Better\" (आपदा प्रतिक्रिया के लिए तैयारियाँ और रिकवरी में लागू करना)\n- Priority 4 का मूल तत्त्व है आपदा के बाद पुनर्निर्माण (recovery) और पुनर्स्थापन (rehabilitation) प्रक्रिया में पूर्व-आपदा जोखिम घटाने के सिद्धांतों को स्थायी रूप से शामिल करना — यही \"Build Back Better\" का अर्थ है।\n- \"Build Back Better\" का लक्ष्य है क्षति की तुलना में अधिक मजबूत, अधिक लचीला और जोखिम-प्रतिरोधी अवसंरचना और समाज बनाना ताकि भविष्य की आपदाओं से प्रभाव न्यूनतम हो।\n- यह सिद्धांत केवल भौतिक पुनर्निर्माण तक सीमित नहीं; इसमें बुनियादी सेवाएँ (स्वास्थ्य, शिक्षा, जल एवं सीवेज, ऊर्जा), स्थानीय अर्थव्यवस्था और सामाजिक पूँजी की पुनर्स्थापना शामिल है।\n- नीति-स्तर पर इसका मतलब है रिकवरी योजनाओं में ज़मीन उपयोग, निर्माण कोड, आपदा जोख़िम आकलन और पर्यावरणीय दृष्टिकोण को अनिवार्य करना।\n- व्यवहारिक रूप में यह आवश्यक है कि पुनर्निर्माण के दौरान उच्च-जोखिम क्षेत्रों में पुनर्विकास न किया जाए; वैकल्पिक स्थानांतरण, समायोजित डिजाइन और प्राकृतिक संरक्षण को प्राथमिकता दी जाए।\n- \"Build Back Better\" में स्थानीय समुदायों की भागीदारी अनिवार्य है — रिकवरी कार्यक्रमों में समुदाय-आधारित जोखिम पहचान, निर्णय-निर्माण और पारदर्शिता से टिकाऊ परिणाम सुनिश्चित होते हैं।\n- वित्तीय उपकरण (बीमा, आपदा-रिलिफ फंड, बहु-स्तरीय वित्त पोषण) और समयबद्ध संसाधन आवंटन Recovery-Phase में Build Back Better को लागू करने के लिए ज़रूरी होते हैं।\n- मानक प्रक्रियाओं में शामिल हैं पूर्व-निर्माण (pre-disaster) योजनाएँ, पोस्ट-डिसास्टर आकलन, जोखिम-आधारित पुनर्निर्माण निर्देशिका और समय-सीमा-आधारित कार्ययोजनाएँ।\n- पर्यावरण-संवेदनशील पुनर्निर्माण (eco-sensitive restoration) — जैसे तटीय, वन या नदी-पारिस्थितिकी पर आधारित डिजाइन — भविष्य के जोखिमों को घटाने में सहायक है।\n- उच्च-जोखीम समूहों (महिला, बुजुर्ग, लंघनशील वर्ग) की ज़रूरतों को लक्षित करके सामाजिक सुरक्षा और समावेशी पुनर्निर्माण योजनाएँ Build Back Better की एक अनिवार्य आवश्यकता है।\n- प्रौद्योगिकी और डेटा (भू-स्थानिक मानचित्रण, जोखिम मॉडलिंग, जलवायु-आधारित पूर्वानुमान) का उपयोग रिकवरी-निर्णयों में सुधार कर अधिक जोखिम-प्रूफ निर्माण सुनिश्चित करता है।\n- राज्यों/जिलों के स्तर पर कार्यान्वयन के लिए नीतिगत निर्देश, निर्माण कोडों का अनिवार्य अनुपालन और लोक-निजी साझेदारी मॉडल अपनाना प्रभावी माना जाता है।\n- केंद्रीय एवं राज्य आपदा-प्रबंधन नीतियों में Build Back Better का समेकन आपदा-लचीलापन बढ़ाने और दीर्घकालिक विकास लक्ष्यों के साथ समन्वय करने के लिए आवश्यक है।", "priority_tag": "HIGH"}, {"question": "ह्योगो Framework for Action (HFA) किस सम्मेलन/शहर में अपनाया गया था और वह Sendai Framework से किस वर्ष पहले था?", "options": ["कोबे, 2005 — Sendai से 10 वर्ष पहले", "सेन्डई, 2015 — Sendai के बाद", "जिनेवा, 2019 — Sendai के बाद", "न्यूयॉर्क, 2007 — Sendai से 8 वर्ष पहले"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sendai Framework में 'Build Back Better' किस चरण/क्रिया से अधिक जुड़ा माना गया है?", "options": ["रिकवरी और पुननिर्माण चरण", "जोखिम आकलन चरण", "रिलिफ वितरण केवल बचाव चरण", "लॉ अर्निंग और शिक्षा चरण"], "answer_index": 0, "explanation": "# **Vyakhya — \"Build Back Better\" (Sendai Framework) — रिकवरी और पुननिर्माण चरण**\n- \"Build Back Better\" का मूल उद्देश्य आपदा के बाद पुनर्निर्माण के दौरान जोखिम कम करना और भविष्य में अधिक लचीलापन सुनिश्चित करना है; इसलिए यह मुख्यतः रिकवरी और पुननिर्माण चरण से जुड़ा है।\n- रिकवरी चरण में किए गए नवीनीकरण और पुनर्निर्माण के निर्णय दीर्घकालिक संरचनात्मक और सामाजिक जोखिमों को बढ़ा या घटा सकते हैं; यही कारण है कि Build Back Better नीति-निर्देश पुनरुद्धार के समय लागू होती है।\n- Sendai Framework स्पष्ट रूप से पुनर्निर्माण में सुधार, मानदंडों और योजनाओं को समेकित करने पर जोर देता है ताकि भविष्य के आपदाओं के प्रति संवेदनशीलता कम हो।\n- यह अवधारणा शारीरिक अवसंरचना (आवास, स्कूल, स्वास्थ्य केंद्र), सामाजिक अवसंरचना और आर्थिक आधार दोनों में मानक-ऊँचा बनाने पर केंद्रित है जो रिकवरी-निर्माण क्रियाओं में लागू होते हैं।\n- रिकवरी/पुननिर्माण में Build Back Better का अर्थ है जोखिम-आधारित ज़ोनिंग, आपदा-प्रतिरोधी निर्माण कोड, और हरित/क्लाइमेट-रिज़िलिएंट प्रथाओं को अपनाना।\n- इस चरण में समुदाय की भागीदारी, स्थानीय क्षमताओं का सुदृढ़ीकरण और प्राथमिकताओं का पुनर्मूल्यांकन आवश्यक बताया जाता है ताकि पुनर्निर्माण समावेशी और टिकाऊ बने।\n- वित्तीय पुनरुद्धार और बजट आवंटन भी रिकवरी-रूपरेखा में Build Back Better लागू करने के लिए अनुकूलित किए जाते हैं—पुनर्निवेश जोखिम-न्यूनिकरण पर केंद्रित होता है।\n- समयबद्ध और चरणबद्ध पुनर्निर्माण योजनाओं में पूर्वानुमानित खतरों और जलवायु जोखिमों को शामिल करना Sendai के Build Back Better के व्यवहारगत संकेत हैं।\n- निगरानी-प्रणालियाँ और परिणाम-आधारित संकेतक रिकवरी चरण में लागू नीतियों की सफलता मापने के लिए आवश्यक हैं; यह भी Build Back Better का हिस्सा माना जाता है।\n- इसलिए परीक्षा के नज़रिए से संक्षेप में: Sendai का \"Build Back Better\" सबसे प्रबल रूप से और प्रत्यक्ष रूप से रिकवरी एवं पुननिर्माण चरण से जुड़ा हुआ कॉन्सेप्ट है, जिसका लक्ष्य आपदा के बाद पुनर्निर्माण को अधिक सुरक्षित, टिकाऊ और लचीला बनाना है।", "priority_tag": "HIGH"}, {"question": "भारत में राष्ट्रीय स्तर पर आपदा जोखिम प्रबंधन के लिए स्थापित प्रमुख संस्था कौनसी है और इसे किस कानून/अधिनियम के तहत स्थापित किया गया?", "options": ["National Disaster Management Authority (NDMA) — Disaster Management Act, 2005", "National Emergency Relief Agency (NERA) — Emergency Relief Act, 2010", "Indian Disaster Committee (IDC) — Disaster Prevention Act, 1999", "National Rescue Force (NRF) — Rescue Services Act, 2008"], "answer_index": 0, "explanation": "# व्याख्या: National Disaster Management Authority (NDMA) — Disaster Management Act, 2005\n- **NDMA का वैधानिक आधार**: NDMA की स्थापना Disaster Management Act, 2005 के तहत एक statutory (कानूनी) संस्था के रूप में की गई।\n- **नेतृत्व व संरचना**: Act के अनुसार NDMA की अध्यक्षता प्रधानमंत्री करते हैं और इसमें अधिकतम नौ सदस्य नियुक्त किए जा सकते हैं।\n- **राष्ट्रीय नीति निर्धारण**: NDMA का प्रमुख कार्य राष्ट्रीय स्तर पर आपदा जोखिम प्रबंधन की नीति, फ्रेमवर्क और दिशानिर्देश तैयार करना है।\n- **राष्ट्रीय योजना का अनुमोदन**: NDMA राष्ट्रीय आपदा प्रबंधन योजना (National Plan) तैयार/समीक्षा कर उसे केंद्रीय सरकार के समक्ष अनुमोदित कराती है।\n- **दिशानिर्देश और मानक तय करना**: यह संस्था राज्यों और केन्द्र शासित प्रदेशों के लिए आपदा प्रबंधन संबंधी दिशानिर्देश और न्यूनतम मानक जारी करती है।\n- **समन्वय और निगरानी**: NDMA केन्द्रशासन, विभागों और राज्यों के बीच आपदा-प्रति-प्रतिक्रिया एवं निवारण गतिविधियों का समन्वय और निगरानी करती है।\n- **आपात प्रतिक्रिया संरचनाओं का प्रावधान**: Act के अंतर्गत राष्ट्रीय स्तर पर आपात प्रतिक्रिया बल और संसाधनों के निर्माण, प्रशिक्षण व तैनाती के लिए नीति रूपरेखा तय करने में NDMA की केंद्रीय भूमिका है।\n- **वित्तीय साधनों का प्रावधान**: Disaster Management Act ने राष्ट्रीय आपदा प्रत्युत्तर/निवारण कोष एवं उसके उपयोग के ढांचे का प्रावधान किया है; NDMA के योजनागत निर्देशों के अनुसार वित्तीय प्राथमिकताएँ सुनिश्चित की जाती हैं।\n- **क्षमता निर्माण व शोध**: NDMA राष्ट्रीय क्षमता निर्माण, रिस्क-रेड्यूसिंग तकनीकों, रिसर्च और डाटा-साझाकरण के लिए दिशानिर्देश और कार्यक्रम विकसित करती है।\n- **विधिक अधिकार और आदेश देने की क्षमता**: Act से NDMA को राज्यों/केंद्रों को दिशानिर्देश देने और आवश्यक कार्रवाइयों का निर्देश देने का वैधानिक अधिकार प्राप्त है, जिससे उसकी सिफारिशें बाध्यकारी रूप लेकर क्रियान्वयन में प्रभावी बनती हैं।\n- **अंतर-सरकारी और अंतरराष्ट्रीय समन्वय**: राष्ट्रीय स्तर पर अंतर-मंत्रालयी समन्वय और आवश्यकतानुसार अंतरराष्ट्रीय सहायता समन्वय के लिए NDMA का एक केंद्रीय मंच होता है।\n(उपर्युक्त बिंदु केवल Disaster Management Act, 2005 द्वारा स्थापित NDMA के अधिकार, कर्तव्यों और संरचना पर केंद्रित हैं — परीक्षा/रिवीजन व MP-संबंधी उत्तर लेखन के लिए प्रत्यक्ष उपयोगी तथ्य।)", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework में जोखिम न्यूनीकरण के लिए किस प्रकार के सूचनात्मक तंत्रों पर ज़ोर दिया गया है?", "options": ["भविष्यवाणी, चेतावनी प्रणाली और जोखिम-जोखिम सूचनाओं का खुला साझा करना", "केवल स्थानीय लोगों पर मौखिक आश्रय निर्भरता", "सिर्फ विज्ञानियों तक सूचनाएँ सीमित रखना", "वित्तीय संस्थाओं को जानकारी न देना"], "answer_index": 0, "explanation": "# व्याख्या — Sendai Framework में जोखिम न्यूनीकरण के लिए सूचनात्मक तंत्रों पर जोर\n- Sendai Framework स्पष्ट रूप से जोखिम की पूर्वसूचना (prediction) और प्रभावी एर्ली वार्निंग सिस्टम (early warning systems) की आवश्यकता पर बल देता है ताकि आपदा से पहले समय पर कार्रवाई संभव हो।\n- इसमें वैज्ञानिक मॉडलिंग, मौसम‑पूर्वानुमान, जलवायु और भू‑भौतिक संकेतकों के नियमित उपयोग द्वारा जोखिम की पहचान और प्रोजेक्शन पर जोर है।\n- ऑपरेशन‑लेवल की वार्निंग प्रणाली (technically reliable, timely and understandable) होने चाहिए ताकि निष्पादनकर्ता और स्थानीय समुदाय दोनों के लिए समुचित चेतावनी सुनिश्चित हो।\n- सूचना के खुला साझा करने (open sharing of hazard, exposure and vulnerability information) को प्रोत्साहित किया जाता है ताकि अनेक हितधारक — सरकार, शोध संस्थान, निजी क्षेत्र और समुदाय — निर्णय साझा कर सकें।\n- Sendai मानता है कि जोखिम‑डेटा का अंतरसंचालनीय (interoperable) और मानकीकृत फॉर्मेट में उपलब्ध होना चाहिए ताकि स्थानीय से राष्ट्रीय स्तर तक समन्वय संभव हो।\n- जोखिम सूचनाओं का सार्वजनिक पहुँच योग्य होना आवश्यक है — सरल भाषा, स्थानीय भाषाओं और दृश्य/मैप फॉर्मेट में, ताकि कमजोर समुदाय स्वयं तैयारियाँ कर सकें।\n- प्रभावी चेतावनी प्रणाली में जोखिम की निगरानी, सूचना प्रसारण चैनल (SMS, रेडियो, सोशल मीडिया, सामुदायिक अलर्ट) और प्रतिक्रिया‑अनुरूप प्रोटोकॉल शामिल होते हैं।\n- Sendai परिप्रेक्ष्य से डेटा‑शेयरिंग में गोपनीयता और सुरक्षा के मानकों के साथ‑साथ समयबद्धता और सटीकता की भी आवश्यकता रहती है।\n- जोखिम‑सूचना साझा करने से नीतिगत योजना‑निर्माण, जोखिम‑आधारित बुनियादी ढांचे का डिज़ाइन और आपदा‑जोखिम वित्तपोषण के विकल्पों (व्यवस्थित बीमा, राहत कोष) की प्रभावशीलता बढ़ती है।\n- स्थानीय स्तर पर स्थानीय जोखिम मानचित्र, सेंसर नेटवर्क और सामुदायिक‑आधारित चेतावनी प्रणालियाँ बनाकर Sendai के सिद्धांतों का व्यवहारिक क्रियान्वयन सुनिश्चित किया जा सकता है।\n- नीति‑साक्ष्य के रूप में साझा किये गए जोखिम‑डेटा से पूर्वाभ्यास (drills), क्षमता‑निर्माण और आपदा‑प्रबंधन योजनाओं की निगरानी‑मूल्यांकन बेहतर होता है।\n- Sendai के अनुरूप देश/राज्य‑स्तर नीतियों में वैज्ञानिक पूर्वानुमान, बहु‑चैनल चेतावनी प्रणालियाँ और ओपन‑डाटा पोर्टल को संस्थागत प्राथमिकता दी जानी चाहिए।", "priority_tag": "HIGH"}, {"question": "Sendai Framework ने किस तरह के खतरों को अपनी परिभाषा में शामिल किया है?", "options": ["प्राकृतिक, मानवीय और तकनीकी जोखिमों तक का समावेश", "केवल प्राकृतिक hazards", "केवल मानवीय उत्पन्न संकट", "केवल जैविक रोगजनकों"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sendai Framework के अनुपालन में भारत ने कौन-सा राष्ट्रीय दस्तावेज़ (National Plan) 2016 में प्रकाशित किया था जो DRR के सिद्धांतों से मेल खाता है?", "options": ["National Disaster Management Plan, 2016", "National Relief Distribution Plan, 2016", "National Climate Action Plan, 2016", "National Emergency Response Strategy, 2016"], "answer_index": 0, "explanation": "# व्याख्या: National Disaster Management Plan, 2016 (Sendai Framework के अनुपालन में भारत)\n- **परिचय — क्या है:** National Disaster Management Plan, 2016 भारत का राष्ट्रीय स्तर का समग्र DRR (Disaster Risk Reduction) दस्तावेज़ है जिसे Sendai Framework के सिद्धांतों के अनुरूप तैयार किया गया था।\n- **लक्ष्य एवं दृष्टि:** इसका मूल लक्ष्य जोखिम-आधारित दृष्टिकोण अपनाकर जीवन, सम्पदा और पर्यावरण की रक्षा करते हुए राष्ट्र की सहनशीलता (resilience) बढ़ाना है।\n- **मुख्य सिद्धांत:** दिवालना-पूर्व रोकथाम (prevention), प्रभावनाशक निर्माण (mitigation), तैयारी (preparedness), त्वरित प्रतिक्रिया (response) और दीर्घकालिक पुनर्निर्माण/पुनर्वास (recovery & reconstruction) पर जोर।\n- **जोखिम-आधारित रणनीति:** योजना में जोखिम पहचान, जोखिम मापन (risk assessment), जोखिम मानचित्रण और प्राथमिकता-आधारित हस्तक्षेपों का निर्देश दिया गया है।\n- **संस्थागत ढाँचा:** राष्ट्रीय, राज्य और जिला स्तर पर जिम्मेदारियाँ परिभाषित की गई हैं—NDMA/SDMA/DDMA के भूमिकाओं तथा संवैधानिक समन्वय के सिद्धांत पर जोर।\n- **सेक्टरल समेकन:** योजना ने स्वास्थ्य, बुनियादी ढांचा, कृषि, शिक्षा, शहरी एवं ग्रामीण विकास आदि सेक्टरों में DRR को मुख्यधारा में लाने (mainstreaming) के निर्देश दिये हैं।\n- **सामुदायिक भागीदारी और संवेदनशीलता:** स्थानीय समुदायों, स्वयंसेवक समूहों और विशेषजा जनसंख्या (women, elderly, disabled) के संवेदनशीलता-अनुकूल योजनाओं पर बल दिया गया है।\n- **सक्षमण और क्षमता-निर्माण:** प्रशिक्षण, जागरूकता, early warning systems, और मानव संसाधन विकास (skill-building, mock drills) के माध्यम से तैयारियों को मजबूत करने पर बल।\n- **वित्तीय प्रावधान और संसाधन-योजना:** आपदा जोखिम प्रबंधन के लिए पूर्व-निर्धारित वित्तीय तंत्र, आपातकालीन निधियों और पुनर्निर्माण/क्षति-अनुमान पर आधारित बजटिंग का संकेत।\n- **प्रौद्योगिकी और विज्ञान का उपयोग:** जीआईएस/रिमोट सेंसिंग, मौसम पूर्वानुमान, जोखिम-डेटाबेस और अनुसंधान-आधारित निर्णय समर्थन प्रणाली के उपयोग की सिफारिशें।\n- **मानिटरिंग और मूल्याङ्कन:** क्रियान्वयन के लिए सूचकांक, समय-समय पर समीक्षा, प्रदर्शन-मूल्याङ्कन और सीख-वितरण के मैकेनिज़्म सुझाए गए हैं।\n- **राज्य/जिला स्तर की अनुवादनीयता (MP के संदर्भ में उपयोगी बिंदु):** योजना स्पष्ट करती है कि प्रत्येक राज्य (जैसे मध्यप्रदेश) को अपनी State Disaster Management Plan और जिला स्तरीय योजनाओं में राष्ट्रीय दिशा-निर्देशों के अनुरूप जोखिम-आधारित, सेक्टरल और स्थानिक (localised) हस्तक्षेप शामिल करना आवश्यक है।\nयह संक्षिप्त बिंदु-पद्ध तरीके से Mains उत्तर में सीधे उद्धरण योग्य तथ्य और prelims के रिविजन नोट के रूप में उपयोगी हैं।", "priority_tag": "HIGH"}, {"question": "Sendai Framework का मानना है कि आपदा जोखिम को कम करने में किस स्तर की भागीदारी सबसे महत्वपूर्ण है?", "options": ["बहु-स्तरीय भागीदारी: स्थानीय, राष्ट्रीय और अंतरराष्ट्रीय स्तर सहित", "केवल अंतरराष्ट्रीय एजेंसियों की भागीदारी", "केवल केंद्रीय सरकार की एकल जिम्मेदारी", "केवल निजी क्षेत्र द्वारा वित्तीय योगदान"], "answer_index": 0, "explanation": "# Sendai Framework—“बहु-स्तरीय भागीदारी” की संक्षिप्त व्याख्या (MPPSC Prelims/Revision/Mains के लिए उपयोगी बिंदु)\n- Sendai Framework स्पष्ट रूप से कहता है कि आपदा जोखिम न्यूनीकरण (DRR) में सबसे प्रभावी परिणाम केवल स्थानीय, राष्ट्रीय और अंतरराष्ट्रीय स्तरों के समन्वित प्रयासों से ही मिलते हैं — यही “बहु-स्तरीय भागीदारी” का मूल सिद्धांत है।\n- स्थानीय स्तर (पंचायती/नगरपालिका, समुदाय, स्वयंसेवी/प्राथमिक स्वास्थ्य केंद्र) जोखिम पहचान, जल्दी चेतावनी, स्थानीय तैयारी और प्राथमिक बचाव में निर्णायक भूमिका निभाते हैं।\n- राज्य/प्रांतीय स्तर पर नीति-अनुकूलन, संसाधन आवंटन, क्षमता निर्माण और स्थानीय संगठनों का समन्वय सुनिश्चित करना Sendai के अनुरूप माना जाता है।\n- राष्ट्रीय स्तर पर कानून, राष्ट्रीय DRR नीतियाँ, वित्तीय साधन (आलॉटमेंट), डेटा मानकीकरण और अंतर्देशीय आपदा प्रबंधन संस्थागत ढाँचे (जैसे NDMA/SDMAs) बनाना अनिवार्य कहा गया है।\n- अंतरराष्ट्रीय स्तर पर तकनीकी सहायता, वित्तीय संसाधन, ज्ञान-हस्तांतरण और क्रॉस-बॉर्डर जोखिम प्रबंधन (क्लाइमेट-लिंक्ड और मानवीय आपदाएँ) के लिए सहयोग आवश्यक माना गया है।\n- Sendai Framework “लोक-केंद्रित” दृष्टिकोण पर बल देता है; इसका तात्पर्य है कि स्थानीय समुदायों को निर्णय-प्रक्रिया, जानकारी और बचाव-योजना में सक्रिय भागीदार होना चाहिए।\n- बहु-स्तरीय भागीदारी का व्यवहारिक आधार है: जोखिम का स्थानिक स्वभाव—अर्थात् जोखिम स्थानीय स्तर पर भिन्न होता है, पर प्रभाव और निवारण के साधन राष्ट्रीय और अंतरराष्ट्रीय हस्तक्षेप से जुड़े होते हैं।\n- सूचना व डेटा शृंखला (रिस्क डेटा, नुकसान-रिपोर्टिंग, मानकीकृत संकेतक) स्थानीय से राष्ट्रीय और अंतरराष्ट्रीय स्तर तक साझा होकर व्यवहारिक निर्णयों और फंडिंग प्राथमिकताओं को प्रभावित करती है।\n- वित्तपोषण मॉडल में भी बहु-स्तरीय योगदान जरूरी है: स्थानीय बजट, राज्य/केंद्र अनुदान और अंतर्राष्ट्रीय फंडिंग का समन्वय Sendai के लक्ष्यों की पूर्ति के लिए बताया गया है।\n- क्षमता निर्माण और प्रशिक्षण—स्थानीय बचाव दलों से लेकर राष्ट्रीय नीति निर्माताओं तक—को बहु-स्तरीय दृष्टि से नियोजित करना Sendai का निर्देश है ताकि जवाबदेही और प्रभावशीलता सुनिश्चित हो।\n- Sendai Framework मध्यमावधि व दीर्घावधि विकास योजनाओं में DRR को एकीकृत करने का आग्रह भी बहु-स्तरीय भागीदारी के संदर्भ में करता है, ताकि पुनर्निर्माण और विकास जोखिम-निरपेक्ष हों।\n- निष्कर्ष में, Sendai का मूल तर्क यही है कि आपदा जोखिम के बहुआयामी स्वरूप को प्रभावी ढंग से नियंत्रित करने के लिए स्थानीय, राज्य-/राष्ट्रीय और अंतरराष्ट्रीय स्तरों के समन्वित, स्पष्ट भूमिकाएँ और साझा जिम्मेदारियाँ अनिवार्य हैं।", "priority_tag": "HIGH"}, {"question": "Sendai Framework के Targets में से कौन-सा Target विशेष रूप से अवसंरचना और सेवाओं की बहाली/पुनर्निर्माण के साथ जुड़ा है (Target F या G आदि में से)?", "options": ["Target F: आर्थिक हानि को कम करना और आवास/इन्फ्रास्ट्रक्चर की बहाली में सुधार", "Target A: केवल मृत्यु दर वृद्धि रोकना", "Target C: अंतरराष्ट्रीय सहायता बंद करना", "Target D: सिर्फ बीमा कवरेज अनिवार्य करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sendai Framework के अनुसार आपदा जोखिम न्यूनीकरण में 'विकास नीतियों' का क्या स्थान है?", "options": ["विकास नीतियाँ और योजनाएँ जोखिम घटाने में केंद्रीय भूमिका निभाती हैं", "विकास नीतियों का कोई संबंध नहीं है", "विकास नीतियाँ केवल आर्थिक वृद्धि के लिए हैं, जोखिम के लिए नहीं", "विकास नीतियाँ संकट के बाद ही लागू की जानी चाहिए"], "answer_index": 0, "explanation": "# व्याख्या — Sendai Framework के अनुसार 'विकास नीतियों' का स्थान (प्रमुख बिंदु)\n- Sendai Framework स्पष्ट रूप से विकास नीतियों और योजनाओं को आपदा जोखिम न्यूनीकरण (DRR) का केंद्रीय अंग मानता है — जोखिम-मनहूस विकास को रोकना और जोखिम-संवेदनशील विकास को बढ़ावा देना इसका उद्देश्य है।\n- विकास नीतियों में जोखिम का समेकित मूल्यांकन (risk assessment) अनिवार्य होना चाहिए ताकि भौगोलिक, सामाजिक और आर्थिक जोखिम विकास परियोजनाओं में पहले से पहचान लिये जा सकें।\n- भूमि-उपयोग और ज़ोनिंग नीतियाँ जोखिम घटाने का प्राथमिक साधन हैं; संवेदनशील क्षेत्रों में बसा हुआ विकास रोककर जोखिम कम किया जा सकता है।\n- बुनियादी ढाँचा (इन्फ्रास्ट्रक्चर) और भवन कोडों में आपदा-रोधी मानक जोड़ना विकास नीतियों के माध्यम से दीर्घकालिक जोखिम शमन सुनिश्चित करता है।\n- आर्थिक नीतियाँ—जैसे सार्वजनिक निवेश प्राथमिकताएँ, बजट प्रावधान और बीमा‑विकल्प—को जोखिम-समर्थित बनाकर आपदा लागत कम और पुनर्वास तीव्र किया जा सकता है।\n- सामाजिक विकास नीतियाँ (गरीबी उन्मूलन, स्वास्थ्य, शिक्षा) जोखिम संवेदनशीलता घटाती हैं; इसलिए समावेशी नीतियाँ DRR के साथ इंटरलिंक होनी चाहिए।\n- नीतिगत प्रक्रियाओं में बहु-क्षेत्रीय समन्वय और स्थानीय‑स्तर का समावेश जरूरी है; स्थानीय योजनाएँ और समुदाय-आधारित रणनीतियाँ राष्ट्रीय/राज्य विकास नीतियों में एकीकृत होनी चाहिए।\n- विकास नीतियों में जलवायु परिवर्तन अनुकूलन और आपदा जोखिम न्यूनीकरण को संयुक्त लक्ष्यों के रूप में शामिल करना Sendai की अनुशंसा के अनुरूप है।\n- निगरानी‑मापन के लिए स्पष्ट इंडिकेटर और लक्ष्य (targets) होना चाहिए ताकि विकास नीतियों के तहत किए गए जोखिम‑न्यूनिकरण के प्रभाव को मापा और रिपोर्ट किया जा सके।\n- सार्वजनिक‑निजी भागीदारी और निवेश‑संरचनाएँ विकास नीतियों में जोखिम‑प्रबंधन को स्थान देती हैं, जिससे पूर्व-निवारक उपायों के लिए वित्तीय संसाधन उपलब्ध होते हैं।\n- Mains उत्तर लेखन के लिए संक्षेप: “Sendai के अनुसार विकास नीतियाँ जोखिम घटाने का केंद्रीय साधन हैं — इन्हें जोखिम‑जनित निर्णय‑निर्माण, भूमि‑योजना, इंफ्रास्ट्रक्चर कोड, वित्तीय प्राथमिकताएँ और स्थानीय समेकन के साथ जोड़ा जाना चाहिए।”", "priority_tag": "HIGH"}, {"question": "Sendai Framework को लागू करने के दौरान देशों से क्या अपेक्षित है—विशेषकर राष्ट्रीय स्तर पर—Sendai की दृष्‍टि से?", "options": ["राष्ट्रिय DRR नीतियाँ, कार्ययोजनाएँ तथा जोखिम-आधारित योजनाएँ बनाना", "केवल अन्तरराष्ट्रीय सहायता पर निर्भर रहना", "आपदा-रिपोर्टिंग पूरी तरह बंद कर देना", "सिर्फ़ आपदा-राहत फंड बनाकर किसी नीति का निर्माण न करना"], "answer_index": 0, "explanation": "# Sendai Framework लागू करते समय राष्ट्रीय स्तर पर अपेक्षित मुख्य बिंदु — विस्तृत व्याख्या (एक MCQ के लिए)\n- राष्ट्रीय स्तर पर स्पष्ट, समयबद्ध और जोखिम-आधारित राष्ट्रिय DRR नीति बनानी चाहिए जो बहु-खतरे (multi-hazard) दृष्टिकोण को अपनाए।\n- नीति के अनुरूप राष्ट्रीय कार्ययोजनाएँ (national action plans) तैयार करनी होंगी जिनमें लक्ष्यों, समयसीमा, जिम्मेदार संस्थाएं और संसाधन आवंटन स्पष्ट हो।\n- जोखिम-आधारित योजनाएँ (risk-informed planning) का अर्थ है विकास, बुनियादी ढांचा और क्षेत्रीय/सहकारी योजनाओं में जोखिम का आंकलन और उसे प्राथमिकता के रूप में शामिल करना।\n- बहु-स्तरीय समन्वय हेतु राष्ट्रीय संस्थागत संरचना (coordination mechanism) स्थापित करनी चाहिए — मंत्रालयों, राज्य/स्थानीय निकायों और अन्य हितधारकों के बीच भूमिकाएँ परिभाषित होनी चाहिए।\n- जोखिम का वैज्ञानिक आंकलन और मैपिंग (hazard, exposure, vulnerability assessment) नियमित रूप से कराके नीति-निर्माण और निवेश निर्ढ़ारित किए जाने चाहिए।\n- स्थानीय स्तर (पंचायती/नगर निकाय) तक नीति और योजनाओं का अनुवाद कर स्थानीय-आधारित जोखिम-नियुक्त कार्ययोजना बनानी चाहिए ताकि कार्यान्वयन ग्रासरूट पर प्रभावी हो।\n- वित्तपोषण मेकेनिज्म स्पष्ट होने चाहिए — बजट आवंटन, आपदा-जोखिम वित्तीय उपकरण और पुनर्प्राप्ति के लिए निधि/बीमा व्यवस्था शामिल होनी चाहिए।\n- early warning, preparedness और response क्षमता मजबूत करने के लिए मानकीकृत प्रोटोकॉल, प्रशिक्षण और सामुदायिक स्तर पर जागरूकता कार्यक्रम अनिवार्य हैं।\n- जोखिम-आधारित मानदंडों को शहरी नियोजन, भवन संहिता और बुनियादी सेवा परियोजनाओं में नियमित रूप से शामिल करना चाहिए (mainstreaming into development planning)।\n- निगरानी एवं मूल्यांकन के लिए स्पष्ट संकेतक और रिपोर्टिंग तंत्र होना चाहिए ताकि प्रगति मापी जा सके और नीति-समायोजन संभव हो।\n- पुनर्प्राप्ति और पुनर्निर्माण योजनाएं जोखिम-रिड्यूसिंग सिद्धांतों पर आधारित हों — “build back better” के तत्वों को राष्ट्रीय कार्ययोजना में शामिल किया जाना चाहिए।\n- संस्थागत क्षमता निर्माण, तकनीकी सहायता और डेटा-साझाकरण (hazard, exposure, socio-economic data) के लिए राष्ट्रीय स्तर पर व्यवस्था करनी चाहिए।\nइन बिंदुओं का उद्देश्य Sendai Framework के अनुरूप राष्ट्रीय नीतियों/कार्ययोजनाओं को व्यवहारिक, जोखिम-आधारित और क्रियान्वयन योग्य बनाना है, ताकि आपदा-जोखिम कम करने के नतीजे मापे व हासिल किए जा सकें।", "priority_tag": "VERY_HIGH"}, {"question": "Sendai Framework में 'जोखिम आकलन' से संबन्धित कौन-सा कथन सही है?", "options": ["जोखिम आकलन को विज्ञान-आधारित, बहु-जोखिम और समय-सीमा के साथ लागू करने का आग्रह किया गया है", "जोखिम आकलन केवल ऐतिहासिक घटनाओं पर भरोसा कर के किया जाना चाहिए", "जोखिम आकलन को केवल आर्थिक दृष्टि से ही मापा जाना चाहिए", "जोखिम आकलन को केवल स्थानीय नेताओं द्वारा गुप्त रखा जाना चाहिए"], "answer_index": 0, "explanation": "# **Sendai Framework में 'जोखिम आकलन' — संक्षिप्त व्याख्या (MPPSC हेतु परीक्षणोन्मुख)**\n- Sendai Framework स्पष्ट रूप से जोखिम आकलन को *विज्ञान-आधारित* तरीके से करने का आग्रह करता है, अर्थात् प्रमाणित डेटा, वैज्ञानिक मॉडल और पर्यवेक्षित संकेतकों का उपयोग अनिवार्य है।\n- जोखिम आकलन *बहु-जोखिम (multi-hazard)* सिद्धांत पर होना चाहिए — एक ही क्षेत्र में भिन्न प्रकोपों के सामूहिक प्रभाव और परस्पर क्रियाओं को समेकित रूप में देखा जाता है।\n- आकलन को *समय-सीमा (time-bound)* बनाना जरूरी है; यानी जोखिम मापन, निगरानी और रिपोर्टिंग के लिए स्पष्ट समयावधियाँ एवं अद्यतन चक्र निर्धारित करने चाहिए।\n- विज्ञान-आधारित आकलन में भू-स्थानिक डेटा (GIS), जलवायु मॉडलिंग, भूकम्पीय जोखिम मॉडल और हाइड्रोलॉजिकल डेटा जैसे तकनीकी inputs शामिल होते हैं।\n- बहु-जोखिम दृष्टिकोण में जोखिमों के परस्पर प्रभाव (cascading effects) और संयुक्त संवेदनशीलता—जैसे कि भू-क्षति के साथ बाढ़ का बढ़ा हुआ जोखिम—को परखा जाता है।\n- समय-सीमित प्रक्रियाएँ नीति-निर्माता और आपदा-प्रबंधन एजेंसियों को नियमित अद्यतन रिपोर्ट, पूर्वानुमान और तत्काल निर्णय लेने योग्य सूचनाएँ देती हैं।\n- Sendai के अनुरूप जोखिम आकलन में जोखिम के तीन प्रमुख घटक—hazard, exposure और vulnerability—को वैज्ञानिक मानकों के साथ मात्रात्मक व गुणात्मक रूप से मापा जाता है।\n- विज्ञान-आधारित आकलन से जोखिम-आधारित प्रायोरिटी निर्धारण (resource allocation, पूर्व चेतावनी प्रणाली, अवसंरचनात्मक सुधार) में पारदर्शिता और जवाबदेही आती है।\n- बहु-जोखिम और समय-सीमित आकलन स्थानीय-स्तर से लेकर राष्ट्रीय-स्तर तक मानकीकृत रिपोर्टिंग और कम्पैरेटिव ट्रैकिंग संभव बनाते हैं, जिससे नीति और वित्त पोषण लक्ष्य-केंद्रित होते हैं।\n- यह दृष्टिकोण आपदा-प्रबंधन योजना को सक्रिय (anticipatory) बनाता है — रोकथाम, तैयारी और पुनरावृत्ति-न्यूनिकरण के लिए वैज्ञानिक समयबद्ध हस्तक्षेप लागू होते हैं।\n- Sendai Framework के अनुरूप जोखिम आकलन का परिणाम स्पष्ट, समयबद्ध कार्यसूची (actionable timelines) और संकेतक (KPIs) होना चाहिए, ताकि प्रगति का मापन संभव हो।", "priority_tag": "HIGH"}, {"question": "Sendai Framework के अंतर्गत 'वित्तीय संसाधन' या निवेश के किस प्रकार पर विशेष जोर दिया गया है?", "options": ["जोखिम-न्यूनीकरण में निवेश और पूर्व-सक्रिय वित्तीय तंत्रों पर", "केवल आपदा के बाद की पुनर्प्राप्ति के लिए ऋण लेने पर", "केवल अनिश्चितकालीन निजी दान पर", "रक्षा व्यय में कटौती करके आपदा प्रबन्धन पर निर्भरता"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में Sendai Framework के सिद्धांतों के समन्वय के लिए राज्य स्तर पर कौन-सा निकाय सबसे प्रासंगिक है (राष्ट्रीय स्तर NDMA के समकक्ष राज्य स्तर पर)?", "options": ["State Disaster Management Authority (SDMA)", "State Emergency Relief Fund (SERF)", "State Rescue Committee (SRC)", "State Hazard Mitigation Board (SHMB)"], "answer_index": 0, "explanation": "# විख्या: State Disaster Management Authority (SDMA) — Sendai Framework के सिद्धांतों का राज्य स्तर पर समन्वय\n- **SDMA का कानूनीाधार**: Disaster Management Act, 2005 के तहत राज्य स्तर पर स्थापित किया गया सर्वोच्च प्राधिकारी है जो राज्य में आपदा जोखिम घटाने की नीतियाँ और उपाय तय करता है।\n- **अध्यक्षता व संरचना**: प्रायः राज्य के मुख्यमंत्री SDMA के अध्यक्ष होते हैं; इसमें राज्य के विभिन्न विभागों और विशेषज्ञों के प्रतिनिधि शामिल होते हैं ताकि नीतिगत समन्वय सुनिश्चित हो।\n- **राज्य आपदा प्रबंधन योजना (SDMP)**: SDMA राज्य आपदा प्रबंधन योजना बनाती/अनुमोदित करती है — Sendai के जोखिम-आधारित, बहु-खतरों वाले दृष्टिकोण के अनुरूप समेकित योजना तैयार करने के लिए उत्तरदायी है।\n- **जोखिम संवेदनशीलता और नुकसान-घटाने की रणनीति**: Sendai के प्राथमिकताओं के अनुरूप SDMA राज्य-स्तर पर जोखिम मूल्यांकन, खतरा मानचित्रण और संवेदनशीलता विश्लेषण को निर्देशित कर के जोखिम-आधार पर नीतियाँ लागू कराती है।\n- **विभागीय और स्थानीय समन्वय**: SDMA राज्य सरकार, जिला स्तरीय निकायों तथा स्थानीय स्वयंसेवी/प्रशासनिक इकाइयों के बीच Sendai के “whole-of-society” और “multi-hazard” दृष्टिकोण का समन्वय करती है।\n- **क्षमता निर्माण व प्रशिक्षण**: SDMA मानकों, प्रशिक्षण कार्यक्रमों और सामरिक ड्रिल/सिमुलेशन के माध्यम से राज्य की प्रतिक्रिया और पूर्व तैयारी क्षमताओं को मजबूत करने का कार्य करती है।\n- **वित्तीय उपाय और SDRF इंटरफेस**: SDMA राज्य आपदा निवारक कोष (State Disaster Response Fund) के उपयोग की नीति व प्राथमिकताएँ तय करने में भूमिका निभाती है तथा पुनर्वास/बचाव के निर्णयों को मार्गदर्शित करती है।\n- **अर्ली वार्निंग व सूचना-सहयोग**: SDMA राज्य-स्तरीय चेतावनी प्रणालियों, चेतावनी प्रसार और समुदाय-आधारित सूचनात्मक संरचनाओं के समन्वय के लिए जिम्मेदार है, जिससे Sendai के समयोचित चेतावनी लक्ष्यों की पूर्ति होती है।\n- **निगरानी, मूल्यांकन और रिपोर्टिंग**: SDMA राज्य-स्तरीय DRR संकेतक, प्रगति रिपोर्ट और दुर्घटना-विश्लेषण तैयार करके Sendai लक्ष्यों के अनुपालन और प्रदर्शन का आकलन सुनिश्चित करती है।\n- **नीतियों का समेकन (Mainstreaming)**: SDMA राज्य के विकास योजनाओं—उदाहरण के लिए अवसंरचना, भूमि उपयोग और कृषि नीतियों—में Disaster Risk Reduction के उपाय सम्मिलित कराने के लिए दिशा-निर्देश जारी करती है।\n- **बहु-क्षेत्रीय पुरस्कार और तकनीकी सहयोग**: SDMA राज्य और केंद्र के एजेंसियों, अन्तर्राष्ट्रीय/राष्ट्रीय तकनीकी संस्थाओं के साथ ज्ञान-हस्तांतरण, तकनीकी मार्गदर्शन और संसाधन-साझाकरण का समन्वय करती है।\n- **स्थानीय संस्थाओं के सशक्तिकरण का कार्य**: SDMA पंचायतों/महानगर निकायों को DRR कार्य-योजनाएँ, मानक और वित्तीय मार्गदर्शन देती है ताकि Sendai के समुदाय-आधारित दृष्टिकोण का क्रियान्वयन प्रभावी हो।", "priority_tag": "HIGH"}, {"question": "Sendai Framework ने प्रादेशिक/स्थानीय स्तर पर आपदा जोखिम प्रबंधन में किस प्रकार की भागीदारी पर विशेष बल दिया है?", "options": ["स्थानीय समुदायों, नगर निकायों और स्थानीय प्रशासन की पहल और क्षमता निर्माण", "केवल राष्ट्रीय सेना की प्रत्यक्ष निगरानी", "केवल बहुराष्ट्रीय कंपनियों द्वारा प्रबंधन", "केवल शैक्षणिक संस्थानों तक सीमित भागीदारी"], "answer_index": 0, "explanation": "# Sendai Framework — स्थानीय समुदाय, नगर निकाय व स्थानीय प्रशासन की पहल और क्षमता निर्माण पर व्याख्या\n- Sendai Framework ने आपदा जोखिम न्यूनीकरण में स्थानीय स्तर (local communities, urban local bodies, local administrations) की अग्रिम भूमिका को केंद्र में रखा है।\n- इसका मूल संदेश है कि जोखिम की पहचान, योजना और प्रतिक्रिया की जिम्मेदारी केवल राष्ट्रीय स्तर तक सीमित नहीं रह सकती; स्थानीय स्तर पर निर्णय और कार्यान्वयन अनिवार्य हैं।\n- फ्रेमवर्क स्थानीय संस्थाओं में क्षमता निर्माण (training, technical support, संसाधन सुदृढीकरण) को ज़ोर देता है ताकि वे जोखिम आकलन, चेतावनी और आपदा प्रतिक्रिया स्वयं संभाल सकें।\n- समुदाय-आधारित कार्यक्रमों (community-based DRR) के माध्यम से स्थानीय ज्ञान, पारंपरिक अभ्यास और नागरिक भागीदारी का प्रयोग करके टिकाऊ जोखिम कम करने पर बल दिया गया है।\n- नगर निकायों (urban local bodies) के लिए शहरी जोखिम मानचित्रण, योजनाबद्ध भूमि उपयोग, अवसंरचना मजबूती और शहरी आपदा प्रबंधन प्लान बनाना फ्रेमवर्क का आवश्यक घटक माना गया है।\n- स्थानीय प्रशासन के लिए अधिकार, वित्तीय संसाधन और प्रौद्योगिकी तक पहुँच सुनिश्चित करने पर ज़ोर है ताकि तत्काल चेतावनी, बचाव और पुनर्वास कार्य शीघ्र और प्रभावी हों।\n- Sendai Framework स्थानीय स्तर पर बहुपक्षीय समन्वय (local coordination among departments, NGOs, communities) और सार्वजनिक-निजी साझेदारी को भी प्रोत्साहित करता है।\n- फ्रेमवर्क में स्थानीय निगरानी-तंत्र और डेटा संग्रह (local risk data, loss databases) की स्थापना पर ध्यान है ताकि निर्णय-निर्माण साक्ष्य-आधारित हो सके।\n- क्षमता निर्माण का दायरा प्रशिक्षण के साथ-साथ आपदा तैयारियों के अभ्यास, स्थानीय आपदा प्रतिक्रिया दलों की स्थापना और समुदाय जागरूकता अभियान तक विस्तारित है।\n- स्थानीय स्तर पर लैंगिक समावेशन, कमजोर समूहों की सुरक्षा और उनकी सक्रिय भागीदारी को सुनिश्चित करने का स्पष्ट निर्देश मौजूद है।\n- Sendai की यह स्थानीयकृत रणनीति, नीतियों को जमीन पर प्रभावी बनाने और आपदा-उपचार के समयलाभ को घटाने के लिए आवश्यक है — जिससे पूर्व तैयारी, जल्दी प्रतिक्रिया और शीघ्र पुनर्निर्माण संभव होता है।\n- MP के संदर्भ में यह दृष्टिकोण स्थानीय नगर निकायों, ग्राम पंचायतों और जिला प्रशासन को मजबूत करने पर लागू होता है ताकि राज्य-स्तर की नीतियाँ स्थानीय जोखिम-प्राथमिकताओं के अनुरूप कार्यान्वित हों।", "priority_tag": "HIGH"}, {"question": "Sendai Framework के लक्ष्यों में से एक लक्ष्य 'आर्थिक हानि में कमी' है। यह किस Target अक्षर के अंतर्गत मुख्यतः आता है?", "options": ["Target B/G (आर्थिक और संरचनात्मक हानियों में कमी)", "Target A (केवल मृत्यु दर)", "Target D (केवल मानवीय सहायता)", "Target E (केवल सूचना प्रणाली)"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sendai Framework में किन संवेदनशील समूहों (vulnerable groups) पर विशेष ध्यान देने का निर्देश दिया गया है?", "options": ["बुज़ुर्ग, महिलाएँ, बच्चे, विकलांग एवं कमजोर सामाजिक समूह", "केवल आर्थिक रूप से सक्षम वर्ग", "केवल सरकारी कर्मचारियों पर", "केवल विदेशी नागरिकों पर"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Sendai Framework के क्रियान्वयन की निगरानी और प्रगति रिपोर्टिंग के लिए देशों से किस प्रकार का डेटा साझा करने का आग्रह किया गया है?", "options": ["मानक अपडेट्स जैसे मृत्यु, प्रभावित लोगों की संख्या, आर्थिक हानि और पुनर्निर्माण संकेतक", "केवल मीडिया रिपोर्ट की प्रतियाँ", "केवल धनराशि प्राप्ति खाते", "केवल युद्धकालीन क्षति का डेटा"], "answer_index": 0, "explanation": "# Sendai Framework के लिए डेटा शेयरिंग — संक्षिप्त VYAKHYA (MPPSC Prelims/Prelims→Mains उपयोग हेतु)\n- Sendai Framework में देशों से मानकीकृत \"स्टेटस/अपडेट\" रिपोर्टिंग मांगी गई है, जिनमें मृत्यु (direct fatalities) और घायल/गिरफ्तार लोगों की संख्या शामिल होती है।\n- प्रभावित लोगों की संख्या (affected, displaced, evacuated) का अलग-अलग वर्गीकरण अपेक्षित है ताकि जोखिम-सम्बन्धी हस्तक्षेपों का लक्ष्यीकरण सम्भव हो।\n- आर्थिक हानि की रिपोर्टिंग में प्रत्यक्ष आर्थिक क्षति (direct economic loss) और अवसंरचनात्मक क्षति का विनियमन/मूल्यांकन शामिल होता है, ताकि पुनर्निर्माण-नीति डिजाइन की जा सके।\n- पुनर्निर्माण संकेतक (recovery/reconstruction indicators) जैसे पुनर्वासित परिवारों की संख्या, पुनर्निर्मित बुनियादी ढांचे की मात्रा और पुनर्निर्माण के लिए खर्च रिपोर्ट में बताए जाते हैं।\n- जोखिम-हेरफेर के संकेतक (e.g., पश्चात्-घटना पुनरावृत्ति, संवेदनशील जनसंख्या पर प्रभाव) और क्षति के प्रकारों का विभेदन (मानव, पर्यावरण, आर्थिक) आवश्यक है।\n- रिपोर्टिंग के लिये समय-सीमा/फ्रीक्वेंसी (annual/periodic updates) बनाना अनिवार्य है ताकि Sendai के लक्ष्य (risk reduction targets) की प्रगति मापन-योग्य रहे।\n- डेटा को संभावित रूप से भौगोलिक रूप में डिसएग्रीगेट (state/district/municipality) कर प्रस्तुत करने की अपेक्षा रहती है, जिससे स्थानीय नीतिगत निर्णयों में उपयोग हो सके।\n- रिपोर्ट में उपयोग की गयी मापदण्डों (definitions, units, valuation methods) का स्पष्ट वर्णन देना होता है ताकि देशों के बीच तुलनात्मक विश्लेषण संभव हो।\n- मौजूदा सूचना प्रणालियों (national disaster databases/monitoring systems) के माध्यम से डिजिटल/ऑनलाइन सबमिशन और interoperable फॉर्मेट (machine-readable) का प्रयोग प्रोत्साहित किया जाता है।\n- Sendai के अनुरूप रिपोर्टिंग का उद्देश्य नीति-निर्माण, वित्तीय प्राथमिकता और अंतरराष्ट्रीय सहयोग के लिये सुगम, तुलनीय और समयोचित सूचकांक उपलब्ध कराना है।\n- Mains उत्तर के लिए सीधे उपयोगी बिंदु: (१) कौन-कौन से मानक डेटा तत्व जरूरी हैं (मृत्यु, प्रभावित, आर्थिक हानि, पुनर्निर्माण संकेतक), (२) स्तर-वार डिसएग्रीगेशन और मापन पद्धति का उल्लेख, और (३) रिपोर्टिंग के निहितार्थ — नीतिगत योजना व वित्तीय आवंटन में पारदर्शिता।", "priority_tag": "HIGH"}, {"question": "Sendai Framework के अनुसार सार्वजनिक जागरूकता और शिक्षा का उद्देश्य क्या है?", "options": ["समाज को जोखिम समझने और तैयार करने में सक्षम बनाना", "केवल विपणन सामग्री तैयार करना", "सूचना का केंद्रीकृत भंडारण करना और जनता को नहीं देना", "केवल तकनीकी रिपोर्ट्स तैयार कर शैक्षिक संस्थानों में बंद रखना"], "answer_index": 0, "explanation": "# Sendai Framework के अनुसार सार्वजनिक जागरूकता और शिक्षा — उद्देश्य (व्याख्या)\n- Sendai Framework का मुख्य उद्देश्य सार्वजनिक जागरूकता और शिक्षा के माध्यम से समाज को जोखिम पहचानने और उससे निपटने के लिए सक्षम बनाना है।\n- इसका फोकस केवल जानकारी देना नहीं बल्कि लोगों में जोखिम-संबंधी समझ (risk knowledge) विकसित करना है, ताकि वे संभावित खतरों को पहचान सकें।\n- शिक्षा और प्रशिक्षण से समुदायों में जोखिम-घटना के दौरान त्वरित और सुरक्षित व्यवहार (protective actions) अपनाने की क्षमता बढ़ती है।\n- स्थानीय स्तर पर जोखिम-ज्ञान का संवर्धन स्थानीय जोखिम-घटनाओं, कमजोर समूहों और संसाधनों की समझ के साथ जुड़ा होता है।\n- स्कूलों और उच्चशिक्षा संस्थानों में समेकित पाठ्यक्रम और व्यावहारिक प्रशिक्षण से दीर्घकालिक संवेदनशीलता और तैयारी सुनिश्चित होती है।\n- सार्वजनिक जागरूकता अभियान और संचार रणनीतियाँ उन भाषा/सांस्कृतिक उपायों पर आधारित हों जो समाज के विविध वर्गों तक पहुँच बनाएं और व्यवहार में परिवर्तन लाएं।\n- समावेशी शिक्षा, जिसमें महिलाओं, बुजुर्गों, बच्चों और कमजोर समूहों के लिए लक्षित संदेश शामिल हों, समाज की समग्र तैयारी को सुदृढ़ करती है।\n- समुदाय-आधारित गतिविधियाँ (जैसे ड्रिल, स्थानीय जोखिम मानचित्रण, प्रशिक्षक प्रशिक्षण) स्थानीय प्रतिरोधक क्षमता (local resilience) बढ़ाने में निर्णायक हैं।\n- जोखिम कम करने की तैयारियाँ नीति और योजना से जुड़ी हों — जागरूकता व शिक्षा DRR योजनाओं, आपदा प्रबंधन समितियों और स्थानीय आपदा योजनाओं के क्रियान्वयन से परस्पर जुड़ी होनी चाहिए।\n- प्रभावी जोखिम संचार और सार्वजनिक शिक्षा का नियमित मूल्यांकन और मॉनिटरिंग आवश्यक है ताकि संदेश प्रभावी हों और सुधार के लिए डेटा उपलब्ध हो।\n- डिजिटल और पारंपरिक माध्यमों का संयोजन (सोशल मीडिया, रेडियो, स्थानीय भाषाएँ) व्यापक पहुंच और त्वरित चेतावनी सुनिश्चित करता है।\n- इस प्रकार Sendai की दृष्टि में सार्वजनिक जागरूकता व शिक्षा का उद्देश्य समाज को जोखिम समझने, जोखिमों के अनुकूल निर्णय लेने और आपदा-पूर्व, दौरान तथा बाद में प्रभावी कार्रवाई करने में सक्षम बनाना है।", "priority_tag": "HIGH"}, {"question": "Sendai Framework अपनाने वाले देशों से क्या अपेक्षा की जाती है regarding building codes and land-use planning?", "options": ["भूकंपीय और अन्य जोखिमों को ध्यान में रखते हुए संरचनात्मक कोडों और भूमि-उपयोग योजना को लागू करना", "निर्माण कोडों को रद्द करना", "भूमि-उपयोग योजना को केवल आर्थिक उद्देश्यों के लिए खुला रखना", "केवल पारंपरिक निर्माण पद्धतियों पर निर्भर रहना"], "answer_index": 0, "explanation": "# **Sendai Framework: भवन मानक (building codes) और भूमि‑उपयोग योजना पर अपेक्षा — विस्तृत व्याख्या (Vyakhya)**\n- Sendai Framework के अनुरोधन में देशों से अपेक्षा की जाती है कि वे भूकंपीय और अन्य प्राकृतिक जोखिमों (भूकंप, तूफान, बाढ़, भूस्खलन आदि) को ध्यान में रखकर राष्ट्रीय और स्थानीय भवन‑कोडों को अपनाएँ और लागू करें।\n- भवन‑कोड में संरचनात्मक डिजाइन मानक शामिल होने चाहिए जो भूकंपरोधी, हवा/तूफान प्रतिरोधी और बाढ़‑रोधी विशेषताओं को सुनिश्चित करते हैं, ताकि जीवन और संपत्ति का जोखिम कम हो।\n- भूमि‑उपयोग योजना ऐसी होनी चाहिए कि उच्च जोखिम वाले क्षेत्रों (बाढ़ तल, ढलानों, तटीय जोन) पर संवेदनशील संरचनाओं जैसे आवास और इन्फ्रास्ट्रक्चर का निर्माण सीमित या नियंत्रित हो।\n- स्थानिक योजना के साथ रिस्क‑जियोमैपिंग और जोखिम‑जवाफी डेटा का समावेश अनिवार्य है — स्थानीय आपदा जोखिम मानचित्रों के आधार पर ज़ोनिंग और निर्माण अनुमति प्रदान की जानी चाहिए।\n- भवन‑कोडों का पालन सुनिश्चित करने के लिए औपचारिक नियामक तंत्र, निर्माण निरीक्षण और प्रमाणन प्रणालियाँ मजबूत करनी चाहिए; गैर‑पालन पर दंड और सुधारात्मक आदेश लागू होने चाहिए।\n- सुधार और निर्माण के दौरान स्थानीय सामग्री और लागत‑प्रभावी भूकंप‑रोधी तकनीकों का समावेश कर छोटे निर्माताओं व ग्रामीण क्षेत्रों में भी अनुपालन सुनिश्चित करना अपेक्षित है।\n- नवीनीकरण (retrofit) और जोखिम‑हटाने के कार्यक्रमों के तहत पुरानी इमारतों के संरचनात्मक सुदृढ़ीकरण को प्राथमिकता दी जानी चाहिए, विशेषकर स्कूल, अस्पताल और प्रशासनिक भवनों के लिए।\n- भूमि‑उपयोग नीतियों में पारगम्यता, सार्वजनिक खुला क्षेत्र और आपदा प्रबंधन संचालन के लिए पहुँच (evacuation routes, emergency access) बनाए रखना अनिवार्य माना गया है।\n- स्थानीय शहरी और ग्रामीण नियोजन में समुदाय‑आधारित भागीदारी और पारदर्शी सूचना (रिस्क वर्निंग, ज़ोन‑मानचित्र) का समावेश करना चाहिए ताकि नीति व्यवहार्य और स्वीकार्य रहे।\n- राज्य/प्रदेश स्तर पर सुसंगतता हेतु राष्ट्रीय मानकों को स्थानीय भौगोलिक और भौतिक परिस्थितियों के अनुरूप अनुकूलित करना आवश्यक है (उदा. मध्यप्रदेश जैसे राज्यों में भूकंपीय झटके और ढलान‑जोखिम के अनुसार स्थानीय दिशानिर्देश)।\n- वित्तपोषण‑नीति में भी जोखिम‑न्यूनिकरण को शामिल करना चाहिए — बीमा, अनुदान तथा अनुदेशात्मक वित्तीय सहायता से भवन‑कोड अनुपालन और भूमि‑उपयोग सुधार को प्रोत्साहन दिया जाना चाहिए।\n- नियमित प्रशिक्षण, मानकीकृत निर्माण अभ्यास और तकनीकी गाइडलाइन्स जारी कराना चाहिए ताकि इंजीनियर, आर्किटेक्ट और स्थानीय प्रशासन आधुनिक जोखिम‑प्रतिकार उपायों को लागू कर सकें।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

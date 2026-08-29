@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-016 – इंदौर — भुट्टे का कीस</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-016 – इंदौर — भुट्टे का कीस</h1>
+        <div class="note">क्षेत्र: Indore | सामग्री: मकई-आधारित स्नैक—शहर ब्रांड | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 07-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+इंदौर का &quot;भुट्टे का कीस&quot; स्थानीय मकई-आधारित स्नैक है जो सार्वजनिक बाजारों और रात्री-खाद्य परंपरा में गहरे उतरा हुआ है; MPPSC के सामाजिक-सांस्कृतिक प्रश्न पत्र में यह स्थानीय खाद्य-संस्कृति, आर्थिक जीविका और पहचान के दृष्टिकोण से प्रासंगिक है।  
+
+# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि
+इंदौर और उसके आस-पास (उदा. उज्जैन-देवास अक्ष क्षेत्र) में मकई का उपयोग पारंपरिक रूप से रोटी, भुजिया व स्नैक्स में होता आया है; राजकीय अन्न वितरण व स्थानीय मंडियों ने 20वीं सदी से मकई की उपलब्धता सुनिश्चित की, जिससे &quot;भुट्टे का कीस&quot; जैसे फास्ट-प्रसिद्ध फूड आइटम विकसित हुए। इससे स्थानीय पंजाबी-मारवाड़ी व्यापारी व मराठी/मध्य-भारतीय खान-पान परंपराएँ पारस्परिक रूप से प्रभावित हुईं, जिसका जीवंत उदाहरण इंदौर का सराफा व छप्पन दुकान वाला फूड-कल्चर है।  
+
+# समकालीन अवस्था व प्रवृत्ति (पिछले 15 वर्ष)
+वर्ष 2010–2025 के बीच &quot;भुट्टे का कीस&quot; की लोकप्रियता स्थिर से कम रही; सिटीफाईंग, फास्ट-फूड चैनलों और ग्लोबल स्वाद के कारण पारंपरिक स्ट्रीट-रैवेन्यू में गिरावट आई, परंतु इंदौर के रात्री-फूड हब (Sarafa, Chappan) में अभी भी स्थानीय विक्रेता इसे बेचते पाए जाते हैं — इस समयसीमा में प्रवृत्ति Low/Medium रही जो विषय-निर्देश से मेल खाती है।  
+
+# सामाजिक-आर्थिक आयाम व जीविका
+छोटी महिला-स्व-सहायता समूह (SHG) और पारिवारिक स्टॉलें इंदौर के चौराहों पर इकट्ठा करती हैं; ऐसे माइक्रो-उद्यमों को PMEGP (Prime Minister&#x27;s Employment Generation Programme) व स्टेट MSME कोष के माध्यम से 2014–वर्तमान में प्रचार-समर्थन मिल सकता है, पर वास्तविक पहुँच सीमित रही। परिणामस्वरूप स्थानीय रोजगार अनौपचारिक ही बना रहा और खाद्य-हाइजीन तथा मानकीकरण कमजोर रहे।  
+
+# पोषण, उपभोग और शहरी-परिसर प्रभाव
+भुट्टे का कीस कैलोरी तथा फाइबर का माध्यम है और ग्रामीण-शहरी दोनों उपभोक्ता समूहों में नाश्ते के रूप में स्वीकार्य है; परन्तु नगरीय उपभोग में फूड-सेफ्टी, तेल व नमक की मात्रा और पैकेजिंग पर निगरानी की आवश्यकता है — नगर निगम इंदौर व स्वास्थ्य विभाग के स्ट्रीट-फूड गाइडलाइंस को लागू करना परिणामदायी होगा।  
+
+# पहचान, ब्रांडिंग व नीतिगत अवसर
+इंदौर-विशेष &quot;भुट्टे का कीस&quot; के लिए GI या शहरी-फूड ब्रांडिंग तकनीक से स्थानीय अर्थव्यवस्था को लाभ पहुंच सकता है; MP Tourism Board व Indore Smart City/Local MSME Cell मिलकर 12–18 माह के पायलट के माध्यम से ट्रेडमार्क/ब्रांडिंग, HACCP प्रशिक्षण व मार्केटिंग कर सकते हैं।  
+
+# चुनौतियाँ व जोखिम
+मुख्य चुनौतियाँ हैं: मानकीकरण का अभाव, विक्रेता क्रेडिट और formalisation की कमी, और युवा उपभोक्ताओं में रुचि का ग्लोबलाइज़ेशन; नीतिगत लिंकेज में यदि PMEGP/MSME-स्कीम्स और शहर की फूड-टूरिज्म नीति जोड़ी न जाएं तो परंपरा स्थायी आर्थिक रूप से कमजोर रहेगी।  
+
+# समाधान व व्यवहारिक सुझाव
+न्यूनतम तीन-चरणी रणनीति प्रस्तावित है: (1) स्थानीय विक्रेताओं के लिए HACCP एवं बिजनेस-रेडी ट्रेनिंग (Indore Municipal Corporation + MSME), (2) पायलट ब्रांडिंग/पैकिंग व स्थानीय GI-ब्लूप्रिंट, (3) फूड-टूर रूट में &quot;भुट्टे का कीस&quot; को शामिल कर 6–12 महीनों में आर्थिक प्रभाव का मूल्यांकन—इनमें PMEGP एवं राज्य पर्यटन अनुदान को वित्तपोषण स्रोत माना जा सकता है।  
+
+# निष्कर्ष
+इंदौर का &quot;भुट्टे का कीस&quot; केवल एक स्नैक नहीं बल्कि स्थानीय खाद्य-परंपरा, असंगठित अर्थव्यवस्था और शहरी-सांस्कृतिक पहचान का संवाहक है; लक्षित नीति हस्तक्षेपों व लोकल ब्रांडिंग से यह जीविका-सृजन और सांस्कृतिक संरक्षण दोनों में योगदान दे सकता है। दीर्घकाल में संरचित समर्थन, मानकीकरण और पर्यटन-लिंकेज इस परंपरा को स्थायी बनायेंगे।  
+
+स्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  
+स्रोत 2: Arihant – &quot;Madhya Pradesh Samanya Gyan&quot;  
+स्रोत 3: Drishti IAS MPPSC (Bhopal) – &quot;Madhya Pradesh ka Itihas, Sanskriti evam Sahitya&quot;</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-016 – इंदौर — भुट्टे का कीस", "coverage_note": "क्षेत्र: Indore | सामग्री: मकई-आधारित स्नैक—शहर ब्रांड | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना\nइंदौर का \"भुट्टे का कीस\" स्थानीय मकई-आधारित स्नैक है जो सार्वजनिक बाजारों और रात्री-खाद्य परंपरा में गहरे उतरा हुआ है; MPPSC के सामाजिक-सांस्कृतिक प्रश्न पत्र में यह स्थानीय खाद्य-संस्कृति, आर्थिक जीविका और पहचान के दृष्टिकोण से प्रासंगिक है।  \n\n# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि\nइंदौर और उसके आस-पास (उदा. उज्जैन-देवास अक्ष क्षेत्र) में मकई का उपयोग पारंपरिक रूप से रोटी, भुजिया व स्नैक्स में होता आया है; राजकीय अन्न वितरण व स्थानीय मंडियों ने 20वीं सदी से मकई की उपलब्धता सुनिश्चित की, जिससे \"भुट्टे का कीस\" जैसे फास्ट-प्रसिद्ध फूड आइटम विकसित हुए। इससे स्थानीय पंजाबी-मारवाड़ी व्यापारी व मराठी/मध्य-भारतीय खान-पान परंपराएँ पारस्परिक रूप से प्रभावित हुईं, जिसका जीवंत उदाहरण इंदौर का सराफा व छप्पन दुकान वाला फूड-कल्चर है।  \n\n# समकालीन अवस्था व प्रवृत्ति (पिछले 15 वर्ष)\nवर्ष 2010–2025 के बीच \"भुट्टे का कीस\" की लोकप्रियता स्थिर से कम रही; सिटीफाईंग, फास्ट-फूड चैनलों और ग्लोबल स्वाद के कारण पारंपरिक स्ट्रीट-रैवेन्यू में गिरावट आई, परंतु इंदौर के रात्री-फूड हब (Sarafa, Chappan) में अभी भी स्थानीय विक्रेता इसे बेचते पाए जाते हैं — इस समयसीमा में प्रवृत्ति Low/Medium रही जो विषय-निर्देश से मेल खाती है।  \n\n# सामाजिक-आर्थिक आयाम व जीविका\nछोटी महिला-स्व-सहायता समूह (SHG) और पारिवारिक स्टॉलें इंदौर के चौराहों पर इकट्ठा करती हैं; ऐसे माइक्रो-उद्यमों को PMEGP (Prime Minister's Employment Generation Programme) व स्टेट MSME कोष के माध्यम से 2014–वर्तमान में प्रचार-समर्थन मिल सकता है, पर वास्तविक पहुँच सीमित रही। परिणामस्वरूप स्थानीय रोजगार अनौपचारिक ही बना रहा और खाद्य-हाइजीन तथा मानकीकरण कमजोर रहे।  \n\n# पोषण, उपभोग और शहरी-परिसर प्रभाव\nभुट्टे का कीस कैलोरी तथा फाइबर का माध्यम है और ग्रामीण-शहरी दोनों उपभोक्ता समूहों में नाश्ते के रूप में स्वीकार्य है; परन्तु नगरीय उपभोग में फूड-सेफ्टी, तेल व नमक की मात्रा और पैकेजिंग पर निगरानी की आवश्यकता है — नगर निगम इंदौर व स्वास्थ्य विभाग के स्ट्रीट-फूड गाइडलाइंस को लागू करना परिणामदायी होगा।  \n\n# पहचान, ब्रांडिंग व नीतिगत अवसर\nइंदौर-विशेष \"भुट्टे का कीस\" के लिए GI या शहरी-फूड ब्रांडिंग तकनीक से स्थानीय अर्थव्यवस्था को लाभ पहुंच सकता है; MP Tourism Board व Indore Smart City/Local MSME Cell मिलकर 12–18 माह के पायलट के माध्यम से ट्रेडमार्क/ब्रांडिंग, HACCP प्रशिक्षण व मार्केटिंग कर सकते हैं।  \n\n# चुनौतियाँ व जोखिम\nमुख्य चुनौतियाँ हैं: मानकीकरण का अभाव, विक्रेता क्रेडिट और formalisation की कमी, और युवा उपभोक्ताओं में रुचि का ग्लोबलाइज़ेशन; नीतिगत लिंकेज में यदि PMEGP/MSME-स्कीम्स और शहर की फूड-टूरिज्म नीति जोड़ी न जाएं तो परंपरा स्थायी आर्थिक रूप से कमजोर रहेगी।  \n\n# समाधान व व्यवहारिक सुझाव\nन्यूनतम तीन-चरणी रणनीति प्रस्तावित है: (1) स्थानीय विक्रेताओं के लिए HACCP एवं बिजनेस-रेडी ट्रेनिंग (Indore Municipal Corporation + MSME), (2) पायलट ब्रांडिंग/पैकिंग व स्थानीय GI-ब्लूप्रिंट, (3) फूड-टूर रूट में \"भुट्टे का कीस\" को शामिल कर 6–12 महीनों में आर्थिक प्रभाव का मूल्यांकन—इनमें PMEGP एवं राज्य पर्यटन अनुदान को वित्तपोषण स्रोत माना जा सकता है।  \n\n# निष्कर्ष\nइंदौर का \"भुट्टे का कीस\" केवल एक स्नैक नहीं बल्कि स्थानीय खाद्य-परंपरा, असंगठित अर्थव्यवस्था और शहरी-सांस्कृतिक पहचान का संवाहक है; लक्षित नीति हस्तक्षेपों व लोकल ब्रांडिंग से यह जीविका-सृजन और सांस्कृतिक संरक्षण दोनों में योगदान दे सकता है। दीर्घकाल में संरचित समर्थन, मानकीकरण और पर्यटन-लिंकेज इस परंपरा को स्थायी बनायेंगे।  \n\nस्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  \nस्रोत 2: Arihant – \"Madhya Pradesh Samanya Gyan\"  \nस्रोत 3: Drishti IAS MPPSC (Bhopal) – \"Madhya Pradesh ka Itihas, Sanskriti evam Sahitya\"", "mcqs": [{"question": "भुट्टे का कीस किस प्रमुख अनाज से बनता है?", "options": ["गेहूँ", "मक्का", "बाजरा", "चावल"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भुट्टे का कीस मुख्य रूप से किस मध्य प्रदेश क्षेत्र की लोक-खाद्य परंपरा से सम्बंधित माना जाता है?", "options": ["गुंडवाना", "पन्ना", "मालवा", "ब्यौहारी"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर में भुट्टे का कीस को सामान्यतः किस रूप में परोसा जाता है?", "options": ["मीठी पुलाव के साथ", "चटनी में डुबोकर", "नमकीन-स्पाइसी स्नैक के रूप में, नींबू के साथ", "दही-भल्ले के पारंपरिक रूप में"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस की मुख्य प्रक्रिया में मक्का किस रूप में प्रयोग होता है?", "options": ["भुना हुआ और मसाला किया हुआ दाना", "किसा हुआ/कद्दूकस किया हुआ भुट्टा", "कुतरा हुआ सूखा मक्का", "मक्के का आटा"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर की लोक-खाद्य परंपरा में भुट्टे का कीस को सबसे अधिक किस समय या अवसर पर खाया जाता है?", "options": ["रात के स्नैक/सड़क पकवान के रूप में", "शादी के मुख्य व्यंजन के रूप में", "उपवास के दौरान", "बसंत पंचमी के विशेष पकवान के रूप में"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस में पारंपरिक रूप से किस मसाले/सामग्री का उपयोग उसे नमकीन-स्वाद देने के लिए सबसे अधिक होता है?", "options": ["सोया सॉस", "हरी मिर्च और हरा धनिया", "दालचीनी और छोटी इलायची", "सफेद अंगूर"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मध्य प्रदेश के किस प्रसिद्ध शहर को भुट्टे का कीस सहित विविध स्ट्रीट फूड संस्कृति के लिए जाना जाता है?", "options": ["रायसेन", "इंदौर", "भिण्ड", "सागर"], "answer_index": 1, "explanation": "# **व्याख्या: इंदौर — भुट्टे का कीस (परीक्षात्मक बिंदु)**\n- **इंदौर शहर को भुट्टे का कीस सहित समृद्ध स्ट्रीट‑फूड संस्कृति के लिए जाना जाता है।**\n- **भुट्टे का कीस (grated maize/corn se बनी डिश) इंदौर की प्रामाणिक और लोकप्रिय नैवदम्य भोजन परंपरा का हिस्सा है।**\n- **यह व्यंजन ताज़े भुट्टे को कद्दूकस कर, दूध/छाछ, हल्दी, हरी मिर्च, धनिया और घी/तेल में पकाकर तैयार किया जाता है; परंपरागत मसाले स्थानीय स्वाद के अनुरूप मिलते हैं।**\n- **इंदौर के मुख्य स्ट्रीट‑फूड बाजारों और नाइट फूड हबों (जैसे प्रसिद्ध व्यापारिक और बाजार क्षेत्र) में भुट्टे का कीस आसानी से उपलब्ध होता है और लोकप्रिया है।**\n- **भुट्टे का कीस इंदौर में नाश्ते और शाम की स्नैक्स संस्कृति का स्थायी हिस्सा है तथा स्थानीय उपभोक्ता‑आदतों के अनुरूप सर्व किया जाता है।**\n- **यह व्यंजन स्थानीय कृषि उत्पादन (मक्की/भुट्टे) से जुड़ा हुआ है और ग्रामीण‑शहरी खाद्य श्रृंखला व स्थानीय अर्थव्यवस्था में योगदान देता है।**\n- **इंदौर की स्ट्रीट‑फूड पहचान में भुट्टे का कीस का उल्लेख पर्यटन और स्थानीय खाद्य‑उत्सवों में बार‑बार किया जाता है, जिससे शहर की खाद्य‑परंपरा की दृश्यता बढ़ती है।**\n- **भुट्टे का कीस के क्षेत्रीय रूप और बनावट (गीला/सूखा, मसाले का स्तर) स्थानीय दुकानों और परिवारों में भिन्न होते हैं — यह स्थानीय पाक अनुकूलन का उदाहरण है।**\n- **पोषणात्मक रूप से भुट्टा (मक्का) स्रोत कार्बोहाइड्रेट, फाइबर और कुछ सूक्ष्मपोषक प्रदान करता है; भुट्टे का कीस तात्कालिक ऊर्जा देने वाला पारंपरिक नाश्ता है।**\n- **इंदौर में भुट्टे का कीस जैसे स्थानीय व्यंजन सांस्कृतिक‑पहचान और खाद्य‑पर्यटन रणनीतियों में उद्धरणीय तत्व होते हैं, इसलिए इन्हें शहरी सांस्कृतिक अध्ययन और स्थानीय अर्थशास्त्र के संदर्भ में उल्लेख किया जा सकता है।**", "priority_tag": "HIGH"}, {"question": "भुट्टे का कीस के पारंपरिक स्वाद में किसका समावेश अंततः ताज़ा स्वाद बढ़ाने के लिए किया जाता है?", "options": ["नींबू का रस", "कोको पाउडर", "सरसों का तेल", "शहद"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "इंदौर-क्षेत्र में भुट्टे का कीस के स्थानीय नाम में 'कीस' शब्द का अर्थ किससे जुड़ा हुआ है?", "options": ["किसी त्योहार का नाम", "कद्दूकस या कसा हुआ (grated) सामग्री", "खाना पकाने का बर्तन", "मक्के की फसल"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भुट्टे का कीस परंपरागत रूप से किस प्रकार से पकाया जाता है?", "options": ["कच्चा मक्का सीधे तला जाता है", "कद्दूकस किया हुआ मक्का धीमी आँच पर मसाले व दूध/पानी के साथ पकाया जाता है", "मक्के के दानों को उबालकर मैश किया जाता है", "मक्के का आटा बेलकर तवा पर सेक दिया जाता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर में भुट्टे का कीस को स्थानीय बाजारों/सड़कों पर अधिकतर कौन बेचता है?", "options": ["दूध विक्रेता", "स्थानीय स्ट्रीट-फूड विक्रेता/हॉकर", "करी वैरायटी के रेस्तरां", "बेकरी दुकानें"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन-सा कथन भुट्टे का कीस के बारे में सबसे सही है?", "options": ["यह मक्के के आटे से बनी रोटी है", "यह कद्दूकस किए गए ताज़े भुट्टे को मसालों के साथ पकाकर तैयार किया जाने वाला स्नैक है", "यह मक्के की मिठाई है जो चीनी से बनाई जाती है", "यह भुट्टे के दानों को सूखा करके बनाया जाने वाला नमकीन है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भुट्टे का कीस की पहचान भारतीय राज्य मध्य प्रदेश के किस सांस्कृतिक पहलू से विशेष रूप से जुड़ी मानी जाती है?", "options": ["कृषि-आधारित व्यंजन परंपरा", "राजकीय वार्षिक मेले का औपचारिक व्यंजन", "महिला-विशेष पूजा विधि", "शाही-महाराजाओं की रसोई"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर की स्ट्रीट फ़ूड संस्कृति में भुट्टे का कीस के अलावा कौन-सा व्यंजन अत्यधिक प्रसिद्ध है?", "options": ["साराफा की रोटी-चटनी", "पोहा-समोसा", "इंदौरी पोहा और जलेबी", "दाल-बाटी चूरमा"], "answer_index": 2, "explanation": "# इंदौरी पोहा–जलेबी — संक्षिप्त परीक्षणोन्मुख व्याख्या (MPPSC Prelims/ Mains के लिए)\n- इंदौर की स्ट्रीट-फूड पहचान में \"इंदौरी पोहा\" और \"जलेबी\" संयुक्त रूप से प्रमुख स्थान रखते हैं; इन्हें अक्सर एक साथ परोसा और खाया जाता है।\n- इंदौरी पोहा चिउड़े (flattened rice) से बनता है; इसमें हल्का तड़का, हरी मिर्च, हरी धनिया, नींबू और ऊपर से सूजी/सेव या पापड़-पाउडर जैसा क्रंच जोड़ा जाता है।\n- इंदौरी पोहा की खासियत इसका हल्का-मीठा-खट्टा स्वाद और ऊपरी कुरकुरा तत्व (सेव/सुखा मसाला) है, जो इसे अन्य क्षेत्रों के पोहे से अलग पहचान देता है।\n- जलेबी यहाँ की सड़क-भोजन संस्कृति में पानीपुरी/समोसे की तरह नहीं, बल्कि नाश्ते के साथ लोकप्रिय मीठा है; यह खास तरह की घुलनशील चीनी-शरबत में तली हुई गोल आकृति में आती है।\n- पोहा–जलेबी की जोड़ी सुबह के समय लोकल नाश्ते के रूप में प्रबल है; बाजारों व व्यस्त व्यावसायिक क्षेत्रों में सुबह-शाम दोनों समय इसका उपभोग उच्च होता है।\n- इंदौर के प्रमुख खाने के हॉटस्पॉट (चप्पन, सराफा और प्रमुख बाजार) में पोहा–जलेबी जैसे व्यंजन पर्यटन और स्थानीय अर्थव्यवस्था के लिए अतिनिर्वह्य उत्पादन हैं।\n- पोहा में त्वरित ऊर्जा, कम वसा और हाइड्रेटेड कर्बोहाइड्रेट होते हैं; जलेबी ऊर्जा-घना मीठा है—इसलिए संयुक्त रूप से त्वरित कैलोरी और स्वाद देता है (नोट: अवांछित उच्च शर्करा के कारण सीमित सेवन की सलाह)।\n- तैयारी और परोसने की शैली (काट-तल का समय, शहद/चीनी का गाढ़ापन, पोहा का नम/सूखा संतुलन) स्थानीय कुशलता और स्वाद-पसंद का सूचक है; यही कारण है कि दुकानदारों के बीच मानकीकरण पर महत्व दिया जाता है।\n- इंदौरी पोहा–जलेबी का सामाजिक-सांस्कृतिक प्रतीकत्व है: यह स्थानीय नाश्ते की शैली, बाजार-संस्कृति और शहर की खाद्य पहचान के रूप में क्षेत्रीय लेखों/प्रश्नोत्तर में उद्धृत होता है।\n- परीक्षा के दृष्टिकोण से: उत्तर में स्पष्ट लिखें — \"इंदौरी पोहा और जलेबी\" — और संक्षेप में उनकी विशेषताएँ (सामग्री, स्वाद-विशेषता, बाजारी परिप्रेक्ष्य, आर्थिक/सांस्कृतिक भूमिका) बिंदुवार जोड़ें।", "priority_tag": "HIGH"}, {"question": "भुट्टे का कीस को आधुनिक रेस्तरां और कैटरिंग में प्रस्तुत करते समय आमतौर पर किस तरह का परिवर्तन किया जाता है?", "options": ["पूरी तरह से मीठा बना दिया जाता है", "फ्यूज़न प्रस्तुति और सजावट के साथ सर्व किया जाता है", "मक्का हटा कर सोया डाला जाता है", "ठंडा करके केक के रूप में सर्व किया जाता है"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस पर आधारित कौन-सा कथन जनरल-निजी तौर पर असत्य है?", "options": ["यह व्यंजन मक्का पर आधारित है", "इंदौर में यह स्ट्रीट फूड के रूप में लोकप्रिय है", "इसका पारंपरिक तत्व सूखा मक्का दाना होता है", "इसे कद्दूकस किया हुआ भुट्टे पकाकर बनाया जाता है"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भुट्टे का कीस के संदर्भ में 'मलाई' या 'घी' किस उद्देश्य से जोड़ा जा सकता है?", "options": ["पोषण बढ़ाने और स्वाद समृद्ध करने के लिए", "पकवान को मीठा बनाने के लिए", "विधिवत धार्मिक अर्पण हेतु", "रंग बदलने के लिए"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन-सा शहर भुट्टे का कीस के पारंपरिक प्रसार-क्षेत्रों में शामिल है?", "options": ["इंदौर", "जबलपुर", "निवासी", "ग्वालियर"], "answer_index": 0, "explanation": "# व्याख्या — \"इंदौर\" (भुट्टे का कीस के पारंपरिक प्रसार‑क्षेत्र के रूप में)\n- इंदौर मध्य प्रदेश के शहरी‑कृषि मंडल में आता है जहाँ मक्का/भुट्टा परंपरागत रूप से लोकप्रिय नाश्ते का अंश रहा है।\n- शहर की तीव्र स्ट्रीट‑फूड संस्कृति में भुट्टा‑का‑कीस (भुट्टे का कीस) नियमित रूप से मिलने वाला और स्वीकार्य व्यंजन है।\n- भुट्टे का कीस सामान्यत: भुट्टे को उबालकर या भूनकर, मसाले, नींबू और घी/मक्खन के साथ परोसा जाता है — यही पारंपरिक तैयारी इंदौर में प्रचलित है।\n- मौसमीय प्रवृत्ति: मानसून और शरद ऋतु के दौरान ताजे भुट्टे उपलब्ध होते हैं और भुट्टे का कीस का व्यापार और उपभोग इंदौर में बढ़ जाता है।\n- इंदौर के बाज़ारों और सड़क‑घोषणाओं में भुट्टे की विक्रय‑प्रक्रिया (घरेलू और छोटे विक्रेता) पारंपरिक रूप से समृद्ध आय स्रोत रही है।\n- स्वाद‑संवर्धन में स्थानीय रुचियों के अनुसार पुदीना, हल्का भुना जीरा, या चिली पाउडर का उपयोग इंदौर में सामान्य है, जो स्थानीय व्यंजनों के अनुरूप है।\n- भुट्टे का कीस शहर के विविध सामाजिक‑आर्थिक वर्गों में सुलभ, कम लागत वाला तुरन्त मिलने वाला स्नैक होने के कारण व्यापक रूप से खाया जाता है।\n- शहरी‑ग्रामीण कड़ी: नजदीकी कृषि क्षेत्रों से ताज़ा मक्का की आपूर्ति होने के कारण इंदौर में पारंपरिक भुट्टा‑खपत का स्तर बरकरार रहा है।\n- लोक‑सांस्कृतिक संदर्भ: मेले, त्यौहार और सड़क‑उत्सवों में भुट्टे का कीस को पारंपरिक स्नैक के रूप में शामिल पाए जाने का चलन इंदौर में देखा जाता है।\n- पोषणीय पहलू: भुट्टा‑आधारित कीस कार्बोहाइड्रेट और फाइबर प्रदान करता है, इसलिए इंदौर में यह नाश्ते/सड़क‑खाद्य के रूप में लोकप्रियता का कारण है।\n- प्रशासनिक/व्यावसायिक दृष्टि से भुट्टे का कीस का प्रचलन इंदौर के खाद्य‑व्यापार पर सकारात्मक प्रभाव डालता है, विशेषकर छोटे विक्रेताओं और परोक्ष आपूर्ति‑श्रृंखला पर।", "priority_tag": "HIGH"}, {"question": "भुट्टे का कीस से जुड़ा कौन-सा विकल्प सामग्री-सूची के लिहाज़ से गलत है?", "options": ["कद्दूकस किया हुआ मक्का", "हरी मिर्च और हरा धनिया", "नींबू का रस", "सोया सॉस"], "answer_index": 3, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस का पारंपरिक स्वाद मुख्यतः किस तरह का माना जाता है?", "options": ["मीठा-खट्टा", "नमकीन-हल्का तीखा", "अत्यधिक तीखा और अम्लीय", "कोमल और बिना मसालों के"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर की स्थानीय खाद्य-परंपरा में भुट्टे का कीस को किस प्रकार के स्थलों पर सबसे अधिक देखा/बेचा जाता है?", "options": ["मंदिर परिसर के अंदर", "सड़क किनारे और लोक बाजारों में", "पौष्टिकता केंद्रों में", "सिर्फ घरेलू उत्सवों में"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस को आधुनिक खाद्य-उद्योग में किस श्रेणी में रखा जा सकता है?", "options": ["उद्योगिक तेल-निर्मित स्नैक", "लोकल/पारंपरिक स्ट्रीट-फूड", "विदेशी व्यंजन", "पके हुए मीठे बेक्ड गुड्स"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मकई-आधारित व्यंजनों में 'भुट्टे का कीस' की विशिष्टता क्या है?", "options": ["यह मक्के की डोलिया का नुकसान कर देता है", "यह कद्दूकस किए हुए ताजे भुट्टे को हल्के पकाकर मसाला देकर बनाया जाता है, न कि आटे से", "यह मक्के के आटे को गूंथकर बनाया गया एक रोटी प्रकार है", "यह केवल मीठे रूप में परोसा जाता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर की मशहूर स्ट्रीट-फूड संस्कृति का एक कारण क्या माना जाता है, जिससे भुट्टे का कीस जैसे व्यंजन लोकप्रिय हुए?", "options": ["राजधानी का शाही संरक्षण", "विविध परिवहन नेटवर्क और बाजारों में यातायात", "सख्त सरकारी रेस्टोरेंट पॉलिसी", "विदेशी पर्यटन का दबदबा"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस के प्रसार में किस प्रकार की कृषि-उत्पादन विशेषता मददगार रही है?", "options": ["मक्का की स्थानीय उपलब्धता", "चावल की प्रधान खेती", "केवल अनाज-निर्यात", "खरपतवार-मुक्त खेती"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भुट्टे का कीस को लेकर निम्न में से कौन-सा सांस्कृतिक/पर्यटन-उपयोगी कथन उचित होगा?", "options": ["इंदौर के लोकल फूड टूर में इसे शामिल किया जाता है", "यह सिर्फ़ घरों में बनाया जाने वाला निजी व्यंजन है और टूर में नहीं दिखता", "यह केवल शाही खाने का हिस्सा है और आम लोगों तक नहीं पहुंचा", "इसे केवल त्योहारों पर ही बेचने की परंपरा है"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन-सा विकल्प भुट्टे का कीस के पारंपरिक व्यंजन-श्रेणी के अनुरूप नहीं है?", "options": ["लोकल स्ट्रीट-फूड", "मक्का-आधारित स्नैक", "रोस्टेड मीट व्यंजन", "मध्य भारतीय व्यंजन"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "भुट्टे का कीस के संबंध में किस प्रकार का आधुनिक प्रयास स्थानीय भोजन को बढ़ावा देने के लिए अक्सर होता है?", "options": ["पारंपरिक व्यंजनों को फ्यूज़न शैली में नया स्वरूप देना", "मक्के की खेती बंद करना", "भुट्टे का कीस को केवल उपनगरीय क्षेत्रों में प्रतिबंधित करना", "मक्का को विदेशी अनाज से प्रतिस्थापित करना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "इंदौर के लोकल फूड परंपरा के अनुसंधान में भुट्टे का कीस को मुख्यतः किस प्रकार का स्रोत माना जाता है?", "options": ["अनाज-आधारित घरेलू व्यंजन जिसकी स्ट्रीट-फूड पहचान बनी", "विशेष शाही भोज्य पदार्थ", "मध्य प्रदेश की औद्योगिक खाद्य-नौवहन वस्तु", "धार्मिक अनुष्ठान का अनिवार्य हिस्सा"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

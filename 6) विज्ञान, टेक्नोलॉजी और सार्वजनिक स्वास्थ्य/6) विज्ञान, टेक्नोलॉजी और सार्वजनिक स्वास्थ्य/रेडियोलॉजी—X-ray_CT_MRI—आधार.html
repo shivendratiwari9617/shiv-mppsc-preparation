@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-110 – रेडियोलॉजी—X-ray/CT/MRI—आधार</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-110 – रेडियोलॉजी—X-ray/CT/MRI—आधार</h1>
+        <div class="note">क्षेत्र: Health | सामग्री: इमेजिंग सिद्धांत/जोखिम–लाभ; संकेत/विपरीत। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 16-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- रेडियोलॉजी (X‑ray/CT/MRI) रोग निदान और प्रबंधन में गैर‑आक्रामक इमेजिंग तकनीक है; X‑ray और CT आयनकारी विकिरण (ionizing radiation) का उपयोग करते हैं जबकि MRI चुंबकीय क्षेत्र (static B0) और रेडियो‑फ्रीक्वेंसी (RF) नॉन‑आयनाइज़िंग सिद्धांत पर कार्य करता है, इसलिए रेडिएशन‑जोखिम और संकेत/विपरीत अलग रहते हैं।  
+
+# अवधारणा / विज्ञान‑आधार
+- X‑ray में फोटोन ऊर्जा (keV स्तर) टिशू के अटेन्यूएशन पर निर्भर करके छवि बनती है; मापन एकाइयाँ एक्सपोजर में µGy और रोगी‑डोज में mGy/mSv होती हैं, और CT का effective dose आमतौर पर सामान्य चेस्ट X‑ray से order(s) ऊपर होता है।  
+- CT में कई डिटेक्टर और रोटेटिंग झीहड़ से helical/multidetector acquisition होती है; स्लाइस संख्या (e.g., 16/64/128/320 slices) एवं pitch से स्पेशियल/टाइमल रेज़ॉल्यूशन प्रभावित होता है, तथा iterative reconstruction तकनीक से dose reduction सम्भव है।  
+- MRI में Larmor frequency, field strength (1.5T, 3T सामान्य), T1/T2 relaxation times और pulse sequences (T1‑weighted, T2‑weighted, FLAIR, DWI) contrast पैदा करते हैं; MRI में ionizing radiation नहीं होता पर implant/ferromagnetic contraindications और SAR (specific absorption rate) सीमाएँ प्रासंगिक हैं।  
+
+# संकेत (Indications) और विपरीत (Contraindications)
+- X‑ray और CT के प्रमुख संकेतों में फ्रैक्चर‑रेटिंग, छाती/एब्डोमन/न्यूरोवेस्कुलर आपात, और कैंसर स्टेजिंग शामिल हैं; CT contrast के लिए iodinated agents उपयोग होते हैं और eGFR&lt;30 mL/min/1.73m2 में nephrotoxicity का खतरा बढ़ता है।  
+- MRI के संकेतों में न्यूरोइमेजिंग, स्पाइनल पैथॉलॉजी, जॉइंट/soft tissue मूल्यांकन प्रमुख हैं; विपरीत स्थितियों में पेसमेकर/कुछ cochlear implants/ferromagnetic clips तथा गर्भावस्था के पहले ट्राइमेस्टर में सावधानी शामिल है।  
+- फ़्लो‑डायनेमिक्स (angiography/CT angiography) और इंटरवेंशनल रेडियोलॉजी के लिए fluoroscopy/CT‑guided procedures आवश्यक होते हैं; fluoroscopy में वास्तविक‑समय एक्सपोजर के कारण deterministic skin injury का जोखिम रहता है, इसलिए time‑minimization और pulsed mode प्रयोग अनिवार्य है।  
+
+# जोखिम‑लाभ विश्लेषण (Risk–Benefit)
+- लाभ: रेडियोलॉजी से non‑invasive high‑resolution anatomical और functional जानकारी मिलती है, त्वरित निर्णय‑समर्थन होता है और minimally invasive interventions संभव होते हैं; इससे morbidity/mortality घटती है (उदा. stroke thrombolysis eligibility)।  
+- जोखिम: आयनकारी इमेजिंग से stochastic effects (кар्सिनोजेनेसिस का दीर्घकालिक जोखिम, यूनिट: excess lifetime cancer risk) और high‑dose पर deterministic effects होते हैं; MRI में प्राथमिक जोखिम implants‑related और contrast‑induced NSF (gadolinium rare) है।  
+- नियंत्रण: ALARA (As Low As Reasonably Achievable) सिद्धांत, dose‑modulation, justification/appropriateness criteria (e.g., ACR/NICE शैली की मार्गदर्शिकाएँ) और dose monitoring software से जोखिम‑लाभ बेहतर होते हैं।  
+
+# तकनीकी उन्नति और 15‑वर्षीय प्रवृत्ति
+- पिछले 15 साल में multidetector CT, dual‑energy CT, volumetric CT और iterative reconstruction ने image quality बढ़ाकर dose per exam घटाया; डिजिटल PACS/DICOM और teleradiology ने दूरस्थ रिपोर्टिंग और second opinion को सशक्त किया।  
+- MRI में उच्च‑field (3T), diffusion techniques (DWI/DTI), functional MRI (fMRI) और MR spectroscopy ने विशेषकर न्यूरोइमेजिंग और oncology में diagnostic yield बढ़ाया; contrast‑enhanced MRI और MR angiography ने नॉन‑इवेसिव vascular imaging सक्षम की।  
+- आर्टिफिशियल इंटेलिजेंस/डीप‑लर्निंग आधारित CAD और automated dose‑tracking पिछले वर्षों में clinical workflow में आ रहे हैं, जिससे triage, lesion detection और quantitative biomarkers (volumetry, perfusion) संभव हुए हैं।  
+
+# नीति, नियमन और संस्थागत ढाँचा (India context)
+- भारत में आयनकारी विकिरण नियंत्रण Atomic Energy Regulatory Board (AERB) के नियमों के तहत होता है; उपकरण प्रमाणन और रेडिएशन‑सेफ्टी audit अनिवार्य हैं, और ICMR/Ministry of Health के clinical practice guidelines जांच/मानकीकरण में योगदान करते हैं।  
+- स्वास्थ्य प्रणाली में imaging access असमान है: शहरी क्षेत्रों में advanced CT/MRI केंद्र संकेंद्रित हैं जबकि ग्रामीण क्षेत्रों में basic X‑ray और पोर्टेबल ultrasound पर निर्भरता अधिक; टेल‑राडियोलॉजी और मोबाइल CT/MRI models स्वास्थ्य‑वितरण को संतुलित कर सकते हैं।  
+- राष्ट्रीय स्वास्थ्य पहलें (जैसे डिजिटल हेल्थ/telemedicine frameworks) PACS, RIS और interoperability (DICOM/HL7) अपनाने पर बल दे रही हैं; प्रशिक्षण के लिए ICMR/AIIMS/medical colleges में radiology residency और continuous medical education आवश्यक है।  
+
+# सामाजिक‑आर्थिक प्रभाव और नैतिकता
+- उन्नत इमेजिंग महँगी होती है; CT/MRI की प्रति‑exam लागत और प्रति‑स्कैन की उच्च मांग स्वास्थ्य‑व्यय बढ़ाती है, पर सटीक निदान से अनावश्यक ट्रीटमेंट व हॉस्पिटल रेमिटेंशन घट सकते हैं।  
+- over‑utilization से population dose बढ़ता है; defensive medicine और patient demand पर वित्तीय दबाव के कारण अनावश्यक स्कैन होते हैं, इसलिए appropriateness criteria और insurance/payment reforms से misuse रोका जा सकता है।  
+- गोपनीयता (imaging data security) और AI‑driven decision_support के नैतिक पहलू: algorithmic bias, validation और regulatory approval (CE/FDA‑style) जरूरी है।  
+
+# चुनौतियाँ और समाधान (way forward)
+- चुनौती: trained radiologists की कमी और quality assurance की कमी; समाधान: structured residency, tele‑reporting networks, accreditation (hospital/radiology lab) और capacity building through public‑private partnerships।  
+- चुनौती: radiation safety compliance और dose auditing की lacuna; समाधान: national dose registry, mandatory dose display in CT protocols, AERB‑ICMR joint guidance और equipment lifecycle management।  
+- चुनौती: contrast‑related adverse events और MRI contraindications; समाधान: pre‑scan screening protocols (eGFR check, implant registry), standard informed consent और emergency preparedness for allergic reactions।  
+- टेक्नोलॉजी समाधान: low‑dose CT protocols, iterative reconstruction, AI‑based triage and automated QA, and point‑of‑care imaging devices to improve access while maintaining safety.  
+
+# निष्कर्ष
+- रेडियोलॉजी (X‑ray/CT/MRI) आधुनिक स्वास्थ्य सेवा का अभिन्न अंग है; वैज्ञानिक आधार (ionizing vs non‑ionizing, physical units, reconstruction techniques), स्पष्ट संकेत/विपरीत, और risk–benefit विश्लेषण लागू नीतियों (AERB, ICMR) के साथ अनिवार्य है।  
+- परिणामस्वरूप, भारत के लिए मजबूत regulation, training, dose‑monitoring और तकनीकी अपनाने (AI, teleradiology) से diagnostic yield बढ़ेगा और patient safety सुनिश्चित होगी — मार्ग: evidence‑based appropriateness + technology‑enabled equitable access।
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-110 – रेडियोलॉजी—X-ray/CT/MRI—आधार", "coverage_note": "क्षेत्र: Health | सामग्री: इमेजिंग सिद्धांत/जोखिम–लाभ; संकेत/विपरीत। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n- रेडियोलॉजी (X‑ray/CT/MRI) रोग निदान और प्रबंधन में गैर‑आक्रामक इमेजिंग तकनीक है; X‑ray और CT आयनकारी विकिरण (ionizing radiation) का उपयोग करते हैं जबकि MRI चुंबकीय क्षेत्र (static B0) और रेडियो‑फ्रीक्वेंसी (RF) नॉन‑आयनाइज़िंग सिद्धांत पर कार्य करता है, इसलिए रेडिएशन‑जोखिम और संकेत/विपरीत अलग रहते हैं।  \n\n# अवधारणा / विज्ञान‑आधार\n- X‑ray में फोटोन ऊर्जा (keV स्तर) टिशू के अटेन्यूएशन पर निर्भर करके छवि बनती है; मापन एकाइयाँ एक्सपोजर में µGy और रोगी‑डोज में mGy/mSv होती हैं, और CT का effective dose आमतौर पर सामान्य चेस्ट X‑ray से order(s) ऊपर होता है।  \n- CT में कई डिटेक्टर और रोटेटिंग झीहड़ से helical/multidetector acquisition होती है; स्लाइस संख्या (e.g., 16/64/128/320 slices) एवं pitch से स्पेशियल/टाइमल रेज़ॉल्यूशन प्रभावित होता है, तथा iterative reconstruction तकनीक से dose reduction सम्भव है।  \n- MRI में Larmor frequency, field strength (1.5T, 3T सामान्य), T1/T2 relaxation times और pulse sequences (T1‑weighted, T2‑weighted, FLAIR, DWI) contrast पैदा करते हैं; MRI में ionizing radiation नहीं होता पर implant/ferromagnetic contraindications और SAR (specific absorption rate) सीमाएँ प्रासंगिक हैं।  \n\n# संकेत (Indications) और विपरीत (Contraindications)\n- X‑ray और CT के प्रमुख संकेतों में फ्रैक्चर‑रेटिंग, छाती/एब्डोमन/न्यूरोवेस्कुलर आपात, और कैंसर स्टेजिंग शामिल हैं; CT contrast के लिए iodinated agents उपयोग होते हैं और eGFR<30 mL/min/1.73m2 में nephrotoxicity का खतरा बढ़ता है।  \n- MRI के संकेतों में न्यूरोइमेजिंग, स्पाइनल पैथॉलॉजी, जॉइंट/soft tissue मूल्यांकन प्रमुख हैं; विपरीत स्थितियों में पेसमेकर/कुछ cochlear implants/ferromagnetic clips तथा गर्भावस्था के पहले ट्राइमेस्टर में सावधानी शामिल है।  \n- फ़्लो‑डायनेमिक्स (angiography/CT angiography) और इंटरवेंशनल रेडियोलॉजी के लिए fluoroscopy/CT‑guided procedures आवश्यक होते हैं; fluoroscopy में वास्तविक‑समय एक्सपोजर के कारण deterministic skin injury का जोखिम रहता है, इसलिए time‑minimization और pulsed mode प्रयोग अनिवार्य है।  \n\n# जोखिम‑लाभ विश्लेषण (Risk–Benefit)\n- लाभ: रेडियोलॉजी से non‑invasive high‑resolution anatomical और functional जानकारी मिलती है, त्वरित निर्णय‑समर्थन होता है और minimally invasive interventions संभव होते हैं; इससे morbidity/mortality घटती है (उदा. stroke thrombolysis eligibility)।  \n- जोखिम: आयनकारी इमेजिंग से stochastic effects (кар्सिनोजेनेसिस का दीर्घकालिक जोखिम, यूनिट: excess lifetime cancer risk) और high‑dose पर deterministic effects होते हैं; MRI में प्राथमिक जोखिम implants‑related और contrast‑induced NSF (gadolinium rare) है।  \n- नियंत्रण: ALARA (As Low As Reasonably Achievable) सिद्धांत, dose‑modulation, justification/appropriateness criteria (e.g., ACR/NICE शैली की मार्गदर्शिकाएँ) और dose monitoring software से जोखिम‑लाभ बेहतर होते हैं।  \n\n# तकनीकी उन्नति और 15‑वर्षीय प्रवृत्ति\n- पिछले 15 साल में multidetector CT, dual‑energy CT, volumetric CT और iterative reconstruction ने image quality बढ़ाकर dose per exam घटाया; डिजिटल PACS/DICOM और teleradiology ने दूरस्थ रिपोर्टिंग और second opinion को सशक्त किया।  \n- MRI में उच्च‑field (3T), diffusion techniques (DWI/DTI), functional MRI (fMRI) और MR spectroscopy ने विशेषकर न्यूरोइमेजिंग और oncology में diagnostic yield बढ़ाया; contrast‑enhanced MRI और MR angiography ने नॉन‑इवेसिव vascular imaging सक्षम की।  \n- आर्टिफिशियल इंटेलिजेंस/डीप‑लर्निंग आधारित CAD और automated dose‑tracking पिछले वर्षों में clinical workflow में आ रहे हैं, जिससे triage, lesion detection और quantitative biomarkers (volumetry, perfusion) संभव हुए हैं।  \n\n# नीति, नियमन और संस्थागत ढाँचा (India context)\n- भारत में आयनकारी विकिरण नियंत्रण Atomic Energy Regulatory Board (AERB) के नियमों के तहत होता है; उपकरण प्रमाणन और रेडिएशन‑सेफ्टी audit अनिवार्य हैं, और ICMR/Ministry of Health के clinical practice guidelines जांच/मानकीकरण में योगदान करते हैं।  \n- स्वास्थ्य प्रणाली में imaging access असमान है: शहरी क्षेत्रों में advanced CT/MRI केंद्र संकेंद्रित हैं जबकि ग्रामीण क्षेत्रों में basic X‑ray और पोर्टेबल ultrasound पर निर्भरता अधिक; टेल‑राडियोलॉजी और मोबाइल CT/MRI models स्वास्थ्य‑वितरण को संतुलित कर सकते हैं।  \n- राष्ट्रीय स्वास्थ्य पहलें (जैसे डिजिटल हेल्थ/telemedicine frameworks) PACS, RIS और interoperability (DICOM/HL7) अपनाने पर बल दे रही हैं; प्रशिक्षण के लिए ICMR/AIIMS/medical colleges में radiology residency और continuous medical education आवश्यक है।  \n\n# सामाजिक‑आर्थिक प्रभाव और नैतिकता\n- उन्नत इमेजिंग महँगी होती है; CT/MRI की प्रति‑exam लागत और प्रति‑स्कैन की उच्च मांग स्वास्थ्य‑व्यय बढ़ाती है, पर सटीक निदान से अनावश्यक ट्रीटमेंट व हॉस्पिटल रेमिटेंशन घट सकते हैं।  \n- over‑utilization से population dose बढ़ता है; defensive medicine और patient demand पर वित्तीय दबाव के कारण अनावश्यक स्कैन होते हैं, इसलिए appropriateness criteria और insurance/payment reforms से misuse रोका जा सकता है।  \n- गोपनीयता (imaging data security) और AI‑driven decision_support के नैतिक पहलू: algorithmic bias, validation और regulatory approval (CE/FDA‑style) जरूरी है।  \n\n# चुनौतियाँ और समाधान (way forward)\n- चुनौती: trained radiologists की कमी और quality assurance की कमी; समाधान: structured residency, tele‑reporting networks, accreditation (hospital/radiology lab) और capacity building through public‑private partnerships।  \n- चुनौती: radiation safety compliance और dose auditing की lacuna; समाधान: national dose registry, mandatory dose display in CT protocols, AERB‑ICMR joint guidance और equipment lifecycle management।  \n- चुनौती: contrast‑related adverse events और MRI contraindications; समाधान: pre‑scan screening protocols (eGFR check, implant registry), standard informed consent और emergency preparedness for allergic reactions।  \n- टेक्नोलॉजी समाधान: low‑dose CT protocols, iterative reconstruction, AI‑based triage and automated QA, and point‑of‑care imaging devices to improve access while maintaining safety.  \n\n# निष्कर्ष\n- रेडियोलॉजी (X‑ray/CT/MRI) आधुनिक स्वास्थ्य सेवा का अभिन्न अंग है; वैज्ञानिक आधार (ionizing vs non‑ionizing, physical units, reconstruction techniques), स्पष्ट संकेत/विपरीत, और risk–benefit विश्लेषण लागू नीतियों (AERB, ICMR) के साथ अनिवार्य है।  \n- परिणामस्वरूप, भारत के लिए मजबूत regulation, training, dose‑monitoring और तकनीकी अपनाने (AI, teleradiology) से diagnostic yield बढ़ेगा और patient safety सुनिश्चित होगी — मार्ग: evidence‑based appropriateness + technology‑enabled equitable access।\n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)", "mcqs": [{"question": "X-ray (रे) किरणों का प्राथमिक शोषण किसके कारण होता है जिससे हड्डियों की इमेज ज्यादा contrast में आती है?", "options": ["photoelectric effect (फोटोइलेक्ट्रिक प्रभाव)", "Compton scattering (कॉम्प्टन स्कैटरिंग)", "pair production (पेयर प्रोडक्शन)", "Rayleigh scattering (रेली घुमाव)"], "answer_index": 0, "explanation": "# व्याख्या: फोटोइलेक्ट्रिक प्रभाव — X‑ray में हड्डियों का उच्च कंट्रास्ट क्यों होता है\n- **परिभाषा (सार):** फोटोइलेक्ट्रिक प्रभाव वह प्रक्रिया है जिसमें उच्च‑ऊर्जा फोटॉन (X‑ray) पूरी तरह से एक कण (परमाणु) के अंदर के इलेक्ट्रॉन को उत्सर्जित कर देते हैं और स्वयं फोटॉन नष्ट हो जाता है; यही प्राथमिक शोषण हड्डियों में अधिक होता है।\n- **आवश्यक शर्त:** फोटोइलेक्ट्रिक प्रभाव तब घटता है जब फोटॉन की ऊर्जा उस बाउंड इलेक्ट्रॉन के बाइंडिंग एनर्जी के आस‑पास या उससे अधिक पर अत्यधिक प्रभावशीलता दिखाती है; डायग्नोस्टिक X‑ray ऊर्जा रेंज में हड्डियों के तत्व इस सीमा में आकर अधिक शोषण करते हैं।\n- **परमाणु संख्या (Z) पर तीव्र निर्भरता:** फोटोइलेक्ट्रिक शोषण की संभावना लगभग Z^3 तक बढ़ती है, इसलिए कैल्शियम‑समृद्ध हड्डियाँ (उच्च Z तत्त्व) सॉफ्ट‑टिश्यू की तुलना में ज्यादा X‑ray सोखती हैं।\n- **ऊर्जा निर्भरता:** फोटोइलेक्ट्रिक प्रभाव की क्रॉस‑सेक्शन फोटॉन ऊर्जा के बढ़ने पर घटती है (लगभग E^−3), इसलिए डायग्नोस्टिक X‑ray ऊर्जा चुनी जाती है ताकि हड्डियों और नरम ऊतकों के बीच कंट्रास्ट अधिक बना रहे।\n- **रेखांकन पर प्रभाव (contrast):** क्योंकि हड्डियाँ फोटोइलेक्ट्रिक रूप से अधिक शोषित करती हैं, वे इमेज में अधिक सिग्नल ऑब्सॉर्प्शन दिखाती हैं — परिणामस्वरूप हड्डी सफेद/उच्च घनत्व के रूप में उभरी दिखाई देती है।\n- **अटेनुएशन कॉफ़िशिएंट:** कुल अटेनुएशन में फोटोइलेक्ट्रिक हिस्से का बड़ा योगदान होने से हड्डियों का आयनन/अवशोषण गुणांक सॉफ्ट‑टिश्यू से बहुत अलग होता है; यही इमेज कॉन्ट्रास्ट का भौतिक आधार है।\n- **K‑edge पर प्रभाव:** कुछ तत्त्वों के भीतर आंतरिक शेल्स के बाइंडिंग एनर्जीज़ के पास फोटॉन ऊर्जा होने पर फोटोइलेक्ट्रिक शोषण में तीव्र वृद्धि (K‑edge) होती है, जो कानूनी तौर पर इंट्रावेनस कोंट्रास्ट‑एजेंट प्रयोग में अवधारणात्मक समानता प्रदान करती है।\n- **नैदानिक प्रासंगिकता (MPPSC—Health):** रेडियोलॉजी में उचित kVp/energy चयन से हड्डी बनाम नरम ऊतक का स्पष्ट विभाजन सुनिश्चित होता है, जिससे निदान और फ्रैक्चर/ऑर्थोपेडिक मूल्यांकन सटीक होते हैं।\n- **डोज़‑विचार:** फोटोइलेक्ट्रिक प्रभाव अधिक सोखने पर स्थानीय डोज़ बढ़ाता है; इसलिए रोगी सुरक्षा के लिए ऊर्जा‑सेटिंग और एक्सपोज़र नियंत्रण महत्वपूर्ण हैं।\n- **प्रयोगात्मक निहितार्थ:** हड्डियों की अधिक कंट्रास्ट इमेजिंग के लिए डायग्नोस्टिक ऊर्जा रेंज और फिल्ट्रेशन का संतुलन फोटोइलेक्ट्रिक प्रभाव को लक्षित करके सेट किया जाता है।\n- **मुख्य बिंदु (एक पंक्ति सार):** फोटोइलेक्ट्रिक प्रभाव — उच्च Z पर उत्सर्जन और X‑ray ऊर्जा पर निर्भर पूर्ण शोषण — हड्डियों को इमेज में उच्च कंट्रास्ट देता है।", "priority_tag": "VERY_HIGH"}, {"question": "CT (Computed Tomography) में image contrast बढ़ाने के लिए सामान्यतः किस प्रकार का contrast agent प्रयोग किया जाता है?", "options": ["गैडोलिनियम-आधारित (Gadolinium) इंट्रा-वास्कुलर एजेंट", "आयोडीन-आधारित (Iodinated) IV contrast", "बरियम-आधारित (Barium) IV contrast", "फ्लोरोसेंस-आधारित HI contrast"], "answer_index": 1, "explanation": "# व्याख्या — CT में image contrast बढ़ाने के लिए उपयोग होने वाला एजेंट: **आयोडीन-आधारित IV contrast**\n- आयोडीन-आधारित कॉन्ट्रास्ट में आयोडीन का उच्च अणु क्रमांक (atomic number) होता है, जो X‑रे/CT में फोटोइलेक्ट्रिक प्रभाव बढ़ाकर रेडियोग्राफिक attenuation बढ़ाता है — इसलिए अंगों और वाहिकाओं का contrast स्पष्ट दिखता है।\n- यह आमतौर पर शिरा मार्ग (intravenous, IV) से दिया जाता है ताकि रक्त वाहिकाओं, अंगों और ट्यूमर के enhancement patterns को अलग दिखाया जा सके; CT angiography और अंग‑विशिष्ट फेज़ में व्यापक प्रयोग होता है।\n- आयोडीन‑आधारित कॉन्ट्रास्ट के दो प्रमुख फार्मुलैशन होते हैं; आधुनिक प्रयोगों में कम‑osmolality और non‑ionic preparations प्राथमिकता में हैं क्योंकि वे प्रतिकूल प्रतिक्रियाएँ और असुविधा कम करते हैं।\n- रोगी की गुर्दे की क्रिया (renal function) जाँचना अनिवार्य माना जाता है; सीरम क्रिएटिनिन और estimated GFR का मूल्यांकन कर के contrast‑induced nephropathy के जोखिम को कम किया जाता है।\n- उपयोग से पहले उपयुक्त हाइड्रेशन और आवश्यकता अनुसार प्रोफाइलैक्सिस (जैसे कम जोखिम उपाय) अपनाने से गुर्दे संबंधी जटिलता का जोखिम घटाया जा सकता है।\n- आयोडीन‑आधारित कॉन्ट्रास्ट से अलर्जिक प्रतिक्रियाएँ हल्की से गंभीर तक हो सकती हैं — इसलिए इतिहास में contrast allergy, हाल की गंभीर प्रतिक्रियाएँ या अनफेडरेटेड अस्थमा का मूल्यांकन जरूरी है और आपात स्थिति के लिये रेससिटेशन सेटअप उपलब्ध होना चाहिए।\n- डोज़ निर्धारण रोगी के वजन, अध्ययन के प्रकार और CT प्रोटोकॉल पर निर्भर करता है; अनुशंसित डोज़ अनुसरण कर के image quality और सुरक्षा का संतुलन बनाए रखा जाता है।\n- CT में contrast दिए जाने पर अलग‑अलग फेज़ (arterial, venous, delayed) में इमेजिंग की जाती है ताकि ट्यूमर, सूजन, आर्टेरियल/वेनस पैथोलॉजी और ऑर्गन‑विशेष परफ्यूजन का विश्लेषण संभव हो।\n- गर्भावस्था में आयोडीन‑आधारित IV contrast के उपयोग पर निर्णय जोखिम‑लाभ के आधार पर लिया जाता है; आवश्यकता पर ही और सावधानीपूर्वक विचार कर के प्रयोग किया जाता है।\n- स्वास्थ्य प्रणाली (प्रदेश/एमपी) के स्तर पर CT contrast प्रयोग में सुरक्षित प्रोटोकॉल, क्रिएटिनिन जांच की पहुँच, और आपात‑प्रबंधन प्रशिक्षण सुनिश्चित करने से प्रैक्टिस की गुणवत्ता और रोगी सुरक्षा बढ़ती है — ये बिंदु Mains उत्तर में नीतिगत और व्यवस्थापकीय दृष्टि से जोड़ने योग्य हैं।", "priority_tag": "VERY_HIGH"}, {"question": "MRI (Magnetic Resonance Imaging) में 'T1' और 'T2' relaxation वर्णन करने वाले कौन से भौतिक गुण से जुड़े हैं?", "options": ["प्रोटोन के spin–lattice और spin–spin relaxation समय", "इलेक्ट्रॉन के orbital transition energies", "नाभिकीय विखंडन दर", "आयनीकरण ऊर्जा"], "answer_index": 0, "explanation": "# **विषय: MRI में T1 और T2 relaxation — स्पिन‑लैटिस/स्पिन‑स्पिन समय (व्याख्या)**\n- **परिभाषा (संक्षेप):** T1 relaxation वह समय है जिसमें प्रोटोन की spins अपने अनुरेखण अक्ष (longitudinal magnetization) की ओर लौटते हैं — इसे *spin–lattice relaxation time* भी कहते हैं।\n- **परिभाषा (संक्षेप):** T2 relaxation वह समय है जिसमें प्रोटोन की transverse magnetization आपस में phase खोकर घटती है — इसे *spin–spin relaxation time* भी कहा जाता है।\n- **भौतिक कारण (T1):** T1 में ऊर्जा परस्पर क्रिया (spins ↔ окружа lattice) के माध्यम से निकासी/विचलन के कारण होती है; अर्थात् प्रोटोन अपनी अतिरिक्त ऊर्जा वातावरण को देते हैं।\n- **भौतिक कारण (T2):** T2 में ऊर्जा का व्यय मुख्यतः प्रोटोन–प्रोटोन परस्पर क्रियाओं से होता है, जिससे उनके precession phases असमान हो जाते हैं और transverse सिग्नल कम हो जाता है।\n- **माप का अर्थ:** किसी tissuetype का छोटा T1 = longitudinal मैग्नेटाइजेशन जल्दी लौटता है; छोटा T2 = transverse सिग्नल जल्दी खोता है।\n- **अलग‑अलग पदार्थों में अन्तर:** टिशू के आणविक वातावरण (बाउंड पानी, फ्री पानी, प्रोटीन सामग्री) T1 और T2 दोनों को प्रभावित करते हैं — उदाहरण: फ्री पानी में T1 और T2 आमतौर पर लंबा होता है।\n- **इमेज कॉन्ट्रास्ट संबंध:** T1‑weighted और T2‑weighted इमेजों का भिन्न व्यवहार सीधे इन relaxation समयों पर निर्भर करता है; इसलिए pathologies का पता लगाने में T1/T2 का ज्ञान जरूरी है।\n- **सीक्वेंस डिजाइन:** MRI sequence की timing (TR, TE) का चुनाव T1 और T2 के अनुपात के आधार पर किया जाता है ताकि इच्छित टिशू contrast प्राप्त हो सके।\n- **क्लिनिकल उपयोगिता (संक्षेप):** सूजन/एडिमा जैसे स्थितियों में पानी की मात्रा बढ़ने से T1 लंबा और T2 लंबा होता है — यही आधार T2‑weighted images में जलसंबंधी परिवर्तनों की बेहतर विज़िबिलिटी का।\n- **प्रयोगशाला/फिजिकल नोट:** T2 हमेशा ≤ T1 होता है (किसी भी टिशू के लिए), क्योंकि phase डीकॉहेरेंस स्पिन‑लैटिस ऊर्जा परिवर्तन से तेज़ होता है।\n- **MPPSC/मेन्स उपयोग के लिए संक्षेप‑लाइन:** प्रश्न में पूछा गया T1 और T2 relaxation मूलतः प्रोटोन के *spin–lattice* और *spin–spin* relaxation समय हैं — इन्हें याद रखें और imaging implications (contrast, TR/TE) को जोडकर उत्तर दें।", "priority_tag": "VERY_HIGH"}, {"question": "Ionizing radiation का सबसे प्रमुख जैविक जोखिम क्या है जो लोक स्वास्थ्य दृष्टिकोण से व्यापक चिंता का कारण है?", "options": ["cumulative dose–related risk of cancer (कैंसर का संचयी जोखिम)", "तत्काल तंत्रिका विघटन", "तेज़ हृदयगति", "दस्त और उल्टी"], "answer_index": 0, "explanation": "# व्याख्या: Ionizing radiation का प्रमुख जैविक जोखिम — कैंसर का संचयी (cumulative) जोखिम\n- आयनकारी विकिरण (Ionizing radiation) से होने वाला सबसे महत्वपूर्ण जैविक जोखिम stochastic प्रभाव है, जिसमें कैंसर का जोखिम प्रमुख है।\n- यह जोखिम dose‑dependent है लेकिन threshold नहीं होता; यानी कोई निश्चित नीचली सीमा नहीं बताई जा सकती जहाँ शून्य जोखिम माना जाए।\n- जोखिम संचयी (cumulative) होता है: अलग‑अलग समयों पर मिली छोटी‑छोटी मात्राएँ भी जोड़कर कुल जोखिम बढ़ाती हैं।\n- कैंसर जोखिम का सापेक्ष प्रमाण रैडियेशन के कुल अवशोषित मात्रा (cumulative absorbed dose) के साथ बढ़ता है — जितना अधिक संचयी डोज़, जोखिम का औसत बढ़ना अपेक्षित।\n- आयनकारी विकिरण से होने वाले प्रभावों में latency लंबा होता है; कैंसर विकसित होने में वर्षों से दशकों तक लग सकते हैं, इसलिए जनस्वास्थ्य दृष्टिकोण से दीर्घकालिक निगरानी आवश्यक है।\n- जनसंख्या‑स्तर पर मेडिकल इमेजिंग (X‑ray/CT) और occupational exposures का योगदान महत्वपूर्ण है; बहु बार/उच्च‑डोज़ प्रक्रियाएँ संचयी जोखिम बढ़ाती हैं।\n- जोखिम घटाने के सिद्ध नीति‑तत्त्व: justification (हर एक्सपोज़र का औचित्य), optimization/ALARA (As Low As Reasonably Achievable) और dose limitation/monitoring।\n- डोज़ मॉनिटरिंग और रिकॉर्ड‑कीपिंग (patient/worker dose tracking) आवश्यक है ताकि व्यक्तिगत संचयी डोज़ का आकलन कर जोखिम न्यून किया जा सके।\n- संवेदनशील समूह (बच्चे, गर्भवती महिलाएँ) में समान डोज़ पर जोखिम अधिक माना जाता है; इसलिए विशेष सावधानी और वैकल्पिक नॉन‑आयोनाइज़िंग विकल्पों पर विचार किया जाना चाहिए।\n- सार्वजनिक स्वास्थ्य में इसका अर्थ है‑ कैंसर बोझ के संभावित वृद्धिशील प्रभावों का आकलन, रेडिएशन‑संबंधी रेगुलेशन का पालन और जन/कर्मचारी शिक्षा व जोखिम‑संचार पर फोकस।", "priority_tag": "VERY_HIGH"}, {"question": "X-ray मशीनों में फील्ड की सीमा (collimation) का प्राथमिक लाभ क्या है?", "options": ["अनवांछित ऊतक को कम एक्सपोज़ कर रेडिएशन खुराक घटाना", "improve film processing speed (फिल्म प्रोसेसिंग तेज करना)", "increase beam energy (बीम ऊर्जा बढ़ाना)", "reduce equipment maintenance (उपकरण रखरखाव घटाना)"], "answer_index": 0, "explanation": "# रेडियोलॉजी — फील्ड की सीमा (Collimation) का प्राथमिक लाभ: विस्तृत व्याख्या (MPPSC तैयारी के लिये)\n- **परिभाषा:** कॉलिमेशन से आशय X‑ray बीम का आकार और दिशा नियंत्रित करके केवल लक्षित अंभाग पर ही विकिरण पहुँचना है।\n- **मुख्य लाभ (एक लाइन):** अनवांछित ऊतकों को एक्सपोज़र से बचाकर रोगी की समग्र रेडिएशन खुराक घटती है।\n- **खुराक में कमी का तंत्र:** बीम‑आकार छोटा करने से शरीर के उन हिस्सों का संपर्क कम होता है जो जांच के लिये आवश्यक नहीं, इसलिए कुल ऊर्जा अवशोषण घटता है।\n- **इमेज गुणवत्ता पर सकारात्मक प्रभाव:** अनावश्यक गोलाबीम हटने से स्कैटर रेडिएशन घटता है, जिससे इमेज‑कॉन्ट्रास्ट बेहतर और लक्षित संरचना स्पष्ट दिखती है।\n- **दैनिक नैदानिक परिणाम:** कॉलिमेशन का नियमित उपयोग बार‑बार की एक्सपोज़र आवश्यकताएँ कम करता है — पुनः स्कैन की आवृत्ति घटती है।\n- **बीम‑हार्डवेयर व्यवहार:** कॉलिमेटर लाइवर्स/गंजास्वरूप स्लैट्स द्वारा बीम सीमा सेट की जाती है; सही सेटिंग से केवल आवश्यक क्षेत्र में ही विकिरण भेजा जाता है।\n- **रोगी सुरक्षा मानक:** कॉलिमेशन रेडिएशन‑सेफ्टी का मूल सिद्धांत है—ALARA (As Low As Reasonably Achievable) के अनुरूप खुराक घटाने का व्यावहारिक उपाय है।\n- **काउंटर‑इन्फेक्शन/प्रोटोकॉल लाभ:** कम क्षेत्र‑एक्सपोज़र से संवेदनशील अंगों (गर्भावस्था, ग्रंथियाँ) की सुरक्षा संभव होती है, जिससे क्लीनिकल निर्णय‑प्रक्रिया में फायदा।\n- **मैन्टेनेंस एवं प्रशिक्षण:** लगातार सही कॉलिमेशन सुनिश्चित करने के लिए ऑपरेटर प्रशिक्षण और मशीन कैलिब्रेशन अनिवार्य है; गलत‑कॉलिमेशन खुराक लाभ घटा देता है।\n- **एमपी स्वास्थ्य प्रशासन हेतु उपयोगिता (Mains में उपयोग योग्य बिंदु):** दुर्घटना/पोषकता‑प्रोग्राम में रेडियोलॉजी सेवाओं की गुणवत्ता सुनिश्चित करने के लिये राज्य‑स्तर पर कॉलिमेशन और रेडिएशन‑आवेदन मानक शामिल करने से रोगी सुरक्षा बढ़ती है।\n- **नैदानिक नीति‑सुझाव (संकलित बिंदु):** X‑ray/CT प्रोटोकॉल में अनिवार्य कॉलिमेशन‑प्रक्रियाएँ, रिकॉर्ड‑कीपिंग और समय‑समय पर ऑडिट सम्मिलित किए जाने चाहिए ताकि सार्वजनिक स्वास्थ्य सेवाओं में रेडिएशन जोखिम न्यूनतम रहे।", "priority_tag": "HIGH"}, {"question": "Digital Radiography (DR) और Computed Radiography (CR) में मूल अंतर क्या है?", "options": ["DR में detector direct digital signal देता है; CR में phosphor plate और separate reader चाहिए", "CR direct digital detector है; DR में फ़िल्म-आधारित capture होता है", "दोनों में कोई तकनीकी अंतर नहीं होता", "DR केवल दन्त इमेजिंग के लिए है; CR केवल थोरैसिक के लिए"], "answer_index": 0, "explanation": "# व्याख्या — Digital Radiography (DR) बनाम Computed Radiography (CR) (केन्द्रीय अंतर: सिग्नल जनरेशन)\n- **मूल सिद्धांत:** DR में रöntgen फोटॉनों को directly solid-state detector पर गिरने पर वह इलेक्ट्रॉनिक सिग्नल में बदलते हैं; CR में रöntgen फोटॉन पहले photostimulable phosphor plate (PSP) पर संग्रहित होते हैं और बाद में separate reader में plate को laser से पढ़कर डिजिटल सिग्नल में परिवर्तित किया जाता है।\n- **डेटेक्टर प्रकार:** DR प्रणालियाँ आमतौर पर flat-panel detectors (indirect या direct conversion) का प्रयोग करती हैं जो तुरंत डिजिटल आउटपुट देती हैं; CR में image storage के लिए flexible phosphor plates उपयोग होते हैं जिन्हें निकालकर reader में डालना पड़ता है।\n- **वर्कफ़्लो समय:** DR में exposure के बाद तात्कालिक डिजिटल इमेज मिलती है (real-time या कुछ सेकंड); CR में plate को reader में डालने, पढ़ने व पुनः-रिलोड करने के कारण प्रोसेस देर से होती है।\n- **इमेज क्वालिटी और spatial resolution:** DR के direct-conversion detectors में noise कम और spatial resolution बेहतर हो सकता है; CR की phosphor plate पर light scatter के कारण कभी-कभी थोड़ी कम तीक्ष्णता रहती है।\n- **डोज़ एफिशिएंसी:** समान तकनीक और सेटिंग्स पर DR अधिक dose-efficiency दिखा सकता है क्योंकि signal capture अधिक सटीक और losses कम होते हैं; CR में plate readout व light loss कुछ dose penalty दे सकता है।\n- **इंटीग्रेशन और PACS:** DR सिस्टम सामान्यतः आसान और तेज़ PACS/EMR इंटीग्रेशन देते हैं क्योंकि इमेज तुरंत डिजिटल फॉर्म में उत्पन्न होती है; CR में reader से डिजिटल आउटपुट निकलने के बाद ही PACS में भेजा जाता है, जिससे workflow में विलम्ब संभव है।\n- **रखरखाव व संचालन:** DR detectors अधिक स्थायी होते हैं पर उनकी मरम्मत/बदलाव महंगी हो सकती है; CR plates और readers अपेक्षाकृत सस्ते हैं पर plates का समय के साथ degradation और scratches से प्रभाव पड़ता है।\n- **स्थापना एवं लागत:** आरम्भिक निवेश में DR का हार्डवेयर महंगा हो सकता है पर लंबे समय में तेज़ workflow और कम पुनः-प्रक्रिया से लागत-कुशल हो सकता है; CR का प्रारम्भिक सेटअप अपेक्षाकृत कम पूँजी पर संभव है पर संचालनगत देरी रहती है।\n- **क्लिनिकल उपयोग:** जहाँ तुरंत परिणाम और उच्च throughput चाहिए (इमरजेंसी, OR, bedside), DR प्राथमिक विकल्प है; जहाँ legacy systems या सीमित निवेश है, CR का उपयोग अभी भी प्रचलित है।\n- **छवि दोबारा प्रोसेसिंग:** दोनों में डिजिटल प्रक्रिया के कारण post-processing संभव है, पर DR से तुरंत उच्च-सिग्नल-to-noise ratio पर अधिक प्रभावी image processing किया जा सकता है क्योंकि मूल सिग्नल direct और कम noise वाला होता है।\n- **सुरक्षा और संक्रमण नियंत्रण:** CR में plates को physical handling की आवश्यकता होती है, जिससे चल-अचलพื้นที่ पर संक्रमण नियंत्रण के प्रोटोकॉल पर अधिक ध्यान देना पड़ता है; DR में कम physical handling के कारण यह जोखिम घटता है।\n- **निष्कर्ष (एक वाक्य):** सारत: DR direct digital detector द्वारा तत्काल डिजिटल सिग्नल उत्पन्न करता है जबकि CR में phosphor plate पर इमेज संग्रहित होती है और अलग reader में laser- आधारित पढ़ने से डिजिटल सिग्नल बनता है — यही मूल और निर्णायक अंतर है।", "priority_tag": "HIGH"}, {"question": "ALARA सिद्धांत का Radiology में क्या मतलब है?", "options": ["As Low As Reasonably Achievable — यथासंभव कम रेडिएशन एक्सपोज़र", "All Levels Are Radiologically Accurate — सभी परतें सटीक हैं", "As Long As Radiation Accepted — जब तक विकिरण स्वीकार्य है", "Always Limit Absolute Radiation Amount — रेडिएशन की मात्रा हमेशा सीमित रखें"], "answer_index": 0, "explanation": "# **ALARA सिद्धांत — संक्षिप्त व्याख्या (As Low As Reasonably Achievable)**\n- ALARA का मूल अर्थ: रोगी और कर्मचारी का आयनकारी विकिरण का एक्सपोज़र \"यथासंभव कम\" रखना, बशर्ते नैदानिक लाभ बनाए रखा जाए।\n- यह सिद्धांत रेडियोलॉजी में \"न्यायसंगतता (justification) + अनुकूलन (optimization) + सीमाएँ (dose limits)\" के तत्त्वों पर आधारित है।\n- न्यायसंगतता: हरेक विकिरण-आधारित जांच/उपचार का नैदानिक लाभ स्पष्ट होना चाहिए; केवल उसी स्थिति में एक्सपोज़र दिया जाए जब लाभ जोखिम से अधिक हो।\n- अनुकूलन: समान नैदानिक लक्ष्य प्राप्त करने के लिए संभव न्यूनतम डोज़ निर्धारित कर के तकनीकी और प्रबंधन उपाय अपनाए जाते हैं।\n- व्यावहारिक उपाय — समय, दूरी, और शील्डिंग: एक्सपोज़र का समय घटाना, स्रोत से दूरी बढ़ाना, और उपयुक्त लीड/कंक्रीट शील्डिंग का उपयोग करना।\n- तकनीकी उपाय: एक्सपोज़र पैरामीटर का अनुकूलन (kVp, mA, एक्सपोज़र समय), प्रोटोकॉल सशर्त अनुकूलन (बाद की इमेजिंग की आवश्यकता के अनुसार), और एडीटिव/कन्ट्रास्ट रणनीतियाँ।\n- उपकरण एवं गुणवत्ता आश्वासन: कैलिब्रेशन, नियमित मेंटेनेंस, क्वालिटी कंट्रोल और नवीनतम लो-डोज़ तकनीकों का पालन ALARA लागू करने के लिए आवश्यक हैं।\n- वे रोगी-विशेष विचार: बालक और गर्भवती महिलाओं के लिए और भी कठोर अनुकूलन आवश्यक; PEDIATRIC प्रोटोकोल्स और गर्भधारण की पुष्टि जरूरी।\n- डोज़ मॉनिटरिंग और रिकॉर्डिंग: व्यक्तिगत डोजिमीटर, रजिस्टर/रिपोर्टिंग और डोज़ ऑडिट ALARA के अनुपालन की पुष्टि के लिए अनिवार्य हैं।\n- प्रशिक्षण और संकेतक: रेडियोलॉजी स्टाफ का नियमित प्रशिक्षण, सुरक्षा संस्कृति और SOPs पर पालन ALARA के सफल क्रियान्वयन के लिए आवश्यक है।\n- MRI का उल्लेख: MRI आयनकारी विकिरण नहीं देता; इसलिए ALARA का लक्ष्य मुख्यतः X‑ray, CT और न्यूक्लियर इमेजिंग जैसी आयनकारी तकनीकों में लागू होता है।\n- प्रशासनिक एवं कानूनी पक्ष: राष्ट्रीय/अंतरराष्ट्रीय डोज़ निर्देशिकाएँ और नियम (जैसे प्रसाशित डोज़ मानदंड) ALARA के अनुपालन का ढाँचा प्रदान करते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "PACS (Picture Archiving and Communication System) का प्रमुख कार्य क्या है?", "options": ["डिजिटल इमेजों का संग्रह, retrieval और नेटवर्क के माध्यम से वितरण", "रेडियोथेरपी बीम जनरेशन", "फिल्म केमिकल प्रोसेसिंग का स्वचालन", "मरीजों के बिलिंग और क्लेम प्रोसेसिंग"], "answer_index": 0, "explanation": "# **व्याख्या — PACS (Picture Archiving and Communication System) का प्रमुख कार्य**\n- PACS का मूल काम डिजिटल रेडियोलॉजी इमेजेस (X‑ray, CT, MRI आदि) का केंद्रीकृत संग्रह (archive) करना है।\n- यह इमेजेस को स्टोर करने के लिए उच्च क्षमता वाले डिजिटल आर्काइव और मैनेजमेंट सिस्टम का उपयोग करता है।\n- PACS में संग्रहित इमेजेस को तेज़ और नियंत्रित तरीके से पुनःप्राप्त (retrieval) किया जा सकता है, जिससे रिपोर्टिंग समय घटता है।\n- सिस्टम मानकीकृत फ़ाइल/डेटा फॉर्मेट (जैसे DICOM) का उपयोग करके इमेज डेटा की संगतता और पहचान सुनिश्चित करता है।\n- नेटवर्क के माध्यम से इमेजेस का वितरण — अलग-अलग विभागों, रीडर वर्कस्टेशनों और दूरस्थ रिपोर्टिंग साइट्स तक — PACS की मुख्य क्षमता है।\n- यह वास्तविक‑समय या निकट‑वास्तविक पहुँच प्रदान कर के क्लिनिकल वर्कफ़्लो और मरीज‑देखभाल निर्णयों को गति देता है।\n- PACS में एक्सेस कंट्रोल, उपयोगकर्ता लॉग और एन्क्रिप्शन जैसे सुरक्षा प्रावधान होते हैं ताकि डेटा गोपनीयता और अखंडता बनी रहे।\n- बैकअप और आपदा‑पूर्ण वसूली (disaster recovery) सुविधाएँ लंबी अवधि के मेडिकल रिकॉर्ड रिटेंशन और कानूनी अनुपालन के लिए आवश्यक हैं।\n- PACS के साथ RIS/HIS एकीकरण से रोगी‑डायनेमिक्स, रिपोर्टिंग और बिलिंग प्रक्रियाओं में सहजता आती है।\n- अस्पताल या राज्य‑स्तर पर PACS लागू करने से इमेज ट्रांसपोर्ट, दूरस्थ परामर्श (tele‑radiology) और संसाधन उपयोग में सुधार होता है — जो स्वास्थ्य सेवा वितरण में प्रभावी होता है।", "priority_tag": "HIGH"}, {"question": "MRI में किन रोगियों के लिए Caution या contraindication माना जाता है?", "options": ["उनमें जिनके पास non-MRI compatible cardiac pacemaker या कुछ metallic implants हों", "सभी प्रकार के धातु वस्त्र पहनने वाले", "अधिकतम आयु 65 वर्ष से ऊपर के मरीज", "वह जिनको हाइपरटेंशन है"], "answer_index": 0, "explanation": "# **विषय: MRI में Caution/Contraindication — non‑MRI compatible cardiac pacemaker और कुछ metallic implants**\n- MRI एक मजबूत स्थिर चुंबकीय क्षेत्र (static magnetic field), समय-परिवर्तित चुंबकीय क्षेत्र (gradient fields) और रेडियो-फ्रीक्वेंसी (RF) ऊर्जा का संयोजन है; इनका प्रभाव असंरक्षित धातु या डिवाइस पर हानिकारक हो सकता है।\n- जिन रोगियों के पास non‑MRI compatible cardiac pacemaker हो, उन्हें MRI सामान्यतः contraindicated माना जाता है क्योंकि चुंबकीय क्षेत्र से पेसमेकर का संचालन बदल सकता है और दुर्घटना/हृदय रिद्म बिगड़ सकता है।\n- चुंबकीय क्षेत्र के कारण पेसमेकर अथवा उसके leads में बल लगने से स्थानांतरण (displacement) या लेड‑फ्रैक्चर का जोखिम रहता है; इससे सीधे हृदय कार्य पर असर पड़ सकता है।\n- RF ऊर्जा और gradient pulses से metallic implants में heating (तापजनित) हो सकती है; पेसमेकर के निकट या लेड्स पर ताप वृद्धि टिशू डैमेज या स्किन बर्न का कारण बन सकती है।\n- MRI में पेसमेकर के इलेक्ट्रॉनिक सर्किट पर induced currents उत्पन्न हो सकते हैं, जिससे डिवाइस फेल होना, sensing/pace‑mode में परिवर्तन या inappropriate pacing हो सकता है।\n- कुछ metallic implants (विशेषकर ferromagnetic materials जैसे कुछ पुराने surgical clips, fragments या certain orthopedic hardware) MRI में स्थानांतरित हो सकते हैं या इमेज में गंभीर artifact पैदा कर सकते हैं, जो निदान को प्रभावित करता है।\n- आधुनिक पेसमेकर/ICD परिभाषित रूप से “MR‑conditional” होते हैं; केवल निर्माता के निर्देशों, प्रोग्रामिंग और विशेष MRI प्रोटोकॉल के साथ ही इन्हें सुरक्षित माना जाता है—अन्यथा contraindication बना रहता है।\n- MRI से पहले device का प्रकार, निर्माता जानकारी, मॉडल नंबर और leads की compatibility सत्यापित करना अनिवार्य है; यह संकट प्रबंधन और निर्णय के लिए आवश्यक क्लिनिकल दस्तावेज़ है।\n- यदि MRI अपरिहार्य हो तो multidisciplinary निर्णय (radiologist, cardiologist/electrophysiologist, device technician) के साथ विशेष precautions—डिवाइस को specific mode में सेट करना, निरंतर मॉनिटरिंग, इमरजेंसी संसाधन उपलब्ध रखना—लागू किए जाते हैं।\n- वैकल्पिक इमेजिंग (जैसे X‑ray, USG, CT जहाँ उपयुक्त) पर विचार किया जाना चाहिए जब MRI का जोखिम अधिक हो और परिणाम से लाभ outweighed न हो।\n- एमपी हेल्थ‑प्रैक्टिस में, ऐसे मामलों के लिए स्क्रीनिंग फॉर्म, device‑banking और प्रसार विभागीय SOP रखना उपयोगी है ताकि MRI से पहले contraindications सुनिश्चित हों और मरीज की सुरक्षा बनी रहे।", "priority_tag": "VERY_HIGH"}, {"question": "CT स्कैन के संदर्भ में 'slice thickness' का प्रभाव क्या है?", "options": ["पतली slices से spatial resolution बेहतर और partial volume artifacts कम होते हैं", "पतली slices से beam energy घटती है", "घ厚ी slices से spatial resolution बेहतर होता है", "slice thickness का केवल image contrast पर प्रभाव होता है, resolution पर नहीं"], "answer_index": 0, "explanation": "# व्याख्या — CT स्कैन में \"slice thickness\" का प्रभाव\n- Slice thickness (स्लाइस मोटाई) उस ऊर्ध्वाधर दूरी को दर्शाती है जिसे एक CT image slice कवर करती है; इसे मिमी (mm) में परिभाषित किया जाता है।\n- पतली slices (उदा. 0.5–1.5 mm) से spatial resolution यानी सूक्ष्म संरचनाओं को अलग करने की क्षमता बढ़ती है; छोटी संरचनाएँ अधिक स्पष्ट दिखाई देती हैं।\n- पतली slices के कारण partial volume artifact कम होते हैं क्योंकि एक voxel में अलग-अलग ऊतक के मिश्रण की संभावना घटती है; इसका अर्थ है कि वास्तविक पतला लक्षण और सीमा बेहतर दिखती है।\n- पतली slices से मल्टीप्लानर और 3D पुनर्निर्माण (MPR/VR) की सटीकता बढ़ती है; वे रिपोर्ट और सर्जिकल योजना के लिए अधिक स्पष्ट एनोमली रेखाचित्र देते हैं।\n- पतली slices का trade‑off: इमेज नॉइज़ बढ़ सकता है; अतः समान संकेत‑शोर अनुपात बनाए रखने के लिए अधिक रेडिएशन डोज़ या उन्नत रीकन्स्ट्रक्शन एल्गोरिदम की आवश्यकता हो सकती है।\n- मोटी slices (उदा. 5–10 mm) से signal-to-noise बेहतर दिख सकता है पर small lesion detectability और सीमा‑स्पष्टता घटती है—इसीलिए महत्वपूर्ण नोड, नाभिकीय चेंज वा छोटे ट्यूमर के लिए पतली slices प्राथमिकता हैं।\n- क्लिनिकल उपयोग: नॉर्मल CT‑प्रोटोकॉल में सिर, फेफड़े, और रक्तसंचार संबंधी स्टडीज़ में पतली स्लाइस का उपयोग सूक्ष्म घाव/इन्फार्क्ट/एनेयूरिज्म पहचान के लिए आवश्यक माना जाता है।\n- प्रोटोकॉल चयन में लक्ष्य‑अनुरूप स्लाइस मोटाई तय करनी चाहिए — screening/बड़े क्षेत्र के लिए मोटी स्लाइस, लक्षित सूक्ष्म जांच के लिए पतली स्लाइस; इसे रोगी‑लाभ और डोज के बीच संतुलित किया जाता है।\n- आधुनिक CT में इंटेंसिटी‑मैपिंग और iterative reconstruction से पतली slices पर नॉइज़ कम कर रेडिएशन बचत की जा सकती है, जिससे पतली स्लाइस के फायदे बनाए रखे जा सकते हैं।\n- रिपोर्टिंग और Mains उत्तर में सीधे बिंदु के रूप में: \"पतली slices → बेहतर spatial resolution; partial volume artifact ↓; छोटे lesion की पहचान व MPR/3D पुनर्निर्माण की गुणवत्ता ↑; पर नॉइज़ व डोज़ प्रबंधन पर ध्यान आवश्यक\" — यह सटीक और परीक्षा‑उन्मुख निष्कर्ष है।", "priority_tag": "HIGH"}, {"question": "Dose area product (DAP) क्या मापता है और क्यों उपयोगी है?", "options": ["radiation dose × irradiated area — रोगी के समग्र विकिरण जोखिम अनुमान के लिए", "केवल मशीन द्वारा उत्सर्जित कुल शक्ति", "रेडिएशन के कारण तत्काल त्वचा जलन की तीव्रता", "फिल्म पर इमेज की गुणवत्ता का मानक"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "पेयपरोलोजिकल चुनौतियों में Barium और Iodine contrast agents में प्रमुख अंतर क्या है?", "options": ["Barium आमतौर पर GI ट्रैक्ट के लिए ओरल/रेकटल है; Iodine vascular/IV contrast के रूप में उपयोगी", "Iodine केवल GI ट्रैक्ट के लिए; Barium केवल IV के लिए", "दोनों interchangeably IV और oral दिए जाते हैं", "Barium MRI में contrast के रूप में प्रयोग होता है; Iodine केवल X-ray में नहीं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Compton scattering किस प्रकार की शर्तों में प्रमुख होता है और इसका प्रभाव क्या होता है?", "options": ["मध्यम ऊर्जा X-rays में प्रमुख — image में scatter से contrast घटता है", "कम ऊर्जा X-rays में प्रमुख — अधिक photoelectric absorption होता है", "अत्यधिक उच्च ऊर्जा में प्रयोग होता है जिससे MRI signal बढ़ता है", "यह केवल ultrasonic इमेजिंग में होता है"], "answer_index": 0, "explanation": "# **विस्तृत व्याख्या — Compton scattering (स्पष्ट, परीक्षा‑उन्मुख)**\n- **Compton scattering वह प्रक्रिया है जिसमें एक X‑ray photon स्वतंत्र (loosely bound) इलेक्ट्रॉन से टकराकर ऊर्जा और दिशा बदल देता है।**\n- यह घटना विशेष रूप से मध्यम‑ऊर्जा X‑rays (लगभग 30–150 keV के ऑर्डर) में प्रमुख होती है।\n- Compton scattering में photon का कुछ ऊर्जा इलेक्ट्रॉन को हस्तांतरित हो जाती है और photon का remaining energy कम आवृत्ति में विक्षिप्त (scattered) होकर निकलता है।\n- यह interaction भले ही प्रायः इलेक्ट्रॉनों की संख्या (electron density) पर निर्भर हो, पर विशिष्ट परमाणु संख्या (Z) पर कम निर्भर रहती है।\n- इमेजिंग पर प्रभाव: scattered photons सीधे detector पर पहुँचकर unwanted signal बनाते हैं और thus image contrast कम कर देते हैं।\n- Scatter से प्रमुख समस्याएँ: background signal बढ़ना, lesion‑to‑background contrast घटना और सूक्ष्म संरचनाओं की दृश्यता घटना।\n- क्लिनिकल रोकथाम/नियंत्रण के व्यावहारिक उपाय: anti‑scatter grids, collimation, narrow beam geometry और उचित kVp/ filtration का चुनाव—ये measures scatter प्रबलता कम कर contrast बेहतर बनाते हैं।\n- उपयोग में ध्यान: बहुत अधिक kVp से scatter लागत बढ़ सकती है; इसलिए contrast बनाये रखने के लिये रुग्ण स्थिति और डायग्नोस्टिक आवश्यकता के अनुसार कंप्रोमाइज़ करना पड़ता है।\n- कारण‑परिणाम को सरल वाक्य में: मध्यम‑ऊर्जा X‑rays → अधिक Compton scattering → detector पर scattered photons → image contrast घटना।\n- MP स्वास्थ्य विभाग/रोगी देखभाल में निदानात्मक छवियों की गुणवत्ता सुनिश्चित करने हेतु विकिरण तकनीशियन‑नियम, anti‑scatter उपाय और उचित प्रोटोकॉल अपनाना आवश्यक है ताकि कमी हुई contrast से गलत/छूटे हुए निदान से बचा जा सके।", "priority_tag": "HIGH"}, {"question": "Dose reduction techniques में किसका प्रयोग विशेष रूप से CT में मरीज की खुराक कम करने हेतु किया जाता है?", "options": ["Automatic exposure control (AEC) और tube current modulation", "फिल्म की गति बढ़ाना", "beam energy को 1 keV तक कम करना", "contrast agent की मात्रा दोगुनी करना"], "answer_index": 0, "explanation": "# व्याख्या — Automatic Exposure Control (AEC) और Tube Current Modulation (CT में dose reduction)\n- **परिभाषा**: AEC वह तकनीक है जिसमें CT स्कैन के दौरान रिएल‑टाइम में ट्यूब का करंट (mA) मरीज की बॉडी संरचना और attenuation के अनुसार स्वतः समायोजित किया जाता है ताकि आवश्यक छवि गुणवत्ता के अनुरूप रेडिएशन खुराक न्यूनतम रहे।\n- **मुख्य तत्त्व**: Tube current modulation का उद्देश्य सभी भागों पर एक समान निदान योग्य संकेत‑से‑शोर (SNR) बनाए रखते हुए अनावश्यक उच्च mA को कम करना है।\n- **रचना के अनुसार नियंत्रण**: Modulation दो प्रमुख अक्षों में होता है — एक: angular modulation (gantry‑rotation के दौरान कोणानुसार mA बदलता है) और दो: longitudinal/z‑axis modulation (स्कैन लंबाई के साथ mA बदलता है)।\n- **मरीज‑आधारित अनुकूलन**: AEC मरीज के आकार (ब्रम्हांड/बॉडी डायमीटर), घुमाव, और घनत्व में अंतर को पहचानकर छोटा मरीज या कम attenuation वाले भाग पर mA घटा देता है।\n- **पैरामीटर और सेटिंग्स**: ऑपरेटर अपेक्षित image quality या noise index, reference mA या CTDIvol पर टीकारात्मक सेट कर सकता है; AEC इन लक्ष्यों के अनुरूप ट्यूब करंट समायोजित करता है।\n- **इमेज क्वालिटी बनाम डोज़ trade‑off**: AEC के साथ भी छवि‑शोर बढ़ने पर निदान प्रभावित न हो, इसके लिए लक्ष्य noise/contrast‑to‑noise ratio निर्धारित किए जाते हैं — कमी नियंत्रित और गणनीय होती है।\n- **साथ में प्रयुक्त तकनीकें**: AEC को iterative reconstruction तकनीकों के साथ मिलाकर उपयोग करने पर समान निदान क्षमता पर और अधिक डोज़ बचत होती है।\n- **नियोजनात्मक लाभ (प्रैक्टिकल अनुप्रयोग)**: प्रोटोकॉल‑आधारित AEC सेटअप (पैथोलॉजी व उम्र अनुसार) सार्वजनिक/राज्य सरकारी अस्पतालों में अलग‑अलग कैंपलों के लिए डोज़ मानकीकरण में मदद करता है।\n- **पेडियाट्रिक और संवेदनशील समूह**: बच्चों और पुनरावर्ती स्कैन वाले रोगियों में AEC लागू करने से समुचित छवि गुणवत्ता बनाए रखते हुए डोज़ में उल्लेखनीय कमी आती है।\n- **सीमाएँ और सावधानियाँ**: अत्यधिक हाथ से override करने पर AEC लाभ घट सकता है; प्रकार्यिक कार्यात्मक scans (contrast timing, perfusion) में अलग सेटिंग्स की आवश्यकता होती है।\n- **अनुपालन और रिकॉर्डिंग**: CT कंपनियाँ AEC आधारित प्रोटोकॉल के साथ CTDIvol और dose‑length product रिकॉर्ड करती हैं, जो सुरक्षा और क्वालिटी आश्वासन के लिए उपयोगी हैं।", "priority_tag": "VERY_HIGH"}, {"question": "फ्लोरोस्कोपी के दौरान सबसे प्रभावी उपाय कौन सा है ताकि ऑपरेटर का रेडिएशन एक्सपोज़र घटे?", "options": ["lead apron, thyroid shield और distance को बढ़ाना (inverse square law का पालन)", "beam current को लगातार अधिक रखना", "patient को दोहरी dose देना ताकि फालतू एक्सपोज़र एक बार न हो", "lead gloves का प्रयोग छोड़ देना"], "answer_index": 0, "explanation": "# व्याख्या — फ्लोरोस्कोपी के दौरान ऑपरेटर रेडिएशन एक्सपोज़र घटाने के प्रभावी उपाय\n- **लीड एप्रन (lead apron)**: 0.5 mm Pb समकक्ष या अधिक की क्षमता वाला लीड एप्रन शरीर के प्रमुख अंगों पर प्रत्यक्ष विकिरण को अवशोषित करके शरीर में प्रवेश करने वाली डोज़ को काफी घटाता है।\n- **थायरॉयड शील्ड (thyroid shield)**: गर्दन में स्थित थायरॉयड ग्रंथि रेडिएशन के प्रति संवेदनशील है; ठीक से फिट होने वाला थायरॉयड शील्ड थायरॉयड डोज़ को महत्वपूर्ण रूप से कम करता है।\n- **डिस्टेंस का पालन — Inverse Square Law**: विकिरण स्रोत से दूरी दोगुनी करने पर प्राप्त डोज़ लगभग चार गुना घट जाती है (डोज़ ∝ 1/d²), इसलिए ऑपरेटर जितना संभव हो उतना दूर खड़ा/बैठा होना चाहिए।\n- **डिस्टेंस के व्यावहारिक उपाय**: फ्लोरोस्कोपी टेबल के विपरीत दिशा में खड़े होना, मोबाइल मॉनिटर/रिमोट कंट्रोल का उपयोग और स्टैंडिंग पॉइज़िशन समायोजन से दूरी बढ़ाई जा सकती है।\n- **एप्रन और शील्ड की फिट और मेंटेनेंस**: लीड एप्रन/थायरॉयड शील्ड में दरार/छेद होने पर संरक्षण घटता है; नियमित आकलन और इमेजिंग-रूम में रैडियोग्राफिक परीक्षण व विजुअल निरीक्षण अनिवार्य हैं।\n- **शरीर की संवेदनशील जगहों का कवरिंग**: लीड एप्रन पीठ, पेट और प्रजनन अंगों का सुरक्षा करती है; थायरॉयड शील्ड गर्दन की रक्षा करती है—इन दोनों का संयोजन सर्वोत्तम सुरक्षा देता है।\n- **समेकित उपाय (PPE + दूरी)**: व्यक्तिगत सुरक्षा उपकरण (लीड एप्रन, थायरॉयड शील्ड) और दूरी नियम एक साथ लागू करने पर विकिरण खुराक में अधिकतम कमी होती है; युग्मित उपाय सबसे प्रभावी होता है।\n- **ऑपरेटर पोजिशनिंग और व्यवहार**: अनावश्यक बार-बार फ्लोरोस्कोपी के पास खड़े होने से बचें; केवल आवश्यक समय के लिए नजदीक जाएँ और पढ़ी हुई इमेजिंग के दौरान दूर रहें।\n- **ट्रेनिंग और पालन**: सभी ऑपरेटरों को लीड एप्रन/थायरॉयड शील्ड की सही पहनने की तकनीक और दूरी के सिद्धांत (inverse square law) की प्रशिक्षण में नियमित रूप से भाग लेना चाहिए।\n- **रिवीजन-फोकस (Mains हेतु बिंदु)**: फ्लोरोस्कोपी में ऑपरेटर सुरक्षा के लिए प्राथमिक उपाय — (1) उपयुक्त गुणवत्ता का लीड एप्रन, (2) थायरॉयड शील्ड, (3) स्रोत से अधिकतम संभव दूरी बनाना (inverse square law का उपयोग) — ये तीनों नीतिगत और प्रैक्टिकल मॉड्यूल दोनों में शामिल किए जाने चाहिए।\n- **स्थानीय स्वास्थ्य प्रबंधन (MP संदर्भ में लागू करना)**: अस्पताल स्तर पर PPE उपलब्धता, नियमित निरीक्षण और स्टाफ ट्रेनिंग नीतियाँ राज्य स्वास्थ्य प्रबंधन का हिस्सा हों, ताकि फ्लोरोस्कोपी से जुड़े ऑपरेटर एक्सपोज़र मानक सीमा के भीतर बने रहें।", "priority_tag": "HIGH"}, {"question": "MRI में gradient coils का मुख्य कार्य क्या होता है?", "options": ["space में frequency और phase encoding के लिए magnetic field gradients उत्पन्न करना", "patient body को थंडा रखना", "magnet को superconducting बनाने के लिए रहता है", "RF pulses उत्पन्न करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Digital Imaging and Communications in Medicine (DICOM) मानक का उपयोग किस लिए होता है?", "options": ["रेडियोलॉजी इमेजेस और संबंधित मेटाडाटा का संरचित रूप से स्टोर और ट्रांसफर", "MRI मशीनों में magnet को control करने के लिए", "contrast agents की सुरक्षा मानक के लिए", "रेटिना इमेजिंग के लिए विशेष hardware"], "answer_index": 0, "explanation": "# DICOM मानक — व्याख्या (MPPSC Prelims 2026)\n- DICOM (Digital Imaging and Communications in Medicine) एक अंतरराष्ट्रीय मानक है जो रेडियोलॉजी इमेजेस और उनसे जुड़ा मेटाडाटा संरचित रूप में स्टोर और ट्रांसफर करने के लिए निर्धारित करता है।\n- यह मानक इमेज फाइल का डेटा (जैसे X‑ray, CT, MRI इमेज) और रोगी-संबंधी मेटाडाटा (नाम, आयु, ID, इमेजिंग पैरामीटर्स) दोनों को एक एकीकृत फॉर्मेट में रखता है।\n- DICOM फाइल में इमेज पिक्सल डेटा के साथ-साथ इमेजिंग उपकरण, स्कैन पैरामीटर्स, तारीख/समय और प्रदर्शन सेटिंग्स जैसी तकनीकी जानकारी भी एम्बेड रहती है।\n- मानक नेटवर्क प्रोटोकॉल और सर्वर‑क्लाइंट मॉडल पर काम करता है; PACS (Picture Archiving and Communication System) के साथ इंटरऑपेरेबिलिटी सुनिश्चित करने के लिए DICOM आवश्यक है।\n- DICOM का उपयोग इमेज शेयरिंग, दूरस्थ रिपोर्टिंग (teleradiology), और एक हॉस्पिटल के भीतर विभिन्न मॉडलों/वेंडर्स के उपकरणों के बीच संगत डेटा आदान‑प्रदान के लिए होता है।\n- फाइल संरचना और टैगिंग नियमों की वजह से इमेजेस का ऑर्डर, सीरीज और स्टडी लेवल पर स्पष्ट रूप से ट्रैक रखा जा सकता है; इससे रिकॉर्ड‑कीपिंग और कानूनी/क्लिनिकल प्रमाण सुरक्षित रहते हैं।\n- DICOM कंप्लायंट सिस्टम में वर्कफ्लो ऑटोमेशन (जैसे modality → PACS → RIS → रिपोर्टिंग) सरल और त्रुटि‑रहित बनता है, जिससे रोगी के डेटा की अखंडता बनी रहती है।\n- सुरक्षा के लिए DICOM में नेटवर्क एक्सचेंज पर एन्क्रिप्शन और प्रामाणिकता के प्रावधान होते हैं; साथ ही क्लिनिकल इंटीग्रिटी बनाए रखने के लिए मेटाडाटा की स्पष्ट परिभाषा होती है।\n- MP के सरकारी अस्पतालों में PACS/DICOM अपनाने पर इमेज आर्काइविंग, बैकअप और त्वरित एक्सेस में सुधार होता है, जिससे रेडियोलॉजी रिपोर्टिंग की क्षमता और दूरस्थ विशेषज्ञता उपलब्धता बढ़ती है।\n- परीक्षा‑हित नोट: DICOM का मुख्य लक्ष्य — रेडियोलॉजी इमेजेस और संबंधित मेटाडाटा का संरचित, मानकीकृत स्टोरेज और ट्रांसफर — को स्पष्ट व संक्षेप में याद रखें।", "priority_tag": "HIGH"}, {"question": "एक सामान्य Chest X-ray में हृदय का आकार किस प्रोजेक्शन में सटीक रूप से मापा जाना चाहिए और क्यों?", "options": ["PA (posteroanterior) projection — क्योंकि AP में हृदय magnification के कारण बड़ा दिखता है", "AP projection — क्योंकि यह अधिक सटीक है", "lateral projection — क्योंकि दो बिंदुओं से ही मापा जाता है", "supine projection — क्योंकि मरीज लेटा रहता है"], "answer_index": 0, "explanation": "# व्याख्या — Chest X‑ray में हृदय का आकार मापन (PA projection)\n- PA प्रोजेक्शन में रोगी का सीना डिटेक्टर/फिल्म के सामने और रीढ़ की हड्डी X‑रे स्रोत की ओर होता है, जिससे छाती और हृदय के बीच दूरी न्यूनतम रहती है।\n- स्रोत‑से‑डिटेक्टर और स्रोत‑से‑रोगी दूरी नियंत्रित होने से हृदय की छवि पर बल्बीकरण (magnification) कम होता है; इसलिए वास्तविक आकार अधिक सटीक दिखता है।\n- सीधा खड़े होकर और गहरी श्वास में लिया गया PA एक्स‑रे फेफड़ों का फैलाव बढ़ाकर हृदय की अपेक्षाकृत वास्तविक सीमा दर्शाता है; पूर्ण प्रेरक अवस्था मापन के लिए मानक है।\n- हृदय‑छाती अनुपात (cardiothoracic ratio) जैसे मात्रक PA प्रोजेक्शन के मानकों पर आधारित होते हैं; यही क्लिनिकल निर्णय और तुलना के लिए उपयोगी विश्वसनीय मान देता है।\n- PA प्रोजेक्शन में फील्ड‑डिस्टॉर्शन कम होने के कारण हृदय के आकार में आर्टिफैक्टल वृद्धि कम दिखाई देती है, जिससे false cardiomegaly की संभावना घटती है।\n- सीरियल तुलना (follow‑up X‑rays) के लिए वही प्रोजेक्शन अपनाने पर परिवर्तन‑मूल्यांकन विश्वसनीय होता है; इसलिए मानक जांच में PA प्रोजेक्शन प्राथमिकता रखता है।\n- रोगी की स्थिति (उपयुक्त सीधा खड़ा होना) और निर्देशित प्रेरण पर निगरानी से छवि की पुनरुत्पादकता बढ़ती है और मापन त्रुटियाँ घटती हैं।\n- PA प्रोजेक्शन पार एवं अनुप्रस्थ छवि विकृति को कम करके हृदय सीमाएँ, सिल्हूट साइन औरmediastinal contours को बेहतर पारिभाषित करता है।\n- रिपोर्टिंग में यदि PA प्रोजेक्शन प्रयोग हुआ हो तो CTR और हृदय आकार के संदर्भ में सामान्य‑सीमाएँ लागू की जाती हैं; यह रेडियोलॉजिकल मानक का हिस्सा है।\n- क्लिनिकल और पब्लिक‑हेल्थ सेटिंग्स में (जैसे जनस्वास्थ्य स्क्रीनिंग या अस्पताल प्रोटोकॉल) PA प्रोटोकॉल अपनाने से हृदय आकार का तुलनात्मक और निर्णायक आकलन संभव होता है।", "priority_tag": "VERY_HIGH"}, {"question": "MRI के T2-weighted इमेज में किस प्रकार की संरचनाएँ सुप्रकॉन्फिगर होती हैं (bright दिखती हैं)?", "options": ["तरल (fluid) जैसे CSF और edema अक्सर bright दिखते हैं", "कॉस्टल हड्डियाँ bright दिखती हैं", "कम पानी वाले संयोजी ऊतक bright होते हैं", "सब कुछ uniformly dark दिखता है"], "answer_index": 0, "explanation": "# MRI T2‑weighted इमेज — संक्षिप्त व्याख्या (MPPSC परीक्षण केंद्रित)\n- T2‑weighted इमेज में मुख्य contrast टिशू के T2 relaxation समय के आधार पर बनता है; जिन पदार्थों का T2 समय लंबा होता है वे उज्जवल (bright) दिखते हैं।\n- पानी/तरल (fluid) का T2 relaxation time लंबा होता है, इसलिए CSF (cerebrospinal fluid) T2‑images पर स्पष्ट रूप से bright दिखाई देता है।\n- सूजन (edema) में इंटरस्टीशियल या सेल्युलर पानी की मात्रा बढ़ जाती है; इसलिए edema क्षेत्र T2‑weighted इमेज पर उज्जवल रहते हैं।\n- cystic संरचनाएँ और द्रव युक्त अवस्थाएँ (fluid collections, arachnoid cyst आदि) T2 पर high signal दर्शाती हैं, जो उनकी पहचान में सहायक है।\n- T2‑weighted sequences न्यूरोइमेजिंग में ischemic/vasogenic edema, demyelinating plaques और white matter रोगों के निदान के लिए महत्वपूर्ण हैं।\n- प्रकाशमानता का आकलन करते समय sequence parameters (TE लंबा — echo time) और TR पर ध्यान दें; T2 contrast बढ़ाने के लिए TE को लंबा रखा जाता है।\n- कभी‑कभी फैट भी मध्यम‑उज्जवल दिखाई दे सकता है; इसलिए fluid‑specific पहचान के लिए fat‑suppressed T2 या FLAIR जैसे sequences उपयोगी होते हैं (FLAIR में free CSF suppression से परावर्तन में फर्क दिखता है)।\n- क्लिनिकल उपयोग: T2‑bright क्षेत्रों से द्रव संचय, सूजन/एडेमा, सूजनजन्य प्रक्रिया या सिस्टिक परिवर्तन का संकेत मिलता है; रोग की गंभीरता और फैलाव का आकलन करने में सहायक।\n- T2 पर bright signal का पैटर्न (सिमेट्रिक/असिमेट्रिक, सीमित/विस्तारित) और अन्य sequences के साथ तुलनात्मक मूल्यांकन कर के निदान को ठोस किया जाता है।\n- रिज़ॉल्यूशन और artifact (motion, susceptibility) से संकेत प्रभावित हो सकते हैं; त्वरित‑कथन में—T2 पर जो bright दिखता है, वह सामान्यतः तरल/पानी आधारित घटक या edema होता है, और यह मेडिकल निर्णय लेने में मुख्य संकेतक है।", "priority_tag": "HIGH"}, {"question": "CT में Hounsfield Unit (HU) स्केल किस referent पर आधारित है?", "options": ["water = 0 HU और air = -1000 HU", "air = 0 HU और water = 1000 HU", "fat = 0 HU और bone = 1000 HU", "metal = 0 HU और soft tissue = 1000 HU"], "answer_index": 0, "explanation": "# व्याख्या — CT में Hounsfield Unit (HU) स्केल किस referent पर आधारित है\n- **HU स्केल का आधार दो मानक संदर्भ पदार्थ हैं: पानी (water) को 0 HU और वायु (air) को −1000 HU निरूपित किया जाता है।**\n- **HU एक CT नंबर है जो किसी पदार्थ के लाइनर एक्स-रे एटेन्‍युएशन गुणांक (linear attenuation coefficient, μ) की तुलना इन मानक संदर्भों से करता है।**\n- **HU की गणना का सूत्र है: HU = 1000 × (μ_tissue − μ_water) / (μ_water − μ_air)।** (स्रोत-सूत्र के रूप में सूत्रात्मक व्याख्या)\n- **इस सूत्र के कारण पानी का HU शून्य पर आता है (μ_tissue = μ_water पर HU = 0) और वायु का मान −1000 बनता है क्योंकि μ_air लगभग शून्य के बहुत निकट होता है।**\n- **HU का पैमाना रैखिक और परिमाणात्मक है — एक पदार्थ के HU से उसकी सघनता/एटेन्‍युएशन की मात्रा का तुलनात्मक आकलन संभव होता है।**\n- **CT प्रणालियाँ स्कैन से पहले और सिस्टम-कलिब्रेशन पर इन रेफरेन्स मानों (water/air) के अनुसार अपने CT नंबर को स्थिर करती हैं ताकि HU यूनिवर्सल और तुलनीय रहें।**\n- **HU मान नैदानिक रूप से विंडोिंग/लेवलिंग और ऊतक-पहचान (जैसे हड्डी, नरम ऊतक, वसा) के लिए सीधे उपयोग होते हैं क्योंकि पानी-केंद्रित स्केल से अंतर स्पष्ट दिखता है।**\n- **HU के नकारात्मक मान (जैसे वायु −1000) इसलिए होते हैं क्योंकि उनका μ पानी से कम होता है; इसी कारण वसा और फेफड़ा जैसे ऊतकों के HU भी पानी से निचले (negative या छोटा positive) होते हैं।**\n- **HU की सापेक्षता (water = 0) के कारण क्लिनिकल रिपोर्टिंग व तुलनात्मक अध्ययन (follow-up scans) सरल होते हैं — प्रत्येक स्कैन पर पानी का रिफरेंट सामान्यीकृत बिंदु देता है।**\n- **टेक्निकल नोट: ऊर्जा-निर्भरता और बीम हार्डनिंग जैसे कारक μ मान को प्रभावित कर सकते हैं, इसलिए व्यावहारिक उपयोग में HU की व्याख्या करते समय स्कैन प्रोटोकॉल और ऊर्जा स्तरों का ध्यान रखना आवश्यक है।**", "priority_tag": "VERY_HIGH"}, {"question": "Interventional radiology में ultrasound-guided procedures की प्रमुख लाभ क्या है?", "options": ["realtime guidance without ionizing radiation और bedside applicability", "यह हर प्रकार के deep structure को हमेशा दिखा सकता है", "contrast agents की आवश्यकता हमेशा रहती है", "MRI जैसी spatial resolution देती है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Children में radiological imaging करते समय विशेष सावधानी का कारण क्या है?", "options": ["बालकों की radiosensitivity अधिक और जीवनकाल लंबा होने से cumulative cancer risk बढ़ सकता है", "उनमें bone density ज़्यादा होने से image खराब हो जाती है", "बच्चे ज्यादा MRI compatible नहीं होते", "उनका metabolism imaging contrast को तुरंत degrade कर देता है"], "answer_index": 0, "explanation": "# व्याख्या — बच्चों में radiological imaging पर विशेष सावधानी का कारण\n- बच्चों में कोशिकीय विभाजन दर व विकासशील टिशू अधिक होते हैं, जिससे ionizing radiation के दुष्प्रभाव (DNA नुकसान) की संभावना बढ़ जाती है।\n- उच्च radiosensitivity का अर्थ यह है कि समान खुराक पर बच्चों में कैंसर और जैविक प्रभाव विकसित होने का जोखिम वयस्कों से ज्यादा होता है।\n- बच्चों की शारीरिक आकार व अंग-आयतन छोटा होने से प्रति यूनिट एक्सपोजर अधिक तरल-रक्त/टिशू अवशोषण हो सकता है, जिससे प्रभावशील खुराक बढ़ जाती है।\n- बच्चे की आयु कम होने पर जीवनकाल लंबा होता है; लंबी शेष जीवनकाल = रेडिएशन-संबंधित कैंसर के विकसित होने के लिए अधिक समय (latency) और अधिक संभाव्यता।\n- cumulative dose का सिद्धांत: बार-बार इमेजिंग से छोटे-छोटे अंशों का योगी प्रभाव वर्षों में कैंसर जोखिम बढ़ा सकता है, इसलिए हर एक्सपोजर का योग मायनीय है।\n- स्टोकेस्टिक प्रभाव (जैसे कैंसर) की संभावना खुराक से बढ़ती है और बच्चों में जीवनकाल-आधारित attributable risk अधिक अनुमानित की जाती है।\n- इसलिए पेडियाट्रिक इमेजिंग में justification (जरूरी होने पर ही) और optimization (ALARA — As Low As Reasonably Achievable) अनिवार्य है; तकनीकें बच्चों के लिए अनुकूलित करनी चाहिए।\n- विकेंद्रीकृत विकल्पों का प्राथमिकता: जहाँ संभव हो US या MRI जैसे non-ionizing modalities को प्राथमिक विकल्प माना जाना चाहिए।\n- पेडियाट्रिक प्रोटोकॉल में डोज-मॉडिफिकेशन, छोटे-आकार के कॉलिमेशन, स्क्रीनिंग समय कम करना और उपयुक्त शील्डिंग लागू करना चाहिए।\n- एक्सपोजर का रिकॉर्ड रखना और cumulative dose ट्रैक करना समुदाय-स्वास्थ्य स्तर पर भविष्य के जोखिम प्रबंधन के लिए आवश्यक है।\n- अभिभावकों को सूचित सहमति व जोखिम-लाभ समझाना आवश्यक है ताकि अनावश्यक इमेजिंग टाली जा सके।\n- प्रदेश/संकाय स्तर पर पेडियाट्रिक इमेजिंग के मानकीकृत दिशानिर्देश और ट्रेनिंग लागू करने से बच्चों में कुल कैंसर जोखिम को घटाया जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "एक सामान्य X-ray tube में electron gun की मुख्य भूमिका क्या होती है?", "options": ["filament से electrons का उत्पादन और उन्हें anode की ओर accelerate करना", "X-ray photons को सीधे उत्पन्न करना", "patient को shield प्रदान करना", "image processing के लिए digital signal बनाना"], "answer_index": 0, "explanation": "# व्याख्या — एक सामान्य X‑ray tube में electron gun की मुख्य भूमिका क्या होती है?\n_सही उत्तर_: filament से electrons का उत्पादन और उन्हें anode की ओर accelerate करना\n- इलेक्ट्रॉन गन का प्राथमिक कार्य filament को गर्म करके thermionic emission के द्वारा इलेक्ट्रॉनों का निरंतर स्रोत प्रदान करना है।\n- Filament में सामान्यतः tungsten उपयोग होता है क्योंकि यह उच्च गलनांक और अच्छी thermionic प्रकृति देता है।\n- Filament पर दिए जाने वाला filament current (mA) सीधे निर्भर करता है कि कितनी संख्या में इलेक्ट्रॉन निकलेंगे — इससे beam current और X‑ray की मात्रा नियंत्रित होती है।\n- इलेक्ट्रॉन गन के भीतर emitted electrons को focusing cup और इलेक्ट्रिक क्षेत्रों द्वारा एक संकेंद्रित बीम में संकेंद्रित किया जाता है ताकि लक्ष्य (anode) पर एक छोटा focal spot बन सके; इससे spatial resolution प्रभावित होती है।\n- इलेक्ट्रॉनों को anode की ओर तेज़ी से accelerate करने के लिए cathode (negative) और anode (positive) के बीच उच्च वोल्टेज (kVp) लगाया जाता है; kVp से उनकी ऊर्जा और resultant X‑ray की penetrative शक्ति निर्धारित होती है।\n- Vacuum tube में इलेक्ट्रॉन गन होना जरूरी है ताकि गैस अणुओं से टकराने पर इलेक्ट्रॉनों की गति न रुकें और प्रभावी acceleration हो सके।\n- जब तेज़ी से आ रहे इलेक्ट्रॉन anode के target पर टकराते हैं तब Bremsstrahlung और characteristic radiations बनती हैं — यही मूल X‑ray उत्पत्ति का कारण है।\n- Electron gun की output (electron flux और energy) सीधे exposure parameters (mA और kVp) से जुड़ी होती है; यही image contrast, noise और patient dose पर असर डालती है।\n- Excessive filament current या खराब focusing से focal spot फैल सकता है, जिससे चित्र की दक्षता घटेगी और anode पर अधिक गर्मी बनकर tube life घट सकती है — इसलिए tube cooling और उचित सेटिंग्स आवश्यक हैं।\n- Clinical सेट‑अप में electron gun का स्थिर और नियंत्रित व्यवहार image quality का आधार है और इसे समझकर exposure कम करके patient dose नियंत्रित किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "Lead apron की lead equivalence सामान्यतः क्या दर्शाती है?", "options": ["कितनी mm lead के बराबर shielding प्रदान करता है (उदा. 0.5 mm Pb equiv.)", "apron का वजन कितने kg है", "apron की आयु कितनी है", "apron का रंग और डिजाइन"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "खासकर ग्रामीण MP में Radiology सेवाओं के प्रसार के संदर्भ में कौन सी चुनौती अक्सर सामने आती है?", "options": ["trained मानवीय संसाधन और equipment maintenance की कमी", "अत्यधिक संख्या में MRI scanners पर oversupply", "भूगोलिक रूप से उच्च बिजली की सुलभता", "उचित संख्या में radiology exams का बहुत कम प्रचलन"], "answer_index": 0, "explanation": "# रेडियोलॉजी — ग्रामीण MP में \"trained मानवीय संसाधन और equipment maintenance की कमी\" — व्याख्या (प्रस्तावित MCQ उत्तर का विस्तृत स्पष्टीकरण)\n- ग्रामीण क्षेत्रों में X‑ray/CT/MRI संचालित करने के लिए विशेष रूप से प्रशिक्षित रेडियोलॉजी टेक्नीशियन, रेडियोलॉजिस्ट और biomedical इंजीनियरों की कमी आम कारण है।\n- प्रशिक्षित स्टाफ की अनुपस्थिति से उपकरण का सही सेट‑अप, इमेजिंग प्रोटोकॉल का पालन और गुणवत्ता नियंत्रित नहीं रह पाती, जिससे निदान की विश्वसनीयता घटती है।\n- नियमित preventive maintenance और calibration न होने पर X‑ray और CT जैसे उपकरणों की छवि गुणवत्ता गिरती और हार्डवेयर फेलियर का जोखिम बढ़ता है।\n- ग्रामीण सुविधाओं में spare parts, सर्विस कॉन्ट्रैक्ट और स्थानीय सर्विस प्रोवाइडर का अभाव होने से टूटे उपकरणों की मरम्मत लंबी अवधि तक टल सकती है।\n- बिजली आपूर्ति की अनियमितता और बैकअप की कमी से sophisticated उपकरणों पर अतिरिक्त तनाव पड़ता है; इसके कारण maintenance needs और विफलताओं की आवृत्ति बढ़ जाती है।\n- trained मानव संसाधन न होने से रेडिएशन सुरक्षा और ALARA (As Low As Reasonably Achievable) प्रथाओं का पालन कम हो सकता है, जो मरीज और कर्मचारियों दोनों के लिए जोखिम है।\n- समाधान के रूप में नियमित प्रशिक्षिण (skill upgradation), task‑sharing के साथ स्पष्ट SOPs और स्थानीय biomedical maintenance टीमों का निर्माण आवश्यक है।\n- equipment maintenance के लिए ऊपरी स्तर पर सर्विस‑बेस्ड कॉन्ट्रैक्ट, predictive maintenance तकनीकें और log‑based monitoring लागू करने से डाउनटाइम घटाया जा सकता है।\n- टेलीरेडियोलॉजी और रिमोट‑मोनेटरींग से rural साइटों पर विशेषज्ञ रिपोर्टिंग और रिमोट diagnostics/ट्रबलशूटिंग संभव है, पर इसके लिए trained स्थानीय ऑपरेटर और reliable connectivity चाहिए।\n- वित्तीय योजनाओं में ऑपरेशनल‑कॉन्टेक्स्टेशन (व्यवसायिक रखरखाव बजट), training allowances और retention incentives शामिल होने चाहिए ताकि ग्रामीण स्तर पर skilled स्टाफ स्थायी बने रहें।\n- निगरानी‑सूचक (maintenance logs, uptime metrics, competency assessments) नियमित रूप से रखकर स्वास्थ्य विभाग स्थानीय रेडियोलॉजी सेवाओं की विश्वसनीयता और सुरक्षा का मूल्यांकन कर सकता है।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

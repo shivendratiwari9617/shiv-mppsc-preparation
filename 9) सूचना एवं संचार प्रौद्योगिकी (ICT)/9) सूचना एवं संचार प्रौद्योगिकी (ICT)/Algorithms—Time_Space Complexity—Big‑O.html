@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-032 – Algorithms—Time/Space Complexity—Big‑O</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-032 – Algorithms—Time/Space Complexity—Big‑O</h1>
+        <div class="note">क्षेत्र: CS | सामग्री: विश्लेषण/प्रदर्शन—कॉन्सेप्ट बेसिक्स। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+**Algorithms—Time/Space Complexity—Big‑O** पर चर्चा कीजिए। एल्गोरिदम का प्रदर्शन (performance) मापने के लिए समयिक (time) एवं स्थानिक (space) जटिलता का विश्लेषण अनिवार्य है; यह व्यावहारिक सॉफ़्टवेयर इंजीनियरिंग, सरकारी डिजिटल‑सेवाओं (Digital India) और बड़े‑पैमाने पर डेटा‑प्रोसेसिंग (UIDAI/Aadhaar, DBMS, e‑Governance portals) में निर्णय‑लेने का आधार बनता है।
+
+## अवधारणा एवं परिभाषा
+Big‑O मात्रात्मक रूप में asymptotic upper bound देता है—यानी जैसे input आकार n बढ़ता है, चलने वाला समय T(n) किस क्रम (order) में बढ़ेगा। Big‑Theta (Θ) वास्तविक growth को कैद करता है और Big‑Omega (Ω) lower bound बताता है। समयिक जटिलता worst/average/best केस में निर्धारित की जाती है; इसके साथ अमोर्टाइज़्ड (amortized) विश्लेषण और स्पेस जटिलता भी प्रयोग होती है। ये परिभाषाएँ RAM computational model और यूनिट‑कॉस्ट मान्यताओं पर निर्भर करती हैं, जो NCERT/standard CS पाठ्यक्रमों एवं अरिहंत‑शैली की पुस्तकों में स्पष्ट हैं।
+
+## तकनीकी कार्यप्रणाली (How it works)
+एल्गोरिदम विश्लेषण तीन चरणों में होता है: ऑपरेशनों की गिनती (elementary operations), asymptotic simplification (leading term पर ध्यान), और अनुकरणीय worst/avg/best केस निर्धारण। उदाहरणतः:
+- Binary Search की time complexity O(log n) (sorted array पर), space O(1) iterative संस्करण में।  
+- QuickSort की average time O(n log n) परन्तु worst‑case O(n^2) (pivot selection पर निर्भर), जबकि MergeSort का time O(n log n) और space आम तौर पर O(n) होता है; MergeSort stable है, QuickSort in‑place रहता है।  
+- Hash table average lookup O(1), लेकिन collision resolution (chaining/linear probing) में worst O(n)।  
+इन micro‑facts का ज्ञान सरकारी सेवाओं में स्केलेबिलिटी योजना हेतु अनिवार्य है—उदाहरणतः UIDAI/Aadhaar जैसी प्रणालियों में real‑time authentication के लिए constant‑time संचालन, hashing और HSM‑सुरक्षा आवश्यक होती है।
+
+## विश्लेषणात्मक उपकरण और सिद्धान्त
+Master Theorem divide‑and‑conquer recurrence हल करने के लिए सामान्य रूप देता है; dynamic programming में overlapping subproblems व memoization से exponential समस्याएँ polynomial में बदली जा सकती हैं (उदा. Fibonacci naive O(2^n) → DP O(n), space O(n) या O(1) optimized)। Amortized analysis (जैसे dynamic array doubling) average per‑operation cost O(1) दर्शाती है। इन सिद्धांतों का उपयोग सार्वजनिक पोर्टलों के बैक‑एंड डिज़ाइन में request throughput और latency को गणितीय रूप से bound करने के लिए होता है।
+
+## अनुप्रयोग—शासन, अर्थव्यवस्था और समाज
+समाज एवं शासन में एल्गोरिदमिक दक्षता सीधे नागरिक सेवाओं की प्रतिसाद‑क्षमता को प्रभावित करती है: DigiLocker, UMANG, GSTN जैसी प्रणालियों में batch processing और real‑time APIs के बीच trade‑off के लिए time/space complexity की गणना जरूरी है। Digital India (2015) की मिशन‑ड्राइव में बड़े‑डेटा के लिए efficient algorithms और scalable architectures (distributed computing, MapReduce paradigm — typical time complexities per map/reduce stage) का प्रयोग बढ़ा है। मध्यप्रदेश के e‑Governance प्रोजेक्ट्स में भी (MP e‑Governance portal, MPOnline) latency और resource constraints के कारण lightweight algorithms व indexing (B‑trees, B+ trees) का उपयोग होता है, जिससे DB queries O(log n) पर performant रहती हैं।
+
+## नीतिगत और संस्थागत संदर्भ
+Ministry of Electronics &amp; IT (MeitY) और NIC के मानक API/architecture गाइडलाइंस में scalable design और performance testing (load testing, benchmarking) को प्राथमिकता दी जाती है; प्रमाणन/स्टैंडर्ड्स—जैसे OWASP, IT Act‑compliance—भी समन्वित किए जाते हैं। सरकारी मिशनों में algorithmic transparency और computational efficiency के लिए code review, profiling tools (gprof, perf), और monitoring (Prometheus/Grafana) को शामिल करना आवश्यक है ताकि SLAs, uptime और cost‑per‑transaction नियंत्रित रह सके।
+
+## फायदे एवं अवसर
+समयिक व स्थानिक रूप से कुशल एल्गोरिदम से compute‑cost घटता है, ऊर्जा खपत कम होती है (datacenter operational cost), और citizen‑facing सेवाओं की latency घटती है—जिसका समाज पर प्रत्यक्ष प्रभाव होता है। Efficient algorithms छोटे संसाधन वाले जिलास्तर सर्वरों पर भी बड़ी सेवाएँ चलाने का अवसर देते हैं—MP जैसी राज्य‑सरकारें edge computing व localized caching अपनाकर service delivery बेहतर कर सकती हैं।
+
+## जोखिम, चुनौतियाँ तथा ethical पहलू
+एक ओर एल्गोरिदमिक optimization से प्रदर्शन बेहतर होता है, दूसरी ओर complex optimizations maintainability और correctness के खतरे बढ़ाते हैं; worst‑case behavior अनदेखा होने पर critical systems (e.g., biometric authentication) विफल हो सकते हैं। Transparency/Accountability के लिए algorithmic audits आवश्यक हैं; सरकारी प्रणालियों में explainability और reproducibility को सुनिश्चित करना MeitY/NIC की जिम्मेदारी है। साथ ही, space‑efficient लेकिन privacy‑विध्वंसक data‑structures के उपयोग से जानकारी का दुरुपयोग संभव है—जिसके लिए data governance और CERT‑In जैसी इकाइयों की नीतियाँ लागू करनी चाहिए।
+
+## समाधान एवं Way‑Forward
+किसी भी सरकारी ICT परियोजना में algorithmic design को शुरुआती चरण में शामिल करना चाहिए—requirement→algorithm choice→complexity analysis→profiling→deployment के क्रम से। साधारण नियम: large n के लिए asymptotic behavior पर ध्यान दें; practical constraints (constant factors, memory locality, cache behavior) को micro‑benchmarking से मापें। राज्य स्तर पर capacity building के लिए MeitY व राज्य‑IT विभाग मिलकर workshops आयोजित करें ताकि सरकारी डेवलपर्स Master theorem, amortized analysis और parallel algorithms (multithreading, concurrency primitives) में दक्ष हों। Open standards और public code audits से trust और efficiency दोनों बढ़ेंगे।
+
+## निष्कर्ष
+Big‑O और समय/स्थान जटिलता सैद्धान्तिक समझ ही नहीं, बल्कि व्यावहारिक सरकारी सेवाओं की डिज़ाइन, लागत, और विश्वसनीयता का भी आधार हैं। दीर्घकाल में राज्य एवं राष्ट्रीय स्तर पर algorithmic capability को नीतिगत प्राथमिकता देना आवश्यक है—ताकि Digital India के लक्ष्यों के अनुरूप, scalable, secure और पारदर्शी e‑Governance सेवाएँ सक्षम बन सकें।
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक  
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-032 – Algorithms—Time/Space Complexity—Big‑O", "coverage_note": "क्षेत्र: CS | सामग्री: विश्लेषण/प्रदर्शन—कॉन्सेप्ट बेसिक्स। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n**Algorithms—Time/Space Complexity—Big‑O** पर चर्चा कीजिए। एल्गोरिदम का प्रदर्शन (performance) मापने के लिए समयिक (time) एवं स्थानिक (space) जटिलता का विश्लेषण अनिवार्य है; यह व्यावहारिक सॉफ़्टवेयर इंजीनियरिंग, सरकारी डिजिटल‑सेवाओं (Digital India) और बड़े‑पैमाने पर डेटा‑प्रोसेसिंग (UIDAI/Aadhaar, DBMS, e‑Governance portals) में निर्णय‑लेने का आधार बनता है।\n\n## अवधारणा एवं परिभाषा\nBig‑O मात्रात्मक रूप में asymptotic upper bound देता है—यानी जैसे input आकार n बढ़ता है, चलने वाला समय T(n) किस क्रम (order) में बढ़ेगा। Big‑Theta (Θ) वास्तविक growth को कैद करता है और Big‑Omega (Ω) lower bound बताता है। समयिक जटिलता worst/average/best केस में निर्धारित की जाती है; इसके साथ अमोर्टाइज़्ड (amortized) विश्लेषण और स्पेस जटिलता भी प्रयोग होती है। ये परिभाषाएँ RAM computational model और यूनिट‑कॉस्ट मान्यताओं पर निर्भर करती हैं, जो NCERT/standard CS पाठ्यक्रमों एवं अरिहंत‑शैली की पुस्तकों में स्पष्ट हैं।\n\n## तकनीकी कार्यप्रणाली (How it works)\nएल्गोरिदम विश्लेषण तीन चरणों में होता है: ऑपरेशनों की गिनती (elementary operations), asymptotic simplification (leading term पर ध्यान), और अनुकरणीय worst/avg/best केस निर्धारण। उदाहरणतः:\n- Binary Search की time complexity O(log n) (sorted array पर), space O(1) iterative संस्करण में।  \n- QuickSort की average time O(n log n) परन्तु worst‑case O(n^2) (pivot selection पर निर्भर), जबकि MergeSort का time O(n log n) और space आम तौर पर O(n) होता है; MergeSort stable है, QuickSort in‑place रहता है।  \n- Hash table average lookup O(1), लेकिन collision resolution (chaining/linear probing) में worst O(n)।  \nइन micro‑facts का ज्ञान सरकारी सेवाओं में स्केलेबिलिटी योजना हेतु अनिवार्य है—उदाहरणतः UIDAI/Aadhaar जैसी प्रणालियों में real‑time authentication के लिए constant‑time संचालन, hashing और HSM‑सुरक्षा आवश्यक होती है।\n\n## विश्लेषणात्मक उपकरण और सिद्धान्त\nMaster Theorem divide‑and‑conquer recurrence हल करने के लिए सामान्य रूप देता है; dynamic programming में overlapping subproblems व memoization से exponential समस्याएँ polynomial में बदली जा सकती हैं (उदा. Fibonacci naive O(2^n) → DP O(n), space O(n) या O(1) optimized)। Amortized analysis (जैसे dynamic array doubling) average per‑operation cost O(1) दर्शाती है। इन सिद्धांतों का उपयोग सार्वजनिक पोर्टलों के बैक‑एंड डिज़ाइन में request throughput और latency को गणितीय रूप से bound करने के लिए होता है।\n\n## अनुप्रयोग—शासन, अर्थव्यवस्था और समाज\nसमाज एवं शासन में एल्गोरिदमिक दक्षता सीधे नागरिक सेवाओं की प्रतिसाद‑क्षमता को प्रभावित करती है: DigiLocker, UMANG, GSTN जैसी प्रणालियों में batch processing और real‑time APIs के बीच trade‑off के लिए time/space complexity की गणना जरूरी है। Digital India (2015) की मिशन‑ड्राइव में बड़े‑डेटा के लिए efficient algorithms और scalable architectures (distributed computing, MapReduce paradigm — typical time complexities per map/reduce stage) का प्रयोग बढ़ा है। मध्यप्रदेश के e‑Governance प्रोजेक्ट्स में भी (MP e‑Governance portal, MPOnline) latency और resource constraints के कारण lightweight algorithms व indexing (B‑trees, B+ trees) का उपयोग होता है, जिससे DB queries O(log n) पर performant रहती हैं।\n\n## नीतिगत और संस्थागत संदर्भ\nMinistry of Electronics & IT (MeitY) और NIC के मानक API/architecture गाइडलाइंस में scalable design और performance testing (load testing, benchmarking) को प्राथमिकता दी जाती है; प्रमाणन/स्टैंडर्ड्स—जैसे OWASP, IT Act‑compliance—भी समन्वित किए जाते हैं। सरकारी मिशनों में algorithmic transparency और computational efficiency के लिए code review, profiling tools (gprof, perf), और monitoring (Prometheus/Grafana) को शामिल करना आवश्यक है ताकि SLAs, uptime और cost‑per‑transaction नियंत्रित रह सके।\n\n## फायदे एवं अवसर\nसमयिक व स्थानिक रूप से कुशल एल्गोरिदम से compute‑cost घटता है, ऊर्जा खपत कम होती है (datacenter operational cost), और citizen‑facing सेवाओं की latency घटती है—जिसका समाज पर प्रत्यक्ष प्रभाव होता है। Efficient algorithms छोटे संसाधन वाले जिलास्तर सर्वरों पर भी बड़ी सेवाएँ चलाने का अवसर देते हैं—MP जैसी राज्य‑सरकारें edge computing व localized caching अपनाकर service delivery बेहतर कर सकती हैं।\n\n## जोखिम, चुनौतियाँ तथा ethical पहलू\nएक ओर एल्गोरिदमिक optimization से प्रदर्शन बेहतर होता है, दूसरी ओर complex optimizations maintainability और correctness के खतरे बढ़ाते हैं; worst‑case behavior अनदेखा होने पर critical systems (e.g., biometric authentication) विफल हो सकते हैं। Transparency/Accountability के लिए algorithmic audits आवश्यक हैं; सरकारी प्रणालियों में explainability और reproducibility को सुनिश्चित करना MeitY/NIC की जिम्मेदारी है। साथ ही, space‑efficient लेकिन privacy‑विध्वंसक data‑structures के उपयोग से जानकारी का दुरुपयोग संभव है—जिसके लिए data governance और CERT‑In जैसी इकाइयों की नीतियाँ लागू करनी चाहिए।\n\n## समाधान एवं Way‑Forward\nकिसी भी सरकारी ICT परियोजना में algorithmic design को शुरुआती चरण में शामिल करना चाहिए—requirement→algorithm choice→complexity analysis→profiling→deployment के क्रम से। साधारण नियम: large n के लिए asymptotic behavior पर ध्यान दें; practical constraints (constant factors, memory locality, cache behavior) को micro‑benchmarking से मापें। राज्य स्तर पर capacity building के लिए MeitY व राज्य‑IT विभाग मिलकर workshops आयोजित करें ताकि सरकारी डेवलपर्स Master theorem, amortized analysis और parallel algorithms (multithreading, concurrency primitives) में दक्ष हों। Open standards और public code audits से trust और efficiency दोनों बढ़ेंगे।\n\n## निष्कर्ष\nBig‑O और समय/स्थान जटिलता सैद्धान्तिक समझ ही नहीं, बल्कि व्यावहारिक सरकारी सेवाओं की डिज़ाइन, लागत, और विश्वसनीयता का भी आधार हैं। दीर्घकाल में राज्य एवं राष्ट्रीय स्तर पर algorithmic capability को नीतिगत प्राथमिकता देना आवश्यक है—ताकि Digital India के लक्ष्यों के अनुरूप, scalable, secure और पारदर्शी e‑Governance सेवाएँ सक्षम बन सकें।\n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय  \nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक  \nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "Big‑O संकेत क्या बताता है?", "options": ["किसी एल्गोरिथ्म का asymptotic upper bound (ऊपर की सीमा)", "किसी एल्गोरिथ्म का exact running time हर इनपुट पर", "किसी एल्गोरिथ्म का asymptotic lower bound (नीचे की सीमा)", "किसी एल्गोरिथ्म का memory उपयोग केवल स्थिर भाग"], "answer_index": 0, "explanation": "# व्याख्या — Big‑O संकेत क्या बताता है?\n**कुञ्जी उत्तर:** किसी एल्गोरिथ्म का *asymptotic upper bound* (ऊपर की सीमा)\n- Big‑O नोटेशन किसी एल्गोरिथ्म की वृद्धि‑दर को दर्शाता है जब इनपुट आकार n अनंत की ओर बढ़ता है — यानी asymptotic व्यवहार पर फोकस।\n- औपचारिक परिभाषा: f(n) = O(g(n)) का अर्थ है कि कुछ स्थिर c > 0 और n0 मौजूद हैं जिनके लिए सभी n ≥ n0 पर f(n) ≤ c·g(n) होता है।\n- यह “ऊपर की सीमा” बताता है — मतलब एल्गोरिथ्म का प्रदर्शन asymptotically g(n) से तेज़ नहीं बढ़ेगा (एक निश्चित गुणांक तक)।\n- Big‑O का प्रयोग समय (time complexity) और स्थान (space complexity) दोनों के लिए किया जा सकता है; दोनों के asymptotic upper bounds व्यक्त किए जाते हैं।\n- नोटेशन स्थिर गुणांक और निम्न‑क्रम के पदों (lower‑order terms) को अनदेखा करता है — इसलिए O(n) और O(2n) asymptotically समान व्यवहार दिखा सकते हैं।\n- Big‑O आमतौर पर worst‑case व्यवहार के लिए बताया जाता है ताकि किसी भी इनपुट पर एल्गोरिथ्म की अधिकतम लागत की गारंटी मिल सके।\n- यह तुलना और स्केलेबिलिटी आकलन के लिए उपयोगी है — बड़े‑n के लिए कौन सा एल्गोरिथ्म बेहतर स्केल करता है, यह दिखाने में मदद करता है।\n- Big‑O “कठोर बाउंड” नहीं भी हो सकता; वह केवल एक उपरी बाउंड है — मतलब वास्तविक वृद्धि इससे बेहतर (छोटी) भी हो सकती है।\n- परीक्षा/मेन उत्तर लेखन में Big‑O देते समय इनपुट साइज, संसाधन प्रकार (time/space), और असिम्प्टोटिक व्यवहार का स्पष्ट उल्लेख करें।\n- संक्षेप में: Big‑O एल्गोरिथ्मिक क्रियाकलाप की asymptotic upper bound को संकेतन करता है — यह बताता है कि बड़े इनपुट पर संसाधन आवश्यकता किसी निर्दिष्ट फंक्शन से अधिक नहीं बढ़ेगी (एक स्थिर गुणांक के भीतर)।", "priority_tag": "VERY_HIGH"}, {"question": "यदि f(n) = 3n^2 + 5n + 10 है, तो f(n) का Big‑O क्या होगा?", "options": ["O(n)", "O(n log n)", "O(n^2)", "O(1)"], "answer_index": 2, "explanation": "# **विषय: Algorithms — Time/Space Complexity — Big‑O (f(n) = 3n^2 + 5n + 10 → O(n^2))**\n- **Big‑O का उद्देश्य:** किसी फ़ंक्शन के asymptotic (बड़े n के लिए) व्यवहार का ऊपरी बाउण्ड बताना है; स्थिर गुणांक और कम-डिग्री वाले पद शुमार नहीं किए जाते।\n- **डोमिनेन्ट टर्म:** बहुपद f(n) = 3n^2 + 5n + 10 में सबसे उच्च डिग्री वाला पद n^2 है; इसलिए समय जटिलता n^2 के समान क्रम में होगी।\n- **नियत नियम:** Big‑O में केवल उच्चतम-ऑर्डर टर्म और नमूना-स्केल मायने रखता है — यहाँ वह 3n^2 है, अतः O(n^2)।\n- **स्थिर गुणांकों की उपेक्षा:** गुणांक 3 (या किसी भी स्थिर संख्या) को asymptotic वर्ग बदलते नहीं; 3n^2 और n^2 दोनों O(n^2) में आते हैं।\n- **औपचारिक परिभाषा (उदाहरण):** f(n) = 3n^2+5n+10 के लिए g(n)=n^2 लेते हैं; किसी c>0 और n0 के लिए |f(n)| ≤ c·g(n) सत्य होगा — उदाहरण के लिए n ≥ 1 के लिए 3n^2+5n+10 ≤ 18n^2, अतः c=18, n0=1 दे सकते हैं।\n- **अर्थ (upper bound):** O(n^2) संकेत करता है कि बड़े इनपुट पर f(n) किसी गुणांक गुणा n^2 से अधिक नहीं बढ़ेगा (एक निश्चित सीमा के बाद)।\n- **असिंप्टोटिक क्रमबद्धता:** सामान्य वृद्धि-कक्षाओं में n^2 पुलिसीय (polynomial) वर्ग है; O(1) < O(log n) < O(n) < O(n log n) < O(n^2) — इसलिए n^2 अपेक्षाकृत धीमी बढ़त दर्शाता है।\n- **प्रायोगिक निहितार्थ:** कोई एल्गोरिथ्म जिसका समय 3n^2+5n+10 है, उसे सहमत रूप से \"quadratic time\" कहा जाएगा; बड़े n पर प्रदर्शन सीमित हो सकता है।\n- **Mains‑style बिंदु (MP‑संदर्भ में उपयोग के लिए):** उत्तर में सीधे लिखें — “f(n)=3n^2+5n+10 का asymptotic upper bound O(n^2) है, क्योंकि उच्चतम-डिग्री पद n^2 है और स्थिर गुणांकों का प्रभाव asymptotically शून्य माना जाता है।”\n- **रिवीजन‑नोट (quick):** नियम — “उच्चतम डिग्री तय करने पर स्थिर गुणांक और निम्न डिग्री हटाओ → Big‑O वही उच्चतम डिग्री” — इसे उदाहरण के साथ याद रखें (यहाँ n^2)।", "priority_tag": "VERY_HIGH"}, {"question": "Theta (Θ) notation किसका सूचक है?", "options": ["asymptotic upper bound मात्र", "asymptotic lower bound मात्र", "asymptotically tight bound (upper और lower दोनों)", "average‑case bound मात्र"], "answer_index": 2, "explanation": "# व्याख्या: Theta (Θ) notation — asymptotically tight bound\n- Theta (Θ) किसी फंक्शन f(n) का asymptotically tight bound दर्शाता है, यानी वह g(n) है जो बड़े n के लिए f(n) के ऊपर और नीचे दोनों सीमाएँ (bounds) तय करती है।\n- औपचारिक परिभाषा: f(n) = Θ(g(n)) का अर्थ है कि कुछ स्थायी अंक c1, c2 > 0 और n0 मौजूद हैं, जिनके लिए सभी n ≥ n0 पर c1·g(n) ≤ f(n) ≤ c2·g(n) सत्य हो।\n- Θ–notation में लगातार गुणांक (constant factors) और कम-क्रम के पद (lower-order terms) अनदेखा किए जाते हैं; यही कारण है कि यह asymptotic growth का प्रतिनिर्देश है।\n- यह notation algorithm के समय/स्थान की दर (growth rate) का tight वर्गीकरण देता है — यानी वही g(n) जो फंक्शन की वास्तविक वृद्धि को दोनों दिशाओं में सीमित करे।\n- Θ का उपयोग करते समय ध्यान दें कि यह worst-case या average-case का संकेत नहीं देता; कर्तव्य यह है कि जिस f(n) का विश्लेषण हो रहा है, वह किस केस (worst/average/best) के लिए है, और फिर उसी f(n) को Θ में व्यक्त किया जाता है।\n- Θ bound से स्पष्ट होता है कि किसी एल्गोरिथ्म की asymptotic efficiency किसी निश्चित वृद्धि-श्रेणी (जैसे Θ(n), Θ(n log n), Θ(n^2)) में है — यह क्लासिफिकेशन MPPSC के प्रश्नों में सीधा प्रयोग योग्य है।\n- प्रूफ़ तकनीकें: Θ दिखाने के लिए दो हिस्से सिद्ध किए जाते हैं — (1) उपरी बाउंड के लिए O(g(n)) सिद्ध करना और (2) निचली बाउंड के लिए Ω(g(n)) सिद्ध करना; दोनों मिलकर Θ बनाते हैं।\n- Θ notation के प्रयोग से तुलना स्पष्ट होती है: यदि f(n)=Θ(g(n)) और h(n) बड़ा या छोटा हो, तो asymptotic equivalence के आधार पर निर्णय लिया जा सकता है।\n- समय जटिलता और स्थान जटिलता दोनों के विश्लेषण में Θ का प्रयोग tight specification के लिए किया जाता है, जिससे resource provisioning और algorithm choice में स्पष्टता मिलती है।\n- उदाहरणस्वरूप, यदि एक एल्गोरिथ्म का संचालन-संख्या f(n)=3n^2+5n+10 है, तो यह f(n)=Θ(n^2) है — क्योंकि बड़े n पर n^2 द्वारा उपरी और निचली दोनों सीमाएँ दी जा सकती हैं।\n- Mains GS उत्तर लेखन के लिए संक्षेप बिंदु: \"Θ(ग) = asymptotically tight bound — मौजूद c1,c2,n0 जिनसे c1·g(n) ≤ f(n) ≤ c2·g(n) ∀ n≥n0\" — यह वाक्य सीधे निर्णय/व्याख्या में उपयोगी रहेगा।", "priority_tag": "VERY_HIGH"}, {"question": "यदि g(n) = O(f(n)) और f(n)=O(g(n)) हो तो किसे कहेंगे?", "options": ["f(n) और g(n) asymptotically equivalent (Θ relation)", "f(n) >> g(n)", "g(n) little‑o of f(n)", "दोनों का कोई संबंध नहीं बताया जा सकता"], "answer_index": 0, "explanation": "# व्याख्या: f(n) और g(n) asymptotically equivalent — Θ संबंध\n1. **परिभाषा (सटीक):** f(n) = Θ(g(n)) का अर्थ है कि ∃ مثبت स्थिरांक c1, c2 और n0 जिससे ∀ n ≥ n0 के लिए c1·g(n) ≤ f(n) ≤ c2·g(n) सत्य हो।\n2. **समतुल्यता का तात्पर्य:** f और g दोनों एक ही क्रम (order) के हैं — asymptotically एक दूसरे के समान बाउंड करते हैं।\n3. **O और Ω से संबंध:** यदि g(n)=O(f(n)) और f(n)=O(g(n)) दोनों सत्य हैं तो दोनों तरफ की सीमाएँ मिलकर f(n)=Θ(g(n)) बनाती हैं।\n4. **दोनों तरफ सीमाएँ अनिवार्य:** Θ साबित करने के लिए दोनों ओर के कॉन्स्टेंट्स (ऊपर और नीचे) स्थापित करना आवश्यक है; केवल एक तरफ की O‑सम्बन्ध पर्याप्त नहीं।\n5. **प्रयोजन (algorithm analysis):** Θ का प्रयोग तब करें जब आप किसी एल्गोरिथ्म की समय/स्पेस जटिलता का सटीक asymptotic क्रम देना चाहें (बड़े‑O से अधिक सटीक)।\n6. **उदाहरण (त्वरित):** f(n)=3n^2+5n और g(n)=n^2 हैं; उपयुक्त c1, c2 और n0 चुनकर इनको Θ(n^2) माना जा सकता है।\n7. **रिलेशन गुण (properties):** Θ सम्बन्ध प्रतिबिंबित (reflexive), सममित (symmetric) और पारगम्य (transitive) है — इसलिए तुलना श्रृंखला में सुरक्षित रूप से प्रयोग कर सकते हैं।\n8. **प्रमाण की रणनीति:** आम तौर पर अग्रणी पद (leading term) और अज्ञेयविहीन गुणांक निकालकर उपर‑नीचे सीमा के लिए स्थिरांक चुनें और n0 निर्धारित करें।\n9. **रिवीजन‑नोट (MPPSC Prelims):** जब प्रश्न में दोनों O‑सम्बन्ध दिए हों तो तुरंत लिखें \"f(n)=Θ(g(n)) — asymptotically equivalent\" और संक्षेप में c1,c2,n0 की उपस्थिति का हवाला दें।\n10. **Mains GS उत्तर के लिए पॉइंट:** Mains में एल्गोरिथ्म जाँचते समय Θ लिखकर बताएं कि आप समय/स्पेस जटिलता का सटीक क्रम दे रहे हैं; एक वाक्य में सीमा‑कॉन्स्टेंट्स बताना उत्तर को मजबूत बनाता है।\n11. **प्रयोगात्मक अर्थ:** Θ सम्बन्ध का अर्थ यह भी है कि बड़े‑n के लिए दोनों फंक्शन्स का वृद्धि‑दर एक जैसा है — इसलिए एक को दूसरे से गुणात्मक रूप से श्रेष्ठ/अल्पतर न मानें जब तक Θ अलग न दिखे।", "priority_tag": "HIGH"}, {"question": "Little‑o (o) notation का अर्थ क्या है?", "options": ["f(n) asymptotically equal to g(n)", "f(n) grows strictly slower than g(n) (f(n)/g(n) → 0)", "f(n) grows strictly faster than g(n)", "f(n) का constant factor है"], "answer_index": 1, "explanation": "# Little‑o (o) notation — व्याख्या (MPPSC परीक्षा केंद्रित)\n- Little‑o notation का औपचारिक अर्थ: f(n) = o(g(n)) जब n → ∞ पर f(n)/g(n) → 0 हो.\n- यह दर्शाता है कि f(n) की वृद्धि दर g(n) की वृद्धि दर से \"कठोर रूप से धीमी\" है; अर्थात् g(n) f(n) से asymptotically बड़ा है.\n- सीमा का अर्थ: किसी भी ε > 0 के लिए एक N मौजूद है जिससे n > N पर |f(n)| ≤ ε·|g(n)| होता है (ε छोटी सकारात्मक संख्या).\n- Little‑o में बराबरी संभव नहीं है; यदि f(n) = Θ(g(n)) या f(n) ~ c·g(n) (c>0) तो f(n) = o(g(n)) नहीं होगा.\n- Little‑o एक strict relation है: f(n) = o(g(n)) तो f(n) = O(g(n)) जरूर होगा, पर उल्टा सत्य नहीं होता.\n- उपयोग: अल्गोरिद्म विश्लेषण में यह साबित करने के लिए प्रयोग होता है कि एक कार्यभार या त्रुटि पद अन्य पद की तुलना में asymptotically negligible है.\n- उदाहरण (तुरंत समझ के लिए): n = o(n log n) क्योंकि n/(n log n) = 1/log n → 0.\n- गुणधर्म (properties): परगमन (transitive) है — यदि f = o(g) और g = o(h) तो f = o(h) होगा; पर यह symmetric नहीं है.\n- प्रैक्टिकल अर्थ: अगर समय/स्पेस T1(n) = o(T2(n)) है तो बड़े n पर T1 का प्रभाव T2 के सामने नगण्य माना जा सकता है.\n- परिचालन/रूपरेखा में प्रमाण (proof) में अक्सर सीमा नियम, L'Hôpital या तुलना विधि से यह दिखाया जाता है कि f(n)/g(n) → 0.", "priority_tag": "HIGH"}, {"question": "किसी एल्गोरिद्म का worst‑case time complexity बताने के लिए सर्वाधिक उपयुक्त नॉरेशन कौन‑सा है?", "options": ["Θ notation", "o notation", "O notation", "Ω notation"], "answer_index": 2, "explanation": "# व्याख्या: O‑notation — worst‑case time complexity के लिए उपयुक्त नॉरेशन\n- **O‑notation (Big‑O)** किसी एल्गोरिद्म के रन‑टाइम का असिम्प्टोटिक upper bound बताती है, अर्थात् बड़े इनपुट (n → ∞) में समय कितनी तेज़ी से बढ़ेगा।\n- **Worst‑case time complexity दर्शाने के लिए O उपयोगी है** क्योंकि वह किसी भी इनपुट के लिए सबसे बुरा संभव व्यवहार (maximum asymptotic behaviour) का ऊपरी सीमा प्रदान करती है।\n- परिभाषा (गौरतलब): f(n) = O(g(n)) मतलब ∃ c > 0 और n0, जिनके बाद f(n) ≤ c·g(n) हर n ≥ n0 के लिए सत्य हो।\n- O‑notation में निरपेक्ष (constant) गुणांक और नॉन‑डोमिनेंट टर्म्स हटाए जाते हैं—यह केवल उच्च‑क्रमात्मक गुणांक (dominant term) को दर्शाती है।\n- किसी एल्गोरिद्म का worst‑case समय निकालते समय लूप्स, नेस्टेड लूप्स और रीकर्सिव फॉर्मूले पर ध्यान देकर f(n) प्राप्त कर के उसे O‑form में सरल किया जाता है।\n- सामान्य नियम: सिंगल लूप O(n), नेस्टेड लूप (दो पर्तियाँ) O(n^2), लॉगरिदमिक ऑपरेशन O(log n), संयोजन O(n log n) — ये O‑notation में लेखन के रूप हैं।\n- रीकर्सिव विश्लेषण में Master theorem या रीज़रेंस-आधारित recurrence हल कर के प्राप्त f(n) को O में व्यक्त किया जाता है ताकि worst‑case bound मिल सके।\n- O‑notation का प्रयोग प्रदर्शन तुलना, स्केलेबिलिटी आकलन और एल्गोरिथमिक वर्गीकरण (polynomial, logarithmic, exponential आदि) के लिए किया जाता है।\n- किसी एल्गोरिद्म के worst‑case O bound के आधार पर ही समय के हिसाब से सिस्टम‑साइज, रिसोर्स‑आवश्यकता और प्राथमिकता निर्धारण किए जाते हैं।\n- O‑notation असिम्प्टोटिक bound हैं — छोटे n पर वास्तविक समय में फर्क हो सकता है, पर परीक्षा/थ्योरी में बड़े‑n के व्यवहार हेतु O ही मानक नॉरेशन है।\n- O‑notation को space complexity के लिए भी प्रयुक्त किया जा सकता है; परंतु यहाँ इसका प्रमुख अर्थ worst‑case time के ऊपरी बंध के रूप में ही लिया जाता है।", "priority_tag": "VERY_HIGH"}, {"question": "Ω (Omega) notation किसका प्रतिनिधित्व करती है?", "options": ["asymptotic upper bound", "asymptotic lower bound", "asymptotic tight bound", "exact runtime for all inputs"], "answer_index": 1, "explanation": "# व्याख्या: Ω (Omega) notation = asymptotic lower bound\n- Ω-नोटेशन किसी फ़ंक्शन f(n) के लिए ऐसा असिम्प्टोटिक (बड़े n पर लागू) निचला सीमा (lower bound) दर्शाती है जिससे f(n) कम नहीं हो सकती।\n- औपचारिक परिभाषा: f(n) = Ω(g(n)) का अर्थ है कि ∃ c > 0 और n0 ≥ 1 ऐसे कि ∀ n ≥ n0, f(n) ≥ c·g(n)।\n- यहाँ g(n) वह लक्ष्य वृद्धि दर है और शर्त बताती है कि अंततः f(n) कम से कम g(n) के एक स्थायी गुणा के बराबर या उससे बड़ा रहेगा।\n- Ω-नोटेशन समय या स्थान दोनों जटिलताओं के लिए लागू होती है — यानी किसी एल्गोरिद्म का समय/स्पेस कम से कम इतना होगा।\n- असिम्प्टोटिक होने का मतलब है यह दावा़ केवल बड़े इनपुट आकारों (n → बड़ा) पर मान्य माना जाता है; छोटे n पर अपवाद संभव हैं।\n- प्रैक्टिकल उपयोग: किसी समस्या या एल्गोरिद्म के लिए न्यूनतम (lower bound) प्रदर्शन दिखाने में उपयोगी — उदाहरण: किसी रचना का सर्वश्रेष्ठ-निर्वाचित (best possible) निचला सीमा सिद्ध करना।\n- Ω और O का संबंध: यदि f(n) = Ω(g(n)) और f(n) = O(g(n)) दोनों सत्य हों तो f(n) = Θ(g(n)) कहलाता है (tight bound)।\n- परिभाषा लागू करने में मान्य होने की शर्तें: आम तौर पर f और g गैर-नकारात्मक (non-negative) फ़ंक्शन होते हैं ताकि तुलना अर्थपूर्ण हो।\n- प्रमाण-शैली: Ω-प्रमाण में सामान्यतः कोई स्थिर गुणांक c और सीमा n0 खोजकर दिखाया जाता है कि सभी बड़े n के लिए असमानता सत्य है।\n- उपयोग MPPSC परीक्षा-संदर्भ में: प्रश्नों में Ω को देखते ही समझें कि पूछा जा रहा है कौन-सी वृद्धि दर किसी फ़ंक्शन/एल्गोरਿਥ्म के लिए **न्यूनतम अनिवार्य** है — उत्तर में हमेशा \"asymptotic lower bound\" को ही चुनें।", "priority_tag": "HIGH"}, {"question": "Binary Search (sorted array) की worst‑case time complexity क्या है?", "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"], "answer_index": 1, "explanation": "# व्याख्या: Binary Search (sorted array) — Worst‑case Time Complexity = **O(log n)**\n- Binary Search एक sorted array पर कार्य करता है जहाँ हर चरण में खोज के संभावित स्थान आधे हो जाते हैं, इसलिए आकार n से n/2, n/4 ... होता है।\n- प्रत्येक चरण में एक मध्य‑तत्व (mid) की तुलना करके न = n/2 के रूप में problem size घटता है; यही विभाजन‑और‑विजय (divide‑and‑conquer) का सरल रूप है।\n- बाइनरी सर्च के चरणों की अधिकतम संख्या लगभग log2 n होती है क्योंकि प्रत्येक चरण में खोज स्थान का आधार 2 के गुणक में घटता है।\n- इसलिए worst‑case में आवश्यक तुलना‑या‑चरणों की संख्या Θ(log n) है; असिम्पटोटिक ऊपरी सीमा Big‑O में O(log n) लिखते हैं।\n- एल्गोरिथम का recurrence (आकांक्षा) लिख सकते हैं: T(n) = T(n/2) + O(1); इसे हल करने पर T(n) = O(log n) प्राप्त होता है।\n- यहाँ log का बेस 2 होता है पर Big‑O में बेस निरपेक्ष (constant factor) माना जाता है, अतः O(log n) पर्याप्त और मानक निरूपण है।\n- Worst‑case का अर्थ है अधिकतम तुलना‑कदम जब हर बार उप‑भागों में तलाश करते हुए आख़िर तक जाना पड़े — तब भी चरणों की संख्या O(log n) पर सीमित रहती है।\n- इटरेटिव और रिकर्सिव दोनों कार्यान्वयन में समय जटिलता समान रूप से O(log n) रहती है; पर रिकर्सिव में स्टैक के कारण अतिरिक्त space O(log n) लग सकता है।\n- Binary Search लागू करने के लिए array का sorted होना अनिवार्य है; यही property प्रत्येक चरण में सटीक आधा हटाने को संभव बनाती है और O(log n) सुनिश्चित करती है।\n- परीक्षा‑नोट के रूप में संक्षेप: \"Binary Search — worst‑case time complexity = O(log n) (चूँकि प्रत्येक चरण में खोज स्थान आधा हो जाता है; recurrence T(n)=T(n/2)+O(1)).\"", "priority_tag": "VERY_HIGH"}, {"question": "Merge Sort की average और worst‑case time complexity क्या है?", "options": ["Average O(n^2), Worst O(n^2)", "Average O(n log n), Worst O(n log n)", "Average O(n log n), Worst O(n^2)", "Average O(n), Worst O(n log n)"], "answer_index": 1, "explanation": "# Merge Sort — Average और Worst‑Case Time Complexity (VYAKHYA)\n- **निष्कर्ष:** Merge Sort की Average और Worst‑case time complexity दोनों ही **O(n log n)** होते हैं।\n- **कारण (विभाजन):** एल्गोरिद्म हर बार सूची को दो बराबर भागों में बाँटता है — recursion का depth ≈ log₂ n होता है।\n- **कारण (मर्जिंग):** हर स्तर पर सब‑प्रब्लेम्स को मर्ज करने के लिए कुल मिलाकर लगभग n तुलना/लिखाई कार्य होते हैं।\n- **स्तर‑वार व्यय:** इसलिए प्रत्येक स्तर का काम O(n) और स्तरों की संख्या O(log n) → कुल O(n) × O(log n) = O(n log n)।\n- **रैकारेंस (Master Theorem):** T(n) = 2T(n/2) + O(n) के लिए Master थिओरम लागू होने पर T(n) = Θ(n log n) निकलता है; यही Average और Worst दोनों के लिए है।\n- **डेटा‑निर्भरता नहीं:** Merge चरण में हर एलिमेंट की तुलना/प्रतिलिपि करनी पड़ती है इसलिए किसी विशेष इनपुट (sorted/unsorted/विपरीत) पर समय कम नहीं होता — यही वजह Worst और Average समान होना।\n- **स्टेबलिटी व समय:** Merge Sort स्टेबल सॉर्ट है; stability का overhead asymptotically समय को प्रभावित नहीं करता — समय जटिलता अभी भी O(n log n) रहती है।\n- **स्पेस‑अस्पेक्ट (संदर्भ):** Merge Sort का auxiliary space आमतौर पर O(n) होता है — समय जटिलता O(n log n) बने रहते हुए अतिरिक्त स्पेस की आवश्यकता ध्यान में रखनी चाहिए।\n- **प्रायोगिक अर्थ (Exam‑oriented):** बड़े डेटा और external sorting के परिप्रेक्ष्य में भी, लगातार O(n log n) व्यवहार predictable प्रदर्शन देता है, इसलिए theoretical bound MP‑CS उत्तरों में उपयोगी बिंदु है।\n- **संक्षेप उत्तर (Prelims Quick Recall):** \"Average = O(n log n), Worst = O(n log n) — divide‑and‑conquer, T(n)=2T(n/2)+O(n), Master Theorem ⇒ Θ(n log n)\".", "priority_tag": "VERY_HIGH"}, {"question": "Bubble Sort का best‑case time complexity (यदि optimized और already sorted हो) क्या हो सकता है?", "options": ["O(n^2)", "O(n log n)", "O(n)", "O(log n)"], "answer_index": 2, "explanation": "# Bubble Sort — Best‑case Time Complexity (Optimized, Already Sorted) : O(n)\n- यदि Bubble Sort में \"swap होने पर जारी रखें\" का flag/indicator डाला गया हो और एक पूरा पास बिना किसी swap के पूरा हो जाए, तो algorithm तुरंत रुक जाता है।\n- जब इनपुट पहले से sorted हो, तो पहला पूरा पास केवल adjacent elements की तुलना (comparisons) करता है पर कोई swap नहीं होता।\n- इस स्थिति में तुलना की संख्या ~ (n‑1) होती है, इसलिए समय जटिलता Θ(n) अर्थात् O(n) रहती है।\n- इसलिए optimized Bubble Sort की best‑case time complexity O(n) कहलाती है — linear time।\n- यह behaviour algorithm को adaptive बनाता है: sorted या near‑sorted इनपुट पर वह तेज़ चलता है।\n- Algorithm का space complexity इस case में भी O(1) रहता है क्योंकि केवल कुछ स्थायी रूप से भंडारित flag और index उपयोग होते हैं।\n- Stable और in‑place होने के कारण optimized Bubble Sort sorted input पर किसी अतिरिक्त memory के बिना linear pass में परिणाम दे देता है।\n- Exam‑oriented फॉर्मैट में लिखने के लिए: \"Optimized Bubble Sort checks for swaps; अगर first pass में कोई swap नहीं तो stop → best‑case time = O(n), space = O(1), stable, in‑place.\"\n- Mains के उत्तर में संक्षेप बिंदु के रूप में जोड़ें: (1) optimization — swap‑flag, (2) first pass में n‑1 comparisons, (3) कोई swaps → early termination, (4) इसलिए best‑case Θ(n).\n- Quick revision note: \"Optimized Bubble Sort + already sorted input ⇒ single pass comparisons ⇒ O(n) time.\"", "priority_tag": "HIGH"}, {"question": "In‑place एल्गोरिथ्म का मतलब क्या होता है?", "options": ["कोई भी auxiliary memory उपयोग नहीं करता", "auxiliary space O(1) के बराबर या सीमित उपयोग करता", "run‑time हमेशा O(n)", "stable sorting प्रदान करता है"], "answer_index": 1, "explanation": "# व्याख्या — In‑place एल्गोरिथ्म (संपूर्ण स्पेस फोकस)\n- **परिभाषा:** In‑place एल्गोरिथ्म वह होता है जो इनपुट संरचना (जैसे array) को ओवरराइट करके परिणाम देता है और अतिरिक्त मेमोरी का उपयोग न्यूनतम रखता है।\n- **मुख्य मापदंड:** इन‑place का मानक मापदंड auxiliary space का O(1) के बराबर या बहुत सीमित होना है।\n- **auxiliary space का अर्थ:** Auxiliary space में वह अतिरिक्त मेमोरी शामिल है जो इनपुट के अलावा एल्गोरिथ्म रन करने के लिए आवश्यक होती है (स्थायी/अस्थायी वेरिएबल, काउंटर इत्यादि)।\n- **इनपुट मेमोरी शामिल नहीं:** इन‑place परिभाषा इनपुट के लिए आवंटित मूल स्थान को auxiliary space में गिनती नहीं करती; केवल अतिरिक्त इस्तेमाल को गिना जाता है।\n- **रिकर्सन स्टैक का विचार:** यदि एल्गोरिथ्म रिकर्सन का उपयोग करता है, तो रिकर्सन कॉल‑स्टैक भी auxiliary space माना जाता है; इसलिए गहरी रिकर्सन वाले एल्गोरिथ्म अक्सर strict in‑place नहीं कहे जाते।\n- **सीमित स्पेस को स्वीकार करना:** व्यवहार में कुछ परिभाषाएँ O(1) के अलावा सीमित अतिरिक्त स्पेस जैसे O(log n) (उदा. tail recursion/баланс्ड partition का stack) को भी in‑place के रूप में स्वीकार करती हैं; परीक्षा में स्पष्टता के लिए O(1) auxiliary को प्राथमिक मानक बताना सुरक्षित है।\n- **परिणामी प्रभाव:** In‑place एल्गोरिथ्म मेमोरी-कुशल होते हैं, पर अक्सर वे इनपुट को बदल देते हैं; यदि मूल डेटा संरचना को बरकरार रखना हो तो copy की जरूरत पड़ेगी जिससे in‑place का लाभ समाप्त हो सकता है।\n- **समय‑स्पेस ट्रेड‑ऑफ़:** In‑place डिज़ाइन समय जटिलता को स्वतः बेहतर नहीं बनाता; कभी‑कभी कम स्पेस के लिए अधिक समय या जटिल कोडिंग करनी पड़ती है।\n- **MPPSC परीक्षा के लिए सरल उत्तर बिंदु:** In‑place = auxiliary space O(1) (या अत्यंत सीमित) और इनपुट को स्थान पर बदलकर काम करता — यह एक लाइन का स्पष्ट परिभाषात्मक उत्तर है।\n- **मॉइटीवेशन/उपयोग:** मेमोरी‑सीमित सिस्टम और बड़े डेटा पर जब अतिरिक्त कॉपी महंगी हो, तब in‑place एल्गोरिथ्म प्राथमिक विकल्प होते हैं।", "priority_tag": "HIGH"}, {"question": "Stable sorting का अर्थ क्या है?", "options": ["सभी equal elements को reverse order में रखता है", "equal elements की original relative order बनी रहती है", "sorting in place होना चाहिए", "sorting की time complexity O(n)"], "answer_index": 1, "explanation": "# व्याख्या: Stable sorting का अर्थ क्या है?\n**सही उत्तर सारांश:** equal elements की original relative order बनी रहती है।\n- Stable sorting का मतलब यह है कि यदि दो या अधिक तत्वों की तुलना के आधार पर बराबर माने जाते हैं, तो sorting के बाद वे तत्व उसी क्रम में रहते हैं जैसा कि input में था।\n- यह गुण केवल समान (equal) तत्वों के बीच के relative order पर लागू होता है, न कि पूरे array पर कोई अतिरिक्त ordering लागू करता है।\n- Stableness एक sorting के गुण (property) है, जिसे एल्गोरिथ्म के design से सुनिश्चित किया जाता है; यह समय-जटिलता (time complexity) से स्वतः संबंधित नहीं होता।\n- Stable sorting आवश्यक है जब multi‑key या multi‑level sorting करनी हो—पहले एक key पर sort कर के फिर दूसरे key पर stable sort करने पर पहले वाले key का क्रम सुरक्षित रहता है।\n- Stableness का उपयोग database और record‑sorting में होता है जहाँ tie‑breaker के रूप में प्राथमिकता दी गई order को बनाये रखना जरूरी होता है (जैसे नाम के भीतर दर्जे के आधार पर)।\n- Stable sorting के कारण identical keys वाले रिकॉर्डों की original metadata या secondary attributes की order‑dependency सुरक्षित रहती है; इससे deterministic output मिलता है।\n- Stableness को परखने का सरल तरीका: एक छोटा उदाहरण लें जहाँ equal‑key वाले तत्वों पर एक पहचान (ID/sequence number) जोड़ दी गई हो; sort के बाद उन IDs का क्रम अपरिवर्तित होना चाहिए।\n- Stableness algorithm‑level design पर निर्भर करती है (merge, insertion जैसे approaches में स्थिरता बनाए रखना आसान होता है), पर इसकी पुष्टि हमेशा example‑based परीक्षण से करनी चाहिए।\n- Mains‑style संक्षेप (सीधे बिंदु): Stable sorting का अर्थ — समान तत्वों का मूल relative क्रम बनी रहे; उपयोग — multi‑level sorting और record integrity; परीक्षण — equal‑key वाले उदाहरणों में original sequence की जाँच।\n- Quick revision note (एक पंक्ति): \"Stable = equal items retain original relative order — जरूरी जब tie‑breakers या multi‑key sorting की स्थिति हो।\"", "priority_tag": "HIGH"}, {"question": "Quicksort का average‑case और worst‑case time complexity क्या है?", "options": ["Average O(n log n), Worst O(n^2)", "Average O(n^2), Worst O(n log n)", "Average O(n), Worst O(n)", "Average O(n log n), Worst O(n log n)"], "answer_index": 0, "explanation": "# Quicksort — Average O(n log n), Worst O(n^2) की विस्तृत व्याख्या (MPPSC‑अनुकूल)\n- Quicksort एक divide‑and‑conquer एल्गोरिथ्म है: किसी array को pivot के चारों ओर partition करके छोटे sub‑arrays पर पुनरावृत्ति चलायी जाती है।\n- Average‑case O(n log n) इसलिए होता है क्योंकि सामान्यतः partition लगभग संतुलित बनते हैं और प्रत्येक स्तर पर कुल तुलना लगभग O(n) हो कर कुल log n स्तर बनते हैं।\n- Average‑case का गणितीय आधार recurrence T(n) = 2T(n/2) + Θ(n) के औसत व्यवहार से मिलता है, जिससे T(n) = Θ(n log n) प्राप्त होता है।\n- Worst‑case O(n^2) तब आता है जब partition बहुत असंतुलित हों (उदाहरण: एक तरफ़ पूरा तत्व और दूसरी तरफ़ शून्य), जिससे recurrence बनता है T(n) = T(n−1) + Θ(n) और कुल समय ≈ 1+2+...+n = Θ(n^2)।\n- Worst‑case का सामान्य कारण pivot का लगातार सबसे बड़ा या सबसे छोटा चयन होना है (नोट: pivot चयन नीतियों के कारण), जिससे प्रत्येक चरण केवल एक तत्व सही स्थान पर आता है।\n- Quicksort का average‑case व्यवहार “expected” तुलना‑गणना और विभाजन की समता पर निर्भर है; याद रखें कि average = expected over input permutations या randomized pivot choices।\n- Randomized pivot चयन या median‑of‑three जैसी heuristics average‑case को बनाए रखते हुए worst‑case की संभावना कम कर देती हैं (प्रायोगिक रूप से व्यवहार में तेज़ी)।\n- In‑place partitioning की वजह से Quicksort का auxiliary space सामान्यतः O(log n) होता है (recursion stack), जबकि worst‑case recursion depth O(n) हो सकती है।\n- Quicksort स्थिर (stable) नहीं होता जब तक विशेष उपाय न किए जाएँ; समय जटिलता पर इसका सीधा प्रभाव नहीं पर स्थिरता का अर्थ परिणामों के tie‑handling में महत्वपूर्ण है।\n- परीक्षा के लिए सारांश: Quicksort का average‑case = O(n log n) (साधारण/प्रमाणित व्यवहार), worst‑case = O(n^2) (असंतुलित partitioning के कारण); बेहतर pivot नीति worst‑case की संभावना घटाती है पर theoretical worst‑case वही रहता है।", "priority_tag": "VERY_HIGH"}, {"question": "Hash table में average‑case में insertion, deletion और search की time complexity क्या मानी जाती है (good hashing assumptions पर)?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"], "answer_index": 0, "explanation": "# व्याख्या: Hash table में average‑case time complexity = **O(1)** (good hashing assumptions पर)\n- Hash table में किसी key K का hash function h(K) एक index प्रदान करता है; यदि h(K) समान रूप से buckets पर फैलता है तो प्रत्येक bucket में expected entries की संख्या सीमित रहती है।\n- _Uniform hashing_ की धारणा के अनुसार हर key का hash value random तरह से और बराबर संभावना से buckets में जाता है; इससे collision की संभावना प्रत्येक bucket के लिए समान और छोटा रहता है।\n- यदि load factor α = n/m (n = entries, m = buckets) को नियंत्रित रखा जाए (आम तौर पर constant), तो किसी bucket में expected तत्वों की संख्या O(α) = O(1) रहती है।\n- Chaining में average-case में search/insert/delete को उस bucket की लिस्ट पर काम करना होता है; expected bucket‑size O(1) होने पर ये ऑपरेशन्स O(1) टाइम लेते हैं।\n- Open addressing (linear probing, quadratic probing आदि) में भी अच्छी hashing और छोटा load factor होने पर expected number of probes धीरे‑धीरे constant रहता है, अतः average‑case O(1) होता है।\n- Rehashing/resize करते समय पूरा table कॉपी करना O(n) होता है, पर यदि size doubling policy और amortized analysis लागू करें तो प्रत्येक insert का amortized cost O(1) ही रहता है।\n- Average‑case O(1) तब मान्य है जब hash function अपेक्षाकृत स्वतंत्र/अच्छा हो और load factor को constant में रखा गया हो; इन शर्तों के उल्लंघन पर worst‑case बदल सकता है।\n- Hash table के average‑case विश्लेषण में probabilistic expectation पर भरोसा होता है (expected time), इसलिए परीक्षा‑उत्तर में “average‑case = O(1)” लिखते समय यह शर्तें समझ में रखें।\n- practical implementations में constant‑time का अर्थ है कि ऑपरेशन का समय buckets की अपेक्षित छोटी संख्या और memory locality पर निर्भर है — इसलिए सही hashing और उपयुक्त resizing नीतियाँ आवश्यक हैं।\n- संक्षेप में: good hashing assumptions + bounded load factor → expected bucket size O(1) → insertion, deletion, search का average‑case time complexity O(1) (amortized भी O(1) जब resizing उपयोग हो)।", "priority_tag": "VERY_HIGH"}, {"question": "हैश टेबल का worst‑case time complexity किस स्थिति में O(n) हो सकती है?", "options": ["जब सभी keys अलग हों", "जब collisions की वजह से सारे elements एक chain में आ जाएँ (poor hashing)", "जब table size >> number of elements हो", "जब load factor = 0"], "answer_index": 1, "explanation": "# व्याख्या — हैश टेबल का worst‑case O(n) होना (collisions के कारण एक chain में सारे elements)\n- हैश टेबल में key को index देने के लिए हैश फंक्शन प्रयोग होता है; यदि यह खराब हो तो कई keys एक ही bucket में जा सकती हैं — यही collisions हैं।\n- chaining में प्रत्येक bucket एक linked list (या chain) रखता है; अगर सभी elements एक ही bucket में आ जाएँ तो वह chain में sequential रूप से जुड़ेंगे।\n- उस स्थिति में किसी एक key की खोज, सम्मिलन या हटाने के लिए chain को linear scan करना पड़ेगा, जिससे ऑपरेशन की समय जटिलता O(n) हो जाती है।\n- worst‑case O(n) का अर्थ है कि n कुल elements की संख्या के आनुपातिक समय लगेगा — हैशिंग का expected लाभ (O(1)) नष्ट हो जाता है।\n- load factor (α = n / number_of_buckets) बढ़ने से collision की संभावना बढ़ती है; बहुत ऊँचा load factor worst‑case का कारण बन सकता है।\n- खराब या deterministic हैश फंक्शन (जैसे आकार/ पैटर्न को नजरअंदाज करना) भी समरूपी keys को एक ही bucket में डालकर worst‑case उत्पन्न कर सकता है।\n- इससे बचाव के उपाय: बेहतर (uniform) हैश फंक्शन, table resizing (rehashing) और chaining के बजाय open addressing/आधुनिक collision‑handling तकनीकें अपनाना।\n- cryptographic या universal hashing जैसी तकनीकें adversarial या pathological inputs पर भी uniformly distribute करने की कोशिश करती हैं, जिससे worst‑case की संभावना घटती है।\n- Mains के लिए सीधे बिंदु: “यदि collisions के कारण सभी elements एक ही chain में जमा हो जाएँ (poor hashing), तो हैश टेबल के बेसिक ऑपरेशन की worst‑case time complexity O(n) हो जाती है — समाधान: बेहतर हैश फंक्शन और rehashing।”\n- त्वरित संशोधन नोट: expected average time O(1) और worst‑case O(n) दोनों संभव हैं — प्रश्न में worst‑case के कारण के रूप में “sustained collisions → single chain” याद रखिए।", "priority_tag": "HIGH"}, {"question": "Breadth‑First Search (BFS) का time complexity (graph with V vertices और E edges) क्या है, adjacency list representation में?", "options": ["O(V^2)", "O(V + E)", "O(E log V)", "O(V log V)"], "answer_index": 1, "explanation": "# Breadth‑First Search (BFS) — समय जटिलता (Adjacency‑List) का संक्षेप‑व्याख्या\n- **परिणाम:** BFS का time complexity adjacency‑list प्रतिनिधित्व में **O(V + E)** होता है, जहाँ V = vertices की संख्या, E = edges की संख्या।\n- **मुख्य कारण (वर्टिस):** प्रत्येक शिखर (vertex) को visited के रूप में चिह्नित करके ठीक एक बार queue में डाला और निकाला जाता है — इसलिए वर्टिस सम्बन्धी कुल काम O(V)।\n- **मुख्य कारण (एजेस):** प्रत्येक एज (edge) को उसके स्रोत शिखर के adjacency list से केवल एक बार देखा/प्रोसेस किया जाता है, इसलिए एज‑संबंधी कुल काम O(E)।\n- **क्यू ऑपरेशन:** enqueue और dequeue ऑपरेशन constant time O(1) में होते हैं (fifo queue), अतः इनसे समग्र वर्गीकरण में कोई अतिरिक्त बहु‑घातकीय लागत नहीं जुड़ती।\n- **visited चेक:** प्रत्येक पड़ोसी शिखर पर पहुँचने पर visited flag की जाँच constant time में होती है — इस वजह से कोई शिखर बार‑बार विस्तृत नहीं किया जाता।\n- **अनदिश/दिशात्मक दोनों के लिए लागू:** चाहे ग्राफ दिशात्मक हो या अनदिशात्मक, कुल एज‑परिक्षण की गिनती E (या अनदिशात्मक में 2E के रूप में इंटरनल रूप) को शामिल कर समेकित O(V+E) ही रहता है।\n- **प्रारंभिक सेट‑अप:** visited array/boolean और queue आरम्भिककरण O(V) समय लेता है — यह O(V+E) में सम्मिलित है।\n- **कनेक्टेड कम्पोनेंट्स:** यदि ग्राफ कई जुड़े हुए घटकों में बंटा हो, तो सर्व‑वर्टिस और सर्व‑एज का समेकित परीक्षण अभी भी O(V+E) देगा (सभी घटकों का योग)।\n- **अभिप्राय (प्रैक्टिकल):** sparse graphs में E ≪ V^2 होने पर O(V+E) अधिक किफायती; यह विश्लेषण एल्गोरिद्म के वास्तविक कदमों पर आधारित और asymptotic bound देता है।\n- **कुल मिलाकर:** BFS adjacency‑list पर हर शिखर और हर एज को नियत रूप से एक बार प्रोसेस करने के कारण समय जटिलता O(V + E) बनती है — यही परीक्षा‑स्तर पर मान्य, सीधी और उपयोगी व्याख्या है।", "priority_tag": "VERY_HIGH"}, {"question": "Adjacency matrix representation में graph के लिए space complexity क्या होती है (V vertices के लिए)?", "options": ["O(V)", "O(V + E)", "O(V^2)", "O(E)"], "answer_index": 2, "explanation": "# व्याख्या: Adjacency matrix में space complexity — O(V^2)\n- **परिभाषा:** Adjacency matrix V वर्टिसेस (vertices) के लिए V×V का 2‑D मैट्रिक्स होता है; इसलिए स्थितिगत स्मृति मात्रा V^2 एंट्रीज़ के अनुरूप होती है।\n- **समय/स्थान कमि (Big‑O):** स्पेस कॉम्प्लेक्सिटी असिम्प्टोटिक रूप से O(V^2) है — यहाँ V बढ़ने पर आवश्यक मेमोरी V^2 के क्रम में बढ़ती है।\n- **एंट्री का अर्थ:** प्रत्येक मैट्रिक्स एंट्री (i, j) यह दर्शाती है कि vertex i से vertex j के बीच एज मौजूद है (0/1) या वेटेड ग्राफ में वेट रखता है।\n- **दिशात्मक/बिना‑दिशात्मक:** Directed या undirected दोनों मामलों में मैट्रिक्स का आकार V×V ही रहता है; केवल मान symmetric (undirected में) या asymmetric (directed में) होंगे।\n- **स्पार्स बनाम डेंस ग्राफ:** स्पेस O(V^2) ग्राफ के घनत्व (density) से स्वतंत्र है — sparse ग्राफ के लिए भी मैट्रिक्स V^2 ही लेता है, इसलिए sparse ग्राफ में यह अनुकूल नहीं।\n- **बिट‑स्टोरेज वैरिएंट:** यदि केवल presence/absence रिकॉर्ड करनी हो तो बिट्स का उपयोग कर के वास्तविक बाइट्स घटाए जा सकते हैं, पर असिम्प्टोटिक जटिलता अभी भी O(V^2) बनी रहती है।\n- **वेटेड ग्राफ में प्रभाव:** वेटेड ग्राफ के लिए प्रत्येक एंट्री में वेट स्टोअर करना पड़ता है; इससे प्रति‑एंट्री साइज़ बढ़ेगा पर कुल एंट्री की संख्या V^2 ही रहेगी → O(V^2)।\n- **रैंडम‑एक्सेस लाभ:** किसी दो वर्टिस के बीच एज की उपस्थिति की जाँच O(1) समय में की जा सकती है क्योंकि सीधे इंडेक्सिंग होती है; यह स्पेस‑टाइम trade‑off का मुख्य कारण है।\n- **मेमोरी अनुमान (प्रायोगिक):** यदि प्रत्येक एंट्री 1 बाइट लेती है तो कुल मेमोरी ≈ V^2 bytes; larger data types (int/float) होने पर V^2 × sizeof(type)।\n- **इम्प्लीकेशन MPPSC प्रैक्टिकल/टेक्‍निकल:** परीक्षा‑लेख में “Adjacency matrix के space complexity” पूछे जाने पर संक्षेप में बताइए — आकार V×V, इसलिए O(V^2)।\n- **अनुशंसित उपयोग:** छोटे या dense ग्राफ के लिए adjacency matrix उपयुक्त है; बड़े V और sparse edges होने पर मेमोरी‑लाभ नहीं मिलता — गणितीय कारण O(V^2) ही रहेगा।", "priority_tag": "HIGH"}, {"question": "Dynamic programming में memoization का प्रभाव किस प्रकार के complexity पर पड़ता है?", "options": ["time में कमी और space में वृद्धि (trade‑off)", "time और space दोनों अनिवार्य रूप से घटते हैं", "time में वृद्धि और space में कमी", "naive recursion से कोई फर्क नहीं पड़ता"], "answer_index": 0, "explanation": "# व्याख्या: Dynamic Programming में Memoization का प्रभाव — Time में कमी, Space में वृद्धि (Trade‑off)\n- Memoization एक टॉप‑डाउन Dynamic Programming तकनीक है जिसमें पहले से हल किए गए उप‑समस्याओं के परिणाम को संचित (cache) किया जाता है ताकि उन्हें बार‑बार पुनर्गणना न करना पड़े।\n- इसका प्रमुख प्रभाव समय जटिलता (time complexity) पर पड़ता है: प्रत्येक उप‑समस्या केवल एक बार गणना होती है, इसलिए कुल समय अक्सर निरपेक्ष रूप से कम हो जाता है।\n- सामान्यतः brute‑force recursive समाधान में exponential समय लग सकता है; memoization के कारण अनूठी उप‑समस्याओं की संख्या के अनुपात में समय जटिलता polynomial या O(number_of_states * cost_per_state) में बदल जाती है।\n- उदाहरण रूप में, Fibonacci का naive recursion O(2^n) है, जबकि memoization के साथ समय O(n) हो जाता है क्योंकि हर Fibonacci मान एक बार ही गणना होता है।\n- समय की बचत का कारण overlapping subproblems का पुन: उपयोग (reuse) है — एक बार कैश में मौजूद परिणाम तुरंत लौटाया जाता है बिना अतिरिक्त recursive कॉल्स के।\n- परंतु यह लाभ स्पेस (space) पर लागत बढ़ाकर मिलता है: memoization के लिए एक अतिरिक्त स्मृति संरचना (array, hashmap आदि) चाहिए होती है जो सभी जरुरी उप‑समस्याओं के परिणाम रखे।\n- इसलिए कुल स्थान जटिलता (space complexity) में वृद्धि होती है — सामान्यतः O(number_of_states) अतिरिक्त जगह चाहिए होती है, साथ में recursion के कारण call stack का उपयोग भी बना रह सकता है।\n- इस प्रकार memoization एक स्पष्ट time–space trade‑off प्रस्तुत करता है: समय कम होता है और स्मृति अधिक इस्तेमाल होती है; अभ्यास में यह तब लाभकारी है जब समय प्राथमिकता हो और उपलब्ध मेमोरी पर्याप्त हो।\n- Mains उपयोग हेतु सीधे बिंदु: (1) प्राथमिक प्रभाव — समय में कमी; (2) कारण — overlapping subproblems का cache‑reuse; (3) दुष्प्रभाव — अतिरिक्त O(states) स्पेस आवश्यकता और संभवतः recursion stack; (4) निर्णय मानदंड — यदि समय‑सेंसिटिव और मेमोरी उपलब्ध है तो memoization अपनाएँ।\n- लागू संदर्भ (MP‑CS उत्तर हेतु): बड़े इनपुट या रियल‑टाइम सिस्टम में memoization से प्रतिस्पर्धी समय उपलब्ध होता है, पर संसाधन‑सीमाओं वाले एम्बेडेड/स्टेट‑फुल सिस्टम में स्पेस लागत पर विचार आवश्यक है।", "priority_tag": "HIGH"}, {"question": "Amortized analysis किस प्रकार के डेटा‑स्ट्रक्चर ऑपरेशन्स के लिए उपयोगी है?", "options": ["जहाँ हर ऑपरेशन हमेशा समान worst‑case देता है", "जहाँ कुछ ऑपरेशन्स महंगे और अधिकांश सस्ते होते हैं (जैसे dynamic array resizing)", "केवल recursive algorithms के लिए", "केवल sorting algorithms के लिए"], "answer_index": 1, "explanation": "# VYAKHYA — Amortized Analysis (Hindi)\n**प्रश्न सार:** Amortized analysis उन डेटा‑स्ट्रक्चर ऑपरेशन्स के लिए उपयोगी है जहाँ कुछ ऑपरेशन्स बहुत महंगे होते हैं पर अधिकांश ऑपरेशन्स सस्ते होते हैं (उदा. dynamic array resizing).\n- Amortized analysis का उद्देश्य किसी ऑपरेशन्स की समूहीकृत लागत बताना है — यानी लंबी सीक्वेंस में प्रति‑ऑपरेशन औसत लागत निकालना।\n- यह worst‑case single operation पर नहीं बल्कि N ऑपरेशन्स की कुल लागत को N से भाग करके प्रति‑ऑपरेशन लागत देता है।\n- अमोर्टाइज्ड कॉस्ट probabilistic नहीं होती; यह गारंटीड औसत लागत है जब ऑपरेशन्स के अनुक्रम को माना जाये।\n- सामान्य उदाहरण — dynamic array (जैसे ArrayList): जब capacity full हो तो array doubling के साथ एक महंगा resize होता है, पर अगली कई insert सस्ते O(1) होते हैं।\n- इस उदाहरण में aggregate method से दिखता है कि N inserts की कुल लागत O(N) आती है, अतः प्रत्येक insert की amortized लागत O(1) होती है।\n- अमोर्टाइज्ड विश्लेषण के प्रमुख तकनीकें: aggregate method, accounting (banker's) method, और potential method — ये किसी भी एक ऑपरेशन्स के महंगे कदमों का खर्च अन्य सस्ते कदमों पर आवंटित कर देती हैं।\n- Time‑complexity के साथ अमोर्टाइज्ड विश्लेषण space‑क्लियरेंस/resize जैसे स्पेस‑खर्चों को भी शामिल कर सकता है (उदा. table doubling के दौरान अतिरिक्त temporary memory)।\n- Amortized complexity बताने से algorithms के practical प्रदर्शन का बेहतर अनुमान मिलता है, विशेषकर data structures जो resizing, rebalancing या lazy updates करते हैं।\n- यह worst‑case bound का प्रतिस्थापन नहीं है; real‑time या hard‑real‑time सिस्टम में जहाँ हर ऑपरेशन की worst‑case आवश्यकता हो, वहाँ amortized bound पर्याप्त नहीं माना जाता।\n- MPPSC परीक्षा के लिए महत्वपूर्ण बिंदु: amortized analysis sequence‑level guarantee देती है, dynamic array जैसे सामान्य डेटा‑स्ट्रक्चर के उदाहरण याद रखें, और aggregate → O(N) ⇒ amortized O(1) लॉजिक सरल कदमों में प्रस्तुत करें।", "priority_tag": "HIGH"}, {"question": "Dynamic array (जैसे ArrayList) में append की amortized time complexity क्या होती है (जब doubling strategy use हो)?", "options": ["O(n)", "O(log n)", "O(1) amortized", "O(n log n)"], "answer_index": 2, "explanation": "# व्याख्या: Dynamic array में append का amortized time complexity (doubling) — **O(1)**\n- **मुख्य उत्तर:** जब dynamic array resizing के लिए doubling strategy उपयोग करता है, तो append का amortized समय जटिलता **O(1)** होती है।\n- वास्तविक कारण: अधिकांश append ऑपरेशन्स सीधे अगले खाली स्थान पर लिखकर O(1) लेते हैं; केवल कुछ बार जब array भर जाता है तब resizing होता है।\n- resizing step में नया array बनाकर पुराने के सारे तत्व कॉपी करने पर एक बार में O(n) समय लगता है, पर यह बार‑बार नहीं होता।\n- geometric growth की वजह से हर element का कॉपी करवाना कुल मिलाकर सीमित बार ही होता है; aggregate (total) लागत को n append के लिए जोड़ने पर कुल O(n) ही बनता है।\n- इसलिए average या amortized cost = कुल लागत O(n) ÷ n ऑपरेशन्स = **O(1)** प्रति append।\n- इसे प्रमाणित करने के लिए aggregate analysis या accounting/potential method उपयोग की जाती है — resizing की महंगी लागत को पहले से छोटे क्रियाओं पर \"क्रेडिट\" के रूप में जमा किया जाता है।\n- worst‑case समय एक single append का O(n) हो सकता है (जब resize और copy हो), पर amortized viewpoint में यही घटनाएँ फैलकर O(1) बन जाती हैं।\n- स्थान (space) जटिलता: amortized efficient होने के बावजूद doubling strategy आम तौर पर O(n) अतिरिक्त स्थान की जरूरत रखती है (capacity ~ Θ(n)), और कभी‑कभार अतिरिक्त खाली जगह रहती है।\n- عملي प्रयोग में ArrayList/Vector जैसी structures पर लगातार append के लिए doubling strategy सुरक्षित और तेज़ विकल्प मानी जाती है क्योंकि amortized O(1) प्रदान करती है।\n- Mains में सीधे बिंदु के रूप में उपयोग के लिए: “Dynamic array (doubling) में append — amortized O(1); worst‑case O(n) जब resize; कुल स्थान O(n)” — इन्हें विषयगत उत्तर में बिंदुवार शामिल करें।", "priority_tag": "VERY_HIGH"}, {"question": "Master theorem का उपयोग किसके लिए किया जाता है?", "options": ["graph traversal के लिए", "recurrence relations से divide‑and‑conquer एल्गोरिद्म की asymptotic time complexity निकालने के लिए", "dynamic programming memo size का अनुमान लगाने के लिए", "hash functions के analysis के लिए"], "answer_index": 1, "explanation": "# Master Theorem — परीक्षा संग्रह (MPPSC Prelims 2026)\n**प्रश्न:** Master theorem का उपयोग किसके लिए किया जाता है?\n**उत्तर (सार):** recurrence relations से divide‑and‑conquer एल्गोरिद्म की asymptotic time complexity निकालने के लिए।\n- **परिभाषा (सार):** Master theorem सामान्य रूप के recurrence T(n) = a·T(n/b) + f(n) वाले विभाजन‑आधारित (divide‑and‑conquer) एल्गोरिद्म की asymptotic Θ bound सीधे निर्धारित करता है।\n- **प्रारूपिक मानदण्ड:** यहाँ a ≥ 1 और b > 1 होते हैं; n^{log_b a} को बेस लाइन complexity माना जाता है।\n- **तीन मुख्य केस:** Master theorem फंक्शन f(n) की तुलना n^{log_b a} से करके तीन परिणाम देता है — (1) f(n) छोटे हैं, (2) f(n) तुल्यावली (same order) हैं, (3) f(n) बड़े हैं — और प्रत्येक केस के लिए Θ bound तय करता है।\n- **केस‑निष्कर्ष (संक्षेप):**\n  1) यदि f(n) = O(n^{log_b a - ε}) → T(n) = Θ(n^{log_b a})\n  2) यदि f(n) = Θ(n^{log_b a}·log^k n) → T(n) = Θ(n^{log_b a}·log^{k+1} n)\n  3) यदि f(n) = Ω(n^{log_b a + ε}) तथा regularity condition पूरा → T(n) = Θ(f(n))\n- **Regularity condition:** तीसरे केस में उपयुक्त समकक्षता के लिए यह शर्त ज़रूरी है कि a·f(n/b) ≤ c·f(n) किसी c < 1 और बड़े n पर成立 हो — अन्यथा theorem लागू नहीं होगा।\n- **उपयोगिता:** Master theorem हाथ से विस्तार से recurrence हल करने की जरूरत घटाता है — Merge Sort, Binary Search Tree निर्माण जैसे divide‑and‑conquer एल्गोरिद्मों की complexity तुरंत देने के लिए प्रयुक्त।\n- **सीमाएँ:** Master theorem उन recurrences पर लागू नहीं होता जिनमें subproblem आकार बराबर न हों, b बदलता हो, या f(n) अनियमित (e.g., exponential oscillation) हो; ऐसे मामलों में डायरेक्ट मास्टर नियम प्रयोज्य नहीं।\n- **रिवीजन‑नोट (Quick):** recurrence लिखो → a, b पहचानो → n^{log_b a} निकालो → f(n) से तुलना करो → उपयुक्त केस चुनकर Θ उत्तर लिखो।\n- **Mains हेतु उपयोगी बिंदु:** उत्तर में recurrence का प्रारूप स्पष्ट बताएं, a और b दर्शाकर n^{log_b a निकालें, f(n) की तुलना लिखें, regularity शर्त का जिक्र कर परिणाम Θ में दें — संक्षेप में तर्कात्मक और चरणबद्ध समाधान अपेक्षित।", "priority_tag": "VERY_HIGH"}, {"question": "यदि T(n) = 2 T(n/2) + n है तो Master theorem के अनुसार T(n) = ?", "options": ["Θ(n)", "Θ(n log n)", "Θ(n^2)", "Θ(log n)"], "answer_index": 1, "explanation": "# व्याख्या — T(n) = 2 T(n/2) + n ⇒ T(n) = Θ(n log n)\n- Master theorem लागू करने के लिए पारामीटर पहचानें: a = 2, b = 2, और f(n) = n.\n- गणना करें n^{log_b a}: यहाँ log_b a = log_2 2 = 1, अतः n^{log_b a} = n.\n- तुलना: f(n) = n = Θ(n^{log_b a}) और यह केस‑2 (regularity with k = 0) में आता है।\n- Master theorem के केस‑2 का परिणाम: यदि f(n) = Θ(n^{log_b a} · log^k n) जहाँ k = 0, तो T(n) = Θ(n^{log_b a} · log^{k+1} n) = Θ(n log n).\n- वैकल्पिक समझ (recursion‑tree): हर स्तर पर कुल कार्य ≈ n आता है और स्तरों की संख्या ≈ log n होने से समग्र = n·log n।\n- वैकल्पिक सत्यापन (substitution): T(n) = Θ(n log n) को मानकर प्रतिस्थापन से पुनरावृत्ति सत्यापित कर सकते हैं।\n- प्रैक्टिकल सन्दर्भ: यह जटिलता विभाजन‑और‑विजय अल्गोरिद्मों जैसे Merge Sort के लिए मानक समय है।\n- परीक्षा में उत्तर देते समय संक्षेप में लिखें: a, b, f(n) दे कर n^{log_b a} निकालें, केस बताकर सीधे Θ(n log n) निष्कर्ष दें।\n- Mains में लिखने के लिए उपयोगी बिंदु: सिद्धांत का नाम (Master theorem), पैरामीटर विवरण, तुलना का तर्क, और अंतिम Θ नतीजा — इन्हें क्रमवार व बिंदुवार दें।\n- नोट: इस सवाल में प्रश्न स्पष्ट रूप से टाइम कॉम्प्लेक्सिटी पर है; स्पेस कॉम्प्लेक्सिटी अलग प्रश्न होगा (उदाहरणतः Merge Sort का अतिरिक्त स्पेस O(n) होता है)।", "priority_tag": "VERY_HIGH"}, {"question": "दो फंक्शन्स f(n)=n log n और g(n)=n^1.1 का asymptotic संबंध क्या है?", "options": ["f(n) = o(g(n)) (f छोटी है g से)", "f(n) = Θ(g(n))", "f(n) = ω(g(n)) (f बड़ी है g से)", "कोई संबंध निर्धारित नहीं किया जा सकता"], "answer_index": 0, "explanation": "# VYAKHYA — f(n)=n·log n और g(n)=n^{1.1} का asymptotic संबंध\n- परिभाषा (little‑o): f(n)=o(g(n)) का अर्थ है lim_{n→∞} f(n)/g(n) = 0, यानी g(n) asymptotically f(n) से बहुत बड़ी है।\n- हमारे दोनों फलनों के अनुपात पर विचार करें: f(n)/g(n) = (n·log n)/n^{1.1} = (log n)/n^{0.1}।\n- अब देखें कि n^{0.1} (i.e., n^{1/10}) बढ़ना बहुतेज धीमा है परन्तु log n उससे भी धीमा है; इसलिए log n/n^{0.1} → 0 जब n→∞।\n- सीमांत गणितीय कारण: किसी भी (log n) की शक्ति से कम गुणक वाले पॉलीनॉमियल n^{ε} (ε>0) के मुकाबले log n छोटा रहता है, अतः log n = o(n^{ε})।\n- यहाँ ε = 0.1 है, इसलिए (log n)/n^{0.1} → 0 और परिणामस्वरूप f(n)/g(n) → 0।\n- इसलिए निर्णायक निष्कर्ष: f(n) = o(g(n)) — अर्थात् n·log n का विकास n^{1.1} की तुलना में asymptotically छोटा है।\n- समय जटिलता अर्थ में अर्थ: नब्बे करोड़ आदि के बहुत बड़े n पर n^{1.1}-लागत वाले एल्गोरिद्म n·log n वाले से धीरे-धीरे अधिक महंगे होंगे; n·log n को अधिक स्केलेबल माना जा सकता है।\n- क्लासिफिकेशन: f(n)=n·log n को सामान्यतः \"near‑linear\" श्रेणी में रखें; g(n)=n^{1.1} पॉलीनॉमियल (superlinear) श्रेणी में आता है।\n- Mains उत्तर के लिए प्रयोग करने योग्य बिंदु: परिभाषा + अनुपात से सीमांत सिद्धांत + निष्कर्ष (f=o(g)) + व्यावहारिक प्रभाव (स्केलेबिलिटी/एल्गोरिद्म चयन) — इन्हें क्रमबद्ध बिंदुओं में लिखें।\n- छोटा‑नोट (उपयोगी फॉर रिवीजन): किसी भी ϵ>0 के लिए n·(log n) = o(n^{1+ϵ}) सत्य है; यहाँ ϵ=0.1 इसका सीधा उदाहरण है।", "priority_tag": "HIGH"}, {"question": "Space complexity में auxiliary space किसे कहते हैं?", "options": ["कुल memory including input", "केवल memory used to store input", "extra memory used by algorithm excluding input", "memory used by operating system"], "answer_index": 2, "explanation": "# व्याख्या — Auxiliary Space (Space complexity में)\n- **परिभाषा:** Auxiliary space वह अतिरिक्त मेमोरी है जो कोई एलगरिद्म इनपुट को छोड़कर कार्य करते समय उपयोग करता है।\n- **मुख्य बिंदु:** इसमें स्टैक, हीप, अस्थायी वेरिएबल, अतिरिक्त एरे/लिस्ट, रेकर्सन कॉल स्टैक आदि शामिल होते हैं; इनपुट के लिए आवंटित स्थान शामिल नहीं होता।\n- **नोटेशन:** Auxiliary space को सामान्यतः Big‑O के रूप में व्यक्त किया जाता है, जैसे O(1), O(n), O(log n) आदि।\n- **O(1) auxiliary space:** एल्गोरिद्म जब केवल स्थिर संख्या के अतिरिक्त वेरिएबल्स का उपयोग करे तो इसकी auxiliary space O(1) होती है (constant extra space)।\n- **Recursive algorithms:** रेकर्सन में कॉल स्टैक भी auxiliary space का हिस्सा माना जाता है; इसलिए रेकर्सन की depth के अनुसार auxiliary space बढ़ती है।\n- **इनपुट का अलगाव:** इनपुट आकार के लिए जो मेमोरी दी गई है (जैसे इनपुट एरे) वह auxiliary space में नहीं जोड़ी जाती; यही auxiliary और total space के बीच मुख्य अंतर है।\n- **Mains उपयोगी पॉइंट:** जब प्रश्न में “extra memory excluding input” या “excluding space used by input” लिखा हो तो उत्तर में auxiliary space का उल्लेख करें और उदाहरण के साथ O(1)/O(n) बताएं।\n- **तुलना के लिए:** किसी एल्गोरिद्म का कुल स्थान (total space) = input memory + auxiliary space; परीक्षा में स्पष्ट बताना सही रहता है।\n- **उदाहरण स्वरूप:** इन‑place sorting जैसे Bubble या Selection का auxiliary space आमतौर पर O(1) है; Merge sort का auxiliary space O(n) (अगर अतिरिक्त एरे बनता है) और recursive call stack भी जोड़ें।\n- **Quick revision cue:** “Auxiliary = extra memory used by algorithm excluding input” — यह एक लाइन में परीक्षा‑योग्य परिभाषा है।", "priority_tag": "HIGH"}, {"question": "DFS (recursive) का worst‑case auxiliary space complexity क्या है (graph/tree height h के संदर्भ में)?", "options": ["O(1)", "O(h) (recursion stack depth)", "O(V + E)", "O(log h)"], "answer_index": 1, "explanation": "# व्याख्या: DFS (recursive) का worst‑case auxiliary space = **O(h)**\n- Auxiliary space का अर्थ: एल्गोरिथ्म द्वारा रन‑टाइम में अतिरिक्त ली गई मेमोरी (इनपुट को छोड़कर) — इसमें recursion stack और स्थानीय वेरिएबल शामिल होते हैं।\n- Recursive DFS में सबसे बड़ी अतिरिक्त मेमोरी recursion के दौरान बनती हुई call stack की गहराई से आती है।\n- यदि DFS की अधिकतम recursion depth को h मानें (जो कि उस ट्री/DFS‑ट्री की height या ग्राफ में सबसे लंबी खोज‑सूत्र है), तो recursion stack में अधिकतम h कॉल्स एक साथ मौजूद हो सकती हैं।\n- प्रत्येक सक्रिय रिकर्सिव कॉल में स्थानीय पैरामीटर और रिटर्न एड्रेस स्टोर होते हैं; इसलिए कुल auxiliary space proportional to h होता है → O(h)।\n- ट्री के संदर्भ में h सीधे ट्री की height है; संतुलित ट्री में h = O(log n), पर skewed ट्री में h = O(n) (n = नोड्स)।\n- ग्राफ के संदर्भ में h वह अधिकतम गहराई है जो DFS ट्री निर्मित करते समय मिलती है — सिद्धांततः लंबी पथ होने पर h = O(V) तक जा सकता है।\n- Auxiliary space की परिभाषा में सामान्यतः visited/marked array को अलग माना जाता है; यदि visited array भी शामिल किया जाए तो समग्र अतिरिक्त जगह अलग से O(V) हो सकती है, पर recursive stack का हिस्सा विशेषतः O(h) है।\n- परीक्षा‑दृष्टि से संक्षेप: \"Recursive DFS auxiliary space = depth of recursion = O(h) (जहाँ h = tree/DFS‑tree की height या सबसे लंबी खोज की लंबाई)।\"\n- Mains के उत्तर में सीधे बिंदु के रूप में लिखें: \"Recursive DFS की worst‑case auxiliary space = O(h) — h = recursion stack depth (ट्री/DFS‑ट्री की height)।\"", "priority_tag": "HIGH"}, {"question": "यदि f(n) = 1000 и g(n)=n, तो asymptotically कौन बढ़ता है?", "options": ["f(n) = Ω(g(n))", "g(n) = Ω(f(n)) और g(n) = ω(f(n)) (g बड़ी है)", "f(n) = Θ(g(n))", "f(n) और g(n) का कोई संबंध नहीं"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "स्व-संतुलित बाइनरी सर्च ट्री (जैसे AVL) में search की worst‑case time complexity क्या है (n nodes के लिए)?", "options": ["O(n)", "O(log n)", "O(1)", "O(n log n)"], "answer_index": 1, "explanation": "# व्याख्या — स्व‑संतुलित बाइनरी सर्च ट्री (AVL) में search की worst‑case time complexity: **O(log n)**\n- AVL ट्री में हर नोड का balance factor (ऊँचाई का अंतर) –1, 0 या +1 रखा जाता है; इस प्रतिबंध से ट्री की ऊँचाई सीमित रहती है।\n- किसी भी n नोड वाले AVL ट्री की अधिकतम ऊँचाई h = O(log n) होती है, इसलिए ऊँचाई लॉगारिथमिक रूप में बढ़ती है।\n- Search ऑपरेशन में एक पाथ रूट से पत्ते तक निहित किया जाता है; worst‑case में जितने स्तर होते हैं, उतने ही कम्पारिजन होंगे → समय O(h)।\n- चूँकि h = O(log n), अतः search की worst‑case time complexity सीधे O(log n) बनती है।\n- AVL ट्री में nodes की संख्या और ऊँचाई के बीच संबंध फिबोनाच्ची‑अनुक्रम से निकाला जा सकता है, जिससे h के लिए लॉग सीमा सिद्ध होती है।\n- किसी single search के लिए auxiliary space (इंटरनल) सामान्यतः O(1) iterative implementation में और recursive में O(h) = O(log n) स्टैक स्पेस होती है।\n- Insertion/Deletion में होने वाली रोटेशनें (single/double) O(1) समय प्रति रोटेशन लेती हैं; पर balance बनाए रखने के बावजूद search पर प्रभाव नहीं पड़ता — फिर भी overall height logarithmic रहता है।\n- इसलिए किसी भी समय पर (worst‑case सहित) AVL में एक key की खोज की लागत asymptotically O(log n) है, जो large n के लिए कुशल और स्केलेबल है।\n- परीक्षा‑दृष्टि से उद्धरण योग्य रेखा: \"AVL (self‑balanced BST) guarantees search worst‑case time = O(log n) क्योंकि इसकी ऊँचाई Θ(log n) रहती है।\"\n- Mains हेतु जोड़ने के लिए संक्षेप बिंदु: ऊँचाई‑बैलेंस नियम → लॉग ऊँचाई → search ऑपरेशन की तुलना ऊँचाई से → परिणाम O(log n)।", "priority_tag": "HIGH"}, {"question": "Counting sort किस स्थिति में उपयोगी है और इसकी time complexity क्या होती है (n = number of elements, k = range of input)?", "options": ["जब k बहुत बड़ा हो; time O(n log k)", "जब k = O(n); time O(n + k)", "हमेशा unstable है; time O(n^2)", "जब inputs float हों; time O(n)"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "यदि कोई एल्गोरिथ्म polynomial time में चलता है (O(n^k)), तो वह किस complexity class का भाग माना जा सकता है?", "options": ["NP‑complete", "P (polynomial time)", "EXPTIME", "Undecidable"], "answer_index": 1, "explanation": "# व्याख्या — P (Polynomial time)\n**प्रश्न संदर्भ:** यदि कोई एल्गोरिथ्म polynomial time में चलता है (O(n^k)), तो वह किस complexity class का भाग माना जा सकता है?\n**सटीक उत्तर:** **P (polynomial time)**\n1. **परिभाषा (संक्षेप):** P वह complexity class है जिसमें वे निर्णय‑समस्याएँ (decision problems) आती हैं जिन्हें किसी deterministic Turing machine द्वारा समय में polynomial (O(n^k)) में हल किया जा सकता है।\n2. **गणितीय अंकन:** किसी एल्गोरिथ्म का समय O(n^k) हो तो वह polynomial time में चलता है; यहाँ n = इनपुट का आकार, k = कोई स्थिर गैर‑ऋणात्मक पूर्णांक।\n3. **भाषा‑दृष्टि:** P को भाषा‑समूह के रूप में परिभाषित किया जाता है: P = { L | ∃ deterministic TM M, कुछ k, ∀x, M निर्णय x पर O(|x|^k) समय में देता है }.\n4. **व्यावहारिक अर्थ:** P में आने वाले एल्गोरिथ्म आम तौर पर व्यवहारिक (practically feasible) माने जाते हैं क्योंकि उनका समय इनपुट आकार के बहुपद में सीमित रहता है।\n5. **साधारण उदाहरण:** सरल रैखिक खोज O(n), बायनरी सर्च O(log n) (polynomial bound के भीतर), मैट्रिक्स‑गुणन O(n^3) — ये सभी polynomial समय के उदाहरण हैं।\n6. **गुणधर्म (closures):** P यूनियन, इंटरसेक्शन और कंप्लीमेंट के तहत बंद है; अर्थात् P में समस्याओं पर सामान्य संयोजनों के बाद भी परिणाम P में रहता है।\n7. **एल्गोरिथ्मिक प्रभाव:** यदि कोई समस्या P में है तो उसे सुनिश्चित‑डिटर्मिनिस्टिक एल्गोरिथ्म से polynomial समय में हल करने का अर्थ है — इससे समय जटिलता का ठोस upper bound मिलता है।\n8. **मापदंडिक नॉट्स:** O(n^k) का अर्थ है कि असिम्प्टोटिक वृद्धि बहुपद के अनुसार है; छोटे‑बड़े स्थिरांक और निम्न‑क्रम की घटक Mains/प्रैक्टिकल उत्तरों में अलग से उल्लेख कर सकते हैं।\n9. **परीक्षा‑लिखने के लिए बिंदु (Mains उपयोग):** परिभाषा → औपचारिक notation → एक‑दो उदाहरण → व्यवहारिक महत्त्व → क्लोजर‑प्रॉपर्टीज — इन्हें क्रमबद्ध बिंदुओं में लिखें।\n10. **रिविजन‑टिप्स (Prelims):** \"P = problems solvable in deterministic polynomial time (O(n^k))\" — इस एक वाक्य को याद रखें; उदाहरणों के साथ k के सामान्य मान (1,2,3) का जिक्र दें।\n11. **सीमाएँ बताने के लिए एक लाइन:** P बताता है कि समस्या polynomial time में हल हो सकती है; पर यह वास्तविक समय‑किफायती होना भी सुनिश्चित नहीं करता—इसे उदाहरण व आलोचना के साथ Mains में विस्तार से लिखें।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U8-119 – MP—Environment—Forest Fire/Heat—तैयारी</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U8-119 – MP—Environment—Forest Fire/Heat—तैयारी</h1>
+        <div class="note">क्षेत्र: MP | सामग्री: अर्ली वार्निंग/समुदाय—जोखिम घटाना। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 18-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># परिचय  
+MP में जंगल की आग (forest fire) की आवृत्ति और तीव्रता पिछले 15 वर्षों में उच्च रही है; विशेषकर शुष्क ऋतुओं में (मार्च–मई) जंगल आग की घटनाएँ बढ़ीं जिससे 2010–2024 के बीच कई जिलों—Chhindwara, Mandla, Seoni, Shivpuri, Panna—में बार-बार बड़े-स्तरीय घटनाएँ दर्ज हुईं। राष्ट्रीय और राज्य स्तर पर ISRO/NRSC के उपग्रह-आधारित alerts (MODIS/VIIRS) और Forest Survey of India (FSI) के डेटा से early-warning संभावनाएँ उपलब्ध हैं; इसलिए MP के लिए community-centred आरम्भिक चेतावनी और जोखिम-घटाने पर फोकस आवश्यक है।
+
+# मुख्य भाग
+
+1. समस्या का स्वरूप और परिमाण  
+- MP के जंगल क्षेत्र में surface fires और crown fires दोनों होते हैं; FSI के मानक मापदण्डों के अनुसार 2013–2022 में मध्यप्रदेश का खुला वन क्षेत्र और जंगल-फ्लोरीकरण heat stress से प्रभावित रहा।  
+- आग का प्रमुख कारण मानवनिर्मित—कृषि-जलाव (stubble burning), गैर-नियंत्रित पशु चराई, पिकनिक/खनन गतिविधियाँ—और प्राकृतिक कारण—लम्बी शुष्क अवधि और उच्च तापमान—दोनों हैं; MP में पिक-सीज़न मार्च–मई और नवंबर में अधिक घटनाएँ रिपोर्ट हुईं।  
+- आर्थिक प्रभाव: वन संपदा नुकसान, तस्करी-वृद्धि (fuelwood loss) और स्थानीय समुदायों की आजीविका पर प्रभाव; राज्य बजट और forest department की emergency response पर सालाना अतिरिक्त व्यय का दबाव बनता है (स्थानीय मंडलों में firefighting में SDRF/State funds का उपयोग होता है)।
+
+2. अर्ली वार्निंग सिस्टम — वर्तमान व्यवस्था और सीमाएँ  
+- राष्ट्रीय उपग्रह-स्रोत: ISRO/NRSC के MODIS/VIIRS-derived alerts और FSI की yearly forest fire reports से hotspots की पहचान संभव; Bhuvan/FSI पोर्टल पर alerts उपलब्ध हैं।  
+- राज्य स्तर: MP Forest Department और District Forest Offices के पास limited mobile alerting और WhatsApp-based district groups हैं; परंतु यूनिफाइड State-level real-time dashboard और district-wise predictive analytics की कमी है।  
+- तकनीकी–सांस्थानिक gaps: उपग्रह-alerts false-positives/negatives दिखाते हैं; ground-verification हेतु trained forest watchers और rapid response teams (RRTs) की संख्या जिलों में असमान (high-forest districts में कम RRT/unit coverage) है।
+
+3. समुदाय-आधारित जोखिम घटाना (Community-based DRR) — क्यों जरूरी और कैसे लागू  
+- MP में Joint Forest Management (JFM) और Van Suraksha Samitis पहले से सक्रिय हैं; 1990s से başlayan JFM institutional framework का उपयोग early-warning और preventive burning bans के लिए किया जा सकता है।  
+- कैपेसिटी-बिल्डिंग: 2015–2023 के कई pilot प्रोजेक्ट दिखाते हैं कि local community fire brigades और seasonal watchers से detection-to-response time 30–50% तक घटता है; इसलिए MP में प्रत्येक high-risk range में कम-से-कम एक trained community brigade आवश्यक।  
+- आर्थिक प्रोत्साहन: राज्य की Van Bandhu/Forest livelihoods योजनाओं के तहत (यदि लागू) community members को firefighting training और small-equipment subsidies (hand beaters, PPE, drip torches for controlled burns) देकर participation बढ़ाई जा सकती है।
+
+4. तकनीकी-प्रशासनिक उपाय (What &amp; How)  
+- Early-warning strengthening: ISRO/NRSC alerts को district-level GIS-dashboard से integrate कर real-time SMS/IVR alerts स्थानीय Gram Panchayats और forest guards को भेजें; pilot in 2–3 high-risk districts (e.g., Chhindwara, Mandla) within 12 months.  
+- Predictive analytics: historical fire-event data (2010–2023), vegetation dryness index, and meteorological forecasts (IMD) को मिलाकर seasonal risk maps बनाकर April–May के लिए pre-positioning of resources करें।  
+- Rapid response mechanism: प्रत्येक high-risk block में 1 District Rapid Response Team (RRT) + 5 community brigades; equipment stockpiles (water tankers, beaters, PPE) और helpline (24x7) को SDRF-funded contingency pools से link करें।  
+- Controlled burning and fuel management: वन विभाग द्वारा regulated controlled/ prescribed burns (post-training) और firebreaks निर्माण; annual calendar (November–February) में community-approved schedules जारी करें।  
+
+5. नीति, वित्त और संस्थागत समन्वय के सुझाव  
+- Institutional: State Forest Fire Management Cell (SFMC) स्थापित करें, जिसमें MP Forest Department, State Disaster Management Authority (SDMA–MP), IMD regional office, NRSC/FSI representation और Panchayati Raj प्रतिनिधि शामिल हों; SFMC के तहत annual fire preparedness plan बनें।  
+- वित्तीय: SDRF के complements के रूप में MP Budget में dedicated Forest Fire Contingency Fund और National Disaster Management guidelines के अनुरूप matching central grants का उपयोग सुनिश्चित करें।  
+- मानक और प्रशिक्षण: uniform SOPs (Standard Operating Procedures) for detection, verification, suppression and post-fire ecological restoration जारी करें; yearly training targets—each PF/Range staff को minimum 16 hours/year और community volunteers को 24 hours/year।  
+- monitoring &amp; evaluation: season-end impact assessment using satellite-based burnt-area metrics (FSI methodology) और socio-economic loss valuation रिपोर्ट annually SFMC को भेजी जाए।
+
+6. चुनौतियाँ और जोखिम प्रबंधन  
+- मानवीय व्यवहार परिवर्तन की चुनौती: traditional grazing/seasonal livelihood patterns को बदलने पर resistance; इसलिए livelihood-aligned alternatives (NREGA-linked fuelwood plantations, alternative fodder stores) जरूरी।  
+- डेटा-विवाद और accountability: satellite alerts की reliability पर district-level verification mechanisms और grievance redressal चाहिए; false alarm पर response fatigue और resource wastage रोका जाना चाहिए।  
+- क्लाइमेट-चरित्र: rising temperature trend (IMD data 2000–2020) से fire-season extended हो रहा है—यह लंबी अवधि की क्लाइमेट-समायोजन योजनाओं के साथAllocate resources करने को मजबूर करता है।
+
+# निष्कर्ष (Conclusion)  
+MP में जंगल आग की उच्च प्रवृत्ति (past 15 years) को देखते हुए early-warning और community-based risk reduction को राज्य की प्राथमिकता बनाना अनिवार्य है; यह उपग्रह-आधारित alerts (ISRO/NRSC, FSI), स्थानीय JFM/Van Suraksha व्यवस्थाओं और SDRF/MP Budget-financing का संयोजन मांगता है। नीति स्तर पर State Forest Fire Management Cell का गठन, district-wise predictive planning, और community brigades के माध्यम से detection-to-response समय घटाने से ecological loss और livelihood-impacts दोनों घटेंगे। सुझाव: अगले 2 वर्षों में pilot high-risk districts में integrated early-warning dashboards + community brigades स्थापित कर 5-year scale-up roadmap लागू किया जाना चाहिए ताकि MP में wildfire resilience measurable और sustainable बने।
+
+स्रोत 1: MP Government (mp.gov.in) – संबंधित विभाग/योजना/नोटिफिकेशन/press releases  
+स्रोत 2: PIB / PRS – नीति/कानून/घोषणा का official संदर्भ  
+स्रोत 3: Drishti IAS MPPSC / Vision IAS – Current Affairs compilation (revision)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">Latest NCERT कक्षा 6–12 (राजनीति, भूगोल, अर्थशास्त्र, विज्ञान—समसामयिकी की conceptual बुनियाद); Latest India Year Book (Publication Division, Govt of India) तथा MP के आधिकारिक वार्षिक प्रकाशन/दस्तावेज; Latest भारत सरकार के latest/official sources: PIB, MEA, MoF (Union Budget + Economic Survey), RBI (Reports/Notifications), Latest MoSPI (Data/Indicators), NITI Aayog (Reports), संबंधित मंत्रालयों/विभागों की प्रेस-रिलीज/रिपोर्ट; Latest मध्यप्रदेश सरकार के latest/official sources: MP Finance Dept (MP Budget + MP Economic Survey), Latest MP Planning/Directorate of Economics & Statistics, MP Govt के विभागीय पोर्टल/प्रेस-रिलीज; Latest अंतरराष्ट्रीय आधिकारिक sources: UN/UNDP, WHO, World Bank, IMF, WTO, IPCC (जहाँ लागू हो); Latest विश्वसनीय समसामयिकी compilation: Vision IAS / Drishti IAS MPPSC के Current Affairs (monthly) + Yojana/Kurukshetra (Govt magazines)</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U8-119 – MP—Environment—Forest Fire/Heat—तैयारी", "coverage_note": "क्षेत्र: MP | सामग्री: अर्ली वार्निंग/समुदाय—जोखिम घटाना। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# परिचय  \nMP में जंगल की आग (forest fire) की आवृत्ति और तीव्रता पिछले 15 वर्षों में उच्च रही है; विशेषकर शुष्क ऋतुओं में (मार्च–मई) जंगल आग की घटनाएँ बढ़ीं जिससे 2010–2024 के बीच कई जिलों—Chhindwara, Mandla, Seoni, Shivpuri, Panna—में बार-बार बड़े-स्तरीय घटनाएँ दर्ज हुईं। राष्ट्रीय और राज्य स्तर पर ISRO/NRSC के उपग्रह-आधारित alerts (MODIS/VIIRS) और Forest Survey of India (FSI) के डेटा से early-warning संभावनाएँ उपलब्ध हैं; इसलिए MP के लिए community-centred आरम्भिक चेतावनी और जोखिम-घटाने पर फोकस आवश्यक है।\n\n# मुख्य भाग\n\n1. समस्या का स्वरूप और परिमाण  \n- MP के जंगल क्षेत्र में surface fires और crown fires दोनों होते हैं; FSI के मानक मापदण्डों के अनुसार 2013–2022 में मध्यप्रदेश का खुला वन क्षेत्र और जंगल-फ्लोरीकरण heat stress से प्रभावित रहा।  \n- आग का प्रमुख कारण मानवनिर्मित—कृषि-जलाव (stubble burning), गैर-नियंत्रित पशु चराई, पिकनिक/खनन गतिविधियाँ—और प्राकृतिक कारण—लम्बी शुष्क अवधि और उच्च तापमान—दोनों हैं; MP में पिक-सीज़न मार्च–मई और नवंबर में अधिक घटनाएँ रिपोर्ट हुईं।  \n- आर्थिक प्रभाव: वन संपदा नुकसान, तस्करी-वृद्धि (fuelwood loss) और स्थानीय समुदायों की आजीविका पर प्रभाव; राज्य बजट और forest department की emergency response पर सालाना अतिरिक्त व्यय का दबाव बनता है (स्थानीय मंडलों में firefighting में SDRF/State funds का उपयोग होता है)।\n\n2. अर्ली वार्निंग सिस्टम — वर्तमान व्यवस्था और सीमाएँ  \n- राष्ट्रीय उपग्रह-स्रोत: ISRO/NRSC के MODIS/VIIRS-derived alerts और FSI की yearly forest fire reports से hotspots की पहचान संभव; Bhuvan/FSI पोर्टल पर alerts उपलब्ध हैं।  \n- राज्य स्तर: MP Forest Department और District Forest Offices के पास limited mobile alerting और WhatsApp-based district groups हैं; परंतु यूनिफाइड State-level real-time dashboard और district-wise predictive analytics की कमी है।  \n- तकनीकी–सांस्थानिक gaps: उपग्रह-alerts false-positives/negatives दिखाते हैं; ground-verification हेतु trained forest watchers और rapid response teams (RRTs) की संख्या जिलों में असमान (high-forest districts में कम RRT/unit coverage) है।\n\n3. समुदाय-आधारित जोखिम घटाना (Community-based DRR) — क्यों जरूरी और कैसे लागू  \n- MP में Joint Forest Management (JFM) और Van Suraksha Samitis पहले से सक्रिय हैं; 1990s से başlayan JFM institutional framework का उपयोग early-warning और preventive burning bans के लिए किया जा सकता है।  \n- कैपेसिटी-बिल्डिंग: 2015–2023 के कई pilot प्रोजेक्ट दिखाते हैं कि local community fire brigades और seasonal watchers से detection-to-response time 30–50% तक घटता है; इसलिए MP में प्रत्येक high-risk range में कम-से-कम एक trained community brigade आवश्यक।  \n- आर्थिक प्रोत्साहन: राज्य की Van Bandhu/Forest livelihoods योजनाओं के तहत (यदि लागू) community members को firefighting training और small-equipment subsidies (hand beaters, PPE, drip torches for controlled burns) देकर participation बढ़ाई जा सकती है।\n\n4. तकनीकी-प्रशासनिक उपाय (What & How)  \n- Early-warning strengthening: ISRO/NRSC alerts को district-level GIS-dashboard से integrate कर real-time SMS/IVR alerts स्थानीय Gram Panchayats और forest guards को भेजें; pilot in 2–3 high-risk districts (e.g., Chhindwara, Mandla) within 12 months.  \n- Predictive analytics: historical fire-event data (2010–2023), vegetation dryness index, and meteorological forecasts (IMD) को मिलाकर seasonal risk maps बनाकर April–May के लिए pre-positioning of resources करें।  \n- Rapid response mechanism: प्रत्येक high-risk block में 1 District Rapid Response Team (RRT) + 5 community brigades; equipment stockpiles (water tankers, beaters, PPE) और helpline (24x7) को SDRF-funded contingency pools से link करें।  \n- Controlled burning and fuel management: वन विभाग द्वारा regulated controlled/ prescribed burns (post-training) और firebreaks निर्माण; annual calendar (November–February) में community-approved schedules जारी करें।  \n\n5. नीति, वित्त और संस्थागत समन्वय के सुझाव  \n- Institutional: State Forest Fire Management Cell (SFMC) स्थापित करें, जिसमें MP Forest Department, State Disaster Management Authority (SDMA–MP), IMD regional office, NRSC/FSI representation और Panchayati Raj प्रतिनिधि शामिल हों; SFMC के तहत annual fire preparedness plan बनें।  \n- वित्तीय: SDRF के complements के रूप में MP Budget में dedicated Forest Fire Contingency Fund और National Disaster Management guidelines के अनुरूप matching central grants का उपयोग सुनिश्चित करें।  \n- मानक और प्रशिक्षण: uniform SOPs (Standard Operating Procedures) for detection, verification, suppression and post-fire ecological restoration जारी करें; yearly training targets—each PF/Range staff को minimum 16 hours/year और community volunteers को 24 hours/year।  \n- monitoring & evaluation: season-end impact assessment using satellite-based burnt-area metrics (FSI methodology) और socio-economic loss valuation रिपोर्ट annually SFMC को भेजी जाए।\n\n6. चुनौतियाँ और जोखिम प्रबंधन  \n- मानवीय व्यवहार परिवर्तन की चुनौती: traditional grazing/seasonal livelihood patterns को बदलने पर resistance; इसलिए livelihood-aligned alternatives (NREGA-linked fuelwood plantations, alternative fodder stores) जरूरी।  \n- डेटा-विवाद और accountability: satellite alerts की reliability पर district-level verification mechanisms और grievance redressal चाहिए; false alarm पर response fatigue और resource wastage रोका जाना चाहिए।  \n- क्लाइमेट-चरित्र: rising temperature trend (IMD data 2000–2020) से fire-season extended हो रहा है—यह लंबी अवधि की क्लाइमेट-समायोजन योजनाओं के साथAllocate resources करने को मजबूर करता है।\n\n# निष्कर्ष (Conclusion)  \nMP में जंगल आग की उच्च प्रवृत्ति (past 15 years) को देखते हुए early-warning और community-based risk reduction को राज्य की प्राथमिकता बनाना अनिवार्य है; यह उपग्रह-आधारित alerts (ISRO/NRSC, FSI), स्थानीय JFM/Van Suraksha व्यवस्थाओं और SDRF/MP Budget-financing का संयोजन मांगता है। नीति स्तर पर State Forest Fire Management Cell का गठन, district-wise predictive planning, और community brigades के माध्यम से detection-to-response समय घटाने से ecological loss और livelihood-impacts दोनों घटेंगे। सुझाव: अगले 2 वर्षों में pilot high-risk districts में integrated early-warning dashboards + community brigades स्थापित कर 5-year scale-up roadmap लागू किया जाना चाहिए ताकि MP में wildfire resilience measurable और sustainable बने।\n\nस्रोत 1: MP Government (mp.gov.in) – संबंधित विभाग/योजना/नोटिफिकेशन/press releases  \nस्रोत 2: PIB / PRS – नीति/कानून/घोषणा का official संदर्भ  \nस्रोत 3: Drishti IAS MPPSC / Vision IAS – Current Affairs compilation (revision)", "mcqs": [{"question": "मध्य भारत और विशेषकर मध्य प्रदेश में वन-आग (forest fires) का प्रमुख मौसमी फैक्टर कौन सा होता है?", "options": ["गर्मी का प्री-मॉनसून (मार्च–मई) और शुष्क पृष्ठभूमि", "मॉनसून के दौरान भारी वर्षा", "दिवाली के त्यौहार के बाद सर्दियों में बढ़ना", "ठंडे तापमान के कारण बर्फ पिघलना"], "answer_index": 0, "explanation": "# व्याख्या: मध्य भारत (विशेषकर मध्य प्रदेश) में वन‑आग का प्रमुख मौसमी फैक्टर — *गर्मी का प्री‑मॉनसून (मार्च–मई) और शुष्क पृष्ठभूमि*\n- मध्य प्रदेश में वन‑आग का मुख्य मौसमी कारण प्री‑मॉनसून गर्मी (मार्च–मई) है, जब न्यूनतम व अधिकतम तापमान तीव्र रूप से बढ़ते हैं।\n- इस अवधि में हवा की गर्मी और धूप की तीव्रता से वन‑तह (leaf litter, सूखी घास, सूखे पत्ते, झाड़ियाँ) अत्यधिक शुष्क हो जाती है, जिससे ज्वलनशील ईंधन तैयार हो जाता है।\n- प्री‑मॉनसून में सापेक्ष आर्द्रता कम रहती है; निचली नमी घटने से सूखी सामग्री कम समय में ही सूख कर आग पकड़ लेती है।\n- उच्च सतह तापमान और कम रात्री‑शीतलन से न केवल सूखी पत्ती बल्कि जमीनी सफेद/छाल जैसी जलीय‑सामग्री भी अधिक संवेदनशील हो जाती है।\n- इस मौसमी शुष्क‑पृष्ठभूमि में छोटी चिंगारियाँ (मानव क्रियाकलाप, खेत की ज्वलनशीलता, ट्रांसमिशन लाइन स्पार्क) भी तीव्र आग में बदल जाती हैं क्योंकि आग पकड़ने की सीमा (ignition threshold) कम होती है।\n- मार्च–मई का समय कृषि गतिविधियों (खेत की सफ़ाई, बर्निंग), वन‑उपयोग परिवर्तन और स्थानीय जलवायु सक्रियताओं के साथ ओवरलैप करता है, जिससे प्री‑मॉनसून गर्मी का प्रभाव बढ़ जाता है।\n- प्री‑मॉनसून हवा की दिशा और तीव्रता भी अक्सर स्थिर होती है; तेज और शुष्क हवाएँ आग के प्रसार की दर और दूरी दोनों बढ़ा देती हैं।\n- मध्य भारत के अधिकांश वन संरचनाएँ (खुला ऊष्णकटिबंधीय शुष्क जंगल, झाड़ियाँ, टेक व सूक्ष्म वनस्पति) प्री‑मॉनसून शुष्कता के कारण उच्च जोखिम पर होती हैं।\n- इसलिए जलवायु‑मौसमी चक्र के हिसाब से मार्च–मई को जंगलों में उच्च सतर्कता और आग‑तैयारी की अवधि माना जाता है; यह सीधा कारण‑परिणाम (गर्मी→सूखापन→आग‑जोर) दर्शाता है।\n- नीतिगत निहितार्थ: प्री‑मॉनसून शुष्क अवधि के मद्देनजर समयबद्ध मानिटरिंग, फायर‑वॉच, वन‑पैट्रोल और सूखा‑ईंधन नियंत्रण (firelines, fuel reduction) जैसे कदम प्राथमिक रोकथाम रणनीतियाँ बनती हैं।\n- निरीक्षण और चेतावनी प्रणालियाँ प्री‑मॉनसून तापमान‑आर्द्रता संकेतकों पर आधारित रखी जानी चाहिए क्योंकि यही मौसमी फैक्टर आग‑घटनाओं की शुरुआत और तीव्रता निर्धारित करता है।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग रोकथाम में समुदाय आधारित संस्था जो भारत में ग्रामीण स्तर पर वन संरक्षण में सक्रिय रहती है, उसे सामान्यतः क्या कहा जाता है?", "options": ["Joint Forest Management (JFM) committee", "National Forest Commission", "Forest Survey Unit", "State Fire Response Squad"], "answer_index": 0, "explanation": "# व्याख्या: Joint Forest Management (JFM) committee — वन-आग रोकथाम में ग्रामीण स्तर की समुदाय-आधारित संस्था\n- Joint Forest Management (JFM) समिति ग्राम स्तर पर वन विभाग और स्थानीय समुदाय के साझा निर्णय-निर्माण तथा क्रियान्वयन के लिए गठित संस्था है।\n- JFM समितियाँ वन संरक्षण, वन आग की रोकथाम और प्राकृतिक संसाधन प्रबंधन में सक्रिय भूमिका निभाती हैं; इन्हें आमतौर पर ग्राम-वार या समूह-वार स्तर पर गठित किया जाता है।\n- इन समितियों का उद्देश्य वन की सुरक्षा के साथ-साथ स्थानीय लोगों को संसाधन उपयोग में हिस्सेदारी, लाभ-हिस्सा और पक्षचर्या (sustainable use) सुनिश्चित करना है, जिससे आग का जोखिम घटता है।\n- वन-आग के संदर्भ में JFM समितियाँ प्राथमिक तैनाती (early detection), सतत पेट्रोलिंग, और आग के खिलाफ स्थानीय चेतावनी तथा संचार व्यवस्था बनाती हैं।\n- JFM के तहत सामुदायिक स्तर पर वन-आग रोकथाम के लिए माइक्रो-प्लान बनाए जाते हैं — जिनमें आग-लाइन निर्माण, फ्यूल-लोड मैनेजमेंट, और नियंत्रणित जलन (controlled burning) के उपाय होते हैं।\n- वन विभाग के साथ समन्वय में JFM समितियाँ प्रशिक्षण, उपकरण (जैसे फायर-beaters, संचार साधन), और आग-प्रबंधन प्रोटोकॉल प्राप्त करती हैं, जिससे त्वरित प्रतिक्रिया सुनिश्चित होती है।\n- JFM मॉडल के कारण स्थानीय हितधारकों की भागीदारी बढ़ती है; इससे वन-आग के प्राथमिक कारणों (अवांछित जलन, असंतुलित ईंधन संचय, अज्ञानता) को स्थायी समाधान मिलते हैं।\n- वित्तीय और प्रोत्साहनात्मक व्यवस्था के माध्यम से (जैसे राज्य/जिला स्तर के तथा वन विभाग के अनुदान), JFM समितियाँ आग-रोकथाम गतिविधियों के लिए संसाधन जुटाती और उपयोग करती हैं।\n- मध्यप्रदेश में JFM समितियाँ प्रायः ग्रामीण वन सुरक्षा कार्यक्रमों के साथ एकीकृत काम करती हैं; राज्य-स्तरीय वन नीति तथा जिला वन योजनाओं में इन्हें प्राथमिक कार्य-इकाई के रूप में स्वीकार किया गया है।\n- JFM समितियों का रिकॉर्ड-रखाव (patrol logs, fire incidents, mitigation measures) स्थानीय स्तर पर आग-प्रबंधन में जवाबदेही और मापनीयता सुनिश्चित करता है।\n- दीर्घकालिक दृष्टि से JFM से जुड़े सामुदायिक वन संरक्षण उपाय — जैसे इको-डेवलपमेंट और वैकल्पिक ईंधन का प्रोत्साहन — आग की बार-बार होने वाली घटनाओं को कम करते हैं।\n- परीक्षात्मक उपयोग के लिए: JFM को परिभाषित करते समय उल्लेख करें — “ग्राम स्तर की वन-विभाग एवं स्थानीय समुदाय की सह-प्रबंधन समिति जो वन सुरक्षा और आग-रोध में सक्रिय भूमिका निभाती है।”", "priority_tag": "HIGH"}, {"question": "Forest Survey of India (FSI) वन-आग पर अलर्ट और डेटा हेतु किन उपग्रह-आधारित सिस्टम का उपयोग प्रमुखतः करता है?", "options": ["MODIS और VIIRS आधारित फायर अलर्ट", "Sentinel-1 रेडार आधारित बाढ़ मैपिंग", "Landsat-7 मात्र फ्यूचर प्लान", "GPS-आधारित मृदा नमी सेंसर्स"], "answer_index": 0, "explanation": "# व्याख्या — MODIS और VIIRS आधारित फायर अलर्ट (FSI के प्रयोजन हेतु)\n- MODIS (Terra/Aqua) और VIIRS (Suomi‑NPP/NOAA‑20) उपग्रहों के थर्मल इन्फ्रारेड सेंसरों से सक्रिय आग (active fire) का निरीक्षण किया जाता है; ये सेंसर तापीय अनोमलीज़ का पता लगाकर फायर हॉटस्पॉट जनरेट करते हैं।\n- दोनों सिस्टम दिन-रात निगरानी सक्षम करते हैं क्योंकि वे थर्मल बैंड पर आधारित हैं; इसलिए रात में सक्रिय ज्वलन को भी डिटेक्ट किया जा सकता है।\n- MODIS का स्पेशियल‑रिज़ॉल्यूशन अपेक्षाकृत कोर्सर (≈1 km) है जबकि VIIRS का बेहतर फाइनर रिज़ॉल्यूशन (~375 m) छोटे और कम‑तापमान वाली घटनाओं के पता लगाने में अधिक संवेदनशील बनाता है।\n- उपग्रह‑डेटा को near‑real‑time में प्रसंस्कृत कर फायर‑अलर्ट्स, हॉटस्पॉट सूची और कॉन्फिडेंस‑लेवल के साथ वितरित किया जाता है, जिससे तात्कालिक प्रतिक्रिया संभव होती है।\n- FSI इन अलर्ट्स को राज्यों के वन विभागों व आपदा प्रबंधन इकाइयों के साथ साझा करता है ताकि स्थानीय जांच, शीघ्र चेतावनी और फायर ब्रेक/रीसपॉन्स तैनाती में सहयोग हो।\n- आउटपुट सामान्यतः पॉइंट‑होेटस्पॉट्स, तारीख‑समय, रेडियेशन/डिटेक्शन‑कॉनफिडेंस और उपग्रह‑सोर्स जैसी फ़ील्ड के साथ GIS‑फ्रेंडली फॉर्मेट (GeoJSON/CSV/Shapefile) में उपलब्ध होते हैं।\n- लगातार समयशृंखला (time‑series) एनालिसिस से अवधि, बारंबारता और प्रबल क्षेत्रों का ट्रेंड निकाला जा सकता है — यह राजस्व और वन प्रबंधन नीति व तैयारी के लिए उपयोगी है।\n- क्लाउड कवर, तात्कालिक तापमान अंतर और छोटे/समेकित ज्वालाओं के कारण कुछ सीमाएँ रहती हैं; इसलिए उपग्रह अलर्ट को स्थानीय सर्वे और तापमान/वायु‑स्थितियों के डेटा से क्रॉस‑वेरिफाई किया जाता है।\n- MP के संदर्भ में ये अलर्ट प्री‑फायर सीज़न में संवेदनशील जिलों (जैसे शुष्क वन/घासभूमि वाले क्षेत्र) की प्राथमिकता‑आधारित निगरानी और संसाधन आवंटन में सीधे उपयोगी होते हैं।\n- FSI द्वारा MODIS/VIIRS‑आधारित अलर्ट फायर‑मॉडलिंग, जलवायु‑अनुकूलन रणनीति और मैनुअल इलाके सर्वे के साथ सम्मिलित कर जिलेवार तैयारी एवं प्रतिकार योजना (prepositioning of firefighting teams, early warning) तैयार की जाती है।\n- परीक्षा‑दृष्टिकोण: प्रश्न में अपेक्षित सटीक उत्तर यही है कि FSI सक्रिय आग अलर्ट के लिए MODIS और VIIRS आधारित सिस्टमों का मुख्यतः उपयोग करता है — विशेषकर रात/दिन दोनों में थर्मल अनोमली पहचान व near‑real‑time हॉटस्पॉट निर्यात के लिए।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग से पहले चेतावनी (early warning) और निरीक्षण के लिए क्षेत्र में पारंपरिक रूप से कौन-सा उपाय लागू किया जाता है?", "options": ["फायरलाइन (fire-lines) और फायरवॉच टावर/पोस्ट की व्यवस्था", "जलाशय का निर्माण केवल पहाड़ी क्षेत्रों में", "बिजली के खंभों पर निगरानी कैमरा लगाना", "भूमि उपयोग परिवर्तन को बढ़ावा देना"], "answer_index": 0, "explanation": "# व्याख्या — फायरलाइन और फायरवॉच टावर/पोस्ट (वन-आग के लिए Early Warning व निरीक्षण)\n- फायरलाइन: जंगली नहीं रहने वाली, निश्चित चौड़ाई वाली पट्टी जो पेड़-पौधे/जैविक ईंधन हटाकर आग के फैलाव को रोकने के लिए बनाई जाती है।\n- फायरलाइन की चौड़ाई और निर्माण पद्धति स्थानीय वन प्रकार, ढलान एवं मौसमी शुष्कता के आधार पर निर्धारित की जाती है; पतली झाड़ियाँ व सूखी पत्तियाँ हटाकर बनाई जाती हैं।\n- फायरलाइन नियमित रख-रखाव से ही प्रभावी रहती है — कटाई, आग से क्षतिग्रस्त सामग्री हटाना, और गहरे जलभराव क्षेत्रों की मरम्मत शामिल है।\n- फायरवॉच टावर/पोस्ट: जंगल किनारों व संवेदनशील क्षेत्रों में ऊँचे प्लेटफ़ॉर्म या पोस्ट लगाए जाते हैं ताकि दूर से धुएँ/आग का शीघ्र पता लगाया जा सके।\n- टावरों की औसत दृष्टि-सीमा, ऊँचाई व स्थान चयन में पवन-दिशा, रिमोट ट्रैकिंग पॉइंट और स्थानीय भौगोलिक बाधाएँ ध्यान में रखी जाती हैं।\n- फायरवॉच पोस्ट पर नियमित पैट्रोल/निरीक्षण शेड्यूल (सुबह-शाम) और मौसम के तंग चरणों में निरंतर निगरानी आवश्यक होती है।\n- फायरलाइन व वॉच टावर दोनों का समन्वयित उपयोग — टावर से अलार्म मिलने पर फायरलाइन पर तैनात दल तुरंत कण्ट्रोल पॉइंट बना कर आग को सीमित करते हैं।\n- स्थानीय ग्रामीणों और वनरक्षक दलों की सहभागिता फायरलाइन निर्माण, निरीक्षण व टावरों पर चौकसी में प्रभावी भूमिका निभाती है; प्रशिक्षण व संचार सुविधाएँ जरूरी हैं।\n- फायरलाइन बनाने और टावरों का संचालन प्री-सीज़न (सूखे मौसम से पहले) पूरा कर लिया जाना चाहिए ताकि आग के बढ़ने से पहले तैयारियाँ पक्की हों।\n- फायरवॉच पोस्ट में रेडियो/मोबाइल कनेक्टिविटी और बुनियादी खोज-सहायता उपकरण (दूरबीन, कम्पास, अग्निशमन किट) होना अनिवार्य है।\n- मानचित्रित फायर-रिस्क जोन के आधार पर फायरलाइन की नेटवर्किंग और टावरों की प्लानिंग से तेज़ी से early warning और प्रतिक्रिया सुनिश्चित होती है।\n- फायरलाइन व टावर व्यवस्था को वन-आग प्रबंधन योजना में शामिल कर नियमित परीक्षण, रिकॉर्ड-कीपिंग व वित्तीय आबंटन आवश्यक है ताकि निरीक्षण व चेतावनी प्रणाली सतत कार्यशील रहे।", "priority_tag": "HIGH"}, {"question": "वन-आग के जोखिम को घटाने के लिए स्थानीय समुदायों को शामिल करने वाली केंद्रीय/राज्य स्तर की पारिच्छेदिक नीति और व्यावहारिक संरचना का उदाहरण कौन सा है?", "options": ["हाथ से जंगल की निगरानी करने के लिये JFM-आधारित योजनाएँ", "केवल वाइल्डलाइफ रिसर्च इंस्टीट्यूट-केन्द्रीय निगरानी", "अन्तरराष्ट्रीय सहायता पर पूरी निर्भरता", "वनों को पूर्णतः बंद कर देना और समुदायों को निष्कासित करना"], "answer_index": 0, "explanation": "# **व्याख्या: JFM-आधारित योजनाएँ — हाथ से जंगल की निगरानी के लिये (MP के संदर्भ में उपयोगी बिंदु)**\n- जन-सहभागिता आधारित वन-प्रबंधन (Joint Forest Management, JFM) ग्राम स्तर पर वन उपयोगकर्ता समूहों/वन समिति का गठन कर स्थानीय लोगों को निगरानी व अग्नि-नियंत्रण में औपचारिक रूप से शामिल करती है।\n- JFM समूहों को वन विभाग द्वारा निर्धारित कार्यों में आग की प्रारम्भिक पहचान, रिपोर्टिंग और स्थानीय स्तर पर त्वरित प्रतिक्रिया के दायित्व दिए जा सकते हैं।\n- स्थानीय सदस्यों के पास जमीनी स्तर की बनावट, पत्ते/इंधन की आर्द्रता व आग फैलने के संभावित मार्गों की निरन्तर जानकारी होती है, जो शुरुआती चेतावनी प्रणाली की तरह काम करती है।\n- JFM-आधारित योजनाओं में सामुदायिक अग्निशमन दलों का प्रशिक्षण और उपकरण प्रदान करना (हैंड टूल्स, पारंपरिक अग्नि-पेट्रोलिंग उपकरण) प्रभावी और लागत-प्रभावी उपाय है।\n- समुदाय द्वारा बनाए गए और नियमित रूप से निरीक्षितไฟर-लाइन/ब्रेके का रख-रखाव JFM के तहत सुनिश्चित किया जा सकता है, जिससे आग के प्रसार की संभावना घटती है।\n- भुगतान या लाभ-हिस्सेदारी (ब्रिकी/लाभांश), रोज़गार अवसर और ईकॉटूरिज़्म जैसे प्रेरक उपाय JFM समूहों को सक्रिय और सतत निगरानी के लिये प्रोत्साहित करते हैं।\n- JFM फ्रेमवर्क वन विभाग की तकनीकी मार्गदर्शका से जुड़ा रहता है — इसका अर्थ है कि स्थानीय निगरानी को आधिकारिक रिपोर्टिंग चैनल और आपातकालीन समर्थन से जोड़ा जा सकता है।\n- प्रशिक्षण कार्यक्रमों में आग-प्रबंधन की स्थानीय रणनीतियाँ (controlled/seasonal burning, fuel reduction, lookout points) शामिल कर के समुदाय की क्षमता बढ़ाई जाती है।\n- JFM के अंतर्गत रिकॉर्ड-कीपिंग और स्थानीय निगरानी डेटा को राज्य/जिला वन प्रभाग तक पहुँचाने की व्यवस्था से पूर्वानुमान व संसाधन तैनाती में सुधार होता है।\n- महिलाएँ और कमजोर वर्ग JFM समितियों में शामिल होकर अग्नि-सुरक्षा पहलों में भाग लेते हैं, जिससे निगरानी कवरेज और सामाजिक स्वीकृति बढ़ती है।\n- MP में JFM मॉडल को स्थानीय जमीनी परिस्थितियों के अनुसार अनुकूलित कर, मुश्किलोँ और आग-सीजन के अनुसार सामुदायिक पेट्रोलिंग शेड्यूल स्थापित किया जा सकता है।\n- JFM योजनाएँ वन-आग प्रबंधन में दीर्घकालिक निवारक रणनीतियों (जैसे ईंधन प्रबंधन, स्थायी चराई नियंत्रण) को लागू करने की संरचनात्मक व्यवस्था प्रदान करती हैं, जिससे जोखिम क्रमशः घटता है।", "priority_tag": "HIGH"}, {"question": "मध्य प्रदेश में वन-आग प्रबंधन में आपातकालीन सहायता के लिये राष्ट्रीय स्तर पर जो बल सहायता भेजी जा सकती है, वह है:", "options": ["National Disaster Response Force (NDRF)", "National Rural Health Mission (NRHM)", "Food Corporation of India (FCI)", "Ministry of Textiles"], "answer_index": 0, "explanation": "# **व्याख्या — NDRF (National Disaster Response Force) — मध्यप्रदेश में वन‑आग आपातकालीन सहायता के संदर्भ में**\n- **परिभाषा व वैधानिक आधार:** NDRF को Disaster Management Act, 2005 के अंतर्गत केंद्र सरकार द्वारा गठित राष्ट्रीय स्तर की आपदा प्रतिक्रिया इकाई के रूप में स्थापित किया गया है।\n- **केंद्र‑राज्य तैनाती का मार्ग:** किसी राज्य‑विशेष (जैसे मध्यप्रदेश) में त्वरित सहायता के लिए NDRF को राज्य सरकार के अनुरोध पर या केंद्र सरकार/NDMA के निर्देशानुसार तैनात किया जा सकता है।\n- **रैपिड‑रिस्पॉन्स क्षमता:** NDRF की टीमें त्वरित तैनाती (rapid deployment) के लिये प्रशिक्षित होती हैं और सीमित समय में घटनास्थल पर पहुँचकर बचाव व राहत कार्य आरम्भ कर सकती हैं।\n- **वन‑आग संबंधित कौशल:** NDRF में जंगल/वन‑आग जैसी स्थिति से निपटने के लिये समुचित फायर‑फाइटिंग, सर्च‑रिस्क्यू और लॉजिस्टिक क्षमताएँ उपलब्ध कराई जाती हैं; टीमें स्थानीय परिस्थितियों के अनुसार आग‑नियंत्रण में सहयोग कर सकती हैं।\n- **विस्तृत उपकरण और संसाधन:** NDRF के साथ तकनीकी उपकरण, विशेष बचाव उपकरण, चिकित्सा किट, कम्युनिकेशन गियर और इनिशियल राहत सामग्री आती है जो जंगल आग के आपात प्रबंधन में उपयोगी होती है।\n- **हवाई सहायकता के साथ समन्वय:** आवश्यक होने पर NDRF की तैनाती के साथ वायुबल/हेलीकाप्टर के माध्यम से त्वरित पहुँच, आंशिक हवाई सर्वे या मानववितरण का समन्वय किया जा सकता है।\n- **स्थानीय संस्थाओं के साथ समन्वय:** NDRF टीमें मध्यप्रदेश वन विभाग, जिला आपदा प्रबंधन इकाई (DDMA), स्थानीय पुलिस और फायर सेवाओं के साथ संयुक्त आपरेशन व कमांड‑कंट्रोल व्यवस्था बनाए रखती हैं।\n- **एवैक्यूएशन और चिकित्सा राहत:** NDRF का कार्यक्षेत्र आग के फैलाव से प्रभावित जनों का समय पर निकास (evacuation), प्राथमिक चिकित्सा और राहत शिविर स्थापित करना शामिल है।\n- **क्षमता निर्माण और प्रशिक्षण:** NDRF नियमित रूप से राज्य स्तर पर SDRF, वनकर्मियों और स्थानीय स्वयंसेवकों को वन‑आग रोकथाम व बचाव तकनीकों का प्रशिक्षण दे सकता है।\n- **मानक संचालन प्रक्रिया (SOP) और ऑप्रेशनल प्लानिंग:** NDRF आपदा‑प्रबंधन प्रोटोकॉल के अनुसार ऑपरेशनल SOPs और रिस्क‑आकलन रिपोर्ट तैयार कर घटनास्थल पर प्रभावी कार्रवाई सुनिश्चित करता है।\n- **सूचना एकत्रीकरण व सर्वे:** घटनास्थल पर नुकसान का त्वरित सर्वे, सूचना संग्रह और आवश्यक निर्णय हेतु केंद्र/राज्य को तात्कालिक रिपोर्टिंग NDRF की भूमिका में आती है।\n(उपरोक्त बिंदु केवल NDRF की वन‑आग आपातकालीन सहायता संबंधी परीक्षात्मक, तथ्य‑आधारित व्याख्या तक सीमित हैं और मध्यप्रदेश में त्वरित एवं समन्वित राहत‑कार्य के प्रत्यक्ष उपयोगी बिंदु प्रस्तुत करते हैं।)", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग जोखिम घटाने के लिए पहले से किये जाने योग्य (prevention) तकनीकों में से कौन-सा कदम शामिल है?", "options": ["नीतिगत तरीके से नियमित फायरलाइन का निर्माण और मुरम्मत", "मॉनसून में जंगल में अधिक से अधिक आग लगाना", "वनों में अंधाधुंध पेड़ कटाई बढ़ाना", "प्रतिवर्ष फसल अवशेष जलाना बढ़ावा देना"], "answer_index": 0, "explanation": "# व्याख्या: नीतिगत तरीके से नियमित फायरलाइन का निर्माण और मुरम्मत\n- फायरलाइन का उद्देश्य: जंगली जाड़ी-दिनाव और ज्वलनशील सामग्री को काटकर आग के फैलने का भौतिक अवरोध बनाना — यह अवरोध आग के आगे के मार्ग को काटता है।\n- नीतिगत रूप से नियमित निर्माण का आशय: वन विभाग की योजनाओं में फायरलाइन निर्माण को नियमित, निर्धारित और अनिवार्य गतिविधि के रूप में शामिल करना, न कि आकस्मिक कार्य के रूप में।\n- समय-सीमा और मौसमानुकूलता: फायरलाइन का निर्माण और मरम्मत आग के उच्च जोखिम वाले मौसम से पहले और बाद में तय अंतराल पर किया जाना चाहिए; मौसम व वन-घास की वृद्धि के अनुसार पुनरावृत्ति तय हो।\n- तकनीकी मानक और दिशानिर्देश: फायरलाइन की चौड़ाई, गहराई और सतह की सफाई हेतु मानक दिशानिर्देश नीतिगत रूप से तय किए जाएं ताकि क्षेत्रीय विविधताओं (जैसे टेरैन और वन प्रकार) के अनुरूप कार्ययोजना बनी रहे।\n- रखरखाव और निगरानी: सिर्फ एक बार निर्माण पर्याप्त नहीं, नीतिगत प्रावधान में नियमित निरीक्षण, मरम्मत और बायो-मैस हटाने का प्रावधान होना चाहिए ताकि फायरलाइन प्रभावी बनी रहे।\n- स्थानीय समुदाय व JFM/वाना समिति की भागीदारी: नीति में समुदाय-सहायता और रोजगार-उपलब्ध कराने का प्रावधान हो ताकि फायरलाइन के निर्माण और रखरखाव में स्थानीय ज्ञान और श्रम का समावेशन सुनिश्चित हो।\n- संसाधन और वित्तपोषण: राज्य-स्तरीय और जिला-स्तरीय वन-प्रबंधन योजनाओं में फायरलाइन के स्थायी बजट, उपकरण (मैनुअल व यांत्रिक दोनों) और प्रशिक्षण के लिए आवंटन निर्धारित किया जाना चाहिए।\n- समन्वयात्मक ढांचा: फायरलाइन नीतियों में वन विभाग, जिला आपदा प्रबंधन प्राधिकरण, राजस्व और स्थानीय निकायों के साथ समन्वय के स्पष्ट प्रावधान होने चाहिए ताकि आग की स्थिति में त्वरित उपयोग और पहुँच सुनिश्चित हो।\n- पर्यावरणीय व वैकल्पिक उपाय: नीतिगत निर्देशों में फायरलाइन बनाते समय मृदा कटाव, जैवविविधता नुकसान और कटाई के पर्यावरणीय प्रभावों के नियंत्रण के उपाय शामिल हों; जहां संभव हो, ईको-फ्रेंडली तकनीक और हरी पट्टी का समावेश करें।\n- डिजिटल योजना व रिकॉर्ड-कीपिंग: नीतिगत रूप से फायरलाइन नेटवर्क का GIS मानचित्रण, रखरखाव की समय-सीमा, निरीक्षण रिपोर्ट और मरम्मत_HISTORY का डिजिटल रिकॉर्ड अनिवार्य किया जाना चाहिए ताकि निगरानी और संसाधन नियोजन में पारदर्शिता हो।\n- मध्यप्रदेश के संदर्भ में कार्यान्वयन (प्रसंग-स्पष्ट बिंदु): राज्य की आग-जन्य संवेदनशील जिलों में नीतिगत प्राथमिकता देकर फायरलाइन नेटवर्क का विस्तार, स्थानीय रोजगार से जुड़ी योजना और जिला-स्तरीय बजट आवंटन सुनिश्चित किए जाएं — साथ ही मौसमी पैटर्न और वन-प्रकार के अनुसार जिला विशेष निर्देश जारी हों।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग के दौरान समुदायों को ओवरऑल जोख़िम से बचाने के लिए क्या प्राथमिक कदम माना जाता है?", "options": ["स्थानीय निकास मार्गों की पहचान और इवैक्यूएशन योजना", "स्थानिक जल स्रोतों को सील कर देना", "स्थानीय निवासियों को रात में जंगल में रहने के लिए कहना", "वन क्षेत्र में अधिक पर्यटन को प्रोत्साहित करना"], "answer_index": 0, "explanation": "# व्याख्या: स्थानीय निकास मार्गों की पहचान और इवैक्यूएशन योजना — प्राथमिक कदम\n- स्थानीय निकास मार्गों (local exit routes) की स्पष्ट पहचान और मानचित्रण सबसे प्राथमिक कदम है क्योंकि इससे समुदायों को जल्दी और व्यवस्थित रूप से सुरक्षित स्थानों तक पहुँचाने का आधार बनता है।\n- प्रत्येक ग्राम/पोस्ट/टाउन के लिए स्थानिक रूप से वैरिएबल मार्गों का नक्शा (GIS/कागज़ीय) तैयार रखें — जंगल की दिशा, हवा की दिशा और ऊँचाई के हिसाब से वैकल्पिक मार्ग चिन्हित हों।\n- निकास मार्गों पर सतत रूप से स्पष्ट, बहुभाषी और रात में भी दिखने वाले संकेत (signage) तथा मार्गों की मॉनिटरिंग हेतु स्थानीय जिम्मेदार व्यक्तियों का निर्धारण आवश्यक है।\n- निकास योजना में कमजोर समूहों (बुजुर्ग, गर्भवती, शारीरिक रूप से अक्षम, स्कूल‑बच्चे, पालतू/पशु समेत) के लिए अलग सहायक प्रावधान और प्राथमिकता सूची होना चाहिए।\n- निकास मार्गों की क्षमता (पैदल, वाहनों के लिए चौड़ाई), पुल/नहर/रैव मार्गों की स्थिति और संभव अवरुद्ध हिस्सों की पूर्व पहचान से समय पर वैकल्पिक मार्ग सक्रिय किए जा सकते हैं।\n- इवैक्यूएशन प्लान में सुरक्षित असेंबली पॉइंट (assembly/safe shelter) पहले से तय, उपकरणों (first aid, पानी, कम्युनिकेशन उपकरण) के साथ सूचीबद्ध होने चाहिए; इन्हें सरकारी/स्थानीय सार्वजनिक भवनों से जोड़ना चाहिए।\n- नियमित समुदाय‑आधारित ड्रिल और प्रशिक्षण (annual/seasonal drills), सूचना‑प्रणाली और अलर्ट मैकेनिज्म (SMS/PA/माइंस/स्थानीय रेडियो) से वास्तविक घटना में निकास की सफलता सुनिश्चित होती है।\n- निकास योजना को जिला/जिला स्तरीय आपदा प्रबंधन योजनाओं तथा वन विभाग/पुलिस/आपदा प्रबंधन टीमों (DM, SDRF) के साथ समन्वय में शामिल किया जाना चाहिए ताकि संसाधन और लॉजिस्टिक्स समय पर उपलब्ध हों।\n- मार्गों की मेंटेनेंस और क्लियरिंग (firebreaks, गेट हटाना, रास्तों की मरम्मत) की कार्यसूची मौसम से पहले तैयार और स्थानीय स्तर पर जिम्मेदार नोडल अधिकारी से बाँधी होनी चाहिए।\n- इवैक्यूएशन प्लान में परिवहन की उपलब्धता (वाहन‑रोटेशन, कंट्रैक्टेड बसें), पशु/पशुधन के निकास के प्रावधान और पुनरावास/पुनर्स्थापना के तात्कालिक निर्देश शामिल होने चाहिए।\n- योजना दस्तावेज में सम्पर्क सूची, जिम्मेदारियों का स्पष्ट आवंटन और घटनाक्रम के बाद‑के संचालन (रजिस्टर, रिकॉर्डिंग, राहत वितरण) का प्रावधान होना चाहिए ताकि निर्णय‑निर्धारण तेज और जवाबदेह हो।\n(ये बिंदु MP के स्थानीय स्तर पर वन‑आग के दौरान समुदायों को ओवरऑल जोखिम से बचाने के लिए इवैक्यूएशन‑सेंट्रिक तैयारी को सीधे और परीक्षोन्मुखी तरीके से समझाते हैं; Mains उत्तर में ऊपर के बिंदुओं को क्रमबद्ध रूप से उपयोग किया जा सकता है।)", "priority_tag": "VERY_HIGH"}, {"question": "भारत में वनों में आग का प्रमुख मानव-जनित कारण किस प्रकार का माना जाता है?", "options": ["कृषि अवशेष, लकड़ियों की अवैध कटाई और जानवरों की चराई से जुड़ी गतिविधियाँ", "समुद्री तूफान", "वैज्ञानिक परीक्षा के ज़रिये नियंत्रित जलाई", "भू-भौतिक प्लेट टेक्टोनिक गतिविधियाँ"], "answer_index": 0, "explanation": "# व्याख्या — भारत में वनों में आग का प्रमुख मानव-जनित कारण: कृषि अवशेष, अवैध लकड़ी कटाई और चराई‑संबंधी गतिविधियाँ\n- कृषि अवशेष जलाना: फसल कटाई के बाद खेतों में शेष बचे पराली/कृषि अवशेषों को जलाने से आग जंगलों तक फैलने का जोखिम बढ़ता; तेज हवा और सूखा होने पर यह छोटे संक्रमणों को बड़े जंगल‑आग में बदल देता है।\n- पराली जलाने का मौसमगत संबंध: कटाई के बाद की अवधि व शुष्क मौसम के साथ मेल खाती है, जिससे आग लगने की संभावना अधिक होती है—यह वन‑आग का एक बारम्बार मानव‑जनित ट्रिगर है।\n- अवैध लकड़ी कटाई के कारण: लकड़ियों को काटते समय छूटी हुई चिंगारियाँ, उपकरणों की असावधानी या रखे हुए ज्वलनशील सामग्री से आग लगने का खतरा बढ़ता; कटाई जंगलों की सूक्ष्म संरचना को बदलकर आग की तीव्रता बढ़ाती है।\n- फसल अवशेष और ईंधन की उपलब्धता: कटाई और चराई से जंगल के पास सूखे शिपाए/घास और कंटीले अवशेष जमा होते हैं जो आग के ईंधन‑बोझ को बढ़ाते और आग के फैलने की दर तेज करते हैं।\n- चराई‑संबंधी गतिविधियाँ: चरवाहों द्वारा आग का उपयोग नए घास के विकास के लिए या कीड़े हटाने हेतु किया जाना; नियंत्रणहीन रूप से जला देने पर आग जंगल में प्रवेश कर व्यापक नुकसान कर सकती है।\n- पृष्ठभूमि में मानवीय मार्ग व गतिविधि केंद्र: अवैध कटाई और चराई अक्सर वनपथों/गाँवों के निकट होती है—मानव‑गतना के बढ़ने से आग लगने के खतरे के हॉटस्पॉट बनते हैं।\n- आग की शुरुआत और निगरानी: मानव‑जनित शुरूआत अक्सर छोटे‑छोटे जागरूकता/अनुशासनहीन व्यवहार से होती है; यह निवारण के दृष्टिकोण से प्रशिक्षण, जागरूकता और अनुपालन आवश्यक दर्शाता है।\n- निवारण‑नीति के साक्षात संकेत: कृषि अवशेष का वैकल्पिक प्रबंधन (पराली प्रबंधन, कम्पोस्टिंग), वैध लकड़ी आपूर्ति व निगरानी, और चराई के नियंत्रित तरीके आग जोखिम घटाने के तात्कालिक साधन हैं।\n- स्थानीय समुदायों का रोल: चराई और लकड़ी कटाई में लगे समुदायों के साथ संयुक्त संरक्षण उपाय—जनभागीदारी, वैकल्पिक आजीविका, और नियमित निगरानी—से मानव‑जनित आग के स्रोत सीमित किए जा सकते हैं।\n- पूर्वसूचना व तात्कालिक प्रतिक्रिया: कृषि‑जलन/चराई‑आधारित आग के पैटर्न की पहचान करके आगकेंद्रों पर पहले से चेतावनी और त्वरित फायर‑ब्रेक/जल अवरोध बनाना प्रभावी रहता है।\n- Mains‑style उठाने योग्य बिंदु (MP‑सन्दर्भ): मध्यप्रदेश में व्यापक कृषि‑भूमि व वन सीमाओं के कारण पराली जलाना और पशुपालक गतिविधियाँ वन‑आग जोखिम को स्थानीय रूप से बढ़ाती हैं—नियमित वन‑सीमा प्रबंधन, किसान/पालक प्रशिक्षण और स्थानीय प्रशासनिक समन्वय आवश्यक है।\n- संक्षेप में परीक्षा‑योग्य निष्कर्ष: भारत में वनों में लगने वाली मानवजनित आग का प्रमुख श्रेय कृषि‑अवशेष जलाना, अवैध लकड़ी कटाई और चराई‑संबंधी गतिविधियों से आता है; इन्हें लक्षित करके निवारण‑नीतियाँ प्रभावी बनायी जा सकती हैं।", "priority_tag": "HIGH"}, {"question": "वन-आग की पूर्वानुमान और अलर्ट प्रणाली के साथ इंटरफेस प्रदान करने वाला केंद्रित सरकारी निकाय कौन-सा है जो FSI और MoEFCC के साथ काम कर सकता है?", "options": ["Forest Survey of India (FSI)", "Reserve Bank of India (RBI)", "Ministry of Railway Safety", "Indian Council of Medical Research (ICMR)"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्य प्रदेश में वन-आग के दौरान फायर कंट्रोल के लिए स्थानीय स्तर पर अकसर कौन-सी पहली प्रतिक्रिया इकाई काम पर लगती है?", "options": ["राज्य वन विभाग की वन और फायर टीमें", "राज्य शिक्षा विभाग की टीमें", "किसान उपक्रम संघ", "स्थानीय बैंक शाखाएँ"], "answer_index": 0, "explanation": "# व्याख्या — उत्तर: **राज्य वन विभाग की वन और फायर टीमें**\n- राज्य वन विभाग की वन और फायर टीमें स्थानीय स्तर पर वन-आग (forest fire) की पहली प्रतिक्रिया इकाई मानी जाती हैं और इन्हें तत्काल तैनात किया जाता है।\n- इन टीमों में वनरक्षक, फॉरेस्ट गार्ड, वन रेज़रवेशन स्टाफ और विशेष प्रशिक्षित फायरकर्मियों की भूमिका रहती है।\n- प्राथमिक कर्तव्य में घटनास्थल पर पहुँचकर आग को नियंत्रित करने के लिए प्रारंभिक लड़ाई (initial attack), फ़ायरब्रेक बनाना और शमन संचालन का समन्वय शामिल है।\n- ये टीमें स्थानीय वन-रोड्स, ट्रैक तथा गांवों के नजदीकी क्षेत्रों में शीघ्र पहुँच के कारण प्राथमिक प्रतिक्रिया प्रदान कर सकती हैं।\n- टीमों के पास सामान्यतः हाथ उपकरण (लॉपे, कुल्हाड़ी, रैके, फायर बीटर), मोबाइल कम्युनिकेशन और स्थानीय मानचित्र उपलब्ध रहते हैं ताकि शुरुआती कार्रवाई प्रभावी हो।\n- वन और फायर टीमों को नियमित प्रशिक्षण दिया जाता है—जैसे फायर काउंटर-टैक्टिक्स, सुरक्षा प्रोटोकॉल, और मौसम/वातावरणीय संकेतों का मूल्यांकन—ताकि वे तेज़ और सुरक्षित प्रतिक्रिया दे सकें।\n- ये टीमें ग्रामीण समुदायों और स्थानीय पंचायतों के साथ समन्वय करके प्राथमिक बचाव, निकासी मार्ग तथा आग-रोकथाम के लिए सामुदायिक सहयोग जुटाती हैं।\n- टीमों का तात्कालिक कार्य घटना की स्थिति का प्रारंभिक मूल्यांकन, आग के प्रकार और समुचित संसाधन की माँग रिपोर्ट करना तथा उच्चस्तर के समन्वय केंद्रों को सूचना भेजना होता है।\n- वन विभाग की फायर टीमें स्थानीय स्तर पर जमीन आधारित शमन प्राथमिकता देती हैं; हवाई सहायता या अतिरिक्त संसाधन आवश्यक होने पर वे राज्य नियंत्रण केंद्र/विकल्पीय एजेंसियों से समन्वय करती हैं।\n- कानूनी एवं प्रशासनिक अधिकार इन टीमों को स्थानीय रूप से आग पर नियंत्रण करने, प्रभावित क्षेत्र को सीमित करने और आवश्यकतानुसार लोगों को हटाने के निर्देश जारी करने तक प्रदान होते हैं।\n- नियमित तौर पर होने वाले प्री-सीज़न निरीक्षण, फायर लाइन निर्माण और इंटरेक्टिव ड्रिल्स का संचालन भी इन टीमों के द्वारा किया जाता है, ताकि आग की संभावना कम रहे और तैयारी बनी रहे।\n- रिपोर्टिंग और डेटा संग्रह के माध्यम से ये टीमें आग के कारणों, फैलने के ढांचे और नियंत्रण के प्रभाव का विवरण जुटाती हैं, जो भविष्य की नीति और तैयारी के लिए उपयोगी होता है।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग प्रबंधन में 'फायर लाइन' (fire-line) का उद्देश्य क्या है?", "options": ["आग के प्रसार को रोकने के लिए प्रीतोचित पट्टी बनाना", "वन में जलाशय बनाना", "वन में पर्यटन सुविधाएँ बढ़ाना", "वन क्षेत्र को खेती के लिए खोलना"], "answer_index": 0, "explanation": "# व्याख्या — वन-आग प्रबंधन में 'फायर लाइन' (fire-line) का उद्देश्य क्या है?\n**सही उत्तर का संक्षेप:** आग के प्रसार को रोकने के लिए प्रीतोचित (fuel-free/treated) पट्टी बनाना\n- फायर लाइन वह नियंत्रित पट्टी होती है जहाँ जंगली सूखे पत्ते, घास, लघु कुटिर और अन्य ज्वलनशील ईंधन हटाकर या जलाकर एक ईंधन खाली बैंड बनाया जाता है।\n- इसका मूल उद्देश्य आग के लिए उपलब्ध ईंधन को अंशतः या पूर्णतः समाप्त कर आग के आगे के प्रसार को भौतिक रूप से रोकना है।\n- फायर लाइन का निर्माण आमतौर पर जमीन को खुरचना, नंगे करना, झाड़ी व पेड़ों की निचली शाखाएँ हटाना या पूर्व नियोजित जलदहन (back-burning) से किया जाता है।\n- पट्टी की चौड़ाई स्थानीय वन प्रकार, ईंधन की मात्रा, ढाल (slope) और हवाओं की गति के आधार पर निर्धारित की जाती है; अधिक ढलान/हवा = अधिक चौड़ाई आवश्यक।\n- फायर लाइन को उस दिशा में बनाया जाता है जहाँ से आग के फैलने की संभावना अधिक होती है — मार्ग, कनों, टॉपोग्राफी और पवन प्रवाह का विश्लेषण करके स्थान चुना जाता है।\n- एक प्रभावी फायर लाइन केवल बनाकर छोड़ने भर से नहीं, नियमित रूप से निरीक्षण, मरम्मत और ईंधन पुनरावृत्ति रोकने की क्रिया से बनाए रखी जाती है।\n- मध्यप्रदेश जैसे प्रदेशों में जहां तापीय वायु और शुष्क पत्ते-घास के कारण आग तेज होती है, फायर लाइन स्थानीय वन्य प्रकार (संगमलक, साल-तराई, सूखे पर्णपाती) के अनुरूप आकार व दूरी से बनानी चाहिए।\n- फायर लाइन निर्माण और रखरखाव सामुदायिक वन प्रहरी, वन विभाग दल और स्थानीय ग्रामीणों के समन्वय पर होता है ताकि स्थानीय संसाधन व सुरक्षा नियम लागू रहें।\n- फायर लाइन बनाते समय पर्यावरणीय पहलू (मृदा क्षरण, तृणावरण पर प्रभाव) और सुरक्षा प्रोटोकॉल (सुरक्षा दूरी, व्यक्तिगत सुरक्षा उपकरण) का पालन अनिवार्य है।\n- आपात स्थिति में फायर लाइन आग को रोकने के साथ-साथ फायर ब्रेक के रूप में फायर फाइटिंग दलों को कंट्रोल्ड जोन प्रदान करती है जहाँ आग बुझाने के अन्य उपाय (पानी, केमिकल, मैनपावर) प्रभावी होते हैं।\n- निरीक्षण, नक्शा पर मार्किंग और रिकॉर्डिंग से फायर लाइन की प्रभावशीलता प्रमाणित की जाती है तथा ये भविष्य की पूर्व-तैयारी (pre-monsoon readiness) योजनाओं का अभिन्न हिस्सा होती हैं।", "priority_tag": "HIGH"}, {"question": "वन-आग के जोखिम में कमी हेतु पूर्व चेतावनी (early warning) प्रणाली में सर्वाधिक सहायक कौन-सा तत्व माना जाता है?", "options": ["रियल-टाइम उपग्रह-आधारित फायर डिटेक्शन और स्थानीय रिपोर्टिंग नेटवर्क", "केवल ऐतिहासिक डेटा पर निर्भरता", "स्थानीय लोगों को सूचना न देना", "आग लगने पर बाद में मुआवजा देना"], "answer_index": 0, "explanation": "# व्याख्या — रियल-टाइम उपग्रह-आधारित फायर डिटेक्शन और स्थानीय रिपोर्टिंग नेटवर्क\n**मुख्य विचार:** रियल-टाइम उपग्रह-आधारित फायर डिटेक्शन को स्थानीय रिपोर्टिंग नेटवर्क के साथ जुड़ाने से वन-आग के जोखिम में सबसे प्रभावशील पूर्व चेतावनी प्रणाली बनती है।\n1. उपग्रह सेंसर (thermal/IR और MODIS/VIIRS जैसे उच्च-सम्वेदनशील डाटा) वास्तविक समय में तापमान वृद्धि और सक्रिय दहन के संकेत पहचानते हैं, जिससे घटना की प्रारम्भिक पहचान संभव होती है।\n2. उपग्रह आधारित डिटेक्शन का लाभ यह है कि यह दूरदराज और पहुँच मुश्किल क्षेत्रों में भी आग के शुरुआती संकेत पकड़ लेता है जहाँ लोकल निगरानी सीमित होती है।\n3. स्थानीय रिपोर्टिंग नेटवर्क (पैरामिलिट्री, वनरक्षक, ग्राम स्तर सूचना, मोबाइल-आधारित रिपोर्टिंग) उपग्रह अलर्ट की धरातलीय पुष्टि और त्वरित संदर्भ-बिंदु प्रदान करता है।\n4. उपग्रह अलर्ट और स्थानीय रिपोर्टों के संयोजन से झूठे सकारात्मक (false positives) कम होते हैं और सत्यापन-समय घटता है, जिससे प्रतिक्रिया समय सुधरता है।\n5. रीयल-टाइम डाटा को GIS-आधारित प्लेटफॉर्म पर इंटीग्रेट कर पोक्सिंग, फायर-रिश्क मैपिंग और संभावित फैलाव के मॉडल तुरंत बनाये जा सकते हैं।\n6. मध्यप्रदेश के जैवविविध और वन-क्षेत्रों में उपग्रह+लोकल नेटवर्क से त्वरित अलर्ट मिलने पर अग्निशमन बलों/स्थानीय पंचायतों को रूटीन-रिस्टोर और एरो-रेस्पांस जल्दी तैनात किया जा सकता है।\n7. अलर्ट सिस्टेम में SMS/IVRS, मोबाइल ऐप और स्थितिजन्य नियंत्रण कक्ष जोड़ने से स्थानीय समुदायों व वनकर्मियों तक सूचनाएँ तेज़ी से पहुँचती हैं और सामुदायिक-शमन सक्रियता बढ़ती है।\n8. रीयल-टाइम उपग्रह निगरानी से मौसम, वायु-गति, नमी जैसे सहायक पैरामीटर भी एकत्र होते हैं जो आग के व्यवहार और फैलाव का पूर्वानुमान देने में मदद करते हैं।\n9. सतत मॉनिटरिंग और स्थानीय-स्थापित रिपोर्टिंग से अलर्ट के बाद प्रतिक्रिया (containment, suppression) का समय घटता है, जला हुआ क्षेत्र कम होता है और मानव-जलवायु-आर्थिक नुकसान घटते हैं।\n10. प्रणाली की प्रभावशीलता के लिए डेटा शैरिंग, API-इंटीग्रेशन और वन-विभाग, जिला प्रशासन तथा आपदा प्रबंधन के बीच SOPs का स्पष्ट समन्वय आवश्यक है।\n11. प्रशिक्षण और स्थानीय नेटवर्क की क्षमता निर्माण (mobile reporting, geo-tagging, वन-ग्राम निगरानी) उपग्रह अलर्ट का फुल-फायदा सुनिश्चित करता है।\n12. निष्कर्ष: रियल-टाइम उपग्रह डिटेक्शन जब स्थानीय रिपोर्टिंग नेटवर्क के साथ संयुक्त होता है तो यह पूर्व चेतावनी, सत्यापन और त्वरित कार्रवाई के सभी चरणों में सर्वाधिक सहायक और व्यवहारिक साबित होता है।", "priority_tag": "VERY_HIGH"}, {"question": "मध्य प्रदेश में वन-आग की तत्काल बचाव पहलों में किस प्रकार का सामुदायिक प्रशिक्षण उपयोगी माना जाता है?", "options": ["फायर-रिस्पांस और इवैक्यूएशन ड्रिल का नियमित प्रशिक्षण", "सिर्फ़ कागजी रिपोर्टिंग का प्रशिक्षण", "वन में अज्ञानी आग लगाने का प्रशिक्षण", "स्थानीय समुदायों को केवल पैसे देने का प्रशिक्षण"], "answer_index": 0, "explanation": "# व्याख्या — फायर-रिस्पांस और इवैक्यूएशन ड्रिल का नियमित प्रशिक्षण (MP—वन-आग तात्कालिक बचाव पहल)\n- फायर-रिस्पांस व इवैक्यूएशन ड्रिल्स का उद्देश्य: आग की जल्दी पहचान, सुरक्षित निकासी, और बचाव-कार्यों का समन्वय सुनिश्चित करना।\n- नियमित ड्रिल में स्थानीय समुदाय, वनदপ্তर, ग्राम-पंचायत, आपदा प्रबंधन टीम व बचाव दल (स्थानीय Volunteers/Forest Guards) की भागीदारी अनिवार्य मानी जाती है।\n- ड्रिल की समयावधि व आवृत्ति: आग के उच्च जोखिम वाले मौसम (गर्मियों/प्री-मॉनसून) से पहले और मौसम के दौरान निर्धारित अंतराल पर पुनरावृत्ति कराना प्रभावी होता है।\n- अभ्यास के मुख्य घटक: चेतावनी प्रणाली की जांच, इवैक्यूएशन रूट्स व असेंबली पॉइंट्स का अभ्यास, प्राथमिक उपचार व डरेनिंग/फायर-लाइन निर्माण के व्यवहारिक अभ्यास।\n- ड्रिल के दौरान रोल-निर्धारण स्पष्ट किया जाता है: कौन अलर्ट उठाएगा, कौन प्राथमिक बचाव करेगा, कौन कमजोर समूहों (बुजुर्ग, बच्चे) का ख्याल रखेगा—इसे लिखित रूप में परिभाषित करना आवश्यक है।\n- स्थानिक संसाधन और उपकरणों (बकेट-लाइन, हैंड टूल्स, पास्त पात्र, रेडियो/मॉबाइल अलर्ट) का संचालन और रख-रखाव ड्रिल का हिस्सा होना चाहिए ताकि वास्तविक घटना में उपयोगी रहें।\n- ड्रिल का मूल्यांकन (post-drill review) कर कमजोरियाँ नोट की जाती हैं और निर्देशित सुधारों को डीसीएमए/जिला आपदा प्रबंधन योजना में शामिल किया जाना चाहिए।\n- ग्रामीण स्तर पर ग्रामसभा/पंचayat द्वारा ड्रिल का समावेश और दस्तावेजीकरण (प्लान, ड्रिल-रिपोर्ट, उपस्थितियों का रिकॉर्ड) इससे जवाबदेही व सततता बढ़ती है।\n- ड्रिल से समुदाय में सूचना-संचार चैनलों (लोकल अलर्ट, मोबाइल संदेश, ढोल/सायरन) की प्रभावशीलता परखकर उन्हें मजबूत किया जा सकता है।\n- नियमित प्रशिक्षण से वन-आग के दौरान मानवीय हताहतियों, संपत्ति व पर्यावरणीय क्षति को कम करने के ठोस प्रमाणित लाभ आते हैं; यह तैयारी जिला-स्तरीय आपदा प्रबंधन व वन संरक्षण रणनीतियों से जुड़ती है।\n- MP के संदर्भ में ड्रिल को स्थानीय जंगल-हॉटस्पॉट, मौसम-समय (ग्रीष्म/अप्रैल–जून), तथा कृषि/वन-संबंधी गतिविधियों के अनुकूल योजना बनाकर अधिक प्रासंगिक बनाया जाना चाहिए।\n- परीक्षा/मैनस उत्तर हेतु सीधे बिंदु: \"नियमित फायर-रिस्पांस व इवैक्यूएशन ड्रिल — सामुदायिक भागीदारी, संसाधन-परीक्षण, रोल-क्लैरिटी, पोस्ट-ड्रिल रिव्यू और स्थानीय दस्तावेजीकरण\" — यह MP की तात्कालिक बचाव नीतियों के अनुकूल सटीक कार्रवाई है।", "priority_tag": "HIGH"}, {"question": "वन-आग जोखिम घटाने हेतु जापान, ऑस्ट्रेलिया जैसी देशों से कौन-सा तकनीकी पहल भारतीय व राज्य स्तर के कार्यक्रमों में अक्सर अपनाया जाता है?", "options": ["सैटेलाइट-आधारित आग की वास्तविक समय निगरानी और मौसम-इंडेक्स इंटीग्रेशन", "समुद्री-झींगा पालन तकनीक", "बर्फ़बारी नियंत्रण योजना", "केवल सांस्कृतिक कार्यक्रमों का आयोजन"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "वन-आग के पहले चरण में 'रिस्क मैपिंग' (risk mapping) में सबसे महत्वपूर्ण कौन-सा पैरामीटर शामिल होता है?", "options": ["वेजिटेशन टाइप (घास, झाड़ी, पेड़) और मौसम-शुष्कता", "नज़दीकी बैंक शाखा का स्थान", "विद्यालयों की संख्या", "वार्षिक पर्यटन आय"], "answer_index": 0, "explanation": "# व्याख्या — वन-आग रिस्क मैपिंग (पहला चरण): वेजिटेशन टाइप व मौसम‑शुष्कता\n- रिस्क मैपिंग के पहले चरण में सबसे महत्वपूर्ण पैरामीटर वेजिटेशन टाइप (घास, झाड़ी, पेड़) और मौसम‑शुष्कता होते हैं क्योंकि यही \"फ्यूल\" की उपलब्धता और जलने की प्रवृत्ति तय करते हैं।\n- वेजिटेशन टाइप से फ्यूल लोड (biomass), ऊँचाई‑विस्तार और फ्यूल की सततता (continuity) का आकलन होता है, जो आग की शुरुआत और फैलाव की सम्भावना निर्धारित करता है।\n- घास/घासलताएँ कम बायोमास पर तेज़ जलती हैं और सतह‑आग की तीव्र गति देती हैं; झाड़ियाँ मध्यम, और पेड़-आधारित कनोपी में आग की व्यवहारिता अलग (क्राउन/सीमा पर निर्भर) होती है — इसलिए टैक्सोनॉमी आवश्यक है।\n- मौसम‑शुष्कता में मुख्य रूप से फ्यूल मॉइस्चर (live + dead fuel moisture), वार्षिक व मौसमी वर्षा‑घटाव, और सूखे की अवधि (antecedent dryness) शामिल होते हैं; ये सीधे दहनयोग्यता और संवेदनशील अवधि बताते हैं।\n- सूखे का मात्रात्मक आकलन के लिए indices जैसे Keetch‑Byram Drought Index (KBDI) और फ्यूल मॉइस्चर प्रतिशत प्रयोग किये जाते हैं; रिस्क मैपिंग में इन्हें थ्रेशहोल्ड के रूप में रखा जाता है।\n- वेजिटेशन टाइप व मॉइस्चरचर डेटा सैटेलाइट (NDVI, fuel type maps) और ग्राउंड‑सैंपलिंग से प्राप्त कर GIS पर लेयर के रूप में जोड़ा जाता है — यही बेस लेयर प्राथमिक जोखिम जोंनिंग देता है।\n- मौसम‑शुष्कता में तत्कालिक माप (तापमान, सापेक्ष आद्रता, पवन) और पूर्ववर्ती सूखापन दोनों महत्वपूर्ण; तत्कालिक सूखा तेज़ आग‑फैलाव की सूचना देता है जबकि पूर्ववर्ती सूखा फ्यूल तैयार करता है।\n- MP जैसे समशीतोष्ण/उष्णकटिबंधीय क्षेत्र में मौसमी पातझड़, कृषि अवशेष और घास का सीजनल चक्र रिस्क मैप की सिजनैलिटी निर्देशित करता है — अत: वेजिटेशन टाइप के साथ मौसमी सूखा सूचना अनिवार्य है।\n- प्राथमिक रिस्क मैप से सामरिक निर्णय सीधे प्रभावित होते हैं: प्राथमिक सुरक्षा जोन, प्राथमिक निगरानी‑स्थल, और अग्रिम ग्रामीण/वनबासी जागरूकता अभियान की प्लानिंग।\n- फ्यूल मॉइस्चर रीडिंग्स में 10–30% के बीच के परिवर्तन से आग के व्यवहार में निर्णायक अंतर आता है; इसलिए मैपिंग में सटीक मॉइस्चर डेटा का समन्वय अनिवार्य है।\n- वेजिटेशन टाइप + मौसम‑शुष्कता के संयुक्त लेयर से स्थानीय प्राथमिकता (high‑risk pockets) उभरते हैं, जिन्हें आग रोकथाम व प्रारम्भिक प्रतिक्रिया (prepositioning of resources) के लिए प्राथमिकता दी जाती है।\n- संक्षेप में: पहले चरण की रिस्क मैपिंग में वेजिटेशन टाइप यह बताता है \"क्या जलेगा\" और मौसम‑शुष्कता बताती है \"कब/कितना आसानी से जलेगा\" — यही कारण है कि दोनों मैपिंग के सबसे महत्वपूर्ण पैरामीटर हैं।", "priority_tag": "HIGH"}, {"question": "मध्य प्रदेश जैसे राज्यों में वन-आग नियंत्रण के लिए कलेक्टर/ज़िला प्रशासन का क्या प्रमुख योगदान होता है?", "options": ["समन्वय, संसाधन मुहैया कराना और आपातकालीन सहायता तैनात करना", "केवल वन विभाग को नोटिस भेजना और बित्वक करना", "अनधिकारिक व्यापार को बढ़ावा देना", "शुष्क मौसम में कोई कदम न उठाना"], "answer_index": 0, "explanation": "# व्याख्या: कलेक्टर/ज़िला प्रशासन का वन-आग नियंत्रण में प्रमुख योगदान\n**मुख्य अवधारणा:** समन्वय, संसाधन मुहैया कराना और आपातकालीन सहायता तैनात करना\n- कलेक्टर जिला स्तर पर आपदा प्रबंधन की कार्यकारी प्रमुख होते हैं और Disaster Management Act के प्रावधानों के अनुरूप समन्वय के लिए उत्तरदायी होते हैं।\n- वे जिला आपदा प्रबंधन प्राधिकरण (DDMA) के माध्यम से वन विभाग, राजस्व, पुलिस, फायर सर्विस, स्वास्थ्य और स्थानीय निकायों को त्वरित समन्वय प्रदान करते हैं।\n- जरूरत पड़ने पर कलेक्टर एसडीआरएफ/राज्य-दस्ते, फायर ब्रिगेड और पुलिस बलों की तैनाती का निर्देश देते हैं और स्थानीय संसाधनों को समेकित करते हैं।\n- कलेक्टर जिला स्तरीय आपातकालीन कंट्रोल रूम स्थापित करते हैं, सूचना-संचार (hotline, GIS/आईटी डेटा) का समन्वय करते हुए फ्लाइट/वायु संसाधनों की मांग केंद्र/राज्य से समन्वित करते हैं।\n- वे राज्य/राष्ट्रीय कोष (जैसे SDRF) और जिला आपात निधि का प्रावधान/स्वीकृति कराकर तत्काल खरीद या किराये पर मशीनरी (जैसे जल टैंकर, कटिंग मशीन) सुनिश्चित कराते हैं।\n- कलेक्टर जरूरतमंद क्षेत्रों में आबादी का सुरक्षित स्थानान्तरण, राहत शिविरों की स्थापना और स्वास्थ्य-आपात सेवाओं की उपलब्धता (संबंधित टीमों, प्राथमिक उपचार) सुनिश्चित करते हैं।\n- वे वन-आग के बाद क्षति का त्वरित सर्वे कराकर राज्य/केंद्र को रिपोर्ट, मुआवजा व पुनर्वास अनुरोध और भूतपूर्व-प्रवर्तनात्मक उपायों हेतु फंडिंग का प्रस्ताव भेजते हैं।\n- कलेक्टर स्थानीय प्रशासन के माध्यम से निवासियों, वन-मालिकों और ग्राम पंचायतों को आग रोकने के लिए निगरानी, जागरूकता, फायर लाइन बनवाने और नियंत्रित दहन जैसे निवारक कदमों का निर्देश व अनुपालन कराते हैं।\n- संकट के दौरान कलेक्टर लॉ एण्ड ऑर्डर बनाए रखने, अनधिकृत गतिविधियों पर पाबंदी और आवश्यक नियंत्रण आदेश जारी कर सार्वजनिक सुरक्षा बनाए रखते हैं।\n- दीर्घकालिक दृष्टि में कलेक्टर जिला-स्तरीय वन-आग तैयारी योजनाओं (जैसे इंटर्वेंशन प्लान, प्रशिक्षण व मॉक ड्रिल, संसाधन मैपिंग) को विकसित कर उनके नियमित अभ्यास और समीक्षा का प्रबंधन करते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग के बाद पारिस्थितिकी के पुनरुद्धार में कौन-सा कदम सबसे प्रथमिक माना जाता है?", "options": ["री-हैबिटेशन एवं नेटिव प्रजातियों का पुनरोर्वेशन", "वन को स्थायी रूप से कृषि के लिए खोलना", "अधिक उद्योग लगाने की अनुमति देना", "जैविक विविधता पर कोई ध्यान न देना"], "answer_index": 0, "explanation": "# **व्याख्या — री-हैबिटेशन एवं नेटिव प्रजातियों का पुनरोर्वेशन (वन-आग के बाद, MP के संदर्भ में)**\n1. री-हैबिटेशन का प्राथमिक उद्देश्य जलवायु, मिट्टी और स्थानीय पारिस्थितिकी के अनुरूप नेटिव (स्थानीय) पौधों का पुनर्स्थापन है ताकि जैव विविधता और पारिस्थितिक कार्यक्षमताएँ जल्द लौटें।\n2. प्रारंभिक कदम साइट-आकलन है: आग की तीव्रता, मिट्टी का कटाव/जलधारिता, नाइट्रोजन/कार्बन की स्थिति तथा बचे हुए आधारभूत जीन संसाधनों का सर्वेक्षण।\n3. नेटिव प्रजातियों के चुनाव में स्थानीय जैव-भौगोलिक जोन, ऐतिहासिक वन संरचना और मौसमी जल उपलब्धता को प्राथमिकता दी जाती है—MP के शुष्क तथा आर्द्र क्षेत्रों के अनुरूप भिन्न प्रजातियाँ चुनी जाती हैं।\n4. प्राथमिक रोकथाम के बाद ‘असिस्टेड नेचुरल रीजेनेरेशन (ANR)’ को प्राथमिकता दें: जहां संभव हो प्राकृतिक पुनरुद्धार को सहायक बनाकर स्थानीय नर्सरी से मात्र आवश्यक पौधे जोड़े जाते हैं।\n5. बीज/पौधा स्रोत स्थानीय या प्रमाणीकरण वाले जीन बैंक से होना चाहिए; बाहरी/कल्चर-फिट नॉन-नेटिव स्रोत से पौधे लगाने पर स्थानीय अनुकूलन और रोग-प्रवणता का जोखिम बढ़ता है।\n6. मिट्टी संरक्षण और कटाव रोकने के लिए कंटूर बाँध, मल्चिंग, बायो-एन्जीनियरिंग और अस्थायी निरोधक बायरियर लगाना आवश्यक है, ताकि युवा पौधों की जड़ें विकसित हों।\n7. पोस्ट-रिस्टोरेशन मॉनिटरिंग के स्पष्ट संकेतक रखें: जीवमंडलीय कवर %, एन्नुअल प्रजाति सफलता दर, पौधों की जीवित रहने की दर, तथा मृदा कार्बन/नाइट्रोजन में परिवर्तन।\n8. आंचलिक समुदायों और वन अधिकारों वाले लाभार्थियों को शामिल कर पुनरोर्वेशन कार्यक्रम में पारंपरिक ज्ञान, नर्सरी प्रबंधन और आग-रोकथाम जिम्मेदारियाँ सौंपें—स्थिरता और निगरानी बढ़ती है।\n9. आग के बाद इनवेसिव स्पीशीज़ का तेजी से नियंत्रण करें; नेटिव युवा पौधों की प्रतिस्पर्धा कम होने से पुनर्स्थापन अधिक सफल होता है।\n10. जल-स्थापना (water harvesting) उपाय जैसे टेरीसिंग, छोटे जल-धारण संरचनाएँ और गहरे मिट्टी में नमी बढ़ाने के कदम युवा पौधों के प्रत्यक्ष समर्थन के लिए जरूरी हैं।\n11. पुनरोर्वेशन योजनाएँ चरणबद्ध (short-, medium-, long-term) और वैज्ञानिक रूप से समयबद्ध होनी चाहिए—प्रारम्भिक स्थिरीकरण, द्वितीयक सुकून-चरण और दीर्घकालिक वन संरचना व कार्यक्षमता बहाल करना।\n12. नीति-समन्वय और फंडिंग हेतु स्थानीय व राज्य स्तरीय वन विभाग, कृषि/जल संरक्षण योजनाओं तथा ग्रामीण विकास कार्यक्रमों से तालमेल आवश्यक है ताकि निरंतर देखभाल, निगरानी और कानूनी सुरक्षा सुनिश्चित रहे।", "priority_tag": "HIGH"}, {"question": "किस संगठन/एजेंसी के सहयोग से भारत में राज्य-स्तर पर वन-आग अलर्ट और निगरानी के तकनीकी डेटा का वितरण सामान्यतः किया जाता है?", "options": ["Forest Survey of India (FSI) द्वारा उपग्रह-आधारित सूचनाएँ", "ऑल इंडिया रेडियोग्राफिक सर्वेक्षण", "राष्ट्रीय खेल आयोग", "केंद्रीय कर कार्यालय"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "वन-आग जोखिम घटाने में 'जल स्रोत प्रबंधन' का क्या सीधा योगदान होता है?", "options": ["फायरफाइटिंग के लिए पानी उपलब्ध कराना और स्थानीय नमी बढ़ाना", "वन में अधिक औद्योगिक अपशिष्ट डालना", "जंगलों में जीवों की संख्या घटाना", "समुद्री इकोसिस्टम प्रभावित करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "वन-आग से जुड़ी सूचनाओं के लिए मोबाइल-आधारित स्थानीय रिपोर्टिंग व्यवस्था लागू करने का मुख्य लाभ क्या है?", "options": ["तुरंत स्थानिक सूचनाएँ मिलना और त्वरित प्रतिक्रिया सक्षम होना", "सिर्फ़ सामाजिक मीडिया पर चर्चा बढ़ना", "स्थानीय समुदायों के काम करने की क्षमता घटाना", "अधिकारियों के बीच रिपोर्ट साझा न करना"], "answer_index": 0, "explanation": "# व्याख्या — मोबाइल-आधारित स्थानीय रिपोर्टिंग का मुख्य लाभ: तुरंत स्थानिक सूचनाएँ मिलना और त्वरित प्रतिक्रिया सक्षम होना\n- **तुरंत स्थानिक जानकारी:** मोबाइल रिपोर्टिंग से आग की घटना का GPS-आधारित स्थान तत्काल मिल जाता है, जिससे वास्तविक घटना स्थल की सटीक पहचान संभव होती है।\n- **रीयल-टाइम सूचना प्रेषण:** फोटो, वीडियो और लाइव लोकेशन तुरंत फॉरवर्ड होते हैं, जिससे नियंत्रण कक्ष को देर न करते हुए निर्णय लेने में मदद मिलती है।\n- **पहचान से कार्रवाई तक समय कम होता है:** प्रारंभिक रिपोर्टिंग और अलर्टिंग के कारण डिटेक्शन से प्रतिक्रिया (detection-to-action) का समय घटता है, जो आग रोकने में निर्णायक है।\n- **हॉटस्पॉट मैपिंग व प्राथमिकता निर्धारण:** बहु-स्तरीय मोबाइल इनपुट एकत्र कर GIS पर तत्काल हॉटस्पॉट मैप बनाकर संसाधन (फायर टीम, पानी, उपकरण) प्राथमिकता के अनुसार भेजे जा सकते हैं।\n- **स्थानीय समुदाय की भागीदारी:** स्थानीय उपयोगकर्ता तुरंत रिपोर्ट कर के पहले कुछ मिनटों में ही घटना की जानकारी दे सकते हैं, जिससे शुरुआती लगाम-पकड़ सम्भव होती है।\n- **कमान-संघर्ष और समन्वय तेज़:** रियल-टाइम रिपोर्टिंग से वन विभाग, आपदा प्रबंधन, जिला नियंत्रण कक्ष एवं अग्निशमन दल के बीच त्वरित समन्वय सम्भव होता है।\n- **मोबाइल-आधारित फीडबैक लूप:** भेजी गई रिपोर्ट पर नियंत्रण कक्ष से निर्देश व पुष्टि तुरंत मोबाइल के जरिए लौटाई जा सकती है, जिससे फील्ड कर्मियों के क्रियान्वयन में तेजी आती है।\n- **स्रोत आवंटन में प्रभावी निर्णय:** आग की वास्तविक स्थिति एवं विस्तार के तत्काल आंकड़ों पर आधारित संसाधन आवंटन लागत एवं समय दोनों की बचत करता है।\n- **पूर्वानुमान एवं तत्काल चेतावनी के लिए डेटा:** लगातार मोबाइल रिपोर्टिंग से आग के व्यवहार और प्रवृत्तियों का तात्कालिक डेटासेट बनता है, जो अगले घंटों/दिनों के जोखिम मूल्यांकन में काम आता है।\n- **लोकल रेस्पांस कैपेसिटी का सुदृढ़ीकरण:** मोबाइल-रिपोर्टिंग पर प्रशिक्षित स्थानीय निगरानीकर्ता/स्वयंसेवक तेज उत्तरदायी प्राथमिक गतिविधियाँ (पहला प्रयास, मार्गदर्शन) कर सकते हैं।\n- **रीयल-टाइम लॉग व उत्तर-प्रभाव आकलन:** घटनाक्रम के समय-टैम्प सहित मोबाइल रिकॉर्ड बाद में प्रतिक्रिया की प्रभावशीलता और नीतिगत सुधार के लिए उपयोगी होते हैं।\n- **इंटरऑपरेबिलिटी व स्केलेबिलिटी:** मोबाइल-आधारित सिस्टम का GIS, मौसम डेटा और राज्य/जिला नियंत्रण प्रणालियों के साथ समेकन तात्कालिक और व्यापक प्रतिक्रिया को सुगम बनाता है।", "priority_tag": "HIGH"}, {"question": "किसी राज्य में वन-आग तैयारी में 'प्रारम्भिक मानक संचालन प्रक्रिया' (SOP) का उद्देश्य क्या होता है?", "options": ["एकीकृत, समयबद्ध और स्पष्ट कार्रवाई प्रोटोकॉल सुनिश्चित करना", "प्रत्येक अधिकारी का काम हटाना", "सिर्फ़ कागजी कार्रवाई को बढ़ावा देना", "वनों को वाणिज्यिक उपयोग के लिए खोलना"], "answer_index": 0, "explanation": "# व्याख्या — प्रारम्भिक मानक संचालन प्रक्रिया (SOP) का उद्देश्य (वन-आग तैयारी में)\n**मुख्य अवधारणा:** एकीकृत, समयबद्ध और स्पष्ट कार्रवाई प्रोटोकॉल सुनिश्चित करना\n- SOP का मूल उद्देश्य घटनास्थल पर कौन-कौन और किस क्रम में कदम उठाएँगे, यह पूर्वनिर्धारित और स्पष्ट कर देना है जिससे समय पर कार्रवाई सुनिश्चित हो।\n- SOP में कार्रवाई के ट्रिगर (जैसे आग की सूचना, सतह/हवा की स्थिति, अलार्म स्तर) स्पष्ट किए जाते हैं ताकि निर्णय लेने में विलंब न हो।\n- SOP विभिन्न एजेंसियों (वन विभाग, आपदा प्रबंधन, फोरस्ट फायर ब्रिगेड, स्थानीय प्रशासन, स्वास्थ्य सेवाएँ) के बीच एकीकृत कार्यप्रणाली और उत्तरदायित्व बाँटता है।\n- SOP में संवाद और सूचना-प्रवाह का स्पष्ट तंत्र (हॉटलाइन, रेडियो चैनल, मोबाइल अलर्ट, कंट्रोल रूम प्रोटोकॉल) दर्ज रहता है जिससे सूचना-संशोधन में त्रुटि कम हो।\n- संसाधन तैनाती के मानक—कौन से संसाधन कब और कैसे तैनात होंगे (फायर-टैन्डर, उपकरण, स्थानिक जवान, हवाई सहायता)—SOP में समयबद्ध रूप से परिभाषित होते हैं।\n- SOP आपातकालीन कमांड संरचना (Incident Command System या समकक्ष) और नेतृत्व बदलाव के नियम तय करता है ताकि जिम्मेदारियाँ और निर्णय-धाराएँ स्पष्ट रहें।\n- SOP प्रशिक्षण, ड्रिल और क्षमता निर्माण का कैलेंडर निर्धारित करता है ताकि सभी स्टेकहोल्डर एक ही प्रक्रिया के अनुरूप कार्य करने के लिए नियमित रूप से अभ्यास कर सकें।\n- SOP रिकॉर्ड-कीपिंग, घटना दस्तावेज़ीकरण और बाद की समीक्षा/ऑडिट के मानक स्थापित करता है ताकि प्रतिक्रिया की प्रभावशीलता मापी और सुधारी जा सके।\n- SOP में सुरक्षा मानक और कर्मचारी सुरक्षा प्रोटोकॉल (व्यक्तिगत सुरक्षात्मक उपकरण, राहत/स्वास्थ्य-चेक) शामिल किए जाते हैं ताकि निष्पादन के दौरान मानव जीवन की रक्षा सुनिश्चित हो।\n- SOP स्थानीय भौगोलिक और मौसमी जोखिमों के अनुसार अनुकूलन योग्य निर्देश देती है (जैसे MP में ज्वलनशील मौसम अवधि पर सक्रिय स्केल-अप प्रोसीजर) ताकि प्रासंगिकता बनी रहे।\n- SOP कानूनी, वित्तीय और प्रबंधन संबंधी व्यवस्थाओं (अनुमतियाँ, बजट रिलीज़, मुआवजा प्रक्रिया) को स्पष्ट करती है ताकि निर्णयात्मक रोकटोक न हो।\n- SOP समुदाय सहभागिता और स्थानीय चेतावनी-प्रणाली को परिभाषित करती है जिससे त्वरित स्थानीय प्रतिक्रिया और बचाव-सहयोग सम्भव हो।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग तैयारी के सन्दर्भ में 'प्री-मॉनसून क्लियरेंस' और 'ट्रेंड मॉनिटरिंग' क्यों जरूरी होते हैं?", "options": ["ताकि आग का जोखिम कम करने के लिए गतिविधियाँ मौसम के आगमन से पहले पूरी कर सकें", "सिर्फ़ कागजी विवरण भरने के लिए", "मॉनसून के बाद सभी जंगलों को बेचने के लिए", "स्थानीय समुदायों को हटाने के लिए"], "answer_index": 0, "explanation": "# व्याख्या — प्री‑मॉनसून क्लियरेंस और ट्रेंड मॉनिटरिंग की आवश्यकता (वन‑आग तैयारी, MP)\n- प्री‑मॉनसून क्लियरेंस का मुख्य उद्देश्य है मॉनसून आने से पहले जमीनी ईंधन (सूखी पत्तियाँ, झाड़ियाँ, बचे हुए कटाव) हटाकर आग फैलने की संभावना कम करना।\n- मॉनसून से पहले साफ़-सफाई एवं ईंधन प्रबंधन कर लेने पर नॉन‑स्टॉफ फायर सीज़न में आग की तीव्रता और दायरा घटता है, जिससे त्वरित नियंत्रण संभव होता है।\n- ट्रेंड मॉनिटरिंग (पिछले वर्षों का आग‑रुझान, मौसम पैटर्न, तापन घटनाएँ) से उच्च‑जोखिम क्षेत्रों की पहचान कर प्राथमिकता आधारित क्लियरेंस योजना बनती है।\n- पूर्व‑मॉनसून कार्रवाई से रिमोट‑सेंसिंग और फील्ड सर्वे द्वारा चिन्हित 'हॉटस्पॉट' पर पहले से संसाधन (फायर ब्रेक, पानी स्रोत, फायर पाथ) स्थापित किये जा सकते हैं।\n- मॉनसून से पूर्व किये गए कार्यों से फायर फाइटिंग टीमों का प्रशिक्षण, उपकरण तैनाती और सामुदायिक जागरूकता‑प्रोग्राम समय पर सम्पन्न हो पाते हैं।\n- ट्रेंड मॉनिटरिंग से मौसम के आगमन के समय तक बचे हुए गतिविधियों की समयबद्धता सुनिश्चित होती है; इससे संसाधनों का अलॉटमेंट प्रभावी बनता है।\n- प्री‑मॉनसून क्लियरेंस से न केवल वन आग का प्रारम्भिक जोखिम घटता है, बल्कि मृदा अपरदन और पानी के अवक्षेपण पर भी सकारात्मक प्रभाव होता है, जो मानसून के दौरान लाभदायी है।\n- मध्यप्रदेश के विविध पारिस्थितिक और कृषि‑परिसरों में ट्रेंड डेटा आधारित स्थानिक प्राथमिकता तय कर स्थानीय अधिकारियों को तेज निर्णय लेने में सहूलियत मिलती है।\n- समय पर क्लियरेंस और मॉनिटरिंग से वनों/प्यारावारण की बहाली‑कार्य (post‑fire restoration) की आवश्यकता कम होती है और बजट का संरक्षण होता है।\n- प्री‑मॉनसून तैयारी तथा निरन्तर ट्रेंड मॉनिटरिंग से मानक संचालन प्रक्रियाएँ (SOP) कार्यान्वित रहती हैं, जिससे आपातकालीन प्रतिक्रिया‑समय घटता और नियंत्रण की सफलता दर बढ़ती है।", "priority_tag": "HIGH"}, {"question": "वन-आग के संबंध में 'समुदाय-आधारित क्षेत्र निगरानी' (community-based monitoring) का प्रमुख लाभ क्या है?", "options": ["स्थानीय जानकारी में वृद्धि और तेज प्रतिक्रिया, जिससे नुकसान घटता है", "केवल वैज्ञानिक अनुसंधान का लाभ", "वनमालिकों को नुकसान पहुँचाना", "देशी प्रजातियों का शिकार बढ़ाना"], "answer_index": 0, "explanation": "# व्याख्या — वन-आग में \"समुदाय‑आधारित क्षेत्र निगरानी\" का प्रमुख लाभ\n**सही उत्तर सार:** स्थानीय जानकारी में वृद्धि और तेज प्रतिक्रिया, जिससे नुकसान घटता है।\n- समुदाय‑आधारित क्षेत्र निगरानी स्थानीय निवासियों, वनरक्षकों और ग्रामीण स्वयंसेवी समूहों द्वारा आग के त्वरित पहचान और सूचना प्रवाह को सक्षम बनाती है।\n- स्थानीय लोग आग की शुरुआत के संकेत (धुंआ, सुगंध, धूमकेतु का रंग, हवा की दिशा में परिवर्तन) को अधिक जल्दी और सटीकता से पहचानते हैं, जिससे शुरुआती चेतावनी संभव होती है।\n- शीघ्र पहचान से सूचना चैनलों (फोन/SMS/वाट्सऐप/स्थानीय रेडियो) द्वारा आग की रिपोर्टिंग में समय कम लगता है; प्रारम्भिक कार्रवाई (water dousing, fire line बनाना) जल्दी शुरू होती है।\n- तेज प्रतिक्रिया के कारण आग के फैलने का दायरा सीमित रहता है — घनत्व, बायोमैस और भौगोलिक बाधाओं के अनुरूप स्थानीय उपाय तुरंत लागू किए जा सकते हैं।\n- समुदाय‑निगरानी स्थानीय संसाधनों (हाथ से काम करने वाले, स्थानीय पानी के स्रोत, प्राथमिक औजार) को त्वरित रूप से व्यवस्थित करवा कर शुरुआती क्षति घटाती है।\n- स्थानीय सहभागिता से सतत निगरानी बनती है — आग के उच्च जोखिम अवधि में नियमित पेट्रोलिंग और जोखिम-क्षेत्रों की सूची अपडेट रहती है, जिससे रोकथाम प्रभावी होती है।\n- समुदाय का ज्ञान स्थलिय मौसम, पात-पतझड़ का पैटर्न और वनस्पति प्रकार पर आधारित होता है; यह जोखिम मानचित्रण और प्रायरिटी क्षेत्र निर्धारण में तेज और प्रासंगिक सूचना देता है।\n- स्थानीय समुदायों के समावेश से चेतावनी स्वीकार्यता और सहयोग बढ़ता है; इससे राहत/निवारण ऑपरेशनों में बाधा कम रहती है और बचाव‑कार्य तेज होते हैं।\n- लागत‑प्रभावशीलता: सरकारी टेलीमेट्री या ड्रोन निर्भरता कम होकर, स्थानीय निगरानी पारंपरिक संसाधनों से सस्ती और व्यापक बनी रहती है।\n- स्थानीय निगरानी से डेटा का स्थानिक विस्तार बढ़ता है — छोटे जल स्रोतों, पगडंडियों और निजी भूमि के नज़दीकी जोखिम का ज्ञान उपलब्ध होता है, जो बड़े पैमाने के तकनीकी उपकरणों से छूट सकता है।\n- दीर्घकालिक लाभ: समुदायों में क्षमता निर्माण (फायरवॉच प्रशिक्षण, प्राथमिक उपाय) से भविष्य में जोखिम घटता है और पुनरावृत्ति की संभावना कम होती है।\n- एमपी के लिए विशेष प्रासंगिकता: घने जंगलों और ग्रामीण फैलाव वाले क्षेत्रों में सामुदायिक निगरानी स्थानीय संस्थाओं (पंचायत/वन समितियाँ) को आग‑प्रबंधन में त्वरित प्राथमिकता देती है, जिससे प्रदेशीय नुकसान कम होता है।\n- मैनस GS में उपयोग हेतु सीधे बिंदु: \"समुदाय‑आधारित निगरानी → शीघ्र सूचना + त्वरित स्थानीय कार्रवाई → आग का फैलाव घटता है → वन और स्थानीय अर्थव्यवस्था का नुकसान कम होता है\" — इसे नीतिगत सुझाव के रूप में भी सारांशित किया जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "वन-आग की रोकथाम के लिये मध्य प्रदेश में स्थानीय लोगों को संविदात्मक तौर पर नियुक्त करने की नीति का प्राथमिक उद्देश्य क्या है?", "options": ["स्थानीय निगरानी और शीघ्र हस्तक्षेप क्षमता को मजबूत करना", "स्थानीय अर्थव्यवस्था को सीमित करना", "वन विभाग की जवाबदेही घटाना", "वनों में औद्योगिक गतिविधि बढ़ाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "वन-आग के जोखिम में कमी हेतु पूर्व चेतावनी प्रणाली बनाते समय मौसम-सम्बंधित किस सूचकांक का समावेश विशेष रूप से उपयोगी माना जाता है?", "options": ["ड्रीनेस/वेटनेस इंडेक्स और प्वाइंट-वाइज़ बैलेंस (मौसम सूचकांक)", "स्टॉक मार्केट इंडेक्स", "राष्ट्रीय जीडीपी ग्रोथ रेट", "किताबों की प्रकाशन संख्या"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

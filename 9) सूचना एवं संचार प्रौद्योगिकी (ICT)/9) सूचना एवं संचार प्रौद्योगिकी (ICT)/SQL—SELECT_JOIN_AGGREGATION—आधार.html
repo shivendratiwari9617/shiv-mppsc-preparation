@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U9-009 – SQL—SELECT/JOIN/AGGREGATION—आधार</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U9-009 – SQL—SELECT/JOIN/AGGREGATION—आधार</h1>
+        <div class="note">क्षेत्र: DB | सामग्री: क्वेरी लॉजिक—एग्जाम MCQ बेसिक्स। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 09-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+**SQL—SELECT/JOIN/AGGREGATION—आधार** पर यह उत्तर SQL के मूल क्वेरी-लॉजिक और उसका प्रशासनिक व व्यवहारिक उपयोग-मूल्य परीक्षा-दृष्टि से स्पष्ट करेगा। SQL relational databases के लिए मानक क्वेरी भाषा है (ANSI SQL के ऐतिहासिक मानक: SQL‑92 एक महत्वपूर्ण माइलस्टोन रहा), और यह Digital India जैसे राष्ट्रीय ई‑गवर्नेंस पहलों और राज्य‑स्तरीय एप्लिकेशन्स (जैसे e‑District/MP‑Online प्रकार के पोर्टल) में डेटा‑एक्सेस एवं रिपोर्टिंग के मूलाधार हैं — इसलिए MPPSC GS और टीओपीर‑लेवल mains तैयारी के लिए यह विषय अत्यधिक प्रासंगिक है।
+
+# अवधारणा एवं विकास
+SELECT क्लॉज़ डेटा retrieval के लिए मूल वाक्यरचना है; इसमें projection (किसे दिखाना), filtering (WHERE), grouping (GROUP BY) और ordering (ORDER BY) शामिल हैं। JOINs relational मॉडल में सम्बन्धों को अमल में लाने का माध्यम हैं — प्रमुख प्रकार INNER JOIN, LEFT/RIGHT OUTER JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian product) और SELF JOIN हैं; प्रत्येक का व्यवहार NULL‑और‑non‑matching rows पर अलग होता है। Aggregation functions जैसे COUNT, SUM, AVG, MIN, MAX क्वांटिटेटिव सारांश निकालते हैं; GROUP BY के साथ HAVING क्लॉज़ aggregation पर predicate लागू करने के लिए उपयोगी है। NCERT/इन्फो‑टेक्स्ट व मानक ICT पुस्तकों के आधार पर यह बेसिक विभाजन MCQ तथा mains‑level conceptual questions के लिए high‑yield हैं।
+
+# तकनीकी कार्यप्रणाली (How it works)
+SQL क्वेरी का execution सामान्यतः parsing → logical plan → optimizer → physical plan → execution के चरणों से होता है; optimizer इंडेक्स (B‑Tree, Hash) और join‑algorithm (nested loop, hash join, sort‑merge) चुनता है। WHERE क्लॉज़ row‑level filtering पर पहले लागू होती है; GROUP BY aggregation के लिए rows समूहित करता है और HAVING उसके बाद समूहों पर filter करता है — अतः WHERE में aggregation functions सीधे नहीं लगते, यह MCQ/short‑answer traps में अक्सर पूछा जाता है। JOIN में मिसिंग ON‑कंडीशन से Cartesian product बनता है, जो performance और correctness दोनों पर असर डालता है; यह नॉलेज DBMS internals और query‑optimization को समझने में महत्वपूर्ण है।
+
+# प्रमुख अनुप्रयोग और सरकारी संदर्भ
+SQL‑आधारित aggregation और joins का इस्तेमाल सरकारी MIS, वित्तीय रिपोर्टिंग, जनसांख्यिकीय एनालिटिक्स, e‑Health रजिस्ट्रियों और UIDAI/Aadhaar के बैक‑एंड प्रक्रियाओं में होता है; UIDAI की बॉयोमेट्रिक वालिडेशन और डी‑डुप्लिकेशन में रिलेशनल डेटाबेस और क्वेरी‑लॉजिक का अहम रोल है। Digital India (लॉन्च 2015) व MeitY के विभिन्न मिशन‑मोड प्रोजेक्ट्स में RDBMS (Oracle, PostgreSQL, MySQL इत्यादि) और SQL‑based ETL pipelines का उपयोग सरकारी पोर्टल्स पर रिपोर्टिंग और interoperable data sharing के लिए होता है। राज्य‑स्तरीय उदाहरण के रूप में, MP‑Online/eDistrict जैसी प्रणालियाँ बैक‑एंड में SQL queries पर निर्भर करते हुए citizen services का consolidated dashboard देती हैं; इसलिए joins और aggregates का सही प्रयोग न केवल रिपोर्टिंग को प्रभावी बनाता है बल्कि नीतिगत निर्णयों के लिए भी विश्वसनीय डेटा तैयार करता है।
+
+# क्वेरी‑लॉजिक—MCQ‑फोकस (high‑yield exam points)
+मूलभूत MCQ‑ट्रैप्स जिन्हें हर टॉपर जानता है: WHERE vs HAVING क्रम; SELECT में GROUP BY के बिना non‑aggregated कॉलम का प्रयोग SQL‑92 में सामान्यतः disallowed; NULL का व्यवहार—NULL तुलना हमेशा UNKNOWN देती है, इसलिए IS NULL/IS NOT NULL का प्रयोग आवश्यक; COUNT(*) सभी rows गिनता है जबकि COUNT(column) NULLs को exclude करता है; DISTINCT और GROUP BY के interactions; JOIN predicates में condition की जगह पर होने से output बदल सकता है (ON vs WHERE differences in outer joins)। ऐसे micro‑facts परीक्षा में सीधा प्रश्न बना देते हैं और तेज़ निर्णय के लिए आवश्यक हैं।
+
+# प्रदर्शन (Performance) एवं प्रायोगिक सुझाव
+Indexes (B‑Tree, Hash), partitioning और materialized views aggregation‑heavy workloads में latency घटाते हैं; बड़े joins के लिए appropriate join algorithm और statistics‑based optimizer महत्वपूर्ण है। Query execution plan (EXPLAIN/EXPLAIN ANALYZE) का उपयोग करके costly sequential scans और large sorts पहचाने जा सकते हैं। राष्ट्रिय स्तर पर MeitY और CERT‑In के दिशानिर्देश data‑protection और secure configuration के लिए भी recommend करते हैं — उदाहरण के लिए encryption at rest और access control लागू करना, ताकि SQL injection तथा unauthorized data access से बचा जा सके। राज्य सरकारों के लिए यह सुझाव उपयोगी है: heavy reporting workloads के लिए OLAP cubes/columnar stores के साथ relational layer को integrate करें।
+
+# जोखिम, चुनौती एवं नैतिक/नियामकीय मुद्दे
+SQL‑लेवल mistakes से डेटा inconsistency तथा privacy breaches हो सकते हैं; उदाहरण स्वरूप improper joins data duplication या undercounting कर सकते हैं, जिससे नीति निर्णय प्रभावित होंगे। SQL injection एक प्रमुख सुरक्षा खतरा है — parameterized queries और least‑privilege DB users से mitigation संभव है; MeitY और CERT‑In सुरक्षा बेस्ट‑प्रैक्टिस recommend करते हैं। डेटा‑गवर्नेंस के कानूनी पहलू (जैसे नागरिकों के व्यक्तिगत डेटा की सुरक्षा) के लिए राष्ट्रीय नीतियाँ और sectoral regulations लागू होने चाहिए; UIDAI जैसी संस्थाओं के अनुभव से यह स्पष्ट है कि डेटा‑अधिकार और audit trails जरूरी हैं।
+
+# सुझाव एवं way‑forward (प्रायोगिक नीतिगत इम्प्लीकेशन्स)
+शिक्षा‑प्रवर्तन: सरकारी तथा राज्य स्तर पर डेटा‑प्रशासनिक प्रशिक्षण में SQL logical constructs (SELECT/JOINS/AGGREGATION) पर केंद्रित modules शामिल करें; यह MPPSC जैसी परीक्षाओं के दृष्टि से भी उपयोगी होगा। टेक्निकल अपनाने: सरकारी dashboards के लिए pre‑aggregated views, indexed materialized summaries और cached APIs अपनाये जाएं ताकि citizen‑facing services real‑time और scalable रहें। नीति एवं सुरक्षा: MeitY की दिशा अनुसार encryption, role‑based access control और regular audits अनिवार्य करें; साथ ही query‑level logging से accountability बढ़ेगी। शोध एवं नवप्रवर्तन: बड़े‑डेटा पर relational‑to‑analytical pipelines (e.g., PostgreSQL + columnar extensions या OLAP engines) को प्रोत्साहित करें ताकि joins और aggregates बड़े datasets पर कुशलतापूर्वक चलें।
+
+# निष्कर्ष
+SELECT, JOIN और AGGREGATION SQL के ऐसे मूल घटक हैं जिनकी स्पष्ट समझ न सिर्फ़ परिक्षा‑उपयोगी (MCQ तथा mains) है बल्कि वास्तविक सरकारी डेटाबेस प्रबंधन और नीति‑निर्धारण के लिए अनिवार्य भी है। तकनीकी कुशलता (query optimization, indexing), सुरक्षा‑निर्देशों का अनुपालन (MeitY/CERT‑In बेस्ट‑प्रैक्टिस) और राज्य‑स्तरीय कार्यान्वयन (e‑Governance पोर्टल्स पर scalable aggregation) मिलकर यह सुनिश्चित करते हैं कि डेटा‑आधारित निर्णय सटीक, सुरक्षित और समयोचित हो। दीर्घकाल में SQL के सिद्धान्तों का ठोस ज्ञान और उनके व्यवहारिक अनुवाद से प्रशासनिक पारदर्शिता और सेवा‑डिलीवरी में सुधार संभव है।
+
+स्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय
+स्रोत 2: Arihant / Lucent – &quot;Objective Computer Awareness&quot; या समकक्ष ICT पुस्तक
+स्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT (कक्षा 6–12: विज्ञान, कम्प्यूटर विज्ञान/आईटी, सूचना प्रौद्योगिकी/इन्फॉरमैटिक्स प्रैक्टिसेस के ICT अध्याय); NIELIT/DOEACC official study material (O/A/B level के प्रासंगिक ICT modules); भारत सरकार के आधिकारिक पोर्टल: MeitY, Digital India, CERT-In, NIC, UIDAI, RBI (digital payments), TRAI/DoT (telecom), e-Governance और साइबर सुरक्षा से जुड़े guidelines; MP Government के ICT/e-Governance पोर्टल, MPOnline, State Data Centre/स्वान से जुड़ी आधिकारिक जानकारी; Books: Arihant – 'Objective Computer Awareness', Lucent – 'Computer', Kiran/अन्य standard 'Computer & ICT' MCQ पुस्तकों; Drishti IAS / Vision IAS / अन्य प्रतिष्ठित कोचिंग के GS-III / Science & Tech / ICT class notes (विशेष MPPSC-focused संस्करण); PIB releases, India Year Book के 'Communication & IT/Information Technology' अध्याय</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U9-009 – SQL—SELECT/JOIN/AGGREGATION—आधार", "coverage_note": "क्षेत्र: DB | सामग्री: क्वेरी लॉजिक—एग्जाम MCQ बेसिक्स। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n**SQL—SELECT/JOIN/AGGREGATION—आधार** पर यह उत्तर SQL के मूल क्वेरी-लॉजिक और उसका प्रशासनिक व व्यवहारिक उपयोग-मूल्य परीक्षा-दृष्टि से स्पष्ट करेगा। SQL relational databases के लिए मानक क्वेरी भाषा है (ANSI SQL के ऐतिहासिक मानक: SQL‑92 एक महत्वपूर्ण माइलस्टोन रहा), और यह Digital India जैसे राष्ट्रीय ई‑गवर्नेंस पहलों और राज्य‑स्तरीय एप्लिकेशन्स (जैसे e‑District/MP‑Online प्रकार के पोर्टल) में डेटा‑एक्सेस एवं रिपोर्टिंग के मूलाधार हैं — इसलिए MPPSC GS और टीओपीर‑लेवल mains तैयारी के लिए यह विषय अत्यधिक प्रासंगिक है।\n\n# अवधारणा एवं विकास\nSELECT क्लॉज़ डेटा retrieval के लिए मूल वाक्यरचना है; इसमें projection (किसे दिखाना), filtering (WHERE), grouping (GROUP BY) और ordering (ORDER BY) शामिल हैं। JOINs relational मॉडल में सम्बन्धों को अमल में लाने का माध्यम हैं — प्रमुख प्रकार INNER JOIN, LEFT/RIGHT OUTER JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian product) और SELF JOIN हैं; प्रत्येक का व्यवहार NULL‑और‑non‑matching rows पर अलग होता है। Aggregation functions जैसे COUNT, SUM, AVG, MIN, MAX क्वांटिटेटिव सारांश निकालते हैं; GROUP BY के साथ HAVING क्लॉज़ aggregation पर predicate लागू करने के लिए उपयोगी है। NCERT/इन्फो‑टेक्स्ट व मानक ICT पुस्तकों के आधार पर यह बेसिक विभाजन MCQ तथा mains‑level conceptual questions के लिए high‑yield हैं।\n\n# तकनीकी कार्यप्रणाली (How it works)\nSQL क्वेरी का execution सामान्यतः parsing → logical plan → optimizer → physical plan → execution के चरणों से होता है; optimizer इंडेक्स (B‑Tree, Hash) और join‑algorithm (nested loop, hash join, sort‑merge) चुनता है। WHERE क्लॉज़ row‑level filtering पर पहले लागू होती है; GROUP BY aggregation के लिए rows समूहित करता है और HAVING उसके बाद समूहों पर filter करता है — अतः WHERE में aggregation functions सीधे नहीं लगते, यह MCQ/short‑answer traps में अक्सर पूछा जाता है। JOIN में मिसिंग ON‑कंडीशन से Cartesian product बनता है, जो performance और correctness दोनों पर असर डालता है; यह नॉलेज DBMS internals और query‑optimization को समझने में महत्वपूर्ण है।\n\n# प्रमुख अनुप्रयोग और सरकारी संदर्भ\nSQL‑आधारित aggregation और joins का इस्तेमाल सरकारी MIS, वित्तीय रिपोर्टिंग, जनसांख्यिकीय एनालिटिक्स, e‑Health रजिस्ट्रियों और UIDAI/Aadhaar के बैक‑एंड प्रक्रियाओं में होता है; UIDAI की बॉयोमेट्रिक वालिडेशन और डी‑डुप्लिकेशन में रिलेशनल डेटाबेस और क्वेरी‑लॉजिक का अहम रोल है। Digital India (लॉन्च 2015) व MeitY के विभिन्न मिशन‑मोड प्रोजेक्ट्स में RDBMS (Oracle, PostgreSQL, MySQL इत्यादि) और SQL‑based ETL pipelines का उपयोग सरकारी पोर्टल्स पर रिपोर्टिंग और interoperable data sharing के लिए होता है। राज्य‑स्तरीय उदाहरण के रूप में, MP‑Online/eDistrict जैसी प्रणालियाँ बैक‑एंड में SQL queries पर निर्भर करते हुए citizen services का consolidated dashboard देती हैं; इसलिए joins और aggregates का सही प्रयोग न केवल रिपोर्टिंग को प्रभावी बनाता है बल्कि नीतिगत निर्णयों के लिए भी विश्वसनीय डेटा तैयार करता है।\n\n# क्वेरी‑लॉजिक—MCQ‑फोकस (high‑yield exam points)\nमूलभूत MCQ‑ट्रैप्स जिन्हें हर टॉपर जानता है: WHERE vs HAVING क्रम; SELECT में GROUP BY के बिना non‑aggregated कॉलम का प्रयोग SQL‑92 में सामान्यतः disallowed; NULL का व्यवहार—NULL तुलना हमेशा UNKNOWN देती है, इसलिए IS NULL/IS NOT NULL का प्रयोग आवश्यक; COUNT(*) सभी rows गिनता है जबकि COUNT(column) NULLs को exclude करता है; DISTINCT और GROUP BY के interactions; JOIN predicates में condition की जगह पर होने से output बदल सकता है (ON vs WHERE differences in outer joins)। ऐसे micro‑facts परीक्षा में सीधा प्रश्न बना देते हैं और तेज़ निर्णय के लिए आवश्यक हैं।\n\n# प्रदर्शन (Performance) एवं प्रायोगिक सुझाव\nIndexes (B‑Tree, Hash), partitioning और materialized views aggregation‑heavy workloads में latency घटाते हैं; बड़े joins के लिए appropriate join algorithm और statistics‑based optimizer महत्वपूर्ण है। Query execution plan (EXPLAIN/EXPLAIN ANALYZE) का उपयोग करके costly sequential scans और large sorts पहचाने जा सकते हैं। राष्ट्रिय स्तर पर MeitY और CERT‑In के दिशानिर्देश data‑protection और secure configuration के लिए भी recommend करते हैं — उदाहरण के लिए encryption at rest और access control लागू करना, ताकि SQL injection तथा unauthorized data access से बचा जा सके। राज्य सरकारों के लिए यह सुझाव उपयोगी है: heavy reporting workloads के लिए OLAP cubes/columnar stores के साथ relational layer को integrate करें।\n\n# जोखिम, चुनौती एवं नैतिक/नियामकीय मुद्दे\nSQL‑लेवल mistakes से डेटा inconsistency तथा privacy breaches हो सकते हैं; उदाहरण स्वरूप improper joins data duplication या undercounting कर सकते हैं, जिससे नीति निर्णय प्रभावित होंगे। SQL injection एक प्रमुख सुरक्षा खतरा है — parameterized queries और least‑privilege DB users से mitigation संभव है; MeitY और CERT‑In सुरक्षा बेस्ट‑प्रैक्टिस recommend करते हैं। डेटा‑गवर्नेंस के कानूनी पहलू (जैसे नागरिकों के व्यक्तिगत डेटा की सुरक्षा) के लिए राष्ट्रीय नीतियाँ और sectoral regulations लागू होने चाहिए; UIDAI जैसी संस्थाओं के अनुभव से यह स्पष्ट है कि डेटा‑अधिकार और audit trails जरूरी हैं।\n\n# सुझाव एवं way‑forward (प्रायोगिक नीतिगत इम्प्लीकेशन्स)\nशिक्षा‑प्रवर्तन: सरकारी तथा राज्य स्तर पर डेटा‑प्रशासनिक प्रशिक्षण में SQL logical constructs (SELECT/JOINS/AGGREGATION) पर केंद्रित modules शामिल करें; यह MPPSC जैसी परीक्षाओं के दृष्टि से भी उपयोगी होगा। टेक्निकल अपनाने: सरकारी dashboards के लिए pre‑aggregated views, indexed materialized summaries और cached APIs अपनाये जाएं ताकि citizen‑facing services real‑time और scalable रहें। नीति एवं सुरक्षा: MeitY की दिशा अनुसार encryption, role‑based access control और regular audits अनिवार्य करें; साथ ही query‑level logging से accountability बढ़ेगी। शोध एवं नवप्रवर्तन: बड़े‑डेटा पर relational‑to‑analytical pipelines (e.g., PostgreSQL + columnar extensions या OLAP engines) को प्रोत्साहित करें ताकि joins और aggregates बड़े datasets पर कुशलतापूर्वक चलें।\n\n# निष्कर्ष\nSELECT, JOIN और AGGREGATION SQL के ऐसे मूल घटक हैं जिनकी स्पष्ट समझ न सिर्फ़ परिक्षा‑उपयोगी (MCQ तथा mains) है बल्कि वास्तविक सरकारी डेटाबेस प्रबंधन और नीति‑निर्धारण के लिए अनिवार्य भी है। तकनीकी कुशलता (query optimization, indexing), सुरक्षा‑निर्देशों का अनुपालन (MeitY/CERT‑In बेस्ट‑प्रैक्टिस) और राज्य‑स्तरीय कार्यान्वयन (e‑Governance पोर्टल्स पर scalable aggregation) मिलकर यह सुनिश्चित करते हैं कि डेटा‑आधारित निर्णय सटीक, सुरक्षित और समयोचित हो। दीर्घकाल में SQL के सिद्धान्तों का ठोस ज्ञान और उनके व्यवहारिक अनुवाद से प्रशासनिक पारदर्शिता और सेवा‑डिलीवरी में सुधार संभव है।\n\nस्रोत 1: NCERT (कक्षा 6–12) – विज्ञान/कम्प्यूटर विज्ञान/सूचना एवं संचार प्रौद्योगिकी के संबंधित अध्याय\nस्रोत 2: Arihant / Lucent – \"Objective Computer Awareness\" या समकक्ष ICT पुस्तक\nस्रोत 3: MeitY / Digital India – भारत सरकार का आधिकारिक ICT/e‑Governance पोर्टल", "mcqs": [{"question": "SQL में SELECT कथन का मुख्य कार्य क्या है?", "options": ["डाटाबेस से डेटा पुनःप्राप्त (retrieve) करना", "डाटाबेस में नई तालिका (table) बनाना", "तालिका से रिकॉर्ड हटाना (delete)", "डेटाबेस उपयोगकर्ता के अधिकार बदलना (grant/revoke)"], "answer_index": 0, "explanation": "# व्याख्या — SQL में SELECT कथन का मुख्य कार्य: डाटाबेस से डेटा पुनःप्राप्त (retrieve) करना\n- SELECT कथन का उद्देश्य डेटाबेस तालिकाओं (tables, views) से आवश्यक पंक्तियाँ (rows) और स्तम्भ (columns) निकालकर परिणाम सेट (result set) तैयार करना है।\n- यह केवल डेटा को पढ़ता/प्राप्त करता है; SELECT खुद डेटा को बदलने (INSERT/UPDATE/DELETE) का कार्य नहीं करता।\n- SELECT में स्तम्भों का चयन कर के प्रोजेक्शन किया जाता है — आवश्यक कॉलम नाम या '*' (सभी कॉलम) लिखकर आउटपुट नियंत्रित होता है।\n- पंक्तियों का फ़िल्टरिंग WHERE क्लॉज़ के माध्यम से होती है, जिससे केवल शर्तों से मेल खाने वाला डेटा पुनःप्राप्त होता है।\n- GROUP BY और агрегेट फ़ंक्शंस (SUM, COUNT, AVG, MAX, MIN) के साथ SELECT सारांश (summary/aggregation) तैयार कर सकता है।\n- HAVING क्लॉज़ का प्रयोग समूहों पर शर्तें लागू करने के लिए होता है — यह GROUP BY के साथ SELECT में उपयोगी है।\n- ORDER BY से SELECT के परिणाम को आवश्यक क्रम (ascending/descending) में व्यवस्थित किया जा सकता है, जिससे रिपोर्टिंग आसान होती है।\n- DISTINCT का उपयोग डुप्लिकेट मान हटाकर यूनिक रिकॉर्ड प्राप्त करने के लिए किया जाता है।\n- JOIN ऑपरेटरों के साथ SELECT कई तालिकाओं से संबंधित रिकॉर्ड मिलाकर संयोजित (combine) परिणाम लौटाता है — यह रिलेशनल डेटाबेस में संबंधों पर आधारित बहु-स्रोत पुनःप्राप्ति है।\n- SELECT INTO या INSERT ... SELECT का उपयोग करके SELECT द्वारा प्राप्त परिणाम को नई तालिका में संग्रहित भी किया जा सकता है (डेटा पुनःप्राप्त से डेरिवेटिव स्टोरेज तक)।\n- प्रदर्शन (performance) के दृष्टिकोण से SELECT पर इंडेक्स, उप-परीछेद (subqueries), और अनुशंसित प्रोजेक्शन का प्रभाव पड़ता है; अनावश्यक कॉलम/पंक्तियाँ रिक्वेस्ट करने से लागत बढ़ती है।\n- Mains के लिए सीधा बिंदु: \"SQL का SELECT कथन डेटा को पुनःप्राप्त करने के लिए प्रयोग होता है — आवश्यक कॉलम/पंक्तियों का चयन, फ़िल्टरिंग, समूहीकरण और क्रमबद्ध करने की क्षमताएँ प्रदान करता है।\"", "priority_tag": "VERY_HIGH"}, {"question": "SQL में NULL मान का अर्थ कौन सा है?", "options": ["शून्य (0) संख्या", "खाली स्ट्रिंग ('')", "अज्ञात अथवा अनुपस्थित मान", "डिफ़ॉल्ट मान"], "answer_index": 2, "explanation": "# व्याख्या: SQL में NULL मान = _अज्ञात अथवा अनुपस्थित मान_\n- **NULL का अर्थ:** किसी कॉलम में मान अज्ञात (unknown) या अनुपस्थित (missing) है — इसका मतलब यह नहीं कि वह शून्य (0) या खाली स्ट्रिंग ('') है।\n- **तुलना व्यवहार:** NULL के साथ सामान्य तुलना (=, <, >) किसी सत्य/असत्य परिणाम की बजाय _UNKNOWN_ (तीन-मान तर्क) देती है; इसलिए सीधे = NULL का उपयोग न करें।\n- **जाँच का सही तरीका:** NULL की जाँच के लिए SQL में `IS NULL` और `IS NOT NULL` का उपयोग किया जाता है।\n- **ऐरिथमेटिक प्रभाव:** किसी भी गणना में NULL शामिल होने पर परिणाम सामान्यतः NULL आता है (उदाहरण: 5 + NULL = NULL)।\n- **एग्रीगेट फंक्शन्स:** SUM, AVG, MAX, MIN आदि NULL मानों की अनदेखी करते हैं; जबकि `COUNT(column)` NULL को गिनती में शामिल नहीं करता, पर `COUNT(*)` सभी पंक्तियाँ गिनता है।\n- **GROUP BY व NULL:** GROUP BY में NULL मान एक ही समूह के रूप में माना जाता है — सभी NULL मान एक समूह बनाते हैं।\n- **JOIN पर प्रभाव:** JOIN की कुंजी में NULL होने पर समानता-आधारित जॉइन (INNER/LEFT आदि) में अपेक्षित मिलान नहीं होगा; NULL कुंजी सामान्य तुलना द्वारा मैच नहीं करती।\n- **WHERE क्लॉज पर प्रभाव:** WHERE में NULL से उत्पन्न UNKNOWN परिणाम उस पंक्ति को फ़िल्टर कर देगा (UNKNOWN को FALSE मानकर छोड़ दिया जाता है)।\n- **NULL को प्रतिस्थापित करना:** NULL वैल्यू को डिफ़ॉल्ट प्रणाली के रूप में बदलने के लिए `COALESCE(column, default)` या `IFNULL`/`NVL` जैसे फ़ंक्शन उपयोग किए जाते हैं।\n- **कंस्ट्रेंट्स से सम्बन्ध:** किसी कॉलम पर `NOT NULL` कंस्ट्रेंट लगाने पर NULL मान दर्ज नहीं हो पाएगा; `UNIQUE` कंस्ट्रेंट सामान्यतः NULL को विशेष व्यवहार देता है (SQL मानक में NULLs को एक-दूसरे से अलग माना जाता है)।\n- **इम्प्लिकेशन परीक्षा-निर्देश:** Mains उत्तर में NULL का अर्थ, तुलना-विधि (IS NULL), एग्रीगेट पर प्रभाव, और COALESCE/NOT NULL कंस्ट्रेंट जैसे बिंदु संक्षेप में रखें — MPPSC Prelims के लिए परीक्षा-केन्द्रित क्लियर कट फैक्ट के रूप में यही आवश्यक बिंदु हैं।", "priority_tag": "VERY_HIGH"}, {"question": "SQL में JOIN का उपयोग किस लिए किया जाता है?", "options": ["एक तालिका के सभी कॉलम हटाने के लिए", "दो या अधिक तालिकाओं के रिकॉर्डों को जोड़कर परिणाम प्रस्तुत करने के लिए", "एक तालिका का नाम बदलने के लिए", "तालिका में इंडेक्स हटाने के लिए"], "answer_index": 1, "explanation": "# व्याख्या: SQL में JOIN का उपयोग किस लिए किया जाता है?\n**सही उत्तर:** दो या अधिक तालिकाओं के रिकॉर्डों को जोड़कर परिणाम प्रस्तुत करने के लिए\n- JOIN का मूल उद्देश्य अलग-अलग तालिकाओं में संग्रहीत सम्बन्धित रिकॉर्डों को एकात्मक तरीके से दिखाना है, ताकि एक ही क्वेरी में संकेंद्रित जानकारी मिल सके।\n- JOIN निर्देश से हम सामान्यतः उन कॉलमों (जैसे primary key और foreign key) के आधार पर पंक्तियाँ मिलाते हैं जिनके बीच तारतम्य मौजूद होता है।\n- परिणाम सेट में हर पंक्ति मूल तालिकाओं के संबंधित कॉलमों के संयोजन से बनती है — यह एक समेकित व्यू देता है, न कि तालिकाओं का स्थायी विलय।\n- JOIN प्रयोग से डेटा को Normalization के लाभ रखते हुए विभाजित तालिकाओं से संबंधित जानकारी पुनः प्राप्त की जा सकती है।\n- सामान्य JOIN व्यवहार (INNER/LEFT/RIGHT/FULL) यह नियंत्रित करते हैं कि किन तालिकाओं की कौन‑सी पंक्तियाँ परिणाम में आएँ — परंतु सबका मूल उद्देश्य तालिका रिकॉर्ड जोड़ना ही है।\n- SQL सिंटैक्स का साधारण रूप: SELECT cols FROM TableA JOIN TableB ON TableA.key = TableB.key; — यह दो तालिकाओं के रिकॉर्ड जोड़कर संयुक्त परिणाम लौटाता है।\n- JOIN परिणाम पर फ़िल्टर, समूह‑बद्ध (GROUP BY) और संक्षेप (AGGREGATION) लागू कर के अधिक विश्लेषणात्मक जानकारी प्राप्त की जा सकती है।\n- बहु‑तालिका JOIN (multiple joins) से किसी एक प्रमाण‑केंद्र (entity) से जुड़ी कई संबंधित तालिकाओं के रिकॉर्ड एक ही परिणाम पंक्ति में समायोजित किए जा सकते हैं।\n- JOIN का उपयोग रिपोर्टिंग, रिपोर्ट‑जेनरेशन, और मैनुअल रूप से जुड़े डेटा के विश्लेषण के लिए किया जाता है जहाँ तालिका‑आधारित सम्बन्धों का प्रस्तुतीकरण आवश्यक हो।\n- प्रदर्शन (performance) के संदर्भ में सही कॉलम पर इंडेक्स एवं उपयुक्त JOIN प्रकार चुनना आवश्यक है, क्योंकि JOIN बड़ी तालिकाओं पर महँगा हो सकता है; पर इसका उद्देश्य रिकॉर्डों को लॉजिकल रूप से जोड़कर उपयोगी परिणाम देना ही है।", "priority_tag": "VERY_HIGH"}, {"question": "INNER JOIN का व्यवहार किस प्रकार है?", "options": ["दोनों तालिकाओं के सभी रेकॉर्ड लौटाता है चाहे मिलान हो या न हो", "केवल वे रेकॉर्ड लौटाता है जहाँ दोनों तालिकाओं में मेल खाने वाली शर्तें मौजूद हों", "दायीं तालिका के सभी रेकॉर्ड और बायीं तालिका के मिलते हुए रेकॉर्ड लौटाता है", "बायाँ तालिका के सभी रेकॉर्ड और दायीं तालिका के मिलते हुए रेकॉर्ड लौटाता है"], "answer_index": 1, "explanation": "# Vyakhya — INNER JOIN का व्यवहार (MPPSC Prelims 2026 हेतु)\n- INNER JOIN केवल उन रिकॉर्ड्स (rows) को लौटाता है जिनमें दोनों तालिकाओं की JOIN शर्तें (ON/USING) के अनुसार मेल मौजूद होता है।\n- यदि किसी पंक्ति के लिए JOIN कंडीशन दोनों तालिकाओं के कॉलमों में बराबरी (match) नहीं होती, तो वह पंक्ति परिणाम में नहीं आती।\n- INNER JOIN Cartesian product को फ़िल्टर करके केवल matched pairs देता है — पहले सभी संभव युग्म बनते हैं, फिर ON शर्त लागू हो कर अनमिल वाले हट जाते हैं।\n- JOIN शर्त सामान्यतः समानता (equi-join) होती है, पर INNER JOIN किसी भी बोलियन शर्त (>, <, !=, आदि) के साथ काम कर सकता है; शर्त के सच्चे (true) होने पर ही रेकॉर्ड शामिल होते हैं।\n- यदि किसी तालिका के JOIN कॉलम में NULL हो तो उन NULL के साथ सामान्य समानता मिलान (col = col) विफल रहती है; इसलिए NULL वाले rows आमतौर पर INNER JOIN के परिणाम में नहीं आते।\n- एक से अधिक तालिकाओं पर chained INNER JOIN लगाने पर सिर्फ वे रिकॉर्ड्स रहेंगे जो सभी तालिकाओं की संबंधित JOIN शर्तें पूरी करते हैं (logical AND)।\n- INNER JOIN के परिणाम में दोनों तालिकाओं के कॉलम उपस्थित हो सकते हैं; कॉलम नाम संघर्ष होने पर table_alias.column का उपयोग आवश्यक है।\n- GROUP BY/AGGREGATION के साथ INNER JOIN का उपयोग करते समय पहले JOIN द्वारा चुने गए रिकॉर्ड पर aggregation बनेगी — unmatched rows aggregation में शामिल नहीं होंगे।\n- INNER JOIN का प्रदर्शन (performance) JOIN शर्त, इंडेक्सिंग और तालिका आकार पर निर्भर करता है; समानता पर आधारित JOIN में इंडेक्स होने से तेज़ी आती है।\n- SQL सिंटैक्स का सामान्य स्वरूप: SELECT a.*, b.* FROM tableA a INNER JOIN tableB b ON a.key = b.key; — यह केवल matching key वाले row-pairs लौटायेगा।\n- INNER JOIN का व्यवहार निर्धारित और पूर्वानुमेय है: परिणाम में केवल वही combinations आएँगे जिनकी JOIN शर्त पूरी हुई हो — यह multi-table relational integrity के लिए उपयोगी है।", "priority_tag": "VERY_HIGH"}, {"question": "LEFT JOIN (या LEFT OUTER JOIN) किसे लौटाता है?", "options": ["सिर्फ दोनों तालिकाओं के मेल खाते हुए रिकॉर्ड", "बाएँ तालिका के सभी रिकॉर्ड और दाएँ तालिका के मेल खाते रिकॉर्ड", "दाएँ तालिका के सभी रिकॉर्ड और बाएँ तालिका के मेल खाते रिकॉर्ड", "दोनों तालिकाओं के सभी रिकॉर्ड बिना किसी मिलान के"], "answer_index": 1, "explanation": "# LEFT JOIN (LEFT OUTER JOIN) — विस्तृत व्याख्या (MPPSC Prelims 2026 फ़ोकस)\n**प्रश्न:** LEFT JOIN (या LEFT OUTER JOIN) किसे लौटाता है?\n**सही उत्तर संक्षेप:** बाएँ तालिका के सभी रिकॉर्ड और दाएँ तालिका के मेल खाते रिकॉर्ड\n1. LEFT JOIN दो तालिकाओं के बीच एक प्रकार का OUTER JOIN है जो बाएँ (left) तालिका के सभी पंक्तियों को परिणाम में बनाए रखता है।\n2. यदि बाएँ तालिका की किसी पंक्ति के लिए दाएँ तालिका में मेल (matching) रिकॉर्ड मिले तो दोनों तालिकाओं के संबंधित कॉलमों के मान साथ दिखते हैं।\n3. यदि दाएँ तालिका में मेल नहीं मिलता है तो भी बाएँ तालिका की वह पंक्ति परिणाम में रहती है और दाएँ तालिका के संबंधित कॉलमों में NULL मान भर दिए जाते हैं।\n4. SELECT वाक्य में LEFT JOIN लिखने पर JOIN शर्त (обычно ON शर्त) के अनुसार मिलान होता है; मिलान न होने पर भी बाएँ तालिका की पंक्ति खोती नहीं है।\n5. सिंटैक्स का सामान्य रूप: SELECT <cols> FROM left_table LEFT JOIN right_table ON <condition>; यह दर्शाता है कि left_table को पूर्ण रूप से शामिल किया गया है।\n6. LEFT JOIN का उपयोग तब किया जाता है जब हमें एक प्राथमिक तालिका (master) की सभी प्रविष्टियाँ चाहिए तथा संबंधित तालिका से उपलब्ध अतिरिक्त जानकारी चाहिए, भले ही वह जानकारी अनुपलब्ध हो।\n7. परिणाम सेट की पंक्तियों की संख्या न्यूनतम रूप से बाएँ तालिका की पंक्तियों के बराबर होती है; किसी भी मेलदार दाएँ रिकॉर्ड से अतिरिक्त पंक्ति जुड़ सकती है (जब एक-बहुत संबंध हो)।\n8. SQL में NULL-भरी फ़ील्ड की उपस्थिति का ध्यान रखें: दाएँ तालिका के अभाव में NULL चेक और COALESCE/IFNULL जैसी फ़ंक्शन अक्सर उपयोगी होते हैं।\n9. प्रदर्शन के दृष्टिकोण से, LEFT JOIN बड़ी तालिकाओं पर होने पर उचित इंडेक्सिंग (JOIN कॉलम पर) से क्वेरी तेज़ होती है; अन्यथा पूर्ण स्कैन अधिक महंगा पड़ सकता है।\n10. MPpsc Mains/GS उत्तर में बिंदुवार उपयोग: LEFT JOIN के प्रयोग का उद्देश्य बताकर और उदाहरण-रूप में कहें — \\\"प्राथमिक तालिका के सभी रिकॉर्ड और संबंधित तालिका के मेल खाते रिकॉर्ड (अनुपस्थित पर NULL)\\\" — ताकि प्रश्न का सीधा संदर्भ स्पष्ट रहे।", "priority_tag": "VERY_HIGH"}, {"question": "SQL में GROUP BY का प्राथमिक उपयोग क्या है?", "options": ["क्वेरी के परिणाम को क्रमबद्ध (order) करने के लिए", "रोजगार (joins) में प्रदर्शन सुधारने के लिए", "डेटा को किसी या अधिक कॉलम के आधार पर समूहित कर aggregation लागू करने के लिए", "तालिका के स्वरूप (schema) को बदलने के लिए"], "answer_index": 2, "explanation": "# **व्याख्या — SQL में GROUP BY का प्राथमिक उपयोग क्या है?**\n**सही उत्तर:** डेटा को किसी या अधिक कॉलम के आधार पर समूहित कर aggregation लागू करने के लिए\n- GROUP BY का मूल उद्देश्य तालिका की पंक्तियों को निर्दिष्ट कॉलम(ओं) के समान मानों के आधार पर समूहित करना है ताकि प्रत्येक समूह पर aggregate फ़ंक्शन लागू किया जा सके।\n- सामान्य रूप से GROUP BY के साथ उपयोग होने वाले aggregate फ़ंक्शन हैं: COUNT(), SUM(), AVG(), MIN(), MAX(), और STDDEV/VARIANCE (DBMS पर निर्भर)।\n- SELECT सूची में गैर-aggregated कॉलम तभी शामिल किए जा सकते हैं जब वे GROUP BY क्लॉज़ में दिए गए हों या किसी aggregate फ़ंक्शन में आवृत्त हों (SQL стандар्ड का नियम)।\n- GROUP BY अनेक कॉलम ले सकता है; उस स्थिति में समूह उन कॉलमों के संयोजन (tuple) के समान मानों वाली पंक्तियों से बनेगा।\n- GROUP BY NULL मानों को एक समूह के रूप में स्वीकार करता है; एक ही कॉलम में NULL वाली सभी पंक्तियाँ एक ही समूह मानी जाती हैं।\n- HAVING क्लॉज़ का उपयोग GROUP BY के बाद समूहों पर शर्त लगाने के लिए किया जाता है (WHERE समूहों पर नहीं लागू होता), जैसे GROUP में COUNT()>1 आदि।\n- GROUP BY के साथ ORDER BY भी प्रयुक्त किया जा सकता है; ORDER BY में समूह के aggregate या GROUP BY में शामिल कॉलमों का संदर्भ लिया जा सकता है।\n- प्रदर्शन-संदर्भ: बड़े डेटा पर GROUP BY महंगी ऑपरेशन हो सकती है; इंडेक्सिंग, पार्टिशनिंग, या पूर्व-संग्रहीत सारांश तालिकाएँ (materialized views) प्रदर्शन सुधार सकती हैं।\n- GROUP BY expressions पर भी काम करता है — कॉलम के स्थान पर किसी गणना या फंक्शन (जैसे DATE(transaction_date)) देकर समय-आधारित समूह बनाए जा सकते हैं।\n- MPPSC Prelims/Quick Revision के लिए संक्षेप: “GROUP BY = कॉलमों के आधार पर रो का समूह → प्रत्येक समूह पर SUM/COUNT/AVG जैसे aggregate लागू” — यह मूल परीक्षा-स्तरीय पहचान है।\n- Mains GS के उत्तर हेतु सीधे बिंदु (DB संदर्भ): GROUP BY से डैशबोर्ड, रिपोर्टिंग और नीतिगत सारांश जैसे “जिलेवार कर संग्रह” या “विभागवार अनुरोधों की संख्या” जैसी सारांश सूचनाएँ निकाली जा सकती हैं; सामूहिक (aggregated) निर्णयों के लिये यही मुख्य यांत्रिक विधि है।", "priority_tag": "VERY_HIGH"}, {"question": "SQL में HAVING क्लॉज़ किसलिए प्रयोग होता है?", "options": ["GROUP BY के बिना aggregate शर्तों के लिए", "GROUP BY द्वारा बनाए गए समूहों पर शर्त लगाने के लिए", "ORDER BY में शर्त लगाने के लिए", "SELECT में कॉलम छुपाने के लिए"], "answer_index": 1, "explanation": "# व्याख्या: SQL में HAVING क्लॉज़ किसलिए प्रयोग होता है?\n**सही अवधारणा:** GROUP BY द्वारा बनाए गए समूहों पर शर्त लगाने के लिए\n- HAVING का उपयोग उन शर्तों को लागू करने के लिए होता है जो समूह (group) स्तर पर लागू हों, अर्थात् GROUP BY के बाद प्राप्त रिकार्ड-समूहों को फ़िल्टर करने के लिए।\n- HAVING फ़िल्टरिंग के समय सम्पूर्ण समूह के एग्रीगेटेड मान (जैसे SUM, COUNT, AVG, MAX, MIN) का प्रयोग कर सकता है; इसलिए यह समूह-स्तरीय शर्तों के लिए अनिवार्य है।\n- सामान्यतः WHERE क्लॉज़ पंक्तियों पर शर्त लगाता है जबकि HAVING समूहों पर लागू होता है; इसलिए एग्रीगेटेड परिणामों को सीमित करने के लिए HAVING चाहिए।\n- HAVING क्लॉज़ में सीधे एग्रीगेट फंक्शन का उपयोग संभव है, जैसे: `HAVING COUNT(*) > 5` या `HAVING SUM(salary) > 100000`।\n- HAVING को GROUP BY के बिना भी प्रयोग किया जा सकता है; तब पूरा result एक समूह मानकर एग्रीगेटेड शर्त लगाई जाती है (एकल-समूह फ़िल्टर)।\n- HAVING में उपयोग किए गए कॉलम या एक्सप्रेशन को अक्सर SELECT या GROUP BY में दिए गए एलीअस/कॉलम से संबद्ध किया जाता है; कुछ SQL डायलैक्ट्स में एलीअस सीधे HAVING में इस्तेमाल किए जा सकते हैं।\n- HAVING क्लॉज़ की स्थिति सामान्यतः GROUP BY के बाद और ORDER BY से पहले होती है: `SELECT ... FROM ... GROUP BY ... HAVING ... ORDER BY ...`।\n- कार्यप्रणाली के दृष्टिकोण से HAVING परफॉर्मेंस पर असर कर सकती है क्योंकि सर्वप्रथम समूह बनाए जाते हैं और फिर उन समूहों पर शर्त लागू होती है; बड़े डेटासेट में पहले WHERE से रो (rows) घटाकर GROUP BY करना बेहतर होता है।\n- NULL मानों वाले कॉलम पर एग्रीगेशन और HAVING दोनों का व्यवहार डायलैक्ट पर निर्भर कर सकता है; इसलिए NULL हैंडलिंग (IS NULL/COALESCE) आवश्यक होने पर प्रयोग करें।\n- Mains के उत्तर में सीधे बिंदु के रूप में लिखने के लिए: \"HAVING — GROUP BY से बने समूहों पर शर्त लगाने के लिए उपयोग किया जाता है; यह एग्रीगेटेड मानों के आधार पर समूहों को फ़िल्टर करता है।\"\n- उदाहरण के रूप में संक्षेप में: `SELECT dept, SUM(salary) FROM emp GROUP BY dept HAVING SUM(salary) > 100000;` — यह केवल उन विभागों को लौटायेगा जिनकी कुल वेतन 100000 से अधिक है।\n- निष्कर्षात्मक नोट: जब आवश्यकता समूह-आधारित फ़िल्टर की हो (aggregate-based condition), तब HAVING ही उपयुक्त और आवश्यक क्लॉज़ है।", "priority_tag": "HIGH"}, {"question": "किस SQL aggregate फ़ंक्शन से NULL मानों को अनदेखा कर जोड़ (sum) किया जाता है?", "options": ["COUNT(*)", "SUM()", "AVG()", "MAX()"], "answer_index": 1, "explanation": "# SQL SUM() फ़ंक्शन — विस्तृत व्याख्या (MPPSC Prelims 2026 फ़ोकस)\n- **SUM() एक SQL aggregate (समाहिक) फ़ंक्शन है जो किसी कॉलम के मानों का कुल जोड़ (sum) लौटाता है।**\n- **SUM() NULL मानों को स्वतः अनदेखा (ignore) करता है; केवल non-NULL मानों का योग़ लिया जाता है।**\n- **यदि किसी समूह (GROUP BY) में सभी मान NULL हों तो SUM() NULL लौटाता है, न कि 0; इसलिए परिणाम की जाँच ज़रूरी है।**\n- **सिंटैक्स सामान्यतः: SELECT SUM(column_name) FROM table_name; तथा GROUP BY/HAVING के साथ भी उपयोग होता है।**\n- **टेबल में NULL और 0 का व्यवहार अलग है — NULL अनदेखा किया जाता है जबकि 0 योग़ में शामिल होता है; इसलिए रिपोर्टिंग में अंतर समझें।**\n- **यदि आप NULL को 0 मानकर योग़ चाहते हैं तो SUM(COALESCE(column_name,0)) या SUM(IFNULL(column_name,0)) का उपयोग करें।**\n- **SUM() केवल numeric डेटा टाइप्स (INT, DECIMAL, FLOAT आदि) पर अर्थपूर्ण है; गैर-न्यूमेरिक पर पहले कास्ट करना पड़ता है।**\n- **GROUP BY के साथ SUM() का उपयोग कर राज्य-स्तरीय या विभागीय (DB) रिपोर्ट्स में कुल लागत/राशि/मात्रा निकाली जाती है; HAVING में परिभाषित शर्त लगाने पर NULL समूहों का ध्यान रखें।**\n- **परफॉर्मेंस के लिए सुनिश्चित करें कि जिस कॉलम पर SUM() चलानी हो वह उचित इंडेक्स/डेटा टाइप में हो; बड़े डेटा में अग्रिम फ़िल्टरिंग से समय बचता है।**\n- **Mains उत्तर के लिए सीधे बिंदु: SUM() — aggregate, NULLs ignored, यदि सभी NULL हों तो NULL result, NULL→0 के लिए COALESCE का प्रयोग।**\n- **प्रायोगिक उदाहरण (एक लाइन का संदर्भ उत्तर में दे सकते हैं): SELECT SUM(amount) FROM payments; — यह amount के केवल non-NULL मानों का जोड़ देगा।**", "priority_tag": "HIGH"}, {"question": "COUNT(column_name) और COUNT(*) में मुख्य अंतर क्या है?", "options": ["COUNT(column_name) NULL मानों को गिनता है, COUNT(*) नहीं", "COUNT(*) केवल NULL मानों को गिनता है", "COUNT(column_name) केवल non-NULL मानों को गिनता है; COUNT(*) सभी पंक्तियाँ गिनता है", "दोनों में कोई फर्क नहीं, समान परिणाम देते हैं"], "answer_index": 2, "explanation": "# VYAKHYA — COUNT(column_name) बनाम COUNT(*) (MPPSC Prelims 2026 — DB)\n- **COUNT(column_name)** केवल उस निर्दिष्ट कॉलम में उपस्थित _non-NULL_ मानों की संख्या गिनता है; NULL मानों को यह शामिल नहीं करता।\n- **COUNT(*)** तालिका की हर पंक्ति को गिनता है, भले ही किसी भी कॉलम का मान NULL ही क्यों न हो; यह परतियों (rows) की कुल संख्या देता है।\n- यदि किसी पंक्ति में केवल वही कॉलम NULL है जिसे COUNT(column_name) माप रहा है, तो वह पंक्ति गिनी नहीं जाएगी, पर COUNT(*) द्वारा गिनी जाएगी।\n- COUNT(expression) का व्यवहार भी COUNT(column_name) के समान है: यह उस expression के परिणामों में non-NULL मानों को ही गिनता है।\n- COUNT(DISTINCT column_name) का उपयोग करते समय NULL मानों को भी शामिल नहीं किया जाता; केवल अलग-अलग non-NULL मान ही गिने जाते हैं।\n- COUNT(1) और COUNT(*) परिणामत: समान होते हैं क्योंकि दोनों प्रत्येक पंक्ति के लिए एक मानित मूल्य लौटाते हैं; पर व्याख्यात्मक दृष्टि से COUNT(*) सबसे स्पष्ट और मानक तरीका है।\n- GROUP BY के साथ COUNT(column_name) का अर्थ होता है: प्रत्येक समूह में उस कॉलम के non-NULL मानों की संख्या; इससे NULLs की अनुपस्थिति समूह-गणना पर असर डालती है।\n- JOINs के बाद COUNT(column_name) और COUNT(*) के परिणाम अलग हो सकते हैं—यदि join के कारण किसी कॉलम में NULLs या अतिरिक्त पंक्तियाँ आ रही हैं तो COUNT(*) जोड़े गए सभी rows गिनेगा, पर COUNT(column_name) सिर्फ non-NULL मान।\n- HAVING क्लॉज़ में COUNT(column_name) या COUNT(*) दोनों का उपयोग किया जा सकता है; पर WHERE क्लॉज़ पहले लागू होने के कारण NULL फिल्टरिंग का प्रभाव पहले ही पड़ चुका होता है।\n- परफॉर्मेंस के संदर्भ में आधुनिक RDBMS में COUNT(*) को विशेष रूप से अनुकूलित किया जाता है और यह सामान्यतः तेज़ रहता है; COUNT(column_name) को हर पंक्ति में उस कॉलम के NULL होने की जांच करनी पड़ती है।\n- प्रैक्टिकल नियम: कुल पंक्तियाँ चाहिए हों तो COUNT(*) प्रयोग करें; किसी विशेष कॉलम में वैध (non-NULL) एंट्री गिननी हों तो COUNT(column_name) ही सही विकल्प है।", "priority_tag": "HIGH"}, {"question": "SQL में DISTINCT का प्रयोग किसलिए किया जाता है?", "options": ["रिकॉर्डों को समूहित करने के लिए", "द्यवादान (duplicates) हटाकर केवल अलग-अलग मान लौटाने के लिए", "तालिका में नया कॉलम जोड़ने के लिए", "क्वेरी के प्रदर्शन को धीमा करने के लिए"], "answer_index": 1, "explanation": "# व्याख्या: SQL में DISTINCT — द्यवादान (duplicates) हटाकर केवल अलग-अलग मान लौटाने के लिए\n- SQL में DISTINCT क्लॉज़ का मुख्य उद्देश्य रिजल्ट सेट से duplicate रिकॉर्ड्स हटाना और केवल unique (अद्वितीय) मान लौटाना है।\n- DISTINCT को SELECT के तुरंत बाद लिखा जाता है: `SELECT DISTINCT column_name FROM table_name;` — यह उस कॉलम के सारी duplicate प्रविष्टियाँ एक बार में समाहित कर देता है।\n- यदि SELECT में एक से अधिक कॉलम दिए हों तो `DISTINCT` उन कॉलमों के समग्र संयोजन (tuple) पर लागू होता है — केवल वही पंक्तियाँ अलग मानी जाती हैं जिनके सभी निर्दिष्ट कॉलमों के मान भिन्न हों।\n- NULL मानों पर DISTINCT का व्यवहार: NULL को समानता के संदर्भ में अलग तरह से नहीं देखा जाता; सामान्यतः कई NULL मानों को एक ही unique मान माना जाता है और एक बार ही लौटाया जाएगा।\n- Aggregation के साथ उपयोग: `COUNT(DISTINCT column_name)` का उपयोग करके किसी कॉलम में कितने unique मान हैं, इसकी गिनती की जा सकती है — यह सामान्य `COUNT` से अलग है जो सभी पंक्तियों को गिनता है।\n- ORDER BY के साथ: DISTINCT के बाद ORDER BY लगाया जा सकता है; परिणाम पहले duplicates हटाकर फिर निर्दिष्ट क्रम में लौटाए जाते हैं—ORDER BY उन कॉलमों पर आधारित होना चाहिए जिन्हें SELECT में शामिल किया गया है या expression से मेल होना चाहिए।\n- प्रदर्शन/फॉर्मेटिंग: बड़े तालिकाओं में DISTINCT उपयोग करने पर सर्वर पर अतिरिक्त संसाधन लग सकते हैं क्योंकि UNIQUE मानों की पहचान के लिए sorting या hashing की आवश्यकता होती है; इंडेक्सिंग से प्रदर्शन सुधर सकता है।\n- उपयोग के सीमित उद्देश्य: DISTINCT केवल result-level पर duplicates हटाता है; यह तालिका के डेटा को बदलता या delete नहीं करता — स्थायी रूप से duplicate हटाने के लिए DELETE के साथ अलग रणनीति अपनानी होगी।\n- Mains में सीधे बिंदु के रूप में लिखने के लिए: \"DISTINCT — SELECT परिणाम से duplicate रिकॉर्ड हटाकर केवल अद्वितीय मान लौटाने का क्लॉज़; multi‑column पर संयोजन स्तर पर लागू; NULL को एक बार लौटाता है; COUNT(DISTINCT) से unique count मिलता है; बड़े डाटा पर sorting/hashing की वजह से प्रदर्शन प्रभावित हो सकता है।\"\n- प्रैक्टिकल उदाहरण (स्मृति संकेत): `SELECT DISTINCT city FROM citizens;` — सभी नागरिकों की तालिका से शहरों की अनूठी सूची देगी, जिससे रिपोर्टिंग और विश्लेषण में duplicate हट जाते हैं।", "priority_tag": "HIGH"}, {"question": "SQL में WHERE और HAVING के बीच मूलभूत अंतर क्या है?", "options": ["WHERE समूहों पर लागू होता है, HAVING पंक्तियों पर", "WHERE पंक्तियों पर शर्त लगाता है; HAVING समूहों (aggregates) पर शर्त लगाता है", "दोनों समान कार्य करते हैं और interchangeably उपयोग होते हैं", "WHERE केवल JOIN शर्तों के लिए होता है"], "answer_index": 1, "explanation": "# SQL — WHERE बनाम HAVING: परीक्षा-केन्द्रित व्याख्या (MPPSC Prelims 2026 के लिए)\n- WHERE क्लॉज पंक्तियों (rows) पर शर्त लागू करता है; यह टेबल के व्यंजित रिकॉर्ड्स को छाँटकर केवल वे पंक्तियाँ पास होने देता है जो शर्त पूरी करती हैं।\n- HAVING क्लॉज समूहों (groups) या aggregates पर शर्त लागू करता है; यह GROUP BY के द्वारा बने समूहों (या समूहीकृत परिणामों) को फ़िल्टर करता है।\n- निष्पादन क्रम: पहले FROM और WHERE लागू होते हैं (पंक्तियाँ फ़िल्टर होती हैं), उसके बाद GROUP BY और aggregate गणना होती है, और अंत में HAVING लागू होता है।\n- WHERE में aggregate फ़ंक्शंस (जैसे SUM, COUNT, AVG) सीधे नहीं प्रयोग किए जा सकते; ऐसे परिस्थितियों में HAVING का उपयोग आवश्यक है।\n- HAVING आमतौर पर GROUP BY के साथ उपयोग होता है ताकि प्रत्येक समूह पर aggregate शर्त (उदा. SUM(sales) > 10000) लगाई जा सके; कुछ SQL dialects में GROUP BY के बिना भी HAVING का प्रयोग संभव है जहाँ पूरा परिणाम एक समूह माना जाता है।\n- WHERE शर्तें इंडेक्स का लाभ उठा सकती हैं और इसलिए बड़े डेटा पर प्रदर्शन के लिए पहले WHERE से फ़िल्टर करना बेहतर होता है; HAVING आमतौर पर पहले समूह-गणना करने के बाद चलता है, अत: वह अधिक डेटा संसाधित कर सकता है।\n- व्यावहारिक उदाहरण:\n  ```sql\n  SELECT dept, SUM(salary) AS total\n  FROM employees\n  WHERE status = 'active'\n  GROUP BY dept\n  HAVING SUM(salary) > 100000;\n  ```\n  यहाँ WHERE पंक्तियों को सक्रिय कर्मचारी तक सीमित करता है; HAVING उन विभाग-समूहों को रखता है जिनका कुल वेतन शर्त पूरी करता है।\n- सिंटैक्स स्थान: WHERE FROM/JOIN के बाद और GROUP BY से पहले आता है; HAVING GROUP BY के बाद और ORDER BY से पहले लिखा जाता है।\n- उपयोग नीति-संदर्भ (exam-useful): जब शर्त पंक्ति-स्तर पर लागू हो (कॉलम वैल्यू पर), तब WHERE; जब शर्त समूह-स्तर या aggregate मान पर हो, तब HAVING याद रखें।\n- छोटी याददाश्त लाइन: \"WHERE = rows (पहले), HAVING = groups/aggregates (बाद में)।\"", "priority_tag": "VERY_HIGH"}, {"question": "किस JOIN प्रकार में दोनों तालिकाओं के गैर‑मेल खाने वाले रिकॉर्ड भी शामिल होते हैं?", "options": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL OUTER JOIN"], "answer_index": 3, "explanation": "# व्याख्या: FULL OUTER JOIN (MPPSC Prelims 2026 — SQL आधार)\n**सारांश:** FULL OUTER JOIN दोनों तालिकाओं के मेल खाने और गैर‑मेल खाने वाले सभी रिकॉर्ड एक साथ लौटाता है — जहाँ मेल नहीं होगा वहाँ NULL मान रिटर्न होता है।\n- परिभाषा: FULL OUTER JOIN वह JOIN है जो दोनों सम्मिलित तालिकाओं के सभी रिकॉर्ड लौटाता है — मेल खाने वाले रिकॉर्ड एक पंक्ति में मर्ज होते हैं, और जिन रिकॉर्डों का मेल नहीं मिलता उन पर दूसरी तालिका के कॉलमों में NULL आता है।\n- व्यवहार: यदि टेबल A के रेकॉर्ड का टेबल B में मेल नहीं मिलता तो वह रेकॉर्ड परिणाम में रहता है और B के संबंधित कॉलमों में NULL होता है; इसी तरह B के अनमेल रेकॉर्डों में A के कॉलमों में NULL रहता है।\n- सिंटैक्स (साधारण): SELECT A.col1, B.col2 FROM A FULL OUTER JOIN B ON A.key = B.key; (कई RDBMS में FULL JOIN भी लिखा जा सकता है)\n- NULL‑हैंडलिंग: परिणाम में NULL मानों के कारण COALESCE/ISNULL का उपयोग करके वैकल्पिक मान सेट करना सामान्य है, जैसे SELECT COALESCE(A.name, B.name) AS name …\n- उपयोग‑केस (DB/MP राज्य‑डेटा): रिकॉर्ड reconciliation, दो भिन्न स्रोतों (जैसे राज्य‑रजिस्टर और केंद्रीय रिकॉर्ड) के बीच पूर्ण मेल‑नमूना देखने के लिए उपयोगी — किसी भी स्रोत की अद्यतित/अनुपस्थित प्रविष्टि पता चलती है।\n- एस्पेक्ट्स‑ऑफ‑एमएक्स: FULL OUTER JOIN से प्राप्त परिणाम पर AGGREGATION (COUNT, SUM) करते समय NULL मानों को संभालना जरूरी है; COUNT(col) NULL को गिनेगा नहीं, पर COUNT(*) पूरे रेकॉर्ड की गिनती देगा।\n- प्रदर्शन: FULL OUTER JOIN अक्सर महँगा होता है क्योंकि यह दोनों तालिकाओं पर पूर्ण स्कैन/मर्ज आवश्यक कर सकता है; बड़े तालिकाओं पर इंडेक्स, पार्टिशन और उपयुक्त जोइन कंडीशन से परफॉरमेंस सुधारें।\n- जब तालिका‑कॉलम नाम समान हों: रिज़ल्ट में ambiguity रोकने के लिए कॉलम को qualified नाम (A.col, B.col) या alias का उपयोग करें।\n- परिणाम का आकार: परिणाम की पंक्तियाँ = (A के सभी रेकॉर्ड्स) ∪ (B के सभी रेकॉर्ड्स) — मेल वाले संयोजनों के लिए एकल पंक्ति, अनमेल वाले अलग‑अलग पंक्तियाँ।\n- व्यावहारिक सुझाव (Mains उत्तर‑लेखन में): FULL OUTER JOIN का प्रयोग और उसके प्रभाव (NULL‑प्रबंधन, प्रदर्शन, उपयोग‑केस जैसे reconciliation) को संक्षेप में बताकर SQL‑सम्बंधी प्रश्नों में नमूना कोड और एक वाक्य में real‑world application जोड़ें।", "priority_tag": "HIGH"}, {"question": "SQL में Cartesian product किस परिस्थिति में बनता है?", "options": ["जब JOIN शर्त (ON या USING) स्पष्ट रूप से दी जाए", "जब दो तालिकाओं को JOIN किए बिना comma से जोड़कर SELECT किया जाए या JOIN पर कोई शर्त न हो", "जब GROUP BY में अधिक कॉलम दिए जाएँ", "जब DISTINCT का प्रयोग हो"], "answer_index": 1, "explanation": "# **विषय: SQL में Cartesian Product — संक्षिप्त व्याख्या (MPPSC Prelims 2026 हेतु)**\n- Cartesian product तब बनता है जब दो या अधिक तालिकाओं को बिना किसी जोड़-शर्त (JOIN condition) के साथ चयनित किया जाए; परिणाम सभी संभावित जोड़ों (pairs) को व्यक्त करता है।\n- तकनीकी अर्थ में, यदि तालिका A में m पंक्तियाँ और तालिका B में n पंक्तियाँ हैं, तो Cartesian product के परिणाम में m × n पंक्तियाँ होंगी।\n- SQL में यह स्थिति तब भी बनती है जब FROM क्लॉज़ में तालिकाएँ comma (,) से जोड़ी जाएँ और WHERE में कोई उपयुक्त समकक्ष शर्त न दी गयी हो।\n- समान रूप से, JOIN लिखते समय यदि ON या USING जैसी कोई शर्त नहीं दी गयी या शर्त शून्य/अनुपस्थित है, तो भी Cartesian product उत्पन्न हो सकता है।\n- Cartesian product सामान्यतः अनचाहे परिणाम देता है और प्रदर्शन (performance) पर नकारात्मक प्रभाव डालता है क्योंकि रिकार्ड्स की संख्या बहुगुणा बढ़ जाती है।\n- Cartesian product का उपयोग जानबूझकर तब किया जा सकता है जब सभी संयोजनों की आवश्यकता हो (उदाहरण: संयोजन-आधारित गणनाएँ या परीक्षण डाटा जनरेशन)।\n- वास्तविक अनुप्रयोगों में Cartesian product से बचने के लिए स्पष्ट INNER/LEFT/RIGHT/OUTER JOIN के साथ उपयुक्त ON शर्तें देनी चाहिए।\n- SQL क्वेरी डिज़ाइन में Cartesian product की पहचान करने के संकेत: परिणामों की गिनती अपेक्षा से बहुत अधिक होना, और कॉलमों का संयोजन तार्किक सम्बन्ध न दिखाना।\n- Cartesian product को कंट्रोल करने के लिए WHERE क्लॉज़, ON शर्तों, या CROSS JOIN के स्थान पर उपयुक्त JOIN प्रकारों का प्रयोग करें; CROSS JOIN विशेष रूप से Cartesian product के उत्पन्न होने को स्पष्ट करता है।\n- Mains उत्तर में उल्लेखनीय बिंदु: परिभाषा, गणितीय आकार (m×n), कारण (कोई join condition नहीं), प्रभाव (डेटा-विस्टार व प्रदर्शन), तथा रोकने/उपयोग करने के व्यावहारिक उपाय संक्षेप में दिये जाएँ।", "priority_tag": "VERY_HIGH"}, {"question": "SQL में NATURAL JOIN क्या करता है?", "options": ["तारीख़ आधारित तालिकाओं को स्वचालित रूप से जोड़ता है", "दो तालिकाओं के समान नाम वाले कॉलमों के आधार पर स्वचालित मेल करके JOIN करता है", "सिर्फ पहली तालिका के सभी कॉलमों को रखता है", "JOIN करने से पहले तालिका का नाम बदल देता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "SQL में alias (AS) का उपयोग किसलिए किया जाता है?", "options": ["तालिका या कॉलम के अस्थायी नाम (alias) देने के लिए ताकि क्वेरी में सन्दर्भ सरल हो", "डेटाबेस का नाम बदलने के लिए", "तालिका का स्थायी नाम बदलने के लिए", "क्वेरी की execution plan बदलने के लिए"], "answer_index": 0, "explanation": "# SQL में alias (AS) — विस्तृत व्याख्या (MPPSC Prelims 2026 के लिए परीक्षा‑केंद्रित)\n- SQL alias का मुख्य उद्देश्य तालिका या कॉलम को क्वेरी के भीतर अस्थायी नाम (alias) देना है ताकि उस पर संदर्भ सरल और संक्षिप्त बने।\n- सिंटेक्स: कॉलम के लिए `SELECT column_name AS alias_name` या `SELECT column_name alias_name`; टेबल के लिए `FROM table_name AS t` या `FROM table_name t` — `AS` वैकल्पिक है।\n- Alias विशेष रूप से लंबी कॉलम/तालिका नामों को छोटा करने में उपयोगी होते हैं, जिससे JOIN और WHERE शर्तों में लिखने की स्पष्टता और गति बढ़ती है।\n- JOIN स्थितियों में alias से किसी भी तालिका के कॉलम को स्पष्ट रूप से चिन्हित करके ambiguity (एक से अधिक तालिकाओं में समान कॉलम नाम) दूर की जाती है।\n- गणनात्मक/संकलित कॉलम (जैसे `SUM(amount)` या `CONCAT(first_name, ' ', last_name)`) को alias देकर आउटपुट में उपयुक्त कॉलम हेडर और बाद की पंक्तियों में संदर्भ देना संभव होता है।\n- उपप्रश्नों (subqueries) और derived tables में alias अनिवार्य होता है — परिणामस्वरूप प्राप्त टेम्पररी टेबल को बाहरी क्वेरी में संदर्भित करने के लिए नाम देना जरूरी है।\n- Alias केवल उस SQL स्टेटमेंट के दायरे तक सीमित और अस्थायी होता है; यह डेटा स्कीमा में स्थायी नाम परिवर्तन नहीं करता।\n- कुछ SQL dialects में alias वाली कॉलम को उसी SELECT के WHERE क्लॉज़ में सीधे उपयोग नहीं किया जा सकता; ऐसे मामलों में HAVING/ORDER BY या एक बाहरी SELECT में alias उपयोगी होते हैं।\n- Reporting/मैन्युफैक्चरिंग जैसे व्यावहारिक परिदृश्यों में alias से रिपोर्ट हेडिंग्स साफ़ बनती हैं और Mains उत्तर में SQL उदाहरण में पठनीयता बढ़ती है।\n- परीक्षा‑केंद्रित रिविजन के लिए संक्षेप: alias = अस्थायी नाम (टेबुल/कॉलम), `AS` वैकल्पिक, JOINs/derived tables/aggregates में ज़रूरी/उपयोगी, क्वेरी पढ़ने‑लिखने में सरलता व ambiguity हटाना।\n```sql\n-- उदाहरण:\nSELECT e.emp_id AS id, CONCAT(e.first_name, ' ', e.last_name) AS name\nFROM employee e\nJOIN department d ON e.dept_id = d.id;\n```", "priority_tag": "HIGH"}, {"question": "Aggregate फ़ंक्शन MAX(column) का व्यवहार क्या है जब कॉलम में सभी मान NULL हों?", "options": ["0 लौटाता है", "NULL लौटाता है", "त्रुटि (error) देता है", "खाली स्ट्रिंग ('') लौटाता है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "SQL में ORDER BY के बाद NULL मानों का default स्थान क्या होता है (अधिकांश RDBMS में)?", "options": ["पहले आते हैं (NULLS FIRST)", "आखिर में आते हैं (NULLS LAST)", "RDBMS पर निर्भर करता है; fixed नहीं है", "NULL मानों को हटा देता है"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "SQL में UNION और UNION ALL में प्रमुख अंतर क्या है?", "options": ["UNION केवल numeric स्तम्भों पर काम करता है; UNION ALL सभी प्रकारों पर", "UNION duplicate rows को हटाता है; UNION ALL duplicates को बरकरार रखता है", "UNION तेज़ है; UNION ALL धीमा है", "दोनों का व्यवहार समान है"], "answer_index": 1, "explanation": "# उत्तर व्याख्या — SQL में UNION और UNION ALL का प्रमुख अंतर\n- **परिभाषा (सार):** `UNION` संयुक्त परिणामों से समान (duplicate) पंक्तियाँ हटा देता है; **`UNION ALL`** सभी पंक्तियाँ, जिसमें duplicate भी शामिल हों, अपरिवर्तित रखता है।\n- **डुप्लिकेट की तुलना कैसे होती है:** duplicate तब मानी जाती है जब सभी कॉलमों के मान (NULL सहित) दोनों result rows में समान हों; तभी `UNION` एक को हटा देगा।\n- **प्रदर्शन (Performance):** `UNION` में duplicate हटाने के लिए अतिरिक्त sorting या hashing की आवश्यकता होती है इसलिए यह सामान्यतः **महंगा (slower)** होता है; `UNION ALL` तेज़ होता है क्योंकि वह deduplication नहीं करता।\n- **परिणाम की गणना (COUNT) पर प्रभाव:** यदि आप दोनों query परिणामों का कुल रिकॉर्ड गिनते हैं तो `UNION` से मिलने वाला COUNT संभवतः कम होगा (duplicates हटने से), जबकि `UNION ALL` का COUNT हमेशा दोनों परिणामों का सम है।\n- **ORDER BY का व्यवहार:** दोनों में `ORDER BY` केवल अंतिम संयुक्त परिणाम पर लागू होता है; पर `UNION` के मामले में पहले duplicate हटाने की प्रक्रिया हो चुकी होती है।\n- **कॉलम कम्पैटिबिलिटी:** `UNION` और `UNION ALL` दोनों में शामिल subqueries की कॉलम संख्या और data types क्रमबद्ध और compatible होने चाहिए; otherwise syntax error आता है।\n- **NULL मानों का व्यवहार:** NULL मान भी मान्य तुलना का हिस्सा होते हैं; यदि सभी कॉलम NULL आदि समान हैं तो `UNION` उन पंक्तियों में से एक को हटा देगा।\n- **प्रयोगिक उपयोग‑परिस्थितियाँ:** जब आप unique परिणाम चाहते हैं (set semantics), तब `UNION` उपयुक्त है; जब आप source rows के सभी occurrences रखना चाहते हैं या तेज़ परिणाम चाहिए तब `UNION ALL` उपयोगी है।\n- **इंडेक्स/ऑप्टिमाइज़र प्रभाव:** `UNION ALL` अक्सर optimizer को merge या append योजना अपनाने देता है जबकि `UNION` में अक्सर sort/aggregate चरण आकर execution plan बदल सकता है।\n- **मेन्टेनेबल उत्तर लेखन के लिए बिंदु (MP‑GS/DB संबंधी):** लिखते समय स्पष्ट करें — \"UNION removes duplicates (set union), UNION ALL preserves duplicates (bag/multiset union)\" और परिणामों पर COUNT/प्रदर्शन का प्रभाव व कारण (deduplication step) जोडें।", "priority_tag": "HIGH"}, {"question": "QUALIFY क्लॉज़ किस SQL सिस्टम में मिलता है और वह किसके लिए उपयोगी है? (सामान्य अवधारणा)", "options": ["सभी RDBMS में उपलब्ध; JOIN को बदलने के लिए", "किसी भी SQL में नहीं; fictional है", "कुछ analytic SQL dialects (जैसे Snowflake) में; window function के filtered परिणाम चुनने के लिए", "केवल MySQL में; subquery हटाने के लिए"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "Window function और aggregate function के बीच मूल अंतर क्या है?", "options": ["Window functions समूहों पर operate नहीं करते; वे प्रत्येक पंक्ति के सन्दर्भ में चलकर aggregate-सहित मान लौटाते हैं जबकि aggregate functions समूहों को collapse कर एक मान लौटाते हैं", "दोनों बिल्कुल समान हैं", "Window functions केवल GROUP BY के साथ काम करते हैं", "Aggregate functions प्रत्येक पंक्ति के लिए अलग मान लौटाते हैं"], "answer_index": 0, "explanation": "# व्याख्या: Window function और Aggregate function के बीच मूल अंतर\n**प्रश्न:** Window function और aggregate function के बीच मूल अंतर क्या है?\n**संक्षेप उत्तर:** Window functions समूहों पर rows को collapse किए बिना प्रत्येक पंक्ति के सन्दर्भ में aggregate-सहित मान लौटाती हैं, जबकि aggregate functions समूहों को collapse कर एक एकल मान लौटाती हैं।\n- Aggregate functions (जैसे SUM, AVG, COUNT) जब GROUP BY के साथ उपयोग होती हैं तो उन ROWS को एक समूह में समेकित कर हर समूह के लिए एक ही परिणाम पंक्ति लौटाती हैं — यानी rows collapse हो जाती हैं।\n- Window functions SQL में OVER(...) क्लॉज़ के साथ प्रयोग होती हैं और यह प्रत्येक इनपुट पंक्ति के लिए एक या अधिक गणितीय/रैंक/सारांश मान प्रदान करती हैं बिना मूल पंक्तियों को घटाए।\n- OVER क्लॉज़ में PARTITION BY से विंडो के भीतर राशियों का विभाजन होता है; यह GROUP BY जैसा समूह बनाता है पर rows को collapse नहीं करता।\n- Window frame (ROWS/RANGE BETWEEN ...) से चलती गणना की सीमा नियंत्रित होती है, जिससे running total, moving average जैसी पारदर्शी पंक्तिगत गणनाएँ संभव होती हैं।\n- Window functions में ORDER BY का इस्तेमाल करके क्रम-आधारित गणनाएँ (running sum, lag/lead, row_number, rank, percent_rank इत्यादि) की जाती हैं; aggregate सामान्यतः ORDER BY से स्वतंत्र समेकन हैं।\n- Aggregate परिणाम एक स्केलर मान या एक पंक्ति प्रति समूह लौटाते हैं; window परिणाम मूल तालिका की जितनी पंक्तियाँ थीं उतनी ही पंक्तियाँ लौटाते हुए हर पंक्ति के साथ सम्बंधित विंडो-मान जोड़ते हैं।\n- Window functions को GROUP BY के बाद भी उपयोग किया जा सकता है: पहले समूहीकरण करके aggregate निकाले जा सकते हैं और फिर विंडो पर वही aggregated rows पंक्तिगत संदर्भ में और अनालिसिस के लिए उपयोग हो सकते हैं — पर मूल अंतर rows के collapse में ही है।\n- Practical MP-DB संदर्भ में, यदि आप जिला/तहसील स्तर पर समेकित रिपोर्ट चाहते हैं तो aggregate उपयोग करें; यदि हर रिकॉर्ड के साथ उसके विभाग/जिला के कुल या रनिंग-टोटल दिखाना हो तो window function प्रयोग करें।\n- परफ़ॉर्मेंस और परिणाम स्वरूप भी भिन्नता आती है: aggregate queries आम तौर पर समूह-आधारित रिज़ल्ट घटाती हैं जबकि window queries पूरे सेट पर पंक्तिगत कैलकुलेशन करती हैं — इसलिए इंडेक्स/partitioning और framing पर ध्यान देना आवश्यक होता है।\n(उपरोक्त बिंदु सीधे MPPSC Prelims/ Mains के उत्तर एवं त्वरित रिवीजन के लिए उपयोगी, सिद्धांतात्मक और व्यावहारिक रूप से प्रासंगिक हैं।)", "priority_tag": "HIGH"}, {"question": "SQL में JOIN के लिए ON और USING में क्या अंतर है?", "options": ["ON केवल एक ही कॉलम पर काम करता है; USING कई कॉलमों पर", "USING में कॉलम का नाम दोनों तालिकाओं में समान होना चाहिए; ON में शर्त में कॉलम नाम स्वतंत्र रूप से लिखे जा सकते हैं", "ON syntax deprecated है; USING नया तरीका है", "दोनों identical हैं और interchangeably उपयोग हो सकते हैं"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Subquery (nested SELECT) को correlated subquery कहा जाएगा जब?", "options": ["जब inner SELECT outer query के किसी कॉलम पर निर्भर न करे", "जब inner SELECT outer query के कॉलम पर निर्भर करे और हर outer row के लिए execute हो", "जब subquery में GROUP BY न हो", "जब subquery सिर्फ aggregate फ़ंक्शन समाहित करे"], "answer_index": 1, "explanation": "# **विषय: Correlated Subquery (Nested SELECT) — स्पष्ट व्याख्या (MPPSC Prelims/ Mains के लिए उपयोगी बिंदु)**\n1. **परिभाषा:** Correlated subquery वह inner SELECT होता है जो outer query के किसी कॉलम पर निर्भर करता है; इसका परिणाम प्रत्येक outer row के संदर्भ में अलग-अलग निकाला जाता है।\n2. **निरपेक्ष विशेषता:** Inner SELECT अकेले चलकर परिणाम नहीं दे सकता क्योंकि उसमें outer query के कॉलम का संदर्भ होता है; इसलिए यह outer row के साथ \"correlate\" करता है।\n3. **एक्जीक्यूशन व्यवहार:** Correlated subquery को outer query की हर row के लिए पुनः निष्पादित किया जाता है — यानी inner query का evaluation per outer-row होता है।\n4. **उदाहरण (संकलित रूप):** SELECT e.name FROM emp e WHERE e.salary > (SELECT AVG(salary) FROM emp WHERE dept_id = e.dept_id); — यहाँ inner AVG(...) में e.dept_id outer row से आता है।\n5. **प्रदर्शन विचार:** क्योंकि inner query बार-बार execute होती है, correlated subquery बड़े टेबल पर धीमी हो सकती है; इसे अक्सर JOIN या aggregated derived table से बदलकर optimize किया जाता है।\n6. **स्कोप और नाम-रिज़ॉल्यूशन:** Inner subquery में outer query के aliases/कॉलम उपलब्ध होते हैं; SQL optimizer इन्हें lexical scope के अनुसार resolve करता है।\n7. **Aggregation के साथ व्यवहार:** Correlated subquery aggregation (SUM, AVG आदि) कर सकती है पर aggregation का समूह inner query में outer-row के संदर्भ (GROUP BY या WHERE में outer कॉलम) पर निर्भर होगा।\n8. **Single-row vs. Multi-row:** Correlated subquery का परिणाम outer-row के संदर्भ में single value (scalar) या multiple rows हो सकता है; उपयुक्त operators (>, IN, EXISTS) के अनुसार SQL में प्रयोग तय होता है।\n9. **EXISTS के साथ सामान्य उपयोग:** EXISTS के साथ correlated subquery अक्सर उपयोगी होते हैं क्योंकि EXISTS केवल existence जाँचता है और optimizer के लिए efficient हो सकता है — परंतु अवधारणा वही: inner query outer row पर निर्भर।\n10. **Mains में उपयोग के लिए सीधे बिंदु:** परिभाषा, per-row execution, प्रदर्शन-प्रभाव और सामान्य optimization (JOIN/derived table या index उपयोग) को तीन-चार बिंदुओं में लिखें।\n11. **MP-DB संदर्भ (प्रेक्टिकल नोट):** राज्य/सरकारी डेटाबेस में per-record filtering जैसे रिपोर्ट्स में correlated subquery सही परिदृश्य पर उपयोगी है, पर बड़े डेटा पर पहले performance-implications चेक करें।", "priority_tag": "HIGH"}, {"question": "एक SQL क्वेरी में फिल्टरिंग के किस चरण में WHERE क्लॉज़ and HAVING क्लॉज़ आम तौर पर क्रम में लागू होते हैं (logical processing order)?", "options": ["HAVING पहले, फिर WHERE", "WHERE पहले (row-level filter), फिर GROUP BY और aggregate, फिर HAVING (group-level filter)", "ORDER BY पहले, फिर WHERE", "SELECT और फिर WHERE, HAVING कभी लागू नहीं होता"], "answer_index": 1, "explanation": "# व्याख्या — WHERE पहले, फिर GROUP BY और aggregate, फिर HAVING (logical order)\n- SQL की लॉजिकल प्रोसेसिंग ऑर्डर में **WHERE क्लॉज़ सबसे पहले लागू** होती है; यह टेबल से रॉ-लेवल (row-level) रिकॉर्ड्स को फ़िल्टर करती है।\n- **WHERE** लागू होने के बाद ही बची हुई रिकॉर्ड्स पर **GROUP BY** किया जाता है; इसलिए GROUP BY में आने वाले ग्रुप्स वही रॉज़ होते हैं जो WHERE से पार हुए हों।\n- GROUP BY के बाद तालिका के प्रत्येक समूह पर **aggregate functions** (SUM, COUNT, AVG, MAX, MIN आदि) की गणना की जाती है; ये aggregates उसी फ़िल्टर्ड डेटा पर आधारित होते हैं जो WHERE से आया है।\n- **HAVING क्लॉज़ समूह-स्तर (group-level) फ़िल्टर** के लिए है और यह aggregates या समूहों की पहचानी गई वैल्यूज़ पर लागू होता है।\n- इसलिए कोई भी समूह तब ही HAVING से गुजरता है जब वह पहले WHERE से फ़िल्टर होकर GROUP BY और aggregates की प्रक्रिया से गुजर चुका हो।\n- व्यावहारिक निहितार्थ: यदि आप aggregate के आधार पर फ़िल्टर करना चाहते हैं (उदा. SUM(sales) > 10000), तो यह केवल **HAVING** में संभव है, क्योंकि SUM केवल GROUP BY के बाद मौजूद होती है।\n- दूसरी तरफ, कॉलम-स्तर के सरल शर्तें (उदा. country = 'MP') **WHERE** में दें ताकि समूह बनाने और aggregate करने से पहले डेटा घटे और प्रदर्शन बेहतर हो।\n- SQL कम्पाइलर/इम्प्लीमेंटेशन में भी यही लॉजिकल अनुक्रम होता है: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY (संदर्भ के लिए); प्रश्न के केंद्र में WHERE → GROUP BY+aggregate → HAVING का क्रम है।\n- WHERE क्लॉज़ में सामान्यतः aggregate functions का सीधा उपयोग मान्य नहीं होता; ऐसे मामलों में सबक्वेरी या HAVING का उपयोग करना होगा।\n- HAVING क्लॉज़ NULL और aggregate व्यवहार के संदर्भ में समूह-विशिष्ट परिणामों पर फ़िल्टर लगाती है, इसलिए समूहों के अस्तित्व और aggregate गणना दोनों को ध्यान में रखा जाता है।\n- परीक्षा के उत्तर-लेखन में इस क्रम को स्पष्ट व संक्षेप में लिखें: “पहले WHERE (row-level), फिर GROUP BY और aggregates, अंत में HAVING (group-level)।”", "priority_tag": "VERY_HIGH"}, {"question": "यदि आप किसी तालिका से प्रत्येक department के highest salary की सूची चाहते हैं, तो किस approach में GROUP BY और MAX सही उपयोग होगा?", "options": ["SELECT department, MAX(salary) FROM table; (GROUP BY नहीं चाहिए)", "SELECT department, MAX(salary) FROM table GROUP BY department;", "SELECT MAX(department), salary FROM table GROUP BY salary;", "SELECT department FROM table GROUP BY MAX(salary);"], "answer_index": 1, "explanation": "# **विषय:** SQL — GROUP BY के साथ MAX का प्रयोग (प्रत्येक department का highest salary)\n- **सही क्वेरी का आधारवाक्य:** `SELECT department, MAX(salary) FROM table GROUP BY department;` — यह प्रत्येक department के लिए salary का अधिकतम मान लौटाता है।\n- **SELECT में केवल** वह non-aggregated कॉलम शामिल होना चाहिए जिसे आप GROUP BY में लिखते हैं; अन्य कॉलमों के लिए aggregate फंक्शन (जैसे MAX) अनिवार्य है।\n- **MAX(salary)** हर ग्रुप (यहाँ department) में उपलब्ध salary मानों में से सबसे बड़ा मान दे देता है; यह NULL मानों को अनदेखा करता है जब अन्य non-NULL मान मौजूद हों।\n- **GROUP BY department** समूहों का निर्धारण करता है; DB engine पहले rows को department के अनुसार group करता है और फिर प्रत्येक group पर MAX लागू करता है।\n- **यदि आप group-wise अतिरिक्त जानकारी चाहिए** (जैसे employee id जिसके पास highest salary है), तो आपको सब-क्वेरी, JOIN या window function (ROW_NUMBER() OVER ...) का उपयोग करना होगा; केवल `department, MAX(salary)` वह अतिरिक्त विवरण नहीं देता।\n- **आउटपुट को क्रमबद्ध करने के लिए** `ORDER BY MAX(salary) DESC` या `ORDER BY department` जोड़ा जा सकता है; ORDER BY में aggregates का संदर्भ संभव है।\n- **कुछ DBMS में alias उपयोग:** `SELECT department, MAX(salary) AS max_sal ...` — alias से परिणाम पढ़ना और Mains उत्तर में उल्लेख करना सरल होता है।\n- **HAVING क्लॉज़ का उपयोग:** यदि आप केवल उन departments दिखाना चाहते हैं जिनकी highest salary किसी थ्रेशहोल्ड से ऊपर है, तो `HAVING MAX(salary) > value` प्रयोग करें; HAVING aggregate पर शर्त लगाता है।\n- **परफॉर्मेंस टिप:** बड़े टेबल पर department पर index या composite index (department, salary) से GROUP BY/aggregation की गति बेहतर हो सकती है; लेकिन वास्तविक execution plan DB engine पर निर्भर करेगा।\n- **NULL-only समूह:** अगर किसी department की सभी salary NULL हों तो MAX(salary) NULL लौटेगा; ऐसे cases को Mains उत्तर में स्पष्ट कर दें।", "priority_tag": "VERY_HIGH"}, {"question": "SQL में EXPLAIN या EXPLAIN PLAN का प्राथमिक उद्देश्य क्या है?", "options": ["डेटा को encrypt करने के लिए", "क्वेरी के execution plan को दर्शाना और प्रदर्शन अनुकूलन में मदद करना", "क्वेरी को तुरन्त execute कर परिणाम दिखाना", "तालिका के सभी इंडेक्स हटा देना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस स्थिति में composite index से JOIN या WHERE पर लाभ सबसे अधिक मिलता है?", "options": ["जब index में शामिल कॉलमों का प्रयोग क्वेरी की WHERE/ORDER BY में समान क्रम में हो", "जब index केवल एक कॉलम पर हो और वह JOIN में न हो", "जब तालिका में केवल एक ही पंक्ति हो", "जब क्वेरी में DISTINCT का प्रयोग न हो"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

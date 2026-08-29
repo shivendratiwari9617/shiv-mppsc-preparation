@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mppsc}
+      POSTGRES_USER: ${POSTGRES_USER:-mppsc}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mppsc_password}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mppsc}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-mppsc}:${POSTGRES_PASSWORD:-mppsc_password}@db:5432/${POSTGRES_DB:-mppsc}
+      PORT: 4000
+      CONTENT_DIR: /content
+    volumes:
+      - ..:/content:ro
+    expose:
+      - "4000"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  db_data:

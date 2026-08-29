@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U8-044 – ट्रेंड—वन हेल्थ/AMR—पब्लिक हेल्थ प्राथमिकता</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U8-044 – ट्रेंड—वन हेल्थ/AMR—पब्लिक हेल्थ प्राथमिकता</h1>
+        <div class="note">क्षेत्र: India/Global | सामग्री: एंटीबायोटिक स्ट्यूर्डशिप/ज़ूनोसिस रेस्पॉन्स—एग्जाम-फेवरेट। | 15-वर्षीय ट्रेंड: Very High</div>
+      </div>
+      <div class="date">Updated: 18-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># एक समेकित उत्तर — ट्रेंड: वन हेल्थ / AMR — सार्वजनिक स्वास्थ्य प्राथमिकता
+
+परिचय  
+1. एंटीमाइक्रोबियल रेसिस्टेंस (AMR) पर वैश्विक नीति-धक्का WHO के Global Action Plan on AMR (मई 2015) से शुरू हुआ, जिसने &quot;One Health&quot; दृष्टिकोण को अंतरराष्ट्रीय प्राथमिकता बनाया।  
+2. भारत ने इसी पृष्ठभूमि में Ministry of Health &amp; Family Welfare द्वारा National Action Plan on AMR (NAP-AMR) प्रकाशित किया (अप्रैल 2017), जो राष्ट्रीय रणनीति व राज्यों के लिए मार्गदर्शन तय करता है।  
+
+मुख्य कारण और डायनमिक्स (What &amp; Why)  
+3. AMR का तात्त्विक कारण अनियंत्रित एंटीबायोटिक उपयोग—मानव स्वास्थ्य (अत्यधिक प्रिस्क्रिप्शन), पशुपालन (growth promoters), और पर्यावरण (दवा-निर्माण से effluent) का संयोग है; यह One Health फ्रेमवर्क का केंद्र बिंदु है।  
+4. WHO-GLASS (2015) की निगरानी पहल और ICMR का AMR Surveillance Network (ICMR-NARS; अनुक्रमिक विस्तार 2013–2018) भारत में स्थानीय प्रतिरूपों की पहचान के लिए आधार बना; इससे इन्फ्लुएंजा/सेप्टिसीमिया-संबंधी प्रतिरक्षा पैटर्न का राष्ट्रीय डेटासेट उपलब्ध हुआ।  
+5. दवा-वितरण नियमों में सुधार का अंतरराष्ट्रीय और राष्ट्रीय दबाव रहा—कई देशों ने OTC antibiotic बिक्री पर पाबंदी लगाई; भारत ने NAP-AMR के तहत rational use व antimicrobial stewardship को प्राथमिकता दी।  
+
+प्रभाव (Impact) — स्वास्थ्य, आर्थिक और सिस्टम लेवल  
+6. AMR से होने वाला क्लिनिकल प्रभाव: जटिल संक्रमणों का इलाज लंबा और महंगा होता जा रहा है—hospitals में ICU-days और मल्टी-ड्रग रेसिस्टेंट इनफेक्शन के कारण इलाज की लागत व मृत्यु-दर में वृद्धि का प्रमाण ICMR/हॉस्पिटल-रिपोर्ट्स में देखा गया।  
+7. अर्थव्यवस्था पर प्रभाव: World Bank/WHO-संबंधित अध्ययनों ने कहा है कि unchecked AMR से GDP पर नकारात्मक असर पड़ता है; भारत जैसे LMICs में स्वास्थ्य-उपज (productivity) एवं दवा-खर्च बढ़ने का जोखिम ऊँचा है।  
+8. स्वास्थ्य व्यवस्था पर दबाव: National Health Mission व public laboratories पर diagnostic stewardship की कमी—culture और sensitivity सुविधाओं का असमान वितरण—को ICMR एवं NCDC की राज्यों-वार रिपोर्टों में चिन्हित किया गया।  
+
+चुनौतियाँ (Challenges) — कार्यान्वयन व गवर्नेंस  
+9. रेगुलेटरी चुनौती: Drug Controller General of India और राज्यों के licensing अधिकारियों के बीच enforcement-gap से irrational antibiotic dispensing बना रहता है; Schedule H1 की प्रभावी निगरानी व फार्मेसी स्तर पर रिकॉर्डिंग की कमी रिपोर्टेड है।  
+10. कृषिउद्योग में एंटीबायोटिक उपयोग: Department of Animal Husbandry, Dairying &amp; Fisheries और ICAR के आंकड़े दिखाते हैं कि livestock sector में growth promoters/therapeutic प्रयोग की मॉनिटरिंग कमजोर है—One Health के समन्वय में यह प्रमुख बाधा है।  
+11. पर्यावरणीय स्रोत: pharmaceutical manufacturing effluents में antimicrobials के अवशेष के कारण स्थानीय पर्यावरणीय AMR जैवमार्ग बन रहे हैं—ENVIRONMENTAL IMPACT STUDIES और CPCB के preliminary surveillances ने hotspots चिन्हित किये।  
+12. डेटा व अनुसंधान अंतर: GLASS में भारत ने भाग लिया पर sub-national representativeness असमान; छोटे-हॉस्पिटल और ग्रामीण सेटिंग्स से डेटा कम और विवादित है।  
+
+राजनीतिक व संस्थागत उत्तराधिकारी (Stakeholders &amp; Policies)  
+13. केंद्रीय भूमिका: MoHFW, ICMR, NCDC, और National Centre for Disease Control ने NAP-AMR के तहत stewardship, surveillance, and infection prevention को प्राथमिकता दी; Fleming Fund और WHO ने तकनीकी-सहायता प्रदान की।  
+14. राज्य स्तर: NAP-AMR निर्देशों के अनुरूप राज्यों को State Action Plans (SAP-AMR) बनाना था; कई राज्यों ने 2018–2021 के बीच SAP तैयार किए—पर कार्यान्वयन में साक्ष्य-आधारित निधि आवंटन भिन्न रहा।  
+15. निजी स्वास्थ्य क्षेत्र: निजी अस्पतालों में antimicrobial stewardship programmes (ASPs) लागू करना आवश्यक बताया गया पर अधिकांश tertiary private hospitals में stewardship committees 2019–2022 में धीरे-धीरे ही बने।  
+
+उपाय और रणनीतियाँ (How to respond)  
+16. Surveillance-strengthening: GLASS मानकों के अनुरूप nationwide lab network विस्तार—ICMR-NARS और NCDC के संगठित sentinel sites को 2020s में scale-up करना; rapid diagnostics के लिए funding (NHM/External grants) जरूरी।  
+17. Antimicrobial Stewardship: अस्पतालों में ASPs अनिवार्य करें—MoHFW/ National COVID response ने infection control protocols (2020–21) में सुधार कर उदाहरण दिया; इन्हें SOP, antibiogram-based guidelines और prescription audits से जोड़ें।  
+18. कृषि व पशुपालन: Department of Animal Husbandry के साथ &#x27;Antibiotic Use Reduction&#x27; Roadmap तैयार करें; ICAR और MoFPI के साथ veterinary prescription regulations और antibiotic growth promoter पर phased ban लागू करें (pilot–2019–2022 प्रकार)।  
+19. रेगुलेशन व निगरानी: CDSCO/State Drug Authorities के साथ pharmacy-level e-prescription और Sale Records (digital) लागू करें—ड्रग स्टेवर्डशिप में compliance के लिए PRS तथा NITI Aayog style performance metrics आवश्यक।  
+20. पर्यावरणीय नियंत्रण: CPCB और MoEFCC के माध्यम से pharmaceutical effluent norms कड़ाई से लागू करें; environmental surveillance hotspots (as per EPA studies) के लिए remediation और industry compliance योजना बनाएं।  
+21. जन-स्वास्थ्य शिक्षा: AMR-awareness campaigns (World Antibiotic Awareness Week—November yearly) को राष्ट्रीय शैक्षिक कार्यक्रमों के साथ integrate करें; school/college-level NCERT-सम्मिलित modules विकसित करें।  
+22. वित्तीय व प्रोत्साहन नीतियाँ: central/state budgets में AMR-specific(lines in NHM/NCDC/ICMR grants) निधि आवंटन तय करें; outcome-linked incentives से states को SAP-AMR लागू करने हेतु प्रेरित करें।  
+23. Research &amp; innovation: affordable point-of-care diagnostics और new antibiotic adjuvants के लिए DBT/ICMR/CSIR collaboration व public–private partnerships को प्रोत्साहित करें; Fleming Fund/WHO से तकनीकी सहयोग जारी रखें।  
+
+MP (Madhya Pradesh) के लिए प्रासंगिकता व कार्रवाई (State linkage)  
+24. प्रदेश स्तर पर IDSP व State Public Health Laboratory नेटवर्क का उपयोग कर MP में sentinel surveillance तेज किया जा सकता है; MP सरकार NHM संसाधन के माध्यम से rural diagnostic capacity (2018–2024 investments) बढ़ा रही है।  
+25. MP के पशुपालन सेक्टर में veterinary prescription auditing और livestock antibiotic-use registry शुरू करके NAP-AMR के goals (reduction targets) से तालमेल किया जा सकता है; राज्य कृषि विश्वविद्यालयों (RVSKVV इत्यादि) को research partners बनाया जाना चाहिए।  
+26. प्रदेश अस्पतालों में ASP rollout के लिए Madhya Pradesh Health Department को NHM funds के साथ capacity-building workshops (ICMR/NCDC सहयोग) आयोजित करने चाहिए; tertiary hospitals में antibiogram-based empiric therapy मानक अपनाएँ।  
+
+निष्कर्ष और परीक्षा-योग्य वें-फॉरवर्ड (Conclusion &amp; Way Forward)  
+27. AMR एक One Health चेतावनी है — WHO (2015), NAP-AMR (2017) और GLASS (2015) की नीतिगत रूपरेखा ने दिशा दी; पर प्रभावी परिणाम के लिए surveillance, stewardship, और environmental regulation का समन्वित कार्य आवश्यक है।  
+28. व्यावहारिक कदम: (i) nationwide laboratory-network और digital prescription-tracking (MoHFW–CDSCO–State linkage), (ii) veterinary antibiotic restrictions (Animal Husbandry–ICAR roadmap), और (iii) pharmaceutical effluent नियंत्रण (MoEFCC–CPCB enforcement) पर 3-वर्षीय measurable targets रखें।  
+29. MP के लिए priority actions: state-level SAP-AMR का वित्तीय क्रियान्वयन, NHM-आधारित diagnostics expansion, तथा veterinary surveillance integration—इनसे राज्य का AMR-resilience बढ़ेगा।  
+30. समापन: AMR को सार्वजनिक-स्वास्थ्य प्राथमिकता बनाने हेतु नीति, संस्थागत समन्वय और वित्तीय प्रतिबद्धता अनिवार्य हैं; NAP-AMR के लक्ष्यों को लक्षित, मापक और समयबद्ध तरीके से लागू करना ही Rank-1 स्तर की तैयारी के अनुरूप व्यावहारिक समाधान है।  
+
+स्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  
+स्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  
+स्रोत 3: Drishti / Vision – Current Affairs compilation (revision)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 (राजनीति, भूगोल, अर्थशास्त्र, विज्ञान—समसामयिकी की conceptual बुनियाद); India Year Book (Publication Division, Govt of India) तथा MP के आधिकारिक वार्षिक प्रकाशन/दस्तावेज; भारत सरकार के latest/official sources: PIB, MEA, MoF (Union Budget + Economic Survey), RBI (Reports/Notifications), MoSPI (Data/Indicators), NITI Aayog (Reports), संबंधित मंत्रालयों/विभागों की प्रेस-रिलीज/रिपोर्ट; मध्यप्रदेश सरकार के latest/official sources: MP Finance Dept (MP Budget + MP Economic Survey), MP Planning/Directorate of Economics & Statistics, MP Govt के विभागीय पोर्टल/प्रेस-रिलीज; अंतरराष्ट्रीय आधिकारिक sources: UN/UNDP, WHO, World Bank, IMF, WTO, IPCC (जहाँ लागू हो); विश्वसनीय समसामयिकी compilation: Vision IAS / Drishti IAS MPPSC के Current Affairs (monthly) + Yojana/Kurukshetra (Govt magazines)</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U8-044 – ट्रेंड—वन हेल्थ/AMR—पब्लिक हेल्थ प्राथमिकता", "coverage_note": "क्षेत्र: India/Global | सामग्री: एंटीबायोटिक स्ट्यूर्डशिप/ज़ूनोसिस रेस्पॉन्स—एग्जाम-फेवरेट। | 15-वर्षीय ट्रेंड: Very High", "vyakhya": "# एक समेकित उत्तर — ट्रेंड: वन हेल्थ / AMR — सार्वजनिक स्वास्थ्य प्राथमिकता\n\nपरिचय  \n1. एंटीमाइक्रोबियल रेसिस्टेंस (AMR) पर वैश्विक नीति-धक्का WHO के Global Action Plan on AMR (मई 2015) से शुरू हुआ, जिसने \"One Health\" दृष्टिकोण को अंतरराष्ट्रीय प्राथमिकता बनाया।  \n2. भारत ने इसी पृष्ठभूमि में Ministry of Health & Family Welfare द्वारा National Action Plan on AMR (NAP-AMR) प्रकाशित किया (अप्रैल 2017), जो राष्ट्रीय रणनीति व राज्यों के लिए मार्गदर्शन तय करता है।  \n\nमुख्य कारण और डायनमिक्स (What & Why)  \n3. AMR का तात्त्विक कारण अनियंत्रित एंटीबायोटिक उपयोग—मानव स्वास्थ्य (अत्यधिक प्रिस्क्रिप्शन), पशुपालन (growth promoters), और पर्यावरण (दवा-निर्माण से effluent) का संयोग है; यह One Health फ्रेमवर्क का केंद्र बिंदु है।  \n4. WHO-GLASS (2015) की निगरानी पहल और ICMR का AMR Surveillance Network (ICMR-NARS; अनुक्रमिक विस्तार 2013–2018) भारत में स्थानीय प्रतिरूपों की पहचान के लिए आधार बना; इससे इन्फ्लुएंजा/सेप्टिसीमिया-संबंधी प्रतिरक्षा पैटर्न का राष्ट्रीय डेटासेट उपलब्ध हुआ।  \n5. दवा-वितरण नियमों में सुधार का अंतरराष्ट्रीय और राष्ट्रीय दबाव रहा—कई देशों ने OTC antibiotic बिक्री पर पाबंदी लगाई; भारत ने NAP-AMR के तहत rational use व antimicrobial stewardship को प्राथमिकता दी।  \n\nप्रभाव (Impact) — स्वास्थ्य, आर्थिक और सिस्टम लेवल  \n6. AMR से होने वाला क्लिनिकल प्रभाव: जटिल संक्रमणों का इलाज लंबा और महंगा होता जा रहा है—hospitals में ICU-days और मल्टी-ड्रग रेसिस्टेंट इनफेक्शन के कारण इलाज की लागत व मृत्यु-दर में वृद्धि का प्रमाण ICMR/हॉस्पिटल-रिपोर्ट्स में देखा गया।  \n7. अर्थव्यवस्था पर प्रभाव: World Bank/WHO-संबंधित अध्ययनों ने कहा है कि unchecked AMR से GDP पर नकारात्मक असर पड़ता है; भारत जैसे LMICs में स्वास्थ्य-उपज (productivity) एवं दवा-खर्च बढ़ने का जोखिम ऊँचा है।  \n8. स्वास्थ्य व्यवस्था पर दबाव: National Health Mission व public laboratories पर diagnostic stewardship की कमी—culture और sensitivity सुविधाओं का असमान वितरण—को ICMR एवं NCDC की राज्यों-वार रिपोर्टों में चिन्हित किया गया।  \n\nचुनौतियाँ (Challenges) — कार्यान्वयन व गवर्नेंस  \n9. रेगुलेटरी चुनौती: Drug Controller General of India और राज्यों के licensing अधिकारियों के बीच enforcement-gap से irrational antibiotic dispensing बना रहता है; Schedule H1 की प्रभावी निगरानी व फार्मेसी स्तर पर रिकॉर्डिंग की कमी रिपोर्टेड है।  \n10. कृषिउद्योग में एंटीबायोटिक उपयोग: Department of Animal Husbandry, Dairying & Fisheries और ICAR के आंकड़े दिखाते हैं कि livestock sector में growth promoters/therapeutic प्रयोग की मॉनिटरिंग कमजोर है—One Health के समन्वय में यह प्रमुख बाधा है।  \n11. पर्यावरणीय स्रोत: pharmaceutical manufacturing effluents में antimicrobials के अवशेष के कारण स्थानीय पर्यावरणीय AMR जैवमार्ग बन रहे हैं—ENVIRONMENTAL IMPACT STUDIES और CPCB के preliminary surveillances ने hotspots चिन्हित किये।  \n12. डेटा व अनुसंधान अंतर: GLASS में भारत ने भाग लिया पर sub-national representativeness असमान; छोटे-हॉस्पिटल और ग्रामीण सेटिंग्स से डेटा कम और विवादित है।  \n\nराजनीतिक व संस्थागत उत्तराधिकारी (Stakeholders & Policies)  \n13. केंद्रीय भूमिका: MoHFW, ICMR, NCDC, और National Centre for Disease Control ने NAP-AMR के तहत stewardship, surveillance, and infection prevention को प्राथमिकता दी; Fleming Fund और WHO ने तकनीकी-सहायता प्रदान की।  \n14. राज्य स्तर: NAP-AMR निर्देशों के अनुरूप राज्यों को State Action Plans (SAP-AMR) बनाना था; कई राज्यों ने 2018–2021 के बीच SAP तैयार किए—पर कार्यान्वयन में साक्ष्य-आधारित निधि आवंटन भिन्न रहा।  \n15. निजी स्वास्थ्य क्षेत्र: निजी अस्पतालों में antimicrobial stewardship programmes (ASPs) लागू करना आवश्यक बताया गया पर अधिकांश tertiary private hospitals में stewardship committees 2019–2022 में धीरे-धीरे ही बने।  \n\nउपाय और रणनीतियाँ (How to respond)  \n16. Surveillance-strengthening: GLASS मानकों के अनुरूप nationwide lab network विस्तार—ICMR-NARS और NCDC के संगठित sentinel sites को 2020s में scale-up करना; rapid diagnostics के लिए funding (NHM/External grants) जरूरी।  \n17. Antimicrobial Stewardship: अस्पतालों में ASPs अनिवार्य करें—MoHFW/ National COVID response ने infection control protocols (2020–21) में सुधार कर उदाहरण दिया; इन्हें SOP, antibiogram-based guidelines और prescription audits से जोड़ें।  \n18. कृषि व पशुपालन: Department of Animal Husbandry के साथ 'Antibiotic Use Reduction' Roadmap तैयार करें; ICAR और MoFPI के साथ veterinary prescription regulations और antibiotic growth promoter पर phased ban लागू करें (pilot–2019–2022 प्रकार)।  \n19. रेगुलेशन व निगरानी: CDSCO/State Drug Authorities के साथ pharmacy-level e-prescription और Sale Records (digital) लागू करें—ड्रग स्टेवर्डशिप में compliance के लिए PRS तथा NITI Aayog style performance metrics आवश्यक।  \n20. पर्यावरणीय नियंत्रण: CPCB और MoEFCC के माध्यम से pharmaceutical effluent norms कड़ाई से लागू करें; environmental surveillance hotspots (as per EPA studies) के लिए remediation और industry compliance योजना बनाएं।  \n21. जन-स्वास्थ्य शिक्षा: AMR-awareness campaigns (World Antibiotic Awareness Week—November yearly) को राष्ट्रीय शैक्षिक कार्यक्रमों के साथ integrate करें; school/college-level NCERT-सम्मिलित modules विकसित करें।  \n22. वित्तीय व प्रोत्साहन नीतियाँ: central/state budgets में AMR-specific(lines in NHM/NCDC/ICMR grants) निधि आवंटन तय करें; outcome-linked incentives से states को SAP-AMR लागू करने हेतु प्रेरित करें।  \n23. Research & innovation: affordable point-of-care diagnostics और new antibiotic adjuvants के लिए DBT/ICMR/CSIR collaboration व public–private partnerships को प्रोत्साहित करें; Fleming Fund/WHO से तकनीकी सहयोग जारी रखें।  \n\nMP (Madhya Pradesh) के लिए प्रासंगिकता व कार्रवाई (State linkage)  \n24. प्रदेश स्तर पर IDSP व State Public Health Laboratory नेटवर्क का उपयोग कर MP में sentinel surveillance तेज किया जा सकता है; MP सरकार NHM संसाधन के माध्यम से rural diagnostic capacity (2018–2024 investments) बढ़ा रही है।  \n25. MP के पशुपालन सेक्टर में veterinary prescription auditing और livestock antibiotic-use registry शुरू करके NAP-AMR के goals (reduction targets) से तालमेल किया जा सकता है; राज्य कृषि विश्वविद्यालयों (RVSKVV इत्यादि) को research partners बनाया जाना चाहिए।  \n26. प्रदेश अस्पतालों में ASP rollout के लिए Madhya Pradesh Health Department को NHM funds के साथ capacity-building workshops (ICMR/NCDC सहयोग) आयोजित करने चाहिए; tertiary hospitals में antibiogram-based empiric therapy मानक अपनाएँ।  \n\nनिष्कर्ष और परीक्षा-योग्य वें-फॉरवर्ड (Conclusion & Way Forward)  \n27. AMR एक One Health चेतावनी है — WHO (2015), NAP-AMR (2017) और GLASS (2015) की नीतिगत रूपरेखा ने दिशा दी; पर प्रभावी परिणाम के लिए surveillance, stewardship, और environmental regulation का समन्वित कार्य आवश्यक है।  \n28. व्यावहारिक कदम: (i) nationwide laboratory-network और digital prescription-tracking (MoHFW–CDSCO–State linkage), (ii) veterinary antibiotic restrictions (Animal Husbandry–ICAR roadmap), और (iii) pharmaceutical effluent नियंत्रण (MoEFCC–CPCB enforcement) पर 3-वर्षीय measurable targets रखें।  \n29. MP के लिए priority actions: state-level SAP-AMR का वित्तीय क्रियान्वयन, NHM-आधारित diagnostics expansion, तथा veterinary surveillance integration—इनसे राज्य का AMR-resilience बढ़ेगा।  \n30. समापन: AMR को सार्वजनिक-स्वास्थ्य प्राथमिकता बनाने हेतु नीति, संस्थागत समन्वय और वित्तीय प्रतिबद्धता अनिवार्य हैं; NAP-AMR के लक्ष्यों को लक्षित, मापक और समयबद्ध तरीके से लागू करना ही Rank-1 स्तर की तैयारी के अनुरूप व्यावहारिक समाधान है।  \n\nस्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  \nस्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  \nस्रोत 3: Drishti / Vision – Current Affairs compilation (revision)", "mcqs": [{"question": "विश्व स्वास्थ्य संगठन (WHO) द्वारा 'Global Action Plan on Antimicrobial Resistance' कब प्रकाशित किया गया था?", "options": ["2015", "2017", "2013", "2019"], "answer_index": 0, "explanation": "# व्याख्या — WHO का \"Global Action Plan on Antimicrobial Resistance\" (प्रकाशन: 2015)\n- WHO द्वारा \"Global Action Plan on Antimicrobial Resistance\" आधिकारिक रूप से **2015** में प्रकाशित किया गया था।\n- यह ग्लोबल एक्शन प्लान एंटीमाइक्रोबियल रेसिस्टेंस (AMR) को वैश्विक सार्वजनिक स्वास्थ्य प्राथमिकता के रूप में मानता है।\n- दस्तावेज़ का मुख्य उद्देश्य AMR के प्रसार को सीमित करना और रोगजनकों, दवाओं, देखभाल प्रणालियों व व्यवहार में समन्वित बदलाव लाना है।\n- प्लान का ढाँचा पाँच रणनीतिक उद्देश्यों पर आधारित है: जागरूकता बढ़ाना; निगरानी व अनुसंधान सुदृढ़ करना; संक्रमण-नियंत्रण और जल-सफाई को मजबूत करना; एंटीमाइक्रोबियल उपयोग का विनियमन और विनियमन व प्रोत्साहन; तथा आर्थिक निवेश व नवप्रवर्तन को बढ़ावा देना।\n- यह One Health दृष्टिकोण को अपनाता है — मानव, पशु और पर्यावरण स्वास्थ्य क्षेत्रों के समन्वित कार्रवाई का आग्रह करता है।\n- 2015 के इस ग्लोबल प्लान ने सदस्य देशों को राष्ट्रीय एक्शन प्लान (NAP) तैयार करने और लागू करने के लिए मार्गदर्शन प्रदान किया।\n- WHO ने सार्वजनिक स्वास्थ्य संकेतकों और ग्लोबल रिपोर्टिंग फ्रेमवर्क के माध्यम से क्रियान्वयन की प्रगति की वैश्विक निगरानी पर बल दिया।\n- प्लान ने антибиотिक stewardship कार्यक्रमों, व्यापक निगरानी नेटवर्क और प्रयोगशाला क्षमता निर्माण को प्राथमिकता दी।\n- 2015 में प्रकाशित यह योजना नीतिगत रूप से देशों के लिए AMR के खिलाफ बहु‑क्षेत्रीय रणनीतियों का वैश्विक संदर्भ-साधन बनी।\n- भारत सहित कई देशों ने 2015 के ग्लोबल प्लान के अनुरूप राष्ट्रीय और उपराष्ट्रीय नीतियाँ व कार्ययोजनाएँ विकसित कीं, जिससे स्थानीय लागू रणनीतियाँ One Health सिद्धांत के साथ जुड़ीं।\n- परीक्षा‑दृष्टि से मुख्य बिंदु: प्रकाशन वर्ष = 2015; केंद्रीय विचार = One Health आधारित पाँच रणनीतिक उद्देश्य और सदस्य‑राष्ट्रों के लिए राष्ट्रीय एक्शन प्लान का अनिवार्य मार्गदर्शन।", "priority_tag": "VERY_HIGH"}, {"question": "WHO का 'Global Antimicrobial Resistance Surveillance System (GLASS)' किस वर्ष लॉन्च किया गया था?", "options": ["2016", "2015", "2018", "2013"], "answer_index": 1, "explanation": "# VYAKHYA — GLASS (Global Antimicrobial Resistance Surveillance System) — मुख्य बिंदु\n- GLASS का औपचारिक लॉन्च वर्ष 2015 है — यह वही वर्ष है जब WHO ने वैश्विक पैमाने पर एएमआर निगरानी के लिए इस प्रणाली की शुरूआत की।\n- GLASS का उद्देश्य एंटीमाइक्रोबियल रेजिस्टेंस (AMR) के वैश्विक डेटा का मानकीकृत संग्रह और साझा करना है, ताकि ट्रेंड्स और जोखिमों की तुलना की जा सके।\n- यह सिस्टम रोगजन, रोगियों के संदर्भ (उदा. अस्पताल/समुदाय), नमूना प्रकार और एंटीमाइक्रोबियल प्रतिकूलताओं के मानक संकेतक/परिभाषाएँ निर्दिष्ट करता है।\n- GLASS के तहत भेजे गए डेटा से देशों को स्थानीय और राष्ट्रीय AMR नीतियाँ, उपचार दिशानिर्देश और संवर्धित प्रयोगशाला क्षमताओं के लिए प्राथमिकता तय करने में मदद मिलती है।\n- GLASS One Health दृष्टिकोण के अनुकूल है; मानव स्वास्थ्य निगरानी के साथ पशु और पर्यावरण से जुड़े AMR डेटा के समन्वय की दिशा में बुनियादी ढाँचा विकसित करने की सिफारिश करता है।\n- GLASS ने देशों को राष्ट्रीय AMR निगरानी तंत्र (laboratory network, डेटा मैनेजमेंट, गुणवत्ता आश्वासन) स्थापित करने के लिए मानक प्रपत्र और तकनीकी मार्गदर्शन दिया।\n- 2015 में लॉन्च होने के बाद से GLASS के माध्यम से नियमित रिपोर्टिंग और वार्षिक वैश्विक सारांश जारी किए जाते हैं, जो नीति निर्धारण और रिसर्च प्राथमिकताओं के लिए प्रमाण-आधारित संकेत प्रदान करते हैं।\n- भारत ने भी GLASS फ्रेमवर्क के अनुरूप राष्ट्रीय AMR निगरानी गतिविधियाँ और राष्ट्रीय कार्ययोजना (National Action Plan on AMR) को सुदृढ़ करने पर जोर दिया है; GLASS डेटा का उपयोग क्लिनिकल गाइडलाइन्स और सार्वजनिक स्वास्थ्य हस्तक्षेपों के लिए किया जा सकता है।\n- GLASS के तहत डेटा की गुणवत्तात्मक शर्तें (जैसे मानकीकृत माइक्रोबायोलॉजी तकनीक और लैब मानकीकरण) AMR के सही अंतरराष्ट्रीय तुलनात्मक विश्लेषण के लिए अनिवार्य हैं।\n- परीक्षा/मेन्स के लिए सीधे उद्धरण-योग्य बिंदु: \"WHO का GLASS 2015 में लॉन्च हुआ — उद्देश्य: वैश्विक, मानकीकृत AMR निगरानी एवं डेटा साझा करना ताकि नीतियाँ और क्लिनिकल प्रोटोकॉल साक्ष्य-आधारित बन सके।\"\n- संक्षेप में, 2015 का GLASS लॉन्च वैश्विक AMR निगरानी को संगठित रूप देने वाला एक माइलस्टोन है, विशेषकर One Health पृष्ठभूमि में नीति एवं कार्यक्रम विकास के लिए।", "priority_tag": "VERY_HIGH"}, {"question": "भारत सरकार का 'National Action Plan on Antimicrobial Resistance (NAP-AMR)' किस वर्ष औपचारिक रूप से जारी किया गया था?", "options": ["2016", "2019", "2017", "2014"], "answer_index": 2, "explanation": "# व्याख्या — National Action Plan on Antimicrobial Resistance (NAP‑AMR) — 2017\n- National Action Plan on Antimicrobial Resistance (NAP‑AMR) भारत सरकार द्वारा औपचारिक रूप से वर्ष **2017** में जारी किया गया था।\n- यह योजना वैश्विक WHO के Global Action Plan on AMR (2015) के अनुरूप भारत की राष्ट्रीय प्रतिक्रिया है।\n- NAP‑AMR का मूल दृष्टिकोण \"One Health\" पर आधारित है — मानव, पशु तथा पर्यावरणीय स्वास्थ्य के समन्वित कदम।\n- योजना का उद्देश्य एंटीमाइक्रोबियल दवाओं के दुरुपयोग को रोकना, प्रतिरोध की निगरानी मजबूत करना और संक्रमण‑निरोधी प्रथाओं को बढ़ाना है।\n- NAP‑AMR में प्राथमिक रणनीतिक दिशाएँ शामिल हैं: जागरूकता और शिक्षा; संक्रामक रोगों की निगरानी; संक्रमण‑निरोध और गुणवत्ता नियंत्रण; एंटीमाइक्रोबियल उपयोग का अनुकूलन; अनुसंधान और नवाचार; तथा कार्यान्वयन‑शासन व्यवस्था।\n- अभ्यास के स्तर पर योजना ने राष्ट्रीय और राज्य स्तर पर बहु‑सांस्कृतिक समन्वय व्यवस्था व निगरानी ढाँचे को सुदृढ़ करने पर बल दिया।\n- NAP‑AMR के क्रियान्वयन में स्वास्थ्य, पशुपालन, कृषि और पर्यावरण संबंधित मंत्रालयों/विभागों तथा अनुसंधान संस्थानों की भागीदारी अनिवार्य मानी गई।\n- योजना का प्रारम्भिक समय‑अवधि रूपरेखा 2017–2021 के लिए निर्धारित की गई थी, जिसमें निगरानी नेटवर्क और क्षमता निर्माण के चरणबद्ध लक्ष्य रखे गए।\n- NAP‑AMR ने AMR डेटा एकत्रीकरण तथा राष्ट्रीय‑स्तर पर रिपोर्टिंग के लिए समन्वित सर्विलांस और प्रयोगशाला क्षमता बढ़ाने पर जोर दिया।\n- राज्यों (जैसे मध्यप्रदेश) को निर्देशित किया गया कि वे राष्ट्रीय रूपरेखा के अनुरूप अपने State Action Plans तैयार कर के स्थानीय कार्ययोजना और निगरानी तंत्र विकसित करें।\n- राष्ट्रीय स्तर पर जारी यह दस्तावेज नीतिगत संकेत और प्रायोरिटी‑एक्शन तालिका देता है, जो परीक्षा‑प्रश्नों के लिए वर्ष‑आधारित तथ्य (2017) के साथ सीधे सम्बन्धित है।", "priority_tag": "VERY_HIGH"}, {"question": "WHO द्वारा हर साल मनाया जाने वाला 'World Antibiotic Awareness Week' किस महीने होता है?", "options": ["अक्टूबर", "दिसंबर", "नवंबर", "सितंबर"], "answer_index": 2, "explanation": "# प्रश्न और सही उत्तर\n**प्रश्न:** WHO द्वारा हर साल मनाया जाने वाला 'World Antibiotic Awareness Week' किस महीने होता है?\n**सही उत्तर:** **नवंबर**\n## विस्तृत व्याख्या (VYAKHYA) — परीक्षा केंद्रित बिंदु\n- World Antibiotic Awareness Week WHO द्वारा वार्षिक रूप से **नवंबर** में आयोजित की जाती है ताकि एंटीबायोटिक प्रतिरोध (AMR) पर जागरूकता बढ़े।\n- इस सप्ताह का उद्देश्य आम जनता, स्वास्थ्य-कर्मियों और नीति-निर्माताओं में एंटीबायोटिक के **सही और जिम्मेदार उपयोग** के संदेश का प्रसार करना है।\n- आयोजन के मुख्य संदेशों में शामिल हैं: बिना परीक्षण/डॉक्टर की सलाह के एंटीबायोटिक न लेना, निर्धारित अवधि पूरी करना और पशु-उद्योग में गैर-जरूरी उपयोग से बचना।\n- यह पहल **One Health** सिद्धांत के अनुरूप है—मानव, पशु और पर्यावरण के इंटरकनेक्शन के संदर्भ में AMR से निपटना।\n- WHO का यह अभियान राष्ट्रीय और राज्य स्तरीय AMR नीतियों, स्तरीय निगरानी (surveillance) और एंटीबायोटिक stewardship कार्यक्रमों को मजबूती देने से सीधे जुड़ा हुआ है।\n- भारत में राष्ट्रीय स्तर पर AMR से संबन्धित कार्यक्रम और जनजागरण गतिविधियाँ अक्सर इसी नवंबर सप्ताह के साथ तालमेल रखकर चलायी जाती हैं।\n- स्वास्थ्य सेवाओं में November में आयोजित जागरूकता-कार्यक्रमों को मेडिकल कॉलेज, सरकारी स्वास्थ्य केंद्र और स्थानीय प्रशासन द्वारा प्रशिक्षण व IEC सामग्री के रूप में प्रयोग किया जाता है।\n- परीक्षा एवं Mains उत्तर लेखन में यह तथ्य उपयोगी है: “WHO की वार्षिक World Antibiotic Awareness Week नवंबर में होती है, जो AMR पर One Health दृष्टिकोण से जागरूकता व नीति-सुदृढीकरण का अवसर प्रदान करती है।”\n- MP-सन्दर्भ में यह उल्लेखनीय है कि नवंबर में चलने वाली जागरूकता पहलों को राज्य स्तरीय AMR कार्ययोजनाओं, पोषण व पशुपालन नीतियों तथा लोक स्वास्थ्य अभियानों से जोड़ा जा सकता है।\n- संक्षेप में, WHO का यह वार्षिक अभियान नवंबर में होता है और यह AMR को सार्वजनिक स्वास्थ्य प्राथमिकता के रूप में उठाने तथा एंटीबायोटिक stewardship को बढ़ावा देने का अंतरराष्ट्रीय व राष्ट्रीय मंच प्रदान करता है।", "priority_tag": "HIGH"}, {"question": "नीचे दिए गए में से किस संगठनों के संयोजन ने 2022 में 'Quadripartite' सहयोग के रूप में One Health पहल को सशक्त किया (UNEP के शामिल होने के बाद)?", "options": ["WHO, FAO, WOAH और UNEP", "WHO, UNICEF, FAO और UNEP", "WHO, OIE, FAO और World Bank", "WHO, FAO, ICMR और UNEP"], "answer_index": 0, "explanation": "# उत्तर का संक्षिप्त व्याख्या (One Health — Quadripartite, 2022 के संदर्भ में)\n- 2022 में One Health पहल को चार-पक्षीय (Quadripartite) सहयोग के रूप में सशक्त किया गया; इसमें मानव, पशु, वन्यजीव और पर्यावरण से जुड़े समन्वय को औपचारिक रूप मिला।\n- इस Quadripartite गठजोड़ का उद्देश्य संक्रामक रोगों, एंटीमाइक्रोबियल प्रतिरोध (AMR) और पारिस्थितिकीय खतरों पर संयुक्त रणनीति बनाना था।\n- चारों संस्थाओं ने मिलकर One Health के तहत नीतिगत मार्गदर्शिका, क्षमता-निर्माण और तकनीकी सहायता हेतु साझा दृष्टिकोण अपनाया।\n- इस सहयोग ने राष्ट्रीय सरकारों के लिए अंतर-सेक्टोरल नीतियाँ और कार्ययोजनाएँ तैयार करने में सहूलियत दी, जिससे स्वास्थ्य, पशुपालन और पर्यावरण विभागों का तालमेल बढ़ा।\n- AMR के संदर्भ में Quadripartite ने संयोजित निगरानी (integrated surveillance), दवा उपयोग पर दिशानिर्देश और फार्मास्युटिकल अपशिष्ट प्रबंधन पर जोर दिया।\n- संयुक्त रणनीतियों में घटना पहचान (surveillance), शीघ्र चेतावनी तंत्र (early warning), जोखिम आकलन और आपातकालीन प्रतिक्रिया-तैयारी शामिल हैं।\n- One Health कार्ययोजना में मानव स्वास्थ्य सेवा, पशु स्वास्थ्य सेवाएँ, खाद्य सुरक्षा और पर्यावरण संरक्षण को समांतर रूप से मजबूत करने के उपाय बताए गए।\n- इस गठजोड़ ने देशों को राष्ट्रीय One Health कार्ययोजना तैयार करने, प्रशिक्षण कार्यक्रम चलाने और बहु-क्षेत्रीय डेटा शेयरिंग तंत्र स्थापित करने के लिए तकनीकी मार्गदर्शन दिया।\n- मध्यप्रदेश/भारत जैसे प्रदेशों के लिए यह मॉडल स्थानीय पशु-स्वास्थ्य विभाग, वन विभाग और स्वास्थ्य विभाग के समन्वय को कानूनी और नीतिगत रूप से सुदृढ़ करने का आधार प्रदान करता है।\n- Quadripartite सहयोग ने वैश्विक स्तर पर One Health निवेश, शोध और क्षमता-निर्माण के लिए समर्थन जुटाने तथा फाइनेंसिंग मैकेनिज्मों को प्रेरित करने में भी भूमिका निभाई।\n- संक्षेप में, 2022 का यह चार-पक्षीय समावेश One Health का समग्र, पारिस्थितिक और बहु-क्षेत्रीय दृष्टिकोण वैश्विक नीति में मजबूती से स्थापित करने का निर्णायक कदम था।", "priority_tag": "HIGH"}, {"question": "One Health High-Level Expert Panel (OHHLEP) की स्थापना किस वर्ष हुई थी?", "options": ["2021", "2019", "2017", "2015"], "answer_index": 0, "explanation": "# व्याख्या — One Health High-Level Expert Panel (OHHLEP) की स्थापना — परीक्षा संक्षेप\n- **स्थापना वर्ष:** One Health High-Level Expert Panel (OHHLEP) की स्थापना **2021** में की गई।\n- OHHLEP को वैश्विक स्तर पर One Health नीतियों और वैज्ञानिक सलाह देने के लिए गठित किया गया एक उच्च स्तरीय विशेषज्ञ पैनल है।\n- पैनल का उद्देश्य मानव, पशु, और पारिस्थितिक स्वास्थ्य के समन्वित दृष्टिकोण से जोखिमों (जैसे जोंटोनिक रोग, एंटीमाइक्रोबियल रेजिस्टेंस) का मूल्यांकन और मार्गदर्शन करना है।\n- OHHLEP ने One Health की एक स्पष्ट परिभाषा और कार्यात्मक ढांचे को स्थापित करने में भूमिका निभाई, जिससे नीतिगत समेकन और इंटरसेक्टोरल कार्रवाई आसान हुई।\n- यह पैनल वैश्विक स्वास्थ्य संस्थाओं और नीति-निर्माताओं को वैज्ञानिक साक्ष्य-आधारित सिफारिशें देता है ताकि महामारी की रोकथाम और AMR जैसी चुनौतियों पर समग्र रणनीति बनाई जा सके।\n- OHHLEP की सलाह का प्रयोग देशों द्वारा समेकित निगरानी (human–animal–environment surveillance), जोखिम आकलन और रोकथाम नीतियों के डिजाइन में किया जा सकता है।\n- भारत जैसे देशों के लिए OHHLEP के दिशा-निर्देश सार्वजनिक स्वास्थ्य प्राथमिकताओं में One Health एकीकरण, पशु स्वास्थ्य व पर्यावरण प्रबंधन को नीति स्तर पर जोड़ने में मार्गदर्शक हैं।\n- पैनल के गठन (2021) के बाद One Health को राष्ट्रीय नीतियों और कार्ययोजनाओं में तेज़ी से शामिल करने का वैश्विक रुझान बढ़ा, जो AMR नियंत्रण और जोंटोनिक रोगों के तैयार रहने के लिहाज से महत्वपूर्ण है।\n- OHHLEP वैज्ञानिक साक्ष्य प्रदान कर ब्रिज बनाता है—क्लिनिकल, पशु-स्वास्थ्य व पर्यावरण विज्ञान के बीच—ताकि निर्णयकर्ता समन्वित सार्वजनिक-स्वास्थ्य हस्तक्षेप लागू कर सकें।\n- परीक्षा-उपयोगी बिंदु: यदि प्रश्न OHHLEP के गठन वर्ष पर पूछे तो सही उत्तर **2021** दें; अतिरिक्त बिंदु के रूप में जान लें कि यह One Health के समेकित, बहु-क्षेत्रीय मार्गदर्शन हेतु स्थापित वैश्विक विशेषज्ञ पैनल है।", "priority_tag": "HIGH"}, {"question": "भारत में NAP-AMR (2017) का प्रमुख मंत्रालय/एजेंसी जिसने राष्ट्रीय योजना जारी की थी, वह कौन सी है?", "options": ["Ministry of Environment, Forest and Climate Change", "Ministry of Health and Family Welfare", "Ministry of Agriculture & Farmers Welfare", "NITI Aayog"], "answer_index": 1, "explanation": "# व्याख्या — NAP‑AMR (2017) का प्रमुख मंत्रालय: **Ministry of Health and Family Welfare (MoHFW)**\n- NAP‑AMR (2017) भारत की राष्ट्रीय नीति/योजना थी जिसे आधिकारिक तौर पर Ministry of Health and Family Welfare ने जारी और अधिनियमित किया।\n- इस योजना का उद्देश्य देश में एन्टीमाइक्रोबियल प्रतिरोध (AMR) को राष्ट्रीय सार्वजनिक‑हेल्थ प्राथमिकता बनाकर नियंत्रित करना था।\n- NAP‑AMR ने AMR को रोकने और नियंत्रित करने के लिए राष्ट्रीय स्तरीय रणनीति, लक्ष्यों और कार्ययोजना निर्धारित की।\n- नीति ने \"One Health\" दृष्टिकोण अपनाया — मानव स्वास्थ्य को प्राथमिकता देते हुए परन्तु पशु, कृषि और पर्यावरण से संबंधित इंटरसेक्शन को भी समन्वयित करने का निर्देश दिया।\n- योजना में स्पष्ट रणनीतिक प्राथमिकताएँ दी गईं: जागरूकता व शिक्षा, रोग‑निगरानी और डेटा सिस्टम, संक्रमण‑निवारण एवं नियंत्रण, एंटीमाइक्रोबियल उपयोग में सुधार/स्टवर्डशिप, तथा अनुसंधान व नवाचार।\n- केंद्रीय स्वास्थ्य मंत्रालय ने राज्य‑स्तरीय अम्लान्वयन के समन्वय, दिशा‑निर्देश और तकनीकी सहायता प्रदान करने की व्यवस्था तय की।\n- योजना में निगरानी, मूल्यांकन और रिपोर्टिंग के लिए राष्ट्रीय ढाँचा तथा समय‑बद्ध लक्ष्य/इंडिकेटर्स निर्धारित किए गए थे।\n- NAP‑AMR ने सार्वजनिक स्वास्थ्य ढाँचे में एंटीमाइक्रोबियल स्टवर्डशिप और अस्पतालों में संक्रमण‑नियंत्रण प्रथाओं को सशक्त करने पर बल रखा।\n- नीति ने मानव स्वास्थ्य में प्रतिरोध की रोकथाम के लिए जनसंवाद, स्वास्थ्यकर्मी प्रशिक्षण और दवा उपयोग के नियमन के उपायों को प्राथमिकता दी।\n- MoHFW द्वारा जारी इस राष्ट्रीय योजना ने भारत की AMR नीतियों को वैश्विक AMR कार्ययोजनाओं के साथ संरेखित करने का रूपरेखा भी दिया।", "priority_tag": "VERY_HIGH"}, {"question": "WHO के Global Action Plan on AMR के प्रमुख लक्ष्यों में से एक क्या है?", "options": ["सिर्फ पशु चिकित्सा में एंटीमाइक्रोबियल उपयोग बढ़ाना", "एंटीबायोटिक-निगरानी और स्ट्यूर्डशिप को मजबूत करना", "सिर्फ नया वैक्सीन विकसित करना", "केवल चिकित्सा शिक्षकों की भर्ती करना"], "answer_index": 1, "explanation": "# व्याख्या — WHO Global Action Plan on AMR: \"एंटीबायोटिक‑निगरानी और स्ट्यूर्डशिप को मजबूत करना\"\n**मुख्य बिंदु (MPPSC Prelims/Revision + Mains के लिए सीधे उठाने योग्य):**\n1. एंटीबायोटिक स्ट्यूर्डशिप का उद्देश्य दवाओं का उचित, सुरक्षित और प्रभावी उपयोग सुनिश्चित कर के प्रतिरोधनशीलता (resistance) को कम करना है।\n2. निगरानी (surveillance) प्रणाली से AMR के पैटर्न और प्रवृत्तियों का समय-समय पर पता चलता है, जिससे नीति और क्लिनिकल गाइडलाइन तय की जा सकती हैं।\n3. स्टैंडर्डाइज़्ड डेटा कलेक्शन और प्रयोगशाला क्षमताओं के सशक्तीकरण से राष्ट्रीय और स्थानीय स्तर पर तुलना‑योग्य AMR सूचनाएँ मिलती हैं।\n4. क्लिनिकल स्ट्यूर्डशिप कार्यक्रमों में दिशानिर्देश, प्रोटोकॉल, एवं औषध‑आडिट शामिल होते हैं ताकि प्रिस्क्रिप्शन व्यवहार संशोधित हो।\n5. अस्पतालों में फार्मेसी‑क्लीनिकल टीमों (इंफेक्शन कंट्रोल, माइक्रोबायोलॉजी, फार्मासिस्ट) का समन्वय स्ट्यूर्डशिप के प्रभाव को बढ़ाता है।\n6. एंटीबायोटिक उपयोग पर रियल‑टाइम डेटा और रिपोर्टिंग से आउटब्रीक पहचान, संसाधन नियोजन और लक्षित हस्तक्षेप संभव होते हैं।\n7. लैबोरेटरी नेटवर्क और बायो-रिसौर्स (सुसCEPTIBILITY टेस्टिंग, डेटा मानकीकरण) को मजबूत करने पर स्थानीय मामलों से राष्ट्रीय नीति के लिए विश्वसनीय सबूत मिलते हैं।\n8. प्रशिक्षण और क्षमता निर्माण (क्लिनिशियनों, लैब स्टाफ, फार्मासिस्ट) स्ट्यूर्डशिप नीतियों को व्यवहार में बदलने के लिए आवश्यक हैं।\n9. पॉलीसी स्तर पर एंटीबायोटिक उपयोग के मापदंड और सहायक इंसेंटिव/नियमन स्टडीर्डशिप की पालना बढ़ाते हैं।\n10. समुदाय और प्राथमिक स्वास्थ्य केंद्रों में निगरानी व स्ट्यूर्डशिप से अनुचित ओटीसी/अनावश्यक प्रिस्क्रिप्शन पर नियंत्रण आता है।\n11. One Health दृष्टिकोण के तहत मानव, पशु और पर्यावरण से संबंधित एंटीबायोटिक उपयोग व प्रतिरोध की निगरानी को एकीकृत करना आवश्यक है।\n12. मजबूत निगरानी‑स्ट्यूर्डशिप से चिकित्सकीय निर्णय बेहतर, इलाज की लागत घटती है और AMR के उभरते रुझानों पर त्वरित नीति प्रतिक्रिया संभव होती है।\n(इन बिंदुओं को MP‑संबंधित Mains उत्तर में नीति/प्रयोगात्मक उदाहरणों के साथ सीधे उद्धरण या अनुच्छेद के रूप में प्रयुक्त किया जा सकता है।)", "priority_tag": "VERY_HIGH"}, {"question": "नीचे दिए गए में से कौन-सा कार्यक्रम विशेष रूप से कम आय वाले देशों में AMR क्षमता निर्माण के लिए ब्रिटिश सरकार द्वारा प्रारम्भ किया गया था?", "options": ["Fleming Fund", "Gavi", "Global Fund", "COVAX"], "answer_index": 0, "explanation": "# **व्याक्‍या — Fleming Fund (AMR क्षमता निर्माण हेतु ब्रिटिश कार्यक्रम)**\n- Fleming Fund यूनाइटेड किंगडम की सरकार द्वारा AMR (एंटिमाइक्रोबियल रेजिस्टेंस) क्षमता निर्माण हेतु विशेष रूप से कम-आय वाले देशों के लिए शुरू किया गया कार्यक्रम है।\n- यह कार्यक्रम लगभग £265 मिलियन (ब्रिटिश पाउंड) के वित्तीय आग्रह के साथ आयोजित किया गया था और सीमित अवधि में देश-स्तरीय और क्षेत्रीय क्षमता विकसित करने पर केन्द्रित था।\n- उद्देश्य: निगरानी (surveillance) क्षमता, प्रयोगशाला ढाँचा, डेटा सिस्टेम और मानव-वन्य-पशु (One Health) समेकित दृष्टिकोण के माध्यम से AMR का पता लगाने व रिपोर्टिंग सक्षम बनाना।\n- Fleming Fund के तहत देश-स्तरीय ग्रांट और तकनीकी सहायता दी जाती है ताकि राष्ट्रीय AMR निगरानी योजनाएँ और राष्ट्रीय कार्ययोजना (NAP) लागू कर सकें और मजबूत कर सकें।\n- कार्यक्रम प्रयोगशालाओं के बुनियादी ढाँचे, गुणवत्ता आश्वासन, माइक्रोबायोलॉजी कौशल, और प्रयोगशाला निदान का मानकीकरण बढ़ाने पर काम करता है।\n- Fleming Fund ने AMR डेटा को अंतरराष्ट्रीय प्लेटफ़ॉर्म (जैसे GLASS के अनुरूप) में एकीकृत करने और रिपोर्टिंग क्षमता बढ़ाने के लिए तकनीकी सहायता और प्रशिक्षण दी।\n- कार्यक्रम में जीनोमिक निगरानी (sequencing) क्षमता, सूचना-प्रबंधन सिस्टम और एंटीबायोटिक उपभोग/प्रति-रोधी पैटर्न के आँकड़े इकठ्ठा करने की पहलें शामिल हैं।\n- Fleming Fund ने मानव स्वास्थ्य, पशु स्वास्थ्य और पर्यावरण के मध्य समन्वय (One Health) को सुदृढ़ करने के लिए मल्टी-सेक्टोरल प्रशिक्षण व नीति-निर्माण सहयोग प्रदान किया।\n- इससे प्राप्त क्षमताएँ राष्ट्रीय स्तर पर AMR की जल्दी पहचान, रोकथाम रणनीतियाँ और दवा-नीतियों (antimicrobial stewardship) के लिए प्राथमिक प्रमाण आधारित निर्णयों में सहायक होती हैं।\n- परीक्षा/मेनस उपयोग हेतु संक्षेप बिंदु: Fleming Fund = UK सरकार का कम-आय देशों का AMR क्षमता निर्माण कार्यक्रम; प्रमुख कार्य = प्रयोगशाला व निगरानी क्षमता, One Health समन्वय, डेटा इंटीग्रेशन व NAP लागू करना।", "priority_tag": "HIGH"}, {"question": "WHO-FAO-WOAH तीन-तरफा संयुक्त प्रयास को आमतौर पर किस शब्द से संबोधित किया जाता है (UNEP जुड़ने से पहले)?", "options": ["Tripartite", "Quadripartite", "Bipartite", "Multipartite"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Global Leaders Group on Antimicrobial Resistance का गठन किस वर्ष हुआ था?", "options": ["2020", "2016", "2018", "2014"], "answer_index": 0, "explanation": "# व्याख्या: Global Leaders Group on Antimicrobial Resistance — गठन वर्ष और सार (उत्तर: 2020)\n- उत्तर: Global Leaders Group on Antimicrobial Resistance का गठन वर्ष **2020** में हुआ था।\n- यह समूह वैश्विक स्तर पर एंटीमाइक्रोबियल रेजिस्टेंस (AMR) के प्रति राजनीतिक चेतना और कार्रवाई सुगम करने के उद्देश्य से स्थापित किया गया।\n- समूह में उपर्युक्त विषय पर अनुभव और प्रभाव रखने वाले अंतरराष्ट्रीय नेता, पूर्व/वर्तमान प्रमुख और उच्च-स्तरीय प्रतिनिधि शामिल होते हैं ताकि नीति निर्माण में उच्च राजनीतिक दबाव बन सके।\n- इसका कार्यक्षेत्र One Health प्राथमिकता के अनुरूप मानव, पशु और पर्यावरण संबंधी पहलुओं को एकीकृत कर के AMR से लड़ने के लिए देशों को मार्गदर्शन देना है।\n- समूह का एक प्रमुख उद्देश्य राष्ट्रीय AMR नेशनल एक्शन प्लान्स (NAPs) को तेज करना, उनका क्रियान्वयन सुनिश्चित करना और संसाधनों/निवेश की सिफारिशें करना है।\n- यह निगरानी (surveillance), एंटीबायोटिक stewardship, संक्रमण-नियंत्रण (IPC), और WASH interventions को तीव्रता से लागू करने की सिफारिशें करता है।\n- 2020 में गठन के बाद से समूह ने वैश्विक चेतना बढ़ाने, वित्तपोषण और नवाचार (नए एंटीमाइक्रोबियल्स व वैकल्पिक तकनीकों) के समर्थन हेतु नीति-स्तरीय सिफारिशें दीं।\n- भारत-विषयक प्रावधानों के सन्दर्भ में यह समूह राष्ट्रीय रणनीतियों (जैसे भारत का NAP-AMR) को सुदृढ़ करने तथा राज्य/प्रदेश स्तर पर One Health दृष्टिकोण अपनाने की सिफारिशों को बल देता है; मध्यप्रदेश में रोगनियंत्रण, पशु-स्वास्थ्य और पर्यावरण प्रबंधन समन्वय के लिए उपयोगी प्रमाणित नीतिगत दिशा-निर्देश प्रदान करता है।\n- परीक्षा एवं Mains उपयोग के लिए संक्षेप: \"Global Leaders Group on AMR — गठन: 2020; उद्देश्य: उच्च-स्तरीय राजनीतिक नेतृत्व के माध्यम से One Health दृष्टिकोण से AMR नियंत्रण, NAP क्रियान्वयन, निगरानी व नवाचार हेतु वैश्विक दिशानिर्देश और संसाधन-सिफारिशें।\"\n- नोट (revision hook): यदि MCQ में गठन-वर्ष पूछा जाए तो त्वरित उत्तर — **2020**, और लिखित उत्तर/निबंध में ऊपर दिए गए बिंदुओं को One Health व नीतिगत क्रियान्वयन के पक्ष में सीधे-साफ़ उद्धरण के रूप में प्रयोग करें।", "priority_tag": "HIGH"}, {"question": "भारत में AMR पर राष्ट्रीय निगरानी नेटवर्क (national AMR surveillance) को बढ़ाने में प्रमुख भूमिका निभाने वाली वैज्ञानिक संस्था कौन सी मानी जाती है?", "options": ["ICMR (Indian Council of Medical Research)", "NITI Aayog", "AIIMS", "CSIR"], "answer_index": 0, "explanation": "# व्याख्या: ICMR की भूमिका — भारत में राष्ट्रीय AMR निगरानी नेटवर्क बढ़ाने में प्रमुख संस्था\n- ICMR ने भारत के राष्ट्रीय एंटीमाइक्रोबियल रेसिस्टेंस निगरानी नेटवर्क (AMR surveillance network) के समन्वय और विस्तार में केंद्रीय भूमिका निभाई है।\n- यह संस्था देशभर में प्रयोगशाला-आधारित निगरानी के लिए मानकीकृत प्रोटोकॉल और SOPs विकसित और जारी करती है।\n- ICMR द्वारा स्थापित और मान्यता प्राप्त रेफरेंस लैब और नेटवर्क साइटें गुणवत्ता नियंत्रित माइक्रोबायोलॉजी परीक्षणों के लिए केंद्रीय समर्थन प्रदान करती हैं।\n- राष्ट्रीय स्तर पर जुटाए गए AMR डेटा के संग्रह, विश्लेषण और रिपोर्टिंग की प्रक्रियाओं को ICMR संचालित करता/करती है।\n- ICMR का नेटवर्क WHO के GLASS जैसी अंतरराष्ट्रीय फ्रेमवर्क से तालमेल रखकर डेटा साझा करने और मानकीकरण सुनिश्चित करने में योगदान देता है।\n- स्वास्थ्यकर्मियों और लैब तकनीशियनों के प्रशिक्षण, क्षमता-निर्माण और वर्कशॉप्स आयोजित कर ICMR निगरानी क्षमता बढ़ाने में सक्रिय है।\n- AMR पर नीति-निर्माण और राष्ट्रीय रणनीतियों (जैसे AMR action plans) के लिए वैज्ञानिक साक्ष्य, रिपोर्टें और सिफारिशें ICMR प्रदान करता/करती है।\n- प्रयोगशाला मानकीकरण के लिए ICMR बाहरी गुणवत्ता आश्वासन कार्यक्रम और मानदंड लागू करता/करती है ताकि डेटा विश्वसनीय और तुलनीय हो।\n- ICMR राष्ट्रीय-स्तर पर मानव स्वास्थ्य से जुड़े AMR रुझानों की दीर्घकालिक निगरानी कर रिसर्च और इंटरवेंशन के लिए आधारभूत जानकारी उपलब्ध कराता/कराती है।\n- वन-हेल्थ दृष्टिकोण में मानव स्वास्थ्य संबंधित AMR डेटा के समन्वय एवं साझा करने में ICMR का वैज्ञानिक नेतृत्व नीति और कार्यक्रमों को आकार देता है।\n- AMR से जुड़ी नई तकनीकों, जीनोटाइपिंग और महामारी विज्ञान संबंधी अनुसंधान परियोजनाओं में ICMR फंडिंग और तकनीकी मार्गदर्शन देता/देती है।\n- कुल मिलाकर, राष्ट्रीय AMR निगरानी के वैज्ञानिक, तकनीकी और कार्यक्रमात्मक घटकों को मजबूत करने में ICMR को केंद्रीय संस्था माना जाता है।", "priority_tag": "VERY_HIGH"}, {"question": "NAP-AMR India (2017) के कार्यकाल में सामान्यतः किन प्रमुख स्तम्भों/दिशाओं पर ध्यान दिया गया था? (सही में से चुनें)", "options": ["सर्विलांस, एंटीमाइक्रोबियल स्टुअर्डशिप, रेगुलेशन और शिक्षा", "केवल वैक्सीन निर्माण", "केवल पशु औषधियों का निर्यात बढ़ाना", "केवल अस्पताल निर्माण"], "answer_index": 0, "explanation": "# VYAKHYA — NAP‑AMR (2017) के प्रमुख कार्यकालिक स्तम्भ (सर्विलांस, एंटीमाइक्रोबियल स्टुअर्डशिप, रेगुलेशन, शिक्षा)\n- NAP‑AMR का एक मुख्य लक्ष्य था देशव्यापी प्रतिजैविक प्रतिरोध (AMR) के पैटर्न की संचयी निगरानी (surveillance) स्थापित करना ताकि प्रवृत्तियों और स्पेक्ट्रम में बदलाव समय पर पकड़े जा सकें।\n- सर्विलांस के तहत मानव, पशु और कृषिगत स्रोतों से सूक्ष्मजीवों और प्रतिरोध जीनों का नियमित नमूना‑संग्रह और प्रयोगशाला परीक्षण सुनिश्चित करने का उल्लेख है।\n- राष्ट्रीय स्तर पर लैब नेटवर्क और रिपोर्टिंग पोर्टल के माध्यम से डेटा कलेक्शन‑अनालिटिक्स का मानकीकरण और समयानुकूल सूचना प्रदान करना सर्विलांस का मूल उद्देश्य था।\n- एंटीमाइक्रोबियल स्टुअर्डशिप (AMS) कार्यक्रमों का उद्देश्य क्लिनिकल सेटिंग्स में दवाओं के उपयुक्त चयन, खुराक, अवधि और निगमन (de‑escalation) नीतियों को लागू कर अनावश्यक एंटीबायोटिक उपयोग घटाना था।\n- AMS में अस्पतालों और प्राथमिक स्वास्थ्य केंद्रों के लिये नीतिगत दिशानिर्देश, फार्माकोथेरेपी कमेटियाँ, प्रिस्क्रिप्शन ऑडिट और फीडबैक मैकेनिज्म शामिल करने पर जोर था।\n- रेगुलेशन के क्षेत्र में दवाओं के उत्पादन, बिक्री और पशुपालन/कृषि में उपयोग पर नियमन कड़ा करने, ओवर‑द‑काउंटर बिक्री नियंत्रित करने और पशुचिकित्सा दवाओं की वैधता सुनिश्चित करने की आवश्यकता रेखांकित की गई थी।\n- रेगुलेटरी कदमों में दवा‑लाइफसाइकल पर निगरानी, फार्मास्युटिकल‑मार्केटिंग प्रथाओं का नियमन और एंटीबायोटिक‑इम्पोर्ट/एक्सपोर्ट नीतियों का समन्वय शामिल है।\n- शिक्षा/जागरूकता (awareness & education) के माध्यम से स्वास्थ्यकर्मियों, पशुचिकित्सकों, फार्मासिस्ट और जनसाधारण में एंटीमाइक्रोबियल उपयोग‑जोखिम और संक्रमण‑नियंत्रण के बारे में संरचित प्रशिक्षण और IEC कैंपेन सुझाए गए थे।\n- शिक्षा में मेडिकल/वेटरिनरी पाठ्यक्रमों में AMR और स्टुअर्डशिप को समेकित कर निरंतर प्रोफेशनल डेवेलपमेंट (CPD) सुनिश्चित करने पर बल दिया गया।\n- NAP‑AMR में इन स्तम्भों का उद्देश्य One Health परिपेक्ष्य में समन्वित कार्य सुनिश्चित करना—सर्विलांस जानकारी AMS नीतियों और रेगुलेटरी निर्णयों तथा शिक्षा‑अभियानों से फ़ीडबैक पाकर नीतिगत सुधार प्रेरित करे।\n- परीक्षा/मेनस उत्तर में इन बिंदुओं को सीधे उपयोगी तरह से प्रस्तुत करें: (1) सर्विलांस = डेटा‑आधारित नीति, (2) स्टुअर्डशिप = क्लिनिकल प्रैक्टिस सुधार, (3) रेगुलेशन = दवा‑प्रवर्तन, (4) शिक्षा = व्यवहारिक परिवर्तन।\n- संक्षेप में, NAP‑AMR (2017) का कार्यकाल इन चार स्तम्भों पर समन्वित कार्रवाई के जरिए AMR को रोकने और दवाओं के दीर्घकालिक प्रभावशीलता बनाए रखने पर केन्द्रित था।", "priority_tag": "VERY_HIGH"}, {"question": "WHO के GLASS में शामिल होने का मुख्य उद्देश्य क्या है?", "options": ["विश्व स्तरीय AMR डेटा-संग्रह और तुलनात्मक निगरानी स्थापित करना", "सिर्फ वैक्सीन मूल्य निर्धारण तय करना", "दवा की कीमतें घटाना", "प्रत्येक देश के निजी अस्पतालों को बंद करना"], "answer_index": 0, "explanation": "# व्याख्या — WHO का GLASS (Global Antimicrobial Resistance Surveillance System) में शामिल होने का मुख्य उद्देश्य\n- GLASS का मूल उद्देश्य विश्व स्तर पर एंटीमाइक्रोबियल प्रतिरोध (AMR) के लिए मानकीकृत डेटा-संग्रह और तुलनात्मक निगरानी स्थापित करना है।\n- यह प्रणाली देशों से प्रतिरोधी रोगजनकों, नमूनों और उपचार परिणामों के सुसंगत, मानकीकृत संकेतक एकत्र कर वैश्विक डेटाबेस बनाती है।\n- GLASS में शामिल प्रक्रियाएँ नैदानिक प्रयोगशाला परिणामों के लिए सामान्य प्रोटोकॉल और रिपोर्टिंग प्रारूप तय करती हैं ताकि अंतर-देशीय तुलना संभव हो।\n- सिस्टम में शामिल होने से देशों को संदर्भ (denominator) डाटा—जैसे परीक्षण की संख्या व नमूनों के प्रकार—रिपोर्ट करने की आवश्यकतानुसार प्रतिरोध दरों की सही गणना करने में मदद मिलती है।\n- GLASS का उद्देश्य प्रारंभिक चेतावनी और प्रवृत्ति पहचान करना है, ताकि नई प्रतिरोधी प्रवृत्तियाँ समय रहते चिन्हित और सार्वजनिक स्वास्थ्य प्रतिक्रिया तेज़ की जा सके।\n- यह नीति-निर्माण के लिए विश्वसनीय सबूत देता है: राष्ट्रीय एएमआर रणनीतियाँ, एंटीबायोटिक stewardship और निदान-आधारित दिशानिर्देश GLASS डेटा पर निर्भर कर सकते हैं।\n- GLASS सदस्यता से लैब क्षमता निर्माण, क्वालिटी-अशोरेंस और डेटा प्रबंधन प्रणाली की मजबूती को बढ़ावा मिलता है, खासकर कम-से- मध्यम आय देश में।\n- One Health नजरिए के अनुरूप, GLASS मानव स्वास्थ्य से संबंधित AMR डेटा को संरचित रूप से संग्रहीत करता है और पशु/पर्यावरण डेटा के साथ तालमेल के लिए आधार प्रदान करता।\n- राष्ट्रीय मशीनरी (रिपोर्टिंग लैब, निगरानी नेटवर्क) को GLASS में जोड़ने से देशीय और राज्य-स्तरीय कार्यक्रमों को बenchmarks मिलते हैं और अंतरराष्ट्रीय रिपोर्टिंग बाध्यताओं का पालन सुनिश्चित होता है।\n- GLASS से प्राप्त तुलनात्मक डेटा सार्वजनिक स्वास्थ्य अनुसंधान, दवा विकास प्राथमिकताएँ और वैश्विक स्वास्थ्य संसाधन आवंटन में दिशा-निर्देश प्रदान करता है।\n- परीक्षात्मक उत्तर में सीधे बिंदु के रूप में: GLASS में शामिल होना इसलिए आवश्यक है ताकि विश्वसनीय, मानकीकृत और तुलनात्मक AMR डेटासेट बन सके जो नीति, कार्रवाई और वैश्विक निगरानी को सक्षम करे।", "priority_tag": "VERY_HIGH"}, {"question": "World Antibiotic Awareness Week की अवधि प्रतिवर्ष कितने दिनों की होती है?", "options": ["7 दिन", "3 दिन", "10 दिन", "14 दिन"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "AMR पर 'One Health' दृष्टिकोण का मुख्य कारण क्या है?", "options": ["मानव, पशु और पर्यावरण में एंटीमाइक्रोबियल उपयोग और प्रतिरोधकनीति आपस में जुड़े होते हैं", "केवल पशुओं में रोगों पर ध्यान केंद्रित करने के लिए", "सिर्फ चिकित्सा शिक्षा में संशोधन हेतु", "केवल दवा कंपनियों के उत्पादन बढ़ाने के लिए"], "answer_index": 0, "explanation": "# VYAKHYA — AMR पर 'One Health' दृष्टिकोण क्यों आवश्यक है\n(प्रश्न का मूल विचार: मानव, पशु और पर्यावरण में एंटीमाइक्रोबियल उपयोग और प्रतिरोध आपस में जुड़े होते हैं)\n- मानव, पशु और पर्यावरण में एंटीमाइक्रोबियल दवाओं (एंटीबायोटिक्स, एंटीसेप्टिक आदि) का उपयोग एक समान पारिस्थितिक दबाव बनाता है, जो प्रतिरोधी सूक्ष्मजीवों के चयन को बढ़ाता है।\n- पशु चिकित्सकीय और पशुपालन में विस्तृत एंटीमाइक्रोबियल उपयोग से प्रतिरोधी बैक्टीरिया मनुष्यों तक मिलकर फैल सकते हैं—खाद्य श्रृंखला, सीधे संपर्क और वायुजनित मार्गों के माध्यम से।\n- मानव और पशु दोनों के मल, अपशिष्ट और खेतों में उपयोग किए गए खाद्य अपशिष्ट/कीटनाशक से पर्यावरण में प्रतिरोधी जीन और जीवाणु जमा होते हैं; यह पर्यावरणीय रिज़र्वायर बनता है।\n- पर्यावरण (नदियाँ, नाले, मिट्टी) में मौजूद निचली सांद्रता की दवाएँ भी सूक्ष्मजीवों में चयन दबाव डाल कर प्रतिरोध बढ़ाती हैं; वेस्टवाटर और औद्योगिक अपशिष्ट महत्वपूर्ण स्रोत हैं।\n- प्रतिरोधक जीनों का क्षैतिज जीन स्थानांतरण (horizontal gene transfer) एक जैविक प्रक्रिया है जिससे मानव-जानवर-पर्यावरण तंत्रों के बीच प्रतिरोध आसानी से 'साझा' हो जाता है।\n- इसलिए प्रभावी निगरानी और नियंत्रण के लिए मानव-स्वास्थ्य, पशु-स्वास्थ्य और पर्यावरण-सेक्टर का संयुक्त डेटासेट व निगरानी प्रणाली आवश्यक है; एकल-सेक्टर निगरानी अधूरी जानकारी दे सकती है।\n- नीतिगत हस्तक्षेप (स्टेवार्डशिप, विनियमन, दवा वितरण नीति) केवल अस्पतालों तक सीमित नहीं रहना चाहिए; पशुपालन और पर्यावरण प्रबंधन को भी लक्ष्य बनाना आवश्यक है।\n- रोकथाम में टीकाकरण, जैव-सुरक्षा (biosecurity) प्रथाएँ, स्वच्छ जल एवं उन्नत अपशिष्ट प्रबंधन शामिल होने चाहिए क्योंकि ये मानव–पशु–पर्यावरण संचार को कम करते हैं।\n- उपचारात्मक गाइडलाइन्स, पशु आहार में दवा उपयोग पर नियम और पर्यावरणीय अपशिष्ट प्रबंधन को समन्वयित नीतियों के द्वारा लागू करने की जरूरत होती है—इसीलिए One Health दृष्टिकोण लागू किया जाता है।\n- One Health मॉडल से संसाधनों का समेकित उपयोग, जोखिम का समग्र आकलन और बहु-क्षेत्रीय हस्तक्षेप संभव होते हैं, जिससे AMR पर दीर्घकालिक प्रभावी नियंत्रण की संभावना बढ़ती है।", "priority_tag": "VERY_HIGH"}, {"question": "भारतीय NAP-AMR (2017) की प्राथमिक अवधि क्या थी (आवधि जो योजना में प्रकट की गई थी)?", "options": ["2017–2021", "2015–2019", "2018–2022", "2016–2020"], "answer_index": 0, "explanation": "# व्याख्या: भारतीय NAP-AMR (2017) की प्राथमिक अवधि — **2017–2021**\n- NAP‑AMR (National Action Plan on Antimicrobial Resistance) भारत द्वारा घोषित एक राष्ट्रीय कार्ययोजना है जिसकी प्राथमिक अवधि स्पष्ट रूप से **2017–2021** निर्धारित की गई थी।\n- इस अवधि (2017–2021) को पाँच वर्ष के रूप में परिभाषित किया गया, ताकि लक्ष्य‑निर्धारण, वित्तीय आवंटन और कार्यान्वयन के लिए एक ठोस समयसीमा मिल सके।\n- पांच वर्ष की यह प्राथमिक अवधि नीतिगत हस्तक्षेपों को चरणबद्ध रूप में लागू करने और मसौदा‑कार्यक्रमों को व्यवहार में लाने के लिए रखी गई थी।\n- इस समयावधि के भीतर कार्यक्रम के मुख्य घटक‑स्तम्भ — जागरूकता, निगरानी, संक्रमण‑निरोधक उपाय, दवाओं का उत्तरदायी उपयोग और नवाचार/अनुसंधान — पर लक्ष्य निर्धारित किए गए थे।\n- 2017–2021 की अवधि के दौरान राज्यों/केंद्रशासित प्रदेशों को अपनी राज्य‑स्तरीय कार्ययोजनाएँ (State Action Plans) तैयार कर राष्ट्रीय लक्ष्यों से संरेखित होने हेतु कहा गया था।\n- इस पाँच वर्षीय अवधि ने वित्तीय बजटिंग और वर्ष‑वार गतिविधियों के मैपिंग (monitoring & evaluation) के लिए स्पष्ट समयसीमा उपलब्ध कराई।\n- प्राथमिक अवधि के अंत में प्रगति‑मूल्यांकन और समीक्षा के आधार पर अगले चरण की आवश्यकता तथा सुधार‑बिंदुओं की पहचान को भी यह समयसीमा संभव बनाती थी।\n- NAP‑AMR (2017–2021) का समयबद्ध स्वरूप One Health दृष्टिकोण के व्यवहारिक समन्वय (human, animal, environment) के लिए राष्ट्रीय तथा राज्य‑स्तर पर समरूप कार्रवाई सुनिश्चित करने का आधार था।\n- परीक्षा एवं मेन्स उत्तर में इस प्रश्न का सटीक factual उत्तर देना है: NAP‑AMR की प्राथमिक अवधि = **2017–2021**; साथ में संक्षेप में यह बताना उपयोगी होगा कि यह पाँच‑वर्षीय कार्ययोजना थी और इसने निगरानी, नीतिगत कार्यान्वयन व राज्य‑समन्वय के लिए समयसीमा तय की।", "priority_tag": "HIGH"}, {"question": "निम्नलिखित में से कौन सा विश्वसनीय वैश्विक मंच AMR पर डेटा साझा करने और तुलनात्मक विश्लेषण की सुविधा देता है?", "options": ["GLASS", "G20 Health Network", "WHO Essential Medicines List", "COVAX"], "answer_index": 0, "explanation": "# व्याख्या: GLASS (Global AMR Surveillance System) — परीक्षा केन्द्रित प्रमुख बिंदु\n- GLASS एक वैश्विक तंत्र है जिसे एंटीमाइक्रोबियल प्रतिरोध (AMR) के लिए मानकीकृत सर्वेillance और डेटा साझा करने हेतु विकसित किया गया है।\n- इसका प्रमुख उद्देश्य देशों से निगरानी (surveillance) डेटा एकत्र करके अंतर-देशीय तुलनात्मक विश्लेषण और वैश्विक प्रवृत्तियों का निर्धारण करना है।\n- GLASS में राष्ट्रीय स्तर पर नामांकन (enrolment) कर चुके स्वास्थ्य प्रणालियों द्वारा लैबोरेटरी, क्लिनिक और महामारी-स्वास्थ्य (clinical & epidemiological) डेटा नियमित रूप से पेश किया जाता है।\n- इस प्रणाली में प्रयोगशाला विधियों, रोगजनकों के चयन और प्रतिरोध मापदंडों के लिए मानकीकृत प्रोटोकॉल प्रदान किए जाते हैं ताकि डेटा तुलनीय बने।\n- GLASS एक वेब-आधारित अंतरक्रियाशील प्लेटफार्म और रिपोर्टिंग टेम्पलेट उपलब्ध कराता है, जिससे देशों के बीच शीघ्र और व्यवस्थित तुलना संभव होती है।\n- यह प्रणाली प्रति-रोगजनक (priority pathogens), नमूना प्रकार और एंटीमाइक्रोबियल एजेंटों पर डेटा संग्रहित कर प्रवृत्ति-विश्लेषण (trend analysis) और क्षेत्रीय जोखिम का आकलन सक्षम बनाती है।\n- GLASS के माध्यम से प्राप्त संकलित सूचनाएँ राष्ट्रीय नीतियों — जैसे एंटीबायोटिक स्टिवर्डशिप, इंफेक्शन कंट्रोल और संसाधन आवंटन — के वैज्ञानिक आधार तैयार करने में उपयोगी होती हैं।\n- डेटा गुणवत्ता, प्रयोगशाला क्षमता और रिपोर्टिंग कवरेज के संकेतकों पर GLASS नियमित फीडबैक देता है, जिससे देशों में AMR निगरानी क्षमताओं को सुदृढ़ करने में मदद मिलती है।\n- GLASS मानव स्वास्थ्य पर केन्द्रीकृत मुख्य मॉड्यूल प्रदान करता है; साथ ही एंटीमाइक्रोबियल उपभोग/प्रयोग (AMU/AMC) और One Health दृष्टिकोण के साथ समन्वय के लिए अनुकूलन योग्य मॉड्यूल उपलब्ध हैं।\n- राष्ट्रीय सार्वजनिक स्वास्थ्य प्राधिकरण GLASS से प्राप्त तुलनात्मक डेटा का उपयोग करके स्थानीय नीतियों को अंतरराष्ट्रीय संदर्भ में बेंचमार्क कर सकते हैं और एमआर की तीव्रता वाले क्षेत्र चिन्हित कर तीव्र हस्तक्षेप नियोजित कर सकते हैं।\n- परीक्षा/मेनस उत्तर में शीघ्र उद्धरण के लिए: GLASS को एक मानकीकृत, अंतरराष्ट्रीय डेटा-शेयरिंग तथा तुलनात्मक विश्लेषण मंच के रूप में प्रस्तुत करें जो AMR ट्रेंड मॉनिटरिंग, नीति-निर्माण और लैब-क्षमता सुदृढ़ीकरण का आधार है।", "priority_tag": "HIGH"}, {"question": "One Health पहल में पर्यावरण का समावेश क्यों आवश्यक माना जाता है?", "options": ["क्योंकि पर्यावरण में एंटीबायोटिक अवशेष और प्रतिरोधी जीवाणु मानव व पशु में फैल सकते हैं", "क्योंकि पर्यावरण केवल मिट्टी री-पोर्टिंग के लिए है", "क्योंकि पर्यावरण सिर्फ वन्यजीवों से संबंधित है", "क्योंकि पर्यावरण में केवल जलवायु परिवर्तन का प्रभाव होता है"], "answer_index": 0, "explanation": "# **विषय:** One Health में पर्यावरण का समावेश — कारण (AMR संदर्भ में)\n**प्रश्न:** One Health पहल में पर्यावरण का समावेश क्यों आवश्यक माना जाता है?\n**सही अवधारणा:** क्योंकि पर्यावरण में एंटीबायोटिक अवशेष और प्रतिरोधी जीवाणु मानव व पशु में फैल सकते हैं\n- एंटीबायोटिक के अवशेष (drug residues) मानवीय और पशु उपयोग के बाद मल, मूत्र और उद्योग/अस्पताल उत्सर्जन के माध्यम से मिट्टी, जल और हवा में पहुंचते हैं।\n- पर्यावरण में मौजूद कम सांद्रता के एंटीबायोटिक्स भी सूक्ष्मजीवों पर चयन दबाव डालकर प्रतिरोधी किस्मों के उभार को प्रेरित करते हैं।\n- नालियों, सीवेज ट्रीटमेंट प्लांट और कृषि-नालियों से प्रतिरोधी बैक्टीरिया और प्रतिरोधी जीन (resistance genes) सतही और भूजल में फैल सकते हैं।\n- मिट्टी और जल में जीवाणु अंतर-प्रजातीय जीन-स्थानान्तरण (horizontal gene transfer) के माध्यम से प्रतिरोधी जीन अन्य मानव व पशु रोगजनकों को स्थानांतरित कर सकते हैं।\n- पशुपालन में उपयोग होने वाले मल-मिश्रित खाद और सिंचाई जल से कृषि उत्पादों पर प्रतिरोधी जीवाणु पहुंचकर खाद्य श्रृंखला के माध्यम से मनुष्यों तक आ सकते हैं।\n- पर्यावरणीय बायोफिल्म और जैविक रिज़र्वॉयर्स प्रतिरोधी जीवाणु और जीनों का दीर्घकालिक भण्डारण बनते हैं, जिससे पुनरावृत्ति और प्रसार संभव होता है।\n- प्राकृतिक जलजीवों और भूमि-आधारित जंतुओं के संपर्क से प्रतिरोधी बैक्टीरिया का पशु–मानव परिसंचरण तेज़ होता है, जो One Health के इंटीग्रेटेड दृष्टिकोण की आवश्यकता दर्शाता है।\n- पर्यावरणीय स्रोतों की निगरानी (environmental surveillance) न होकर AMR का वास्तविक प्रसार और स्रोत पहचान अधूरा रहती है; इसलिए पर्यावरण शामिल करना निवार्य है।\n- जल उपचार, औद्योगिक/अस्पताल अपशिष्ट प्रबंधन और फार्म-लेवल बायोसेक्यूरिटी जैसी नीतियाँ पर्यावरणीय अवशेष और प्रतिरोध के प्रबंधन के लिए अनिवार्य हैं।\n- इसलिए One Health में पर्यावरण का समावेश AMR के स्रोत, प्रसार मार्ग और नियंत्रण रणनीतियों को समझने तथा प्रभावी रोकथाम के लिए वैज्ञानिक और नीति-गत दृष्टि से अनिवार्य है।", "priority_tag": "HIGH"}, {"question": "नीचे दिए गए में से किस वर्ष WHO ने 'Global Action Plan on Antimicrobial Resistance' के लागू होने के बाद World Antibiotic Awareness Week को शुरू किया था (या संबंधित जागरूकता बढ़ाने हेतु व्यापक प्रचार जोड़ा)?", "options": ["2015 से लगातार वार्षिक रूप से", "2010 से परमानेंट", "2018 में ही शुरू हुआ", "2013 में एक बार आयोजित हुआ"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में AMR से निपटने हेतु राष्ट्रीय स्तर पर 'antimicrobial stewardship' (AMS) कार्यक्रमों को बढ़ाने का मुख्य उद्देश्य क्या है?", "options": ["अनावश्यक एंटीबायोटिक उपयोग घटाकर प्रतिरोध को कम करना", "एंटीबायोटिक उपयोग को सभी में बढ़ाना", "केवल दवा कंपनियों के मुनाफे को बढ़ाना", "सिर्फ वैक्सीन की बजाय दवाओं पर निर्भरता बढ़ाना"], "answer_index": 0, "explanation": "# व्याख्या — भारत में AMR से निपटने हेतु राष्ट्रीय स्तर पर AMS कार्यक्रम बढ़ाने का मुख्य उद्देश्य\n**सही अवधारणा:** अनावश्यक एंटीबायोटिक उपयोग घटाकर प्रतिरोध (AMR) को कम करना\n1. एंटीमाइक्रोबियल स्टुअर्डशिप (AMS) का मूल लक्ष्य एंटीबायोटिक्स का उपयुक्त, आवश्यक और समयबद्ध उपयोग सुनिश्चित करना है ताकि अनावश्यक/अत्यधिक उपयोग रोका जा सके।\n2. अनावश्यक एंटीबायोटिक उपयोग घटाने से रोगजनकों में चयन दबाव घटता है, जिससे प्रतिरोधी सूक्ष्मजीवों के प्रसार की गति कम होती है।\n3. AMS नीतियाँ चिकित्सकीय निर्णयों में दिशानिर्देश, प्रोटोकॉल और मानक अभ्यास लागू करके दवाओं के दुरुपयोग को रोकती हैं।\n4. लक्ष्यित (targeted) थेरेपी और साइको-सेंसिटिविटी रिपोर्ट के आधार पर एंटीबायोटिक चुनने से व्यापक स्पेक्ट्रम दवाओं के अनावश्यक प्रयोग में कमी आती है।\n5. रोगी-स्तर पर डोज, अवधि और मार्ग का उचित निर्धारण कर अनावश्यक दवाकाल को कम किया जाता है, जिससे प्रतिरोध उत्पन्न होने की संभावना घटती है।\n6. AMS कार्यक्रम में परामर्श, औषधि समीक्षा और डॉक्टरों-फार्मासिस्टों के समन्वय से असम्पीडित/शुरुआती प्रिस्क्रिप्शन पर नियंत्रण होता है।\n7. सिस्टेमैटिक निगरानी और डेटा-आधारित फ़ीडबैक से प्रिस्क्रिप्शन पैटर्न में सुधार होता है और अनावश्यक उपयोग घटता है।\n8. अस्पतालों व सामुदायिक सेटिंग में एंटीबायोटिक उपयोग के दिशानिर्देश लागू होने से सामूहिक स्तर पर दवा दबाव कम होता है और AMR प्रचलन घटता है।\n9. AMS से रोग निवारण और निदान प्रक्रियाओं (लैब टेस्टिंग, संक्रमण नियंत्रण) को बेहतर कर लक्ष्यहीन एंटीबायोटिक उपयोग घटाया जाता है।\n10. फार्मास्युटिकल आपूर्ति व नीतिगत नियंत्रण (एंटीबायोटिक stewardship) से ओवर-द-काउंटर और अनुचित उपयोग पर अंकुश लगता है, जो प्रतिरोध कम करने में सहायक है।\n11. प्रशिक्षण व जागरूकता (क्लिनिकल स्टाफ व जनसामान्य) के माध्यम से चिकित्सीय प्रैक्टिस में बदलाव लाकर अनावश्यक एंटीबायोटिक उपयोग में दीर्घकालिक कमी संभव है।\n12. AMS का लक्ष्य न केवल व्यक्तिगत रोगी पर सर्वश्रेष्ठ उपचार देना है, बल्कि सार्वजनिक स्वास्थ्य के परिप्रेक्ष्य से एंटीबायोटिक दबाव घटाकर AMR की सामने आने वाली चुनौतियों को पूर्वोक्ता रूप से रोकना भी है।", "priority_tag": "VERY_HIGH"}, {"question": "Global Leaders Group on AMR किस प्रकार के नेताओं का समूह है?", "options": ["राजनैतिक और औद्योगिक/वैज्ञानिक नेताओं का वैश्विक समूह", "केवल वैज्ञानिक शोधकर्ताओं का समूह", "केवल चिकित्सा छात्रों का समूह", "केवल फार्मा कंपनियों का गठबंधन"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "One Health दृष्टिकोण के तहत 'जूनोसिस' शब्द का अर्थ क्या है?", "options": ["पशु से मानव में संचारित होने वाला रोग", "मानव से वातावरण में जारी रोग", "केवल पौधों में होने वाला रोग", "मानव-मानव के भीतर सीमित रोग"], "answer_index": 0, "explanation": "# व्याख्या: जूनोसिस (One Health संदर्भ में)\n- जूनोसिस का शाब्दिक अर्थ: वे रोग जो पशु (जंगली या पालतू) से सीधे या अप्रत्यक्ष रूप से मनुष्यों में संचारित होते हैं।\n- संचारण के मार्गों में प्रत्यक्ष संपर्क, काटने/लगने वाले कीट (vectors), दूषित भोजन/पानी या मध्यस्थ माध्यम (fomites) शामिल हो सकते हैं।\n- जूनोसिस में रोगजनक प्रकार सामान्यतः वायरस, बैक्टीरिया, प्रोटोज़ोआ, फंगस और पैरासाइट्स हो सकते हैं।\n- One Health दृष्टिकोण में जूनोसिस का अर्थ है उस इंटरकनेक्टेड खतरे की पहचान जहाँ मनुष्य, पशु और पर्यावरण के स्वास्थ्य पर एक ही रोगजनक का प्रभाव होता है।\n- जूनोसिस का निदान और नियंत्रण बहु-स्तरीय प्रयास मांगता है: पशु स्वास्थ्य निगरानी, मानव रोग निगरानी और पर्यावरणीय मॉनिटरिंग का समन्वय।\n- रोकथाम में पशुओं में टीकाकरण, खाद्य-सुरक्षा उपाय, वेटरिनरी सर्विलांस और मानव-सामाजिक व्यवहार परिवर्तन (हाइजीन, बाजार नियंत्रण) शामिल होते हैं।\n- महामारी रोकथाम व तैयारी के लिए जूनोसिस का जल्दी पता लगाना (early detection) और सूचनाओं का साझा करना आवश्यक है।\n- सार्वजनिक स्वास्थ्य नीतियों में जूनोसिस की समझ से संसाधन आवंटन, जोखिम मूल्यांकन और इंटरवेन्शन्स की दिशा तय होती है।\n- शोध व निगरानी प्राथमिकताओं में जेनेटिक अनुकरणीयता (pathogen spillover mechanisms) और वाहक प्रजातियों की पहचान केन्द्रित रहती है।\n- भारत/क्षेत्रीय स्तर पर One Health नीतियों में जूनोसिस को प्राथमिकता देने का तात्पर्य पशु-मानव-संरक्षित पर्यावरण के समन्वित कार्यक्रमों से है, ताकि zoonotic जोखिम घटे और सार्वजनिक स्वास्थ्य सुरक्षित रहे।", "priority_tag": "VERY_HIGH"}, {"question": "2021 के आसपास किस अंतर-सरकारी पैनल ने One Health पर वैज्ञानिक सलाह देने हेतु गठित किया गया था और उसे OHHLEP कहा गया?", "options": ["One Health High-Level Expert Panel", "Global AMR Steering Committee", "UN Pandemic Preparedness Panel", "International Vaccine Advisory Panel"], "answer_index": 0, "explanation": "# **व्याख्या — One Health High‑Level Expert Panel (OHHLEP)**\n- **परिचय:** OHHLEP (One Health High‑Level Expert Panel) एक अंतर‑सरकारी विशेषज्ञ पैनल था जिसे लगभग 2021 में One Health पर वैज्ञानिक सलाह देने हेतु गठित किया गया।\n- **उद्देश्य:** इसका मुख्य लक्ष्य One Health के वैज्ञानिक साक्ष्य और नीति‑निर्देश तैयार कर के मानव, पशु और पारिस्थितिक स्वास्थ्य के समन्वित दृष्टिकोण को सुदृढ़ करना है।\n- **सदस्यत्व:** पैनल में मानव स्वास्थ्य, पशु स्वास्थ्य, पर्यावरण/एको‑सिस्टम विज्ञान, विषाणुशास्त्र, एपिडेमियोलॉजी और सार्वजनिक नीति के विशेषज्ञ शामिल थे ताकि बहु‑अनुशासनात्मक परामर्श सुनिश्चित हो।\n- **परिभाषा और ढांचा:** OHHLEP ने One Health की समेकित परिभाषा और कार्यान्वयन के लिए वैज्ञानिक ढांचे पर सुसंगत मार्गदर्शन विकसित करने में भूमिका निभाई।\n- **जोनेोटिक रोग चेतावनी और रोकथाम:** पैनल का एक प्रमुख कार्य जोखिम‑आकलन और zoonotic spillover के ड्राइवर्स (जैसे पारिस्थितिक परिवर्तन, वन वस्ती, पशुपालन प्रथाएँ) की वैज्ञानिक पहचान कर नीतिगत अनुशंसाएँ प्रदान करना था।\n- **AMR (प्रतिरोधी संवेदनशीलता) में योगदान:** OHHLEP ने एंटीमाइक्रोबियल रेसिस्टेंस को One Health परिप्रेक्ष्य से संबोधित करने की आवश्यकता पर बल दिया — मानव, पशु और पर्यावरण में AMR‑सर्विलांस और जिम्मेदार दवा‑प्रयोग के समन्वय की सिफारिशें दीं।\n- **सर्विलांस और डेटा साझा करना:** पैनल ने बहु‑स्रोत सर्विलांस (मानव, पशु, पर्यावरण) और डेटा‑शेयरिंग के मानक विकसित करने तथा इंटर‑सेक्टोरल सूचना प्रणाली के लिए वैज्ञानिक मार्गदर्शन दिया।\n- **नीति‑निर्देश और राष्ट्रीय कार्ययोजना:** OHHLEP की सिफारिशें देशों को राष्ट्रीय One Health कार्ययोजनाएँ, जोखिम‑निर्धारण और संसाधन‑वितरण में मार्गदर्शन देने के लिये डिज़ाइन की गई थीं; इन्हें राष्ट्रीय सार्वजनिक‑हेल्थ रणनीतियों में समेकित किया जा सकता है।\n- **पैथोजेन‑मनिटरिंग व प्रीवेंशन रणनीतियाँ:** पैनल ने नए उभरते पैथोजेन की शीघ्र पहचान, रिस्क‑रिडक्शन इंटरवेंशन्स और पारिस्थितिक पुनर्रचना जैसे रोकथाम उपायों का वैज्ञानिक आधार प्रस्तुत किया।\n- **समर्थन और समन्वय:** OHHLEP ने बहुपक्षीय संस्थाओं और राष्ट्रीय सरकारों के बीच वैज्ञानिक समन्वय को बढ़ावा दिया ताकि महामारी‑पूर्व तैयारी और प्रतिक्रिया में One Health को प्रभावी रूप से लागू किया जा सके।\n- **इलाज और शिक्षा‑प्रवर्तन:** पैनल ने प्रशिक्षण, क्षमता‑निर्माण और समुदाय‑आधारित जागरूकता अभियानों के महत्व पर जोर दिया ताकि राजनैतिक व प्रशासनिक स्तर पर One Health नीतियाँ लागू हों।\n- **प्रयोजनात्मक प्रभाव (India/MP के लिए उपयोग):** OHHLEP की वैज्ञानिक सिफारिशें भारत और राज्यों (जैसे मध्यप्रदेश) को zoonoses, AMR और पारिस्थितिक जोखिमों के समन्वित प्रबंधन हेतु राष्ट्रीय/राज्य स्तर पर One Health नीतियाँ, सर्विलांस नेटवर्क और इंटर‑विभागीय मंच स्थापित करने में प्रत्यक्ष उपयोगी हैं।", "priority_tag": "HIGH"}, {"question": "भारत में AMR डेटा को राष्ट्रीय और अंतर्राष्ट्रीय प्लेटफार्म पर साझा करने के लिये किन नेटवर्क/फ्रेमवर्क का उपयोग प्रचलित है?", "options": ["ICMR–AMR surveillance network और GLASS", "Only private hospital records", "WHO vaccine database", "GAVI logistics"], "answer_index": 0, "explanation": "# व्याख्या — भारत में AMR डेटा साझा करने के लिये प्रचलित नेटवर्क/फ्रेमवर्क (ICMR‑AMR Surveillance Network और GLASS)\n- **ICMR‑AMR Surveillance Network** एक राष्ट्रीय स्तरीय नेटवर्क है जो देश भर के चयनित सेंटिनल माइक्रोबायोलॉजी लैब से AMR डेटा संग्रहित करता है।\n- यह नेटवर्क लैब मानकीकरण (सैंपल प्रोटोकॉल, परीक्षण मानक), गुणवत्ता आश्वासन और डेटा की एकरूपता सुनिश्चित करने के लिए संस्थागत प्रक्रियाएँ लागू करता है।\n- सेंटिनल लैब्स से एकत्रित सूक्ष्मजीव और संवेदनशीलता (antibiogram) डेटा ICMR के केंद्रीय इलेक्ट्रॉनिक पोर्टल पर नियमित अंतराल पर रिपोर्ट किये जाते हैं।\n- ICMR नेटवर्क द्वारा तैयार की गई राष्ट्रीय स्तर की एनालिटिक्स और वार्षिक/नियमित रिपोर्ट नीति-निर्माताओं और सार्वजनिक स्वास्थ्य कार्यक्रमों के लिये उपयोगी संकेतक (trends, hotspots, resistance profiles) प्रदान करती है।\n- यह नेटवर्क लैब क्षमता निर्माण, प्रशिक्षण और रेफरल परीक्षण (reference testing) की सुविधा देकर रिपोर्ट किए गए डेटा की विश्वसनीयता बढ़ाता है।\n- ICMR के राष्ट्रीय डेटासेट में स्थानीय संदर्भ (specimen type, रोगी-आयु/लिंग, अस्पताल/कम्युनिटी स्रोत) सहित प्रभावी निगरानी के लिये आवश्यक मैट्रिक्स शामिल होते हैं।\n- **GLASS (WHO की Global AMR Surveillance System)** एक अंतरराष्ट्रीय फ्रेमवर्क है जो देशों से मानकीकृत AMR डेटा एकत्रित कर वैश्विक स्तर पर ट्रेंड और तुलनात्मक विश्लेषण सक्षम बनाता है।\n- GLASS में रिपोर्टिंग के लिए सामान्यीकृत संकेतक और प्राथमिक रोगजनकों/एंटीमाइक्रोबियल संयोजनों के लिये एक साझा डेटा मॉडल होता है, ताकि विभिन्न देशों के बीच तुलना संभव हो।\n- भारत (ICMR नेटवर्क) अपनी राष्ट्रीय निगरानी डेटा को GLASS के मानकों के अनुरूप प्रोसेस कर अंतर्राष्ट्रीय रिपोर्टिंग और WHO पोर्टल पर सबमिशन के द्वारा वैश्विक डेटाबेस में योगदान देता है।\n- GLASS के माध्यम से साझा किये गए डेटा वैश्विक नीति-निर्माण, दवाओं की दिशा-निर्देशों और AMR कंट्रोल प्राथमिकताओं के समन्वय में सहायक होते हैं।\n- राष्ट्रीय‑अंतरराष्ट्रीय स्तर पर यह संयोजन (ICMR → राष्ट्रिय पोर्टल → GLASS) AMR ट्रैकिंग, प्रदर्शन माप और सार्वजनिक स्वास्थ्य हस्तक्षेप के लिए प्रासंगिक प्रमाण‑आधारित इनपुट सुनिश्चित करता है।", "priority_tag": "HIGH"}, {"question": "एंटीबायोटिक स्ट्यूर्डशिप (Antimicrobial Stewardship) का प्राथमिक घटक क्या है?", "options": ["सटीक निदान और उपयुक्त दवा, खुराक एवं अवधि निर्धारित करना", "हर रोग में अधिक से अधिक दवा देना", "केवल दवा के ब्रांड बदलना", "दवाओं का पूरी तरह प्रतिबंध लगाना"], "answer_index": 0, "explanation": "# व्याख्या: एंटीबायोटिक स्ट्यूर्डशिप का प्राथमिक घटक — सटीक निदान और उपयुक्त दवा, खुराक एवं अवधि निर्धारित करना\n- एंटीमाइक्रोबियल स्ट्यूर्डशिप (AMS) का केन्द्र सटीक नैदानिक पहचान है: रोग का पता सही रोगजनक/संक्रमण पर आधारित होना चाहिए।\n- निदान के लिए उचित लैब जांच (संस्कृति, संवेदनशीलता परीक्षण आदि) समय पर कराना और रिपोर्टों पर निर्णय लेना प्राथमिकता है।\n- सही दवा का चयन उस रोगजनक की संवेदनशीलता, दवा-प्रोफ़ाइल और रोगी की स्थिति (आयु, गर्भावस्था, गुर्दा/जिगर कार्य आदि) के आधार पर होना चाहिए।\n- उपयुक्त खुराक निर्धारण में दवा की фар्माकोकाइनेटिक्स/फार्माकोडायनेमिक्स और रोगी का शरीर-भार/क्लिनिकल स्टेटस जरूरी पैरामीटर हैं।\n- दवा की अवधि रोग और नैदानिक प्रतिक्रिया पर आधारित रखनी चाहिए; अनावश्यक लंबी अवधि प्रतिरोध विकास को बढ़ाती है।\n- प्रारम्भिक उपचार में व्यापक एंटीमाइक्रोबियल तभी प्रयोग करें जब निदान-आधारित विकल्प उपलब्ध न हों; परंतु लक्षित थेरैपी पर शीघ्र स्विच करना AMS का हिस्सा है।\n- निदान-सक्षम प्रोटोकॉल और निदान-आधारित क्लीनिकल गाइडलाइन्स अस्पताल स्तर पर AMS के क्रियान्वयन का आधार हैं।\n- दवा, खुराक और अवधि के निर्णय में चिकित्सीय निगरानी (रीव्यू, ड़िसकॉन्टिन्यू/ड्यूरेशन एडजस्टमेंट) नियमित रूप से की जानी चाहिए।\n- सटीक निदान और उपयुक्त थेरैपी तय करने से रोगी के आउटकम्स बेहतर होते हैं, एंटीमाइक्रोबियल उपयोग कम होता है और प्रतिरोध (AMR) के विकास में रुकावट आती है।\n- कार्यान्वयन के लिए क्लिनिकल माइक्रोबायोलॉजी, फार्मेसी और चिकित्सक टीम के समन्वय तथा स्थानीय संवेदनशीलता डेटा का उपयोग अनिवार्य है।\n- स्थानीय स्तर (राज्य/जिला/अस्पताल) पर निदान-सक्षम प्रैक्टिस और थेरैपी प्रोटोकॉल अपनाने से सार्वजनिक स्वास्थ्य पर प्रत्यक्ष प्रभाव होता है और संसाधनों का संरक्षण होता है।", "priority_tag": "VERY_HIGH"}, {"question": "किस वैश्विक निकाय ने 2015 में AMR के लिये वैश्विक कार्ययोजना जारी की और देशों से इसे राष्ट्रीय स्तर पर अपनाने का अनुरोध किया?", "options": ["WHO", "World Bank", "UNESCO", "ILO"], "answer_index": 0, "explanation": "# व्याख्या — WHO द्वारा 2015 की AMR वैश्विक कार्ययोजना (सही उत्तर: WHO)\n- WHO ने 2015 में एंटीमाइक्रोबियल रेजिस्टेंस (AMR) के लिये वैश्विक कार्ययोजना (Global Action Plan) जारी की।\n- इस कार्ययोजना का मूल उद्देश्य AMR को वैश्विक सार्वजनिक स्वास्थ्य संकट के रूप में नियंत्रित करना था।\n- कार्ययोजना ने \"One Health\" दृष्टिकोण को केंद्रीय क़दम बताया—इंसान, पशु और पर्यावरणी स्वास्थ्य के समन्वित उपाय आवश्यक हैं।\n- इसमें पाँच प्रमुख रणनीतिक उद्देश्यों का उल्लेख है: जागरूकता/शिक्षा बढ़ाना, निगरानी और अनुसंधान सुदृढ़ करना, संक्रमण-निवारण और नियंत्रण उपाय, एंटीमाइक्रोबियल उपयोग का अनुकूलन (stewardship), तथा नवाचार और टिकाऊ निवेश सुनिश्चित करना।\n- WHO ने सभी सदस्य देशों से अनुरोध किया कि वे इस वैश्विक कार्ययोजना के अनुरूप राष्ट्रीय कार्ययोजनाएं (National Action Plans) तैयार और अपनाएँ।\n- कार्ययोजना ने राष्ट्रीय और क्षेत्रीय स्तर पर बहु-खातीय (multisectoral) संचालन, नियामक ढाँचे और वित्तीय संसाधन आवंटन पर बल दिया।\n- निगरानी सशक्त करने के लिए कार्ययोजना ने मानकीकृत डेटा संग्रह और रिपोर्टिंग की आवश्यकता बताई; इसी प्रवृत्ति के तहत वैश्विक निगरानी पहलें जारी की गईं।\n- WHO की कार्ययोजना ने अस्पतालों व समुदाय में संक्रमण-निवारण एवं नियंत्रण (IPC) उपायों और एंटीबायोटिक stewardship कार्यक्रमों के विस्तार की सिफारिश की।\n- कार्ययोजना ने अनुसंधान एवं विकास (दवाओं, वैक्सीन, निदान) के लिये सार्वजनिक-निजी भागीदारी तथा दीर्घकालिक वित्तपोषण पर ज़ोर दिया।\n- WHO ने सदस्य राज्यों को कार्ययोजना के कार्यान्वयन की निगरानी हेतु संकेतक और रिपोर्टिंग मैकेनिज्म अपनाने का भी निर्देश दिया।\n- परीक्षा/मेनस उपयोग हेतु संक्षेप: 2015 में AMR के लिये वैश्विक नीति फ्रेमवर्क और राष्ट्रीय स्तर पर प्रभावी कार्रवाई की प्रेरणा देने वाला प्रमुख दस्तावेज WHO द्वारा जारी किया गया था।", "priority_tag": "VERY_HIGH"}, {"question": "किस वर्ष तक भारत ने GLASS में AMR रिपोर्टिंग प्रारम्भ करने की आधिकारिक भागीदारी दर्ज की (NAP-AMR के पश्चात शामिल होने का समय करीब)?", "options": ["2017", "2014", "2012", "2019"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "MP (मध्य प्रदेश) स्तर पर One Health/AMR प्रतिक्रिया को सुदृढ़ करने के लिये राज्य सरकारें सामान्यतः किस प्रकार की योजना बनाती हैं?", "options": ["State Action Plan on AMR (SAP-AMR) और बहु-खण्डीय समन्वय मंच", "सिर्फ निजी अस्पतालों को आउटसोर्स करना", "केवल दवा उत्पादन बढ़ाने की योजना", "सिर्फ पर्यटक स्थलों पर निगरानी बढ़ाना"], "answer_index": 0, "explanation": "# व्याख्या — MP स्तर पर One Health / AMR प्रतिक्रिया को सुदृढ़ करने के लिये राज्य सरकारों द्वारा की जाने वाली योजनाएँ\n**प्रश्न संदर्भ:** MP स्तर पर One Health/AMR प्रतिक्रिया सुदृढ़ करने के लिये राज्य सरकारें सामान्यतः किस प्रकार की योजना बनाती हैं?\n**सही उत्तर (संक्षेप):** State Action Plan on AMR (SAP-AMR) और बहु-खण्डीय समन्वय मंच\n- राज्य स्तर पर SAP-AMR तैयार किया जाता है जो राष्ट्रीय AMR कार्ययोजना के सिद्धान्तों के अनुरूप स्थानीय स्वास्थ्य, पशुपालन और पर्यावरणगत चुनौतियों के हिसाब से अनुकूलित होता है।\n- SAP-AMR में One Health दृष्टिकोण को अपनाया जाता है ताकि मानव स्वास्थ्य, पशु/पोल्ट्री/फ़िशरी, और पर्यावरणिक क्षेत्रों के बीच समन्वय सुनिश्चित हो।\n- राज्य सरकारें बहु-खण्डीय समन्वय मंच (State AMR Coordination Committee/Steering Committee) का गठन करती हैं जिसमें स्वास्थ्य, पशुपालन, कृषि, जल/पर्यावरण और पंचायत/स्थानीय प्रशासन के प्रतिनिधि शामिल होते हैं।\n- SAP-AMR में मानव और पशु क्षेत्र के लिए सशक्त एंटीमाइक्रोबियल निगरानी (AMR surveillance) और दवा उपयोग निगरानी (antibiotic consumption/use surveillance) के लिए राज्य-स्तरीय नेटवर्क और रिफरल लैब व्यवस्था का प्रावधान होता है।\n- संक्रमण-नियंत्रण (Infection Prevention and Control, IPC) और एंटीबायोटिक स्टुअर्डशिप कार्यक्रमों को अस्पतालों, स्वास्थ्य केन्द्रों और पशु उपचार केन्द्रों में लागू करने के लिए दिशानिर्देश और प्रशिक्षण शामिल किए जाते हैं।\n- SAP-AMR में चिकित्सा, पशु चिकित्सा और प्रयोगशाला कर्मियों के लिये क्षमता निर्माण व प्रशिक्षण (human resource capacity building) के लक्ष्य और क्रिया-कलाप निर्धारित होते हैं।\n- राज्य-स्तर पर सार्वजनिक जागरूकता, फार्मासिस्ट/डॉक्टर के व्यवहार में बदलाव, और फार्म-टू-टेबल नीति के अनुरूप एंटीमाइक्रोबियल उपयोग में कमी हेतु IEC और व्यवहार-परिवर्तन रणनीतियाँ शामिल की जाती हैं।\n- वातावरणीय स्रोतों (जैसे औद्योगिक और पशुपालन अपशिष्ट, जल निकासी) से एंटीमाइक्रोबियल रिसाव रोकने के लिये अपशिष्ट प्रबंधन और जल-शोधन प्रावधान SAP-AMR का हिस्सा होते हैं।\n- SAP-AMR के लिये बजटीय प्रावधान, कार्यान्वयन के लिये स्पष्ट जिम्मेदारियाँ, मील के पत्थर और निगरानी‑मूल्यांकन (Monitoring & Evaluation) मैट्रिक्स निर्दिष्ट किए जाते हैं ताकि प्रगति को मापा जा सके।\n- बहु-खण्डीय मंच समय-समय पर नीति समीक्षा, डेटा साझा करने, आपात‑कालीन प्रतिक्रिया प्रोटोकॉल और राज्य-लैवल कार्ययोजना के अद्यतन के लिये बैठकें आयोजित करता है।\n- राज्य और जिला स्तर पर AMR कार्यान्वयन के लिए SOPs, रिपोर्टिंग चैनल और एकीकृत डेटा पोर्टल/फॉर्मेट की व्यवस्था कर अक्सर केंद्रीय और राष्ट्रीय नेटवर्क के साथ लिंकिंग सुनिश्चित की जाती है।\n- SAP-AMR में पशु-खाद्य उत्पादन में एंटीबायोटिक उपयोग को रूल‑बेस्ड नियंत्रित करने, वैकल्पिक नीतियाँ (वैक्सीनेशन, बेहतर बायोसेक्योरिटी) और इन्पुट्स के रेगुलेशन का समावेश रहता है।\n(ये बिंदु सीधे SAP‑AMR और बहु‑खण्डीय समन्वय मंच के राज्य‑स्तरीय कार्यों व संरचना पर केंद्रित हैं और MP‑संबंधित राज्य‑स्तरीय Mains उत्तर में सीधे उद्धृत/विस्तारित किये जा सकते हैं।)", "priority_tag": "HIGH"}, {"question": "AMR नीति में 'प्रसार प्रचार' (awareness) का महत्व किसलिए रखा जाता है?", "options": ["सही दवा उपयोग व्यवहार बदलने के लिये जनसामान्य और स्वास्थ्यकर्मियों में जागरूकता बढ़ाना", "केवल दवाओं की कीमत प्रचारित करने के लिये", "पर्यावरणीय प्रदूषण की अनदेखी करने के लिये", "सिर्फ शोध निधि कम करने के लिये"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

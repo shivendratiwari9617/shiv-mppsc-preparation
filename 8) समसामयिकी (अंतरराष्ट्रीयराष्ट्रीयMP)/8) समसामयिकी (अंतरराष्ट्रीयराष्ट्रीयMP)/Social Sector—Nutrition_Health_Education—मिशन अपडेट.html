@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U8-014 – Social Sector—Nutrition/Health/Education—मिशन अपडेट</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U8-014 – Social Sector—Nutrition/Health/Education—मिशन अपडेट</h1>
+        <div class="note">क्षेत्र: India | सामग्री: Poshan, NHM/UIP/AB-HWC, सीख परिणाम—डेटा-लिंक प्रश्नों हेतु। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 18-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># उत्तर — मिशन अपडेट: पोषण/स्वास्थ्य/शिक्षा (India) — POSHAN, NHM, UIP, AB-HWC, सीख परिणाम
+
+**प्रस्तावना:**  
+- भारत में पोषण व स्वास्थ्य सुधार के लिए केंद्र सरकार ने POSHAN Abhiyaan (National Nutrition Mission) को जनवरी 2018 में लॉन्च किया; यह Ministry of Women and Child Development के तहत संचालित है और इसका लक्ष्य सामूहिक नीति क्रियान्वयन है।  
+- स्वास्थ्य प्रणाली सुदृढ़िकरण हेतु National Rural Health Mission को 2005 में नेशनल हेल्थ मिशन (NHM) में समेकित किया गया; प्राथमिक स्वास्थ्य-प्रदाता मॉडल को 2018-19 से Ayushman Bharat — Health and Wellness Centres (AB-HWC) के जरिए विस्तृत किया जा रहा है।  
+
+**मुख्य विश्लेषण एवं तथ्यात्मक विवेचना:**  
+- POSHAN Abhiyaan (Jan 2018) ने ICDS, स्वास्थ्य विभाग और शिक्षा विभाग को जोड़कर convergence पर जोर दिया; केंद्रीय फंडिंग व Rashtriya Poshan Data Portal (MoWCD, 2019 onwards) के जरिये real-time निगरानी का प्रयास किया गया।  
+- राष्ट्रीय पोषण संकेतक — NFHS-5 (2019–21) ने राष्ट्रीय स्तर पर stunting ≈ 35.5%, wasting ≈ 19.3%, underweight ≈ 32.1% दर्शाया; ये संख्या NFHS-4 (2015–16) की तुलना में धीरे-धीरे घट रही हैं, पर लक्ष्यों से पीछे हैं।  
+- NHM (2005) के तहत Janani Suraksha Yojana/JSY सहित maternal-newborn care को मजबूत किया गया; पर ग्रामीण स्वास्थ्य व्यवस्था में human resources (ASHAs—10 lakh+ nationwide by 2020) और facility readiness में असमानता बनी हुई है।  
+- UIP (Universal Immunization Programme, 1985) ने बच्चों के टीकाकरण कवरेज को निरंतर बढ़ाया; हाल के वर्षों में Mission Indradhanush (2014, Intensified 2017–18) ने unreached बच्चों तक पहुंच बढ़ाने के लिए विशेष पॉलिसी आदानों का प्रदर्शन किया।  
+- AB-HWC योजना ने 2018–22 के दौरान 150,000 health sub-centres को HWC में upgrade करने का लक्ष्य रखा; इसका उद्देश्य नॉन-कम्यूनिकेबल डिजीज (NCD) स्क्रीनिंग और पोषण counselling को प्राथमिक केन्द्रों पर लाना है।  
+- शिक्षा और सीख परिणाम के संदर्भ में Poshan व स्वच्छता के प्रभाव के लिए mid-day meal कार्यक्रम (Ministry of Education, centrally sponsored since 1995) ने स्कूल-आधारित पोषण पहुंच में योगदान दिया; COVID-19 (Mar 2020 onward) के दौरान मिड-डे मील वितरण लॉजिस्टिक पर प्रभाव पड़ा।  
+- समसमयी चुनौती: COVID-19 महामारी (2020–21) ने ICDS सेवाओं व टीकाकरण कवरेज में विराम डाला; Government के relief measures (alternate take-home rations, 2020–21) से सेवा वितरण में आंशिक सुधार हुआ पर coverage gaps रहे।  
+- राज्य-स्तरीय भिन्नता स्पष्ट है: कुछ राज्यों ने POSHAN और AB-HWC में बेहतर convergence व data use दिखाया; वहीं resource-poor राज्यों में फंक्शनल HWCs और सुपरविजन में कमी देखने को मिली—जिन्हें MoHFW व MoWCD ने PRAGATI/mission reviews (2021–22) में चिन्हित किया।  
+- शिक्षा के सीख परिणाम—स्कूल-आधारिक पोषण व स्वास्थ्य के प्रभाव के ऑडिट हेतु NAS (National Achievement Survey, NCERT, 2021) ने सीख परिणामों में गिरावट और असमानता दिखायी; स्वास्थ्य-संबंधी absenteeism व पोषण-डिफिसिट को सीख पर नकारात्मक प्रभाव मानने का सबूत मिलता है।  
+- मेजर्स व मापनीयता: POSHAN के लिए POSHAN Meters और National Nutrition Strategy में outcome indicators (stunting, anemia prevalence, IFA coverage) तय हैं; पर MoSPI/State MIS के data-lag व heterogeneity ने policy targeting को चुनौती दी है।  
+- वित्तीय पहल: केंद्रीय बजट 2021–22 से POSHAN के लिए केंद्र-राज्य cost-sharing और convergence funds का प्रावधान रहा; पर per capita पोषण व्यय राज्यों में भिन्न—यह fiscal space सीमाओं को उजागर करता है।  
+- सामुदायिक पहल: ASHAs, AWWs और ANMs की क्षमता-विकास (training modules—2019 onwards POSHAN capacity building) ने grassroot counselling में लाभ दिया; पर incentives, workload और attrition high रहने से sustainability पर प्रश्न है।  
+- program evaluation: NITI Aayog/Independent third-party evaluations (select states, 2019–21) ने POSHAN के convergence model को सकारात्मक पर scale-up, data quality व behavioural change communication में सुधार सुझाया।  
+- स्वास्थ्य-सेवा एकीकरण: AB-HWC में पोषण screening tools (MUAC, growth monitoring) और NCD screening protocols (BP/glucose) का integration शुरू हुआ; पर supply-chain (IFA, micronutrient supplements) और laboratory linkages पर निर्भरता बनी रहती है।  
+- तकनीकी नवाचार: POSHAN data portal, e-Poshan dashboards और Telemedicine pilot under AB-HWC (2020–22) ने monitoring व remote counselling में मदद की; पर digital divide और data privacy नियमों (MeitY guidelines) पर ध्यान आवश्यक है।  
+- राज्य-विशेष कदम: मध्य प्रदेश/छत्तीसगढ़ जैसे राज्यों ने POSHAN/Anganwadi strengthening के लिए district nutrition missions और performance-linked incentives (2019–21 pilots) अपनाए, जो MPPSC aspirant के लिए उत्तर-प्रदेश/MP policy-लेर्निंग हेतु मॉडल हैं।  
+- चुनौतियाँ—1) जिलास्तर पर data discrepancy (NFHS vs HMIS vs State MIS), 2) multisectoral convergence का operationalization, 3) supply-chain व human resource deficits—ये तीनों structural bottlenecks MoHFW/MoWCD/State Governments ने 2019–22 reviews में बार-बार चिन्हित किए।  
+- अवसर—1) AB-HWC के 1.5 lakh network का पोषण-सेंटर के रूप में उपयोग, 2) school health under Ayushman Bharat School Health Programme (2021 rollout) से early-life interventions, 3) behavior change via PR campaigns (Anemia Mukt Bharat launched 2018) से measurable gains संभावित हैं।  
+- Policy implication: लक्ष्य-आधारित funding (results-based financing), state-specific microplans (district nutrition profiles using NFHS/HMIS), और external evaluations (third-party) को institutionalize करने का सुझाव NITI Aayog/PRs style recommend करता है।  
+
+**निष्कर्ष और परीक्षा-उपयोगी way-forward:**  
+- सारांश: 2018–22 में POSHAN Abhiyaan, AB-HWC और UIP जैसे मिशन ने India के पोषण व स्वास्थ्य ढांचे को मजबूत किया है; NFHS-5 (2019–21) के संकेतकों में सुधार परंतु लक्ष्यों से अंतर बना हुआ है।  
+- Way-forward (प्राथमिकता): (1) डेटा समेकन—HMIS + NFHS + POSHAN portal का district-level triangulation, (2) वित्तीय स्थिरता—state-level per capita nutrition financing व performance-linked incentives, (3) implementation—150k HWCs को पूर्ण फंक्शनल बनाकर MUAC/IFA/IFA-Supply chain सुनिश्चित करना, (4) शिक्षा-स्वास्थ्य संवाद—school health programmes और mid-day meal logistics के माध्यम से early intervention को scale-up करना।  
+- अंतिम टिप्पणी: राज्य-विशेष microplans (MP के लिए district nutrition missions), measurable timelines (annual reduction targets), और independent evaluation mechanism अपनाने से India POSHAN लक्ष्यों को वास्तविकता में बदल सकता है; यह मॉडल MPPSC mains में नीति-विश्लेषण और समसामयिक उदाहरण के लिए high-yield है।  
+
+स्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  
+स्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  
+स्रोत 3: Drishti / Vision – Current Affairs compilation (revision)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 (राजनीति, भूगोल, अर्थशास्त्र, विज्ञान—समसामयिकी की conceptual बुनियाद); India Year Book (Publication Division, Govt of India) तथा MP के आधिकारिक वार्षिक प्रकाशन/दस्तावेज; भारत सरकार के latest/official sources: PIB, MEA, MoF (Union Budget + Economic Survey), RBI (Reports/Notifications), MoSPI (Data/Indicators), NITI Aayog (Reports), संबंधित मंत्रालयों/विभागों की प्रेस-रिलीज/रिपोर्ट; मध्यप्रदेश सरकार के latest/official sources: MP Finance Dept (MP Budget + MP Economic Survey), MP Planning/Directorate of Economics & Statistics, MP Govt के विभागीय पोर्टल/प्रेस-रिलीज; अंतरराष्ट्रीय आधिकारिक sources: UN/UNDP, WHO, World Bank, IMF, WTO, IPCC (जहाँ लागू हो); विश्वसनीय समसामयिकी compilation: Vision IAS / Drishti IAS MPPSC के Current Affairs (monthly) + Yojana/Kurukshetra (Govt magazines)</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U8-014 – Social Sector—Nutrition/Health/Education—मिशन अपडेट", "coverage_note": "क्षेत्र: India | सामग्री: Poshan, NHM/UIP/AB-HWC, सीख परिणाम—डेटा-लिंक प्रश्नों हेतु। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# उत्तर — मिशन अपडेट: पोषण/स्वास्थ्य/शिक्षा (India) — POSHAN, NHM, UIP, AB-HWC, सीख परिणाम\n\n**प्रस्तावना:**  \n- भारत में पोषण व स्वास्थ्य सुधार के लिए केंद्र सरकार ने POSHAN Abhiyaan (National Nutrition Mission) को जनवरी 2018 में लॉन्च किया; यह Ministry of Women and Child Development के तहत संचालित है और इसका लक्ष्य सामूहिक नीति क्रियान्वयन है।  \n- स्वास्थ्य प्रणाली सुदृढ़िकरण हेतु National Rural Health Mission को 2005 में नेशनल हेल्थ मिशन (NHM) में समेकित किया गया; प्राथमिक स्वास्थ्य-प्रदाता मॉडल को 2018-19 से Ayushman Bharat — Health and Wellness Centres (AB-HWC) के जरिए विस्तृत किया जा रहा है।  \n\n**मुख्य विश्लेषण एवं तथ्यात्मक विवेचना:**  \n- POSHAN Abhiyaan (Jan 2018) ने ICDS, स्वास्थ्य विभाग और शिक्षा विभाग को जोड़कर convergence पर जोर दिया; केंद्रीय फंडिंग व Rashtriya Poshan Data Portal (MoWCD, 2019 onwards) के जरिये real-time निगरानी का प्रयास किया गया।  \n- राष्ट्रीय पोषण संकेतक — NFHS-5 (2019–21) ने राष्ट्रीय स्तर पर stunting ≈ 35.5%, wasting ≈ 19.3%, underweight ≈ 32.1% दर्शाया; ये संख्या NFHS-4 (2015–16) की तुलना में धीरे-धीरे घट रही हैं, पर लक्ष्यों से पीछे हैं।  \n- NHM (2005) के तहत Janani Suraksha Yojana/JSY सहित maternal-newborn care को मजबूत किया गया; पर ग्रामीण स्वास्थ्य व्यवस्था में human resources (ASHAs—10 lakh+ nationwide by 2020) और facility readiness में असमानता बनी हुई है।  \n- UIP (Universal Immunization Programme, 1985) ने बच्चों के टीकाकरण कवरेज को निरंतर बढ़ाया; हाल के वर्षों में Mission Indradhanush (2014, Intensified 2017–18) ने unreached बच्चों तक पहुंच बढ़ाने के लिए विशेष पॉलिसी आदानों का प्रदर्शन किया।  \n- AB-HWC योजना ने 2018–22 के दौरान 150,000 health sub-centres को HWC में upgrade करने का लक्ष्य रखा; इसका उद्देश्य नॉन-कम्यूनिकेबल डिजीज (NCD) स्क्रीनिंग और पोषण counselling को प्राथमिक केन्द्रों पर लाना है।  \n- शिक्षा और सीख परिणाम के संदर्भ में Poshan व स्वच्छता के प्रभाव के लिए mid-day meal कार्यक्रम (Ministry of Education, centrally sponsored since 1995) ने स्कूल-आधारित पोषण पहुंच में योगदान दिया; COVID-19 (Mar 2020 onward) के दौरान मिड-डे मील वितरण लॉजिस्टिक पर प्रभाव पड़ा।  \n- समसमयी चुनौती: COVID-19 महामारी (2020–21) ने ICDS सेवाओं व टीकाकरण कवरेज में विराम डाला; Government के relief measures (alternate take-home rations, 2020–21) से सेवा वितरण में आंशिक सुधार हुआ पर coverage gaps रहे।  \n- राज्य-स्तरीय भिन्नता स्पष्ट है: कुछ राज्यों ने POSHAN और AB-HWC में बेहतर convergence व data use दिखाया; वहीं resource-poor राज्यों में फंक्शनल HWCs और सुपरविजन में कमी देखने को मिली—जिन्हें MoHFW व MoWCD ने PRAGATI/mission reviews (2021–22) में चिन्हित किया।  \n- शिक्षा के सीख परिणाम—स्कूल-आधारिक पोषण व स्वास्थ्य के प्रभाव के ऑडिट हेतु NAS (National Achievement Survey, NCERT, 2021) ने सीख परिणामों में गिरावट और असमानता दिखायी; स्वास्थ्य-संबंधी absenteeism व पोषण-डिफिसिट को सीख पर नकारात्मक प्रभाव मानने का सबूत मिलता है।  \n- मेजर्स व मापनीयता: POSHAN के लिए POSHAN Meters और National Nutrition Strategy में outcome indicators (stunting, anemia prevalence, IFA coverage) तय हैं; पर MoSPI/State MIS के data-lag व heterogeneity ने policy targeting को चुनौती दी है।  \n- वित्तीय पहल: केंद्रीय बजट 2021–22 से POSHAN के लिए केंद्र-राज्य cost-sharing और convergence funds का प्रावधान रहा; पर per capita पोषण व्यय राज्यों में भिन्न—यह fiscal space सीमाओं को उजागर करता है।  \n- सामुदायिक पहल: ASHAs, AWWs और ANMs की क्षमता-विकास (training modules—2019 onwards POSHAN capacity building) ने grassroot counselling में लाभ दिया; पर incentives, workload और attrition high रहने से sustainability पर प्रश्न है।  \n- program evaluation: NITI Aayog/Independent third-party evaluations (select states, 2019–21) ने POSHAN के convergence model को सकारात्मक पर scale-up, data quality व behavioural change communication में सुधार सुझाया।  \n- स्वास्थ्य-सेवा एकीकरण: AB-HWC में पोषण screening tools (MUAC, growth monitoring) और NCD screening protocols (BP/glucose) का integration शुरू हुआ; पर supply-chain (IFA, micronutrient supplements) और laboratory linkages पर निर्भरता बनी रहती है।  \n- तकनीकी नवाचार: POSHAN data portal, e-Poshan dashboards और Telemedicine pilot under AB-HWC (2020–22) ने monitoring व remote counselling में मदद की; पर digital divide और data privacy नियमों (MeitY guidelines) पर ध्यान आवश्यक है।  \n- राज्य-विशेष कदम: मध्य प्रदेश/छत्तीसगढ़ जैसे राज्यों ने POSHAN/Anganwadi strengthening के लिए district nutrition missions और performance-linked incentives (2019–21 pilots) अपनाए, जो MPPSC aspirant के लिए उत्तर-प्रदेश/MP policy-लेर्निंग हेतु मॉडल हैं।  \n- चुनौतियाँ—1) जिलास्तर पर data discrepancy (NFHS vs HMIS vs State MIS), 2) multisectoral convergence का operationalization, 3) supply-chain व human resource deficits—ये तीनों structural bottlenecks MoHFW/MoWCD/State Governments ने 2019–22 reviews में बार-बार चिन्हित किए।  \n- अवसर—1) AB-HWC के 1.5 lakh network का पोषण-सेंटर के रूप में उपयोग, 2) school health under Ayushman Bharat School Health Programme (2021 rollout) से early-life interventions, 3) behavior change via PR campaigns (Anemia Mukt Bharat launched 2018) से measurable gains संभावित हैं।  \n- Policy implication: लक्ष्य-आधारित funding (results-based financing), state-specific microplans (district nutrition profiles using NFHS/HMIS), और external evaluations (third-party) को institutionalize करने का सुझाव NITI Aayog/PRs style recommend करता है।  \n\n**निष्कर्ष और परीक्षा-उपयोगी way-forward:**  \n- सारांश: 2018–22 में POSHAN Abhiyaan, AB-HWC और UIP जैसे मिशन ने India के पोषण व स्वास्थ्य ढांचे को मजबूत किया है; NFHS-5 (2019–21) के संकेतकों में सुधार परंतु लक्ष्यों से अंतर बना हुआ है।  \n- Way-forward (प्राथमिकता): (1) डेटा समेकन—HMIS + NFHS + POSHAN portal का district-level triangulation, (2) वित्तीय स्थिरता—state-level per capita nutrition financing व performance-linked incentives, (3) implementation—150k HWCs को पूर्ण फंक्शनल बनाकर MUAC/IFA/IFA-Supply chain सुनिश्चित करना, (4) शिक्षा-स्वास्थ्य संवाद—school health programmes और mid-day meal logistics के माध्यम से early intervention को scale-up करना।  \n- अंतिम टिप्पणी: राज्य-विशेष microplans (MP के लिए district nutrition missions), measurable timelines (annual reduction targets), और independent evaluation mechanism अपनाने से India POSHAN लक्ष्यों को वास्तविकता में बदल सकता है; यह मॉडल MPPSC mains में नीति-विश्लेषण और समसामयिक उदाहरण के लिए high-yield है।  \n\nस्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  \nस्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  \nस्रोत 3: Drishti / Vision – Current Affairs compilation (revision)", "mcqs": [{"question": "POSHAN Abhiyaan (National Nutrition Mission) भारत में किस वर्ष औपचारिक रूप से लॉन्च किया गया था?", "options": ["2015", "2018", "2012", "2020"], "answer_index": 1, "explanation": "# POSHAN Abhiyaan (National Nutrition Mission) — व्याख्या (विषयक केन्द्र: लॉन्च वर्ष 2018)\n- POSHAN Abhiyaan का औपचारिक शुभारम्भ भारत में 8 मार्च 2018 को किया गया था; इसे National Nutrition Mission के नाम से भी जाना जाता है।\n- यह अभियान केंद्रीय सरकार द्वारा बाल पोषण और मातृ पोषण सुधारने के उद्देश्य से प्रारम्भ किया गया था।\n- POSHAN Abhiyaan का मुख्य लक्ष्‍य शिशु‑विकास (stunting), कुपोषण, कम वजन (low birth weight) और एनीमिया में उल्लेखनीय कमी लाना था।\n- कार्यक्रम का दृष्टिकोन समयबद्ध लक्ष्य और निगरानी पर आधारित है — राज्यों व जिलों में वास्तविक‑समय (real‑time) मॉनिटरिंग और रिपोर्टिंग को प्राथमिकता दी गई।\n- POSHAN में Information Technology का प्रयोग (जैसे मोबाइल एप/ट्रैकर) व आवधिक वजन‑निगरानी को जोड़कर सेवा‑डिलिवरी और प्रगति की पारदर्शिता बढ़ाई गई।\n- यह मिशन ICDS, स्वास्थ्य सेवाओं, व आधिकारिक पोषण इंटरवेंशनों के बीच समन्वय (convergence) को मजबूत करने पर आधारित है।\n- POSHAN Abhiyaan ने समुदाय‑स्तर पर जन आंदोलनों (Jan Andolan) एवं स्थानीय संस्थाओं को शामिल कर पोषण संवर्धन की पहलें तेज करने का तरीका अपनाया।\n- मिशन के तहत माताओं व बच्चों के लिए लक्षित पोषण‑सेवाओं, आहार‑परामर्श और मॉनिटरिंग‑इंडिकेटर्स को प्राथमिकता दी गई ताकि 2022 तक निर्धारित सुधार प्राप्त हो सकें।\n- POSHAN के लॉन्च (2018) के बाद राज्यों को जिलास्तरीय कार्ययोजनाएँ बनानी थीं; इससे MP जैसे राज्यों में जिले‑केंद्रित गतिविधियों व ट्रैकिंग की प्रक्रियाएँ लागू हुईं।\n- परीक्षा‑दृष्टि से याद रखने योग्य बिंदु: POSHAN Abhiyaan = National Nutrition Mission, औपचारिक शुरुआत = 2018 (8 मार्च), मुख्य तत्व = लक्ष्य‑आधारित निगरानी, आईटी‑टूल्स, समन्वय और समुदाय‑सक्रियता।", "priority_tag": "VERY_HIGH"}, {"question": "Ayushman Bharat — Health and Wellness Centres (AB-HWCs) का केंद्रीय उद्देश्य क्या है?", "options": ["प्राथमिक स्वास्थ्य केंद्रों को अस्पतालों में बदलना", "सब‑सेंटर/आयुष्मान केन्द्रों को प्राथमिक स्वास्थ्य व व्यापक निवारक सेवाएँ देने वाले हेलीथ‑एंड‑वेलनेस केन्द्रों में रूपांतरण", "केवल आकस्मिक रोगियों के लिए विशेषज्ञ परामर्श प्रदान करना", "केवल आयुष्मान भारत PM-JAY के तहत अस्पतालों की सूची बनाना"], "answer_index": 1, "explanation": "# Ayushman Bharat — Health and Wellness Centres (AB‑HWC) — व्याख्या (केंद्रीय उद्देश्य पर केंद्रित)\n- AB‑HWC का केंद्रीय उद्देश्य प्राथमिक स्वास्थ्य सेवा की परिभाषा को विस्तारित कर के सब‑सेंटर/आयुष्यमान केन्द्रों को हेल्थ‑एंड‑वेलनेस सेंटर्स में रूपांतरित करना है, ताकि समुदाय‑आधारित, व्यापक और निवारक सेवाएँ स्थानीय स्तर पर उपलब्ध हों।\n- इसका मुख्य फोकस केवल रोग‑निरोधक उपचार नहीं, बल्कि स्वास्थ के प्रचार‑प्रसार, रोग‑निवारण, शीघ्र पहचान और लंबी अवधि की देखभाल (continuum of care) प्रदान करना है।\n- रूपांतरण के माध्यम से मौजूदा सब‑सेंटर/प्राथमिक स्वास्थ्य केंद्रों की भूमिका प्राथमिकतम स्वास्थ्य देखभाल (primary health care) और सार्वजनिक स्वास्थ्य कार्यों के साथ जोड़कर व्यापक बनाया जाता है।\n- AB‑HWC मॉडल का उद्देश्य हर स्थानीय केंद्र को नॉन‑कम्यूनिकेबल डिजीज (NCDs) की स्क्रीनिंग, प्रीवेंशन, मौखिक स्वास्थ्य, मातृ‑शिशु देखभाल, टीकाकरण और मानसिक स्वास्थ्य सेवाओं के लिए सक्षम बनाना है।\n- यह रूपांतरण मानव संसाधन की भूमिका बदलता है: सामुदायिक स्वास्थ्य अधिकारी/प्रशिक्षित कर्मी स्थानीय स्तर पर व्यापक सेवाएँ दे कर रेफरल और फॉलो‑अप सुनिश्चित करते हैं।\n- سلامت‑वेलनेस केंद्रों में स्वास्थ्य शिक्षा, व्यवहारिक परिवर्तन कम्युनिकेशन और समुदाय सहभागिता को प्राथमिकता दी जाती है ताकि रोगों की शुरुआत से पहले रोकथाम प्रभावी हो।\n- रूपांतरण का एक और उद्देश्य प्राथमिक स्तर पर शीघ्र निदान और स्क्रीनिंग के जरिए रोग बोझ को रोककर सेकेंडरी/टर्शियरी देखभाल पर दबाव घटाना है और रेफरल‑लिंकेज सुदृढ़ करना है।\n- AB‑HWC मॉडल में डिजिटल रिकॉर्डिंग, टेलीमेडिसिन और स्वास्थ्य सूचना प्रणालियों के माध्यम से रोग प्रबंधन और निगरानी को सक्षम बनाना भी शामिल है, ताकि निरंतरता और गुणवत्ता बनी रहे।\n- यह पहल सार्वभौमिक प्राथमिक स्वास्थ्य कवरेज की दिशा में कदम है: स्थानीय स्तर पर व्यापक, समेकित और समान पहुँच वाली सेवाएँ सुनिश्चित कर के समग्र स्वास्थ्य परिणामों में सुधार लाना इसका उद्देश्य है।\n- राज्य/जिला स्तर पर इस रूपांतरण से स्थानीय सार्वजनिक स्वास्थ्य चुनौतियों (जैसे पोषण, संक्रमण, NCDs) के लिए प्राथमिक स्तर पर त्वरित और लक्ष्यीकृत हस्तक्षेप संभव होते हैं।\n- संक्षेप में, AB‑HWC का केंद्रीय उद्देश्य मौजूदा प्राथमिक स्वास्थ्य संरचनाओं को व्यापक निवारक‑प्रवर्तक और लगातार देखभाल देने वाले स्वास्थ्य‑एंड‑वेलनेस केन्द्रों में बदलकर स्थानीय स्तर पर स्वास्थ्य सेवा के दायरे और गुणवत्ता दोनों बढ़ाना है।", "priority_tag": "VERY_HIGH"}, {"question": "Universal Immunization Programme (UIP) भारत में किस वर्ष शुरू किया गया था?", "options": ["1978", "1985", "1992", "2005"], "answer_index": 1, "explanation": "# Universal Immunization Programme (UIP) — संक्षिप्त व्याख्या (प्रारम्भ: 1985)\n- Universal Immunization Programme (UIP) का औपचारिक शुभारम्भ भारत में वर्ष **1985** में किया गया।\n- UIP का मुख्य उद्देश्य सभी बच्चों और गर्भवती महिलाओं को समय पर और निशुल्क टीकाकरण उपलब्ध कराना है।\n- कार्यक्रम शुरू में राष्ट्रीय स्तर पर प्राथमिक टीकाकरण कवरेज बढ़ाने के लिए लाया गया था और यह बाल मृत्यु दर घटाने के केंद्रित पहल में से एक था।\n- UIP में शुरुआती वर्षों से ही पोलियो, खसरा, तपेदिक (BCG), डिप्थीरिया-परालत-खांसी (DPT) और हेपेटाइटिस बी जैसे रोगों के खिलाफ टीकाकरण शामिल रहा।\n- UIP के क्रियान्वयन में ठोस ठंडा-श्रृंखला (cold chain) व्यवस्था, ठोस वैक्सीन आपूर्ति श्रृंखला और स्वास्थ्य कार्यकर्ताओं का प्रशिक्षण अहम रहा।\n- राज्य-स्तर और जिले-स्तर पर वैक्सीन वितरण और टीकाकरण अभियान स्थानीय स्वास्थ्य-योजना (PHC/CHC/ANM) के माध्यम से संचालित होते हैं।\n- UIP को समय के साथ नई वैक्सीनें और कार्यक्रमगत सुधार जोड़कर विस्तारित किया गया; कार्यक्रम का उद्देश्य सार्वभौमिक कवरेज और टिकाकरण की गुणवत्ता सुनिश्चित करना है।\n- UIP के अंतर्गत टीकाकरण कवरेज मापदंडों (जैसे पूर्ण रूप से टीकाकृत बच्चों का प्रतिशत) पर नियमित निगरानी और रिपोर्टिंग आयोजित की जाती है।\n- UIP ने राष्ट्रीय प्रतिरक्षा कवरेज बढ़ाने और कई संक्रामक बीमारियों के नियंत्रण अथवा उन्मूलन में महत्वपूर्ण योगदान दिया है।\n- Mains के लिए सीधे उठाने योग्य बिंदु: UIP 1985 में शुरू हुआ — इसे भारत की सार्वजनिक स्वास्थ्य-नीति में प्राथमिक रोकथाम (preventive) कार्यक्रम के रूप में समझें; प्रभाव का मूल्यांकन कवरेज, ठंडा-श्रृंखला, मानव संसाधन और नियमन/निगरानी के मानदंडों पर करना चाहिए।", "priority_tag": "VERY_HIGH"}, {"question": "Mission Indradhanush की पहली घोषणा किस वर्ष हुई थी?", "options": ["2012", "2014", "2016", "2019"], "answer_index": 1, "explanation": "# Mission Indradhanush — संक्षिप्त परीक्षा-केंद्रित व्याख्या (एक MCQ के लिए)\n- Mission Indradhanush की पहली आधिकारिक घोषणा वर्ष **2014** में की गई थी।\n- यह कार्यक्रम केंद्रीय स्वास्थ्य मंत्रालय द्वारा 25 दिसंबर 2014 को प्रारम्भिक रूप से घोषित/लॉन्च किया गया।\n- घोषणा का मुख्य उद्देश्‍य उन बच्चों और गर्भवती महिलाओं तक टीकाकरण पहुँचाना था जो पारंपरिक कार्यक्रमों से छूट गए थे।\n- मिशन का लक्ष्‍य पूर्ण टीकाकरण (full immunization) में तेज़ी लाना और प्राथमिक टीकाकरण कवर बढ़ाकर 90% के करीब ले जाना था।\n- यह एक लक्षित, आउटरीच-आधारित पहल थी — उच्च जोखिम वाले जिलों/बच्चों/जन्म cohorts पर फोकस करके टीकाकरण कवरेज बढ़ाया जाना था।\n- घोषणा के समय मिशन ने सामान्य रूटीन इम्यूनाइज़ेशन को सुदृढ़ करने और वैक्सीनेशन डिलीवरी की गुणवत्ता सुधरने पर जोर दिया।\n- Mission Indradhanush ने पोलियो के बाद भी शेष प्रमुख वैक्सीन-रोकथाम रोगों (जैसे डिप्थीरिया, कुपोषण से जुड़े इन्फेक्शन, टेटनस, BCG, HIB इत्यादि में) के कवरेज पर ध्यान रखा।\n- इस 2014 की घोषणा के बाद अभियान के स्वरूप और व्यापकता में परिवर्तन आए; बाद में Intensified Mission Indradhanush जैसे चरण जोड़े गए ताकि अवश्यक कवरेज लक्ष्यों को जल्दी हासिल किया जा सके।\n- परीक्षा और Mains उत्तर लेखन के लिए प्रमुख तथ्य — \"पहली घोषणा: 2014; उद्देश्य: अनियोजित/आधे-टीकाकृत बच्चों तक पहुँचाकर पूर्ण टीकाकरण बढ़ाना\" — सीधे उपयोगी प्वाइंट्स हैं।\n- MP से सम्बंधित लेखन में उल्लेख कर सकते हैं: 2014 में घोषित राष्ट्रीय मिशन के बाद राज्यों/जिलों (जैसे MP) में लक्ष्य-आधारित सर्वे और आऊटरीच ड्राइव्स लागू किए गए ताकि स्थानीय स्तर पर छूटे बच्चे पहचाने और वैक्सीन कवरेज बढ़े।", "priority_tag": "HIGH"}, {"question": "National Health Mission (NHM) किस वर्ष की रणनीति/संरचना के रूप में स्थापित की गई, जिसमें NRHM और NUHM को समेकित किया गया?", "options": ["2005", "2010", "2013", "2018"], "answer_index": 2, "explanation": "# व्याख्या — National Health Mission (NHM) — 2013 के रूप में समेकन\n- **स्थापना वर्ष:** National Health Mission (NHM) को 2013 में स्थापित किया गया था; यह उस वर्ष की रणनीति/संरचना है जिसमें ग्रामीण और शहरी स्वास्थ्य कार्यक्रमों को समेकित रूप दिया गया।\n- **उद्देश्य (सार):** NHM का मुख्य उद्देश्य सार्वभौमिक, समेकित एवं मजबूत सार्वजनिक स्वास्थ्य-सेवा नेटवर्क विकसित करना है, विशेषकर मातृ व बाल स्वास्थ्य और प्राथमिक स्वास्थ्य सेवाओं पर फोकस में।\n- **समेकन का अर्थ:** NHM ने विभिन्न पूर्ववर्ती स्वास्थ्य पहलों को एक समेकित फ्रेमवर्क में रखा ताकि ग्रामीण और शहरी स्वास्थ्य रणनीतियाँ समन्वित रूप से लागू हों।\n- **घटक/कॉम्पोनेन्ट्स:** NHM के अंतर्गत योजना-आधारित मिशन गतिविधियाँ, स्वास्थ्य-प्रणाली सुदृढ़ीकरण, मानव संसाधन विकास और विशेष कार्यक्रम (जैसे निगरानी, कैंपेन) समाहित हैं।\n- **राज्य और केन्द्र का समन्वय:** NHM एक संघ-राज्य साझेदारी के रूप में कार्य करता है — राष्ट्रीय स्तर पर नीति-निर्धारण व मार्गदर्शन और राज्य-स्तर पर समायोजन व क्रियान्वयन।\n- **स्थानीय कार्यान्वयन संस्थाएँ:** NHM के तहत राज्य स्वास्थ्य मिशन, जिला स्वास्थ्य समितियाँ तथा स्वास्थ्य संस्थाओं में प्रबंधन और निगरानी के लोकल प्लेटफार्म काम करते हैं।\n- **शहरी स्वास्थ्य का समावेश:** 2013 के समेकन से शहरी स्वास्थ्य चुनौतियों पर विशेष ध्यान आया और शहरी गरीबों के लिये लक्षित गतिविधियाँ NHM के ढांचे में शामिल की गईं।\n- **स्वास्थ्य प्रणाली पर प्रभाव:** समेकन ने बुनियादी ढाँचे, मानव संसाधन और आपूर्ति शृंखलाओं में एकत्रित नीतिगत दखल के ज़रिये समग्र क्षमता निर्माण को प्रोत्साहित किया।\n- **निगरानी और परिणाम-आधारित दृष्टि:** NHM ने प्रदर्शन-आधारित निगरानी और रिपोर्टिंग प्रणालियों को बढ़ावा दिया ताकि योजना के प्रभाव को मापा और सुधारा जा सके।\n- **MP के संदर्भ में उपयोगी बिंदु (Mains हेतु):** मध्यप्रदेश में NHM फ्रेमवर्क का उपयोग—राज्य की स्वास्थ्य योजनाओं का समन्वय, जिला-स्तर पर प्राथमिक स्वास्थ्य केंद्रों व मानव संसाधन की सुविधा सुधार, और शहरी व ग्रामीण इलाकों में लक्षित हस्तक्षेपों के लागूकरण के उदाहरण—सीधे उल्लेख के लिये उपयुक्त हैं।\n- **परीक्षा-वार संक्षेप:** यदि प्रश्न में NHM की स्थापना/रणनीति वर्ष पूछा जाए तो उत्तरों में स्पष्ट लिखें — \"2013\" — और ऊपर दिए गए बिंदुओं को संक्षेप में जोड़कर Mains उत्तर में नीति के उद्देश्य, कार्यान्वयन संरचना व राज्य-स्तरीय प्रभाव पर सीधे बिंदु प्रस्तुत करें।", "priority_tag": "HIGH"}, {"question": "POSHAN Abhiyaan का मुख्य लक्ष्य निम्नलिखित में से कौन‑सा है (सामान्य रूप से घोषित उद्देश्य)?", "options": ["टीकाकरण कवरेज 100% करना", "बाल कुपोषण (stunting/underweight) में कमी लाना और मातृ‑शिशु पोषण सुधारना", "सभी सरकारी अस्पतालों का निजीकरण", "केवल शैक्षिक परिणाम सुधारना"], "answer_index": 1, "explanation": "# POSHAN Abhiyaan — व्याख्या (एक MCQ के लिए परीक्षा‑केंद्रित बिंदु)\n- POSHAN Abhiyaan का केंद्रीय उद्देश्य देश में बाल कुपोषण तथा मातृ‑शिशु पोषण के संकेतकों में सुधार लाना है, विशेषकर स्टंटिंग (stunting) और अंडरवेट (underweight) में कमी लाना।\n- अभियान लक्षित करता है गर्भावस्था, प्रसवोत्तर अवधि और बचपन के शुरुआती 1000 दिनों में पोषण सुधार पर ध्यान केंद्रित करके दीर्घकालिक विकास परिणाम बेहतर करने का।\n- मुख्य पोषण संकेतकों में स्टंटिंग, वेस्टिंग, अंडरवेट, लो‑बर्थ‑वेट और आयरन‑फोलिक एसिड तथा एनेमिया का स्तर शामिल हैं; POSHAN इन संकेतकों को सुधारने के लिए डिजाइन किया गया है।\n- क्रियान्वयन रणनीतियों में मातृ‑शिशु पोषण सेवाओं का सशक्तीकरण (ICDS/Anganwadi सुधार), हाउसहोल्ड‑लेवल निगरानी और लक्षित खाद्य एवं स्वास्थ्य इंटरवेंशन्स शामिल हैं।\n- POSHAN Abhiyaan में समन्वय (convergence) पर जोर है—स्वास्थ्य, महिला और बाल विकास, पानी‑स्वच्छता तथा पंचायत स्तर पर कार्यक्रमों का एकीकृत क्रियान्वयन ताकि पोषण पर बहु‑खंडीय प्रभाव पड़े।\n- डिजिटल मॉनिटरिंग और डेटा‑आधारित ट्रैकिंग (POSHAN Tracker/डैशबोर्ड) के माध्यम से लक्षित बच्चों और माताओं की सेवा‑डिलीवरी और प्रगति का नियमित मूल्यांकन सुनिश्चित किया जाता है।\n- अभियान जन‑आंदोलन (Jan Andolan) और समुदाय‑आधारित संलग्नता को बढ़ाकर आहार, वजनीकरण, इम्यूनाइजेशन और पोषण संबंधी व्यवहार परिवर्तन पर स्थानीय स्वामित्व बनाना चाहता है।\n- क्षमता निर्माण: आंगनवाड़ी कार्यकर्ता, स्वास्थ्यकर्मी और स्थानीय प्रतिनिधियों के प्रशिक्षण से पोषण सम्बन्धी स्क्री닝, रेफरल और सपोर्ट सेवाओं की गुणवत्ता सुधारी जाती है।\n- फोकस आबादी: 0–6 वर्ष के बच्चे, गर्भवती और स्तनपान कराने वाली माताएँ प्राथमिक लक्षित समूह हैं—उन्हें प्राथमिकता देकर राष्ट्रीय पोषण परिणामों में सुधार लाना अभियान का मूल लक्ष्य है।\n- परिणाम मापन के लिए POSHAN ने राज्य/जिला‑स्तर पर लक्ष्य निर्धारण और प्रदर्शन‑समीक्षा की व्यवस्था अपनाई, ताकि स्टंटिंग व अन्य पोषण संकेतकों में निरंतर कमी का आकलन हो सके।\n- एमपी‑संदर्भ में (Mains हेतु उपयोगी बिंदु): राज्य‑स्तर क्रियान्वयन में आंगनवाड़ी सेवा‑बुनियाद, स्थानीय निगरानी और पंचायत/नगर निकायों के साथ समन्वय प्रमुख कारक होते हैं — इसलिए POSHAN के लक्ष्य हासिल करने के लिए राज्य योजनाओं में इन पहलुओं का तीव्र कार्यान्वयन आवश्यक है।", "priority_tag": "VERY_HIGH"}, {"question": "Mission Indradhanush का प्राथमिक फोकस क्या है?", "options": ["नवजात शिशुओं के लिए विशेष पोषण प्लान बनाना", "टीकाकरण के जरिए बचने योग्य बीमारियों के कवरेज को बढ़ाना", "सभी गर्भवती महिलाओं को अस्पताल में प्रसव कराना", "स्कूलों में स्वास्थ्य शिविर चलाना"], "answer_index": 1, "explanation": "# व्याख्या — Mission Indradhanush का प्राथमिक फोकस\n- Mission Indradhanush का प्राथमिक उद्देश्य टीकाकरण के जरिए बचने योग्य बीमारियों (vaccine‑preventable diseases) के प्रति कवरेज बढ़ाना है।\n- यह अभियान विशेष रूप से प्रतिरक्षण से अब तक पहुँच से वंचित रहे बच्चों और गर्भवती महिलाओं को लक्षित करता है।\n- लक्ष्य यह है कि नियमित रूटीन इम्यूनाइज़ेशन को मजबूत कर ‘अनटीकृत/अधूरा‑टीकाकरण’ वाले बच्चों की संख्या कम की जाए।\n- मिशन में उच्च कवरेज के लिए माइक्रो‑प्लानिंग, स्थानीय स्तर पर सूची‑निर्माण और हर‑दर‑कहां पहुंच सुनिश्चित करना शामिल है।\n- इम्प्लीमेंटेशन में फिक्स्ड और आउटरीच इम्यूनाइज़ेशन सेशन्स, स्वास्थ्य कार्यकर्ताओं (जैसे ASHA/ANM) की भूमिका और समुदाय‑सक्रियता प्रमुख हैं।\n- कवरेज मॉनिटरिंग और फॉलो‑अप के माध्यम से मिस्ड सर्विसेज की पहचान कर उन्हें पूरा कराया जाता है (tracking & follow‑up)।\n- उद्देश्य केवल टीके देना नहीं, बल्कि समुचित वैक्सीन शेड्यूल के अनुसार पूर्ण (complete) प्रतिरक्षण सुनिश्चित करना है।\n- इससे प्रतिरक्षण‑नিরुपाय रोगों से होने वाली मृत्युदर और रोज़मर्रा की अस्वस्थता में कमी लाने का प्रत्यक्ष सार्वजनिक‑स्वास्थ्य लाभ होता है।\n- मिशन में कमजोर और दूरस्थ आबादियों, शहरी स्लम और भेद्य समूहों तक पहुँच बढ़ाना प्राथमिक रणनीति है ताकि कवरेज असमानता घटे।\n- रणनीति में स्वास्थ्य प्रणाली को सशक्त बनाना (सप्लाई‑चेन, शीत‑श्रृंखला, मानवीय संसाधन, निगरानी) भी शामिल है ताकि टिकों का स्थायी और सुरक्षित प्रसव सुनिश्चित हो।\n- निष्कर्षतः Mission Indradhanush का केंद्र बिंदु स्पष्ट है: टीकाकरण कवरेज बढ़ाकर वैक्सीन‑रोधी बीमारियों का नियंत्रण और उनसे संबंधित मृत्यु/बिमारी को कम करना।", "priority_tag": "VERY_HIGH"}, {"question": "Intensified Mission Indradhanush (IMI) को किस वर्ष लागू किया गया था ताकि टिकाकरण कवरेज बढ़ाया जा सके?", "options": ["2015", "2017", "2019", "2021"], "answer_index": 1, "explanation": "# व्याख्या — Intensified Mission Indradhanush (IMI) — 2017\n- Intensified Mission Indradhanush (IMI) को आधिकारिक रूप से अक्टूबर 2017 में लागू किया गया था ताकि टिकाकरण कवरेज तेज़ी से बढ़ाया जा सके।\n- इसका मुख्य उद्देश्य नियमित टीकाकरण के माध्यम से बच्चों और गर्भवती महिलाओं का पूर्ण टीकाकरण (full immunization) सुनिश्चित करना था।\n- IMI का लक्षित समूह मुख्यतः 0–2 वर्ष के बच्चे और गर्भवती महिलाएँ थे, जिनके बीच अन्टी- और अविकसित टीकाकरण की दर अधिक थी।\n- नीति-स्तर पर इसे \"मिशन मोड\" पर लागू किया गया — यानी समयबद्ध लक्ष्य, सख्त निगरानी, और स्थानिक प्राथमिकता के साथ कार्यान्वयन।\n- रणनीतिक तत्वों में सूक्ष्म-योजना (microplanning), विशेष वैक्सीनेशन सत्र (intensified rounds), आउटरीच और फिक्स्ड सत्रों का संयोजन, तथा समुदाय एवं मीडिया में जागरूकता अभियान शामिल थे।\n- IMI को राष्ट्रीय और राज्य दोनों स्तरों पर लागू किया गया; केंद्र और राज्य/जिला प्रशासन के समन्वय द्वारा उच्च-जोखिम जिलों पर विशेष फोकस रखा गया।\n- क्रियान्वयन में स्वास्थ्य विभागों के साथ-साथ वैश्विक/राष्ट्रीय तकनीकी भागीदार (WHO, UNICEF आदि) और स्थानीय समुदायों की सहभागिता सुनिश्चित की गई।\n- निगरानी के लिए राज्यों/जिलों में विशेष समन्वय समितियाँ, नियमित रिपोर्टिंग और डाटा-ट्रैकिंग मेकैनिज़्म लगाए गए, ताकि छुटे हुए बच्चों की पहचान और उन्हें दोबारा लाया जा सके।\n- IMI की समयसीमा और तीव्रता का लक्ष्य दिसंबर 2018 तक देशव्यापी पूर्ण टीकाकरण दर में तेज़ सुधार लाना था; इसलिए यह एक तीव्र, लक्ष्य-उन्मुख अवसर था न कि सिर्फ़ सामान्य कार्यक्रम का विस्तार।\n- परीक्षा/मेनस में उपयोग हेतु संक्षेप: “IMI — अक्टूबर 2017 में शुरू; उद्देश्य: बच्चों व गर्भवती महिलाओं का पूर्ण टीकाकरण तेज़ी से बढ़ाना; रणनीति: मिशन मोड, सूक्ष्म-योजना, तीव्र वैक्सीनेशन राउंड, राज्य-ज़िला समन्वय व तकनीकी साझेदारी।”", "priority_tag": "HIGH"}, {"question": "Ayushman Bharat — PM-JAY (Pradhan Mantri Jan Arogya Yojana) की शुरुआत किस वर्ष हुई?", "options": ["2016", "2018", "2020", "2014"], "answer_index": 1, "explanation": "# व्याख्या — Ayushman Bharat — PM-JAY (शुरुआत: 2018)\n- Ayushman Bharat — Pradhan Mantri Jan Arogya Yojana (PM-JAY) का औपचारिक शुभारम्भ 23 सितंबर 2018 को किया गया।\n- यह योजना Ayushman Bharat कार्यक्रम का राष्ट्रीय स्तर का स्वास्थ्य बीमा/स्वास्थ्य सुरक्षा घटक है, जिसका मुख्य आरंभिक वर्ष 2018 है।\n- PM-JAY का लक्ष्य देश के कमजोर एवं आर्थिक रूप से पिछड़े परिवारों को स्वास्थ्य-समाधान देना है; आरम्भ में इसे राष्ट्रीय स्वास्थ्य सुरक्षा मिशन के रूप में लागू किया गया।\n- योजना प्रतिवर्ष प्रति परिवार अधिकतम 5 लाख रुपए तक का कैशलेस कवर हॉस्पिटलाइजेशन (secondary और tertiary care) हेतु प्रदान करती है; यह धनराशि नीति विनिर्देशों में आरम्भ से चिन्हित है।\n- पात्रता निर्धारण के लिए मूल रूप से सरकारी चयन मानदण्डों/डेटासेट्स का उपयोग किया गया; राज्य सरकारें और केन्द्र मिलकर लाभार्थियों की सूची तय करती हैं।\n- PM-JAY के लागू होने के बाद देशभर में सरकारी तथा निजी अस्पतालों को 'एम्पैनलमेंट' के माध्यम से जोड़ा गया, और क्लेम भुगतान के लिए केंद्रीकृत IT प्लेटफार्म का उपयोग शुरू हुआ।\n- 2018 में आरम्भ के पश्चात् योजना का संचालन केंद्र-राज्य सहयोग के ढांचे में हुआ; वित्तीय भार और क्रियान्वयन सम्बन्धी नियम केंद्र-राज्य समझौतों पर निर्भर हैं।\n- आरम्भिक वर्ष 2018 से ही योजना का उद्देश्य सार्वभौमिक नज़दीक स्वास्थ्य सुरक्षा को बढ़ाना, चिकित्सा से जुड़ी वित्तीय जोखिम घटाना और अस्पताल में उपचार के समय कैशलेस सुविधा सुनिश्चित करना था।\n- PM-JAY की 2018 में हुई शुरुआत ने स्वास्थ्य-प्रवेश सेवाओं के दायरे को बढ़ाने के साथ-साथ राष्ट्रीय स्वास्थ्य नीतियों में सुधार और बेहतर डाटा/मॉनिटरिंग तंत्र स्थापित करने का मार्ग प्रशस्त किया।\n- परीक्षा उपयोगिता: यदि प्रश्न में योजना की “शुरुआत का वर्ष” पूछा जाए तो सही उत्तर 2018 है; इससे जुड़े नीतिगत पहलू (कवर राशि, लक्ष्य समूह, इम्प्लीमेंटेशन मॉडल) भी सीधे Mains उत्तरों में कथ्य के रूप में जोड़े जा सकते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "AB‑HWC का लक्ष्य शुरू में कितने Health and Wellness Centres (लगभग) विकसित करने का था (सरकार द्वारा घोषित लक्ष्य)?", "options": ["50,000", "1,50,000", "2,50,000", "10,000"], "answer_index": 1, "explanation": "# AB‑HWC (Ayushman Bharat — Health and Wellness Centres) — परीक्षा केंद्रित व्याख्या (MCQ उत्तर: **1,50,000**)\n- AB‑HWC का घोषित प्राथमिक लक्ष्य था लगभग **1,50,000 (एक लाख पचास हजार)** Health and Wellness Centres विकसित करना।\n- यह लक्ष्य केंद्र सरकार ने Ayushman Bharat मिशन के तहत घोषित किया था, ताकि बुनियादी प्राथमिक स्वास्थ्य सेवाओं का व्यापक कवरेज सुनिश्चित किया जा सके।\n- लक्षित 1,50,000 HWC में ग्राम स्तर के स्वास्थ्य उप-केंद्र, प्राथमिक स्वास्थ्य केन्द्र और शहरी प्राथमिक स्वास्थ्य केन्द्रों का रूपांतरण शामिल था।\n- इन HWCs का उद्देश्य परंपरागत रोग-उन्मुख सेवाओं से आगे जाकर व्यापक प्राथमिक स्वास्थ्य (comprehensive primary health care) प्रदान करना है — जैसे मातृ-शिशु देखभाल, NCD प्रबंधन, मानसिक स्वास्थ्य और आउटरीच सेवाएँ।\n- लक्ष्य की समय-सीमा प्रारम्भिक रूप से राष्ट्रीय प्राथमिकता में थी ताकि प्राथमिक स्वास्थ्य पर सार्वभौमिक पहुँच (UHC की दिशा) तेज़ी से बढ़े।\n- 1,50,000 के लक्ष्य का संदर्भ नीति-निर्माण और बजटीय आवंटन दोनों में लिया गया; राज्य-केन्द्र समन्वय से इन सुविधाओं के गठन और स्टाफिंग की रूपरेखा तय की गई।\n- HWC मॉडल में स्थानीय समुदाय के स्वास्थ्य कार्यकर्ता, डिजिटल हेल्थ रिकॉर्ड और परित्यजनीय सेवाओं के एकीकृत प्रसाद पर बल दिया गया है — जिसका उद्देश्य निर्धारित 1.5 लाख केंद्रों में समान सेवाओं का विस्तार है।\n- यह संख्या नीति की व्यापकता और दूरस्थ/ग्रामीण क्षेत्रों तक सेवाएँ पहुँचाने की योजना दोनों को प्रतिबिंबित करती है — इसलिए परीक्षा में AB‑HWC के लक्ष्य के रूप में “1,50,000” को याद रखें।\n- Mains के उत्तर में इस तथ्य का उपयोग करते समय संक्षेप में लिखें: “सरकार ने प्राथमिक स्वास्थ्य सुधार के लिए लगभग 1,50,000 HWCs विकसित करने का लक्ष्य घोषित किया था, ताकि व्यापक प्राथमिक स्वास्थ्य सेवाओं के माध्यम से UHC को सुदृढ़ किया जा सके।”\n- त्वरित रिविज़न नोट: AB‑HWC = Ayushman Bharat का प्राथमिक-स्वास्थ्य घटक; घोषित लक्ष्य = ~1,50,000 HWC — यह क्विक-फैक्ट MCQ लिए निर्णायक और परीक्षोन्मुख है।", "priority_tag": "HIGH"}, {"question": "POSHAN Abhiyaan के तहत 'Poshan 2.0' जैसी किसी घोषणा का उद्देश्य मुख्यतः क्या था (सामान्य जानकारी के अनुसार)?", "options": ["केवल टीकाकरण कार्यक्रमों का समायोजन", "पोषण कार्यक्रमों का समेकन और कोविड‑काल के बाद पोषण लक्ष्यों पर तेज़ी लाना", "सिर्फ स्कूल शिक्षा में पोषण पाठ्यक्रम जोड़ना", "PMJAY को समाप्त करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में 'Anemia Mukt Bharat' (लौह‑कमी एनिमिया उन्मूलन) रणनीति का लक्ष्य प्राथमिक रूप से किस समूह पर है?", "options": ["केवल बुज़ुर्गों पर", "महिलाओं और बच्चों (विशेषकर गर्भवती महिलाओं और किशोरियों) पर", "केवल स्वास्थ्य कर्मियों पर", "केवल पुरुषों पर"], "answer_index": 1, "explanation": "# व्याख्या — Anemia Mukt Bharat का प्राथमिक लक्ष्य समूह (महिलाएँ और बच्चे; विशेषतः गर्भवती महिलाएँ व किशोरियाँ)\n- Anemia Mukt Bharat रणनीति का मुख्य फोकस महिला- और बाल-स्वास्थ्य पर है, विशेष रूप से गर्भवती महिलाएँ (ANC लाभार्थी) और किशोरवयीन लड़कियाँ/लड़के, क्योंकि ये समूह पोषणजनित एनीमिया के उच्च जोखिम में हैं।\n- गर्भवती महिलाओं में लोहा‑फोलिक एसिड (IFA) सप्लीमेंटेशन और समय पर Hb स्क्री닝 को प्राथमिक गतिविधि के रूप में रखा गया है ताकि मातृ मृत्यु और निम्न जन्‍मवजन के जोखिम घटाएँ जा सकें।\n- किशोरियों के लिए वीकली IFA सप्लीमेंटेशन और पोषण शिक्षा दी जाती है जिससे किशोरावस्था में आयरन डिफिशिएन्स रोका जा सके और भविष्य की गर्भधारण क्षमता सुरक्षित रहे।\n- 6–59 महीने के बच्चों में भी लक्ष्यीकरण शामिल है, पर रणनीति गर्भवती महिलाओं और किशोरियों पर इसलिए केंद्रित है क्योंकि उनके पोषण‑स्तर का सीधा असर नवजात/शिशु स्वास्थ्य पर पड़ता है।\n- रणनीति में समुदाय‑आधारित Hb परीक्षण, टैकटिकल स्क्रीनिंग और जोखिम पहचाने जाने पर लक्षित मैनेजमेंट गर्भवती व किशोरियों में प्राथमिक उपाय हैं।\n- कार्यक्रम का कार्यान्वयन Anganwadi, ASHA और स्कूलों के माध्यम से किया जाता है ताकि गर्भवती महिलाओं के ANC व प्रसवपूर्व सेवाओं तथा स्कूल जाने वाले किशोरियों तक IFA व पोषण शिक्षा पहुँच सके।\n- Deworming, वज़न‑निगरानी/ग्रीथ मॉनिटरिंग और आहार सम्बंधित व्यवहार परिवर्तन संचार (BCC) गर्भवती व किशोरियों के लिए अनिवार्य सहायक गतिविधियाँ हैं।\n- रणनीति का लक्ष्य एनीमिया‑प्रसार में कमी लाना है और इसके संकेतक (Hb स्तर, प्रेवलेंस) खासकर reproductive‑age महिलाओं तथा किशोरियों में समयानुकूल मॉनिटरिंग से ट्रैक किए जाते हैं।\n- गर्भवती महिलाओं और किशोरियों पर प्राथमिक फोकस इसलिए भी है कि इन समूहों में एनीमिया का निहित प्रभाव पीढ़ियों के बीच ट्रांसमिशन (माँ से शिशु) और समाजिक‑आर्थिकी पर दीर्घकालिक प्रभाव पैदा करता है।\n- कार्यनीतिक रूप से यह लक्ष्य समूह कवर करके मातृ व बाल मृत्यु, लो‑वजन जन्म और शैक्षिक/कार्यशीलता पर पड़ने वाले नकारात्मक प्रभावों को कम करने का माध्यम माना गया है।", "priority_tag": "HIGH"}, {"question": "National Family Health Survey (NFHS) रिपोर्ट पोषण‑स्थिति का कौन‑सा प्रमुख सूचक देता है जो POSHAN Abhiyaan के मॉनिटरिंग में उपयोग होता है?", "options": ["सिर्फ टीकाकरण कवरेज", "Stunting (लंबाई के अनुसार कम वृद्धि) और Underweight सहित पोषण संकेतक", "केवल स्वास्थ्य संस्थानों की संख्या", "केवल आय के स्तर"], "answer_index": 1, "explanation": "# व्याख्या — NFHS में पोषण‑स्थिति का प्रमुख सूचक: Stunting एवं Underweight\n- Stunting (लंबाई के अनुसार कम वृद्धि) का मापक बच्चों की लंबाई‑विरुद्ध आयु का Z‑score होता है; सामान्यतः Height‑for‑Age Z‑score (HAZ) < −2 को stunted माना जाता है।\n- Underweight बच्चों का मापक Weight‑for‑Age Z‑score (WAZ) है; WAZ < −2 को underweight वर्ग में रखा जाता है।\n- दोनों सूचक 0–59 महीने (under‑five children) के बच्चों पर लागू होते हैं और NFHS में इसी आयु‑समूह के डेटा से रिपोर्ट किए जाते हैं।\n- Stunting दीर्घकालिक (chronic) पोषण‑दोष को दर्शाता है — गर्भावस्था, नवजात cuidados और सतत पोषण/स्वास्थ्य‑परिस्थितियों का प्रभाव; इसलिए नीतिगत प्राथमिकता का सूचक है।\n- Underweight दोनों पहलुओं का समाहार कर सकता है — chronic और acute दोनों; इसलिए व्यापक पोषण स्थिति का संकेत देता है।\n- POSHAN Abhiyaan की मॉनिटरिंग में NFHS‑आधारित stunting/underweight मान्यताप्राप्त सर्वेक्षण‑आधारित संकेतक हैं, जिनसे क्षेत्रीय प्रगति और लक्ष्य निर्धारण होते हैं।\n- सूचक‑मूल्यांकन में Z‑score वितरण, prevalence प्रतिशत और रुझान (NFHS के विभिन्न दौरों के बीच) से कार्यक्रमों की प्रभावशीलता और प्राथमिकता क्षेत्रों की पहचान होती है।\n- राज्य‑स्तर और जिले‑स्तर पर stunting/underweight के विभाजन से बचे हुए hotspots, गरीबी/शिक्षा/स्वच्छता के साथ सहसंबंध और लक्षित हस्तक्षेप (आयु‑विशिष्ट, मातृ‑शिशु सेवाएँ) तय किए जाते हैं।\n- NFHS में anthropometric माप (लंबाई/ऊँचाई, वजन) की मानकीकृत विधि और अनुमानित नमूना‑आकार से संकेतक का अंतरराज्यीय तुलनात्मक विश्लेषण संभव होता है।\n- नीति‑निर्माण में इन सूचकों का उपयोग समयानुसार लक्ष्य‑स्थापन (targets), वित्त आवंटन और कार्यक्रमों जैसे गर्भावस्था देखभाल, IYCF counselling, supplementary nutrition इत्यादि के मॉड्यूलों की प्राथमिकता तय करने हेतु किया जाता है।\n- Mains उत्तर में इन बिंदुओं का उपयोग करते समय संक्षेप में परिभाषा, आयु‑सीमा, मापन (Z‑score), नीतिगत महत्व और POSHAN मॉनिटरिंग में प्रयुक्ति को अलग‑अलग बिंदुओं में प्रस्तुत करें।", "priority_tag": "VERY_HIGH"}, {"question": "किस भारतीय मिशन का उद्देश्य प्राथमिक स्वास्थ्य सुविधाओं के माध्यम से निवारक, प्रोमोटिव और कुछ प्राथमिक उपचार सेवाओं को समुदाय के करीब पहुँचाना है और इसे 2018 के आसपास तेज़ी से लागू किया गया था?", "options": ["Smart Cities Mission", "Ayushman Bharat — Health and Wellness Centres (AB‑HWC)", "Make in India", "Digital India"], "answer_index": 1, "explanation": "# **Ayushman Bharat — Health and Wellness Centres (AB‑HWC) — व्याख्या (MPPSC Prelims 2026 हेतु)**\n- **परिचय व उद्देश्य:** AB‑HWC का मुख्य उद्देश्य प्राथमिक स्वास्थ्य सुविधाओं के माध्यम से निवारक (preventive), प्रोमोटिव (promotive) और सीमित प्राथमिक इलाज‑सेवाएँ (primary curative care) समुदाय के निकट पहुँचाना है।\n- **शुरुआत और तेजी:** यह पहल 2018 के आसपास केन्द्र सरकार द्वारा तेज़ी से लागू की गयी ताकि देश में प्राथमिक स्वास्थ्य देखभाल के स्वरूप में परिवर्तन और सशक्तिकरण हो सके।\n- **इन्फ्रास्ट्रक्चर रूपांतरण:** मिशन का प्रमुख घटक है मौजूदा सब‑सेंटर/प्राथमिक स्वास्थ्य केन्द्रों (Sub‑centres/PHCs) को क्रमिक रूप से Health & Wellness Centres में बदलना, ताकि सेवाओं का दायरा बढ़े।\n- **सेवा पैकेज (मुख्य सेवाएँ):** HWCs में मातृ‑शिशु स्वास्थ्य, टीकाकरण, सामान्य रोगों का प्राथमिक इलाज, पोषण परामर्श, निवारक जांचें (जैसे NCD screening—HTN/Diabetes), परिवार नियोजन और स्वास्थ्य शिक्षा जैसी सेवाएँ उपलब्ध कराई जाती हैं।\n- **मानव संसाधन और प्रशिक्षण:** HWC मॉडल में mid‑level providers (Community Health Officers/CHO) को नियुक्त और प्रशिक्षित किया गया है ताकि कम्युनिटी‑लेवल पर गुणवत्तापूर्ण प्राथमिक देखभाल मिल सके।\n- **दवाइयाँ व डायग्नोस्टिक्स:** HWCs पर आवश्यक सूची की औषधियाँ और बुनियादी निदान (point‑of‑care tests) उपलब्ध कराने पर जोर है, जिससे तीव्र और सामान्य बीमारियों का त्वरित प्रबंधन संभव हो।\n- **डिजिटल और रेफरल लिंक:** HWCs में डिजिटल स्वास्थ्य रजिस्ट्री, टेली‑कंसल्टेशन सुविधाएँ और सुसंगत रेफरल तंत्र (secondary/tertiary के साथ) विकसित करने का प्रावधान है ताकि continuum of care सुनिश्चित हो।\n- **फंडिंग और कार्यान्वयन:** मिशन का वित्तपोषण और कार्यान्वयन केन्द्र–राज्य साझा मॉडल में होता है; राष्ट्रीय स्वास्थ्य मिशन के माध्यम से संसाधन और तकनीकी दिशा‑निर्देश दिए जाते हैं।\n- **निगरानी‑मूल्यांकन:** HWCs के प्रदर्शन के लिए सर्विस‑डिलिवरी संकेतक, HMIS/पोर्टल पर रिपोर्टिंग और गुणवत्ता मानदंड निर्धारित हैं ताकि प्रभावशीलता मापी जा सके।\n- **मध्यप्रदेश के संदर्भ में उपयोगी बिंदु (Mains हेतु):** मध्यप्रदेश सरकार ने AB‑HWC मॉडल अपनाकर ग्राम‑स्तर पर प्राथमिक स्वास्थ्य सेवाओं के विस्तार पर कार्य किया है; परीक्षा उत्तर में यह उल्लेख कर सकते हैं कि राज्य‑स्तरीय समन्वय, CHO प्रशिक्षण और स्थानीय स्वास्थ्य‑इन्फ्रास्ट्रकचर को मजबूती देना मुख्य चुनौतियाँ और समाधान रहे हैं।\n- **प्रयोज्य बिंदु — तेज़ रिविजन (Prelims):** 1) लॉन्च अवधि ≈ 2018, 2) उद्देश्य = निवारक‑प्रोमोटिव‑प्राथमिक उपचार, 3) प्रमुख घटक = सब‑सेंटर/PHC → HWC रूपांतरण, 4) सेवाएँ = NCD screening, मातृ‑शिशु, दवाइयां, डायग्नोस्टिक्स।\n- **Mains में उद्धरण के लिए संक्षेप में दावेदार बिंदु:** मिशन ने प्राथमिक देखभाल की पहुँच और गुणवत्ता सुधारने की दिशा में प्रणालीगत बदलाव की पहल की; नीति‑सुझाव में राज्य‑केंद्र समन्वय, मानव संसाधन सुदृढ़ीकरण, निरन्तर गुणवत्ता‑मानक और स्थानीय‑समुदाय सहभागिता पर बल दें।", "priority_tag": "HIGH"}, {"question": "Mission Indradhanush 2.0 की आधिकारिक शुरुआत का वर्ष कौन‑सा था (जो टिकाकरण कवरेज को और विस्तार देने के लिए थी)?", "options": ["2016", "2018", "2019", "2021"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "राष्ट्रीय स्वास्थ्य नीतियों में 'Continuum of Care' अवधारणा का संबंध मुख्यतः किससे है?", "options": ["केवल अस्पताल के अंदर होने वाली सर्जरी से", "गर्भावस्था से लेकर बच्चे के बचपन तक व्यापक सेवाओं से (प्रेगनेंसी, प्रसव, नवजात व बाल विकास)", "केवल टीकाकरण शिविरों से", "केवल वृद्ध देखभाल से"], "answer_index": 1, "explanation": "# **व्याख्या — 'Continuum of Care' (गर्भावस्था से शिशु-किशोर तक) — MPPSC Prelims 2026 हेतु**\n- Continuum of Care का मूल अर्थ है माँ और बाल के लिए जीवनचक्र-आधारित, टाइमली और एकीकृत सेवाओं का सिलसिला — गर्भावस्था (ANC), प्रसव-सहायता, नवजात कालीन देखभाल, शिशु और छोटे बच्चों के पोषण व विकास तक निरंतर सेवाएँ।\n- यह अवधारणा समय (pregnancy → childbirth → neonatal → infancy → early childhood) और स्थान (घर, समुदाय, प्राथमिक स्वास्थ्य केन्द्र, अस्पताल) दोनों आयामों पर निर्बाध सेवा संबंध सुनिश्चित करती है।\n- गर्भावस्था में नियमित ANC (टाइकस), आयरन-फोलिक एसिड, मातृ-शिक्षा और जोखिम-स्क्रीनिंग Continuum की शुरुआत हैं, ताकि जटिलताएँ प्रसव से पहले पकड़ी व नियंत्रित हों।\n- प्रसव के दौरान सुरक्षित प्रसव-सेवाएँ (skilled birth attendance, timely referral) और नवजात तात्कालिक देखभाल (क्लीन-केयर, थर्मोरेगुलेशन, प्रारम्भिक स्तनपान) Continuum का केंद्रीय हिस्सा हैं।\n- नवजात एवं शिशु-देखभाल में समयबद्ध टीकाकरण, नवजात/शिशु रोगों का त्वरित निदान‑उपचार, IMNCI/PSBI जैसे प्रोटोकॉल और समय पर न्यूट्रिशनल इंटरवेंशन्स शामिल होते हैं।\n- पोषण के दृष्टिकोण से Continuum में मातृत्व-पोषण (गर्भवती व स्तनपान कराने वाली माँ के लिए पोषण), शिशु-और-छोटे बच्चों का IYCF प्रोत्साहन, वृद्धि-निगरानी और माइक्रोन्यूट्रिएंट सप्लीमेंटेशन लगातार दिए जाते हैं।\n- Continuum of Care की प्रभावशीलता के लिए स्वास्थ्य-सेवाओं का एकीकरण (आरएमएनसीएच+), सामुदायिक आउटरीच (ASHA/ANM), तथा सुविधा-आधारित सेवाओं के बीच मजबूत रेफरल-लिंक आवश्यक है।\n- इस अवधारणा में नियमित निगरानी‑मापदण्ड (ANC कवर, स्किल्ड बर्थ %, नवजात मृत्यु दर, पूर्ण टीकाकरण %, स्टंटिंग/वेस्टिंग रेट) के माध्यम से सेवा-श्रेणी एवं समय पर हस्तक्षेप मापे और सुधारे जाते हैं।\n- Continuum लागू करने से मातृ एवं शिशु मृत्यु दर, पोषण-मानदण्ड और दीर्घकालिक विकास परिणामों में सकारात्मक परिवर्तन आना अपेक्षित है; इसलिए नीतिगत प्राथमिकता व वित्तीय व्यवस्था इसी निरंतरता पर केन्द्रित होती है।\n- मध्यप्रदेश जैसे राज्यों के लिए Continuum की चुनौतियाँ सेवा‑वितरण असमानता, मानव-शक्ति, सप्लाई‑चेन और डेटा गुणवत्ता हैं; इन्हें तय करने पर ही गर्भावस्था‑से‑बाल-विकास तक की निरंतर सेवाएँ प्रभावी बनती हैं।\n- संक्षेप में, Continuum of Care का मतलब है समय और लोकेशन दोनों में निर्बाध, एकीकृत और समयोचित स्वास्थ्य‑पोषण सेवाओं का पूरा चक्र — गर्भावस्था से लेकर बाल्यावस्था तक।", "priority_tag": "HIGH"}, {"question": "POSHAN Abhiyaan के तहत 'पोषण निगरानी' के लिए किस तरह का डिजिटल टूल/प्लेटफ़ॉर्म सरकार ने प्रचारित किया था (सामान्यतः)?", "options": ["ANMs के लिए केवल कागज़ पर रिकॉर्ड रखना", "डिजिटल पोर्टल/ऐप और देशव्यापी मालिकाएँ‑आधारित मॉनिटरिंग (ICT-enabled monitoring)", "केवल पत्रिका प्रकाशन", "केवल राज्य स्तरीय फ़ाइलें"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "National Health Mission के अंतर्गत प्रमुख संरचनात्मक घटक कौन‑सा नहीं है?", "options": ["NRHM (National Rural Health Mission)", "NUHM (National Urban Health Mission)", "PMJAY (Pradhan Mantri Jan Arogya Yojana) का मूल हिस्सा", "योग्यता के बिना स्वास्थ्य सम्बन्धी राजस्व सृजन"], "answer_index": 3, "explanation": "", "priority_tag": "LOW"}, {"question": "भारत में स्कूल‑आधारित पोषण और सीख‑परिणामों के सुधार से संबंधित किस केंद्रीय/राज्य पहल से जुड़े प्रश्न सामान्यतः आते हैं? (सामान्यतः)", "options": ["Mid‑Day Meal Scheme (MDM) और स्कूल स्वास्थ्य कार्यक्रम", "Pradhan Mantri Gram Sadak Yojana", "Stand Up India", "Digital India"], "answer_index": 0, "explanation": "# व्याख्या — Mid‑Day Meal Scheme और School Health Programme (स्कूल‑आधारित पोषण और सीख‑परिणाम सुधार)\n- **उद्देश्य:** Mid‑Day Meal (MDM) का प्राथमिक उद्देश्य स्कूल में बच्चों को पौष्टिक भोजन प्रदान कर स्कूल में उपस्थिति और पोषण स्तर सुधारना है; School Health Programme का उद्देश्य नियमित स्वास्थ्य परीक्षण, रोग‑निगरानी व शीघ्र हस्तक्षेप के माध्यम से बच्चों की स्वास्थ्य‑योग्यता और सीखने की क्षमता बढ़ाना है।\n- **पोषण मानदंड:** MDM में प्रतिदिन दिए जाने वाले भोजन के पोषक तत्वों के लक्ष्यों में प्राथमिक स्तर के लिए लगभग 450 कैलोरी और संबंधित प्रोटीन तथा ऊपरी प्राथमिक स्तर के लिए लगभग 700 कैलोरी का लक्ष्य/रूपरेखा शामिल रहती है (राज्य स्तर पर समायोजन संभव)।\n- **लोकेशन और कवरेज:** MDM सार्वजनिक/राज्य सरकार व स्थानीय‑शरीरिक विद्यालयों, सहायता प्राप्त स्कूलों और शासकीय प्राथमिक व ऊपरी‑प्राथमिक कक्षाओं में लागू है; School Health Programme भी लगभग समान स्कूल‑परिदृश्य में स्वास्थ्य सेवाएँ और स्क्रीनिंग प्रदान करता है।\n- **क्रियान्वयन‑संरचना:** MDM का नोडल विभाग शिक्षा मंत्रालय/राज्य शिक्षा विभाग होते हैं जबकि भोजन वितरण स्थानीय स्कूल, पंचायत/शहर निकाय व स्वयं सहायता समूह/कॉन्ट्रैक्टेड कुक्स के माध्यम से संचालित होता है; School Health Programme स्वास्थ्य विभाग/स्कूलों के समन्वय से मेडिकल टीमों, स्क्रीनिंग और रेफरल व्यवस्था पर आधारित होता है।\n- **वित्तपोषण और लागत‑वितरण:** यह केंद्रीय‑राज्य सहयोगित (centrally sponsored) पहल है — कुछ घटक केंद्र द्वारा वित्तीय समर्थन से और अन्य घटक राज्यों/स्थानीय निकायों द्वारा सह‑वित्तपोषित होते हैं; खाना, रसोई‑सुविधा और निगरानी लागत अलग‑अलग आइटम के रूप में शामिल होते हैं।\n- **सुरक्षा व गुणवत्ता नियंत्रण:** दोनों पहलों में खाद्य‑सुरक्षा, स्वच्छता, माइक्रो‑न्यूट्रिएंटfortification/आवश्यकता के अनुरूप अनुकूलन, तथा नियमित निगरानी‑प्रोटोकॉल और MIS/ऑडिट की व्यवस्था रहती है।\n- **सीधे सीख‑परिणामों से जुड़ाव:** बेहतर पोषण और समय पर स्वास्थ्य हस्तक्षेप से उपस्थिति, एकाग्रता, स्मृति और स्कूल में भागीदारी बढ़ती है — जिससे पढ़ाई के परिणाम व सीखने के सूचकांक बेहतर होने के ठोस कारणशास्त्रीय संबंध बनते हैं।\n- **समेकन और समन्वय:** MDM और स्कूल‑स्वास्थ्य सेवाओं का समन्वय POSHAN/राज्य पोषण पहलों, बाल‑विकास कार्यक्रमों और स्थानीय स्वास्थ्य‑प्रणालियों के साथ होना चाहिए ताकि विटामिन, डि‑वॉर्मिंग, वैक्सीनेशन व रेफरल सेवाएँ प्रभावी हों।\n- **राज्य‑विशेष क्रियाविधि (MP के लिए उपयोगी बिंदु):** मध्यप्रदेश में लागू नीतियाँ स्कूल‑मेन्स अल्टरनेटिव मेनू, स्थानीय खाद्य पदार्थों तथा स्वयं सहायता समूहों के माध्यम से पहचान और वितरण पर बल देती हैं; राज्य‑स्तर की निगरानी रिपोर्टें और स्कूल‑आधारित स्वास्थ्य स्क्रीनिंग के डेटा Mains उत्तर में उदाहरण/स्रोत के रूप में प्रयोग किए जा सकते हैं।\n- **प्रभाव‑मूल्यांकन और संकेतक:** सफल क्रियान्वयन का मूल्यांकन नामांकन, उपस्थिति दर, स्वास्थ्य‑स्क्रीनिंग कवरेज, אנिमिया/वज़न‑वृद्धि के संकेतक और स्कूल‑स्तर के सीखने‑परिणाम (जैसे अनुशासन/पठन‑गणना स्कोर) पर आधारित होता है — इन संकेतकों का हवाला Mains उत्तर में दिया जा सकता है।\n- **निगरानी व भागीदारी:** प्रभावी निगरानी में स्कूल‑समिति/अभिभावक, तीस‑पक्ष मूल्यांकन, सामाजिक ऑडिट और डिजिटल MIS शामिल होते हैं; स्थानीय समुदाय व अभिभावक‑भागीदारी से अनुपालन व गुणवत्ता बेहतर होती है।\nउपयोग के निर्देश: परीक्षा‑उत्तर/रीविजन में इन बिंदुओं को संक्षेप में उद्धृत करें; Mains उत्तर में राज्य‑विशेष (MP) आंकड़े/उदाहरण जोड़कर नीति‑प्रभाव और सुझाव (convergence, गुणवत्ता‑निगरानी, स्थानीयकरण) को जोड़ें।", "priority_tag": "HIGH"}, {"question": "किस मिशन/योजना का उद्देश्य बालिका/किशोरी तथा गर्भवती महिलाओं में एनीमिया घटाना है और इसे केंद्रीय स्वास्थ्य मंत्रालय के नेतृत्व में लागू किया गया है?", "options": ["Swachh Bharat Mission", "Anemia Mukt Bharat", "Smart Cities Mission", "Make in India"], "answer_index": 1, "explanation": "# व्याख्या — Anemia Mukt Bharat (MPPSC Prelims 2026 के लिए एक MCQ का विस्तृत उत्तर)\n- Anemia Mukt Bharat का मुख्य उद्देश्य बालिकाओं/किशोरियों और गर्भवती महिलाओं में एनीमिया की रोकथाम और उसकी तीव्र/मध्यम स्तरीय स्थिति में कमी लाना है।\n- यह मिशन केंद्रीय स्वास्थ्य मंत्रालय के नेतृत्व में संचालित राष्ट्रीय कार्यक्रम है और राज्यों/केंद्रशासित प्रदेशों के साथ समन्वय में लागू होता है।\n- लक्षित समूहों में गर्भवती महिलाएँ, स्तनपान कराने वाली महिलाएँ, किशोरियाँ/बालिकाएँ (10–19 वर्ष), बच्चों के विशिष्ट आयु समूह और प्रजनन आयु की महिलाएँ प्रमुख हैं।\n- प्रमुख नीतिगत/intervention घटकों में आयरन–फोलिक एसिड (IFA) का नियमित वितरण, पॉइंट‑ऑफ‑केयर हेमोग्लोबिन जांच, एनीमिया का केस‑प्रबंधन और गंभीर मामलों का रेफरल शामिल हैं।\n- अन्य अनुगामी उपायों में डिवॉर्मिंग (कीड़ा नाशक दवाएँ), डाइटेरिक परिवर्तन के लिए व्यवहार परिवर्तन संवाद (IEC/BCC), और खाद्य‑फोर्टिफिकेशन की पहलें शामिल हैं।\n- अमल‑बढ़ाने के लिए मिशन में स्कूलों, आंगनवाड़ी केन्द्रों और मातृ/बाल स्वास्थ्य सेवाओं के माध्यम से वैकल्पिक वितरण चैनल तथा समुदाय‑आधारित पहचान/स्क्रीनिंग पर जोर दिया गया है।\n- कार्यक्रम निगरानी के लिए डिजिटल/रोज़गार‑आधारित रिकॉर्डिंग, जिला‑स्तरीय dashboard और नियमित वैरिफिकेशन/प्रगति रिपोर्टिंग के मैकेनिज्म स्थापित किए गए हैं ताकि कवरेज और प्रभाव मापा जा सके।\n- स्वास्थ्य‑कर्मियों (ASHA/ANM/सीएचओ) एवं शिक्षक/आंगनवाड़ी कार्यकर्ताओं के प्रशिक्षण और क्षमता निर्माण को मिशन का आवश्यक भाग माना गया है।\n- राजस्व/नीति‑समन्वय के स्तर पर मिशन अन्य कार्यक्रमों (जैसे मातृ स्वास्थ्य, पोषण मिशन, स्कूल हेल्थ) के साथ convergence पर आधारित है, जिससे आईएफए आपूर्ति और स्क्रीनिंग का कवरेज बढ़ सके।\n- मध्यप्रदेश में यह नीति‑दिशा उसी केंद्रीय फ्रेमवर्क के अनुरूप लागू होती है — राज्य‑स्तरीय कार्ययोजनाओं में स्कूल/आंगनवाड़ी आधारित IFA वितरण, प्रसवपूर्व देखभाल में एनीमिया स्क्रीनिंग और जिला‑स्तरीय कैम्प आयोजित करने पर विशेष फोकस रखा जाता है।\n- परीक्षा‑दोस्त परिवर्तनीय बिंदु (Mains में उपयोग): मिशन का उद्देश्य, लक्षित समूह, प्रमुख इंटरवेंशन्स (IFA, स्क्रीनिंग, डिवॉर्मिंग, IEC), निगरानी‑मैकेनिज्म और राज्य‑केंद्र समन्वय — इन बिंदुओं को सीधे संक्षेप में उत्तर में उठाया जा सकता है।\n- त्वरित रिविजन‑नोट: उद्देश्य = एनीमिया घटाना; नेतृत्व = केंद्रीय स्वास्थ्य मंत्रालय; मुख्य उपाय = IFA सप्लीमेंटेशन + स्क्रीनिंग/ट्रीटमेंट + डिवॉर्मिंग + IEC + फोर्टिफिकेशन; कार्यान्वयन = स्कूल/आंगनवाड़ी/स्वास्थ्य केन्द्रों के माध्यम से।", "priority_tag": "VERY_HIGH"}, {"question": "POSHAN Abhiyaan की निगरानी में निम्नलिखित में से किस प्रकार के डेटा स्रोत का उपयोग राष्ट्रीय स्तर पर प्रमुखता से किया जाता है?", "options": ["Satellite imagery", "NFHS, CNNS और योजना-केंद्रित रूटिन मॉनिटरिंग डेटा", "केवल स्थानीय अखबार", "केवल निजी मेडिकल रिकॉर्ड"], "answer_index": 1, "explanation": "# POSHAN Abhiyaan — निगरानी के प्रमुख राष्ट्रीय डेटा स्रोत (संक्षिप्त व्याख्या)\n- **राष्ट्रीय सर्वेक्षण-आधारित पोषण संकेतक**: बड़े पैमाने पर जनसंख्यात्मक एवं पोषण संबंधी संकेतकों (जैसे बाल-स्थूलता, कुपोषण, कुपोषण का अनुपात) के लिए राष्ट्रीय स्तर पर क्रमानुसार सर्वेक्षणों का उपयोग होता है।\n- **बाल एवं किशोर पोषण का समय-समय पर सर्वेक्षण**: बच्चों और किशोरों के आहार, माइक्रोन्यूट्रिएंट स्थिति और विकास के मापदण्डों का विस्तृत आकलन राष्ट्रीय सर्वेक्षणों से मिलता है।\n- **मॉड्यूलर और नमूना-आधारित डिज़ाइन**: ये सर्वेक्षण राज्य-स्तरीय और जिला-स्तरीय तुलना सक्षम करने हेतु नमूना-आधारित, स्टैटिस्टिकली रिप्रेजेंटेटिव डिजाइन पर आधारित होते हैं।\n- **रूटिन मॉनिटरिंग डेटा का उपयोग**: योजना-आधारित कार्यक्रमों से प्रतिदिन/मासिक रूटिन मॉनिटरिंग रिपोर्टें (उदाहरण: सेवा-डिलीवरी, आहार वितरण, आयरन/विटामिन सप्लीमेंटेशन कवरेज) नीति निर्धारण और त्वरित उपायों के लिए प्रमुख इनपुट हैं।\n- **त्रि-स्तरीय डेटा समन्वय**: राष्ट्रीय स्तर पर निगरानी के लिए सर्वेक्षण-आधारित संकेतक और रूटिन मॉनिटरिंग डेटा को समेकित कर निर्णय-निर्माण और प्रगति मूल्यांकन किया जाता है।\n- **ट्रेंड विश्लेषण हेतु समय श्रेणी डेटा**: भेजे गए सर्वेक्षण और रूटिन मॉनिटरिंग से मिले समय-श्रृंखला डेटा से प्रगति, गिरावट या सुधार के ट्रेंडों का विश्लेषण होता है।\n- **माइक्रोन्यूट्रिएंट व बायोमॉर्कर डेटा**: राष्ट्रीय सर्वेक्षणों में नमूनाधारित जैविक माप (जैसे हेमोग्लोबिन, विटामिन स्तर) शामिल होने से पोषण की गहन जानकारी मिलती है जो रूटिन डाटा में नहीं होता।\n- **राज्य/जिला-विशेष कार्ययोजना का आधार**: राष्ट्रीय सर्वेक्षणों से प्राप्त प्रामाणिक संकेतक और रूटिन मॉनिटरिंग रिपोर्टें मिलकर राज्यों व जिलों में लक्षित इंटरवेंशन और संसाधन आवंटन तय करती हैं—किसी राज्य के लिए स्थानीय नीति-समायोजन इसी संयोग पर निर्भर करता है।\n- **डेटा गुणवत्ता और वैरिफिकेशन मैकेनिज्म**: राष्ट्रीय निगरानी में सर्वेक्षणों की मानकीकृत मेथडोलॉजी और रूटिन मॉनिटरिंग में ऑडिट/फील्ड-वेरीफिकेशन पर बल दिया जाता है ताकि निर्णय-निर्माण के लिए भरोसेमंद संकेतक मिल सकें।\n- **इंटर-ऑपरेबिलिटी व डैशबोर्ड उपयोग**: सर्वेक्षण और रूटिन मॉनिटरिंग डेटा का संयोजन डिजिटल डैशबोर्डों पर कर के नीति-निर्माताओं और प्रशासकों को रीयल‑टाइम/नियोजित जानकारी उपलब्ध करवाई जाती है।\n- **निति-आधारित प्रभाव मूल्यांकन**: कार्यक्रम के प्रभाव का आकलन करने हेतु सर्वेक्षण-आधारित बेसलाइन/एंडलाइन आँकड़े और रूटिन कवरेज डेटा दोनों का सहारा लिया जाता है।\n- **मध्यप्रदेश के संदर्भ में उपयोगिता**: राज्य‑स्तर पर लक्षित पोषण दखल के लिए राष्ट्रीय सर्वेक्षणों से राज्य-विशेष संकेतक एवं रूटिन मॉनिटरिंग से जिलास्तर पर कार्यान्वयन gaps चिन्हित कर राज्य योजनाओं में समायोजन किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "Ayushman Bharat के Health and Wellness Centres में दिए जाने वाले प्राथमिक सेवाओं में कौन‑सा शामिल नहीं है?", "options": ["निवारक और प्रोमोटिव सेवाएँ", "सामान्य चिकित्सीय सेवाएँ और मानसिक स्वास्थ्य समर्थन", "उच्च स्तरीय जटिल सर्जिकल हस्तक्षेप", "मातृ एवं शिशु देखभाल सेवाएँ"], "answer_index": 2, "explanation": "# व्याख्या: \"उच्च स्तरीय जटिल सर्जिकल हस्तक्षेप\" — Ayushman Bharat के Health and Wellness Centres (HWCs) में शामिल नहीं होने का कारण\n- Health and Wellness Centres (HWCs) का उद्देश्य प्राथमिक स्वास्थ्य सेवा का विस्तार कर नगण्य/मूलभूत और रोकथाम-आधारित सेवाएँ देना है; जटिल सर्जिकल हस्तक्षेप प्राथमिक सेवा की परिभाषा में नहीं आते।\n- HWCs में प्रदान की जाने वाली सेवाएँ स्वास्थ्य संवर्धन, बीमारी की प्रारंभिक पहचान, मामूली उपचार, निवारक देखभाल और प्राथमिक स्तर की संदर्भ प्रणाली पर केन्द्रित हैं; उच्च स्तरीय सर्जरी के लिए आवश्यक संसाधन वहाँ उपलब्ध नहीं होते।\n- जटिल सर्जिकल प्रक्रियाएँ अधिभार, विशेषीकृत उपकरण (OT सेटअप), एनेस्थीसियोलॉजी सुविधाएँ और पोस्ट‑ऑपरेटिव निगरानी की मांग करती हैं, जो HWCs की संरचना और मानव संसाधन पैटर्न से मेल नहीं खातीं।\n- HWCs के मानक स्टाफ‑मिक्स में नर्स/ANM, चिकित्सा अधिकारी (MBBS), स्वास्थ्य सहायक, दवा और प्रारंभिक आपातकालीन सहायता शामिल हैं; उच्च स्तरीय सर्जिकल टीम (विशेष सर्जन, एनेस्थीसिया विशेषज्ञ, OT नर्स) सामान्यतः वहां उपलब्ध नहीं रहते।\n- प्राथमिक स्तर पर देखे गए जटिल सर्जिकल मामलों के लिए HWCs का काम प्राथमिक मूल्यांकन, स्थिरीकरण और उपयुक्त उच्च स्तरीय सुविधा/रेफरल (जिला अस्पताल/पुराने मेडिकल कॉलेज/विशेष केन्द्र) तक शीघ्र और सुरक्षित रूप से संदर्भित करना है।\n- स्वास्थ्य सुरक्षा और गुणवत्ता मानकों (infection control, peri‑operative monitoring, ICU आवश्यकता) के कारण जटिल सर्जिकल हस्तक्षेपों को केन्द्रों पर ही कराने से रोगी‑सुरक्षा का जोखिम बढ़ता है; इसलिए नीति रूप से इन्हें उच्च स्तरीय सुविधाओं तक सीमित रखा जाता है।\n- वित्तीय और लॉजिस्टिक कारणों से भी जटिल सर्जरी HWCs के दायरे में नहीं आतीं; ऐसे क्लीनिकल कार्यों के लिए विशेष बजट, उपकरण, आपूर्ति श्रृंखला और बीमा/फाइनेंशियल मैकेनिज्म (जैसे अस्पतालिक केयर) आवश्यक होते हैं।\n- HWCs का प्रशिक्षण और क्षमता निर्माण प्राथमिक‑स्तर के निदान, इलाज, प्रसव/मातृत्व देखभाल, रोग निगरानी व स्वास्थ्य शिक्षा पर केन्द्रित है; जटिल सर्जिकल प्रशिक्षण और सिमुलेशन‑इन्फ्रास्ट्रक्चर प्राथमिक स्तर पर सामान्यतः प्रदान नहीं किया जाता।\n- राष्ट्रीय स्वास्थ्य प्रणाली के संदर्भ में सेवा‑स्तर विभाजन (primary — secondary — tertiary) के अनुरूप, उच्च स्तरीय सर्जिकल हस्तक्षेपों को सेकेंडरी/टेर्शरी केयर (जिला/मेडिकल कॉलेज/सुपर‑स्पेशियलिटी हॉस्पिटल) में संभाला जाना नीतिगत और व्यवहारिक रूप से उपयुक्त है।\n- अतः प्रश्न में उल्लिखित \"उच्च स्तरीय जटिल सर्जिकल हस्तक्षेप\" HWCs के प्राथमिक सेवाओं के दायरें से बाहर हैं: HWCs का रोल प्रारंभिक देखभाल, रोकथाम, मामूली उपचार और प्रभावी रेफरल सुनिश्चित करना है, न कि विशेषज्ञ सर्जिकल ऑपरेशन्स करना।", "priority_tag": "HIGH"}, {"question": "Mission Indradhanush का उद्देश्य 'अबाध्य टिकाकरण' (full immunization) तक पहुँचाना है; कार्यक्रम ने किस आयु सीमा के बच्चों पर खास जोर दिया था?", "options": ["0–5 वर्ष", "5–10 वर्ष", "10–15 वर्ष", "15–18 वर्ष"], "answer_index": 0, "explanation": "# Mission Indradhanush — व्याख्या (केवल उस तथ्य पर केंद्रित: लक्षित आयु 0–5 वर्ष)\n- **परिभाषा एवं उद्देश्य:** Mission Indradhanush का उद्देश्य देश में अबाध्य (full) टिकाकरण तक पहुँचाना है ताकि वैक्सीन-रोकथाम योग्य बीमारियों से बचाव हो सके।\n- **लक्षित आयु समूह (मुख्य बिंदु):** इस मिशन ने विशेष रूप से **0–5 वर्ष** के बच्चों पर जोर दिया — यही वह आयु सीमा है जिसने प्राथमिक फोकस प्राप्त किया।\n- **क्यों 0–5 वर्ष:** शैशव (infant) और प्राइमरी चाइल्डहूड के चरण में रोग-संवेदनशीलता अधिक होती है; इसलिए शुरुआती वर्षों में सम्पूर्ण टीकाकरण रोगनिरोधकता सुनिश्चित करने के लिए निहायत आवश्यक है।\n- **लक्षित सेवाएँ:** मिशन के तहत 0–5 वर्ष के बच्चों को Universal Immunization Programme में सूचीबद्ध सभी आवश्यक बालटीके उपलब्ध कराए जाते हैं जिससे ‘left-out’ और ‘drop-out’ बच्चे टिकाकरण योजना में शामिल हों।\n- **गर्भवती महिलाओं का तालमेल:** मिशन के दायरे में माताओं/गर्भवती महिलाओं पर भी ध्यान दिया गया ताकि नवजातों को सुरक्षात्मक प्रतिरक्षा मिल सके; पर प्राथमिक बाल-लक्षित आयु समूह 0–5 वर्ष ही था।\n- **फोकस का कार्यान्वयन:** 0–5 वर्ष के बच्चों के लिए तेज टीकाकरण सत्र (intensified sessions), निगरानी व बाहरी पहुँच (outreach) विशेष रूप से लागू किए गए ताकि घरों तक सर्विस पहुंचे।\n- **मॉनिटरिंग और ट्रैकिंग:** मिशन ने 0–5 वर्ष के बच्चों के टिकाकरण डेटा को ट्रैक करने, left-outs/defaulters की सूची बनाने और उनके नियमित फॉलो‑अप पर बल दिया।\n- **जन स्वास्थ्य महत्व:** 0–5 वर्ष पर टिकाकरण से बाल मृत्यु दर और वैक्सीन-रोकथाम योग्य बीमारियों का बोझ कम करने में तेज प्रभाव मिलता है, इसलिए यह आयु समूह प्राथमिकता में रखा गया।\n- **कार्यनीति‑उत्प्रेरक:** ASHA/anganwadi/स्थानीय स्वास्थ्य ढाँचे के माध्यम से 0–5 वर्ष के बच्चों की पहचान, IEC और समुदाय-आधारित पहुंच को विशेष रूप से सशक्त किया गया।\n- **परीक्षा/मेन्स उपयोग हेतु संक्षेप:** प्रश्न‑उत्तर में याद रखें — Mission Indradhanush का प्राथमिक बाल-लक्षित आयु समूह = **0–5 वर्ष**; यह बिंदु दोनों Prelims MCQ और Mains में नुक्ता-दर‑नुक्ता उत्तर/बिंदु के रूप में सीधे उपयोगी है।", "priority_tag": "HIGH"}, {"question": "किस राष्ट्रीय सर्वेक्षण/रिपोर्ट ने (NFHS-4, NFHS-5 समेत) भारत में बाल‑पोषण पर महत्वपूर्ण पहचाने जाने वाले स्तरों का व्यापक डेटा प्रदान किया है, जिससे POSHAN नीतियाँ आकार लेती हैं?", "options": ["NFHS (National Family Health Survey)", "Railway Budget", "Economic Survey किसी भी वर्ष", "Census 1871"], "answer_index": 0, "explanation": "# व्याख्या — NFHS (National Family Health Survey) — बाल‑पोषण पर केंद्रीय स्रोत\n- राष्ट्रीय परिवार स्वास्थ्य सर्वेक्षण (NFHS) भारत में घर‑आधारित सर्वेक्षण के माध्यम से बाल‑पोषण के प्रमुख संकेतक‑स्तरों का समयानुकूल, जनसंख्यिकीय एवं भौगोलिक विभेदों सहित व्यापक डेटा प्रदान करता है।\n- NFHS प्रत्येक चक्र में समाविष्ट मानक पौष्टिकता संकेतक: स्टंटिंग (लंबाई‑आधारित विकास), वेस्टिंग (वज़न‑आधारित तीव्र कुपोषण), अंडरवेट तथा शिशु और माँ में एनीमिया के स्तर हैं।\n- सर्वेक्षण आयु‑वर्ग, लिंग, क्षेत्र (शहरी/ग्रामीण), राज्य और जिला स्तर पर पुख्ता विभाजन देता है, जिससे स्थानीय‑स्तर पर नीतिगत टार्गेटिंग संभव होती है।\n- NFHS‑4 और NFHS‑5 जैसे चक्रों ने समय की श्रृंखला (trend) बताकर पोषण संकेतकों में सुधार या गिरावट की दिशा स्पष्ट की, जो POSHAN जैसी नीतियों के नियोजन और संशोधन के लिए निर्णायक प्रमाण बनती है।\n- सर्वेक्षण में आहार व्यवहार‑संबंधी संकेतक भी होते हैं—दूध‑पोषण, स्तनपान की अवधियाँ, पूरक आहार की शुरुआत और डायटरी डायवर्सिटी—जो IYCF नीतियों के आकलन हेतु उपयोगी हैं।\n- NFHS से प्राप्त आंकड़े लक्षित हस्तक्षेपों (जैसे लक्षित ग्राम/ब्लॉक) के चयन, संसाधन आवंटन और प्रदर्शन‑मानदंडों (targets/indicators) के निर्धारण में सीधे प्रयुक्त होते हैं।\n- सर्वेक्षण के जिले/खेत‑स्तरीय डेटा से सूचित मॉनिटरिंग‑एंड‑इवैल्यूएशन आयोजित करके कार्यक्रमों की प्रभावशीलता और कमी की पहचान की जा सकती है।\n- NFHS का नमूना‑आधार और विधि वैज्ञानिक रूप से डिजाइन किए जाते हैं; परिणाम विश्वसनीयता के कारण नीति‑निर्माताओं, शोधकर्ताओं और कार्यक्रम प्रबंधकों द्वारा व्यापक रूप से स्वीकार किए जाते हैं।\n- NFHS‑आधारित निष्कर्ष POSHAN और अन्य पोषण कार्यक्रमों में लक्ष्य‑समूह, प्राथमिकता‑क्षेत्र और कामकाजी रणनीतियों (उदाहरण: मादाओं में एनीमिया निवारण, शिशु स्तनपान प्रोत्साहन) के चयन को प्रभावित करते हैं।\n- NFHS के डेटा से सामाजिक‑आर्थिक निर्धारक (माता‑पिता की शिक्षा, घरेलू आर्थिक स्थिति, स्वच्छता सुविधाएँ) और पोषण के बीच संबंधों का विश्लेषण संभव होता है, जो बहु‑मंजिला नीतिगत हस्तक्षेपों की रूपरेखा देता है।\n- परीक्षात्मक उत्तर में NFHS को स्रोत के रूप में उद्धृत करते समय चक्र (जैसे NFHS‑4, NFHS‑5) और संबंधित संकेतक (stunting/wasting/underweight/anaemia/IYCF) स्पष्ट रूप से उल्लेख करें ताकि नीति‑सम्बंधित प्रश्नों में ठोस साक्ष्य प्रस्तुत हो सके।", "priority_tag": "VERY_HIGH"}, {"question": "AB‑HWC मॉडल के माध्यम से प्राथमिक स्वास्थ्य केंद्रों/सब‑सेंटरों को मजबूत करने का उद्देश्य किस स्तर पर स्वास्थ्य सेवाएँ पहुँचाना है?", "options": ["सिर्फ जिला अस्पताल स्तर पर", "कम्युनिटी‑स्तर पर, यानी गांव/वार्ड के निकट", "केवल राजकीय मेडिकल कॉलेजों में", "केवल ऑनलाइन टेलीमेडिसिन से"], "answer_index": 1, "explanation": "# AB‑HWC मॉडल — परीक्षा‑केंद्रित व्याख्या (केवल सही अवधारणा: कम्युनिटी‑स्तर पर, यानी गांव/वार्ड के निकट)\n- AB‑HWC मॉडल का मुख्य उद्देश्य प्राथमिक स्वास्थ्य सुविधाओं को ऐसे स्तर पर पैक‑अप करना है जहां सेवाएँ सीधे समुदाय (गाँव/वार्ड) के निकट उपलब्ध हों।\n- यह मॉडल प्राथमिक रोकथाम और प्रोमोटिव केयर, सामान्य उपचार और सतत रोग‑प्रबंधन को गांव‑स्तर पर पहुँचाने पर केंद्रित है।\n- इसका फोकस परिवार‑और‑समुदाय‑केंद्रित पहुँच है, जिससे लोक‑स्वास्थ्य के प्राथमिक संकेतक जैसे टीकाकरण, ANC/PNC और न्यूट्रिशनिया देखभाल सुलभ बनें।\n- AB‑HWC कम्युनिटी‑लेवल आउटरीच सेवा (घर‑घर स्क्रीनिंग, स्वास्थ्य‑शिक्षा, निगरानी) को सशक्त करता है ताकि शुरुआती पहचान और जल्द हस्तक्षेप संभव हो।\n- यह मॉडल ASHA/ANM तथा स्थानीय स्वास्थ्य कर्मियों के माध्यम से रोज़मर्रा की सेवाओं और रेफरल‑लिंकेज को गाँव/वार्ड के निकट सुनिश्चित करता है।\n- कम्युनिटी‑स्तर पर सेवाओं के उपलब्ध होने से प्राथमिक उपचार के लिए यात्रा‑समय घटता है और किफायती पहुँच द्वारा आउट‑ऑफ‑पॉकिट खर्च कम होने की संभावना बढ़ती है।\n- AB‑HWC स्थानीय निगरानी, डेटा संग्रह और समुदाय‑आधारित IEC गतिविधियों से स्वास्थ्य परिणामों में सुधार के लिए त्वरित फीडबैक लूप बनाता है।\n- यह मॉडल रेफरल‑मार्ग और जिला‑स्तरीय देखभाल से जोड़कर समुदाय‑स्तर पर निरंतर देखभाल (continuum of care) समर्थ बनाता है।\n- गाँव/वार्ड‑स्तरीय पहुंच सुनिश्चित करने के लिए AB‑HWC भौतिक सुविधाओं, मानव संसाधन और आधारभूत दवाइयों/नैदानिक उपकरणों को प्राथमिकता देता है।\n- कम्युनिटी‑स्तर पर सेवाएँ देने का लक्ष्य सार्वभौमिक प्राथमिक स्वास्थ्य कवरेज और घरेलू/कृषि‑क्षेत्र जैसी ग्रामीण प्राथमिकताओं के अनुरूप सेवाओं की उपस्थिति बनाए रखना है।\n- इस तरह AB‑HWC मॉडल स्वास्थ्य सेवाओं के विकेन्द्रीकरण और समुदाय‑नजदीकी पहुँच के माध्यम से सार्वजनिक स्वास्थ्य की प्राथमिकता‑आधारित उपलब्धता सुनिश्चित करता है।", "priority_tag": "HIGH"}, {"question": "POSHAN (National Nutrition Mission) के प्रारम्भिक घोषणा के समय किन दो केंद्रीय मंत्रालयों/विभागों का प्रमुख रोल रहता है?", "options": ["Ministry of Railways और Ministry of Finance", "Ministry of Women and Child Development और Ministry of Health and Family Welfare", "Ministry of Home Affairs और Ministry of Defence", "Ministry of External Affairs और Ministry of Commerce"], "answer_index": 1, "explanation": "# POSHAN (National Nutrition Mission) — परीक्षा केंद्रित व्याख्या (एक MCQ के लिये)\n- POSHAN/POSHAN Abhiyaan की प्रारम्भिक घोषणा में केंद्रीय स्तर पर मुख्य नेतृत्व और नीति-निर्धारण का प्राथमिक दायित्व Ministry of Women and Child Development (महिला एवं बाल विकास मंत्रालय) को सौंपा गया था।\n- उसी घोषणा/परिवर्तनशीलता में स्वास्थ्य संबंधी कार्यक्रमों, मातृ-शिशु स्वास्थ्य सेवाओं और प्रतिरक्षण/पटकथन के तकनीकी समन्वय का प्रमुख दायित्व Ministry of Health and Family Welfare (स्वास्थ्य एवं परिवार कल्याण मंत्रालय) को दिया गया था।\n- महिला एवं बाल विकास मंत्रालय ने पोषण से जुड़ी योजना-रचना, आंगनवाड़ी सेवा प्रबंधन (ICDS से जुड़ा समन्वय), तथा राज्य/जिला स्तर पर वितरण और क्रियान्वयन के मैकेनिज्म तय करने का नेतृत्व संभाला।\n- स्वास्थ्य एवं परिवार कल्याण मंत्रालय ने गर्भवती माताओं, नवजातों व छोटे बच्चों के लिए स्वास्थ्य-आधारित इंटरवेंशनों (जैसे ANC, IFA सप्लीमेंटेशन, शिशु स्वास्थ्य मॉनिटरिंग) के तकनीकी मार्गदर्शन और स्वास्थ्य वितरण नेटवर्क के माध्यम से कार्यान्वयन की जिम्मेदारी ली।\n- दोनों मंत्रालयों के बीच स्पष्ट कार्यविभाजन किया गया — महिला एवं बाल विकास: पोषण सेवा और सामाजिक पहलू; स्वास्थ्य मंत्रालय: क्लिनिकल/हार्ड-हेल्थ सर्विसेज व तकनीकी सपोर्ट।\n- क्रॉस-सेक्टोरल समन्वय के लिये राष्ट्रीय और राज्य स्तर पर नोडल व्यवस्था स्थापित की गई, जहाँ महिला एवं बाल विकास और स्वास्थ्य मंत्रालय दोनों की भूमिका प्रमुख रहती है।\n- मानकीकृत निगरानी/इंडिकेटर सेट (जैसे स्टंटिंग, वेस्टिंग, एनीमिया) की परिभाषा व डेटा कलेक्शन में दोनों मंत्रालयों का संयुक्त योगदान रहता है—WCD चैप्टरल सर्विसेज और MoHFW के स्वास्थ्य-वर्कर नेटवर्क के जरिए डाटा एकत्र होता है।\n- क्षमता निर्माण, प्रशिक्षण और आंगनवाड़ी/स्वास्थ्य कर्मियों के साथ व्यवहारिक दिशा-निर्देशों का विकास दोनों मंत्रालयों के सह-समन्वय से होता है, ताकि पोषण इंटरवेंशन और स्वास्थ्य सेवाएँ एकीकृत रूप में पहुँचें।\n- वित्तीय संसाधन आवंटन व केंद्र-राज्य साझेदारी में नीति निर्देश महिला एवं बाल विकास मंत्रालय द्वारा प्राथमिक रूप से संचालित होते हैं, जबकि स्वास्थ्य मंत्रालय तकनीकी व सर्विस-डिलिवरी पर वित्तीय योजनाओं के उपयोग में मार्गदर्शन देता है।\n- POSHAN के कार्यान्वयन में सफलता हेतु राष्ट्रीय नीति, निर्देशिका और मॉनिटरिंग फ्रेमवर्क दोनों मंत्रालयों द्वारा संयुक्त रूप से जारी और लागू किए जाते हैं।\n- संक्षेप में: प्रारम्भिक घोषणा के समय POSHAN की नीति-निर्देशनात्मक और क्रियान्वयनात्मक जिम्मेदारियों का प्रमुख संयोजन महिला एवं बाल विकास मंत्रालय (प्राथमिक नेतृत्व व ICDS/आंगनवाड़ी माध्यम) और स्वास्थ्य एवं परिवार कल्याण मंत्रालय (स्वास्थ्य-आधारित इंटरवेंशन्स व टेक्निकल सपोर्ट) के बीच निर्धारित था।", "priority_tag": "VERY_HIGH"}, {"question": "किस कार्यक्रम या पहल ने कोविड‑19 के बाद पोषण और स्वास्थ्य सेवा पहुँच के पुनर्संगठित प्रयासों में मुख्य भूमिका निभाई, विशेषकर प्राथमिक स्वास्थ्य के मजबूत करने के लिए?", "options": ["Ayushman Bharat — Health and Wellness Centres (AB‑HWC)", "Only Urban Infrastructure Projects", "कोई नहीं", "वित्तीय विनियमन प्राधिकरण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

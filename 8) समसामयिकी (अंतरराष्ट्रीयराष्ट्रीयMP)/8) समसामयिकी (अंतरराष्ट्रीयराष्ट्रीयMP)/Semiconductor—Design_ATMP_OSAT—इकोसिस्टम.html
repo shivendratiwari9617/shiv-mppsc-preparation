@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U8-057 – Semiconductor—Design/ATMP/OSAT—इकोसिस्टम</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U8-057 – Semiconductor—Design/ATMP/OSAT—इकोसिस्टम</h1>
+        <div class="note">क्षेत्र: India/Global | सामग्री: फैब बनाम पैकेजिंग—टैलेंट/कैपेक्स/नियमन। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 17-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># परिचय
+- सेमीकंडक्टर इकोसिस्टम—डिजाइन, ATMP/OSAT (Assembly, Test, Marking and Packaging), और फेब—आज वैश्विक आपूर्ति-श्रृंखला और राष्ट्रीय सुरक्षा का केन्द्र हैं; 2020–21 के ग्लोबल चिप-शॉर्टेज और COVID-19 बाधाओं ने केंद्र सरकार व विदेश नीतियों में सक्रिय हस्तक्षेप तेज किया (सप्लाई-शॉक: 2020–21; नीति प्रतिक्रिया: अनेक देशों ने चिप्स-फेसिलिटेशन पैकेजेस लॉन्च किए)।  
+- भारत में इलेक्ट्रॉनिक्स निर्माण व डिजाइन को बढ़ाने के लिए केंद्रीय नीतियाँ और उत्पादन-लिंक्ड प्रोत्साहन (PLI) योजनाएँ लागू की गईं; इससे घरेलू निवेश, घरेलू वैल्यू-एड और नौकरी-निर्माण पर ध्यान केंद्रित हुआ (MeitY/DPIIT के प्रक्षेपण और PLI प्रोग्राम, 2020–2023 के दौर में)।  
+
+# मुख्य विवेचन (What, Why, How — फैब बनाम पैकेजिंग, टैलेंट/कैपेक्स/नियमन)
+1. फैब (Fab) बनाम पैकेजिंग (ATMP/OSAT) — लागत और समय:
+   - फैब निर्माण की प्रारंभिक पूंजीगत आवश्यकता बहु-अर्ब डॉलर है; उच्च-रेश्यो (e.g., leading-node fabs) में $5–20 billion तक का निवेश आवश्यक होता है (global foundry investments जैसे TSMC/Intel के मॉडल, 2020–23 निवेश announcements)।  
+   - इसके विपरीत ATMP/OSAT सुविधाएँ पूँजीगत रूप से कम तीव्र हैं; एक औसत-स्तरीय पैकेजिंग/टेस्ट यूनिट कुछ लाख-करोड़ रुपये में लग सकती है और जल्दी operational हो जाती है, जिससे भारत के लिए तेजी से क्षमता निर्माण का अवसर मिलता है (कम टर्न-अराउंड टाइम, तेज ROI)।  
+   - नतीजा: भारत के पास तुरंत प्रभाव दिखाने के लिए ATMP क्लस्टर और डिज़ाइन-सिंथेसिस पर निवेश प्राथमिक होना चाहिए, जबकि फेब्स के लिए सार्वजनिक-निजी भागीदारी और लंबी अवधि की रणनीति जरूरी है।  
+
+2. टैलेंट व मानव संसाधन:
+   - भारत में इलेक्ट्रॉनिक्स/विफल डिज़ाइन में इंजीनियरिंग संसाधन उपलब्धता बढ़ी है; उच्च-उपयुक्त कौशल के लिए vocational ट्रेनिंग, IITs/IISc व निजी कंपनियों के साथ रेकरूटमेंट गठजोड़ आवश्यक है (MSDE/MeitY स्किलिंग पहलें और कैरियर-फोकस्ड प्रोग्राम)।  
+   - पैकेजिंग/OSAT में तकनीकी प्रशिक्षण (clean-room protocols, reliability testing, failure analysis) पर ध्यान देने से 12–18 महीनों में mid-level manpower तैयार किया जा सकता है; राज्य स्तर पर Skill India योजनाओं के माध्यम से MP जैसे राज्यों में केंद्र ऑफ एक्सीलेंस स्थापित करना प्रभावी होगा।  
+   - डिज़ाइन-इकोसिस्टम के लिए EDA tools व IP-विकास में R&amp;D ग्रांट्स (MeitY/NITI Aayog द्वारा प्रोत्साहन) से युवाओं को high-value roles मिलेंगे; यह brain-drain कम कर domestic value capture बढ़ाएगा।  
+
+3. नियमन, नीति व वित्तीय प्रोत्साहन:
+   - वैश्विक घटनाक्रम—US CHIPS and Science Act (Aug 2022) और EU तथा जापान के incentive packages ने देशों को fab-लैवेलिंग के लिए प्रतिस्पर्धी बनाया; भारत को प्रतिस्पर्धी पैकेज (tax breaks, capex reimbursement, land &amp; water concessions) देना होगा।  
+   - घरेलू नियमन में environmental clearances, land acquisition और power/water supply के सरल और समयबद्ध प्रक्रियाएँ (single-window clearances by DPIIT/State EDAs) आवश्यक हैं; delays से investment attrition का जोखिम बढ़ता है।  
+   - वित्तीय मॉडल में blended finance—केन्द्र और राज्य की पूँजी, मल्टीलैटरल विकास बैंक-लोन, और private equity का संयोजन चाहिए; तरह-तरह के जोखिम-बियरिंग instruments जैसे Viability Gap Funding और sovereign guarantees उपयोगी हैं।  
+
+4. आपूर्ति-श्रृंखला और क्लस्टर नीति:
+   - Global supply chains में backward/forward linkages का महत्व बढ़ा है; packaging/ATMP भारत में बनने से imported finished goods पर निर्भरता घटेगी और MSME-आधारित ancillary suppliers का उदय होगा।  
+   - राज्य-स्तर पर इलेक्ट्रॉनिक्स manufacturing clusters (land, power, effluent treatment) और logistics hubs MP जैसे मध्य-क्षेत्रों के लिए निवेश-अकर्षक बन सकते हैं; यह स्थानीय रोजगार और export competitiveness बढ़ाएगा।  
+   - export incentives और FTAs के माध्यम से India-based OSAT/ATMP सेवाओं को Asia-Pacific और Europe तक integrate करना संभव है—यह भारत की trade share बढ़ाने में मदद करेगा।  
+
+5. सुरक्षा, मानक और गुणवत्ता नियंत्रण:
+   - सेमीकंडक्टर supply-chain की संवेदनशीलता को देखते हुए डेटा-integrity, IP protection और supply security के लिए MeitY व DIPP स्तर पर सख्त गोपनीयता व IP नियमों का पालन आवश्यक है; सरकारी खरीद नीतियों में trusted-source preferences लागू की जा सकती हैं।  
+   - गुणवत्ता-बढाने हेतु NABL-accreditation और international standards (ISO, JEDEC) के अनुरूप testing labs की स्थापना राज्य और केंद सरकार मिलकर कर सकती हैं; इससे exports के लिए certification barriers कम होंगे।  
+
+6. चुनौतियाँ और जोखिम:
+   - उच्च-कैपेक्स फैब पर निर्भरता में निवेश जोखिम (global demand cycles), टेक्नोलॉजी obsolescence और supply-chain geopolitics (US-China tech tensions, 2020–23) प्रमुख जोखिम हैं।  
+   - मानव संसाधन में design-to-fab gap और local supply of chemicals/precursors की कमी R&amp;D-औऱ backward-linkages में बाधा है; इनको दूर करने हेतु targeted incentives व localized supplier development कार्यक्रम चाहिए।  
+   - राज्यों में policy heterogeneity और भू-राजनीतिक फिल्टरिंग (export controls, technology transfer restrictions) निवेश-निर्धारण को प्रभावित करते हैं; harmonization जरूरी है।  
+
+# राज्य (MP) और भारत के लिए समेकित अवसर
+- मध्यप्रदेश जैसे राज्यों में land availability और lower operating costs हैं; राज्य सरकारें (Industry Departments, MSME) केंद्र के साथ मिलकर ATMP क्लस्टर, incubation centres और skill hubs स्थापित कर सकती हैं—यह तत्काल रोजगार और निजी निवेश प्रेरित करेगा।  
+- केंद्रीय योजनाओं (PLI/LSE/semiconductor-focused incentives) के साथ MP को complementary benefits (single-window, subsidised land, power tariffs) देना चाहिए; यह निवेश के निर्णय को प्रभावित करेगा।  
+- R&amp;D—MeitY और DST के research grants, उद्योग-समन्वय (industry consortia) व विश्वविद्यालय-कॉर्पोरेट पार्टनरशिप द्वारा design IP और testing capability को बढ़ावा देना होगा ताकि upstream value-capture हो सके।  
+
+# निष्कर्ष एवं कार्ययोजना (Exam-ready way forward)
+- सार: भारत के लिए तात्कालिक रणनीति ATMP/OSAT और chip-design पर तेज निवेश और दीर्घकालिक रणनीति high-capex fabs के लिए staged public-private partnerships होनी चाहिए; दोनों पर एक साथ काम करने से supply-chain resilience और रोजगार-निर्माण प्राप्त होगा।  
+- तत्काल (0–3 वर्ष): केंद्र-राज्य single-window clearances, targeted skill centers (MSDE/MeitY), और ATMP-focused seed incentives; MP में cluster-creation और MSME supplier development।  
+- मध्यकाल (3–7 वर्ष): blended finance मॉडल, R&amp;D tax credits, EDA tool subsidies व IP-commercialization funds; testing &amp; reliability labs with NABL accreditation।  
+- दीर्घकाल (7+ वर्ष): strategic fab investments via sovereign-backed incentives, linkage with global foundries, और निरंतर नीति समन्वय (MeitY–NITI Aayog–State Industry Ministries) ताकि तकनीकी आत्मनिर्भरता व निर्यात बढ़े।  
+
+स्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  
+स्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  
+स्रोत 3: Drishti / Vision – Current Affairs compilation (revision)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 (राजनीति, भूगोल, अर्थशास्त्र, विज्ञान—समसामयिकी की conceptual बुनियाद); India Year Book (Publication Division, Govt of India) तथा MP के आधिकारिक वार्षिक प्रकाशन/दस्तावेज; भारत सरकार के latest/official sources: PIB, MEA, MoF (Union Budget + Economic Survey), RBI (Reports/Notifications), MoSPI (Data/Indicators), NITI Aayog (Reports), संबंधित मंत्रालयों/विभागों की प्रेस-रिलीज/रिपोर्ट; मध्यप्रदेश सरकार के latest/official sources: MP Finance Dept (MP Budget + MP Economic Survey), MP Planning/Directorate of Economics & Statistics, MP Govt के विभागीय पोर्टल/प्रेस-रिलीज; अंतरराष्ट्रीय आधिकारिक sources: UN/UNDP, WHO, World Bank, IMF, WTO, IPCC (जहाँ लागू हो); विश्वसनीय समसामयिकी compilation: Vision IAS / Drishti IAS MPPSC के Current Affairs (monthly) + Yojana/Kurukshetra (Govt magazines)</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U8-057 – Semiconductor—Design/ATMP/OSAT—इकोसिस्टम", "coverage_note": "क्षेत्र: India/Global | सामग्री: फैब बनाम पैकेजिंग—टैलेंट/कैपेक्स/नियमन। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# परिचय\n- सेमीकंडक्टर इकोसिस्टम—डिजाइन, ATMP/OSAT (Assembly, Test, Marking and Packaging), और फेब—आज वैश्विक आपूर्ति-श्रृंखला और राष्ट्रीय सुरक्षा का केन्द्र हैं; 2020–21 के ग्लोबल चिप-शॉर्टेज और COVID-19 बाधाओं ने केंद्र सरकार व विदेश नीतियों में सक्रिय हस्तक्षेप तेज किया (सप्लाई-शॉक: 2020–21; नीति प्रतिक्रिया: अनेक देशों ने चिप्स-फेसिलिटेशन पैकेजेस लॉन्च किए)।  \n- भारत में इलेक्ट्रॉनिक्स निर्माण व डिजाइन को बढ़ाने के लिए केंद्रीय नीतियाँ और उत्पादन-लिंक्ड प्रोत्साहन (PLI) योजनाएँ लागू की गईं; इससे घरेलू निवेश, घरेलू वैल्यू-एड और नौकरी-निर्माण पर ध्यान केंद्रित हुआ (MeitY/DPIIT के प्रक्षेपण और PLI प्रोग्राम, 2020–2023 के दौर में)।  \n\n# मुख्य विवेचन (What, Why, How — फैब बनाम पैकेजिंग, टैलेंट/कैपेक्स/नियमन)\n1. फैब (Fab) बनाम पैकेजिंग (ATMP/OSAT) — लागत और समय:\n   - फैब निर्माण की प्रारंभिक पूंजीगत आवश्यकता बहु-अर्ब डॉलर है; उच्च-रेश्यो (e.g., leading-node fabs) में $5–20 billion तक का निवेश आवश्यक होता है (global foundry investments जैसे TSMC/Intel के मॉडल, 2020–23 निवेश announcements)।  \n   - इसके विपरीत ATMP/OSAT सुविधाएँ पूँजीगत रूप से कम तीव्र हैं; एक औसत-स्तरीय पैकेजिंग/टेस्ट यूनिट कुछ लाख-करोड़ रुपये में लग सकती है और जल्दी operational हो जाती है, जिससे भारत के लिए तेजी से क्षमता निर्माण का अवसर मिलता है (कम टर्न-अराउंड टाइम, तेज ROI)।  \n   - नतीजा: भारत के पास तुरंत प्रभाव दिखाने के लिए ATMP क्लस्टर और डिज़ाइन-सिंथेसिस पर निवेश प्राथमिक होना चाहिए, जबकि फेब्स के लिए सार्वजनिक-निजी भागीदारी और लंबी अवधि की रणनीति जरूरी है।  \n\n2. टैलेंट व मानव संसाधन:\n   - भारत में इलेक्ट्रॉनिक्स/विफल डिज़ाइन में इंजीनियरिंग संसाधन उपलब्धता बढ़ी है; उच्च-उपयुक्त कौशल के लिए vocational ट्रेनिंग, IITs/IISc व निजी कंपनियों के साथ रेकरूटमेंट गठजोड़ आवश्यक है (MSDE/MeitY स्किलिंग पहलें और कैरियर-फोकस्ड प्रोग्राम)।  \n   - पैकेजिंग/OSAT में तकनीकी प्रशिक्षण (clean-room protocols, reliability testing, failure analysis) पर ध्यान देने से 12–18 महीनों में mid-level manpower तैयार किया जा सकता है; राज्य स्तर पर Skill India योजनाओं के माध्यम से MP जैसे राज्यों में केंद्र ऑफ एक्सीलेंस स्थापित करना प्रभावी होगा।  \n   - डिज़ाइन-इकोसिस्टम के लिए EDA tools व IP-विकास में R&D ग्रांट्स (MeitY/NITI Aayog द्वारा प्रोत्साहन) से युवाओं को high-value roles मिलेंगे; यह brain-drain कम कर domestic value capture बढ़ाएगा।  \n\n3. नियमन, नीति व वित्तीय प्रोत्साहन:\n   - वैश्विक घटनाक्रम—US CHIPS and Science Act (Aug 2022) और EU तथा जापान के incentive packages ने देशों को fab-लैवेलिंग के लिए प्रतिस्पर्धी बनाया; भारत को प्रतिस्पर्धी पैकेज (tax breaks, capex reimbursement, land & water concessions) देना होगा।  \n   - घरेलू नियमन में environmental clearances, land acquisition और power/water supply के सरल और समयबद्ध प्रक्रियाएँ (single-window clearances by DPIIT/State EDAs) आवश्यक हैं; delays से investment attrition का जोखिम बढ़ता है।  \n   - वित्तीय मॉडल में blended finance—केन्द्र और राज्य की पूँजी, मल्टीलैटरल विकास बैंक-लोन, और private equity का संयोजन चाहिए; तरह-तरह के जोखिम-बियरिंग instruments जैसे Viability Gap Funding और sovereign guarantees उपयोगी हैं।  \n\n4. आपूर्ति-श्रृंखला और क्लस्टर नीति:\n   - Global supply chains में backward/forward linkages का महत्व बढ़ा है; packaging/ATMP भारत में बनने से imported finished goods पर निर्भरता घटेगी और MSME-आधारित ancillary suppliers का उदय होगा।  \n   - राज्य-स्तर पर इलेक्ट्रॉनिक्स manufacturing clusters (land, power, effluent treatment) और logistics hubs MP जैसे मध्य-क्षेत्रों के लिए निवेश-अकर्षक बन सकते हैं; यह स्थानीय रोजगार और export competitiveness बढ़ाएगा।  \n   - export incentives और FTAs के माध्यम से India-based OSAT/ATMP सेवाओं को Asia-Pacific और Europe तक integrate करना संभव है—यह भारत की trade share बढ़ाने में मदद करेगा।  \n\n5. सुरक्षा, मानक और गुणवत्ता नियंत्रण:\n   - सेमीकंडक्टर supply-chain की संवेदनशीलता को देखते हुए डेटा-integrity, IP protection और supply security के लिए MeitY व DIPP स्तर पर सख्त गोपनीयता व IP नियमों का पालन आवश्यक है; सरकारी खरीद नीतियों में trusted-source preferences लागू की जा सकती हैं।  \n   - गुणवत्ता-बढाने हेतु NABL-accreditation और international standards (ISO, JEDEC) के अनुरूप testing labs की स्थापना राज्य और केंद सरकार मिलकर कर सकती हैं; इससे exports के लिए certification barriers कम होंगे।  \n\n6. चुनौतियाँ और जोखिम:\n   - उच्च-कैपेक्स फैब पर निर्भरता में निवेश जोखिम (global demand cycles), टेक्नोलॉजी obsolescence और supply-chain geopolitics (US-China tech tensions, 2020–23) प्रमुख जोखिम हैं।  \n   - मानव संसाधन में design-to-fab gap और local supply of chemicals/precursors की कमी R&D-औऱ backward-linkages में बाधा है; इनको दूर करने हेतु targeted incentives व localized supplier development कार्यक्रम चाहिए।  \n   - राज्यों में policy heterogeneity और भू-राजनीतिक फिल्टरिंग (export controls, technology transfer restrictions) निवेश-निर्धारण को प्रभावित करते हैं; harmonization जरूरी है।  \n\n# राज्य (MP) और भारत के लिए समेकित अवसर\n- मध्यप्रदेश जैसे राज्यों में land availability और lower operating costs हैं; राज्य सरकारें (Industry Departments, MSME) केंद्र के साथ मिलकर ATMP क्लस्टर, incubation centres और skill hubs स्थापित कर सकती हैं—यह तत्काल रोजगार और निजी निवेश प्रेरित करेगा।  \n- केंद्रीय योजनाओं (PLI/LSE/semiconductor-focused incentives) के साथ MP को complementary benefits (single-window, subsidised land, power tariffs) देना चाहिए; यह निवेश के निर्णय को प्रभावित करेगा।  \n- R&D—MeitY और DST के research grants, उद्योग-समन्वय (industry consortia) व विश्वविद्यालय-कॉर्पोरेट पार्टनरशिप द्वारा design IP और testing capability को बढ़ावा देना होगा ताकि upstream value-capture हो सके।  \n\n# निष्कर्ष एवं कार्ययोजना (Exam-ready way forward)\n- सार: भारत के लिए तात्कालिक रणनीति ATMP/OSAT और chip-design पर तेज निवेश और दीर्घकालिक रणनीति high-capex fabs के लिए staged public-private partnerships होनी चाहिए; दोनों पर एक साथ काम करने से supply-chain resilience और रोजगार-निर्माण प्राप्त होगा।  \n- तत्काल (0–3 वर्ष): केंद्र-राज्य single-window clearances, targeted skill centers (MSDE/MeitY), और ATMP-focused seed incentives; MP में cluster-creation और MSME supplier development।  \n- मध्यकाल (3–7 वर्ष): blended finance मॉडल, R&D tax credits, EDA tool subsidies व IP-commercialization funds; testing & reliability labs with NABL accreditation।  \n- दीर्घकाल (7+ वर्ष): strategic fab investments via sovereign-backed incentives, linkage with global foundries, और निरंतर नीति समन्वय (MeitY–NITI Aayog–State Industry Ministries) ताकि तकनीकी आत्मनिर्भरता व निर्यात बढ़े।  \n\nस्रोत 1: PIB / संबंधित मंत्रालय/विभाग – official releases/acts/reports  \nस्रोत 2: PRS Legislative Research – Bill/Act summaries (जहाँ लागू हो)  \nस्रोत 3: Drishti / Vision – Current Affairs compilation (revision)", "mcqs": [{"question": "ATMP शब्द का सीधा अर्थ क्या है (Semiconductor परिप्रेक्ष्य में)?", "options": ["Assembly, Testing, Marking and Packaging", "Advanced Transistor Manufacturing Process", "Analog Thermal Measurement Procedure", "Automated Test Management Platform"], "answer_index": 0, "explanation": "# ATMP का अर्थ (Semiconductor परिप्रेक्ष्य में) — संक्षिप्त व्याख्या\n- **ATMP** का पूर्ण रूप है **Assembly, Testing, Marking and Packaging**।\n- **Assembly** में चिप/डाय-इकाई को पैकेज में स्थापित कर के उसके पैड्स को बाहरी कनेक्शन से जोड़ा जाता है।\n- **Testing** चरण में फंक्शनल और पैरामीट्रिक परीक्षण कर के दोषपूर्ण चिप्स अलग किए जाते हैं।\n- **Marking** में पैकेज पर पहचान, पार्ट-नंबर, बॅच और तिथि को अंकित किया जाता है ताकि ट्रेसबिलिटी बनी रहे।\n- **Packaging** में चिप को पर्यावरणीय सुरक्षा, थर्मल प्रबंधन और इलेक्ट्रिकल इंटरफेस प्रदान करने वाला अंतिम आवरण दिया जाता है।\n- ATMP मॉडल चिपलेट/वायर-बॉण्डिंग, फ्लिप-चिप, BGA, QFN आदि पैकेजिंग टेक्नोलॉजीज़ का उपयोग करता है।\n- ATMP चरण फेब (wafer fabrication) के बाद वैल्यू-ऐड करते हैं और फाइनल सिस्टम-इंटीग्रेशन से पहले जरूरी गुणवत्ता सुनिश्चित करते हैं।\n- ATMP यूनिट्स को OSAT (Outsourced Semiconductor Assembly and Test) उद्योग में बाहरी सेवा प्रदाताओं द्वारा भी संचालित किया जाता है।\n- देशीय नीति के परिप्रेक्ष्य में ATMP क्षमता स्थानीय विनिर्माण, रोज़गार और वैश्विक सप्लाई-चेन में प्रवेश के लिए महत्वपूर्ण होती है।\n- ATMP का निवेश้อย इन्फ्रास्ट्रक्चर अपेक्षाकृत कम कैपिटल-इंटेंसिव होता है बनिस्बत फेब के, इसलिए यह क्षेत्र स्टेप-अप फेज़ के लिए अनुकूल माना जाता है।\n- प्रभावी ATMP संचालन के लिए क्वालिटी नियंत्रण, टेस्ट ऑटोमेशन और लॉजिस्टिक्स-ट्रैक्स/ट्रेसबिलिटी आवश्यक घटक हैं।", "priority_tag": "VERY_HIGH"}, {"question": "OSAT (Semiconductor context) का पूरा नाम क्या है?", "options": ["Outsourced Semiconductor Assembly and Test", "On-site Semiconductor Advanced Testing", "Optimized Silicon Allocation and Tuning", "Operational Semiconductor Asset Tracking"], "answer_index": 0, "explanation": "# OSAT (Outsourced Semiconductor Assembly and Test) — विस्तृत व्याख्या (MPPSC परीक्षा के लिए)\n- **परिभाषा:** OSAT का पूरा नाम *Outsourced Semiconductor Assembly and Test* है, जिसका अर्थ है सेमीकंडक्टर चिप्स का बाहरी संविदा पर असेंबलिंग और परीक्षण।\n- **मुख्य कार्य:** OSAT फर्म्स वे सेवाएँ प्रदान करती हैं जिनमें चिप्स का पैकेजिंग (packaging), असेंम्बली, फाइनल टेस्टिंग और क्वालिटी असेसमेंट शामिल होते हैं।\n- **वैल्यू-चेन में स्थान:** OSAT सेमीकंडक्टर विनिर्माण वैल्यू-चेन के बैक-एंड भाग को संभालती हैं—जहाँ वे wafer fabrication के बाद चिप्स को उपयोगी पैकेज बनाकर तैयार करती हैं।\n- **तकनीकी क्रियाएँ:** सामान्य क्रियाओं में die attach, wire bonding/flip-chip bonding, encapsulation, final electrical testing, और reliability/thermal testing आते हैं।\n- **उद्योगिक महत्व:** OSAT सेवाएँ चिप निर्माताओं को कैपिटल-इंटेंसिव पैकेजिंग उपकरण और विशिष्ट टेस्ट सुविधाएँ साझा करके लागत और समय दोनों कम करने में मदद करती हैं।\n- **आउटसोर्सिंग कारण:** कंपनीज़ अक्सर पैकेजिंग और टेस्ट के लिए OSAT पर आउटसोर्स करती हैं ताकि वे फाउंड्री/डिजाइन पर ध्यान केन्द्रित कर सकें और पूँजीगत व्यय घटा सकें।\n- **ATMP से सम्बन्ध:** OSAT सेवाएँ अक्सर ATMP (Assembly, Test, Marking, and Packaging) इकोसिस्टम का हिस्सा मानी जाती हैं और दोनों शब्द वैल्यू-चेन के बैक-एंड कार्यों को कवर करते हैं।\n- **आपूर्ति श्रृंखला पर प्रभाव:** मजबूत OSAT नेटवर्क होने से उत्पादन चक्र छोटा होता है और फाइनल-डिवाइस उपलब्धता तथा क्वालिटी नियंत्रण बेहतर होते हैं, जो घरेलू विनिर्माण के लिए आवश्यक है।\n- **नीति/निवेश के संकेत:** किसी राज्य/देश के लिए OSAT संस्थान लाना उच्च-तकनीकी जॉब्स, इन्फ्रा‑डिमांड (लोगिस्टिक्स, बिजली) और क्लस्टर-फायदे देता है; इसलिए पॉलिसी में इसे आकर्षक माना जाता है।\n- **स्केल और विशेषज्ञता:** OSAT कंपनियाँ छोटे-बड़े पैमाने पर काम कर सकती हैं; कुछ सामान्य पैकेजिंग करती हैं तो कुछ उन्नत मल्टी-डाइ और हाय-डेंसिटी पैकेजिंग में विशेष होती हैं।\n- **गुणवत्ता एवं मानक:** OSAT प्रक्रियाओं में विश्वसनीयता परीक्षण, टेरेस्ट्रियल और ऊष्मीय परीक्षण आदि शामिल होते हैं ताकि इलेक्ट्रॉनिक उत्पादों की जीवन-प्रमाणिकता सुनिश्चित हो सके।", "priority_tag": "VERY_HIGH"}, {"question": "Semiconductor 'fab' का प्राथमिक कार्य क्या है?", "options": ["चिप के लिए wafer पर integrated circuits का fabrication", "final product का retail packaging और distribution", "electrical testing और reliability certification", "chip के लिए user-level software development"], "answer_index": 0, "explanation": "# **विषय:** Semiconductor 'fab' का प्राथमिक कार्य — संक्षिप्त व्याख्या (MPPSC प्रीलिम्स/मेन्स उपयोगी)\n- **फैब (fabrication facility)** का मूल कार्य चिप के लिए सिलिकॉन wafer पर integrated circuits (ICs) का उत्पादन यानी fabrication करना है।\n- **Wafer** पतले, गोल सिलिकॉन डिस्क होते हैं जिन पर कई ICs (जिसे die कहते हैं) क्रमिक प्रक्रियाओं से बनते हैं।\n- **Fabrication प्रक्रिया** में मुख्य चरण होते हैं: फोटो-लिथोग्राफी (pattern transfer), डोपिंग/इम्प्लांटेशन (electrical properties सेट करना), एचमी (etching) और फिल्म deposition (सिलिकॉन/धातु परतें बनाना)।\n- फैब में ये प्रक्रियाएँ उच्च-साफ़-सुथरे **cleanroom** वातावरण और नियंत्रित तापमान/नमी में होती हैं ताकि microscopic defects कम रहें।\n- Fabrication का परिणाम wafer पर सिलसिलेवार रूप से बने कई functional integrated circuits होते हैं; बाद में wafer को कट कर individual chips बने जाते हैं।\n- **Node/feature-size** और process technology (nm में) सीधे रूप से fabrication की क्षमता और chip की performance/बिजली खपत तय करते हैं।\n- Fabrication में **yield** (सही काम करने वाले dies का अनुपात) एक महत्त्वपूर्ण मानदंड है क्योंकि यह उत्पादन लागत और उपलब्धता पर असर डालता है।\n- फैब का कार्य केवल डिजाइन का अनुवर्तन है — यहाँ design को wafer पर वास्तविक इलेक्ट्रॉनिक संरचना के रूप में बनाकर physical chips तैयार किए जाते हैं।\n- राष्ट्रीय/क्षेत्रीय दृष्टि से fabs घरेलू चिप आपूर्ति सुनिश्चित करने, टेक्नोलॉजी आत्मनिर्भरता बढ़ाने और downstream इकॉनॉमी (electronics manufacturing, testing, packaging) के लिए बुनियादी आधार तैयार करते हैं।\n- परीक्षा‑उपयोगी संक्षेप: “Fab = wafer पर integrated circuits का fabrication” — यह परिभाषा सीधे प्रश्न के core concept को पकड़ती है और मेन्स उत्तर में इस वाक्य को विस्तार में तकनीकी बिंदुओं से जोड़ा जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "Global semiconductor manufacturing में वर्तमान में सबसे बड़ी pure-play foundry कौन-सी कंपनी मानी जाती है?", "options": ["TSMC (Taiwan Semiconductor Manufacturing Company)", "Intel Corporation", "Samsung Display", "ASE Technology"], "answer_index": 0, "explanation": "# व्याख्या — TSMC (Taiwan Semiconductor Manufacturing Company) — Global pure‑play foundry में प्रमुख\n- Pure‑play foundry का अर्थ: केवल अन्य कंपनियों के डिज़ाइन पर सेमीकंडक्टर चिप्स का निर्माण करने वाली फैब्रिकेशन कंपनी; TSMC इसी मॉडल का वैश्विक प्रमुख उदाहरण है।\n- TSMC को वैश्विक pure‑play foundry बाजार में सर्वाधिक माना जाता है क्योंकि वह फैबलेस डिज़ाइन कंपनियों के लिए उच्च-वोल्यूम व उच्च‑एंड जैसे उन्नत नोड्स पर उत्पादन कराती है।\n- टेक्नोलॉजी नेतृत्व: TSMC ने अत्याधुनिक प्रोसेस नोड (उदा. बेहद छोटे नैनोमीटर‑लेवल के नोड) विकसित कर व उत्पादन व विपणन में अग्रणी भूमिका निभाई है, जो उन्नत स्मार्टफोन, एआई और हाई‑परफॉर्मेंस चिप्स के लिए जरूरी हैं।\n- बाजार हिस्सेदारी: वैश्विक pure‑play foundry बाजार में TSMC का शेयर औपचारिक स्रोतों के अनुसार प्रमुख और स्पष्ट रूप से सबसे बड़ा माना जाता है, यानी इसकी हिस्सेदारी अक्सर अन्य pure‑play foundries की तुलना में सबसे अधिक रहती है।\n- ग्राहक और इकोसिस्टम: TSMC का व्यापार पैटर्न फैबलेस डिज़ाइन हाउस (जिनमें वैश्विक सेमीकंडक्टर ब्रांड शामिल) से जुड़ा होता है; यह डिजाइन-स्पेस से लेकर पैकेजिंग और टेस्टिंग तक के OSAT/ATMP प्रदाताओं के साथ समन्वय करता है।\n- फोयर-वर्चस्व और मांग‑प्रभाव: TSMC की उत्पादन क्षमता और टेक्नोलॉजी डिलीवरी वैश्विक सेमीकंडक्टर आपूर्ति‑श्रृंखला की क्षमता तथा चिप उपलब्धता पर प्रत्यक्ष असर डालती है।\n- ग्लोबल निवेश और भौगोलिक विस्तार: मांग और रणनीतिक कारणों से TSMC ने घरेलू केंद्रों के साथ-साथ विदेशों में भी फैक्ट्री और निवेश योजनाएँ घोषित/प्रवर्तित की हैं, जिससे वैश्विक मैन्युफैक्चरिंग नेटवर्क पर प्रभाव बढ़ा है।\n- ATMP/OSAT कनेक्शन: TSMC के द्वारा बनाए गए वafel/चिप्स के बाद पैकेजिंग, एसेम्बली और टेस्टिंग कार्य आमतौर पर ATMP/OSAT उद्योग द्वारा किए जाते हैं; इसलिए TSMC का संचालन इन सेवाओं की मांग और आदान‑प्रदान को सीधे प्रभावित करता है।\n- रणनीतिक और नीतिगत महत्त्व: TSMC की अग्रणी स्थिति देशों की औद्योगिक नीति, निवेश आकर्षण और राष्ट्रीय सुरक्षा व तकनीकी निर्भरता के दृष्टिकोण से महत्वपूर्ण हो गई है।\n- MPPSC परीक्षा‑दृष्टि से उपयोगी बिंदु: प्रश्न में जब पूछा जाए कि \"Global semiconductor manufacturing में सबसे बड़ी pure‑play foundry कौन‑सी है\", तो संक्षेप उत्तर TSMC होगा — कारण: सबसे बड़ा शुद्ध foundry मॉडल, उच्च‑एंड नोड नेतृत्व, और वैश्विक बाजार में सबसे बड़ी हिस्सेदारी तथा व्यापक क्लाइंट बेस।", "priority_tag": "HIGH"}, {"question": "OSAT कंपनियों का मुख्य कार्य किस चरण से संबंधित है?", "options": ["Wafer fabrication के बाद chip assembly और testing", "Design stage में RTL coding करना", "Silicon wafer पर lithography करना", "device-driver स्तर पर software integration"], "answer_index": 0, "explanation": "# व्याख्या — OSAT कंपनियों का मुख्य कार्य (MPPSC Prelims 2026 के उद्देश्य से)\n- OSAT (Outsourced Semiconductor Assembly and Test) कंपनियों का मुख्य कार्य wafer fabrication के बाद आने वाले चरण — चिप का assembly (पैकेजिंग) और testing — को अंजाम देना है।\n- Assembly में wafer को dice करके individual die निकाला जाता है और इन्हें wire-bonding, flip‑chip bumping या अन्य इंटरकनेक्शन विधि से पैकेज में जोड़ा जाता है।\n- पैकेजिंग का उद्देश्य चिप को इलेक्ट्रिकल संपर्क, यांत्रिक संरक्षण और थर्मल/आवासीय प्रबंधन प्रदान करना है ताकि वह PCB पर इस्तेमाल योग्य हो सके।\n- Testing में wafer‑level testing के बाद final test, functional test, parametric test और burn‑in शामिल होते हैं ताकि माल के प्रदर्शन और विश्वसनीयता की पुष्टि हो सके।\n- OSAT सेवाओं में wafer dicing, die attach, wire bonding, molding/encapsulation, substrate assembly, marking और final inspection जैसे चरण शामिल होते हैं।\n- Final testing के बाद OSAT उत्पादों में failure analysis, grading, binning और tape‑and‑reel/ tray packing जैसी सप्लाई‑चेन तैयारी भी करता है।\n- OSAT कंपनियाँ fabless semiconductor मॉडल के लिए अनिवार्य हैं — वे फेब्रिकेशन के बाद चिप को ग्राहकों के अनुरूप तैयार और प्रमाणित कर बाजार में भेजने योग्य बनाती हैं।\n- पैकेजिंग और टेस्टिंग से जुड़ी processes का प्रभाव chip की yield, performance, heat dissipation और long‑term reliability पर सीधा होता है; इसलिए OSAT गुणवत्ता नियंत्रक मानकों का पालन करते हैं।\n- बड़े पैमाने पर उत्पादन में OSAT टाइम‑to‑market घटाने, लागत‑कुशलता और स्केलेबिलिटी सुनिश्चित करते हैं क्योंकि वे specialized assembly/test उपकरण व expertise प्रदान करते हैं।\n- OSAT सेवा के अंतर्गत अक्सर compliance testing, electrical‑parameter validation और customer‑specified qualification (जैसे thermal cycling, humidity, vibration tests) भी की जाती है।\n- इसलिए परीक्षा के संदर्भ में सरल निष्कर्ष: OSAT का मुख्य और परिभाषित कार्य wafer fabrication के बाद chip का assembly (packaging) और comprehensive testing है।", "priority_tag": "VERY_HIGH"}, {"question": "Assembly, Testing और Packaging की तुलना में semiconductor wafer fab के लिए सामान्यतः कौन-सा कथन सही है?", "options": ["Fab की निवेश आवश्यकता (capex) बहुत अधिक और तकनीकी प्रवेश-बाधा भी उच्च होती है", "Fab का capex पैकेजिंग facility से कम होता है", "Fab मुख्यतः low-skill labour पर निर्भर होता है", "Fab का निर्माण समय केवल कुछ सप्ताह में पूरा होता है"], "answer_index": 0, "explanation": "# **विवरण (VYAKHYA): Semiconductor wafer fab — उच्च CAPEX और तकनीकी प्रवेश‑बाधा**\n- Fab (wafer fabrication) में उन्नत विनिर्माण सुविधा स्थापित करने के लिए प्रारम्भिक पूँजीगत व्यय (CAPEX) अरबों डॉलर के पैमाने पर होता है, जो छोटे निवेशकों के लिए पहुंच से बाहर है।\n- उच्च CAPEX का बड़ा भाग शुद्ध कमरों (cleanrooms), उच्च सटीकता वाली उपकरण (lithography, etchers, deposition systems) और स्वचालित हैंडलिंग सिस्टम पर खर्च होता है।\n- फॅब के उपकरणों की लागत और उन्नयन‑आवृत्ति (node shrinking के साथ) तेज़ होने के कारण निरंतर पूँजी निवेश और R&D की आवश्यकता बनी रहती है।\n- फॅब संचालन के लिए अत्यधिक विश्वसनीय और सस्ती utilities—उच्च शुद्धता वाली बिजली, पानी और गैस आपूर्ति—अनिवार्य हैं; इनकी उपलब्धता न होने पर संचालन असंभव या अति‑महँगा पड़ता है।\n- फॅब में उत्पादकता, अपटाइम और दोष‑दर को नियंत्रित करने के लिए कुशल तकनीकी मानव संसाधन और नियंत्रित प्रक्रियाएँ चाहिए; इस कारण मानव‑पूँजी की उपलब्धता भी एक महत्वपूर्ण प्रवेश‑बाधा है।\n- प्रौद्योगिकी‑गहन प्रक्रिया के कारण इंटेलेक्चुअल‑प्रॉपर्टी (IP), लाइसेंस और उच्च‑स्तरीय इंजीनियरिंग विशेषज्ञता आवश्यक होती है—स्थापना और स्केल‑अप में तकनीकी जोखिम अधिक रहता है।\n- वैश्विक आपूर्ति‑श्रृंखला (equipment vendors, precursor chemicals, photo‑masks) पर निर्भरता और सीमित वैश्विक स्रोत फॅब को रणनीतिक और संचालन जोखिम के अधीन रखते हैं, जिससे नए प्रवेशकों के लिए बाधाएँ बढ़ती हैं।\n- फॅब का आर्थिक जीवन‑चक्र लंबा होता है; निवेश की वसूली के लिए बड़े समय‑अवधि और निरंतर उच्च utilization चाहिए—यह छोटे या अल्पकालिक निवेशकों को रोकता है।\n- सरकारों के लिए फॅब को आकर्षित करने हेतु भारी सब्सिडी, कर‑छूट, भूमि और инфраструктure पैकेज देना पड़ता है क्योंकि बाज़ार‑आधारित निवेश अकेले पर्याप्त नहीं होता।\n- मध्यप्रदेश/भारत के संदर्भ में फॅब स्थापित करने से पहले विशेष आर्थिक क्षेत्रों में पावर‑ग्रिड, जल आपूर्ति, कुशल प्रशिक्षण संस्थान और लॉजिस्टिक्स नेटवर्क के समेकन की आवश्यकता होती है—यह नीतिगत दृष्टि से जमीनी voorbereidings मांगता है।\n- फॅब पर निवेश नीतियाँ (फिस्कल incentives, रणनीतिक साझेदारियाँ, प्रशिक्षण कार्यक्रम) और दीर्घकालिक तकनीकी सहयोग ही प्रवेश‑बाधाओं को घटाकर घरेलू फॅब ekosystem स्थापित करने में सहायक होते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "OSAT और ATMP सेवाओं के लिए वैश्विक प्रमुख कंपनियों में से कौन OSAT उद्योग में अग्रणी है (Packaging/testing में)?", "options": ["ASE Technology", "ARM Holdings", "Qualcomm", "Red Hat"], "answer_index": 0, "explanation": "# व्याख्या — ASE Technology (OSAT उद्योग में अग्रणी)\n- **ASE Technology वैश्विक OSAT (Outsourced Semiconductor Assembly and Test) उद्योग में अग्रणी कंपनी है** और यह सेमीकंडक्टर पैकेजिंग व टेस्टिंग सेवाओं का प्रमुख प्रदाता मानी जाती है।\n- **OSAT/ATMP का कार्य**: चिप के वेफर बनने के बाद पैकेजिंग, असेम्बली और इलेक्ट्रिकल/फंक्शनल टेस्टिंग जैसे अंतिम चरणों का आउटसोर्सेड निष्पादन; ASE इन सेवाओं का बड़े पैमाने पर व्यावसायिक प्रदाता है।\n- **तकनीकी क्षमताएँ**: ASE उन्नत पैकेजिंग टेक्नोलॉजी जैसे flip‑chip, wafer‑level packaging, multi‑chip modules और system‑in‑package (SiP) सहित विभिन्न पैकेजिंग समाधान और व्यापक टेस्टिंग (परफॉर्मेंस, रिलेबिलिटी, फंक्शनल) प्रदान करता है।\n- **सप्लाई‑चेन में भूमिका**: ASE फाउंड्री और आईसी डिजाइन हाउस के बीच महत्वपूर्ण कड़ी है — यह डिजाइनर कंपनियों को त्वरित उत्पादितरण, विनिर्माण‑लचीलापन और समय पर बाजार पहुँच सुनिश्चित कराता है।\n- **ग्लोबल नेटवर्क और क्षमता**: ASE की वैश्विक उत्पादन व टेस्टिंग सुविधाएँ विभिन्न भौगोलिक क्षेत्रों में फैली हैं, जिससे यह कस्टमर्स को लोकेशन‑आधारित रिस्क‑मिटिगेशन व सर्विस उपलब्ध कराता है।\n- **नोड‑स्केलिंग और पैकेजिंग का महत्व**: उन्नत पैकेजिंग ASE के माध्यम से मिलने वाली एक क्रिटिकल टेक्नोलॉजी है जो छोटे नोड के बावजूद सिस्टम‑लेवल पर प्रदर्शन, ऊर्जा दक्षता और I/O क्षमता बढ़ाती है।\n- **आर्थिक एवं नीति‑प्रासंगिक निहितार्थ**: किसी देश के सेमीकंडक्टर इकोसिस्टम के लिए OSAT नेताओं से पार्टनरशिप, घरेलू पैकेजिंग‑कैपेसिटी और स्किल्ड जॉब क्रिएशन के दृष्टिकोण से रणनीतिक महत्व रखती है — ASE जैसे प्रदाताओं का अनुभव स्थानीय विनिर्माण के लिए मार्गदर्शक होता है।\n- **कस्टमाइजेशन और टर्नकी सेवाएँ**: ASE डिजाइन‑इंटीग्रेटेड सर्विसेज, प्रोसेसिंग‑स्टैन्डर्ड्स और टेस्टिंग‑प्रोटोकॉल के साथ टर्नकी ATMP समाधान देता है, जिससे क्लाइंट्स को क्वालिटी‑कनसिस्टेंसी और टाइम‑टू‑मार्केट लाभ मिलता है।\n- **गुणवत्ता और अनुपालन**: वैश्विक ग्राहकों के लिए ASE उच्च निर्भरता, इंडस्ट्री‑स्टैंडर्ड कंट्रोल और रेगुलेटरी अनुपालन सुनिश्चित करता है, जो एम्बेडेड सिस्टम, ऑटोमोबाइल व कमर्शियल एप्लीकेशन्स के लिए आवश्यक है।\n- **इनोवेशन व R&D का योगदान**: ASE पैकेजिंग इन्नोवेशन और टेस्ट मेथडोलॉजी में निवेश कर के नए सिस्टम‑लेवल समाधानों को वाणिज्यिक रूप देता है, जो सम्पूर्ण सेमीकंडक्टर वैल्यू‑चेन की क्षमता बढ़ाते हैं।\n- **नीति‑निर्माताओं के लिए प्रासंगिक पॉइंट**: राज्य/केंद्र की नीति में OSAT सक्षमताएँ बढ़ाना (जैसे इन्फ्रास्ट्रक्चर, टैक्स‑इन्सेंटिव्स, स्किल डेवलपमेंट) से स्थानीय ATMP इकोसिस्टम मजबूत हो सकता है — ASE जैसे वैश्विक खिलाड़ियों के साथ सहयोग मॉडल उपयोगी साबित होता है।\n(यह व्याख्या केवल प्रश्न में दिए गए सही उत्तर — ASE Technology — के संदर्भ में सम्बंधित और परीक्षा‑उन्मुख बिंदु देती है।)", "priority_tag": "HIGH"}, {"question": "Semiconductor supply chain में 'back-end' किसे संदर्भित करता है?", "options": ["Assembly, testing, packaging और final test operations", "Wafer fabrication और front-end lithography", "Chip design और EDA tools का विकास", "Raw silicon ingot production only"], "answer_index": 0, "explanation": "# व्याख्या — Semiconductor supply chain में 'back-end' क्या है?\n- Back-end वह चरण है जहाँ तैयार हुए semiconductor die को functional device में बदला जाता है — यानी assembly, testing, packaging और final test operations।\n- Assembly में कटे/सील किए गए dies को substrate या leadframe पर लगाया जाता है और wire-bonding या flip‑chip तकनीक से इलेक्ट्रिकल कनेक्शन बनाए जाते हैं।\n- Packaging का उद्देश्य die को पर्यावरणीय नुकसान (नमी, धूल, ताप, यांत्रिक तनाव) से सुरक्षित रखना तथा थर्मल/इलेक्ट्रिकल इंटरफेस प्रदान करना है।\n- Testing में 초기 wafer‑level tests और बाद में final test होते हैं; दोनों का लक्ष्य functional defects, parametric deviations और reliability issues का पता लगाना है।\n- Final test operations में burned‑in, functional verification, parametric qualification और sorting (binning) शामिल होते हैं ताकि उत्पाद की performance और reliability सुनिश्चित हो सके।\n- Back-end प्रक्रियाएँ yield improvement और defect screening के माध्यम से overall semiconductor supply chain की गुणवत्ता और उपलब्धता पर सीधे प्रभाव डालती हैं।\n- OSAT (Outsourced Semiconductor Assembly and Test) और ATMP (Assembly, Test, Marking and Packaging) जैसे सर्विस प्रदाता मुख्य रूप से back-end सेवाएँ देते हैं; ये fab‑less और IDM कंपनियों के लिए आवश्यक हैं।\n- Back-end की पूँजी‑गहनता front‑end (fabs) की तुलना में कम होती है, परन्तु skilled manpower, टेस्ट‑इक्यूपमेंट और गुणवत्ता नियंत्रण के लिए निवेश आवश्यक होता है।\n- Back-end गतिविधियाँ lead time, logistics और final product cost को प्रभावित करती हैं; इसलिए localized back-end क्षमता supply chain resilience के लिए महत्वपूर्ण मानी जाती है।\n- Testing और packaging में मानकीकरण और certification (परफॉर्मेंस/रिलायबिलिटी मेट्रिक्स) से ही devices को end‑market के लिये स्वीकार्य बनाया जाता है।", "priority_tag": "VERY_HIGH"}, {"question": "कौन-सा घटक semiconductor इकोसिस्टम का 'frontend' कहलाता है?", "options": ["Wafer fabrication (fabs) और front-end processing", "Final consumer-level device assembly", "Retail marketing और distribution", "After-sales technical support"], "answer_index": 0, "explanation": "# **व्याख्या — Semiconductor इकोसिस्टम का 'Frontend' : Wafer Fabrication (Fabs) और Front‑End Processing**\n- **Frontend का अर्थ:** Frontend वे चरण होते हैं जिसमें कच्चे सिलिकॉन वेफर पर इलेक्ट्रॉनिक डिवाइस (ट्रांजिस्टर, कैपेसिटर आदि) बनाने के लिए सभी संगठित उत्पादन‑प्रक्रियाएँ की जाती हैं।\n- **Wafer fabrication (fabs):** यह वह संयंत्र/प्रक्रिया है जहाँ सिलिकॉन वेफर पर फोटो‑लिथोग्राफी, इऑन इम्प्लांटेशन, डिपोजीशन और एट्चिंग जैसी चरणबद्ध प्रक्रियाओं से इंटीग्रेटेड सर्किट के बेसिक घटक निर्मित होते हैं।\n- **Front‑end processing के प्रमुख चरण:** क्लीनिंग, ऑक्साइड/नाइट्राइड डिपोजीशन, पैटर्निंग (फोटो‑लिथोग्राफी), डोपिंग/इम्प्लांटेशन, प्लाज्मा/रासायनिक एट्चिंग और थर्मल प्रोसेसिंग शामिल हैं।\n- **Cleanroom और नियंत्रण:** Frontend प्रक्रिया अत्यधिक नियंत्रित वातावरण और क्लीनरूम ग्रेड पर निर्भर करती है क्योंकि पार्टिकुलेट्स या संदूषण से डिवाइस दोष उत्पन्न होते हैं।\n- **Tooling और तकनीकी सूक्ष्मता:** अत्याधुनिक लिनियर मशीनरी (लोव‑नैनोमीटर पैटर्निंग), EUV/DUV लिथोग्राफी तथा सटीक प्रॉसेस कंट्रोल frontend की पहचान है।\n- **Yield और process control:** Frontend में प्रक्रिया नियंत्रित न होने पर वेफर पर दोष बढ़ते हैं; لذلك yield (सफल चिप प्रति वेफर) का प्राथमिक निर्धारण frontend चरणों में होता है।\n- **Testing और metrology:** Frontend में inline metrology और wafer‑level testing द्वारा प्रोसेस पैरामीटरों की मॉनिटरिंग की जाती है ताकि डिज़ाइन स्पेसिफिकेशन मिलें।\n- **इकोनॉमिक महत्व:** fabs में निवेश, संचालन और कौशल‑सूक्ष्मता उच्च होती है; फ्रंटएंड की क्षमता और दक्षता समग्र चिप आपूर्ति और प्रतिस्पर्धा पर सीधा प्रभाव डालती है।\n- **इंटिग्रेशन के दृष्टिकोण से भूमिका:** Frontend आउटपुट (processed wafers) को आगे के backend (assembly/test) में भेजा जाता है; अतः frontend इकोसिस्टम की प्राथमिक निर्माण‑कड़ी है।\n- **स्किल और सप्लाई‑चेन निर्भरता:** Frontend संचालन में उच्च तकनीकी कर्मचारियों, घनत्व नियंत्रित गैसों, स्पेशल्ड कैमिस्ट्री और सटीक उपकरणों की आपूर्ति अनिवार्य होती है।\n- **नीति और रणनीतिक प्रासंगिकता (India/Global):** किसी क्षेत्र की चिप‑निर्माण क्षमता का मूलाधार fabs/front‑end क्षमता होती है; इसलिए राष्ट्रीय नीतियाँ frontend निवेश, कौशल विकास और निवेश‑प्रोत्साहन पर केन्द्रित रहती हैं।\n- **सार‑बिंदु:** संक्षेप में, wafer fabrication और front‑end processing वे क्रियाएँ/संस्थान हैं जिन्हें semiconductor इकोसिस्टम का 'frontend' कहा जाता है क्योंकि वही कच्चे वेफर को सक्रिय इलेक्ट्रॉनिक डिवाइस में बदलते हैं, और समग्र चिप निर्माण की नींव रखते हैं।", "priority_tag": "HIGH"}, {"question": "Semiconductor packaging पर निवेश क्यों राज्यों (जैसे MP) के लिए जल्दी-लाभदायक विकल्प माना जाता है?", "options": ["क्योंकि इसे स्थापित करने में कम क्षेत्रीय capex और अपेक्षाकृत तेज कार्यान्वयन समय लगता है", "क्योंकि packaging में wafer lithography की आवश्यकता होती है", "क्योंकि packaging में सबसे महँगे cleanrooms की जरूरत होती है", "क्योंकि packaging केवल उच्च-voltage power devices के लिए अनुकूल है"], "answer_index": 0, "explanation": "# व्याख्या — Semiconductor packaging में निवेश राज्यों के लिए जल्दी-लाभदायक क्यों है\n**मुख्य कारण:** इसे स्थापित करने में कम क्षेत्रीय CAPEX और अपेक्षाकृत तेज़ कार्यान्वयन समय लगता है — नीचे तथ्यात्मक बिंदुओं में विस्तार।\n- पैकेजिंग/OSAT (Outsourced Semiconductor Assembly and Test) इकाइयों के लिये भूमि व निर्माण की आवश्यकता wafer fabs की तुलना में बहुत कम रहती है, जिससे प्रारम्भिक भूमि-समेकन और नागरिक निर्माण तेज़ होते हैं।\n- पैकेजिंग उपकरण (बॉनडर, टेस्टर, रीफ़्लो आदि) की निवेश लागत और आवश्यक आधारभूत ढाँचा fabs की तरह भारी-स्पेशिफिक क्लीनरूम/उच्च वाटर/गैस सिस्टम से कम जटिल होते हैं; इसलिए कुल CAPEX कम आता है।\n- पैकेजिंग व टेस्टिंग लाइनें मॉड्यूलर और स्केलेबल होती हैं; आधारिक सेटअप के बाद चरणबद्ध विस्तार संभव है, जिससे निवेश की वापसी की गति तेज़ होती है।\n- पैकेजिंग में श्रमिकों की तकनीकी मांगें (assembly, test operators, maintenance) तेज़ प्रशिक्षण से पूरी की जा सकती हैं; स्थानीय मानव संसाधन जल्दी तैनात हो जाते हैं, इसलिए संचालन जल्दी शुरू होता है।\n- पैकेजिंग plants के निर्माण एवं परमिट प्रक्रिया सामान्यतः फंडामेंटल environmental और safety मानकों तक सीमित रहती है, इसलिए नियामकीय अनुमोदन और संचालन आरम्भ जल्दी संभव है।\n- वैश्विक वैल्यू-चेन में पैकेजिंग और टेस्टिंग अंतिम चरण हैं; इसलिए उत्पादन लाइन चालू होते ही निर्यात व राजस्व जनरेशन शीघ्र आरम्भ किया जा सकता है।\n- राज्य स्तर पर औद्योगिक प्रोत्साहन (इन्फ्रास्ट्रक्चर, टैक्स/एनवाईल, बिजली/पानी सब्सिडी) का लाभ पैकेजिंग सेटअप पर कम समय में मिलकर परियोजना की आर्थिक व्यवहार्यता बढ़ाता है।\n- क्लस्टर/SEZ में कई छोटे-मध्यम OSAT इकाइयाँ लगाकर आर्थिक प्रभाव तीव्रता से दिखता है — रोजगार, MSME सप्लायर्स और लॉजिस्टिक्स सर्विसेज जल्दी विकसित होते हैं।\n- जबतक फेब्स की उच्च-स्तरीय R&D और लंबी अवधि पूँजी निवेश की योजना बनी रहे, तब तक राज्य त्वरित लाभ हेतु पैकेजिंग/ATMP पर निवेश कर सकतें हैं क्योंकि समय-से-मार्केट छोटा होता है।\n- पैकेजिंग इकाइयों का वॅल्यू-एडेड हिस्सा बढ़ने पर राज्य को निर्यात-आधारित आय, औद्योगिक कर एवं स्थानीय आपूर्ति-शृंखला से जल्दी राजस्व मिलता है।\n- टेक्नोलॉजी उन्नयन (उदा. advanced packaging) के लिए भी शुरुआती स्तर पर कम पूँजी-गहन अपग्रेड संभव है, जिससे तकनीकी पैमाने पर तीव्र प्रगति और आर्थिक वापसी तेज रहती है।\n(ये बिंदु केवल उसी अवधारणा को स्पष्ट करते हैं कि क्यों semiconductor packaging राज्यों के लिये अपेक्षाकृत कम CAPEX और तेज़ कार्यान्वयन के कारण जल्दी-लाभदायक विकल्प माना जाता है।)", "priority_tag": "HIGH"}, {"question": "भारत में semiconductor नीति/उद्यमों के संबंध में केंद्रीय मंत्रालय कौन-सा प्रमुख भूमिका निभाता है?", "options": ["Ministry of Electronics and Information Technology (MeitY)", "Ministry of Railways", "Ministry of Agriculture and Farmers Welfare", "Ministry of Culture"], "answer_index": 0, "explanation": "# व्याख्या — Ministry of Electronics and Information Technology (MeitY) का रोल (Semiconductor इकोसिस्टम के संदर्भ में)\n- MeitY भारत में अर्धचालक (semiconductor) नीति के निर्माण और कार्यान्वयन के लिए केंद्रीय nodal मंत्रालय है।\n- यह मंत्रालय डिज़ाइन, एटीएमपी (ATMP: Assembly, Test, Marking and Packaging) और OSAT जैसी वैल्यू-चेन गतिविधियों के लिए राष्ट्रीय स्तर पर रणनीति तैयार करता है।\n- MeitY विभिन्न केंद्रीय योजनाओं और प्रोत्साहन निर्देशों की रूपरेखा बनाकर निवेश आकर्षित करने एवं घरेलू निर्माण क्षमता बढ़ाने का प्रावधान करता है।\n- मंत्रालय राज्य सरकारों, निवेशकों और उद्योग इकाइयों के साथ समन्वय कर राज्य-स्तरीय नीतियों और सुविधाओं का तालमेल सुनिश्चित करता है।\n- MeitY तकनीकी मानक, विनियामक आवश्यकताओं और सुरक्षा नीतियों (जैसे इलेक्ट्रॉनिक्स सुरक्षा/डेटा से संबंधित पहल) के निर्धारण में प्रमुख भूमिका निभाता है।\n- यह मंत्रालय R&D, विकासात्मक परियोजनाओं और महत्वपूर्ण परीक्षण/फैब्रिकेशन अवसंरचना के निर्माण के लिए नीतिगत और वित्तीय समर्थन की व्यवस्था करता है।\n- MeitY मानव संसाधन विकास और स्किलिंग कार्यक्रमों को प्रोत्साहित कर semiconductor डिज़ाइन व विनिर्माण के लिए कौशल पूल तैयार करने में सक्रिय रहता है।\n- अंतर्राष्ट्रीय तकनीकी सहयोग, निवेश समझौतों और सप्लाई‑चेन सुरक्षा से जुड़े मामलों में MeitY केंद्र सरकार का प्रतिनिधि बनकर वार्ता और समन्वय करता है।\n- मंत्रालय परियोजना अनुमोदन, अनुदान/उत्प्रेरक (incentive) वितरण और परियोजना निगरानी के लिए निगरानी तंत्र स्थापित करता है ताकि नीति लक्ष्यों का क्रियान्वयन सुनिश्चित हो।\n- MeitY आईपी‑विनिमय, स्टार्टअप समर्थन और डिज़ाइन‑एक्सेलरेशन पहल के माध्यम से घरेलू टेक्नोलॉजी ekosystem को मज़बूत बनाता है।\n- राष्ट्रीय सुरक्षा, आपूर्ति‑श्रृंखला विश्वसनीयता और रणनीतिक संवेदनशीलता के मामलों में भी MeitY की समन्वयात्मक भूमिका रहती है।", "priority_tag": "VERY_HIGH"}, {"question": "ATMP/OSAT फैब्रिकेशन की तुलना में प्रतिभा (talent) की किस प्रकृति पर अधिक निर्भर करता है?", "options": ["मीकेनिकल, इलेक्ट्रॉनिक्स असेंबली और टेस्ट-इंजीनियरिंग कौशल", "सिर्फ़ advanced lithography researchers", "core semiconductor device physics केवल PhD स्तर", "consortium-level नीति निर्माण कौशल"], "answer_index": 0, "explanation": "# व्याख्या — ATMP/OSAT में प्रतिभा की प्रकृति (MPPSC Prelims 2026 हेतु)\n1. ATMP (Assembly, Test, Marking, Packaging) और OSAT (Outsourced Semiconductor Assembly and Test) का मुख्य कार्य चिप-स्तर के फिजिकल असेंबली और परीक्षण प्रक्रिया का संचालन करना है; इसलिए यहाँ तकनीशियन की मैकेनिकल और असेंबली काबिलियत प्राथमिक होती है।\n2. असेंबली चरण में तार-बॉण्डिंग, फ्लिप-चिप माउंटिंग, पैकेजिंग और थर्मल मैनेजमेंट जैसी प्रक्रियाएँ आती हैं जिनके लिए प्राइसिजन मशीन्स के साथ मैन-ऑन-टास्क मिकैनीकल स्किल जरूरी होते हैं।\n3. टेस्ट इंजीनियरिंग में इलेक्ट्रॉनिक सिग्नल, परीक्षण प्रोटोकॉल, टेस्ट जिग/फिक्स्चर और ऑटोमेशन टूल्स का ज्ञान आवश्यक है; इसलिए इलेक्ट्रीकल/इलेक्ट्रॉनिक्स टेस्टिंग कौशल अनिवार्य होते हैं।\n4. ATMP/OSAT में गुणवत्ता नियंत्रण (QA/QC), फॉली-इंस्पेक्शन और फेल एनालिसिस के लिए मेट्रोलॉजी और मीकेनिकल निरीक्षण तकनीकें उपयोग की जाती हैं; इससे संकेत मिलता है कि मैकेनिकल प्रोसेस कंट्रोल निपुणता महत्वपूर्ण है।\n5. पैकेजिंग और थ्रूपुट ऑप्टिमाइज़ेशन के लिए मशीनी सेटअप, टूलिंग बदलाव और प्रोसेसिंग पैरामीटर समायोजित करने की हैंड्स-ऑन स्किल्स चाहिए—यह कौशल मैकेनिकल और असेंबली दक्षता पर निर्भर करता है।\n6. टेस्ट ऑटोमेशन और फंक्शनल टेस्टिंग में जिग/फिक्स्चर डिजाइन, स्क्रिप्टिंग और हार्डवेयर-इंटरफेस समझ आवश्यक है; इसलिए इलेक्ट्रॉनिक्स असेंबली और टेस्ट-इंजीनियरिंग का संयोजन जरूरी होता है।\n7. ATMP/OSAT में मानव-यांत्रिक इंटरफेस (जैसे हैंडलिंग, विजुअल इनस्पेक्शन) और फाइन-मोटर स्किल्स की मांग अधिक होती है, जो साफ़ तौर पर मैकेनिकल/असेंबली-केंद्रित प्रतिभा को दर्शाती है।\n8. उद्योग में दोष-दर घटाने और उत्पादकता बढ़ाने के लिए प्रोसैस इंजीनियरिंग और टेस्टिंग दक्षता का समन्वय चाहिए—यह अभ्यास इलेक्ट्रॉनिक्स टेस्ट इंजीनियरिंग और मैकेनिकल असेंबली दोनों पर निर्भर करता है।\n9. प्रशिक्षण प्रोग्राम्स और कौशल विकास (on-the-job training) में पुख्ता प्लांट-लेवल असेंबली और टेस्टिंग मॉड्यूल शामिल होते हैं; इसलिए रोजगार मार्ग इलेक्ट्रॉनिक्स असेंबली और टेस्ट-इंजीनियरिंग पर केंद्रित होते हैं।\n10. नीति और निवेश के हिसाब से ATMP/OSAT क्लस्टर विकसित करने हेतु स्थानीय कार्यबल में मैकेनिकल व टेस्ट-इंजीनियरिंग कौशल का निर्माण प्राथमिक आवश्यकता बनती है, जिससे क्षेत्रीय विनिर्माण प्रतिस्पर्धा बनी रहती है।", "priority_tag": "HIGH"}, {"question": "किस वाक्य का संबंध fab और packaging के आर्थिक-प्रभाव से सबसे सटीक है?", "options": ["Fab high capex और high-tech है; packaging lower capex और labor-intensive होता है", "Packaging अत्यधिक capex और large-scale fabs से अधिक महँगा है", "दोनों ही fabs और packaging में identical investments और skill-set की आवश्यकता होती है", "Fab केवल packaging के बाद शुरू किया जाता है"], "answer_index": 0, "explanation": "# Vyakhya — Fab vs Packaging के आर्थिक प्रभाव (प्रमुख अवधारणा: Fab high capex & high‑tech; Packaging lower capex & labour‑intensive)\n- Fab (semiconductor fabrication plant) निर्माण और संचालन में अत्यधिक पूँजीगत व्यय (high capex) आवश्यक होता है; इसकी वजह बड़े पैमाने पर स्वच्छ कमरों, उन्नत उपकरण (litography, etchers), और निरंतर R&D निवेश है।\n- Fab में उपयोग होने वाली तकनीकें अत्यंत जटिल और विकसित होती हैं; इसलिए तकनीकी विशेषज्ञता, उच्चस्तरीय इंजीनियरिंग और गुणवत्तापूर्ण मानक अनिवार्य होते हैं।\n- Fab के लिए भूमि, बिजली, पानी और निरंतर तापमान/वातावरण नियंत्रण जैसी भौतिक अवसंरचना की उच्च आवश्यकताएँ होती हैं, जिससे प्रारम्भिक निवेश और संचालन लागत बढ़ती है।\n- Fab पर निवेश की वापसी (return on investment) लंबी अवधि की होती है — सेट‑अप में वर्षों और उच्च उत्पादन‑utilization के समयबद्ध बड़े ऑर्डर चाहिए।\n- Packaging और Testing (OSAT/ATMP) की इकाइयाँ तुलनात्मक रूप से कम पूँजी‑घनिक (lower capex) होती हैं; उन्हें तेज़ी से शुरू किया जा सकता है और छोटे‑मध्यम निवेशों पर काम चल सकता है।\n- Packaging कार्य अधिकतर श्रम‑गहन (labour‑intensive) रहते हैं — वायर‑बॉन्डिंग, पैकेज असेंबली और विजुअल इन्स्पेक्शन जैसे प्रक्रियाएँ मानव श्रम और मिड‑लेवल तकनीकी कौशल पर निर्भर करती हैं।\n- Packaging इकाइयाँ स्थानीय रोजगार सृजन में तीव्र योगदान कर सकती हैं क्योंकि उत्पादन‑सर्किट में अधिक मैनुअल/स्किल्ड ऑपरेटरों की आवश्यकता होती है; यह ग्रामीण/शहरी दोनों क्षेत्रों में रोजगार के अवसर देता है।\n- Fab‑बेस्ड इकाइयों से टेक‑नॉलेज स्पिलओवर और उच्च‑स्तरीय कौशल विकास (R&D, process engineering) होता है; वहीं Packaging से मैन्युफैक्चरिंग‑स्किल्स और MSME‑इकोसिस्टम को बल मिलता है।\n- नीति‑निर्देशक दृष्टि से दोनों पर अलग‑अलग समर्थन मॉडल उपयुक्त होते हैं: Fab के लिए बड़े निवेश प्रोत्साहन, जीआईपी/पावर/वॉटर पैकेज, और लंबी अवधि की टैक्स छूट; Packaging के लिए स्किल‑प्रोग्राम, आसान क्रेडिट और क्लस्टर‑सहायता प्रभावी रहती है।\n- आपूर्ति शृंखला के जोखिमों को कम करने के लिए Fab और Packaging दोनों की स्थानीय उपस्थिति महत्त्वपूर्ण है; पर आर्थिक आवश्यकताएँ व समय‑सीमाएँ भिन्न होने के कारण निवेश निर्णय अलग तरह से लिए जाते हैं।\n- राजकोषीय और नीति‑निर्देशों के परिप्रेक्ष्य में Fab परियोजनाएँ राज्य/केंद्र सरकारों के लिए उच्च पूँजीगत प्रोत्साहन और दीर्घकालिक औद्योगिक नीति‑निर्देश मांगती हैं, जबकि Packaging इकाइयों को शीघ्र आर्थिक तथा सामाजिक लाभ (रोजगार, MSME विकास) प्राप्त होते हैं।\n- लोकप्रिय आर्थिक संकेतक: Fab का प्रभाव GDP पर दीर्घकालिक और तकनीकी उन्नयन के माध्यम से अधिक रहता है; Packaging का तात्कालिक रोजगार और स्थानीय आपूर्ति‑श्रृंखला में योगदान अधिक स्पष्ट होता है।", "priority_tag": "VERY_HIGH"}, {"question": "Global semiconductor supply chain में 'design' के लिए प्रचलित business model कौन-सा है?", "options": ["Fabless companies design करती हैं और foundries उन्हें manufacturing देती हैं", "All design और manufacturing एक ही कम्पनी केवल करती है", "Design में केवल government labs ही अवसर प्रदान करते हैं", "Design प्रक्रिया केवल OSAT कंपनियों के द्वारा की जाती है"], "answer_index": 0, "explanation": "# व्याख्या — Global semiconductor supply chain में 'Design' के लिए प्रचलित business model (Fabless → Foundry)\n- **परिभाषा (संक्षेप):** Fabless मॉडल में कंपनियाँ सिर्फ़ चिप का आर्किटेक्चर, सर्किट डिजाइन और IP (intellectual property) बनाती हैं; वे खुद फॅब्रिकेशन (wafer manufacturing) नहीं करतीं।\n- **मुख्य धारणा:** Fabless कंपनियाँ अपने designs को तैनात करने के लिए विशेष foundry (manufacturing) सेवाओं पर निर्भर रहती हैं, जो wafer fabrication और पैकेजिंग के लिए अनुबंध के तहत उत्पादन करती हैं।\n- **वाणिज्यिक विभाजन:** इस मॉडल में design और manufacturing का स्पष्ट specialization होता है — design houses R&D और IP पर केंद्रित रहते हैं जबकि foundries कैपिटल-इंटेंसिव fabs चलाती हैं।\n- **लागत और जोखिम प्रबंधन:** Fabless मॉडल से डिज़ाइनरों को भारी पूँजीगत खर्च (fabs बनाना) कम करना पड़ता है; manufacturing का निवेश foundries उठाती हैं, जिससे जोखिम और entry barrier घटते हैं।\n- **स्केलेबिलिटी और समयबद्धता:** Fabless कंपनियाँ विभिन्न foundries से टेप-आउट के बाद आवश्यक node पर उत्पादन करवा सकती हैं, जिससे तेज़ी से उत्पाद अनुकूलन और उत्पादन-परिवर्तन संभव होता है।\n- **IP और इकोसिस्टम:** Fabless मॉडल में IP, design tools (EDA), और system-level integration की भूमिका प्रमुख होती है; ये तत्व global supply chain में design का वर्चस्व बनाते हैं।\n- **गुणवत्ता एवं गठजोड़:** Fabless और foundry के बीच ठोस वैधानिक/वाणिज्यिक अनुबंध (NDA, process design kits) आवश्यक होते हैं ताकि design-to-manufacturing compatibility और yield नियंत्रित रहे।\n- **Global trade और निर्भरता:** यह मॉडल सरकारों और उद्योगों के लिए यह स्पष्ट करता है कि design capability अलग राष्ट्रीय रणनीति है — manufacturing capacity अलग — और दोनों के लिए अलग नीतिगत समर्थन चाहिए।\n- **MP के लिए नीतिगत निष्कर्ष (Mains-उपयोग के लिए बिंदु):** मध्यप्रदेश राज्य डिज़ाइन-आधारित इकाईयों (fabless startups, IP houses, EDA प्रशिक्षण) को बढ़ावा दे कर semiconductor value chain में low-capital entry वाले high-value design चरण पर केंद्रित हो सकता है।\n- **MP के लिए व्यवहार्य कदम (नोट-फॉर-उत्तर):** राज्य में इंजीनियरिंग/AI/विकल्पी EDA प्रशिक्षण, डिज़ाइन क्लस्टर, और उद्योग–अकादमिक साझेदारी से fabless ekosystem विकसित कर स्थानीय रोजगार और R&D बढ़ाया जा सकता है।\n- **संक्षिप्त निष्कर्ष (Revision):** Global semiconductor supply chain में design के लिए प्रचलित और परीक्षित business model है — fabless कंपनियाँ design करती हैं और foundries उन्हें manufacturing सेवाएँ देती हैं।", "priority_tag": "HIGH"}, {"question": "Semiconductor इकोसिस्टम में EDA tools का प्रमुख कार्य क्या है?", "options": ["chip design के लिए electronic design automation software प्रदान करना", "wafer का physical cutting और packaging करना", "final consumer product की marketing करना", "cleanroom maintenance के लिए chemical supply करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "OSAT कंपनियों का 'marking' चरण किसका संकेत देता है?", "options": ["चिप पर manufacturer identification और traceability marks लगाना", "wafer पर lithography mask बनाना", "design में RTL coding करना", "user-interface software को finalize करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Semiconductor packaging के कौन-से प्रकार छोटे-उद्योग/वन-स्टॉप facilities के लिए प्रायः उपयुक्त माने जाते हैं?", "options": ["Surface-mount packaging और BGA (Ball Grid Array) assembly", "Extreme ultraviolet lithography (EUV) patterning", "Ion implantation at sub-nanometer scales", "Photomask electron beam writing"], "answer_index": 0, "explanation": "# Vyakhya — Semiconductor packaging: Surface‑mount packaging और BGA (Ball Grid Array) assembly\n(प्रश्न: कौन‑से प्रकार छोटे‑उद्योग/वन‑स्टॉप facilities के लिए उपयुक्त माने जाते हैं — स्पष्टीकरण)\n- Surface‑mount devices (SMD/SMD‑based packaging) और BGA assemblies छोटे‑उद्योग/वन‑स्टॉप सेट‑अप के लिए प्रायः उपयुक्त माने जाते हैं क्योंकि दोनों high‑density PCB assembly को सपोर्ट करते हैं, जिससे छोटा बोर्ड क्षेत्र और अधिक फंक्शनलिटी संभव होती है।\n- Surface‑mount assembly में उपयोग होने वाली reflow soldering प्रक्रिया औद्योगिक स्तर पर सरल और repeatable है; यह छोटे माइक्रो‑इंजीनियरिंग और लो‑टू‑मिड वॉल्यूम production के लिए अनुकूल है।\n- BGA पैकेजिंग में पैड‑टू‑पैड कनेक्शन की संख्या अधिक होती है और यह उच्च I/O घनत्व देता है, जिससे छोटे‑सूत्रों पर अधिक कार्यक्षमता उपलब्ध कराई जा सकती है — यह मोबाइल, कनेक्टिविटी और एम्बेडेड एप्लिकेशन्स के लिए उपयोगी है।\n- दोनों प्रक्रियाओं के लिए आवश्यक उपकरण (SMT लाइन, reflow oven, pick‑and‑place मशीनें, reflow oven, oven profile control) की पूँजी लागत DIP/THT की तुलना में प्रतिस्पर्धी और स्केलेबल होती है, जो छोटे कार्यशालाओं को चरणबद्ध निवेश की अनुमति देती है।\n- BGA के लिए X‑ray inspection और SMD के लिए AOI (Automated Optical Inspection) जैसे परीक्षण समाधान छोटे‑से‑मध्यम विनिर्माण इकाइयों द्वारा अपनाए जा सकते हैं; ये परीक्षण yield सुधार और फील्ड‑फेलियर कम करने में सहायक हैं।\n- Surface‑mount और BGA दोनों high throughput के लिए अनुकूल हैं — pick‑and‑place और reflow लाइन के माध्यम से लघु बैच से लेकर मध्यम वॉल्यूम तक उत्पादन में लचीलापन मिलता है, जिससे वन‑स्टॉप EMS/ATMP/OSAT सेट‑अप व्यवहार्य होता है।\n- थर्मल और इलेक्ट्रिकल प्रदर्शन की दृष्टि से BGA में पैकेज‑टू‑पैकेज कनेक्शन की प्रतिरोध और गर्मी निकासी बेहतर होती है; यह शक्ति‑गहन और हाई‑स्पीड ICs के लिए उत्सर्जन‑नियंत्रण और विश्वसनीयता की महत्वपूर्ण शर्तें पूरी करता है।\n- कौशल स्तर नियंत्रित और प्रशिक्षित टेक्नीशियन द्वारा SMT/BGA लाइनें संचालित की जा सकती हैं; स्थानीय छोटे उद्यम और क्लस्टर ट्रेनिंग कार्यक्रमों द्वारा आवश्यक ऑपरेटर‑कौशल विकसित करना संभव है।\n- सप्लाई‑चेन और आउटसोर्स सेवाओं (component sourcing, stencil making, PCB fabrication, testing services) छोटे‑उद्योग को SMD/BGA आधारित वन‑स्टॉप मॉडल में इंटीग्रेट करने में मदद करते हैं, जिससे एक‑स्थल पर डिजाइन‑to‑assembly समाधान उपलब्ध होते हैं।\n- Surface‑mount और BGA दोनों आधुनिक औद्योगिक मानकों (IPC standards) के अनुरूप हैं, जिससे गुणवत्ता नियंत्रण, प्रमाणन और बाजार‑स्वीकृति की प्रक्रियाएँ छोटे‑उद्योग स्तर पर व्यवस्थित रूप से लागू की जा सकती हैं।\n- ये पैकेजिंग प्रकार स्मार्ट‑डिवाइस, आईओटी नोड्स, कंज्यूमर इलेक्ट्रॉनिक्स और औद्योगिक कंट्रोल यूनिट्स जैसी स्थानीय और ग्लोबल मांग वाले क्षेत्रों में अनुप्रयोग‑लक्ष्य की स्पष्टता देते हैं; इसलिए वन‑स्टॉप ATMP/OSAT इकाईयों के लिए व्यावसायिक रूप से उपयुक्त हैं।\n(नोट: ऊपर के बिंदु केवल Surface‑mount packaging और BGA assembly की उपयुक्तता तक सीमित हैं; तकनीकी और आर्थिक पहलुओं पर केंद्रित, परीक्षा‑अनुकूल सारांश दिए गए हैं।)", "priority_tag": "HIGH"}, {"question": "किसे 'OSAT' सेवाओं का मुख्य बाज़ार माना जाता है?", "options": ["fabless और IDM companies जिन्हें assembly और testing outsource करनी होती है", "किसी भी retail ग्राहक को direct consumer electronics बेचने के लिए", "government-only defence fabrication units", "raw silicon ingot suppliers"], "answer_index": 0, "explanation": "# व्याख्या — OSAT सेवाओं का मुख्य बाज़ार (MPPSC Prelims 2026 हेतु)\n**सार:** OSAT (Outsourced Semiconductor Assembly and Test) सेवाओं का प्रमुख ग्राहक वे सेमीकंडक्टर फर्में हैं जो चिप डिज़ाइन करती हैं पर फाइनल असेंबली/पैकेजिंग और टेस्टिंग इन‑हाउस नहीं करतीं — मुख्यतः *fabless* और कुछ *IDM* कंपनियाँ जो असेंबली/टेस्ट आउटसोर्स करती हैं।\n- OSAT का मूल कार्य चिप के फार्म‑फ़ैब (wafer) काटकर die‑level असेंबली/पैकेजिंग और इलेक्ट्रिकल/फ़ंक्शनल टेस्टिंग प्रदान करना है।\n- Fabless कंपनियाँ केवल डिज़ाइन और वैरिफ़िकेशन करती हैं; उनके पास सिलिकॉन उत्पादन की फ़ैक्ट्री नहीं होती, इसलिए वे असेंबली व टेस्ट के लिए OSAT पर निर्भर रहती हैं।\n- IDM (Integrated Device Manufacturers) में कुछ यूनिट्स को कैपेसिटी या कौशल कारणों से असेंबली/टेस्ट आउटसोर्स करना पड़ता है; इस तरह की आउटसोर्सिंग OSAT को मुख्य बाजार बनाती है।\n- OSAT सेवाएँ पैकेजिंग टेक्नोलॉजी (BGA, QFN, flip‑chip इत्यादि), तापीय प्रबंधन और टेस्टिंग विलंबता/कठोरता को संभालती हैं, जो fabless/IDM की जल्दी‑मार्केटिंग के लिए आवश्यक हैं।\n- आर्थिक कारण: उच्च कैपिटल‑इन्टेंसिव पैकेजिंग लाइनें और मानकीकृत टेस्ट फैसिलिटीज़ रखने से बचने हेतु fabless/IDM OSAT को चुना जाता है — इससे उत्पादन लागत और कैपिटल एक्सपोज़र कम होता है।\n- समय और स्केलेबिलिटी: डिजाइन‑केंद्रित फर्में मांग बढ़ने पर तेज़ी से वोल्यूम बढ़ाने के लिए OSAT नेटवर्क पर भरोसा करती हैं, जिससे time‑to‑market घटता है।\n- गुणवत्ता और स्पेशलाइज़ेशन: OSAT द्वारा पेश किए जाने वाले उच्च‑स्तरीय टेस्टिंग और सर्टिफिकेशन (reliability, burn‑in, electrical tests) fabless/IDM के लिए निर्णायक लाभ हैं।\n- ग्लोबल सप्लाई‑चेन में fabless/IDM ↔ OSAT सम्बन्धता महत्वपूर्ण है: डिज़ाइन‑नॉलेज fabless के पास, मैन्युफैक्चरिंग (foundry) और पोस्ट‑वाफर सेवाएँ (OSAT) अलग‑अलग एजेंटों द्वारा पूरी होती हैं।\n- नीतिगत महत्व (Mains में उपयोग): जब राज्य/केंद्र से semiconductor ekosystem को बढ़ावा देने की चर्चा हो, तो fabless‑friendly नीतियाँ, OSAT केन्द्र और क्लस्टर‑रोज़गार को जोड़कर विवेचना दी जा सकती है — क्योंकि OSAT सीधे fabless/IDM की आवश्यकताओं को पूरा करते हैं।\n- संक्षेप में परीक्षा‑दृष्टि से: OSAT का \"मुख्य बाजार\" = वे कंपनियाँ जो डिज़ाइन करने के बाद असेंबली और टेस्ट आउटसोर्स करती हैं — यानी fabless और उन्हीं IDM उपभागों को जो पोस्ट‑वाफर सेवाएँ बाहरी रूप से लेती हैं।", "priority_tag": "HIGH"}, {"question": "Semiconductor मूल्य श्रृंखला के कौन-से हिस्से पर राज्यों को नीति प्रोत्साहन देकर जल्दी रोजगार सृजन सम्भव होता है?", "options": ["ATMP/packaging और testing इकाइयों पर", "extreme ultraviolet (EUV) lithography fabs पर केवल", "global fabless design houses के headquarter पर ही", "silicon crystal growth केवल"], "answer_index": 0, "explanation": "# व्याख्या — ATMP / Packaging & Testing इकाइयों पर राज्य-प्रोत्साहन से शीघ्र रोजगार सृजन क्यों संभव है\n- ATMP (Assembly, Testing, Marking, Packaging) इकाइयाँ चिप-निर्माण की अंतिम चरण की गतिविधियाँ हैं जिनका अवसंरचनात्मक और पूँजीगत अनुमानित निवेश फेब्रिकेशन (fabs) की तुलना में कम होता है; इसलिए राज्यों के लिए त्वरित निवेश-विकास योजना व्यवहार्य होती है।\n- ATMP यूनिटों की स्थापना के लिए अपेक्षाकृत कम भूमि, बिजली और जल आपूर्ति की आवश्यकता होती है, जिससे राज्य-स्तर पर औद्योगिक पार्क/ईसीओ-सोल्यूशंस में तीव्र रूप से शेड उपलब्ध कराकर आरम्भ किया जा सकता है।\n- इन इकाइयों में श्रम-घनत्व ज्यादा होता है — असेंबली और परीक्षण प्रक्रियाओं में स्थानीय अर्द्ध-कुशल और कुशल श्रमिकों की आवश्यकता रहती है, जिससे तीव्र रोजगार सृजन होता है।\n- राज्य नीतियाँ (भूमि, कर छूट, पूँजी अनुदान, सिंपल परमिट प्रक्रिया) तेजी से लागू करके ATMP परियोजनाओं के व्यवहार्य बनने का समय घटा सकती हैं; इससे निर्माण और नियुक्ति चक्र जल्दी शुरू होता है।\n- ATMP इकाइयाँ ESDM (Electronic System Design and Manufacturing) के साथ बद्ध-समेकित क्लस्टर मॉडल में जल्दी व्यवस्थित हो सकती हैं — छोटे और मझोले उद्यमों (MSMEs) की भागीदारी से स्थानीय आपूर्ति-श्रृंखला और रोजगार बढ़ता है।\n- प्रशिक्षण-उन्मुख राज्य-योजनाएँ (VOC/ITI, सेंटर ऑफ एक्सीलेंस) और ऑन-द-जॉब प्रशिक्षण से ATMP के लिए आवश्यक दक्षताएँ तुरन्त विकसित की जा सकती हैं, जिससे रिक्तियों पर जल्द भरती संभव होती है।\n- ATMP संचालन में पर्यावरणीय और सुरक्षा अनुकूलन अपेक्षाकृत सरल होते हैं (कम रासायनिक प्रोसेसिंग बनाम fabs), इसलिए पर्यावरण अनुमोदन प्रक्रियाएं तीव्र की जा सकती हैं और समय पर उद्योग चालू हो सकता है।\n- राज्य-स्तर पर लॉजिस्टिक्स, कस्टम-सपोर्ट, और एक्सपोर्ट-फैसिलिटेशन (सीमे पर सहज प्रक्रियाएँ, सिंगल-डेस्टिनेशन क्लियरेंस) देने से ATMP इकाइयों का परिचालन लागत घटती है और बाजार तक पहुँच जल्दी बनती है — इससे उत्पादन और रोजगार प्रभाव शीघ्र दिखता है।\n- ATMP पर प्रोत्साहन से छोटे पार्टनर-इकाइयों और सप्लायर क्लस्टरों का विकास प्रोत्साहित होता है, जिससे स्थानीय विनिर्माण इकोसिस्टम मजबूत और रोजगार-गुणवत्ता बेहतर होती है।\n- सार्वजनिक–निजी भागीदारी (PPP) मॉडल के माध्यम से राज्य ATMP पार्क, साझा परीक्षण/मानक-सुविधाएँ और उपकरण केन्द्र स्थापित कराकर शुरुआती पूँजी की बाधा कम कर सकते हैं; इससे नई इकाइयाँ जल्दी संचालित होंगी।\n- ATMP के माध्यम से तेज निर्यात-विकास और वैल्यू-एडिशन का विकल्प उपलब्ध होता है, जो राज्य राजस्व व रोजगार दोनों पर शीघ्र सकारात्मक प्रभाव डालता है।\n- नीतिगत दृष्टिकोण में समय-सीमा पर आधारित प्रोत्साहन (जैसे प्रारम्भिक तीन वर्षों के लिए कर-छूट/वीज़ा-प्राथमिकता/दलाल-लागत अनुदान) लागू करने पर ATMP यूनिटों का सुरक्षित और तीव्र विस्तार संभव है जिससे पूर्व-निर्धारित रोजगार-लक्ष्यों को शीघ्र हासिल किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "किस स्टेटमेंट में wafer fabs और packaging facilities के बीच प्रमुख अंतर सही तरीके से बताया गया है?", "options": ["Fabs capital- and technology-intensive होते हैं; packaging relatively labour- and equipment-mix intensive होते हैं", "Packaging में cleanroom की आवश्यकता fabs की तुलना में अधिक होती है", "Fabs मुख्यतः packaging के बाद आते हैं और इसलिए उनका lead time छोटा होता है", "Packaging और fabs दोनों identical regulatory clearances मांगते हैं"], "answer_index": 0, "explanation": "# व्याख्या — wafer fabs और packaging facilities के बीच प्रमुख अंतर (MPPSC Prelims 2026 के लिए)\n**मुख्य कथन:** Fabs (wafer fabrication plants) पूँजी- तथा प्रौद्योगिकी-केंद्रित होते हैं; जबकि packaging (assembly & test) अपेक्षाकृत श्रम- और उपकरण-मिक्स-केंद्रित होते हैं।\n1. fabs में ट्रांजिस्टर स्तर पर छोटे-छोटे पैटर्न बनाने के लिए अत्यधिक परिशुद्ध उपकरण (lithography, etch, depo, CMP आदि) और शुद्ध वातावरण (cleanrooms, contamination control) की आवश्यकता होती है।\n2. fabs की स्थापना में प्रत्येक वेंचुर/प्लांट पर अरबों डॉलर के निवेश की आवश्यकता होती है—मुख्य खर्च उपकरण और क्लीनरूम इंफ्रास्ट्रक्चर पर होता है।\n3. fabs चलाने के लिए उच्च-स्तरीय वैज्ञानिक व इंजीनियरिंग कौशल, लगातार R&D और प्रोसेस मॉडर्नाइज़ेशन अनिवार्य है; तकनीकी अपग्रेड महँगा और समय-संवेदी होता है।\n4. fabs का उत्पादन परिचालन (yield, defect density) और टेक्नोलॉजी नोड पर निर्भर करता है; इसलिए गुणवत्ता नियंत्रण और प्रक्रिया अनुकूलन पर भारी निवेश रहता है।\n5. packaging/assembly में wafer से कटे चिप्स का डाई अटैच, बॉन्डिंग, encapsulation और टेस्टिंग शामिल हैं, जो तुलनात्मक रूप से कम क्लीनरूम-आधारित और अधिक मैन्युअल/अर्ध-स्वचालित होते हैं।\n6. packaging उद्योग में इक्विपमेंट का मिश्रण (pick-and-place, wire bonders, moulding, test handlers) और श्रम कौशल दोनों महत्वपूर्ण होते हैं; इसलिए पूँजी-लघु परिश्रम-घनी प्रक्रियाएँ देखी जाती हैं।\n7. packaging की कैपेक्स अपेक्षाकृत कम होती है और स्केल-अप तेज़ी से किया जा सकता है क्योंकि अत्यधिक महँगे lithography जैसे उपकरणों की आवश्यकता नहीं होती।\n8. fabs की आर्थिक जोखिम-प्रोफ़ाइल उच्च है (टेक-ऑब्सोलेंस, लंबी डिप्रिसिएशन अवधि); packaging में व्यवसाय मॉडल अधिक फ्लेक्सिबल और चालू परिचालन‑नियंत्रण पर निर्भर रहता है।\n9. नीति-निर्माण और निवेश प्रोत्साहन के संदर्भ में fabs को विशेष पूँजी‑सहायता, चिप‑फैब्रिकेशन इकोसिस्टम समर्थन और उच्च‑कौशल मानव संसाधन की आवश्यकता होती है, जबकि packaging में रोजगार सृजन और स्थानीय मैन्युफैक्चरिंग के लिए तात्कालिक लाभ अधिक स्पष्ट होते हैं।\n10. संक्षेप में, fabs को टेक्नोलॉजी-गहन, उच्च‑CAPEX और R&D-सँवेदी इकाइयाँ मानना चाहिए; packaging को अधिक श्रम‑सहज, उपकरण‑मिश्रित और त्वरित स्केल‑अप योग्य इकाइयाँ माना जा सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "Semiconductor value chain में 'IDM' (Integrated Device Manufacturer) का मतलब क्या है?", "options": ["एक ऐसी कंपनी जो chip design से लेकर manufacturing और packaging तक स्वयं करती है", "वह संस्था जो केवल third-party packaging सेवाएँ देती है", "वह research institute जो केवल EDA tools बनाती है", "वह regulatory body जो semiconductor नियम बनाती है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में semiconductor और display manufacturing पर प्राथमिक नीति-निर्माण किस प्रकार के प्रोत्साहन आमतौर पर देती है?", "options": ["capex incentives, PLI schemes और land/utility support", "केवल consumer-subsidy vouchers", "retail sales tax exemption for imported gadgets only", "exclusive reliance on tariffs without capital incentives"], "answer_index": 0, "explanation": "# व्याख्या — Semiconductor / Display manufacturing के लिए प्राथमिक नीति-प्रोत्साहन (केवल सही concept: capex incentives, PLI schemes, land/utility support)\n**सारांश:** केंद्र और राज्यों की नीतियाँ परोक्ष व प्रत्यक्ष निवेश-उन्मुख प्रोत्साहन देती हैं जिसका मुख्य तत्त्व हैं — पूँजीगत व्यय (capex) पर सहायता, प्रदर्शन-आधारित प्रोत्साहन (PLI) और भूमि व उपयोगिताएँ (land/utility) सुभिधाएँ।\n1. सरकारें पूँजीगत व्यय (capex) के लिए प्रत्यक्ष सहायता देती हैं ताकि फैक्ट्रियों, क्लीनरूम और उपकरण पर होने वाले उच्च प्रारम्भिक निवेश का बोझ घटे।\n2. capex incentives में अक्सर निवेश की एक प्रतिशत-आधार पर या निर्धारित लागत मदों के लिए सह-फंडिंग/सब्सिडी शामिल होती है जिससे परियोजना की शुरुआत सुलभ हो।\n3. प्रदर्शन-आधारित प्रोत्साहन (PLI) योजनाओं का उद्देश्य निर्मित मूल्य और निर्यात/आयात-प्रतिस्थापन के आधार पर चरणबद्ध नकद वापसी या अनुदान देना होता है।\n4. PLI सहायता सामान्यत: परियोजना के प्रदर्शन, उत्पादन लक्ष्य और पर्यटक-समय अवधि में मील के पत्थर पूरे होने पर दी जाती है — ताकि निवेश सतत और परिणाम-उन्मुख बनें।\n5. भूमि-सहायता में औद्योगिक पार्क/ईकोसिस्टम में सस्ती/लम्बी-अवधि की जमीन आवंटन, प्लॉट सब्सिडी या विकसित औद्योगिक स्पेस उपलब्ध कराना शामिल होता है।\n6. उपयोगिता-सहायता में कम दर की बिजली, जलापूर्ति, जल अपशिष्ट प्रबंधन और कनेक्टिविटी (रोड/रॉ/लॉजिस्टिक्स) के प्राथमिक सुविधाजनक नियम शामिल होते हैं।\n7. राज्य-स्तरीय नीतियाँ एक-खिड़की मंजूरी, पर्यावरण/निर्माण clearances में प्राथमिकता और संरचित भूमि-होल्डिंग/लीज़ प्रतिबद्धताएँ देते हैं ताकि समय पर संचालन शुरू हो सके।\n8. इन प्रोत्साहनों का ढाँचा अक्सर कई वर्षों के लिए तय होता है (एम्पेयरिंग अवधि), जिससे निवेशक को परियोजना के जीवनचक्र में वित्तीय पारदर्शिता और पूर्वानुमान मिलता है।\n9. नीति इकोसिस्टम में कुल मिलाकर लक्ष्य यह है कि उच्च प्रारम्भिक capex जोखिम घटे, उत्पादन-वृद्धि को प्रोत्साहन मिले और आपूर्ति श्रृंखला (जैसे ATMP/OSAT सेवाएँ) का स्थानीय विकास हो।\n10. राज्य व केंद्र मिलकर जमीन/इन्फ्रास्ट्रक्चर-पर आधारित सिंगल-स्टॉप ईकोसिस्टम बनाते हैं ताकि फॅब्रिकेशन, टेस्टिंग, असेंबली तथा डिस्प्ले उत्पादन का क्लस्टरत्व स्थापित हो सके।\n11. इन प्रोत्साहनों के साथ अक्सर स्थानीय कौशल विकास, रोजगार-निर्देश और अनुबंधित आपूर्तिकर्ताओं के साथ linkages पर भी शर्तें रखी जाती हैं ताकि आय-उत्पादन लाभ क्षेत्रीय रूप से दृश्यमान हों।\n(उपरोक्त बिंदु सीधे MPPSC प्रीलिम्स और मेन्स GS उत्तर-लेखन में उपयोग के लिए संक्षिप्त, परीक्षा-उन्मुख तथ्यों पर केंद्रित हैं।)", "priority_tag": "HIGH"}, {"question": "Global OSAT supply chain का एक बड़ा advantage क्या है जो developing regions को आकर्षित करता है?", "options": ["Lower initial capital requirement और local manufacturing jobs की क्षमता", "अत्यधिक EUV infrastructure की आवश्यकता", "सिर्फ़ wafer fab talent की अनिवार्यता", "Strict IP restrictions जो local innovation रोकते हैं"], "answer_index": 0, "explanation": "# व्याख्या — Global OSAT supply chain का विकासीय क्षेत्रों के लिए प्रमुख लाभ\n**सही अवधारणा:** Lower initial capital requirement और local manufacturing jobs की क्षमता\n- OSAT (Outsourced Semiconductor Assembly and Test) सुविधाएँ फुल-फ्लेज्ड fabs की तुलना में कम पूंजीगत निवेश (CAPEX) पर स्थापित की जा सकती हैं।\n- पैकेजिंग और टेस्टिंग जैसे OSAT चरण औद्योगिक-उपकरण पर निर्भर होते हुए भी अपेक्षाकृत सस्ता और मॉड्यूलर निवेश माँगते हैं, जिससे चरणबद्ध विस्तार सम्भव होता है।\n- कम प्रारम्भिक निवेश होने से developing regions में छोटे-मध्यम उद्योग और स्थानीय उद्यमी भी निर्मितियाँ शुरू कर सकते हैं, जिससे निवेश बाधा घटती है।\n- OSAT ऑपरेशंस श्रम-सघन होते हैं; assembly और testing में सीधे स्थानीय अस्थायी और स्थायी रोजगार पैदा होते हैं।\n- स्थानीय कार्यबल के लिए व्यावहारिक प्रशिक्षण और स्किल-अपग्रेडेशन के अवसर बनते हैं, जिससे मानव पूँजी का विकास और दीर्घकालिक उत्पादकता बढ़ती है।\n- OSAT इकाइयों के आने से स्थानीय सप्लायर नेटवर्क (packaging materials, testing tools, logistics, maintenance) विकसित होते हैं और अप्रत्यक्ष रोजगार सृजित होते हैं।\n- कम प्रारम्भिक जोखिम और त्वरित संचालन-आरंभ की वजह से क्षेत्रीय शासन और विकास एजेंसियाँ अनुदान/टैक्स छुट/भूमि सुविधा जैसी प्रोत्साहन देने में सक्षम होती हैं, जिससे निवेश आकर्षित होता है।\n- OSAT क्लस्टर बनने पर सीमांत लागत घटती है (economies of scale & scope) और वैश्विक ऑर्डर बुक मिलने से निर्यात-आधारित आय में तेजी आ सकती है।\n- वैश्विक OSAT नेटवर्क में जुड़ने से developing regions को टेक्नोलॉजी ट्रांसफर, गुणवत्ता मानक और अंतरराष्ट्रीय आपूर्ति श्रृंखला के साथ तालमेल बनानें का अवसर मिलता है।\n- कम CAPEX और तेज़ ROI की वजह से विदेशी निवेशक और OEMs स्थानीय OSAT पार्टनरों के साथ पार्टनरशिप/आउटसोर्सिंग कर सकते हैं, जिससे FDI तथा स्थानीय उद्योग जगत दोनों को लाभ होता है।\n- कुल मिलाकर, Lower initial capital requirement और स्थानीय रोजगार सृजन का संयोजन developing regions को OSAT निवेश के लिए व्यावहारिक और आकर्षक बनाता है।", "priority_tag": "HIGH"}, {"question": "Semiconductor packaging में 'testability' बढ़ाने के लिए किस प्रक्रिया का उपयोग किया जाता है?", "options": ["Built-In Self Test (BIST) और standardized test interfaces", "user-level application profiling", "marketing feedback loops", "packaging पर glossy finishing"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस चुनावी/राजनीतिक निर्णय से राज्यों को semiconductor ATMP/OSAT इकाइयाँ आकर्षित करने में आसानी होती है?", "options": ["स्थानीय निवेश-प्रोत्साहन, तेज़ approvals और skill development programs", "सिर्फ़ import tariffs बढ़ाना बिना local incentives के", "consumer electronics पर retail restrictions लगाना", "विनिर्माण पर blanket export ban लगाना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "Semiconductor इकोसिस्टम में 'supply chain resilience' बढ़ाने के लिए किस रणनीति का उपयोग वैश्विक रूप से अपनाया जा रहा है?", "options": ["geographic diversification of fabs और regional ATMP hubs", "सभी manufacturing को एक ही country में केंद्रित करना", "purely software-based solutions पर निर्भर रहना", "retail trade को बंद करना"], "answer_index": 0, "explanation": "# व्याख्या: Geographic diversification of fabs और regional ATMP hubs — सप्लाई चेन रेजिलिएंस बढ़ाने की रणनीति\n- Geographic diversification का अर्थ है semiconductor fabs (manufacturing plants) और ATMP (Assembly, Testing, Marking & Packaging) hubs को भूगोलिक रूप से फैलाना ताकि उत्पादन और आपूर्ति किसी एक क्षेत्र पर निर्भर न रहे।\n- इस रणनीति से किसी एक देश/क्षेत्र में आपदा, राजनीतिक तनाव या लॉजिस्टिक बाधा के कारण पूरी ग्लोबल सप्लाई लाइन ठप होने का जोखिम घटता है।\n- ATMP hubs स्थानीय/क्षेत्रीयस्तर पर बिना उच्च-वित्तीय निवेश वाले फाउंड्री निर्माण के शीघ्र उत्पादन-समाधान उपलब्ध कराते हैं; यह lead time और शिपिंग लागत दोनों कम करता है।\n- विविधीकरण से critical inputs (wafer, testing equipment, specialty chemicals) के स्रोत भी कई देशों/क्लस्टरों में बांट दिए जाते हैं, जिससे single-point failure की सम्भावना कम होती है।\n- क्षेत्रीय ATMP hubs के समेकन से छोटे और मझौले आईसी डिजाइनर्स तथा OSAT (Outsourced Semiconductor Assembly and Test) कंपनियों को त्वरित प्रोटोटाइप और स्केल-अप सुविधाएँ मिलती हैं; इससे इन्वेंशन से मार्केट तक का समय घटता है।\n- नीति-स्तर पर यह रणनीति निवेश प्रोत्साहन, विशेष आर्थिक क्षेत्र/इंदस्ट्रियल क्लस्टर, टैरिफ/नॉन-टैरिफ बाधाओं का समन्वित प्रबंधन और अन्तर-क्षेत्रीय लॉजिस्टिक्स इंफ्रास्ट्रक्चर के निर्माण पर निर्भर होती है।\n- सप्लाई चेन रेजिलिएंस का आकलन lead time variation, alternate supplier उपलब्धता, और उत्पादन कट-ऑफ के समय में सुधार से किया जाता है; geographic diversification इन सूचककों को सुधारता है।\n- भारत जैसे देशों के लिए regional ATMP hubs स्थानीय रोजगार, MSME इकोसिस्टम को जोड़ने और आयात-आधार घटाने के साधन हैं; साथ ही यह घरेलू design-to-production linkage मजबूत करता है।\n- इस रणनीति को प्रभावी बनाने के लिए क्षेत्रीय क्लस्टर के पास skilled workforce, testing certification labs, टेस्ट-एंड-क्वालिटी इन्फ्रास्ट्रक्चर तथा पर्यावरण/सीवेज प्रबंधन जैसी सहायक सेवाएँ अनिवार्य हैं।\n- अंतर-सरकारी समन्वय (केंद्र-राज्य/प्रदेश) और सार्वजनिक-निजी हिस्सेदारी मॉडल निवेश की प्राथमिकताओं, भूमि उपलब्धता और लॉजिस्टिक कनेक्टिविटी सुनिश्चित करते हैं।\n- अंततः geographic diversification + regional ATMP hubs का संयोजन रॉ मटेरियल व वैल्यू-एडेड स्टेजेज दोनों में बैक-अप विकल्प उपलब्ध कराकर ग्लोबल semiconductor सप्लाई चेन की अधिरक्षणीयता (resilience) बढ़ाता है।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

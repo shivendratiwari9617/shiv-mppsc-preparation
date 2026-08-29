@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-025 – कंप्यूटिंग—बिट/बाइट/प्रोसेसर/मेमोरी—आधार</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-025 – कंप्यूटिंग—बिट/बाइट/प्रोसेसर/मेमोरी—आधार</h1>
+        <div class="note">क्षेत्र: Fundamentals | सामग्री: CPU–RAM–Storage—हाई-लेवल समझ; सवालों का बेस। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 15-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- कंप्यूटिंग के आधार—**बिट/बाइट/प्रोसेसर/मेमोरी**—को समझना अनिवार्य है क्योंकि एक बिट सूचना का सबसे छोटा इकाई होता है (0/1), 8 बिट मिलकर एक बाइट बनाते हैं जिससे डेटा आकार मापा जाता है; यह Prelims के वस्तुनिष्ठ और Mains के उच्च-स्तरीय तकनीकी प्रश्नों दोनों के लिए मूलभूत है।  
+- CPU–RAM–Storage का high-level मॉडल जरूरी है: CPU निर्देशों को निष्पादित करता है (fetch-decode-execute चक्र), RAM अस्थायी डेटा रखता है (volatile), और स्टोरेज दीर्घकालिक भंडारण प्रदान करता है (non-volatile); MPPSC में इन अवधारणाओं पर नीति और अनुप्रयोग आधारित प्रश्न आते हैं।
+
+# अवधारणा / विज्ञान-आधार
+- बिट और बाइट: कम्प्यूटिंग में सूचना द्विआधारी स्वरूप में होती है; 1 बाइट = 8 बिट, और मेमोरी क्षमता आमतौर पर बाइट-आधारित यूनिट (KB, MB, GB, TB) में मापी जाती है — इसका अर्थ है कि डेटा संरचनाओं और स्टोरेज लागत का आकलन बाइट-लेवल पर होता है।  
+- प्रोसेसर (CPU) का मूल: CPU का एक क्लॉक-चक्र (GHz में मापा) प्रोसेसर को एक या अधिक निर्देशों का हिस्सा निष्पादित करने का समय देता है; आधुनिक CPUs में multiple cores और hyper-threading होते हैं जिससे concurrent execution और throughput बढ़ता है।  
+- निर्देश-पाइपलाइन और cache: CPU के अंदर fetch-decode-execute पाइपलाइन और L1/L2/L3 cache होते हैं; cache latency DRAM से कई गुना कम होती है, इसलिए cache hit-rate बढ़ाने से प्रदर्शन पर बड़ा प्रभाव पड़ता है।  
+- मेमोरी हाइरार्की: fastest-to-slowest — register &gt; L1/L2 cache &gt; RAM (DRAM) &gt; SSD/HDD &gt; नेटवर्क स्टोरेज; इस hierarchy का उद्देश्य latency कम करना और throughput बढ़ाना है, जो सिस्टम डिजाइन और एप्लिकेशन के प्रदर्शन का प्राथमिक निर्धारक है।  
+- RAM की प्रकृति: DRAM volatile है — पावर जाने पर डेटा खो जाता है — इसलिए OS और applications के लिए volatile working memory के रूप में उपयोग होता है; persistent storage के लिए SSD/NAND flash का प्रयोग होता है जो non-volatile है और write-cycle सीमाएँ रखता है।  
+- स्टोरेज टेक्नोलॉजी समझ: HDD में magnetic platters से data जुटता है (sequential throughput बेहतर), जबकि SSD में NAND flash और controller होते हैं (random I/O बेहतर); इसलिए database workloads में SSD latency और IOPS पर बड़ा लाभ देती है।  
+- आर्किटेक्चर का सिद्धांत: von Neumann vs Harvard — सामान्य-purpose CPUs von Neumann architecture अपनाते हैं जहाँ instructions और data समान memory bus साझा करते हैं; embedded systems/MCUs में कभी-कभी Harvard आर्किटेक्चर performance हेतु उपयोग होता है।
+
+# अनुप्रयोग और व्यवहारिक प्रभाव
+- OS और memory management: OS virtual memory, paging और memory protection के माध्यम से applications को isolated address spaces देता है; swap/page faults होने पर performance घटती है क्योंकि disk I/O बहुत धीमा होता है बनाम RAM।  
+- CPU scheduling और multicore: Modern OSs scheduler को core affinity और context-switching के आधार पर design करते हैं; multi-core systems में parallelism से latency-sensitive और throughput-oriented workloads का संतुलन आवश्यक होता है।  
+- Cloud/Datacenter पर निहितार्थ: Datacenter में CPU नॉइज़, RAM capacity और storage I/O bottlenecks प्रमुख लागत-केंद्र हैं; virtualization/hypervisor layers CPU cycles और memory को multiple VMs में multiplex कर देते हैं, जिससे resource overcommit और noisy-neighbor प्रभाव आते हैं।  
+- मोबाइल/IoT पर constraints: मोबाइल SoC में CPU, GPU और low-power RAM का संयोजन होता है; battery-constrained environments में low-power modes और flash storage की endurance नीति-निर्धारण के लिए महत्वपूर्ण हैं।  
+- सुरक्षा और integrity: Memory-safety bugs (buffer overflow) CPU/memory interaction के कारण होते हैं; hardware mitigations (NX bit, ASLR) और firmware-level updates जरूरी हैं — देश स्तर पर critical infrastructure (e.g., ISRO ground systems) के लिए नियमित security audits मांगता है।
+
+# नीति / संस्थागत संरचना और भारत संदर्भ
+- अनुसंधान एवं विकास: भारत में DST/MeitY जैसे एजेंसियाँ फाउंडेशनल कंप्यूटिंग रिसर्च और semiconductors पर मार्गदर्शन देती हैं; राष्ट्रीय नीतियाँ Make-in-India semiconductor ecosystem और chipset design capabilities को बढ़ावा देती हैं, जो CPU और memory supply-chain resilience के लिए आवश्यक है।  
+- शिक्षा और कौशल: NCERT स्तर से लेकर higher-education तक computing fundamentals (bits/bytes, memory models) का समावेश IT literacy के लिए अनिवार्य है; राज्य-स्तर पर तकनीकी पाठ्यक्रमों में hardware-software co-design जोड़ने से employability बढ़ेगी।  
+- e-waste और lifecycle governance: storage और memory आधारित उपकरणों के लिए e-waste नियम (E-Waste Management Rules) लागू होते हैं; नीतिगत उपायों में producer responsibility और device recycling शामिल करना चाहिए क्योंकि NAND/PCB में दुर्लभ धातुएँ होती हैं।  
+- सार्वजनिक स्वास्थ्य और डिजिटल सेवाएँ: स्वास्थ्य-डेटा के लिए storage encryption और in-transit protections CPU और storage I/O पर अतिरिक्त overhead लगाते हैं; MoHFW जैसे संस्थानों के लिए data-at-rest encryption और secure key management अनिवार्य हैं ताकि patient confidentiality बनी रहे।
+
+# चुनौतियाँ / जोखिम
+- हार्डवेयर सप्लाई-चेन और आत्मनिर्भरता: Global semiconductor supply constraints से CPU और memory availability प्रभावित होती है; परिणामस्वरूप राष्ट्रीय सुरक्षा और critical services पर असर पड़ सकता है।  
+- ऊर्जा और थर्मल सीमाएँ: high-performance CPUs और DRAM high power consumption और heat dissipation उत्पन्न करते हैं; दीर्घकाल में energy-efficient architectures (ARM, RISC-V) तथा cooling/thermal management जरूरी हैं।  
+- स्केलेबिलिटी बनाम सुरक्षितता trade-off: Multi-core और distributed memory systems performance बढाते हैं पर synchronization bugs और side-channel attacks (Spectre/Meltdown जैसे) का खतरा बढ़ाते हैं; hardware-software co-design में सुरक्षा-first approach आवश्यक है।  
+- डिजिटल विभाजन: RAM/Storage-समृद्ध डिवाइस तक पहुंच नहीं होने पर सरकारी डिजिटल-सेवाओं का लाभ सीमित हो जाता है; यह सामाजिक-आर्थिक असमानता को बढ़ा सकता है, अतः low-cost computing initiatives ज़रूरी हैं।
+
+# समाधान / way forward
+- निवेश और आत्मनिर्भरता: देश को semiconductor design, memory fab और packaging में लक्ष्य-आधारित निवेश और DST/MeitY के साथ public-private partnerships द्वारा समर्थन चाहिए ताकि CPU–RAM–Storage supply-chain लचीली बने।  
+- शिक्षा और कौशल उन्नयन: स्कूल/कॉलेज स्तर पर bit/byte और system architecture के प्रयोगात्मक labs तथा ग्रामीण क्षेत्रों में low-cost computing platforms (e.g., single-board computers) से व्यापक तकनीकी साक्षरता बढ़ेगी।  
+- ऊर्जा-कुशल डिज़ाइन और वैकल्पिक आर्किटेक्चर: RISC-V जैसे open ISA और heterogeneous computing (GPU/TPU/ASIC) adoption से performance-per-watt बढ़ेगा; सरकारी अनुदान से such research को प्रोत्साहन मिले।  
+- सुरक्षा और lifecycle governance: hardware-rooted security features, standardized encryption for storage, और मजबूत e-waste नियमों के साथ reverse-logistics सुनिश्चित करना चाहिए — परिणामस्वरूप national data security और environmental protection दोनों सुदृढ़ होंगे।
+
+# निष्कर्ष
+- सारांशतः बिट/बाइट से लेकर प्रोसेसर, RAM और स्टोरेज तक की समझ कंप्यूटिंग की रीढ़ है; यह सिद्धांतात्मक (fetch-decode-execute, memory hierarchy) और व्यावहारिक (SSD vs HDD, cache latency, DRAM volatility) दोनों स्तरों पर नीति और सामाजिक-आर्थिक प्रभावों से जुड़ी है।  
+- आगे की दिशा में India-centric semiconductor capability, ऊर्जा-कुशल आर्किटेक्चर, शिक्षा और मजबूत governance के साथ CPU–RAM–Storage के क्षेत्र में आत्मनिर्भरता और सुरक्षा सुनिश्चित करके दीर्घकालिक तकनीकी संप्रभुता हासिल की जा सकती है।  
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-025 – कंप्यूटिंग—बिट/बाइट/प्रोसेसर/मेमोरी—आधार", "coverage_note": "क्षेत्र: Fundamentals | सामग्री: CPU–RAM–Storage—हाई-लेवल समझ; सवालों का बेस। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n- कंप्यूटिंग के आधार—**बिट/बाइट/प्रोसेसर/मेमोरी**—को समझना अनिवार्य है क्योंकि एक बिट सूचना का सबसे छोटा इकाई होता है (0/1), 8 बिट मिलकर एक बाइट बनाते हैं जिससे डेटा आकार मापा जाता है; यह Prelims के वस्तुनिष्ठ और Mains के उच्च-स्तरीय तकनीकी प्रश्नों दोनों के लिए मूलभूत है।  \n- CPU–RAM–Storage का high-level मॉडल जरूरी है: CPU निर्देशों को निष्पादित करता है (fetch-decode-execute चक्र), RAM अस्थायी डेटा रखता है (volatile), और स्टोरेज दीर्घकालिक भंडारण प्रदान करता है (non-volatile); MPPSC में इन अवधारणाओं पर नीति और अनुप्रयोग आधारित प्रश्न आते हैं।\n\n# अवधारणा / विज्ञान-आधार\n- बिट और बाइट: कम्प्यूटिंग में सूचना द्विआधारी स्वरूप में होती है; 1 बाइट = 8 बिट, और मेमोरी क्षमता आमतौर पर बाइट-आधारित यूनिट (KB, MB, GB, TB) में मापी जाती है — इसका अर्थ है कि डेटा संरचनाओं और स्टोरेज लागत का आकलन बाइट-लेवल पर होता है।  \n- प्रोसेसर (CPU) का मूल: CPU का एक क्लॉक-चक्र (GHz में मापा) प्रोसेसर को एक या अधिक निर्देशों का हिस्सा निष्पादित करने का समय देता है; आधुनिक CPUs में multiple cores और hyper-threading होते हैं जिससे concurrent execution और throughput बढ़ता है।  \n- निर्देश-पाइपलाइन और cache: CPU के अंदर fetch-decode-execute पाइपलाइन और L1/L2/L3 cache होते हैं; cache latency DRAM से कई गुना कम होती है, इसलिए cache hit-rate बढ़ाने से प्रदर्शन पर बड़ा प्रभाव पड़ता है।  \n- मेमोरी हाइरार्की: fastest-to-slowest — register > L1/L2 cache > RAM (DRAM) > SSD/HDD > नेटवर्क स्टोरेज; इस hierarchy का उद्देश्य latency कम करना और throughput बढ़ाना है, जो सिस्टम डिजाइन और एप्लिकेशन के प्रदर्शन का प्राथमिक निर्धारक है।  \n- RAM की प्रकृति: DRAM volatile है — पावर जाने पर डेटा खो जाता है — इसलिए OS और applications के लिए volatile working memory के रूप में उपयोग होता है; persistent storage के लिए SSD/NAND flash का प्रयोग होता है जो non-volatile है और write-cycle सीमाएँ रखता है।  \n- स्टोरेज टेक्नोलॉजी समझ: HDD में magnetic platters से data जुटता है (sequential throughput बेहतर), जबकि SSD में NAND flash और controller होते हैं (random I/O बेहतर); इसलिए database workloads में SSD latency और IOPS पर बड़ा लाभ देती है।  \n- आर्किटेक्चर का सिद्धांत: von Neumann vs Harvard — सामान्य-purpose CPUs von Neumann architecture अपनाते हैं जहाँ instructions और data समान memory bus साझा करते हैं; embedded systems/MCUs में कभी-कभी Harvard आर्किटेक्चर performance हेतु उपयोग होता है।\n\n# अनुप्रयोग और व्यवहारिक प्रभाव\n- OS और memory management: OS virtual memory, paging और memory protection के माध्यम से applications को isolated address spaces देता है; swap/page faults होने पर performance घटती है क्योंकि disk I/O बहुत धीमा होता है बनाम RAM।  \n- CPU scheduling और multicore: Modern OSs scheduler को core affinity और context-switching के आधार पर design करते हैं; multi-core systems में parallelism से latency-sensitive और throughput-oriented workloads का संतुलन आवश्यक होता है।  \n- Cloud/Datacenter पर निहितार्थ: Datacenter में CPU नॉइज़, RAM capacity और storage I/O bottlenecks प्रमुख लागत-केंद्र हैं; virtualization/hypervisor layers CPU cycles और memory को multiple VMs में multiplex कर देते हैं, जिससे resource overcommit और noisy-neighbor प्रभाव आते हैं।  \n- मोबाइल/IoT पर constraints: मोबाइल SoC में CPU, GPU और low-power RAM का संयोजन होता है; battery-constrained environments में low-power modes और flash storage की endurance नीति-निर्धारण के लिए महत्वपूर्ण हैं।  \n- सुरक्षा और integrity: Memory-safety bugs (buffer overflow) CPU/memory interaction के कारण होते हैं; hardware mitigations (NX bit, ASLR) और firmware-level updates जरूरी हैं — देश स्तर पर critical infrastructure (e.g., ISRO ground systems) के लिए नियमित security audits मांगता है।\n\n# नीति / संस्थागत संरचना और भारत संदर्भ\n- अनुसंधान एवं विकास: भारत में DST/MeitY जैसे एजेंसियाँ फाउंडेशनल कंप्यूटिंग रिसर्च और semiconductors पर मार्गदर्शन देती हैं; राष्ट्रीय नीतियाँ Make-in-India semiconductor ecosystem और chipset design capabilities को बढ़ावा देती हैं, जो CPU और memory supply-chain resilience के लिए आवश्यक है।  \n- शिक्षा और कौशल: NCERT स्तर से लेकर higher-education तक computing fundamentals (bits/bytes, memory models) का समावेश IT literacy के लिए अनिवार्य है; राज्य-स्तर पर तकनीकी पाठ्यक्रमों में hardware-software co-design जोड़ने से employability बढ़ेगी।  \n- e-waste और lifecycle governance: storage और memory आधारित उपकरणों के लिए e-waste नियम (E-Waste Management Rules) लागू होते हैं; नीतिगत उपायों में producer responsibility और device recycling शामिल करना चाहिए क्योंकि NAND/PCB में दुर्लभ धातुएँ होती हैं।  \n- सार्वजनिक स्वास्थ्य और डिजिटल सेवाएँ: स्वास्थ्य-डेटा के लिए storage encryption और in-transit protections CPU और storage I/O पर अतिरिक्त overhead लगाते हैं; MoHFW जैसे संस्थानों के लिए data-at-rest encryption और secure key management अनिवार्य हैं ताकि patient confidentiality बनी रहे।\n\n# चुनौतियाँ / जोखिम\n- हार्डवेयर सप्लाई-चेन और आत्मनिर्भरता: Global semiconductor supply constraints से CPU और memory availability प्रभावित होती है; परिणामस्वरूप राष्ट्रीय सुरक्षा और critical services पर असर पड़ सकता है।  \n- ऊर्जा और थर्मल सीमाएँ: high-performance CPUs और DRAM high power consumption और heat dissipation उत्पन्न करते हैं; दीर्घकाल में energy-efficient architectures (ARM, RISC-V) तथा cooling/thermal management जरूरी हैं।  \n- स्केलेबिलिटी बनाम सुरक्षितता trade-off: Multi-core और distributed memory systems performance बढाते हैं पर synchronization bugs और side-channel attacks (Spectre/Meltdown जैसे) का खतरा बढ़ाते हैं; hardware-software co-design में सुरक्षा-first approach आवश्यक है।  \n- डिजिटल विभाजन: RAM/Storage-समृद्ध डिवाइस तक पहुंच नहीं होने पर सरकारी डिजिटल-सेवाओं का लाभ सीमित हो जाता है; यह सामाजिक-आर्थिक असमानता को बढ़ा सकता है, अतः low-cost computing initiatives ज़रूरी हैं।\n\n# समाधान / way forward\n- निवेश और आत्मनिर्भरता: देश को semiconductor design, memory fab और packaging में लक्ष्य-आधारित निवेश और DST/MeitY के साथ public-private partnerships द्वारा समर्थन चाहिए ताकि CPU–RAM–Storage supply-chain लचीली बने।  \n- शिक्षा और कौशल उन्नयन: स्कूल/कॉलेज स्तर पर bit/byte और system architecture के प्रयोगात्मक labs तथा ग्रामीण क्षेत्रों में low-cost computing platforms (e.g., single-board computers) से व्यापक तकनीकी साक्षरता बढ़ेगी।  \n- ऊर्जा-कुशल डिज़ाइन और वैकल्पिक आर्किटेक्चर: RISC-V जैसे open ISA और heterogeneous computing (GPU/TPU/ASIC) adoption से performance-per-watt बढ़ेगा; सरकारी अनुदान से such research को प्रोत्साहन मिले।  \n- सुरक्षा और lifecycle governance: hardware-rooted security features, standardized encryption for storage, और मजबूत e-waste नियमों के साथ reverse-logistics सुनिश्चित करना चाहिए — परिणामस्वरूप national data security और environmental protection दोनों सुदृढ़ होंगे।\n\n# निष्कर्ष\n- सारांशतः बिट/बाइट से लेकर प्रोसेसर, RAM और स्टोरेज तक की समझ कंप्यूटिंग की रीढ़ है; यह सिद्धांतात्मक (fetch-decode-execute, memory hierarchy) और व्यावहारिक (SSD vs HDD, cache latency, DRAM volatility) दोनों स्तरों पर नीति और सामाजिक-आर्थिक प्रभावों से जुड़ी है।  \n- आगे की दिशा में India-centric semiconductor capability, ऊर्जा-कुशल आर्किटेक्चर, शिक्षा और मजबूत governance के साथ CPU–RAM–Storage के क्षेत्र में आत्मनिर्भरता और सुरक्षा सुनिश्चित करके दीर्घकालिक तकनीकी संप्रभुता हासिल की जा सकती है।  \n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: PIB / MoHFW / DST (आधिकारीक पोर्टल)", "mcqs": [{"question": "कंप्यूटिंग में 'बिट' (bit) किसका संक्षेप है और उसका प्राथमिक अर्थ क्या है?", "options": ["Binary Digit — जानकारी का सबसे छोटा एकल बाइनरी यूनिट (0 या 1)", "Basic Integer Type — प्रोसेसर का प्राथमिक पूर्णांक प्रकार", "Binary Token — नेटवर्क पैकेट का एक घटक", "Byte Transmission — एक बाइट के ट्रांसमिशन का समय"], "answer_index": 0, "explanation": "# व्याख्या: 'बिट' (bit) — Binary Digit — जानकारी का सबसे छोटा एकल बाइनरी यूनिट (0 या 1)\n- बिट का पूरा नाम \"Binary Digit\" है; यह किसी सूचना का सबसे छोटा मापन इकाई है और केवल दो मान ले सकता है: 0 या 1।\n- कम्प्यूटिंग में प्रत्येक बिट किसी बाइनरी स्थिति (on/off, true/false) का प्रतिनिधित्व करता है; यही डिजिटल जानकारी का मूल स्तर है।\n- बाइट में 8 बिट होते हैं; बाइट कंप्यूटर मेमोरी और स्टोरेज की सामान्य इकाई है, इसलिए बिट×8 = बाइट मूल रूप से मापन मानक है।\n- प्रोसेसर और मेमोरी में डाटा संरचना और पता निर्दिष्ट करने के लिए बिट-पैटर्न का उपयोग होता है; उदाहरण: पता (address) बाइनरी बिटों के रूप में संग्रहीत होता है।\n- बिट-स्तर पर संचालन (bitwise operations) जैसे AND, OR, XOR कंप्यूटिंग के निम्न-स्तरीय गणनात्मक और तर्कात्मक कार्यों के आधार हैं।\n- भौतिक रूप में बिट्स को इलेक्ट्रॉनिक सर्किट में वोल्टेज स्तर (उच्च/निम्न), ट्रांजिस्टर स्थिति या स्टोरेज सेल के रूप में निरुपित किया जाता है।\n- सूचना का मात्रा मापन अक्सर बिट्स/सेकंड (bit/s) में होता है; नेटवर्क बैंडविड्थ और डेटा ट्रांसमिशन की क्षमता इसी पर निर्भर करती है।\n- एनकोडिंग/रिप्रेजेंटेशन में बिट पैटर्न का अर्थ निर्धारित होता है — अक्षर, संख्या, चित्र और ध्वनि सब बाइनरी बिट्स के संयोजन से बनते हैं।\n- बिट की सटीकता और विश्वसनीयता के कारण ही डिजिटल सिस्टम त्रुटि-नियंत्रण, एन्क्रिप्शन और डेटा समेकन (compression) की तकनीकें संभव होती हैं।\n- MPPSC Mains के उत्तर में सीधे उपयोग के लिए: \"बिट — Binary Digit: सूचना का सबसे छोटा बाइनरी यूनिट (0/1), बाइट = 8 बिट; प्रोसेसर, मेमोरी और नेटवर्क की मूल इकाई\" — यह संक्षेपित, तथ्यपरक और सटीक वाक्यामी उद्देश्य पूरा करेगा।", "priority_tag": "VERY_HIGH"}, {"question": "कंप्यूटर में एक 'बाइट' (byte) सामान्यतः कितने बिट्स से बना होता है?", "options": ["4 बिट्स", "8 बिट्स", "16 बिट्स", "32 बिट्स"], "answer_index": 1, "explanation": "# प्रश्न (संक्षेप): कंप्यूटर में एक **बाइट (byte)** सामान्यतः कितने बिट्स से बना होता है?\n**सही उत्तर:** 8 बिट्स\n- बिट (bit) वह सबसे छोटी सूचना इकाई है जो दो मान ले सकती है: 0 या 1; एक बाइट इन बिट्स का समूह है।\n- सामान्य रूप से एक बाइट = **8 बिट्स**; यह कंप्यूटिंग में मानक नाप का प्राथमिक ब्लॉक माना जाता है।\n- एक बाइट का प्रयोग अक्सर एक्लेक्सिक कैरेक्टर (जैसे ASCII में एक अक्षर) को कोड करने के लिए किया जाता है; इसलिए टेक्स्ट प्रतिनिधित्व का बेसिक यूनिट है।\n- कंप्यूटर मेमोरी और स्टोरेज की गणना बाइट के गुणों पर आधारित होती है — किलोबाइट, मेगाबाइट आदि बाइट के गुणनफल हैं।\n- अधिकांश प्रोसेसर और मेमोरी आर्किटेक्चर में एक बाइट कई बार सबसे छोटी addressable इकाई होती है — यानी मेमोरी को बाइट के आधार पर निर्देशित/पढ़ा/लिखा जाता है।\n- एक बाइट के 8 बिट्स होने का अर्थ है कि एक बाइट में 2^8 = 256 भिन्न मान (0–255) दर्शाए जा सकते हैं।\n- बाइट के 8-बिट होने से ही नंबर्स, कैरेक्टर्स और छोटे डेटा फ़ील्ड्स का स्थिर और संगत रिप्रजेंटेशन संभव होता है।\n- नेटवर्किंग, फ़ाइल आकार और डाटा-बैंडविड्थ की गणनाएँ बाइट और उसके बहुगुणक (KB, MB) पर आधारित होती हैं; इसलिए बाइट का अर्थ जानना बेसिक स्किल है।\n- सॉफ्टवेयर डेवलपमेंट व सिस्टम डिज़ाइन में मेमोरी आवंटन और डेटा टाइप्स की समझ बाइट यूनिट पर निर्भर करती है।\n- परीक्षा/मेनिस उत्तर लेखन में यह बिंदु संक्षेप में लिखें: \"बाइट = 8 बिट्स; एक बाइट 256 संभावित मान दर्शाता है; आमतौर पर एक कैरेक्टर का प्रतिनिधि यूनिट।\"", "priority_tag": "VERY_HIGH"}, {"question": "कंप्यूटर मेमोरी की परिभाषा के संदर्भ में 'वोलाटाइल' (volatile) मेमोरी का क्या अर्थ है?", "options": ["पावर बंद होने पर भी डाटा स्थायी रहता है", "पावर बंद होने पर डाटा मिट जाता है", "केवल रीड ओपरेशन की अनुमति देती है", "नेटवर्क से जुड़ी हुई मेमोरी होती है"], "answer_index": 1, "explanation": "# व्याख्या — 'वोलाटाइल' मेमोरी (volatile memory) का अर्थ\n**सार**: वोलाटाइल मेमोरी वह प्रकार की कंप्यूटर मेमोरी है जिसमें पावर कट होते ही संग्रहीत डेटा स्थायी रूप से नष्ट या हर्टेबल हो जाता है।\n- वोलाटाइल मेमोरी में सूचना केवल तब तक रहती है जब तक उसे बिजली (power) उपलब्ध रहती है।\n- पावर आपूर्ति बंद होते ही वोलाटाइल मेमोरी में जमा सभी बिट्स का मान (0/1) मिट जाता है या अप्राप्य हो जाता है।\n- वोलाटाइल मेमोरी का प्रमुख उपयोग अस्थायी डेटा भंडारण के लिए होता है, जैसे प्रोग्राम का रनटाइम डेटा और प्रोसेसर के साथ कार्य करते समय आवश्यक त्वरित एक्सेस डेटा।\n- RAM (Random Access Memory) वोलाटाइल मेमोरी का सामान्य उदाहरण है; इसमें स्टोर किए गए डेटा को कंप्यूटर बंद करने पर संरक्षित नहीं रखा जाता।\n- वोलाटाइल मेमोरी की डिजाइन तेज़ रीड/राइट एक्सेस पर केंद्रित होती है, जिससे यह प्रोसेसर के लिए आवश्यक त्वरित ऑपरेशन सपोर्ट करती है।\n- पावर फेल्योर के बाद डेटा संरक्षा के लिए वोलाटाइल मेमोरी के ऊपर नॉन-वोलाटाइल स्टोरेज (जैसे डिस्क/SSD) या बैकलप सिस्टम का उपयोग अनिवार्य होता है।\n- वोलाटाइल मेमोरी में पावर बचाने के लिए सपोर्टिंग सर्किटry जैसे बैकअप पावर (UPS/बैटरी) लागू किए जा सकते हैं, अन्यथा डेटा लोस का जोखिम रहता है।\n- वोलाटाइल मेमोरी के वॉल्यूम और गति का संतुलन सिस्टम के परफॉर्मेंस और लागत पर प्रभाव डालता है; इसलिए सिस्टम आर्किटेक्चर में इसके स्थायी/अस्थायी उपयोग का स्पष्ट विभाजन होता है।\n- Mains उत्तर में सरल बिंदु के रूप में: \"वोलाटाइल = पावर बंद होने पर डेटा मिटना/नष्ट होना — इसका उदाहरण RAM\" — यह कथन विषयगत स्पष्टीकरण के लिए पर्याप्त और सीधा है।\n- नीति/प्रयोगिक संदर्भ में, संवेदनशील या महत्वपूर्ण जानकारी को सुरक्षित रखने हेतु वोलाटाइल मेमोरी पर केवल अस्थायी कार्यभार देना चाहिए और स्थायी भंडारण पर बैकअप रणनीति लागू करनी चाहिए।", "priority_tag": "VERY_HIGH"}, {"question": "नीचे में से कौन सी मेमोरी 'नॉन-वोलाटाइल' है?", "options": ["RAM (Random Access Memory)", "Cache Memory", "ROM (Read Only Memory)", "CPU Registers"], "answer_index": 2, "explanation": "# व्याख्या: ROM (Read Only Memory) — नॉन-वोलाटाइल मेमोरी\n- **ROM का पूरा नाम Read Only Memory है; यह एक नॉन-वोलाटाइल स्टोरेज होता है, अर्थात् पावर कट जाने पर भी इसमें संग्रहीत डेटा बना रहता है।**\n- **ROM में निर्माताओं द्वारा स्थायी रूप से प्रोग्राम किए गए निर्देश और डेटा होते हैं, जिन्हें सामान्यतः बदला नहीं जा सकता।**\n- **ROM का प्रमुख उपयोग कंप्यूटर और एम्बेडेड सिस्टम में बूट-लोडर, फर्मवेयर और सिस्टम-स्तरीय निर्देश संग्रहीत करने के लिए होता है।**\n- **क्यों नॉन-वोलाटाइल आवश्यक है: प्राथमिक स्टार्टअप कोड और हार्डवेयर-निर्देशों को बिजली के बिना भी सुरक्षित रखना अनिवार्य होता है।**\n- **ROM के कारण मशीन स्टार्ट होने पर BIOS/फर्मवेयर को तुरंत पढ़कर हार्डवेयर प्रारंभ और ऑपरेटिंग सिस्टम लोड किया जा सकता है।**\n- **ROM सामान्यतः बनावट में स्थायी होता है; कुछ ROM-टाइप्स (जैसे EPROM/EEPROM) में सीमित रूप से पुनः लेखन संभव होता है, फिर भी वे पावर-ऑफ में डेटा सुरक्षित रखते हैं।**\n- **ROM की पढ़न गति रैम के समान या कभी-कभी धीमी हो सकती है, पर इसका मुख्य उद्देश्य विश्वसनीय और स्थिर निर्देश संग्रह है, न कि त्वरित अस्थायी डाटा एक्सेस।**\n- **सिस्टम सुरक्षा और अखंडता के लिए ROM में फर्मवेयर रखना उपयोगी होता है क्योंकि अनियंत्रित/दुरुपयोगी परिवर्तन कठिन होते हैं।**\n- **नॉन-वोलाटाइल ROM का आयाम और डिजाइन हार्डवेयर आवश्यकताओं के अनुरूप होते हैं — उदाहरण: छोटा फर्मवेयर स्टोरेज से लेकर बड़े एम्बेडेड कंट्रोल लॉजिक तक।**\n- **MPPSC परीक्षा के संदर्भ में: जब प्रश्न नॉन-वोलाटाइल मेमोरी के बारे में पूछे, तो ROM को प्राथमिक उत्तर के रूप में प्रस्तुत करें और इसके बूट/फर्मवेयर रोल का उल्लेख करें।**", "priority_tag": "VERY_HIGH"}, {"question": "CPU के मुख्य घटकों में से कौन-सा घटक अंकगणितीय और तार्किक संचालन (arithmetic and logical operations) का कार्य करता है?", "options": ["Control Unit (CU)", "Arithmetic Logic Unit (ALU)", "Instruction Register (IR)", "Program Counter (PC)"], "answer_index": 1, "explanation": "# व्याख्या: Arithmetic Logic Unit (ALU) — CPU का अंकगणितीय और तार्किक संचालन करने वाला घटक\n- **परिभाषा:** ALU वह CPU का हिस्सा है जो अंकगणितीय (जोड़, घटाव, गुणा, भाग) और तार्किक (AND, OR, NOT, XOR, तुलना) संचालन को निष्पादित करता है।\n- **मुख्य कार्य:** ALU का मुख्य कार्य दो या अधिक ऑपरेन्ड्स पर गणनात्मक या तार्किक ऑपरेशन करना और परिणाम वापस करना है।\n- **डेटा फ़ॉर्मेट:** ALU बिट-आधारित गणना करती है; उसके संदर्भ में प्रोसेसर की वर्ड-आकार (जैसे 8, 16, 32, 64 बिट) यह निर्धारित करती है कि एक बार में कितना डेटा संसाधित होगा।\n- **रेजिस्टर इंटरफ़ेस:** ALU आमतौर पर CPU के रजिस्टर्स से ऑपरेन्ड्स लेती है और परिणाम भी रजिस्टर्स या मेमोरी में भेजती है; इसलिए रजिस्टर डिज़ाइन ALU प्रदर्शन को प्रभावित करता है।\n- **फ्लैग/स्टेटस बिट्स:** ALU ऑपरेशन के बाद कैरी, जिरो, साइन, ओवरफ्लो जैसे फ्लैग्स सेट/क्लियर होते हैं जो आगे के निर्णय और शर्तीय निर्देशों के लिए उपयोग होते हैं।\n- **कंट्रोल यूनिट से समन्वय:** कंट्रोल यूनिट ALU को यह निर्देश देती है कि कौन-सा ऑपरेशन करना है और किन स्रोतों से डेटा लेना है; ALU केवल निष्पादन पर केन्द्रित रहता है।\n- **पाइपलाइ닝 और परफॉर्मेंस:** आधुनिक प्रोसेसर में ALU के कई इकाइयाँ हो सकती हैं और पाइपलाइन/सुपरस्केलर तकनीक ALU के समकक्ष संचालन से थ्रूपुट बढ़ाती है।\n- **अंकगणितीय सूक्ष्मविधियाँ:** ALU में तेज़ जोड़ने के लिए कैरी-लुकअहेड जैसे एल्गोरिदमिक युक्तियाँ लागू होती हैं जो लेटेंसी कम करती हैं।\n- **तार्किक और तुलना ऑपरेशन्स:** तार्किक ऑपरेशन बिट-स्तर पर निर्णय लेने और मास्किंग के लिए उपयोगी होते हैं; तुलना परिणाम नियंत्रक निर्णयों में फ्लैग के रूप में परिलक्षित होते हैं।\n- **हार्डवेयर स्तर:** ALU हार्डवायरड लॉजिक से बना होता है (गेट्स और बाइनरी सर्किट्स) जिससे गणनाएँ तेज़ और संकेत-निहित होती हैं।\n- **रोल MPPSC परीक्षा हेतु उपयोग:** Mains उत्तर में CPU के कार्य वर्णन में ALU को प्रमुख घटक के रूप में परिभाषित करें, उसके ऑपरेशनल उदाहरण दें और वर्ड-साइज़/फ्लैग/रजिस्टर संबंधी बिंदु जोड़ें ताकि उत्तर तकनीकी और संक्षिप्त दोनों हों।", "priority_tag": "VERY_HIGH"}, {"question": "किस चीज़ को CPU का 'क्लॉक स्पीड' (clock speed) मापता है?", "options": ["हार्ड डिस्क रीड/राइट स्पीड", "प्रत्येक सेकंड में होने वाले घड़ी (clock) साइकिलों की संख्या (Hz)", "मेमोरी की क्षमता (GB)", "नेटवर्क बैंडविड्थ (Mbps)"], "answer_index": 1, "explanation": "# व्याख्या — CPU का \"क्लॉक स्पीड\" क्या मापता है (MPPSC Prelims 2026 के लिए)\n- **क्लॉक स्पीड** CPU में प्रत्येक सेकंड में होने वाले घड़ी साइकिलों (clock cycles) की संख्या को मापती है और इसे हर्ट्ज़ (Hz) में व्यक्त किया जाता है।\n- सामान्य रूप से उपयोग में आने वाली इकाइयाँ हैं: किलोहर्ट्ज़ (kHz), मेगाहर्ट्ज़ (MHz), गीगाहर्ट्ज़ (GHz); 1 GHz = 1,000,000,000 साइकिल प्रति सेकंड।\n- हर घड़ी साइकिल का एक निश्चित समय अवधि होती है जिसे **क्लॉक पीरियड (T)** कहते हैं, और आवृत्ति f = 1/T के द्वारा परिभाषित होती है।\n- क्लॉक सिग्नल CPU के अंदर विभिन्न घटकों (ALU, रजिस्टर, कैश, कंट्रोल यूनिट) के समन्वित कार्य के लिए समय संकेत प्रदान करता है; हर साइकिल में कुछ आंतरिक घटनाएँ संचालित होती हैं।\n- क्लॉक स्पीड सीधे तौर पर यह नहीं बताती कि एक सेकंड में कितनी निर्देश (instructions) निष्पादित होंगे; वास्तविक निष्पादन निर्देश प्रति साइकिल (IPC) और आर्किटेक्चर पर भी निर्भर करता है।\n- आधुनिक CPUs में बेस क्लॉक और मल्टीप्लायर के संयोजन से वास्तविक क्लॉक स्पीड निर्धारित होती है; बूस्ट/टर्बो मोड में स्पीड अस्थायी रूप से बढ़ सकती है।\n- उच्च क्लॉक स्पीड आमतौर पर तेज प्रतिक्रियाशीलता देती है पर इससे पावर खपत और गर्मी (heat) भी बढ़ती है; इसलिए थर्मल और पावर प्रबंधन आवश्यक होता है।\n- क्लॉक सिग्नल सामान्यतः क्रिस्टल ऑस्सिलेटर या PLL (Phase-Locked Loop) से उत्पन्न और स्थिर किया जाता है ताकि आवृत्ति सटीक और स्थिर रहे।\n- क्लॉक स्पीड को हार्डवेयर स्पेसिफिकेशन में CPU की बेस परफॉर्मेंस माप के रूप में दर्शाया जाता है, पर सिस्टम-स्तरीय प्रदर्शन के आकलन में मेमोरी लेटेंसी, कैश साइज और कोर-काउंट भी महत्व रखते हैं।\n- परीक्षाकर्य नोट के रूप में: क्लॉक स्पीड = \"सैकण्ड में साइकिलों की संख्या (Hz)\" — सरल परिभाषा और f = 1/T वाला संबंध याद रखें।", "priority_tag": "HIGH"}, {"question": "कंप्यूटर मेमोरी के 'हायरार्की' (hierarchy) में सबसे तेज और सबसे महंगी किस प्रकार की मेमोरी मानी जाती है?", "options": ["Secondary Storage (HDD/SSD)", "Main Memory (DRAM)", "Cache Memory (L1/L2)", "Optical Storage (CD/DVD)"], "answer_index": 2, "explanation": "# **विषय:** कंप्यूटर मेमोरी हायरार्की — **Cache Memory (L1/L2)**\n## **प्रश्न का संक्षिप्त उत्तर (Core Concept):** Cache Memory (विशेषकर L1/L2) हायरार्की में सबसे तेज़ और सबसे महँगी मेमोरी मानी जाती है।\n### **विस्तृत व्याख्या — मुख्य बिंदु (MPPSC Prelims & Mains के लिए उपयोगी):**\n- Cache Memory CPU के निकट स्थित छोटी, तीव्र गति वाली मेमोरी होती है जिसका उद्देश्य CPU को डेटा/निर्देश बहुत तेज़ी से उपलब्ध कराना है।\n- Cache का प्राथमिक कार्य मुख्य मेमोरी (RAM) और CPU के बीच latency को कम करना और प्रोसेसर के idle समय को घटाना है।\n- L1 Cache सबसे नज़दीकी और सबसे तीव्र होती है; L2 cache आकार में बड़ी पर L1 से थोड़ी धीमी लेकिन फिर भी RAM से बहुत तेज़ होती है।\n- Cache तेज़ होने का कारण होता है इसका छोटे आकार, उच्च-गति SRAM तकनीक (Static RAM) और CPU के करीब physical placement।\n- Cache मेमोरी की लागत प्रति बिट बहुत अधिक होती है, इसलिए यह सीमित आकार में उपलब्ध होती है और इसलिए महँगी मानी जाती है।\n- Cache में locality के सिद्धांत (temporal locality और spatial locality) का उपयोग होता है — हाल में उपयोग हुए डेटा/निर्देशों को पास में रखना ताकि पुनः उपयोग पर तेज़ एक्सेस मिले।\n- Cache hits और misses के मेट्रिक्स CPU प्रदर्शन पर सीधा प्रभाव डालते हैं; अधिक hit-rate CPU की समग्र throughput बढ़ाती है।\n- आधुनिक सिस्टम में multi-level cache (L1, L2, कभी-कभी L3) का डिजाइन latency vs. लागत संतुलन के आधार पर किया जाता है — L1 सबसे तेज/महँगा, L2 थोड़ी कम तेज/कम महँगी।\n- Mains GS के उत्तर में MP-संदर्भ में संक्षेप बिंदु: “Cache memory (L1/L2) CPU के निकट सबसे तेज और सबसे महंगी मेमोरी होती है; सीमित आकार के कारण लागत-कार्यक्षमता संतुलन के चलते multi-level cache आर्किटेक्चर अपनाया जाता है।”\n- परीक्षात्मक त्वरित रिविजन हेतु: “Cache = CPU-near, SRAM, high speed, high cost, small size, reduces latency, improves hit-rate → बेहतर प्रोसेसर प्रदर्शन।”\n- समापन बिंदु (उपयोगी नोट): Cache की तीव्रता और लागत इसे मेमोरी हायरार्की में शीर्ष पर रखती है—इसलिए प्रश्न में “सबसे तेज और सबसे महँगी” के रूप में सही उत्तर: Cache Memory (L1/L2)।", "priority_tag": "HIGH"}, {"question": "किसे 'प्राइमरी स्टोरेज' कहा जाता है?", "options": ["RAM और ROM", "HDD और SSD", "Cloud Storage", "External USB Drives"], "answer_index": 0, "explanation": "# व्याख्या — “प्राइमरी स्टोरेज” (RAM और ROM)\n- प्राइमरी स्टोरेज से तात्पर्य वह मेमोरी है जो CPU द्वारा सीधे पढ़ी और (आवश्यकतानुसार) लिखी जाती है; इसमें मुख्यतः RAM और ROM आते हैं।\n- RAM (Random Access Memory) एक रीड/राइट मेमोरी है जहाँ प्रोग्राम और डेटा अस्थायी रूप से CPU के त्वरित उपयोग के लिए रखे जाते हैं।\n- ROM (Read-Only Memory) स्थायी मेमोरी होती है जिसमें सिस्टम बूट और फर्मवेयर से सम्बन्धित अनुकूलित निर्देश पहले से संग्रहीत रहते हैं।\n- RAM वोलाटाइल होती है — पावर बंद होने पर उसमें रखा सारा अस्थायी डेटा मिट जाता है; ROM नॉन-वोलाटाइल होती है — पावर बंद होने पर भी उसका कंटेंट बना रहता है।\n- प्राइमरी स्टोरेज का एक्सेस टाइम सेकेंड के बहुत छोटे हिस्सों (nanoseconds) में होता है, इसलिए यह सेकेंडरी/स्थायी भंडारण (हर्ड‑डिस्क/SSD) की तुलना में तेज़ होता है।\n- CPU के लिए निर्देश और ऑपरेटिंग डेटा को RAM में लाकर प्रोसेस किया जाता है; ROM में BIOS/बूटलोडर जैसे प्रारम्भिक निर्देश होते हैं जो सिस्टम शुरू करते हैं।\n- प्राइमरी स्टोरेज को बाइट्स और शब्द (words) में व्यवस्थित किया जाता है; इसकी कुल क्षमता और बैंडविड्थ CPU की परफॉर्मेंस पर प्रभाव डालती है।\n- RAM के प्रकारों (जैसे DRAM, SRAM) में अंतर कैपेसिटी, स्पीड और लागत पर निर्भर करता है; इन गुणों के कारण RAM को सिस्टम मेमोरी के लिए चुना जाता है।\n- ROM के उपप्रकार (Mask ROM, PROM, EEPROM, Flash ROM) यह निर्धारित करते हैं कि फर्मवेयर को कैसे और कब बदला जा सकता है — कुछ प्रकार प्रोग्रामेबल या रीराइटेबल होते हैं।\n- प्राइमरी स्टोरेज कंप्यूटर मेमोरी हायारार्की में कैश के बाद सीधे आता है और सेकेंडरी स्टोरेज से पहले कार्य करता है; इसलिए यह सिस्टम की संपूर्ण गति और प्रतिक्रिया समय के लिए केंद्रीय है।\n- परीक्षा दृष्टि से संक्षेप: प्राइमरी स्टोरेज = RAM (वोलाटाइल, रीड/राइट, अस्थायी कार्य मेमोरी) + ROM (नॉन‑वोलाटाइल, रीड‑ओन्ली/फर्मवेयर स्टोरेज) — यही सही अवधारणा है।", "priority_tag": "HIGH"}, {"question": "1 किलोबाइट (KB) कंप्यूटिंग मानक में पारंपरिक रूप से कितने बाइट्स के बराबर माना जाता है?", "options": ["1000 बाइट्स (SI मान)", "1024 बाइट्स (2^10)", "100 बाइट्स", "2048 बाइट्स"], "answer_index": 1, "explanation": "# **विषय:** कंप्यूटिंग—बिट/बाइट/प्रोसेसर/मेमोरी—आधार\n## **प्रश्न संक्षेप:** 1 किलोबाइट (KB) पारंपरिक रूप से कितने बाइट्स के बराबर माना जाता है?\n**सही उत्तर:** 1024 बाइट्स (2^10)\n- 1 बाइट = 8 बिट्स; इसलिए 1 KB = 1024 बाइट = 1024 × 8 = **8192 बिट्स**.\n- कंप्यूटिंग में \"किलो\" को पारंपरिक रूप से द्विघात (binary) आधार पर लिया जाता है, इसलिए 1 KB = **2^10 = 1024** बाइट्स है।\n- प्रोसेसर और मेमोरी एड्रेसिंग में पते बाइनरी होते हैं; 2^10 जैसी शक्तियाँ हार्डवेयर डिजाइन और पोते-सीमायोजन (alignment) के कारण सुविधाजनक हैं।\n- मेमोरी ब्लॉक, कैश लाइन और पेज साइज निर्धारण में भी अक्सर द्विघात आकार (जैसे 1024) का उपयोग होता है।\n- 1024 बाइट का मान छोटे मेमोरी यूनिट्स और फाइल साइज के त्वरित आकलन के लिए मानक रूप से प्रयोग होता है।\n- बाइनरी आधार से व्युत्पन्न यह परिभाषा इतिहासगत रूप से कंप्यूटर सिस्टम के वास्तविक भौतिक रैम और फर्मवेयर में प्रचलित रही है।\n- किसी मात्रा को बाइनरी शक्ति में व्यक्त करने पर गणितीय रूप से सरलता मिलती है: उदाहरण के लिए 1 MB = 1024 KB = 2^20 बाइट्स।\n- परीक्षात्मक उत्तर देते समय \"1 KB = 1024 बाइट्स (2^10)\" स्पष्ट अंक और घात दोनों लिखने से वैज्ञानिक सटीकता दिखती है।\n- Mains में जब MP-संबंधी टेक्स्ट में storage/compute पर बिंदु देने हों तो यह नोट करें: मेमोरी-माप में बाइनरी-स्पष्टता (1024) का प्रयोग हार्डवेयर सन्दर्भ में अधिक उपयुक्त होता है।\n- संक्षेप में: कंप्यूटिंग मानक पर पारंपरिक और व्यावहारिक परिभाषा के अनुसार 1 किलोबाइट = **1024 बाइट्स (2^10)**।", "priority_tag": "HIGH"}, {"question": "किसे 'क्विक एक्सेस मेमोरी' या volatile memory कहा जा सकता है जो CPU द्वारा सीधे उपयोग के लिए आवश्यक होती है?", "options": ["Secondary Storage", "Registers और Cache", "Optical Drives", "External HDDs"], "answer_index": 1, "explanation": "# व्याख्या: Registers और Cache — \"क्विक एक्सेस मेमोरी\" (volatile memory) जो CPU द्वारा सीधे उपयोग के लिए आवश्यक है\n- **Registers** CPU के अंदर स्थित छोटे, अत्यन्त तीव्र गति वाले स्टोरेज यूनिट होते हैं जो वर्तमान में प्रोसेसर द्वारा उपयोग की जा रही निर्देश/डाटा को रखेंगे।\n- **Cache** प्रोसेसर के निकट स्थित उच्च-गति वाली मेमोरी है जो अक्सर उपयोग होने वाले डेटा/निर्देशों को स्टोर कर के CPU-अक्सेस समय घटाती है।\n- दोनों **volatile** होते हैं: पावर हटने पर इनमें संग्रहीत डाटा मिट जाता है, इसलिए वे अस्थायी त्वरित एक्सेस के लिए होते हैं।\n- Registers आकार में बहुत छोटे (कुछ बाइट्स से कुछ शब्द) और एक्सेस टाइम में सबसे तेज़ होते हैं; इन्हें सीधे CPU instruction set के साथ प्रयोग किया जाता है।\n- Cache आकार मेंRegisters से बड़ा, पर RAM से छोटा होता है; यह multi-level (L1, L2, L3) संरचना में होता है जहाँ L1 सबसे तेज़ व निकटस्थ होता है।\n- CPU का **फेच-डिकोड-एक्ज़िक्यूट** चक्र मुख्यतः registers और cache की त्वरित उपलब्धता पर निर्भर करता है; इनकी उपस्थिति से निर्देश निष्पादन की तीव्रता बढ़ती है।\n- Cache में **हिट** होने पर CPU सीधे वहां से डेटा लेता है जिससे मेमोरी-एक्सेस लेटेंसी कम होती है; cache-miss पर निम्नतर स्तर से डेटा लाना पड़ता है।\n- Registers सामान्यतः ариथमेटिक, लॉजिक, प्वाइंटर और स्टेट ट्रैकिंग के लिए समर्पित प्रकारों में विभक्त होते हैं (उदा. accumulator, program counter), जो instruction-level कार्यकुशलता बढ़ाते हैं।\n- Cache और registers दोनों का डिज़ाइन CPU performance (IPC, clock efficiency) पर सीधा प्रभाव डालता है; बेहतर cache संगठन और पर्याप्त registers latency घटाते हैं।\n- दोनों का उपयोग सिस्टम के overall throughput और responsiveness सुधारने हेतु होता है; इसलिए इन्हें \"क्विक एक्सेस मेमोरी\" कहा जाता है और CPU के लिए अनिवार्य मानी जाती हैं।", "priority_tag": "VERY_HIGH"}, {"question": "ROM (Read Only Memory) के किस प्रकार को इलेक्ट्रिकली री-प्रोग्राम किया जा सकता है और अक्सर फर्मवेयर स्टोरेज के लिए उपयोग किया जाता है?", "options": ["Mask ROM", "PROM (Programmable ROM)", "EEPROM / Flash", "Magnetic Core Memory"], "answer_index": 2, "explanation": "# ROM का इलेक्ट्रिकली री-प्रोग्राम होने वाला प्रकार: **EEPROM / Flash** — व्याख्या (MPPSC प्री 2026 हेतु)\n- **परिभाषा:** EEPROM/Flash बिजली से री‑प्रोग्राम होने वाली गैर‑अस्थायी (non‑volatile) मेमोरी है जो पावर हटने पर भी डेटा बनाए रखती है।\n- **री‑प्रोग्रामिंग तरीका:** इन्हें इलेक्ट्रिक सिग्नल द्वारा प्रोग्राम और इरेज़ किया जा सकता है, इसलिए फील्ड में बिना चिप हटाए फर्मवेयर अपडेट संभव होता है।\n- **उपयोग का प्रमुख कारण:** सामान्यतः फर्मवेयर, बूटलोडर और सिस्टम कॉन्फ़िगरेशन स्टोर करने में उपयोग होती है क्योंकि यह स्थायी और पुनर्लेखनीय है।\n- **एड्रेसेबिलिटी:** EEPROM में अक्सर बाइट‑लेवल एक्सेस संभव होता है; Flash में सामान्यतः सेक्टर/ब्लॉक‑लेवल इरेज़ और प्रोग्रामिंग होती है।\n- **रिटेंशन और भरोसेमंदी:** EEPROM/Flash डेटा की रिटेंशन वर्षों तक होती है (आमतौर पर 10 वर्ष+), पर सीमित राइट/इरेज़ साइकल्स (एंड्योरेंस) होते हैं जिन्हें डिजाइन में ध्यान में रखा जाता है।\n- **स्पीड और प्रदर्शन:** रीड ऑपरेशन तेज होते हैं; लिखने और इरेज़ करने में अधिक समय लगता है — इसलिए फर्मवेयर अपडेट के दौरान विशेष प्रोटोकॉल/चेक्सम का उपयोग होता है।\n- **हार्डवेयर समर्थन:** आधुनिक माइक्रोकंट्रोलर और एम्बेडेड सिस्टम अक्सर ऑन‑चिप Flash/EEPROM सपोर्ट के साथ आते हैं, जिससे सिस्टम‑लेवल फर्मवेयर अपग्रेड और इन‑सर्किट प्रोग्रामिंग सम्भव होते हैं।\n- **सुरक्षा पहलू:** फर्मवेयर स्टोरेज के लिए Flash/EEPROM में रीड‑प्रोटेक्शन, सिग्नेचर वेरिफिकेशन और एन्क्रिप्शन लागू किए जाते हैं ताकि अनधिकृत बदलाव रोके जा सकें।\n- **डिजाइन विचार (MP mains के लिए उपयोगी बिंदु):** राज्य‑स्तर के ई‑गवर्नेंस उपकरण, स्मार्ट ग्रिड मीटरिंग और औद्योगिक कंट्रोल में Flash/EEPROM का प्रयोग फर्मवेयर अपग्रेड, लोकल कॉन्फ़िगरेशन और दीर्घकालिक लॉगिंग के लिए किया जाता है; इसलिए परियोजना योजनाओं में रिटेंशन, एंड्योरेंस और सुरक्षा मानदण्डों का उल्लेख करें।\n- **वेरिएंट और पैमाना:** Flash/EEPROM विभिन्न क्षमता‑रेंज (किलोबाइट से कई मेगाबाइट्स/गीगाबाइट्स) में उपलब्ध होते हैं, इसलिए उपकरण की आवश्यकता के अनुसार उचित प्रकार और कैपेसीटी का चयन आवश्यक है।\n- **सिस्टम‑अपडेट रणनीति:** फर्मवेयर अपडेट के लिए एटॉमिक अपग्रेड, बैकअप इमेज और रीकवरी मेकैनिज्म डिज़ाइन करना आवश्यक है ताकि अपग्रेड विफल होने पर डिवाइस ब्रिक न हो।\nयह संक्षेप परीक्षा‑उन्मुख, तथ्यात्मक और प्रत्यक्ष रूप से फर्मवेयर स्टोरेज‑संदर्भ में EEPROM/Flash के उपयोग व गुणों को कवर करता है।", "priority_tag": "HIGH"}, {"question": "किस प्रकार की मेमोरी अक्सर मोबाइल फोन और USB ड्राइव में उपयोग होने वाली नॉन-वोलाटाइल मेमोरी है?", "options": ["DRAM", "SRAM", "Flash Memory", "Cache Memory"], "answer_index": 2, "explanation": "# व्याख्या: Flash Memory (फ्लैश मेमोरी) — संक्षिप्त, परीक्षा‑उन्मुख बिंदु\n- फ्लैश मेमोरी एक नॉन‑वोलाटाइल सेमीकंडक्टर मेमोरी है; पावर कट होने पर भी डेटा स्थायी रूप से बना रहता है।\n- यह इलेक्ट्रॉन को एक संचारित (floating) गेट में कैद कर के बिट्स का स्टोरिंग करती है; चार्ज‑presence = 0/1 का प्रतिनिधि होता है।\n- फ्लैश मेमोरी को पढ़ना और लिखना संभव है, परंतु इसके लेखन/मिटाने के कार्य परंपरागत RAM से अलग ब्लॉक‑आधारित होते हैं (मिटाना पूरा ब्लॉक में होता है)।\n- दो मुख्य आर्किटेक्चरल प्रकार हैं (उच्च स्तर पर): तेज़ रैंडम रीड और छोटे बाइट‑लेवल एक्सेस के लिए डिजाइन किए गए और बड़े ब्लॉक में से डेटा संभालने वाले; पर परीक्षण में बस यह समझना जरूरी है कि ब्लॉक‑लेवल इरेज़ होता है।\n- मोबाइल फोन और USB ड्राइव में प्रयुक्त फ्लैश आमतौर पर NAND‑आधारित इंटरनल संरचना होती है, जो उच्च घनत्व और कम लागत पर बेहतर स्टोरेज देती है।\n- फ्लैश सेल्स एकल‑लेवल (SLC) से मल्टी‑लेवल (MLC, TLC आदि) तक हो सकते हैं; अधिक स्तर = प्रति सेल अधिक बिट, पर भरोसेमंदी और लेखन‑सहनशीलता पर असर।\n- फ्लैश की सीमाएँ: प्रत्येक सेल की सीमित write/erase चक्र‑जीवन (endurance) होती है—समय के साथ सेल्स कमज़ोर होते हैं; इसको सुधारने के लिए wear‑leveling और error‑correction लागू होते हैं।\n- प्रदर्शन: पढ़ने की गति आमतौर पर अच्छी होती है; छोटी‑छोटी लिखाइयों और बार‑बार मिटाने से प्रदर्शन घट सकता है—इसलिए कंट्रोलर और फ़ाइल‑मैनेजमेंट (FTL) महत्वपूर्ण है।\n- पावर खपत अपेक्षाकृत कम होती है, जिससे मोबाइल उपकरणों के लिए उपयुक्त बनती है; फिजिकल रूप से कॉम्पैक्ट और शॉक‑रेसिस्टेंट भी रहती है।\n- डेटा रिटेंशन: सामान्यत: कई वर्षों तक डेटा सुरक्षित रहता है, पर तापमान, उपयोग पैटर्न और सेल प्रकार पर निर्भर करता है।\n- सुरक्षा और रख‑रखाव: फ्लैश आधारित स्टोरेज में bad‑block management, TRIM कमांड और एन्क्रिप्शन फीचर्स महत्वपूर्ण होते हैं; ये वास्तविक उपयोग में डेटा अखंडता व प्रदर्शन बनाए रखते हैं।\n- परीक्षा‑दृष्टि से सार: मोबाइल और USB में उपयोग वाली नॉन‑वोलाटाइल मेमोरी का सटीक नाम — Flash Memory; कारण — स्थायी स्टोरेज, ब्लॉक‑आधारित मिटाना, कम पावर व कॉम्पैक्ट फॉर्म फैक्टर।", "priority_tag": "HIGH"}, {"question": "किस शब्द से कंप्यूटर का वह कार्य वर्णित होता है जिसमें CPU निर्देशों का क्रमिक निष्पादन और नियंत्रण होता है?", "options": ["इंटरफेस मॅनेजमेंट", "कंट्रोल यूनिट का कार्य (Instruction Fetch-Decode-Execute)", "डायग्नोस्टिक्स", "डेटा एनक्रिप्शन"], "answer_index": 1, "explanation": "# **विषय: कंट्रोल यूनिट का कार्य — Instruction Fetch‑Decode‑Execute (Vyakhya)**\n- कंट्रोल यूनिट (Control Unit) CPU का वह घटक है जो निर्देशों के क्रमिक निष्पादन (sequencing) और समन्वय (control) के लिए जिम्मेदार होता है।\n- इसका मुख्य कार्य तीन चरणों में विभाजन किया जाता है: Instruction Fetch (निर्देश लाना), Instruction Decode (निर्देश समझना/वर्गीकरण), और Instruction Execute (निर्देश का क्रियान्वयन)।\n- Instruction Fetch में कंट्रोल यूनिट प्रोग्राम काउंटर (PC) के द्वारा अगला निर्देश मेमोरी से लाने का संकेत देती है और निर्देश को Instruction Register (IR) में स्थानांतरित कराती है।\n- Instruction Decode चरण में कंट्रोल यूनिट IR में रखे बाइनरी कोड को पार्स करके ऑपकोड और ऑपरेन्ड पहचानती है तथा निष्पादन के लिए आवश्यक नियंत्रण-सिग्नल तय करती है।\n- Execute चरण में कंट्रोल यूनिट ALU, रजिस्टर तथा मेमोरी को नियंत्रित करने वाले सिग्नल उत्पन्न कर के वास्तविक गणना/डेटा मूव/IO संचालन करवाती है।\n- कंट्रोल यूनिट सिग्नल्स (control signals) के माध्यम से डेटापाथ के सभी हिस्सों — ALU, रजिस्टर फाइल, मेमोरी और I/O — का तालमेल बनाती है ताकि हर क्लॉक-साइकिल पर सही क्रिया हो।\n- प्रोग्राम काउंटर का अद्यतन, ब्रांच/जम्प के निर्णय, और निर्देश के बाद अगले चरण के चयन जैसे अनुक्रमणीय नियंत्रण भी कंट्रोल यूनिट के दायरे में हैं।\n- कंट्रोल यूनिट इंटरुप्ट और स्तिथि‑परिवर्तन (status flags) का भी प्रबंधन करती है — वह इंटरप्ट स्वीकार/निरस्त करती है और उपयुक्त सर्विस रूटीन के लिए नियंत्रण स्थानांतरित करती है।\n- कंट्रोल यूनिट के कार्य को रीयल‑टाइम क्लॉक साइकलों में सिंक्रनाइज़ किया जाता है; हर चरण के लिए आवश्यक टाइمنिंग और संकेतों का निर्धारण यही करती है।\n- कंट्रोल यूनिट हार्डवायर्ड लॉजिक या माइक्रोप्रोग्राम्ड ROM के रूप में डिजाइन की जा सकती है; पर कार्य का मूल सिद्धान्त — निर्देशों का अनुक्रमिक नियंत्रण और निष्पादन — समान रहता है।\n- परीक्षा‑नज़ीर के लिए संक्षेप: कंट्रोल यूनिट ही CPU में निर्देशों को लाती, व्याख्यायित करती और निष्पादित करवा कर पूरे प्रोसेसिंग का नियंत्रण प्रदान करती है।", "priority_tag": "VERY_HIGH"}, {"question": "Little-endian और Big-endian किससे संबंधित अवधारणाएँ हैं?", "options": ["डेटा के बाइट-ओर्डरिंग (byte ordering) से", "कम्प्यूटर के पावर-कनज़म्प्शन से", "प्रोसेसर के थर्मल डिज़ाइन से", "नेटवर्क स्पीड प्रोटोकॉल से"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "ASCII मानक मूलतः कितने बिट का है और किसके लिए प्रयोग किया गया था?", "options": ["7-बिट — अंग्रेज़ी अक्षरों और नियंत्रक कोड्स के लिए", "8-बिट — मल्टी-लैंग्वेज यूनिकॉड के लिए", "16-बिट — इमेज डेटा के लिए", "32-बिट — IP पता प्रतिनिधित्व के लिए"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किसे 'वर्चुअल मेमोरी' कहा जाता है?", "options": ["CPU के लिए समर्पित फिजिकल रजिस्टर", "डिस्क पर रखी गयी मेमोरी जो RAM के साथ मिलकर प्रक्रियाओं को अधिक मेमोरी का अनुभव देती है", "GPU का समेकित मेमोरी क्षेत्र", "केवल ROM का एक भाग"], "answer_index": 1, "explanation": "# व्याख्या: वर्चुअल मेमोरी (Virtual Memory)\n- **परिभाषा:** वर्चुअल मेमोरी वह तंत्र है जिसमें डिस्क (secondary storage) पर रखी गई मेमोरी को RAM के साथ संयोजित कर प्रक्रियाओं को वास्तविक RAM से अधिक मेमोरी उपलब्ध कराई जाती है।\n- **काम करने का सिद्धांत:** जब किसी प्रक्रिया को किसी पेज/सेगमेंट की आवश्यकता होती है जो RAM में नहीं है, तब ऑपरेटिंग सिस्टम उसे डिस्क से RAM में लाकर प्रक्रिया को चलता देता है — इसे \"पेज फ़ॉल्ट\" और \"पेजिंग\" कहते हैं।\n- **उद्देश्य:** सीमित फिजिकल RAM के बावजूद बड़े प्रोग्रामों और एक साथ चलने वाली कई प्रक्रियाओं को स्मूथ तरीके से चलाना और मेमोरी का प्रभावी उपयोग सुनिश्चित करना।\n- **निम्न-स्तरीय घटक:** वर्चुअल एड्रेस स्पेस, पेज टेबल (या सेगमेंट टेबल), और बैकिंग स्टोर (डिस्क पर swap या page file) मुख्य घटक होते हैं।\n- **पता अनुवाद (Address Translation):** CPU द्वारा जारी वर्चुअल एड्रेस को मैप करके पेज टेबल के माध्यम से फिजिकल एड्रेस में बदला जाता है; यदि पेज डिस्क पर है तो पहले उसे RAM में लाया जाता है।\n- **लाभ:** प्रोग्रामिंग सरल बनती है क्योंकि प्रत्येक प्रक्रिया को उसका अलग वर्चुअल एड्रेस स्पेस मिलता है; मेमोरी सुरक्षा और प्रक्रिया अलगाव भी प्रदान होता है।\n- **प्रदर्शन प्रभाव:** अत्यधिक पेजिंग होने पर सिस्टम थ्रैशिंग कर सकता है जिससे प्रदर्शन गिरता है; इसलिए RAM–डिस्क संतुलन और पेज साइज/रिप्लेसमेंट नीतियाँ महत्वपूर्ण हैं।\n- **प्रयोग:** आधुनिक ऑपरेटिंग सिस्टम्स (जैसे Linux, Windows) वर्चुअल मेमोरी का उपयोग करते हैं; यह बड़े एप्लिकेशन, मल्टीटास्किंग और मेमोरी-इंटेंसिव प्रक्रियाओं के लिए आवश्यक सुविधा है।\n- **MP-संदर्भ के लिए उद्धरणयोग्य बिंदु (Mains):** वर्चुअल मेमोरी का मूल गुण — डिस्क पर संग्रहीत मेमोरी का RAM के साथ समन्वय कर प्रक्रिया को अधिक उपलब्ध मेमोरी का अनुभव देना — सरल व विशिष्ट रूप से बतायें; इससे सिस्टम की स्केलेबिलिटी और सुरक्षा दोनों विकसित होते हैं।\n- **सामान्य संबंधित शब्द:** swap space/page file (डिस्क पर), page fault, page replacement algorithm, virtual address space — इन शब्दों को परिभाषित कर के संक्षेप में उत्तर में जोड़ें।", "priority_tag": "VERY_HIGH"}, {"question": "प्रोसेसर की 'आर्किटेक्चर' में 'कैरिसी वर्ड साइज' (word size) का क्या प्रभाव होता है?", "options": ["सिस्टम के विद्युत आपूर्ति मान पर असर", "प्रति साइकिल प्रोसेसर द्वारा प्रोसेस किए जा सकने वाले बिट्स की संख्या और पताable मेमोरी सीमा", "हार्ड डिस्क की क्षमता पर प्रभाव", "नेटवर्क लेटेंसी पर प्रभाव"], "answer_index": 1, "explanation": "# **व्याख्या — प्रोसेसर आर्किटेक्चर में 'वर्ड साइज' (word size) का प्रभाव**\n- **वर्ड साइज परिभाषा:** वर्ड साइज वह बिट-दैर्घ्य (bit-width) है जिसे प्रोसेसर एक ही साइकिल में आंतरिक रूप से प्रोसेस करने के लिए डिज़ाइन किया गया होता है (उदा. 8‑bit, 16‑bit, 32‑bit, 64‑bit) ।\n- **प्रति साइकिल प्रोसेसिंग क्षमता:** वर्ड साइज सीधे यह निर्धारित करता है कि प्रोसेसर एक क्लॉक साइकिल में अधिकतम कितने बिट्स के डेटा को ऑपरैंड के रूप में प्रोसेस कर सकता है — बड़ा वर्ड तेज़ प्रति-साइकिल डेटा हैंडलिंग देता है।\n- **रजिस्टर और ALU चौड़ाई:** प्रोसेसर के रजिस्टर, ALU और आंतरिक डेटा पाथ वर्ड साइज के अनुरूप होते हैं; वर्ड साइज अधिक होने पर एकल निर्देश से बड़े अंकात्मक/लॉजिकल ऑपरेशन्स संभव होते हैं।\n- **एड्रेसेबल मेमोरी की सीमा:** वर्ड साइज (विशेषकर पता के बिट‑पर्टिकलर/एड्रेस-बाइट साइज) से पताable मेमोरी सीमा तय होती है; यदि पता n‑bits है तो अधिकतम एड्रेस की संख्या ≈ 2^n होती है — इस तरह वर्ड/पता साइज सिस्टम की अधिकतम रैम सीमा तय करता है।\n- **इंस्ट्रक्शन और इमीडिएट वैल्यू साइज:** वर्ड साइज इंस्ट्रक्शन फॉर्मेट व इमीडिएट ऑपेरैंड की अधिकतम बिट-लंबाई को प्रभावित करता है, जिससे बड़ी वैल्यू सीधे एक इंस्ट्रक्शन में एन्कोड की जा सकती है।\n- **मेमोरी एक्सेस और बैंडविड्थ:** प्रोसेसर वर्ड साइज के अनुरूप मेमोरी बस चौड़ाई और कैश लाइन डिजाइन होती है; बड़ा वर्ड साइज सामान्यतः प्रति-एक्सेस अधिक डेटा ट्रांसफर कर के बैंडविड्थ उपयोगिता बढ़ाता है।\n- **डेटा एलाइन्मेंट और प्रदर्शन:** वर्ड साइज से मेल न खाई वाली डेटा संरचनाएँ अलाइन्मेंट समस्याएँ उत्पन्न कर सकती हैं, जिससे अतिरिक्त मेमोरी एक्सेस और प्रदर्शन हानि हो सकती है।\n- **सिस्टम स्केलबिलिटी व सॉफ्टवेयर प्रभाव:** बड़ा वर्ड साइज बड़े एड्रेस स्पेस और उच्च-प्रिसिजन अंकगणित की अनुमति देता है; परन्तु कम-वर्ड सॉफ्टवेयर/डेटा परफॉर्मेंस‑ऑप्टिमाइज़ेशन आवश्यक होता है।\n- **वर्ड साइज और पताable वर्चुअल स्पेस:** वर्ड/एड्रेस साइज CPU द्वारा समर्थित वर्चुअल मेमोरी और पेजिंग तालिका के आकार को भी प्रभावित करता है, जो OS‑स्तर पर संसाधन प्रबंधन में निर्णायक होता है।\n- **हार्डवेयर/सिस्टम डिजाइन ट्रेड‑ऑफ़:** वर्ड साइज बढ़ने से प्रदर्शन व एड्रेसिंग लाभ मिलते हैं, पर हार्डवेयर जटिलता, पावर और लागत भी बढ़ सकते हैं — इसलिए सिस्टम डिज़ाइन में वर्ड साइज का चुनाव लक्ष्य (थ्रूपुट vs. बचत) पर आधारित होता है।", "priority_tag": "HIGH"}, {"question": "किसे 'स्टोरेज डिवाइस' कहा जाएगा जो ऊर्जा कटने पर भी डेटा संरक्षित रखता है तथा तेज रैंडम एक्सेस प्रदान कर सकता है?", "options": ["DRAM", "SRAM", "SSD (Solid State Drive)", "CPU Cache"], "answer_index": 2, "explanation": "# व्याख्या: SSD (Solid State Drive) — स्टोरेज डिवाइस जो ऊर्जा कटने पर भी डेटा सुरक्षित रखता है तथा तेज रैंडम एक्सेस प्रदान करता है\n- SSD एक नॉन-वोलेटाइल स्टोरेज डिवाइस है; नियमित पावर कटने पर भी डेटा सर्किटलाइज़्ड मेमोरी (फैश) में सुरक्षित रहता है।\n- SSD में डेटा स्टोर करने के लिए NAND फ्लैश मेमोरी सेल्स का उपयोग होता है; ये इलेक्ट्रॉनिक तरीके से बिट्स को रखने के लिए डिज़ाइन होते हैं।\n- SSD में कोई चलती हुई मैकेनिकल पार्ट जैसे स्पिंडल या हेड नहीं होते, इसलिए रैंडम एक्सेस के लिए कभी-स्पेक-हितले और बहुत कम लेटेंसी मिलती है।\n- इंटरनल कंट्रोलर SSD का मुख्य घटक है जो फ्लैश मेमोरी के ब्लॉक्स का प्रबंधन, रीड/राइट ऑप्टिमाइज़ेशन और त्रुटि-सुधार (ECC) नियंत्रित करता है।\n- वियर-लेवलिंग तकनीक कंट्रोलर द्वारा लागू की जाती है ताकि फ्लैश सेल्स पर लिखने की समानता बनी रहे और ड्राइव की आयु बढ़े।\n- TRIM कमांड और गारबेज कलेक्शन SSD के प्रदर्शन को बनाए रखने में सहायक होते हैं; ये अनावश्यक डेटा मार्कर्स को हटाकर लिखने को तेज बनाते हैं।\n- SSD विभिन्न इंटरफेसेज़ में आते हैं — SATA या उच्च गति के लिए NVMe/PCIe — जो थ्रूपुट और I/O ऑप्स पर सीधे प्रभाव डालते हैं।\n- SSD की IOPS (Input/Output Operations Per Second) और रीड-लेटेंसी सामान्यतः हायर हैं, इसलिए डेटाबेस, OS बूट और लो-लेटेंसी एप्लिकेशन के लिए उपयुक्त होते हैं।\n- SSD का ऊर्जा खपत प्रोफ़ाइल हार्ड डिस्क से अक्सर कम होता है क्योंकि इसमें घूमने वाले पार्श्विक घटक नहीं होते; यह मोबाइल व एम्बेडेड सिस्टम्स में लाभप्रद है।\n- फ्लैश के प्रकार (उदाहरण: SLC/MLC/TLC/QLC) endurance और लागत को प्रभावित करते हैं — अधिक बिट्स प्रति सेल = उच्च क्षमता पर कम टर्न-रिट के साथ।\n- SSD को सिस्टम बूट ड्राइव के रूप में इस्तेमाल किया जा सकता है और बेहतर रियल-टाइम परफॉर्मेंस के कारण सर्वर व क्लाइंट दोनों में प्राथमिक स्टोरेज विकल्प बनता जा रहा है।\n- Mains GS हेतु सीधे उपयोग करने योग्य बिंदु: \"SSD एक नॉन-वोलेटाइल इलेक्ट्रॉनिक स्टोरेज है, जिसमें फ्लैश मेमोरी और कंट्रोलर होते हैं; तेज रैंडम एक्सेस, कम लेटेंसी, उच्च IOPS, वियर‑लेवलिंग और TRIM जैसी सुविधाएँ इसकी प्रमुख तकनीकी विशेषताएँ हैं।\"", "priority_tag": "HIGH"}, {"question": "किस प्रकार की मेमोरी सामान्यतः सबसे सस्ता प्रति-बाइट होता है और उच्च संग्रहण क्षमता के लिए उपयोग की जाती है?", "options": ["CPU Registers", "Cache Memory", "Secondary Storage (HDD)", "SRAM"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "कंप्यूटर शब्द 'clock cycle' और 'instruction per cycle (IPC)' के संदर्भ में कौन सा कथन सही है?", "options": ["Clock cycle जितना छोटा, उतनी कम CPU गति", "IPC और क्लॉक स्पीड दोनों मिलकर प्रोसेसर की वास्तविक प्रदर्शन क्षमता तय करते हैं", "केवल साथ में मौजूद कैश मेमोरी IPC को प्रभावित करती है; क्लॉक स्पीड का कोई असर नहीं", "IPC हमेशा क्लॉक स्पीड के बराबर होता है"], "answer_index": 1, "explanation": "# व्याख्या: क्लॉक साइकिल और IPC (Instruction Per Cycle) — परीक्षा-केंद्रित बिंदु\n- **क्लॉक स्पीड** वह आवृत्ति (Hz) है जिस पर प्रोसेसर के सिंक्रोनाइज़्ड सर्किट पल्स करते हैं; इसे आमतौर पर गीगाहर्ट्ज (GHz) में मापा जाता है।\n- **IPC (Instructions Per Cycle)** बताता है कि औसतन एक क्लॉक साइकिल में कितनी निर्देश–समाप्तियाँ (instructions retired/completed) होती हैं; यह प्रोसेसर आर्किटेक्चर की कार्यकुशलता का संकेत है।\n- प्रोसेसर का वास्तविक निर्देश-प्रसंस्करण दर (instructions per second) = **IPC × क्लॉक फ़्रीक्वेंसी**; यानि दोनों गुणा कर के ही थ्रूपुट मिलता है।\n- इसलिए केवल उच्च क्लॉक स्पीड से प्रदर्शन सुनिश्चित नहीं होता; अगर IPC कम है तो उच्च फ़्रीक्वेंसी का लाभ सीमित रहेगा।\n- IPC को बढ़ाने के लिए तकनीकें जैसे superscalar execution, pipelining, out-of-order execution और speculative execution प्रयोग होते हैं।\n- परन्तु IPC सीमाएँ: डेटा-आधारित निर्भरता, कैश मिस, ब्रांच मिसप्रीडिक्शन आदि कारणों से वास्तविक IPC निर्धारित होता है।\n- क्लॉक स्पीड और IPC पर हार्डवेयर-डिज़ाइन, पावर/थर्मल सीमाएँ और प्रोसेसर के लक्षित कार्यभार (workload) भी प्रभाव डालते हैं।\n- इसलिए प्रोसेसर का सटीक प्रदर्शन तुलना करते समय दोनों मानों (IPC और क्लॉक) के साथ ही वास्तविक बेंचमार्क/वर्कलोड पर नापना आवश्यक है।\n- परीक्षा-नोट के रूप में: थ्रूपुट = IPC × Frequency; latency per instruction ≈ 1 / (IPC × Frequency) (औसत मानकर निर्देशों के लिए)।\n- Mains के लिए सीधे बिंदु: किसी सेक्शन में प्रोसेसर चुनाव/विश्लेषण लिखते समय बताइए कि उच्च क्लॉक अकेले पर्याप्त नहीं — IPC सुधार और पावर/थर्मल प्रबंधन भी निर्णायक हैं।\n- नीति/प्रयोजन संबंधी निष्कर्ष (संक्षेप): सरकारी IT/डिजिटल योजनाओं में हार्डवेयर चयन करते समय क्लॉक और IPC दोनों के अनुरूप प्रदर्शन-मूल्य और ऊर्जा दक्षता आँककर निर्णय लिया जाना चाहिए।", "priority_tag": "HIGH"}, {"question": "किसे 'इन-प्रोसेसिंग स्टोरेज' कहा जा सकता है जो बहुत अल्पकालिक डेटा और निर्देशों को रखता है और CPU के हिस्से के रूप में तेज़ एक्सेस देता है?", "options": ["Main Disk (HDD)", "Registers", "External NAS", "Optical Drive"], "answer_index": 1, "explanation": "# **विस्तृत व्याख्या — Registers (इन-प्रोसेसिंग स्टोरेज)**\n- **परिभाषा:** रजिस्टर CPU के भीतर स्थित बहुत कम अवधिक (अल्पकालिक) स्टोरेज यूनिट होते हैं जो डेटा और निर्देशों के तात्कालिक भागों को रखते हैं।\n- **CPU का हिस्सा:** रजिस्टर प्रोसेसर का अंग होते हैं; वे CPU के अंदर physical/hardware स्तर पर निर्मित छोटे स्टोरेज लोकेशन होते हैं, न कि मेन मेमोरी या कैश में।\n- **उद्देश्य:** रजिस्टर का मुख्य कार्य ALU और कंट्रोल यूनिट को तेज़ी से आवश्यक ऑपरेंड्स, निर्देशों के हिस्से, और नियंत्रक संकेत (control signals) उपलब्ध कराना है।\n- **गति:** रजिस्टर eriş eriş time सबसे कम होता है — वे कैश और RAM की तुलना में सबसे तेज़ एक्सेस प्रदान करते हैं, इसलिए गणना के लिए प्राथमिक और तात्कालिक जगह माने जाते हैं।\n- **आकार और मापन:** रजिस्टरों की क्षमता बिटों में नापी जाती है (उदा. 8-bit, 16-bit, 32-bit, 64-bit) और प्रोसेसर के वर्ड साइज़ के अनुरूप होते हैं।\n- **प्रकार (सार संक्षेप):** सामान्यतः सामान्य-उद्देशीय और विशेष-उद्देशीय रजिस्टर होते हैं — जैसे प्रोग्राम काउंटर, इंस्ट्रक्शन रजिस्टर, स्टैटस/फ्लैग रजिस्टर आदि (कार्य के अनुसार नामात्मक विभाजन)।\n- **वोलटिलिटी:** रजिस्टर अंतर्निहित वोलटाइल मेमोरी हैं — पावर कट या CPU रीसेट पर उनका कंटेंट खो जाता है; वे स्थायी स्टोरेज नहीं प्रदान करते।\n- **परफॉर्मेंस प्रभाव:** रजिस्टरों की संख्या और प्रकार CPU की प्रदर्शन दक्षता और इंस्ट्रक्शन सेट के डिज़ाइन पर प्रत्यक्ष प्रभाव डालते हैं; रजिस्टर उपयोग कम मेमोरी एक्सेस की आवश्यकता घटाता है।\n- **कंट्रोल और स्टेट ट्रैकिंग:** फ्लैग/स्टेट रजिस्टर्स (जैसे ज़ीरो, कैरी) गणनाओं के परिणामों की स्थिति संग्रहित करके निर्णय लेने और ब्रांचिंग में उपयोग होते हैं।\n- **इंटरैक्शन:** जब CPU को मेमोरी से डेटा चाहिए, तो डेटा पहले अक्सर रजिस्टरों में लाया जाता है ताकि ALU ऑपरेशन बिना विलंब के कर सके; परिणाम भी सामान्यतः रजिस्टर में ही रखा जाता है।\n- **आर्किटेक्चरल महत्व:** किसी प्रोसेसर के आर्किटेक्चर में रजिस्टर फाइल का आकार और एक्सेस मॉडल (हार्डवेयर-स्पेसिफिक) इंस्ट्रक्शन लेखन व कंपाइलर रणनीतियों को प्रभावित करता है।\n(उपरोक्त बिंदु सीधे परीक्षा-उन्मुख — त्वरित संशोधन और MAINS उत्तर में उपयोग के लिये उपयुक्त हैं।)", "priority_tag": "VERY_HIGH"}, {"question": "भारत जैसे देश में सरकारी सेवादानों के कंप्यूटिंग सिस्टम हेतु कौन-सी मेमोरी प्रकार फर्मवेयर व बूट कोड रखने के लिए व्यापक रूप से उपयोग होती है?", "options": ["Volatile DRAM", "ROM/EEPROM/Flash", "Magnetic Tape", "CPU Cache"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस प्रोटोकॉल/मानक के अंतर्गत IPv4 पतों की लंबाई कितनी बिट होती है?", "options": ["16 बिट", "32 बिट", "64 बिट", "128 बिट"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किसे 'बस्ट-विड्थ' (bus width) कहा जाता है और उसका प्रभाव क्या होता है?", "options": ["कंप्यूटर केस की चौड़ाई — तंत्र की शारीरिक माप पर प्रभाव", "डेटा बस में एक साथ ट्रांस्फर किए जा सकने वाले बिट्स की संख्या — सिस्टम थ्रूपुट को प्रभावित करता है", "हार्ड ड्राइव के RPM से जुड़ा माप", "किसी नेटवर्क के उपयोगकर्ताओं की अधिकतम संख्या"], "answer_index": 1, "explanation": "# **विषय: बस्ट‑विड्थ (Bus Width) — परिभाषा और प्रभाव (संक्षिप्त व्याख्या)**\n- बस्ट‑विड्थ वह संख्या है जो बताती है कि डेटा बस पर एक ही बार में कितने बिट्स ट्रांसफर किए जा सकते हैं।\n- यह आमतौर पर बिट्स में नापी जाती है (उदा. 8‑bit, 16‑bit, 32‑bit, 64‑bit)।\n- बस्ट‑विड्थ सीधे तौर पर प्रति साइकल अधिकतम डेटा की मात्रा को निर्धारित करती है — जिससे सिस्टम का थ्रूपुट प्रभावित होता है।\n- अधिक बस्ट‑विड्थ का अर्थ है कि एक ही क्लॉक साइकिल में अधिक बाइट/वर्ड मेमोरी या I/O डिवाइस के साथ आदान‑प्रदान किए जा सकते हैं।\n- बस्ट‑विड्थ और क्लॉक स्पीड दोनों मिलकर वास्तविक बैंडविड्थ (थ्रूपुट) तय करते हैं: बैंडविड्थ ≈ बस्ट‑विड्थ × क्लॉक‑फ्रीक्वेंसी।\n- प्रोसेसर के शब्द आकार (word size) और बस्ट‑विड्थ का मेल प्रदर्शन और डेटा‑हैंडलिंग को प्रभावित करता है; असमानता से अतिरिक्त साइकिलों में डेटा विभाजित/संयोजित करना पड़ सकता है।\n- मेमोरी एक्सेस में चौड़ी बस से कम बार मेमोरी ओपरेशन की आवश्यकता होती है, जिससे लेटेंसी प्रभावी रूप से घट सकती है।\n- I/O डिवाइस और कैश लेआउट पर भी बस्ट‑विड्थ का असर होता है — डिस्क/नेटवर्क इंटरफेस से बड़े ब्लॉक्स जल्दी संवाद होते हैं।\n- सिस्टम‑डिजाइन में बस्ट‑विड्थ बढ़ाना हार्डवेयर जटिलता और लागत बढ़ा सकता है; इसलिए कार्य‑आवश्यकता के अनुसार संतुलन जरूरी है।\n- मल्टी‑लेन (पैरलल) और सीरियल इंटरकनेक्ट में बस्ट‑विड्थ का अर्थ अलग‑अलग रूप से लागू होता है — पर मूल सिद्धांत: एक साथ कितने बिट्स भेजे जा सकते हैं।\n- MPPSC परीक्षा और Mains उत्तर लेखन में वाक्यांश के रूप में उपयोग: “बस्ट‑विड्थ — डेटा बस में एक साथ ट्रांसफर होने वाले बिट्स की संख्या; यह सिस्टम थ्रूपुट और मेमोरी/ I/O प्रदर्शन को प्रभावित करती है।”", "priority_tag": "HIGH"}, {"question": "कंप्यूटिंग में 'बाइट ऑर्डर' प्रयोग होते समय किन दो प्रमुख स्वरूपों का उल्लेख होता है?", "options": ["Parallel और Serial", "Synchronous और Asynchronous", "Little-endian और Big-endian", "Analog और Digital"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किसे 'सिस्टम कैश' कहा जाता है और इसका प्रमुख उद्देश्य क्या है?", "options": ["हाई-वोल्टेज सप्लाई देना", "CPU और मुख्य मेमोरी के बीच डेटा एक्सेस समय घटाना", "दूरसंचार संकेतों को एन्क्रिप्ट करना", "ऑपरेटिंग सिस्टम को स्टोर करना"], "answer_index": 1, "explanation": "# **विषय: सिस्टम कैश — परिभाषा और प्रमुख उद्देश्य (MPPSC उपयोग के लिये व्याख्या)**\n- **परिभाषा:** सिस्टम कैश वह तेज़ स्मृति (स्टोरेज) है जो CPU और मुख्य मेमोरी (RAM) के बीच रखा जाता है ताकि बार‑बार उपयोग होने वाले डेटा को निकटतम स्थान पर रखा जा सके।\n- **प्रमुख उद्देश्य (सार):** CPU और मुख्य मेमोरी के बीच डेटा एक्सेस समय घटाना — जिससे प्रोसेसर का व्यर्थ का इंतजार (stall) कम हो और समग्र प्रदर्शन बढ़े।\n- **स्थान और स्तर:** कैश अक्सर प्रोसेसर चिप पर (on‑chip) या चिप के आसपास बहु-स्तर (L1, L2, L3) में व्यवस्थित होता है; L1 सबसे तेज़ व छोटा, L3 बड़ा पर अपेक्षाकृत धीमा।\n- **क्यों आवश्यक है:** प्रोसेसर की गति और मुख्य मेमोरी की गति में अंतर (speed gap) होता है; कैश इस अंतर को कम करके CPU को जल्दी डेटा उपलब्ध कराता है।\n- **स्थानीयता के सिद्धांत:** कैश का लाभ मुख्यतः दो प्रकार की स्थानीयता पर निर्भर है — _टेम्पोरल_ (हाल ही में उपयोग हुआ डेटा फिर से उपयोग होगा) और _स्पैशल_ (नज़दीकी मेमोरी लोकेशन्स भी उपयोगी होंगे)।\n- **कैश लाइन और ब्लॉक:** मेमोरी से डेटा कैश में निर्र्चित आकार के ब्लॉक्स/लाइनों के रूप में लाया जाता है; यह ब्लॉक‑आधारित स्थानांतरण लोड/स्टोर की दक्षता बढ़ाता है।\n- **हिट और मिस प्रभाव:** जब मांगा गया डेटा कैश में मिलता है तो उसे 'हिट' कहते हैं — यह तेज़ एक्सेस देता है; यदि नहीं मिलता (मिस), तो मुख्य मेमोरी से लाना पड़ता है जो अधिक समय लेता है।\n- **राइट‑नीति (write policy):** कैश में लिखते समय दो सामान्य नीतियाँ होती हैं — write‑back (परिवर्तन पहले कैश में, बाद में मुख्य मेमोरी को अपडेट) और write‑through (साथ ही दोनों में लिखना) — ये प्रदर्शन व डेटा समरूपता पर प्रभाव डालती हैं।\n- **कन्सिस्टेंसी और कोएरेन्स:** मल्टी‑कोर सिस्टम में अलग‑अलग कोर के कैशों के बीच डेटा समरूपता बनाए रखना जरूरी है; कैश कोहेरेन्स प्रोटोकॉल्स यह सुनिश्चित करते हैं कि सभी कोर सही (consistent) मान देखें।\n- **आकार बनाम गति का ट्रेड‑ऑफ:** बड़ा कैश हिट‑रहितता बढ़ा सकता है पर उससे लेटेंसी और लागत बढ़ती है; इसलिए डिजाइन में संतुलन आवश्यक होता है।\n- **प्रदर्शन मेट्रिक्स:** कैश प्रभावशीलता को हिट‑रेट, मिस‑पेनाल्टी और औसत मेमोरी एक्सेस समय जैसे मेट्रिक्स से मापा जाता है — ये सीधे CPU के उपयोगी काम की गति को प्रभावित करते हैं।\n- **उपयोग का व्यावहारिक महत्व (MPPSC संदर्भ):** परीक्षा में सिस्टम कैश का मुख्य बिंदु यही है कि यह CPU‑RAM के बीच मध्यस्थ बनकर डेटा एक्सेस समय घटाता है, जिससे कंप्यूटर की समग्र गति और प्रत्युत्तर क्षमता बेहतर होती है।", "priority_tag": "VERY_HIGH"}, {"question": "किसे 'हार्डवेयर आर्किटेक्चर' के संदर्भ में 'Instruction Set Architecture' (ISA) कहा जाता है?", "options": ["कंप्यूटर की भौतिक चेसिस डिज़ाइन", "प्रोसेसर के लिए उपलब्ध निर्देशों, रजिस्टरों एवं डेटा प्रकारों का सेट जो सॉफ्टवेयर-हार्डवेयर इंटरफेस परिभाषित करता है", "मॉडल का थर्मल डिजाइन पावर", "वायरलेस कम्युनिकेशन का फ्रेमवर्क"], "answer_index": 1, "explanation": "# व्याख्या: Instruction Set Architecture (ISA) — हार्डवेयर आर्किटेक्चर में क्या है\n- **ISA वह परिभाषा है जो प्रोसेसर और सॉफ्टवेयर के बीच इंटरफ़ेस तय करती है**; यानी प्रोसेसर पर कौन‑से निर्देश लागू होंगे और सॉफ़्टवेयर उन्हें कैसे प्रयोग करेगा।\n- **ISA में उपलब्ध निर्देशों (instructions) का पूरा सेट शामिल होता है** — जैसे डेटा ट्रांसफर, अंकगणित, तार्किक, नियंत्रण (jump/call) इत्यादि।\n- **ISA में रजिस्टरों का प्रकार, संख्या और उनका उपयोग परिभाषित होता है** — जो प्रोग्रामर और कंपाइलेर को सीधे दिखाई देता है।\n- **डेटा प्रकार (data types) और उनकी साइज (जैसे byte, word, floating‑point) ISA में निर्दिष्ट होते हैं**, जिससे बिट‑लेवल रिप्रेजेंटेशन तय होता है।\n- **एड्रेसिंग मोड्स (addressing modes) और मेमोरी एक्सेस नियम ISA में बताये जाते हैं**, जो मेमोरी से डेटा लाने/लेने के तरीके निर्धारित करते हैं।\n- **ISA में निर्देशों का फॉर्मेट और बाइनरी एन्कोडिंग शामिल होती है**, जिससे मशीन कोड और असेंबली भाषा बनती है।\n- **ISA अपवाद/इंटरप्ट हैंडलिंग, स्टैक और कॉल कन्वेंशन जैसे प्रोग्राम‑विजन स्टेट को भी परिभाषित करता है**, जो ऑपरेटिंग सिस्टम और रूटीन कॉल्स के लिए जरूरी है।\n- **ISA हार्डवेयर‑सॉफ्टवेयर संगतता (compatibility) का आधार है** — वही ISA होने पर सॉफ़्टवेयर बिना संशोधन के अलग‑अलग हार्डवेयर पर चल सकता है।\n- **ISA का चयन कंपाइलर डिज़ाइन, ऑपरेटिंग सिस्टम इंटरफेस और एप्लिकेशन पर सीधे प्रभाव डालता है**, इसलिए सिस्टम‑लेवल निर्णयों में प्रमुख भूमिका निभाता है।\n- **ISA के दो सामान्य प्रकार हैं — RISC और CISC — जो निर्देशों की जटिलता और निष्पादन नीति में अंतर दिखाते हैं**, और ये प्रदर्शन व ऊर्जा उपयोग को प्रभावित करते हैं।\n- **परीक्षा/मेनस उपयोग के लिये संक्षेप रिवीजन‑नोट:** ISA = प्रोसेसर‑विजिबल निर्देश + रजिस्टर सेट + डेटा‑प्रकार + एड्रेसिंग + निर्देश‑फॉर्मेट + अपवाद/कॉल‑कन्वेंशन — यानि सॉफ्टवेयर‑हार्डवेयर इंटरफेस।", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

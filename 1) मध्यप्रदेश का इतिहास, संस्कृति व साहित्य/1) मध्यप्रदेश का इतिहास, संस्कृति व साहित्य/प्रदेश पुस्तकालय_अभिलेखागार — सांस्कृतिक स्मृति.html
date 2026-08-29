@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-147 – प्रदेश पुस्तकालय/अभिलेखागार — सांस्कृतिक स्मृति</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-147 – प्रदेश पुस्तकालय/अभिलेखागार — सांस्कृतिक स्मृति</h1>
+        <div class="note">क्षेत्र: MP | सामग्री: दुर्लभ ग्रंथ/पत्रिका—शोध/सार्वजनिकता | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 07-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl">## प्रस्तावना  
+प्रदेश पुस्तकालय एवं अभिलेखागार प्रदेश की सामूहिक सांस्कृतिक स्मृति का प्रतिक हैं; मध्यप्रदेश में इनके संग्रह—संस्कृत पाण्डुलिपियाँ, फारसी फरमान, औपनिवेशिक जिला-नेटिव रिकॉर्ड और लोक-साहित्य—स्थानीय इतिहास एवं शोध के लिए अनिवार्य प्राथमिक स्रोत हैं, अतः MPPSC जैसी परीक्षाओं के लिए ये संस्थागत संदर्भ महत्त्वपूर्ण हैं।  
+
+## ऐतिहासिक व संस्थागत पृष्ठभूमि  
+मध्यप्रदेश में पुस्तकालय/अभिलेखागार का केन्द्र बिंदु भोपाल और ग्वालियर शहरी समूह रहा है; राज्य अभिलेखागारों में संस्कृत पाण्डुलिपियों, 18वीं–19वीं शताब्दी के मराठी/हिन्दी फर्जी (firmans) व झंडा-फाइलें और स्थानीय राजस्व अभिलेख मिलते हैं, जो राजनैतिक व सामाजिक इतिहास के लिए micro-evidence देते हैं।  
+
+## संग्रह की विशेषताएँ एवं क्षेत्रीय लिंकेज  
+राज्य के संग्रह में ताम्रपत्रों से लेकर पत्त-पाण्डुलिपि, मौखिक लोक-गीतों के विद्युत्-रिकॉर्ड और जयसिंह/रानी लक्ष्मीबाई युग के संदर्भ-अभिलेख शामिल हैं; उज्जैन, इन्दौर, जबलपुर व मंदसौर जैसे जिले स्थानीय साहित्यिक परंपरा-नोड्स हैं जिनका अभिलेखीय रिकॉर्ड क्षेत्रीय इतिहास उजागर करता है।  
+
+## शोध व सार्वजनिकता का मौजूदा परिदृश्य  
+पिछले 15 वर्षों में राज्य स्तर पर दस्तावेजीकरण और डिजिटल उपलब्धता का प्रगति धीमी रही; केन्द्रीय पहलें—National Mission for Manuscripts (2003) और National Digital Library (2014)—के बावजूद MP में व्यापक स्कैनिंग/मेटाडेटा निर्माण सीमित रहा, जिससे शोधार्थियों की पहुंच और प्राथमिक-स्रोतों की सार्वजनिकता बाधित रही।  
+
+## चुनौतियाँ (fact + analysis)  
+भौतिक क्षरण, फार्मेट-भेद (पंजाबी/फारसी/देवनागरी/पल्ली-लिपि), बेहतर कैटलॉगिंग की कमी और वित्तीय/तकनीकी संसाधनों का अभाव प्रमुख बाधाएँ हैं; परिणामस्वरूप दुर्लभ ग्रंथों की सुरक्षा तो सीमित हुई ही, उनका सुव्यवस्थित शोध उपयोग भी बाधित हुआ।  
+
+## अवसर व नीति-निर्देश (way forward)  
+राज्य स्तर पर समेकित अभिलेखीय नीति, जिलेवार डिजिटल-हब (इन्दौर, जबलपुर, भोपाल केन्द्र) और लोकल भाषा मेटाडेटा प्रशिक्षण से शोध-सुलभता बढ़ सकती है; सार्वजनिक-निजी साझेदारी व स्थानीय विश्वविद्यालयों के साथ शोध-अन्तराल (internship) मॉडल त्वरित प्रभाव दे सकता है।  
+
+## निष्कर्ष  
+मध्यप्रदेश के पुस्तकालय व अभिलेखागार केवल सूचीबद्ध दस्तावेज नहीं, बल्कि सामुदायिक पहचान व नीति-निर्माण के लिए जिवंत स्रोत हैं; दीर्घकालिक संरक्षण, डिजिटल सार्वजनिकता व शोध-संलयन पर जोर देने से ये संस्थाएँ प्रदेश की सांस्कृतिक स्मृति को भविष्य-योग्य बनाएँगी और MPPSC जैसे प्रतिस्पर्धात्मक व शैक्षणिक शोध के लिए अमूल्य संसाधन सिद्ध होंगी।  
+
+स्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  
+स्रोत 2: Arihant – &quot;Madhya Pradesh Samanya Gyan&quot;  
+स्रोत 3: Drishti IAS MPPSC (Bhopal) – &quot;Madhya Pradesh ka Itihas, Sanskriti evam Sahitya&quot;</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-147 – प्रदेश पुस्तकालय/अभिलेखागार — सांस्कृतिक स्मृति", "coverage_note": "क्षेत्र: MP | सामग्री: दुर्लभ ग्रंथ/पत्रिका—शोध/सार्वजनिकता | 15-वर्षीय ट्रेंड: Low", "vyakhya": "## प्रस्तावना  \nप्रदेश पुस्तकालय एवं अभिलेखागार प्रदेश की सामूहिक सांस्कृतिक स्मृति का प्रतिक हैं; मध्यप्रदेश में इनके संग्रह—संस्कृत पाण्डुलिपियाँ, फारसी फरमान, औपनिवेशिक जिला-नेटिव रिकॉर्ड और लोक-साहित्य—स्थानीय इतिहास एवं शोध के लिए अनिवार्य प्राथमिक स्रोत हैं, अतः MPPSC जैसी परीक्षाओं के लिए ये संस्थागत संदर्भ महत्त्वपूर्ण हैं।  \n\n## ऐतिहासिक व संस्थागत पृष्ठभूमि  \nमध्यप्रदेश में पुस्तकालय/अभिलेखागार का केन्द्र बिंदु भोपाल और ग्वालियर शहरी समूह रहा है; राज्य अभिलेखागारों में संस्कृत पाण्डुलिपियों, 18वीं–19वीं शताब्दी के मराठी/हिन्दी फर्जी (firmans) व झंडा-फाइलें और स्थानीय राजस्व अभिलेख मिलते हैं, जो राजनैतिक व सामाजिक इतिहास के लिए micro-evidence देते हैं।  \n\n## संग्रह की विशेषताएँ एवं क्षेत्रीय लिंकेज  \nराज्य के संग्रह में ताम्रपत्रों से लेकर पत्त-पाण्डुलिपि, मौखिक लोक-गीतों के विद्युत्-रिकॉर्ड और जयसिंह/रानी लक्ष्मीबाई युग के संदर्भ-अभिलेख शामिल हैं; उज्जैन, इन्दौर, जबलपुर व मंदसौर जैसे जिले स्थानीय साहित्यिक परंपरा-नोड्स हैं जिनका अभिलेखीय रिकॉर्ड क्षेत्रीय इतिहास उजागर करता है।  \n\n## शोध व सार्वजनिकता का मौजूदा परिदृश्य  \nपिछले 15 वर्षों में राज्य स्तर पर दस्तावेजीकरण और डिजिटल उपलब्धता का प्रगति धीमी रही; केन्द्रीय पहलें—National Mission for Manuscripts (2003) और National Digital Library (2014)—के बावजूद MP में व्यापक स्कैनिंग/मेटाडेटा निर्माण सीमित रहा, जिससे शोधार्थियों की पहुंच और प्राथमिक-स्रोतों की सार्वजनिकता बाधित रही।  \n\n## चुनौतियाँ (fact + analysis)  \nभौतिक क्षरण, फार्मेट-भेद (पंजाबी/फारसी/देवनागरी/पल्ली-लिपि), बेहतर कैटलॉगिंग की कमी और वित्तीय/तकनीकी संसाधनों का अभाव प्रमुख बाधाएँ हैं; परिणामस्वरूप दुर्लभ ग्रंथों की सुरक्षा तो सीमित हुई ही, उनका सुव्यवस्थित शोध उपयोग भी बाधित हुआ।  \n\n## अवसर व नीति-निर्देश (way forward)  \nराज्य स्तर पर समेकित अभिलेखीय नीति, जिलेवार डिजिटल-हब (इन्दौर, जबलपुर, भोपाल केन्द्र) और लोकल भाषा मेटाडेटा प्रशिक्षण से शोध-सुलभता बढ़ सकती है; सार्वजनिक-निजी साझेदारी व स्थानीय विश्वविद्यालयों के साथ शोध-अन्तराल (internship) मॉडल त्वरित प्रभाव दे सकता है।  \n\n## निष्कर्ष  \nमध्यप्रदेश के पुस्तकालय व अभिलेखागार केवल सूचीबद्ध दस्तावेज नहीं, बल्कि सामुदायिक पहचान व नीति-निर्माण के लिए जिवंत स्रोत हैं; दीर्घकालिक संरक्षण, डिजिटल सार्वजनिकता व शोध-संलयन पर जोर देने से ये संस्थाएँ प्रदेश की सांस्कृतिक स्मृति को भविष्य-योग्य बनाएँगी और MPPSC जैसे प्रतिस्पर्धात्मक व शैक्षणिक शोध के लिए अमूल्य संसाधन सिद्ध होंगी।  \n\nस्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  \nस्रोत 2: Arihant – \"Madhya Pradesh Samanya Gyan\"  \nस्रोत 3: Drishti IAS MPPSC (Bhopal) – \"Madhya Pradesh ka Itihas, Sanskriti evam Sahitya\"", "mcqs": [{"question": "अभिलेखागार (Archives) और सार्वजनिक पुस्तकालयों (Public Libraries) के मध्य मुख्य अंतर क्या है?", "options": ["अभिलेखागार मुख्यतः अद्वितीय, अस्थायी और प्रशासनिक रिकॉर्ड संरक्षित करते हैं, जबकि पुस्तकालय बहुलकृत प्रकाशनों का संग्रह करते हैं", "अभिलेखागार केवल किताबें संग्रहित करते हैं, जबकि पुस्तकालय केवल प्रशासनिक दस्तावेज़ रखते हैं", "अभिलेखागार सामान्य जनता के लिए रोजमर्रा का पाठ्यक्रम सामग्री देते हैं, जबकि पुस्तकालय दुर्लभ ग्रंथों को ही रखते हैं", "अभिलेखागार और पुस्तकालय में कोई वास्तविक कार्यात्मक अंतर नहीं होता; दोनों समान प्रकार के संग्रह रखते हैं"], "answer_index": 0, "explanation": "# अभिलेखागार और सार्वजनिक पुस्तकालय — मुख्य अंतर (संकलित बिंदु)\n- अभिलेखागार प्रमुखतः अद्वितीय, मूल प्रशासनिक तथा संस्थागत रिकॉर्ड (जैसे सरकारी आदेश, डाक, कार्यालयी फाइलें, रिकार्ड्स) को संरक्षित करते हैं।\n- सार्वजनिक पुस्तकालयों में बहुलकृत, प्रकाशित सामग्री (किताबें, पत्रिकाएँ, समाचार-पत्र) का संग्रह होता है जो कई प्रतियों में उपलब्ध हो सकता है।\n- अभिलेखागार की प्राथमिक जिम्मेदारी स्रोतों की प्रामाणिकता, मूलत्व (originality) और provenance को बनाए रखना है; इसलिए वहाँ रिकॉर्ड का परिवर्तन या लोन सीमित रहता है।\n- पुस्तकालयों का उद्देश्य व्यापक पहुंच और उधार सुविधा प्रदान करना है; सामग्री को पढ़ने और पुनर्प्रकाशन के उद्देश्य से उपलब्ध कराया जाता है।\n- अभिलेखागारों में संग्रह अक्सर अस्थायी दस्तावेजों, प्रशासनिक रेकॉर्ड्स और संगठनात्मक निर्णयों का दीर्घकालिक संरक्षण होता है; ये दस्तावेज संस्कृति और शासकीय इतिहास के अनूठे साक्ष्य होते हैं।\n- पुस्तकालयों में संग्रह का आयोजन विषय, लेखक और प्रकाशक के आधार पर होता है; अभिलेखागारों में रिकॉर्ड का आयोजन स्रोत, फाइल यूनिट और तिथि के अनुसार (fonds, series, file) होता है।\n- अभिलेखागारों में संरक्षण (conservation) और सतत निगरानी पर जोर होता है — मूल फाइलों के लिए नियंत्रित तापमान, आर्द्रता और संधारण तकनीकें लागू की जाती हैं; पुस्तकालयों में सामान्य रखरखाव और रिपेयर पर ध्यान रहता है।\n- अभिलेखागार अनुसंधान और प्रमाणिक इतिहास निर्माण के लिए प्राथमिक स्रोत उपलब्ध कराते हैं; पुस्तकालय सेकेंडरी और तृतीयक साहित्य पढ़ाई, जन शिक्षा और सूचना के लिए मुख्य होते हैं।\n- अभिलेखागारों में एंट्री, उपयोग और नकल पर कानूनी तथा गोपनीयता-आधारित सीमाएँ अधिक सामान्य हैं; सार्वजनिक पुस्तकालयों में पहुँच कानूनी रूप से समावेशी और सार्वजनिक उपयोग के अनुकूल होती है।\n- आधुनिक अभिलेखागार डिजिटल फॉरमेट में मूल रिकॉर्डों का संरक्षित डिजिटलीकरण और मेटाडेटा-आधारित खोज प्रदान करते हैं; पुस्तकालय भी डिजिटल पुस्तक-संग्रह करते हैं पर प्राथमिकता मास प्रकाॢशित सामग्री पर रहती है।\n- अभिलेखागार और पुस्तकालय दोनों सांस्कृतिक स्मृति के स्तंभ हैं, पर अभिलेखागार विशेषकर प्रशासनिक और संस्थागत स्मृति के अद्वितीय प्रमाणों के दीर्घकालिक संरक्षण के लिए नियोजित होते हैं।", "priority_tag": "HIGH"}, {"question": "राज्य स्तर पर मध्यप्रदेश में अभिलेखागार, पुरातत्व एवं संग्रहालयों का समन्वय करने वाला विभाग सामान्यतः कौन-सा है?", "options": ["Directorate of Archives, Archaeology and Museums (DAAM)", "Department of Education", "Panchayati Raj Department", "Forest and Wildlife Department"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "‘‘दुर्लभ ग्रंथों’’ के संरक्षण में किस तकनीक का उपयोग कागज़ के अम्लीय गुण को कम करने के लिए किया जाता है?", "options": ["डिजिटाइज़ेशन", "माइक्रोफिल्मिंग", "डीएसिडिफिकेशन (Deacidification)", "लैमिनेशन"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश के स्थानीय अभिलेखागारों में अक्सर मिलने वाली ऐतिहासिक प्रशासनिक लिपि कौन-सी है, जो मराठी-प्रशासनिक अभिलेखों में पाई जाती है?", "options": ["कंदार लिपि", "मोडी लिपि", "देवनागरी लिपि", "ब्राह्मी लिपि"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "अभिलेखागारों में 'माइक्रोफिल्मिंग' का प्रमुख उद्देश्य क्या है?", "options": ["दस्तावेजों को रंगीन प्रिंट में बदलना", "दस्तावेजों की दीर्घकालिक नकल बनाकर अभिलेखीय पहुँच और संरक्षण सुनिश्चित करना", "दस्तावेज़ों के लेखकों के बारे में जानकारी जोड़ना", "दस्तावेज़ों को सार्वजनिक पुस्तकालयों में स्थानांतरित करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस नीति या क़ानून का प्रयोग सरकारी अभिलेखों के संरक्षण और सार्वजनिक पहुँच के लिए भारत में केंद्र स्तर पर किया जाता है?", "options": ["भारतीय सूचना का अधिकार अधिनियम", "Public Records Act, 1993", "Copyright Act, 1957", "Right to Education Act"], "answer_index": 1, "explanation": "# Public Records Act, 1993 — व्याख्या (MPPSC परीक्षा हेतु)\n- Public Records Act, 1993 का उद्देश्य केंद्र सरकार के सरकारी अभिलेखों (public records) के संरक्षण, व्यवस्थित रखरखाव और सार्वजनिक पहुँच सुनिश्चित करना है।\n- इस अधिनियम के तहत 'public records' की परिभाषा दी गई है जिसमें सरकारी कार्यालयों द्वारा निर्मित, प्राप्त या संग्रहित दस्तावेज़ और अभिलेख आते हैं।\n- Act सरकार को अभिलेखों के वर्गीकरण, अवधि निर्धारण और रिकॉर्ड्स के रखरखाव के नियम तय करने का कानूनी अधिकार देता है।\n- यह कानून अभिलेखों के अपवर्जन (disposal) और नॉरमेन्‍टिव प्रक्रिया (retention schedule) के आदेशों को लागू करने का ढाँचा प्रदान करता है।\n- Public Records Act सरकारी अभिलेखों के संरक्षण के लिए राष्ट्रीय स्तर पर नीतिगत और प्रशासनिक दिशा-निर्देश निर्धारित करता है, जिससे अभिलेखों की दीर्घकालिक उपलब्धता सुनिश्चित होती है।\n- अधिनियम अभिलेखों की सार्वजनिक पहुँच के लिए प्रावधान करता है—निश्चित समय के बाद रिकॉर्ड्स को आम उपयोग के लिए उपलब्ध कराना और उपयोग के नियम निर्धारित करना।\n- Act के तहत अभिलेखों की सुरक्षा, संरक्षण के मानक और संग्रहालय/अभिलेखागार (archives) के संचालन के लिए जिम्मेदार संस्थागत व्यवस्था को वैधानिक रूप से मान्यता मिलती है।\n- Public Records Act के प्रावधान अभिलेखों के डिजिटाइज़ेशन, संरचनात्मक सूचीकरण (cataloguing) और संरक्षण तकनीकों को अपनाने के लिए कानूनी आधार प्रदान करते हैं।\n- यह अधिनियम अभिलेखों के विनाश या हेरफेर पर नियंत्रण रखता है और अनधिकृत नष्ट या छेड़छाड़ के खिलाफ दंडात्मक प्रावधानों का प्रावधान करता है।\n- MP के सन्दर्भ में, केंद्र स्तर पर लागू इस Act के प्रावधानों के अनुसार राज्य कार्यालयों से जुड़े रिकॉर्ड्स के संरक्षण और सार्वजनिक उपयोग हेतु केंद्रीय दिशानिर्देशों का पालन अपेक्षित है; राज्य-स्तर पर इन दिशानिर्देशों के अनुरूप कार्यविधियाँ अपनाई जाती हैं।\n- परीक्षा और Mains उत्तर लेखन के लिए सीधे-सीधे प्रयोग करने योग्य बिंदु: \\\"Public Records Act, 1993 केंद्र स्तर पर सरकारी अभिलेखों के संरक्षण, रखरखाव, वर्गीकरण तथा सार्वजनिक पहुँच सुनिश्चित करने वाला प्रमुख कानून है।\\\"", "priority_tag": "HIGH"}, {"question": "प्रदेशीय पुस्तकालयों/अभिलेखागारों द्वारा दुर्लभ ग्रंथों की शोध-उपयोगिता बढ़ाने के लिए कौन-सी क्रियाएँ प्रमुख रूप से की जाती हैं?", "options": ["ग्रंथों का गुमनाम कर देना और पहुँच प्रतिबंधित करना", "इन्वेंटरी, कैटलॉगिंग, माइक्रोफिल्मिंग एवं डिजिटल रिपॉजिटरी बनाना", "ग्रंथों को केवल प्रदर्शन के लिए ही बाहर निकालना", "सभी दुर्लभ ग्रंथों को नीलामी के माध्यम से विक्रय करना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "‘‘डिजिटल रिपॉजिटरी’’ का अभिलेखीय संदर्भ में क्या अर्थ है?", "options": ["सिर्फ डिजिटल तस्वीरों का एक निजी संग्रह", "दस्तावेजों और सामग्री का व्यवस्थित, सूचीकृत और ऑनलाइन संग्रह जो शोधार्थियों को उपलब्ध कराया जाता है", "किसी साइट पर केवल स्कैनर की सूची", "पुस्तकालय की पुरानी कापियों का केवल हार्डकॉपी संग्रह"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश में राज्यीय संस्कृति-स्मृति के संरक्षण हेतु अभिलेखागारों द्वारा संचालित किसी कार्यक्रम/उपक्रम का सामान्य उद्देश्य क्या होता है?", "options": ["स्थानीय पारंपरिक ज्ञान व अभिलेखों को इकट्ठा, संरक्षित और जनता तथा शोधार्थियों को उपलब्ध कराना", "केवल विदेशी शोधार्थियों को दस्तावेज़ उपलब्ध कराना", "पुराने अभिलेखों को नष्ट कर नया संग्रह बनाना", "सभी अभिलेखों को केवल डिजिटल फार्मेट में न रखने का"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "अभिलेखीय कागजात की शारीरिक रक्षा के लिए नियंत्रित पर्यावरण (controlling environment) में सबसे पहले किन दो कारकों को नियंत्रित किया जाता है?", "options": ["रंग और आर्द्रता (color and acidity)", "तापमान और आर्द्रता (temperature and humidity)", "हलचल और प्रकाश (movement and publicity)", "आकाशीय दबाव और ध्वनि (atmospheric pressure and sound)"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश के अभिलेखागारों में 'प्रवेश-नियम' (access regulations) का मूल उद्देश्य क्या है?", "options": ["दस्तावेजों की सुरक्षा और शोधार्थियों के लिये उचित पहुँच संतुलित करना", "दस्तावेजों की नकल बनाकर बाजार में बेचना", "सिर्फ़ सरकारी कर्मचारियों को ही पहुँच देना", "दस्तावेजों को किसी भी समय बिना रिकॉर्ड के बाहर ले जाने की अनुमति देना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "‘‘प्रिजर्वेशन’’ और ‘‘कंसर्वेशन’’ (preservation vs conservation) अभिलेखागार सिद्धांतों में सामान्यतः किस तरह विभेदित होते हैं?", "options": ["प्रिजर्वेशन दस्तावेजों का दीर्घकालिक संरक्षण है; कंसर्वेशन उनके भौतिक उपचार व मरम्मत पर केंद्रित है", "दोनों शब्द एक ही अर्थ के परस्पर स्थानापन्न शब्द हैं", "प्रिजर्वेशन केवल डिजिटल प्रक्रिया है; कंसर्वेशन केवल फ़ेरनली तकनीक है", "प्रिजर्वेशन सिर्फ नीति बनाना है; कंसर्वेशन सिर्फ दस्तावेज़ों का निस्तारण है"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश के ऐतिहासिक अभिलेखों में आम तौर पर कौन-सी भाषाएँ/लिपियाँ शोधार्थियों को मिलने की संभावना अधिक रहती है?", "options": ["सिर्फ अंग्रेज़ी और तमिल", "संस्कृत, फारसी/उर्दू, मोडी और देवनागरी में लिखे रिकॉर्ड", "केवल चीनी और रूसी", "केवल आधुनिक हिन्दी और मराठी (अन्य कुछ नहीं)"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "दुर्लभ पत्रिकाओं और स्थानीय प्रकाशन का शोध/सार्वजनिकता बढ़ाने के लिये अभिलेखागार किन गतिविधियों का आयोजन कर सकते हैं?", "options": ["ओपन एक्सेस डिजिटल पोर्टल, कार्यशालाएँ और प्रदर्शनी", "सिर्फ़ अभिलेखों को सील कर देना", "दुर्लभ पत्रिकाओं की नीलामी आयोजित करना", "सभी सामग्री का भूमिगत भंडारण"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "यदि कोई शोधकर्ता मध्यप्रदेश के किसी स्थानीय अभिलेख से दुर्लभ पांडुलिपि की नकल चाहता है, तो सर्वप्रथम उसे क्या चाहिए होगा?", "options": ["अभिलेखागार से अनुमति/रजिस्ट्रेशन और निर्धारित शर्तों का पालन", "सीधे पांडुलिपि को घर ले जाने की अनुमति", "पांडुलिपि की नीलामी के लिए आवेदन", "किसी भी अनुमति की आवश्यकता नहीं होती"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "मध्यप्रदेश के सांस्कृतिक स्मृति-प्रबन्धन में 'कम्युनिटी आर्काइव' (community archives) का क्या महत्व है?", "options": ["यह स्थानीय समुदायों की स्मृतियों, मौखिक इतिहास और स्थानीय प्रकाशनों को संरक्षित करके समावेशी ऐतिहासिक रिकॉर्ड बनाता है", "यह केवल सरकारी दस्तावेजों के आधिकारिक प्रतिरूप बनाता है", "कम्युनिटी आर्काइव का उद्देश्य संग्रह बेचकर आय अर्जित करना है", "यह केवल विदेशी भाषाओं के अभिलेखों का संग्रह करता है"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "किस प्रक्रिया के द्वारा अभिलेखागार पुराने कागज़ दस्तावेजों के डिजिटल प्रतिरूप बनाकर ऑनलाइन शोधार्थियों के लिये सुलभ बनाते हैं?", "options": ["इंटेग्रेशन", "स्कैनिंग और मेटाडेटा कैटालॉगिंग (digitization with metadata)", "फोटोकॉपी सेविंग", "रिसाइक्लिंग"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "प्रादेशिक अभिलेखागारों में 'इंटरप्रेटिव प्रदर्शनी' (interpretive exhibitions) का उद्देश्य क्या होता है?", "options": ["संग्रहीत सामग्रियों का संदर्भ और कहानी प्रस्तुत कर सामान्य जनता के लिये इतिहास को पहुँचयोग्य बनाना", "सिर्फ संग्रहालय वस्तुओं को सुरक्षित रखना", "दुर्लभ ग्रंथों को गुमनाम कर देना", "प्रदर्शनी में केवल विक्रय वस्तुओं को रखना"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "मध्यप्रदेश के अभिलेखागारों में पाण्डुलिप्याओं (manuscripts) के संरक्षण हेतु 'बॉक्सिंग' (boxing) का क्या लाभ है?", "options": ["यह दस्तावेज़ों की भौतिक रक्षा करता है और परिवहन/हैंडलिंग के दौरान क्षति घटाता है", "यह दस्तावेज़ों को जलता है जिससे पुराना कागज़ नष्ट हो जाता है", "यह दस्तावेज़ों को सार्वजनिक रूप से बेचने में मदद करता है", "यह दस्तावेज़ों को स्वयं-शुद्ध करने का काम करता है"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "अभिलेखागारों में 'मेटाडेटा' (metadata) का प्रमुख कार्य क्या है?", "options": ["दस्तावेज़ की भौतिक मरम्मत करना", "दस्तावेज़ के बारे में खोज, सन्दर्भ और प्रबंधन-संबंधी जानकारी प्रदान करना", "दस्तावेज़ की सामग्री को शुद्ध करना", "दस्तावेज़ को रंगीन बनाना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मध्यप्रदेश की सांस्कृतिक स्मृति के अध्ययन के लिये निम्न में से कौन-सा स्रोत आमतौर पर सबसे अधिक मूल (primary) माना जाता है?", "options": ["वर्तमान समय के सामान्य समाचार आलेख", "समय-समय के प्रशासनिक आदेश, फरमान व मूल अभिलेख (official records and original manuscripts)", "दूसरे लेखकों की समालोचनात्मक पुस्तकीय टीका", "किसी भी प्रकार के लोकप्रिय उपन्यास"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

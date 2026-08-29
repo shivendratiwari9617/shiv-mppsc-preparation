@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-132 – प्रोटीन इंजीनियरिंग—एंजाइम/बायोफार्मा</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-132 – प्रोटीन इंजीनियरिंग—एंजाइम/बायोफार्मा</h1>
+        <div class="note">क्षेत्र: Global | सामग्री: स्थिरता/गतिविधि सुधार—उद्योग अनुप्रयोग। | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 16-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- प्रोटीन इंजीनियरिंग—एंजाइम/बायोफार्मा वह श्रेणी है जिसमें recombinant DNA तकनीक और site-directed mutagenesis द्वारा प्रोटीन के गुण (स्थिरता, गतिविधि, उपस्थिति) को बदलकर औद्योगिक/चिकित्सा उपयोग के अनुकूल बनाया जाता है; MPPSC के Science-Tech हिस्से में यह PCR, CRISPR और recombinant expression systems जैसे core techniques से सीधे सम्बद्ध है।  
+
+# अवधारणा / विज्ञान-आधार
+- प्रोटीन इंजीनियरिंग के दो प्रमुख तरीके हैं: rational design जहाँ संरचना-आधारित मॉडलिंग (X‑ray/cryo‑EM-derived structures) और site-directed mutagenesis इस्तेमाल होते हैं, तथा directed evolution जिसमें error-prone PCR/ DNA shuffling और high-throughput screening (ELISA/fluorescence assays) द्वारा बेहतर variants चुने जाते हैं; परिणामस्वरूप thermostability और substrate-specificity जैसी micro-properties सुधरती हैं।  
+
+# औद्योगिक अनुप्रयोग (स्थिरता/गतिविधि सुधार)
+- उद्योगों में enzymes को immobilization, PEGylation या disulfide-engineering से स्थिर करके (उदा. cellulases/ lipases) biofuel, detergent और food processing में उच्च तापमान/organic-solvent tolerance प्रदान की जाती है; इससे process intensification, reduced enzyme loading और कम effluent-load परिणामस्वरूप टिकाऊ उत्पादन होता है।  
+
+# बायोफार्मा एवं चिकित्सीय उपयोग
+- therapeutic proteins और monoclonal antibodies के लिए glyco‑engineering, PEGylation व Fc‑domain engineering से half‑life और immunogenicity नियंत्रित होते हैं; recombinant expression (CHO/Yeast) और GMP manufacturing से biosimilars/innovator biologics का सुरक्षित उत्पादन सुनिश्चित होता है।  
+
+# टेक्नोलॉजी इन्फ्रास्ट्रक्चर व परीक्षण
+- discovery से लेकर scale‑up में PCR/NGS‑based screening, CRISPR‑mediated host engineering, bioreactor process control और ELISA/LC‑MS quality assays अनिवार्य हैं; scale-up में tech transfer और USP/DS purification पर regulatory compliance (GMP, biosafety) का प्रभाव पड़ता है।  
+
+# नीति, संस्थागत भूमिका और भारत‑विश्व कनेक्ट
+- नीति स्तर पर DBT/BIRAC translational grants और ICMR clinical translation frameworks का योगदान है; भारत में cost‑effective enzyme manufacturing और global markets के लिए compliance (WHO‑GMP, ICH guidelines) तथा घरेलू IP‑नीति का सामंजस्य आवश्यक है।  
+
+# जोखिम, बायोसेफ्टी व एथिक्स
+- CRISPR‑based edits व recombinant strains के environmental release risks के लिए biosafety level protocols, gene‑containment strategies और पोस्ट‑market surveillance ज़रूरी हैं; अंतःक्रियात्मक जोखिम कम करने हेतु risk assessment और institutional biosafety committees को सशक्त करना होगा।  
+
+# चुनौतियाँ और सीमाएँ
+- प्रमुख चुनौतियाँ हैं high‑throughput screening की लागत, predictive computational models की सीमाएँ, scale‑up में enzyme–matrix interactions की अनपेक्षित व्यवहारिकता और regulatory approval timelines; परिणामस्वरूप इंडस्ट्री‑अकादमिक translation धीमा रहता है।  
+
+# समाधान और आगे की दिशा (Way Forward)
+- समाधान में AI‑driven protein design coupled with directed evolution, incentivised public‑private partnerships (BIRAC) और skill‑development for bioprocess engineering शामिल हों; दीर्घकाल में sustainable catalysts और localized biomanufacturing से import‑dependency कम होगी और public health preparedness सुधरेगी।  
+
+# निष्कर्ष
+- संक्षेप में, प्रोटीन इंजीनियरिंग (rational/design + directed evolution), coupled with robust regulatory frameworks (DBT/BIRAC/ICMR) और scalable GMP processes, उद्योगों में स्थिरता व गतिविधि सुधार के लिए निर्णायक है; प्रभावी policy‑action और तकनीकी निवेश से India‑centric, globally competitive bioeconomy बन सकती है।  
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: DBT / BIRAC / ICMR</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-132 – प्रोटीन इंजीनियरिंग—एंजाइम/बायोफार्मा", "coverage_note": "क्षेत्र: Global | सामग्री: स्थिरता/गतिविधि सुधार—उद्योग अनुप्रयोग। | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना\n- प्रोटीन इंजीनियरिंग—एंजाइम/बायोफार्मा वह श्रेणी है जिसमें recombinant DNA तकनीक और site-directed mutagenesis द्वारा प्रोटीन के गुण (स्थिरता, गतिविधि, उपस्थिति) को बदलकर औद्योगिक/चिकित्सा उपयोग के अनुकूल बनाया जाता है; MPPSC के Science-Tech हिस्से में यह PCR, CRISPR और recombinant expression systems जैसे core techniques से सीधे सम्बद्ध है।  \n\n# अवधारणा / विज्ञान-आधार\n- प्रोटीन इंजीनियरिंग के दो प्रमुख तरीके हैं: rational design जहाँ संरचना-आधारित मॉडलिंग (X‑ray/cryo‑EM-derived structures) और site-directed mutagenesis इस्तेमाल होते हैं, तथा directed evolution जिसमें error-prone PCR/ DNA shuffling और high-throughput screening (ELISA/fluorescence assays) द्वारा बेहतर variants चुने जाते हैं; परिणामस्वरूप thermostability और substrate-specificity जैसी micro-properties सुधरती हैं।  \n\n# औद्योगिक अनुप्रयोग (स्थिरता/गतिविधि सुधार)\n- उद्योगों में enzymes को immobilization, PEGylation या disulfide-engineering से स्थिर करके (उदा. cellulases/ lipases) biofuel, detergent और food processing में उच्च तापमान/organic-solvent tolerance प्रदान की जाती है; इससे process intensification, reduced enzyme loading और कम effluent-load परिणामस्वरूप टिकाऊ उत्पादन होता है।  \n\n# बायोफार्मा एवं चिकित्सीय उपयोग\n- therapeutic proteins और monoclonal antibodies के लिए glyco‑engineering, PEGylation व Fc‑domain engineering से half‑life और immunogenicity नियंत्रित होते हैं; recombinant expression (CHO/Yeast) और GMP manufacturing से biosimilars/innovator biologics का सुरक्षित उत्पादन सुनिश्चित होता है।  \n\n# टेक्नोलॉजी इन्फ्रास्ट्रक्चर व परीक्षण\n- discovery से लेकर scale‑up में PCR/NGS‑based screening, CRISPR‑mediated host engineering, bioreactor process control और ELISA/LC‑MS quality assays अनिवार्य हैं; scale-up में tech transfer और USP/DS purification पर regulatory compliance (GMP, biosafety) का प्रभाव पड़ता है।  \n\n# नीति, संस्थागत भूमिका और भारत‑विश्व कनेक्ट\n- नीति स्तर पर DBT/BIRAC translational grants और ICMR clinical translation frameworks का योगदान है; भारत में cost‑effective enzyme manufacturing और global markets के लिए compliance (WHO‑GMP, ICH guidelines) तथा घरेलू IP‑नीति का सामंजस्य आवश्यक है।  \n\n# जोखिम, बायोसेफ्टी व एथिक्स\n- CRISPR‑based edits व recombinant strains के environmental release risks के लिए biosafety level protocols, gene‑containment strategies और पोस्ट‑market surveillance ज़रूरी हैं; अंतःक्रियात्मक जोखिम कम करने हेतु risk assessment और institutional biosafety committees को सशक्त करना होगा।  \n\n# चुनौतियाँ और सीमाएँ\n- प्रमुख चुनौतियाँ हैं high‑throughput screening की लागत, predictive computational models की सीमाएँ, scale‑up में enzyme–matrix interactions की अनपेक्षित व्यवहारिकता और regulatory approval timelines; परिणामस्वरूप इंडस्ट्री‑अकादमिक translation धीमा रहता है।  \n\n# समाधान और आगे की दिशा (Way Forward)\n- समाधान में AI‑driven protein design coupled with directed evolution, incentivised public‑private partnerships (BIRAC) और skill‑development for bioprocess engineering शामिल हों; दीर्घकाल में sustainable catalysts और localized biomanufacturing से import‑dependency कम होगी और public health preparedness सुधरेगी।  \n\n# निष्कर्ष\n- संक्षेप में, प्रोटीन इंजीनियरिंग (rational/design + directed evolution), coupled with robust regulatory frameworks (DBT/BIRAC/ICMR) और scalable GMP processes, उद्योगों में स्थिरता व गतिविधि सुधार के लिए निर्णायक है; प्रभावी policy‑action और तकनीकी निवेश से India‑centric, globally competitive bioeconomy बन सकती है।  \n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: DBT / BIRAC / ICMR", "mcqs": [{"question": "प्रोटीन इंजीनियरिंग में 'डायरेक्टेड इवोल्यूशन' (Directed Evolution) का मूल सिद्धान्त क्या है?", "options": ["प्राकृतिक चयन को अनुकरण करते हुए यादृच्छिक mutations और तीव्र screening द्वारा बेहतर प्रोटीन चुनना", "किसी प्रोटीन की क्रियाशील साइट में सटीक nucleotide परिवर्तन करके एकल विशिष्ट mutation करना", "प्रोटीन को केवल थर्मोस्टेबल बनाने के लिए कंप्यूटेशनल मॉडलिंग का उपयोग करना", "प्रोटीन की अभिव्यक्ति बढ़ाने के लिए प्री-डिज़ाइन्ड promoter सीक्वेंस जोड़ना"], "answer_index": 0, "explanation": "# प्रोटीन इंजीनियरिंग — \"डायरेक्टेड इवोल्यूशन\" (Directed Evolution) की मूल व्याख्या\n- डायरेक्टेड इवोल्यूशन का मूल सिद्धान्त प्राकृतिक चयन को अनुकरण करना है: यादृच्छिक जीनोमिक परिवर्तन (mutations) उत्पन्न कर के उन परिवर्तनों में से बेहतर व्यवहार (फंक्शन) वाले प्रोटीन को चुनना।\n- प्रक्रिया चक्रीय (iterative) होती है — एक साइकिल में mutation उत्पन्न करना, उसके अभिव्यक्ति/प्रदर्शन का परीक्षण करना और श्रेष्ठ वेरिएंट का चयन करना शामिल होता है।\n- यादृच्छिक परिवर्तन पैदा करने के सामान्य तरीके: error-prone PCR, DNA shuffling और site-saturation libraries जैसे mutagenesis तकनीकें; इनसे बड़े वेरिएंट libraries बनते हैं।\n- genotype–phenotype लिंक बनाए रखना आवश्यक है ताकि किसी वेरिएंट का जीन और उसकी कार्यक्षमता सीधे जोड़ी जा सके; यही चयन/स्क्रीनिंग को संभव बनाता है।\n- चयन/स्क्रीनिंग चरण में उच्च-थ्रूपुट assays या प्लेट/माइक्रोफ्लुइडिक सिस्टम प्रयोग किए जाते हैं ताकि हजारों–लाखों वेरिएंट तेजी से परखे जा सकें।\n- चयन का क्राइटेरियन (fitness function) स्पष्ट रखना जरूरी है — उदाहरण: एंजाइमिक गतिविधि, स्थिरता, उपस्थिति में specific substrate पर selectivity या थर्मोस्टेबिलिटी।\n- हर राउंड के बाद चुने गए बेहतर वेरिएंट को अगली जनरेशन के लिए आधार बनाकर और mutations देकर और अधिक सुधार के लिए पुनरावृत्ति की जाती है।\n- इस पद्धति को अपनाने का प्रमुख लाभ यह है कि प्रोटीन संरचना की गहन पूर्वज्ञान (detailed structural knowledge) अनिवार्य नहीं होती; प्रयोगात्मक चयन के जरिए कार्यकुशलता बढ़ती है।\n- डायरेक्टेड इवोल्यूशन बायोफार्मा और एंजाइम इंजीनियरिंग में सक्रियता, विशिष्टता, दवा-स्थिरता और उत्पादन व्यवहार जैसे गुणों का अनुकूलन करने के लिए प्रयोग किया जाता है।\n- अंतिम लक्षित वेरिएंट का मूल्यांकन अक्सर in vitro और आवश्यक होने पर in vivo परीक्षणों से कर के सुनिश्चित किया जाता है कि चुनी हुई विशेषताएँ वास्तविक उपयोग के अनुकूल हैं।", "priority_tag": "VERY_HIGH"}, {"question": "साइट-डायरेक्टेड म्यूटैजेनिस (Site-directed mutagenesis) का मुख्य उपयोग क्या है?", "options": ["RNA एक्सप्रेशन स्तर बढ़ाने के लिए promoter बदलना", "प्रोटीन के किसी विशिष्ट अमीनो-अम्ल को लक्षित कर उसकी संरचना/क्रिया में परिवर्तन लाना", "पूरी जीन श्रृंखला को यादृच्छिक रूप से बदलना", "प्रोटीन को कोशिका के बाहर परिवहन करने के लिए signal peptide जोड़ना"], "answer_index": 1, "explanation": "# व्याख्या: साइट-डायरेक्टेड म्यूटैजेनिस का मुख्य उपयोग\n(प्रश्न का सही उत्तर: प्रोटीन के किसी विशिष्ट अमीनो-अम्ल को लक्षित कर उसकी संरचना/क्रिया में परिवर्तन लाना)\n- साइट-डायरेक्टेड म्यूटैजेनिस ऐसी तकनीक है जिसमें किसी प्रोटीन के विशिष्ट अमीनो-अम्ल को जानबूझकर बदला जाता है ताकि उसके प्रभाव का प्रत्यक्ष आकलन किया जा सके।\n- इसका मुख्य उद्देश्य प्रोटीन के किसी एक या कुछ चुने हुए रिसिड्यूज़ (amino-acid residues) के बदलने से संरचना और क्रियाविशेष (structure–function) के कारणों को समझना है।\n- यह विधि सक्रिय साइट, बाइंडिंग साइट या कनेक्टिंग लूप जैसे फ़ंक्शनल क्षेत्रों के रोल की पुष्टि करने के लिए प्रयोग की जाती है।\n- साइट-डायरेक्टेड म्यूटैजेनिस से किसी एन्ज़ाइम की सब्सट्रेट विशेषता (substrate specificity) या केटालिटिक दक्षता (catalytic efficiency) बदलकर कार्यप्रणाली समझी जा सकती है।\n- प्रोटीन की थर्मल स्थिरता, घुलनशीलता या फोल्डिंग पथ में परिवर्तन लाकर औद्योगिक/बायोफार्मा उपयोग के लिए अनुकूल एंजाइम विकसित किए जाते हैं।\n- दवा विकास और बायोफ़ार्मा में प्रतिरोध कम करने, दवा-टार्गेट मान्यकरण या बायो-सेंसर्स के लिए प्रोटीन गुणों को टैयून करने में यह महत्वपूर्ण है।\n- साइट-डायरेक्टेड म्यूटैजेनिस प्रयोगों के बाद परिवर्तन की पुष्टि के लिए डीएनए अनुक्रमण और प्रोटीन कार्य (activity) परीक्षण अनिवार्य हैं।\n- यह तकनीक प्रोटीन–प्रोटीन इंटरैक्शन और सिग्नलिंग मार्गों में किसी विशेष रिसिड्यू के प्रभाव को जाँचने के लिए प्रयोगशाला अनुसंधान में व्यापक रूप से उपयोग होती है।\n- साइट-डायरेक्टेड म्यूटैजेनिस से प्राप्त अंतर्दृष्टि म्युटेशन के रोगजनक प्रभावों की व्याख्या और जीन–प्रोटीन स्तर पर रोग–मैकेनिज्म समझने में भी सहायक होती है।\n- संक्षेप में, इसका प्रयोग लक्षित अमीनो-अम्ल को बदलकर प्रोटीन की संरचना और कार्य में आवश्यक कारणात्मक संबंध स्थापित करने के लिए किया जाता है — जो प्रोटीन इंजीनियरिंग व बायोफार्मा अनुप्रयोगों का मूल उद्देश्य है।", "priority_tag": "VERY_HIGH"}, {"question": "एंजाइम की थर्मोस्टेबिलिटी बढ़ाने के लिए प्रोटीन इंजीनियरिंग में सबसे सामान्य रणनीतियों में से कौन-सा है?", "options": ["अभिव्यक्ति होस्ट बदलकर प्रोबायोटिक बैक्टीरिया का उपयोग करना", "डिसल्फाइड सेतु (disulfide bonds) जोड़ना और हाइड्रोफोबिक कोर को मजबूती देना", "mRNA के poly-A tail को लंबा करना", "प्रोटीन के N- and C- टर्मिनस हटाकर छोटे peptides बनाना"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — एंजाइम की थर्मोस्टेबिलिटी बढ़ाने की मुख्य रणनीति (विवरण)\n**केंद्रित उत्तर:** एंजाइम की थर्मोस्टेबिलिटी बढ़ाने में सबसे सामान्य रणनीतियाँ हैं _डिसल्फाइड सेतु जोड़ना_ और _हाइड्रोफोबिक कोर को मज़बूत करना_ — नीचे सीधे, परीक्षा-उन्मुख बिंदु।\n- डिसल्फाइड सेतु (S—S) दो सिस्टीन अवशेषों के बीच कैवेलेंट क्रॉस-लिंक बनाती है, जो प्रोटीन के अनफ़ोल्डिंग के लिए आवश्यक कॉन्फ़र्मेशनल स्वतंत्रता को घटाती है।\n- डिसल्फाइड बंधन प्रोटीन के नेटीव कॉनफ़ॉर्मेशन को स्थिर रखते हैं; परिणामस्वरूप सामान्यतः टेम्परेचर पर टमैगिंग (melting temperature, Tm) में वृद्धि देखी जाती है।\n- डिसल्फाइड सेतु बनाने हेतु लक्ष्यित साइटों पर अमिनो-अम्ल परिवर्तन (site-directed mutagenesis) द्वारा संबंधित पदों को सिस्टीन से प्रतिस्थापित किया जाता है; चयनित जोड़े अक्सर निकटवर्ती बिंदुओं में होते हैं जो त्रि-आयामी संरचना में सही दूरी बनाये रखें।\n- नई डिसल्फाइड जोड़ी तय करते समय ध्यान देना आवश्यक है कि उससे सक्रिय साइट की गतिशीलता या सब्सट्रेट पहुँच प्रभावित न हो; इसलिए स्थान चयन संरचनात्मक मॉडलिंग पर आधारित होना चाहिए।\n- हाइड्रोफोबिक कोर को मज़बूत करने का सिद्धांत है: कोर के भीतर हाइड्रोफोबिक अवशेषों की पैकिंग बढ़ाकर आंतरिक वॉटर मॉलिक्यूल की पहुँच और अनफ़ोल्डिंग प्रोपेन्सिटी कम करना।\n- कोर-पैकिंग सुधार के लिए आम रूप से पोलर/छोटे अवशेषों को बड़े हाइड्रोफोबिक अवशेषों (जैसे वेलिन, आइल्यूसीन, फेनिलएलनीन) से प्रतिस्थापित किया जाता है ताकि वैन-डेर-वाल्स इंटरैक्शन बढ़े।\n- हाइड्रोफोबिक कोर की संपीड़न (packing) से प्रोटीन की अंदरूनी मिकैनिकल स्टिफ़नेस बढ़ती है, जिससे ऊँचे तापमान पर भी संरचना बनी रहती है और एंजाइमिक सक्रियता अधिक तापमान सीमा तक कायम रहती है।\n- इन दोनों रणनीतियों (डिसल्फाइड जोड़ना और कोर की hydrophobic packing) का संयोजन अक्सर परस्पर पूरक होता है: पहले कोर स्टेबिलिटी सुधारी जाती है, फिर डिसल्फाइड से अतिरिक्त स्थिरीकरण दिया जा सकता है।\n- लागू करने से पहले कंप्यूटेशनल डिजाइन और मोलिक्यूलर डाइनैमिक्स सिमुलेशन से संभावित प्रभाव और स्थिरता अपेक्षित रूप में अनुमानित किए जाते हैं, ताकि सक्रिय साइट और फोल्डिंग पाथवे पर प्रतिकूल प्रभाव न हो।\n- प्रयोगशाला मानदंडों में स्थिरता का मूल्यांकन अक्सर टर्मल डिनैचरेशन (Tm), तापीय एक्टिविटी-प्रोफ़ाइल और एनज़ाइम कैटेलिटिक पैरामीटर्स (Km, kcat) में मापन द्वारा किया जाता है, ताकि स्थिरता के साथ क्रियात्मकता भी बरकरार रहे।\n- नियंत्रित डिजाइन से प्राप्त स्थिर एंजाइम औद्योगिक/बायोफार्मा प्रक्रियाओं (उच्च ताप, लंबे रिएक्शन समय) में बेहतर प्रदर्शन और बढ़ी हुई भंडारण/ट्रांसपोर्ट सहनशीलता देते हैं।", "priority_tag": "HIGH"}, {"question": "एन्ज़ाइम immobilization का उद्योग में प्रमुख लाभ क्या है?", "options": ["एंजाइम की प्राथमिक संरचना बदलना जिससे गतिविधि घटती है", "एंजाइम को पुन: उपयोग योग्य बनाकर प्रक्रिया लागत घटाना और स्थिरता बढ़ाना", "उत्पाद के शुद्धिकरण की आवश्यकता हमेशा समाप्त कर देना", "एंजाइम की विशिष्टता (specificity) को हमेशा व्यापक कर देना"], "answer_index": 1, "explanation": "# व्याख्या — एन्ज़ाइम Immobilization का उद्योग में प्रमुख लाभ: पुन: उपयोग योग्य बनाकर प्रक्रिया लागत घटाना और स्थिरता बढ़ाना\n- एन्ज़ाइम immobilization का प्राथमिक औद्योगिक लाभ है कि सक्रिय एन्ज़ाइम को ठोस या मैट्रिक्स पर बांध कर बार-बार उपयोग (reuse) किया जा सकता है, जिससे प्रति बैच एन्ज़ाइम लागत घटती है।\n- immobilized एन्ज़ाइम सामान्यतः सोलUBLE एन्ज़ाइम की तुलना में अधिक ऑपरेशनल स्थिरता दिखाते हैं—उनकी तापमान और pH सहिष्णुता बढ़ती है, जिससे प्रक्रिया विंडो विस्तृत होता है।\n- एन्ज़ाइम का रीयूज़ होने से सिस्टम में एन्ज़ाइम की कुल खपत कम होती है; लंबी अवधि में यह कच्चे माल और उत्पादन लागत दोनों पर प्रत्यक्ष प्रभाव डालता है।\n- immobilization से एन्ज़ाइम का डी-नैचरेशन और प्रोटिओलिटिक डिग्रेडेशन कम होता है, इसलिए सक्रिय जीवनकाल (half-life) बढ़ता है और बार-बार प्रतिस्थापन की आवश्यकता घटती है।\n- ठोस-सहायक पर बँधे एन्ज़ाइम के कारण बायो-रिएक्टर से एन्ज़ाइम को अलग करना आसान होता है, जिससे downstream purification सरल और सस्ता बनता है।\n- immobilized एन्ज़ाइम का उपयोग continuous flow या packed-bed रिएक्टर्स में प्रभावी रूप से किया जा सकता है, जिससे उत्पादन दर और स्केलेबिलिटी बेहतर होती है।\n- एन्ज़ाइम के रिसाइकिल से उत्पाद की सुसंगतता और प्रोसेस कंट्रोल बेहतर होता है, क्योंकि एक्टिविटी ड्रिफ्ट कम होता है और बैच-टू-बैच वैरिएशन घटता है।\n- immobilization पर निर्भर लागत-लाभ विश्लेषण में शुरुआती कैरियर/immobilization खर्च शामिल होता है, परन्तु दीर्घकालिक रीयूज़ और स्थिरता के कारण प्रति यूनिट उत्पादन लागत घटती है।\n- immobilized सिस्टम में एन्ज़ाइम लोडिंग, बाइंडिंग स्ट्रैंग्थ और मास ट्रांसफर सीमाएँ प्रबंधित कर के उच्च गतिविधि बनाए रखी जा सकती है; ये पैरामीटर औद्योगिक अनुकूलन के निर्णायक होते हैं।\n- एन्ज़ाइम immobilization से सुरक्षा और पर्यावरणीय नियंत्रण में भी सुधार संभव है क्योंकि एन्ज़ाइम लिकेज और बायोहazard जोखिम न्यून होते हैं।\n- विविध immobilization विधियाँ (एन्कैप्सुलेशन, कैरियर-बाइंडिंग, क्रॉस-लिंकिन्ग) प्रक्रियात्मक आवश्यकताओं के अनुरूप चुनी जाती हैं ताकि रीयूज़ और स्थिरता के लक्ष्य प्राप्त हों।\n- कुल मिलाकर, एन्ज़ाइम को पुन: उपयोग योग्य बनाकर उनकी स्थिरता बढ़ाना उद्योगों (फूड, दवा, बायोफ़्यूल, फाइन केमिकल्स) में उत्पादन लागत घटाने और प्रक्रिया दक्षता बढ़ाने का व्यावहारिक और सिद्ध तरीका है।", "priority_tag": "HIGH"}, {"question": "बायोफार्मा (biopharma) में 'ग्लाइकोसिलेशन' (glycosylation) क्यों महत्वपूर्ण है?", "options": ["यह केवल प्रोटीन के समकक्ष मॉलिक्यूल वजन को घटाती है", "यह प्रोटीन की स्थिरता, खुराक-आधे जीवन और प्रतिरक्षा पहचान को प्रभावित कर सकती है", "यह प्रोटीन में हमेशा सक्रिय साइट बना देती है", "यह DNA अनुक्रम को संशोधित कर देती है"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — ग्लाइकोसिलेशन का परीक्षा-केन्द्रित व्याख्या (MPPSC Prelims 2026)\n- **ग्लाइकोसिलेशन** प्रोटीन पर शुगर (oligosaccharide) जुड़ने की पोस्ट‑trnaslational संशोधन प्रक्रिया है जो बायोफार्मा में दवा‑प्रोटीन के गुण बदलती है।\n- यह सीधे प्रोटीन की **स्थिरता** बढ़ा सकती है — गलीकोसाइडिक शृंखलाएँ प्रोटीन को सूक्ष्मदर्शीय रूप से संरक्षित कर प्रोटीन के गुणनाश (denaturation) और агрегेशन को कम करती हैं।\n- ग्लाइकोसिलेशन प्रोटीन की **जल में घुलनशीलता** और सतही गुण बदलकर फार्माकोकाइनेटिक्स में प्रभाव डालती है, जिससे सर्कुलेशन में बेहतर वितरण संभव होता है।\n- शुगर चेनें प्रोटीन को प्रोटिओलिटिक कटौती (protease cleavage) से बचाती हैं, जिससे दवा का **खुराक‑आधा जीवन (half‑life)** बढ़ सकता है।\n- ग्लाइकोसिलेशन संक्रमण और रोग‑प्रतिरोधक पहलुओं पर असर डालता है; शुगर संरचनाएँ **प्रतिरक्षा प्रणालियों द्वारा पहचान** को बदल सकती हैं — नतीजतन इम्यूनोजेनेसिस और क्लियरेंस प्रभावित होते हैं।\n- विभिन्न ग्लाइकोफॉर्म (glycoforms) का निर्माण दवा‑प्रभावकारिता (efficacy) और सुरक्षा‑प्रोफाइल बदल सकता है — इसलिए नियंत्रित और पुनरुत्पादन‑योग्य glycosylation आवश्यक है।\n- सेल लाइन, उत्पादन परिस्थितियाँ और प्रक्रिया परिवर्तन glycosylation पैटर्न बदलते हैं; इसलिए बायोफार्मा में **manufacturing control** और गुणवत्ता‑नियमन (QA/QC) पर जोर दिया जाता है।\n- क्लिनिकल और नियामकीय मूल्यांकन में glycosylation का विश्लेषण (glycan profiling) आवश्यक होता है क्योंकि यह **biosimilarity, immunogenicity और दवा‑दोहराव (batch consistency)** को प्रभावित करता है।\n- प्रोटीन‑रिसेप्टर इंटरैक्शन और लक्षित वितरण (targeting) पर शुगर चेनों का प्रत्यक्ष प्रभाव होता है — कुछ रिसेप्टर्स glycan‑dependent बाइंडिंग दिखाते हैं, इसलिए therapeutic action पर असर पड़ता है।\n- इंजीनियरिंग के जरिए glycosylation को अनुकूलित करके दवाओं का half‑life बढ़ाना, प्रतिरक्षा प्रतिक्रिया घटाना और लक्षित वितरण सुधारना व्यावहारिक रणनीति है।\n- प्रैक्टिकल परीक्षा‑नोड: बायोफार्मा डिजाइन में glycosylation केवल जैविक गुण नहीं— यह दवा की फार्माकोविजिलेंस, उत्पादन‑निगरानी और क्लिनिकल सुरक्षा निर्णयों का भी केंद्रीय कारक है।", "priority_tag": "VERY_HIGH"}, {"question": "मनुष्य-उत्पन्न monoclonal antibodies के निर्माण में प्रोटीन इंजीनियरिंग का किस पहलू का विशेष महत्व है?", "options": ["antibody के constant region को bacterial promoters से जोड़ना", "Fc क्षेत्र को मानवीकृत कर प्रतिरक्षा-निर्भर घटकों से मेल कराना और half-life बढ़ाना", "antibody को RNA से सीधे तैयार करना", "antibody को हीट शॉक प्रोटीनों से जोड़कर अस्थिर बनाना"], "answer_index": 1, "explanation": "# व्याख्या: Fc क्षेत्र को मानवीकृत कर प्रतिरक्षा-निर्भर घटकों से मेल कराना और half-life बढ़ाना\n- **Fc (Fragment crystallizable) क्षेत्र एंटीबॉडी का वह हिस्सा है जो प्रतिरक्षा कोशिकाओं और कंप्लिमेंट से बाइंडिंग के लिए जिम्मेदार रहता है।**\n- **FcRn (neonatal Fc receptor) के साथ Fc की इंटरैक्शन सीधे मानव शरीर में एंटीबॉडी की half-life निर्धारित करती है; बेहतर Fc–FcRn बाइंडिंग से serum half-life बढ़ती है।**\n- **मानवीकरण (humanization) में एफसी भाग को मानव constant-region के अनुरूप बदलकर या बदलकर इम्यूनोजेनिसिटी घटाई जाती है ताकि रोगी में anti-drug antibodies बनने की संभावना कम हो।**\n- **Fc के म्यूटेशन्स (उदा. FcRn- बाइंडिंग को बढ़ाने वाले पॉइंट म्यूटेशन्स) से दवा की pharmacokinetics सुधारी जा सकती है—कम डोज़ और लंबा अंतराल संभव होता है।**\n- **Fc क्षेत्र की glycosylation profile भी effector functions और FcγR बाइंडिंग को प्रभावित करती है; glycoengineering से ADCC/CDC सक्रियता और सुरक्षा-संयोजन संतुलित किए जाते हैं।**\n- **Fc इंजीनियरिंग का उद्देश्य सिर्फ half-life बढ़ाना नहीं, बल्कि FcγR और कंप्लिमेंट इंटरैक्शन को नियंत्रित कर desired effector functions (जैसे ADCC नियंत्रित करना) प्राप्त करना भी है।**\n- **मानवीकृत और Fc-इंजीनियर की हुई mAb से इम्यून संग्रहण (immunogenicity), प्रतिकिया और प्रतिरक्षा-आधारित साइड-इफेक्ट्स घटते हैं, जिससे क्लिनिकल सुरक्षा बढ़ती है।**\n- **Fc के संशोधनों का सीधा प्रभाव दवा की डोजिंग रणनीति, लागत-प्रभावशीलता और रोगी अनुपालन पर पड़ता है—लंबी half-life से इन्फ्यूज़न/इंजेक्शन बार-बार देने की आवश्यकता घटती है।**\n- **वैश्विक स्तर पर therapeutic monoclonal antibodies के विकास में Fc मानवीकरण और FcRn बाइंडिंग एन्हांसमेंट मानक तकनीकें बन चुकी हैं और regulatory या clinical endpoints पर असर डालती हैं।**\n- **Mains के लिए संक्षेप में उठाने योग्य बिंदु: Fc-humanization का उद्देश्य (1) प्रतिरक्षा-सहिष्णुता बढ़ाना, (2) FcRn-आधारित half-life वृद्धि, (3) effector-function modulation, और (4) क्लिनिकल सुरक्षा एवं pharmacokinetic लाभ।**", "priority_tag": "VERY_HIGH"}, {"question": "भारत में बायोसीमिलार (biosimilar) दवाओं के नियमन के लिए प्रमुख नियंत्रक कौनसा है?", "options": ["ICMR (Indian Council of Medical Research)", "CSIR (Council of Scientific & Industrial Research)", "CDSCO (Central Drugs Standard Control Organization)", "DBT (Department of Biotechnology)"], "answer_index": 2, "explanation": "# व्याख्या — सही उत्तर: CDSCO (Central Drugs Standard Control Organization)\n- CDSCO भारत में केंद्रीय दवा नियामक एजेंसी है और इसके माध्यम से बायोसीमिलर दवाओं का केंद्रीय स्तर पर नियमन होता है।\n- CDSCO का नेतृत्व नियंत्रक दवा एवं चिकित्सकीय उपकरण (DCGI) करता है, जो केंद्रीय अनुमोदन और नीतिगत दिशा-निर्देश जारी करता है।\n- बायोसीमिलर के लिए CDSCO मार्केटिंग अथवा विपणन-अनुमति (marketing authorization) जारी करता है; कोई भी बायोसिमिलर तभी बाज़ार में आ सकता है जब CDSCO की मंजूरी मिल चुकी हो।\n- CDSCO बायोउत्पादों की सुरक्षा, गुणवत्ता और प्रभावशीलता का मूल्यांकन वैज्ञानिक प्रमाणों—क्लिनिकल और बायोइक्विवेलेंस डेटा—के आधार पर करता है।\n- बायोसिमिलर विशेष दिशा-निर्देशों के अनुरूप परीक्षण व तुलना (comparability) की मांग करते हैं; CDSCO ने बायोलाजिक्स/सिमिलर के तकनीकी दिशानिर्देश जारी कर रखे हैं।\n- क्लिनिकल ट्रायल अनुमोदन और परीक्षण प्रोटोकॉल की समीक्षा भी CDSCO की जिम्मेदारी है; बायोसिमिलर के क्लिनिकल डेटा की केंद्रीय जाँच इसी के तहत होती है।\n- CDSCO विनिर्माण इकाइयों के निरीक्षण, गुड मैन्युफैक्चरिंग प्रैक्टिस (GMP) अनुपालन और लाइसेंस जारी करने में केंद्रीय समन्वय करता है।\n- पोस्ट‑मार्केटिंग निगरानी और फार्माकोविजिलेंस के माध्यम से बायोसिमिलर की दीर्घकालिक सुरक्षा/एडवर्स इवेंट रिपोर्टिंग CDSCO के तहत संचालित होती है।\n- आयात/निर्यात अनुमतियाँ, लेबलिंग और पैकेजिंग मानदंडों का निर्धारण तथा आवश्यक गुणवत्ता मानकों का प्रवर्तन CDSCO नियंत्रित करता है।\n- राज्य-स्तरीय दवा नियंत्रण प्रशासनों के साथ समन्वय करके CDSCO राष्ट्रीय नीति और केंद्रीय अनुमति के अनुपालन को सुनिश्चित करता है, जिससे बायोसिमिलर की राष्ट्रीय निगरानी एकीकृत रहती है।\n- परीक्षार्थी के लिए याद रखने योग्य बिंदु: भारत में बायोसिमिलर का केंद्रीय वैज्ञानिक मूल्यांकन, अनुमोदन, निरीक्षण और पोस्ट‑मार्केट निगरानी सभी CDSCO के तहत आते हैं — इसलिए CDSCO ही प्रमुख नियंत्रक है।", "priority_tag": "HIGH"}, {"question": "किस तकनीक का प्रयोग एंजाइमों के लोकेशन स्पेसिफिक म्यूटेशन्स के बिना तेजी से हजारों वैरिएंट्स बनाने के लिए किया जाता है?", "options": ["site-directed mutagenesis", "error-prone PCR", "western blotting", "Sanger sequencing"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — Error-prone PCR की व्याख्या (MPPSC परीक्षा केंद्रित)\n- **Error-prone PCR** (epPCR) एक लक्षित न होकर यादृच्छिक (random) साइट-म्यूटैजेनिसिस विधि है जो डीएनए अनुक्रम में उच्च दर पर गलतियाँ उत्पन्न कराती है।\n- इस तकनीक का मूल सिद्धांत है कि PCR के दौरान उपयोग होने वाले पॉलीमरेज़ की त्रुटि दर को बढ़ाकर बेस सब्स्टिट्यूशन्स और छोटे इन्सर्शन/डिलीशन बनाना।\n- त्रुटि दर बढ़ाने के लिए सामान्य उपायों में लो-फिडेलिटी पॉलीमरेज़/म्यूटागेनिक पॉलिमरॅज़ का चयन, Mg2+/Mn2+ का अनुपात बदलना और असंतुलित dNTP सांद्रण शामिल हैं।\n- परिणामस्वरूप बड़े पैमाने पर जीन वेरिएंट लाइब्रेरी (हज़ारों से लाखों वेरिएंट) त्वरित रूप से बनायी जा सकती है, बिना किसी पूर्व-निर्धारित लोकेशन पर म्यूटेशन डिज़ाइन किए।\n- यह विधि एंजाइमों के कार्यात्मक वैरिएशन का अन्वेषण करने के लिए उपयोगी है — एंजाइम गतिविधि, स्थिरता, सब्सट्रेट विशिष्टता आदि में सुधार हेतु।\n- Error-prone PCR सामान्यतः “डायरेक्टेड इवोल्यूशन” के पहले चरण के रूप में प्रयोग होती है: म्यूटेंट लाइब्रेरी → हाई-थ्रूपुट स्क्रीन/सेलेक्शन → बेहतर वेरिएंट का पुनःचयन।\n- इस प्रक्रिया की ताकत इसकी सादगी और गति है — बड़े विविधतापूर्ण सेट पोस्ट-प्रोसेसिंग या स्क्रीनिंग के लिए जल्दी उपलब्ध हो जाता है।\n- सीमाएँ: म्यूटेशनें यादृच्छिक होंगी इसलिए लाभकारी म्यूटेशन की खोज के लिए व्यापक और प्रभावी स्क्रीनिंग/सेलेक्शन आवश्यक है; स्टॉप कोडन और डिप्लॉइमेंट-रोकने वाले म्यूटेशन भी बन सकते हैं।\n- प्रयोगशाला स्तर पर सुरक्षा व विश्वसनीयता सुनिश्चित करने के लिए क्लोनिंग, सिक्त अनुक्रमण (sequencing) और प्रतिलिपि जाँच आवश्यक है ताकि वास्तविक म्यूटेशन्स व उनके प्रभावों का सत्यापन हो।\n- अनुप्रयोग (उदाहरण): औद्योगिक एंजाइमों की उपयुक्तता बढ़ाना, बायोकेमिकल पाथवे के इंजीनियरिंग-सबन्स्ट्रेट रेंज का विस्तार, और बायोफार्मा में एंजाइम-आधारित सुधार।\n- प्रोटीन इंजीनियरिंग कार्यप्रवाह में epPCR का स्थान स्पष्ट है — यह तेजी से प्रारम्भिक विविधता पैदा करता है, जिसे बाद में लक्षित सुधारों या रीकॉम्बिनेशन विधियों से परिष्कृत किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "प्रोटीन इंजीनियरिंग में 'रिस्ट्रक्चरिंग' (Rational design) और 'डायरेक्टेड इवोल्यूशन' का मुख्य अंतर क्या है?", "options": ["Rational design केवल computational है जबकि Directed Evolution केवल रासायनिक है", "Rational design संरचना-आधारित पूर्वानुमान पर निर्भर होता है; Directed Evolution प्रयोगात्मक रूप से विविधता और चयन पर निर्भर करता है", "दोनों का अर्थ एक ही है और दोनों शब्द interchangeable हैं", "Directed Evolution केवल मानव एंजाइमों पर लागू होता है"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — Rational design बनाम Directed evolution : व्याख्या (MPPSC Prelims/ Mains उपयोगी)\n- **Rational design** संरचना-आधारित पूर्वानुमान (structure-based prediction) पर निर्भर करता है; इसका उद्देश्य अपेक्षित साइटों/आमीनो अम्लों को जानकर विशिष्ट संशोधन करना है।\n- **Rational design** में प्रोटीन की तीन-आयामी संरचना, सक्रिय स्थल की जानकारी और बंधन/गतिकी के सैद्धान्तिक मॉडल का उपयोग कर बदलाव प्रस्तावित किए जाते हैं।\n- **Rational design** के लिए लक्ष्य प्रोटीन के लिए पर्याप्त पूर्व जानकारी (X‑ray/cryo-EM संरचना, साइट-डायरेक्टेड म्यूटेजेनेसिस डेटा, सिमुलेशन) अनिवार्य है; बिना पर्याप्त संरचनात्मक जानकारी कठिनाई बढ़ती है।\n- **Directed evolution** प्रयोगात्मक रूप से विविधता (mutant libraries) पैदा करने और चयन/स्क्रीनिंग के कई चक्रों के माध्यम से बेहतर गुणों वाले वेरिएंट चुनने पर निर्भर है—पूर्वानुमान पर आश्रित नहीं।\n- **Directed evolution** में यादृच्छिक या सूचित रूप से बनाए गए लाखों वेरिएंट्स को उच्च-थ्रूपुट स्क्रीनिंग या चयन प्रणालियों से पार करके प्रदर्शन-सुधार प्राप्त किया जाता है।\n- **Rational design** अधिक लक्षित, कम परीक्षणशील म्यूटेशन बनाता है—कम मात्रा के प्रयोगों से अपेक्षित परिणाम मिलना संभव है, पर सफलता पूर्वानुमान पर निर्भर रहती है।\n- **Directed evolution** बड़े खोज-क्षेत्र (sequence space) को एक्सप्लोर कर सकती है और अप्रत्याशित या सह-गतिशील लाभ देती है, पर इसके लिए बड़े पैमाने की स्क्रीनिंग-सुविधा और पुनरावृत्ति चक्रों की आवश्यकता होती है।\n- दोनों विधियों का संयोजन सामान्य प्रैक्टिस है: पहले rational design से फोकस्ड बदलाव और फिर directed evolution से सुधार/फाइन‑ट्यूनिंग — इससे समय और संसाधन दोनों का संतुलन बनता है।\n- औद्योगिक/बायोफार्मा अनुप्रयोगों में rational design विशेषज्ञता और regulatory predictability बढ़ाता है, जबकि directed evolution अक्सर कार्यक्षमता, स्थिरता और उपज बढ़ाने में तेज़ परिणाम देता है।\n- Rational design में कम्प्यूटेशनल टूल्स (molecular modelling, docking, MD simulations) का बड़ा योगदान होता है; Directed evolution में उच्च-थ्रूपुट अस say-screens, सेल-आधारित चयन या सेल‑फ्री सिस्टम प्रमुख होते हैं।\n- निर्णय करते समय: अगर संरचनात्मक/कार्यात्मक जानकारी उपलब्ध और लक्ष्य-स्पष्ट है तो rational design प्राथमिकता; यदि लक्ष्य जटिल है या संरचनात्मक जानकारी सीमित है तो directed evolution अधिक प्रभावी विकल्प होता है।", "priority_tag": "VERY_HIGH"}, {"question": "एंजाइम की गतिविधि मापने के लिये Michaelis-Menten kinetics में Km का अर्थ क्या है?", "options": ["substrate की वह सांद्रता जिस पर enzyme का Vmax प्राप्त होता है", "substrate की वह सांद्रता जिस पर reaction गति आधी अधिकतम (Vmax/2) होती है", "enzyme की कुल मात्रा", "substrate की क्रिस्टलीकरण क्षमता"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — Michaelis‑Menten में Km की व्याख्या (MPPSC प्रीलिम्स/मेन्स उपयोग)\n- **Km वह सब्स्ट्रेट सांद्रता (concentration) है जिस पर एंजाइम की प्रतिक्रिया गति आधी अधिकतम गति (Vmax/2) होती है।**\n- Km का मान संख्यात्मक रूप में सब्स्ट्रेट की इकाई में व्यक्त होता है (उदा. मोलर, M)।\n- कम Km का अर्थ होता है कि एंजाइम को आधी अधिकतम गति पाने के लिये कम सब्स्ट्रेट चाहिए — अर्थात् एंजाइम‑सब्स्ट्रेट संबंध (affinity) उच्च है।\n- उच्च Km का अर्थ है कम संश्लेषणीय affinity; अधिक सब्स्ट्रेट सांद्रता से ही आधी Vmax प्राप्त होती है।\n- Km को मापन हेतु Michaelis‑Menten समीकरण v = (Vmax [S])/(Km + [S]) का उपयोग किया जाता है; प्रयोगात्मक रूप से वक्र (v vs [S]) से Vmax/2 पर गिरकर Km निकाला जाता है।\n- Km का वैकल्पिक निर्धारण Lineweaver‑Burk, Eadie‑Hofstee या nonlinear regression fitting से भी किया जा सकता है — प्रयोगशाला में अक्सर nonlinear fitting अधिक सटीक रहती है।\n- Km स्वतः enzyme‑substrate affinity का पूर्ण प्रतिनिधि नहीं है; यह कई कारकों पर निर्भर कर सकता है (उदा. pH, तापमान, आयनिक शक्ति) इसलिए परिप्रेक्ष्य में “apparent Km” का उल्लेख करना जरूरी है।\n- प्रोटीन इंजीनियरिंग और बायोफार्मा में Km को घटाना (affinity बढ़ाना) या बढ़ाना (affinity घटाना) लक्ष्य हो सकता है ताकि दवा‑टार्गेटिंग, सब्स्ट्रेट स्पेसिफिसिटी या औद्योगिक कॅट‍ॅलिसिस अनुकूल हों।\n- Km को kcat/Km जैसे मानकों के साथ देखा जाता है; जहाँ kcat/Km एंजाइम की catalytic efficiency का समग्र संकेत देता है (높ी kcat/Km = उच्च प्रभावी कार्य‑क्षमता)।\n- व्यवहारिक/फार्मास्युटिकल संदर्भ में Km यह बताता है कि किसी जैविक परिवेश में प्राकृतिक सब्स्ट्रेट स्तर पर एंजाइम कितनी सक्रिय रहेगा — इसलिए दवा डिज़ाइन और बायोप्रोसेस ऑप्टिमाइज़ेशन में उपयोगी है।\n- प्रयोगशाला नोट: Km का तुलनात्मक उपयोग तभी सही है जब assay की शर्तें समान हों; भिन्न शर्तों में Km के तुलनात्मक निष्कर्ष भ्रामक हो सकते हैं।", "priority_tag": "VERY_HIGH"}, {"question": "प्रोटीन इंजीनियरिंग में 'फ्यूजन प्रोटीन' (fusion protein) बनाने का सामान्य उद्देश्य क्या है?", "options": ["दो प्रोटीन न होकर केवल RNA उत्पन्न करना", "एक प्रोटीन के व्यवहार में दूसरे प्रोटीन की उपयोगी भूमिका (जैसे purification tag, targeting या half-life extension) जोड़ना", "प्रोटीन को कोशिका में नष्ट करने के लिए", "प्रोटीन की primary sequence को पूरी तरह से हटाना"], "answer_index": 1, "explanation": "# व्याख्या — प्रोटीन इंजीनियरिंग में 'फ्यूजन प्रोटीन' बनाने का उद्देश्य\n- फ्यूजन प्रोटीन का मुख्य उद्देश्य एक प्रोटीन में दूसरे प्रोटीन/पेप्टाइड की उपयोगी कार्यक्षमता जोड़ना है, ताकि मूल प्रोटीन की कार्यक्षमता के साथ नई उपयोगी विशेषता जुड़ सके।\n- प्रायोगिक और औद्योगिक स्तर पर फ्यूजन टैग (जैसे छोटे पहचान/बाइंडिंग डोमेन) जोड़कर लक्ष्यप्रोटीन की सरल और विशिष्ट purification (शुद्धिकरण) संभव होता है।\n- कुछ फ्यूजन भाग प्रोटीन की घुलनशीलता और स्थिरता बढ़ाते हैं, जिससे बैक्टीरिया या अन्य होस्ट में बेहतर अभिव्यक्ति और सक्रियता मिलती है।\n- डायग्नोस्टिक और अनुसंधान के लिए रिपोर्टर फ्यूज़न्स (उदा. फ्लोरोसेंट/रिपोर्टर डोमेन) प्रोटीन की लोकेलाइज़ेशन और अभिव्यक्ति का सीधे पता लगाने में मदद करते हैं।\n- थेराप्यूटिक अनुप्रयोगों में half-life बढ़ाने के लिए मानव एल्ब्यूमिन या Fc-डोमेन जैसे भागों का फ्यूजन किया जाता है, जिससे दवा की खुराक कम और प्रभावी समय लंबा होता है।\n- टार्गेटिंग डोमेन जोड़कर फ्यूजन प्रोटीन को विशेष कोशिका/ऊतक तक निर्देशित करना संभव होता है, जिससे लक्षित प्रभाव और सुरक्षा सुधरती है।\n- कभी-कभी फ्यूजन में प्रोटीन-प्रोटीन इंटरैक्शन मॉड्यूल जोड़े जाते हैं ताकि बहु-उपाईडीय जैविक क्रियाओं (multifunctional therapeutics) को एक ही अणु में संयोजित किया जा सके।\n- शुद्धिकरण के बाद आवश्यकता होने पर फ्यूजन टैग हटाने के लिए प्रोटीन-अवरोधक cleavage साइट जोड़े जाते हैं, जिससे अंतिम उत्पाद में केवल आवश्यक अभिकारक रहता है।\n- फ्यूजन डिजाइन मोड्यूलर होता है — अलग-अलग डोमेनों को जोड़कर कार्यों का संयोजन और अनुकूलन आसान रहता है; यह प्रोटीन इंजीनियरिंग का मूल सिद्धांत है।\n- फ्यूजन प्रोटीन चिकित्सा, जैव-प्रौद्योगिकी और औद्योगिक एंजाइम अनुप्रयोगों में प्रयुक्त होकर उत्पादन, वितरण और कार्यशीलता के वास्तविक लाभ प्रदान करते हैं।", "priority_tag": "HIGH"}, {"question": "किस तत्व का उपयोग एंजाइमों में स्थिरता बढ़ाने के लिये आमतौर पर नहीं किया जाता?", "options": ["प्रोटीन सतह पर हाइड्रोफोबिक व्यासों को बढ़ाना", "आंतरिक लूपों को कंस्ट्रेन करने के लिये proline सम्मिलित करना", "अधिकतर अस्थिर बनाने के लिये glycosylation sites हटाना", "एंजाइम की tertiary structure को बनाए रखने हेतु salt bridges जोड़ना"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इन्डस्ट्रीयल एंजाइमों के लिए आवश्यक गुणों में से 'substrate specificity' को बदलने के लिये कौन-सी तकनीक उपयोगी है?", "options": ["promoter swapping", "site-directed mutagenesis targeting active site residues", "plasmid replication rate बढ़ाना", "growth media में carbon source बदलना"], "answer_index": 1, "explanation": "# व्याख्या — site-directed mutagenesis (active site residues को target करना) — substrate specificity बदलने के लिये उपयोगी तकनीक\n- Site-directed mutagenesis वह अणु-स्तरीय तकनीक है जिसमें एंजाइम के निश्चित अमीनो अम्ल( residues) को लक्षित कर बदल (substitution, deletion या insertion) किया जाता है।\n- Substrate specificity मुख्यतः एंजाइम के active site के आकार, इलेक्ट्रोस्टेटिक गुण और H‑bonding पैटर्न से निर्धारित होती है; इसलिए active site residues में संशोधन specificity बदलने का प्रत्यक्ष मार्ग है।\n- इस तकनीक से समानान्तर रूप से binding pocket का आकार घटाकर या बढ़ाकर बड़े या छोटे सब्सट्रेट के प्रति संवेदनशीलता बदली जा सकती है।\n- Residue बदलने से active site के चारों ओर की इलेक्ट्रॉनिक प्रकृति (polarity, charge) बदलती है, जिससे किसी विशिष्ट सब्सट्रेट के साथ binding affinity घटा या बढ़ती है।\n- Site-directed mutagenesis में rational (structure-guided) दृष्टिकोण अपनाया जाता है: crystallographic या homology मॉडल देखकर किन residues को बदलना है निर्धारित किया जाता है।\n- तकनीक के प्रयोग से Km (substrate affinity) और kcat (catalytic rate) के मानों को लक्ष्यअनुकूल रूप से संशोधित किया जा सकता है, जिससे enzyme efficiency व substrate preference नियंत्रित होती है।\n- प्रयोगशाला स्तर पर यह PCR‑आधारित methods (primer‑mediated mutagenesis) से किया जाता है, जो एकल या बहु स्थलों पर सटीक परिवर्तन की अनुमति देता है।\n- Industrial प्रोटीन इंजीनियरिंग में site-directed mutagenesis का उपयोग enzymes को नये substrates पर सक्षम बनाने, उपज बढ़ाने और प्रक्रियात्मक शर्तों के अनुकूल बनाने के लिए वैश्विक स्तर पर मानक तरीका है।\n- इस पद्धति के साथ अक्सर structure–function assays और kinetic studies आवश्यक होते हैं ताकि बदले हुए residues के प्रभाव का मात्रात्मक मूल्यांकन किया जा सके।\n- सुरक्षा व स्थिरता सुनिश्चित करने के लिए mutated एंजाइमों का thermostability, pH tolerance और unintended activity की जाँच आवश्यक होती है।\n- Mains उत्तर के लिये सीधे बिंदु: यह तकनीक active site के निर्दिष्ट residues बदलकर substrate specificity को बदलने की सबसे सटीक और नियंत्रित विधि है — कारण: सीधे binding interactions एवं catalytic geometry पर प्रभाव।", "priority_tag": "HIGH"}, {"question": "किसके द्वारा विकसित 'phage display' तकनीक प्रोटीन-लाइब्रेरी से बाइंडिंग प्रोटीन/एंटीबॉडी चुनने के लिये उपयोगी है?", "options": ["बैक्टीरिया के plasmid replication को धीमा करना", "वाल्यूमेट्रिक कल्चर्स में protein की सांद्रता बढ़ाना", "फेज कणों पर प्रोटीन के genotype-phenotype linkage का उपयोग करके बाइंडर खोजना", "SDS-PAGE द्वारा प्रोटीन का आकार घटाना"], "answer_index": 2, "explanation": "# व्याख्या: phage display — फेज कणों पर genotype–phenotype linkage से बाइंडर खोजना\n- Phage display में प्रोटीन/पेप्टाइड का डीएनए (genotype) सीधे फ़ेज़ कण की सतह पर अभिव्यक्त प्रोटीन/पेप्टाइड (phenotype) के साथ जुड़ा रहता है, जिससे genotype–phenotype linkage बनता है।\n- इस linkage के कारण किसी भी सतह-प्रोटीन बाइंडर को पहचानकर उसी बाइंडर के कोडिंग डीएनए को सीधे पुनः प्राप्त किया जा सकता है।\n- प्रक्रिया का पहला चरण है विशाल प्रोटीन/पेप्टाइड लाइब्रेरी बनाना, जहाँ विविध जीन वेरिएंट्स को फेज के coat protein जीन के साथ फ्यूज़ किया जाता है।\n- लाइब्रेरी का प्रत्येक फेज कण एक अनूठा पेप्टाइड/प्रोटीन दिखाता है और उसके अंदर उसी का कोडिंग डीएनए रहता है; यही मूल सिद्धांत चयन को संभव बनाता है।\n- चयन (panning) में टार्गेट से संबंधित बाइंडिंग सतह पर फेज लाइब्रेरी को इन्क्यूबेट कर वीक बाइंडर्स को वाश करके विशेष रूप से बाध्य फेज कणों को इझेक्ट किया जाता है।\n- बाध्य फेज कणों से डीएनए निकालकर उसे एंपीफिकेशन करके अगले राउंड के लिये उपयोग किया जाता है; कई राउंड के बाद उच्च-विशिष्टता व उच्च-आफिनिटी बाइंडर्स समृद्ध (enriched) हो जाते हैं।\n- चयन के बाद क्लोनिंग और सीक्वेंसिंग द्वारा विजेता बाइंडर्स के जेनेटिक अनुक्रम का पता चलता है, जो थेराप्यूटिक एंटीबॉडी, बायोमॉलेक्यूल या एंजाइम इंजीनियरिंग के लिये आधार बनता है।\n- phage display का उपयोग एंटीबॉडी खोज, लिगैंड–रेसेप्टर इंटरैक्शन मैपिंग, एंजाइम सबस्ट्रेट/इन्हिबिटर खोज और affinity maturation में सीधे और प्रभावी है।\n- यह तकनीक इन-विट्रो आधारित है, इसलिए जीवित कोशिका से स्वतंत्र रूप से बड़े लाइब्रेरी आकारों और तेज़ चयन चक्रों की अनुमति देती है।\n- फेज डिस्प्ले से प्राप्त बाइंडर के जेनेटिक अनुक्रम का प्रयोग क्रमिक रूप से संशोधन (mutagenesis) और पुनः चयन करके बेहतर आफिनिटी या स्थिरता के लिये किया जा सकता है।\n- परीक्षा और मेन्स उत्तर हेतु संक्षेप बिंदु: \"phage display genotype–phenotype linkage पर आधारित तकनीक है जहाँ फेज कण पर दिखने वाले प्रोटीन का कोडिंग डीएनए उसी कण के भीतर रहता है, जिससे चयनित बाइंडर का जेनेटिक पता सीधे मिल जाता है — लागू होता है antibody discovery, enzyme engineering और biopharma development में।\"", "priority_tag": "HIGH"}, {"question": "प्रोटीन इंजीनियरिंग में 'computational protein design' का प्रमुख लाभ क्या है?", "options": ["यह हमेशा प्रयोगों की आवश्यकता को पूरी तरह समाप्त कर देता है", "यह संभावित mutations के प्रभाव की भविष्यवाणी कर प्रयोगों की संख्या घटा सकता है", "यह सिर्फ RNA डिजाइन तक सीमित है", "यह केवल protein degradation को प्रेरित करता है"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — Computational Protein Design का मुख्य लाभ (विस्तृत व्याख्या)\n- Computational protein design इन-सिलिकॉ (कम्प्यूटर-आधारित) तरीकों से संभावित म्यूटेशनों के प्रभावों का अनुमान लगाता है, जिससे प्रयोगशालागत परीक्षणों की संख्या घटती है।\n- यह अनुमान प्रोटीन की संरचना और स्थिरता, बंधन क्षमता (binding affinity) तथा सक्रियता पर म्यूटेशन के संभावित प्रभावों पर आधारित होते हैं, इसलिए केवल उच्च-प्राथमिकता वाले वेरिएंट प्रयोग के लिए चुने जाते हैं।\n- इन-सिलिकॉ स्क्रीнинг से समय में बड़ी बचत होती है — हजारों संभावित अनुक्रमों को कम्प्यूटेशनल रूप से परखा जा सकता है जबकि प्रयोगशाला में सीमित संख्या ही जाँची जा सकती है।\n- प्रयोगों की संख्या घटने से लागत में स्पष्ट कमी आती है (रिऐजेंट, समय, उपकरण और मानवशक्ति की बचत), जो विशेषकर रिसोर्स-सीवेर settings में महत्वपूर्ण है।\n- कम्प्यूटेशनल मॉडल प्रयोगों के विफल होने के जोखिम को कम करते हैं क्योंकि अस्थिर या कमजोर प्रेडिक्टेड वेरिएंटों को पहले ही बाहर किया जाता है।\n- यह विधि प्रायोगिक डिजाइन (library design) को लक्षित बनाती है — म्यूटेशन स्पेस को संकुचित कर के प्रयोगशाला में परीक्षण के लिए छोटे, अधिक सूचित libraries तैयार करती है।\n- संरचनात्मक मॉडलिंग और ऊर्जा-आधारित स्कोरिंग के संयोजन से संभावित लाभप्रद परिवर्तन (जैसे कार्यक्षमता बढ़ाना या तापीय स्थिरता सुधारना) की प्राथमिकता तय की जा सकती है।\n- मशीन लर्निंग और सांख्यिकीय तरीकों के उपयोग से कम्प्यूटेशनल भविष्यवाणियाँ लगातार सटीक होती जा रही हैं, जिससे प्रयोगशाला में आवश्यक वैरिएंट्स और भी कम होते हैं।\n- इन-सिलिकॉ उपागम प्रयोगात्मक वेरिफिकेशन के लिए स्पष्ट हाइपोथेसिस देते हैं, जिससे बैच-आधारित और उद्देश्यपूर्ण प्रयोगों से तेज़ परिणाम मिलते हैं।\n- परिणामतः computational protein design अनुसंधान और विकास की गति बढ़ाता है तथा संसाधनों का अधिक प्रभावी उपयोग सुनिश्चित करता है — यही इसका प्रमुख और प्रत्यक्ष लाभ है।", "priority_tag": "HIGH"}, {"question": "बायोफार्मास्युटिकल्स की 'संगतता' (biosimilarity) जाँचना किस आधार पर मुख्यतः होता है?", "options": ["केवल कीमत और पैकेजिंग के आधार पर", "कठोर संरचनात्मक, फंक्शनल (biological activity) और क्लिनिकल डेटा के आधार पर", "उत्पाद का रंग और गंध देखकर", "उत्पाद के भंडारण तापमान के आधार पर"], "answer_index": 1, "explanation": "# व्याख्या — बायोफार्मास्युटिकल्स की 'संगतता' (Biosimilarity) जाँच के मुख्य आधार\n- संगतता का मूल्यांकन प्राथमिक रूप से दवा के कठोर संरचनात्मक गुणों (primary, secondary, tertiary और quaternary structure) की तुलनात्मक पुष्टि पर निर्भर होता है।\n- प्राथमिक संरचना में अमीनो अम्ल अनुक्रम और किसी भी बदलाव/म्युटेशन की पहचान अनिवार्य है; यह बेसिक समानता का पहला चरण है।\n- माध्यमिक/तृतीयक संरचना (α-हेलिक्स, β-शीट, फोल्डिंग) और उच्चतर क्रम संरचना की तुलना CD, FTIR, NMR तथा एक्स-रे क्रिस्टलोग्राफी जैसी तकनीकों से की जाती है।\n- पोस्ट-ट्रांसलेशनल मॉडीफिकेशन्स (विशेषकर ग्लाइकोसाइलेशन, फैटी एसिड एडिशन, फॉस्फोराइलेशन) की प्रोफाइल तुलना क्योंकि ये बायोएक्टिविटी और फर्माकोकिनेटिक्स पर सीधे प्रभाव डालते हैं।\n- फंक्शनल/बायोलॉजिकल गतिविधि का मूल्यांकन इन-विट्रो बायोऐसें, रीस्पेक्टिव बाइंडिंग असे, न्यूट्रलाइज़ेशन असे तथा सेल-आधारित एक्टिविटी असे के माध्यम से किया जाता है।\n- बायोएक्टिविटी के तुलनात्मक परिणाम PK/PD संकेतकों (जैसे बायोएविकेंसी, बायोप्रेसर) के साथ जोड़े जाते हैं ताकि जैविक कार्यक्षमता की समता सिद्ध हो।\n- इम्यूनोजेनिसिटी और सुरक्षा प्रोफाइल का आकलन एंटी-ड्रग एंटीबॉडी (ADA) आकलन और संबंधित प्रतिकियाओं के तुलनात्मक क्लिनिकल डेटा से किया जाता है।\n- क्लिनिकल तुलनात्मक अध्ययन (सुरक्षा और प्रभावकारिता में गैर-हीनता/समकक्षता दिखाने वाले ट्रायल) तब आवश्यक होते हैं जब एनालिटिकल/फंक्शनल डेटा पर्याप्त स्पष्टता न दें; इन्हें PK/PD एंड-पॉइंट्स और क्लिनिकल आउटकम्स के साथ डिजाइन किया जाता है।\n- मैन्युफैक्चरिंग प्रक्रिया के भिन्न होने पर प्रोसेस-रिलेटेड इम्प्लिकेशन्स (कलेक्शन, प्यूरीफिकेशन, स्टोरेज) को भी तुलनात्मक रूप से आंका जाता है क्योंकि वे संरचना एवं एक्टिविटी प्रभावित कर सकते हैं।\n- समग्र निर्णय में एनालिटिकल, फंक्शनल और क्लिनिकली प्रासंगिक डेटा का वजनित समन्वय होता है — उच्च-संवेदी एनालिटिकल समानता क्लिनिकल अभिलेखों की आवश्यकता को कम कर सकती है, पर पूरा ट्रायज/कम्पैरबिलिटी पैकेज अनिवार्य है।\n- अनुमोदन निर्णय के लिए तुलनात्मक डेटा की गुणवत्ता, रेप्रोड्यूसिबिलिटी और बायोएक्टिविटी के सुस्पष्ट आँकड़ों की उपस्थिति निर्णायक मानी जाती है।", "priority_tag": "VERY_HIGH"}, {"question": "उद्योगों में एंजाइमों का उपयोग 'लिगैंड-इनहिबिटर' screening के लिये किया जाता है। प्रोटीन इंजीनियरिंग इससे किस बेहतर परिणाम की आशा करती है?", "options": ["एंजाइमों को पूरी तरह निष्क्रिय कर देना", "एंजाइम के active site की बदल कर high-throughput screening के लिये बेहतर sensitivity या stability प्राप्त करना", "सभी small molecules को bind करने की क्षमता देना", "एंजाइम के molecular weight को घटाना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "किस प्रक्रिया के दौरान एंजाइमों के लिए 'permeabilized whole-cell biocatalysts' का उपयोग किया जाता है?", "options": ["प्रोटीन की sequencing के लिये", "कोशिका-आधारित जैव-रूपांतरण प्रतिक्रियाओं में जहाँ कोशिका संरचना आंशिक रूप से खुली रहती है पर सेल-मैकेनिज्म बड़े रहते हैं", "DNA cloning के लिए", "अल्कलाइन परिस्थितियों में solely free enzyme के बजाय"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "प्रोटीन इंजीनियरिंग में 'consensus design' किस सिद्धांत पर आधारित है?", "options": ["किसी भी अज्ञात अनुक्रम से नकल करना", "एक से अधिक homologous sequences के सर्वाधिक आम residues को अपनाकर स्थिर और कार्यकारी प्रोटीन बनाना", "प्रोटीन को केवल छोटे peptides में काट देना", "अनुक्रमों के GC-content को बदलना"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "कौन-सा कथन बैंग-ऑफ-द-प्रतिस्पर्धा (competitive) enzyme inhibition के बारे में सही है?", "options": ["Competitive inhibitor Vmax घटाता है और Km अपरिवर्तित रहता है", "Competitive inhibitor Km बढ़ाता है पर Vmax अपरिवर्तित रहता है", "Competitive inhibitor दोनों Km और Vmax को हमेशा बढ़ाता है", "Competitive inhibitor enzyme की मात्रा बढ़ा देता है"], "answer_index": 1, "explanation": "# व्याख्या — Competitive (प्रतिस्पर्धी) enzyme inhibition — मुख्य बिंदु (MPPSC परीक्षा हेतु)\n- Competitive inhibitor सक्रिय स्थल (active site) पर उप-स्थिति (substrate) के साथ प्रतिद्वंद्वी (compete) होता है, अतः inhibitor और substrate दोनों एक ही बाइंडिंग साइट के लिए प्रतिस्पर्धा करते हैं।\n- इस प्रतिस्पर्धा के कारण एंजाइम का apparent सब्सट्रेट के प्रति affinity कम दिखती है; यानि आर्थिक शब्दों में Km का मान बढ़ जाता है (Km अपरिवर्तित नहीं रहता, पर _apparent_ Km बढ़ता है)।\n- Vmax पर competitive inhibition का कोई स्थायी प्रभाव नहीं होता; पर्याप्त उच्च सब्सट्रेट सांद्रता पर सब्सट्रेट inhibitor को प्रतिस्थापित कर सकता है और मूल Vmax पुनः प्राप्त होता है।\n- माइकलिस–मेंटन समीकरण में competitive inhibitor को शामिल करने पर Km का मान Km*(1 + [I]/Ki) के बराबर दिखता है, जहाँ Ki inhibitor का dissociation constant है।\n- Lineweaver–Burk डबल-रीसिप्रोकल प्लॉट में competitive inhibition की पहचान तब होती है जब रेखाएँ y‑अक्ष (1/Vmax) पर मिलती हैं और x‑अक्ष (−1/Km) पर अलग‑अलग इंटरसेप्ट देती हैं।\n- बायोइनफार्मेटिक्स/प्रोटीन इंजीनियरिंग में competitive inhibitors का अध्ययन active site के आकार और binding affinity समझने के लिये उपयोगी होता है; Ki घटाकर मजबूत competitive inhibitor प्राप्त किया जा सकता है।\n- प्रयोगशाला में competitive inhibition का परीक्षण substrate सांद्रता बदलकर तथा वगैरह inhibitor स्थिर रखकर किया जाता है; यदि Vmax अपरिवर्तित बने और Km बढ़े तो competitive inhibition की पुष्टि होती है।\n- दवा‑निर्माण (drug design) में competitive inhibitors का उपयोग reversible competitive antagonists के रूप में होता है; इन्हें अधिक प्रभावी बनाने के लिये लक्ष्य एंजाइम के active site‑specific interactions को अनुकूलित किया जाता है।\n- इन्नर‑विवरण (practical implication): in vivo में competitive inhibitor का प्रभाव उस समय कम हो सकता है जब शरीर में substrate की सांद्रता बहुत अधिक हो; इसलिए दवा‑डोज़िंग और प्रतिस्पर्धी पदार्थों की सांद्रता का परिनियोजन (pharmacokinetic/pharmacodynamic) मूल्यांकन आवश्यक है।\n- संक्षेप में: competitive inhibition से Km (apparent) बढ़ता है क्योंकि affinity घटती दिखती है, पर Vmax अपरिवर्तित रहता है क्योंकि उच्च substrate ग्लानि से inhibitor प्रभाव हटाया जा सकता है।", "priority_tag": "HIGH"}, {"question": "बायोफार्मा उत्पादन में 'CHO cells' (Chinese Hamster Ovary) क्यों व्यापक रूप से उपयोग होते हैं?", "options": ["क्योंकि वे prokaryotic हैं और सरलता से express होते हैं", "क्योंकि वे जटिल post-translational modifications जैसे glycosylation कर सकते हैं जो मानव प्रोटीनों के लिये उपयुक्त हैं", "क्योंकि उनकी doubling time मानव कोशिकाओं से बहुत लंबी होती है", "क्योंकि वे किसी भी विषैले प्रोटीन को neutralize कर देते हैं"], "answer_index": 1, "explanation": "# व्याख्या — CHO cells का बायोफार्मा उत्पादन में व्यापक उपयोग (MPPSC Prelims 2026 के लिए)\n- CHO (Chinese Hamster Ovary) कोशिकाएँ mammalian कोशिका पंक्ति हैं जो मानव प्रोटीनों के लिए आवश्यक जटिल post‑translational modifications कर सकती हैं, विशेषकर glycosylation.\n- Glycosylation में N‑linked और O‑linked ग्लायकन जोड़े जाते हैं; ये बदलाव प्रोटीन की संरचना, स्थिरता और क्रियाशीलता पर निर्णायक प्रभाव डालते हैं।\n- मानव‑समान glycan संरचनाएँ होने पर प्रोटीन की बायोलॉजिक प्रभावक्षमता (efficacy) और लक्ष्य‑प्रतिसाद बेहतर रहते हैं, जो दवा के कार्य के लिए आवश्यक है।\n- उपयुक्त glycosylation से प्रोटीन का circulatory half‑life बढ़ता है और शीघ्र प्रोटीन विघटन कम होता है, जिससे दवा की खुराक और प्रभावशालीता प्रभावित होती है।\n- गलत या गैर‑मानव glycosylation से इम्यूनोजेनिसिटी (प्रतिरक्षा प्रतिक्रिया) और अप्रत्याशित सुरक्षा‑समस्याएँ उत्पन्न हो सकती हैं; CHO कोशिकाएँ मानव‑अनुकूल पैटर्न देने में सक्षम मानी जाती हैं।\n- CHO कोशिकाएँ endoplasmic reticulum (ER) और Golgi apparatus के माध्यम से सही प्रोटीन फोल्डिंग और disulfide bond निर्माण में सक्षम होती हैं, जो सक्रियता के लिए आवश्यक है।\n- नियामकीय (regulatory) मंजूरी के परिप्रेक्ष्य से भी कई जैविक दवाएँ CHO‑derived हों इसलिए साक्ष्य और मानकीकरण स्थापित है; यह क्लिनिकल उपयोग के लिये महत्वपूर्ण पहलू है।\n- CHO सिस्टम में जीन इंजेक्शन, क्लोनिंग और उपयुक्त ट्रांसलेशनल नियंत्रण करके glycosylation पैटर्न पर नियंत्रण की गुंजाइश रहती है — इसलिए वाणिज्यिक उत्पादन के लिये अनुकूल है।\n- बड़े पैमाने पर कल्चर और बायोप्रॉसेसिंग के दौरान स्थिर glycosylation बनाए रखने की प्रासंगिकता होती है; CHO‑based प्लेटफॉर्म में यह तकनीकी रूप से सिद्ध है।\n- संक्षेप (quick revision): CHO कोशिकाएँ इसलिए व्यापक उपयोग होती हैं क्योंकि वे मानव‑समान glycosylation एवं अन्य post‑translational modifications प्रदान कर प्रोटीन की सुरक्षा, सक्रियता और क्लिनिकल उपयुक्तता सुनिश्चित करती हैं।\n- Mains के लिये सीधे बिंदु (MP‑संदर्भ में उपयोग हेतु): CHO‑derived बायोफार्मास की सुरक्षा व प्रभावशीलता का कारण — मानव‑सदृश glycosylation; नियामकीय स्वीकृति और स्केलेबिलिटी भी उत्पादन‑नीति/स्वास्थ्य‑रणनीति में महत्वपूर्ण तर्क हैं।", "priority_tag": "VERY_HIGH"}, {"question": "MP/India स्तर पर जैव-उद्योग हेतु प्रोटीन इंजीनियरिंग और बायोफार्मा विकास को बढ़ावा देने वाली संस्था नहीं है?", "options": ["DBT (Department of Biotechnology)", "BIRAC (Biotechnology Industry Research Assistance Council)", "CSIR (Council of Scientific & Industrial Research)", "NASA (National Aeronautics and Space Administration)"], "answer_index": 3, "explanation": "", "priority_tag": "LOW"}, {"question": "एंजाइम के काइनेटिक्स अध्ययनों में turnover number (kcat) का अर्थ क्या है?", "options": ["एक enzyme molecule द्वारा प्रति सेकंड मात्रा में product उत्पन्न करने की अधिकतम क्रिया", "substrate की वह सांद्रता जिस पर आधा enzyme सक्रिय होता है", "enzyme के molecular weight का reciprocal", "enzyme की thermal unfolding temperature"], "answer_index": 0, "explanation": "# व्याख्या — turnover number (kcat) का अर्थ (एंजाइम काइनेटिक्स)\n- **परिभाषा:** turnover number (kcat) वह अधिकतम संख्या है जो एक एकल एंजाइम अणु एक सेकंड में संतृप्त सब्सट्रेट की उपस्थिति में उत्पाद पैदा कर सकता है।\n- **गणितीय रूप:** kcat = Vmax / [E]total, जहाँ Vmax अधिकतम रेअैक्शन वेग है और [E]total कुल सक्रिय एंजाइम सांद्रता है।\n- **इकाई:** kcat की इकाई s^-1 (प्रति सेकंड) होती है, क्योंकि यह प्रति यूनिट समय उत्पादजन की दर दर्शाता है।\n- **मापन की शर्तें:** kcat का मान तभी प्रासंगिक है जब सब्सट्रेट सांद्रता इतनी अधिक हो कि एंजाइम पूर्णतः संतृप्त (saturated) हो — यही Vmax प्राप्त करने की शर्त है।\n- **अर्थगत अंतर:** kcat केवल enzyme के प्रति अणु उत्पादोत्पादन की क्षमता मापता है, यह substrate बाइंडिंग की शक्ति नहीं बताता; बाइंडिंग के लिए Km भी साथ में देखा जाता है।\n- **उपयोगिता:** दो एंजाइमों की तुलना के लिए kcat को देखा जाता है ताकि यह जाना जा सके कि कौन सा एंजाइम प्रति अणु अधिक त्वरित रूप से उत्पाद बना सकता है।\n- **कठोर मान्यताएँ:** kcat मान तब मान्य है जब एंजाइम एक-चरणीय प्रतिस्थापन (rate-limiting step) के अंतर्गत उत्पाद बनाता है; जटिल बहु-चरणीय पथों में विश्लेषण सावधानी से करना पड़ता है।\n- **प्रभावकारी कड़ी (catalytic efficiency):** kcat अकेला पर्याप्त नहीं; अक्सर kcat/Km को catalytic efficiency कहते हैं जो वास्तविक परिस्थितियों में (अपूर्ण संतृप्ति) एंजाइम की क्षमता बताता है।\n- **पर्यावरणीय प्रभाव:** तापमान, pH और सहकारक/इन्हिबिटर उपस्थिति kcat को बदला सकते हैं क्योंकि ये एंजाइम के सक्रिय स्थल और प्रतिक्रिया-गति को प्रभावित करते हैं।\n- **औद्योगिक/बायोफ़ार्मा प्रासंगिकता:** बायोप्रोसेस या एंजाइम इंजीनियरिंग में उच्च kcat वाले एंजाइमों को प्राथमिकता दी जाती है जब प्रति अणु तेज उत्पादोत्पादन आवश्यक हो।\n- **प्रयोगात्मक ध्यान:** kcat का प्रयोगमूल्यांकन करते समय सक्रिय एंजाइम की वास्तव में ज्ञात सांद्रता और प्रोटीन की सक्रियता फ्रैक्शन का ध्यान रखना आवश्यक है; गलत [E]total से kcat का मूल्य भ्रामक होगा।", "priority_tag": "HIGH"}, {"question": "प्रोटीन इंजीनियरिंग में 'consensus mutagenesis' प्रायः किस समस्या को हल करने के लिए प्रयुक्त होता है?", "options": ["अत्यधिक तेज़ enzyme degradation", "मॉड्यूलर domain को पूरी तरह मिटाना", "अवांछित glycosylation sites को जोड़ना", "बहुत उच्च-विशिष्टता को कम करना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "बायोफार्मा उत्पादों के लिए cold chain (ठंडा आपूर्ति श्रृंखला) का महत्व मुख्यतः किस कारण है?", "options": ["इन उत्पादों के रंग को संरक्षित करने के लिए", "प्रोटीन और जैविक उत्पादों की संरचना और सक्रियता की रक्षा करने के लिये तापमान नियंत्रित परिवहन आवश्यक होता है", "केवल regulatory paperwork के कारण", "वितरण लागत बढ़ाने के लिये"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — बायोफार्मा में Cold Chain का महत्व (व्याख्या)\n- ठंडा आपूर्ति श्रृंखला का मुख्य उद्देश्य प्रोटीन/बायोलॉजिक्स की त्रि‑आयामी संरचना (tertiary/quaternary structure) को बनाए रखना है।\n- प्रोटीन की सक्रियता उनकी संरचना पर निर्भर होती है; तापमान परिवर्तन से डिनैचरेशन या आंशिक unfolding होने का जोखिम बढ़ जाता है।\n- एक बार संरचना बिगड़ने पर इंट्रा‑मॉलिक्यूलर बॉन्ड जैसे हाइड्रोजन बॉन्ड, वैन डेर वॉल्स बाधायें प्रभावित हो सकती हैं, जिससे दवा का बायोलॉजिकल efficacy घटता है।\n- कई एंजाइम और जैविक दवाएँ संवेदनशील होते हैं; उच्च ताप पर अप्रतिवर्तनीय अनुक्रमिक परिवर्तन और सक्रिय साइट का विनाश संभव है।\n- नियंत्रित ताप (cold chain) aggregation और प्रोटीन फाइब्रिलेशन को रोकता है, जो सुरक्षा और प्रभावशीलता दोनों पर नकारात्मक असर डालता है।\n- तापमान स्थिरता दवा की शेल्फ‑लाइफ और स्टोरेज निर्देशों (labelled storage conditions) के अनुरूप रखनी आवश्यक होती है; cold chain टूटने पर shelf life तेजी से घटती है।\n- तापमान‑नियंत्रण के अलावा नियंत्रित नमी और प्रकाश से सुरक्षा भी जरूरी है क्योंकि ये कारक संरचना को प्रभावित कर सकते हैं; cold chain इन पर भी सकारात्मक प्रभाव डालती है।\n- क्लिनिकल और रेग्युलेटरी मानकों (जैसे गुणवत्ता और बायोऐक्विवैलेन्स) को बनाए रखने के लिये परिवहन में तापमान लॉगिंग और वैध रिकॉर्डिंग अनिवार्य है।\n- Cold chain टूटने से उत्पाद के immunogenicity या safety profile में परिवर्तन आ सकता है, जिससे रोगी सुरक्षा और therapeutic outcome प्रभावित हो सकते हैं।\n- वैश्विक आपूर्ति और वैक्सीन/बायोफार्मा वितरण के संदर्भ में cold chain का उपयुक्त प्रबंधन सार्वजनिक स्वास्थ्य और रोग नियंत्रण योजनाओं के लिये निर्णायक है।\n- अत: प्रोटीन एवं जैविक उत्पादों की संरचना और सक्रियता की रक्षा हेतु तापमान नियंत्रित परिवहन अनिवार्य है — यही Cold Chain का मूल वैज्ञानिक और प्रैक्टिकल आधार है।", "priority_tag": "VERY_HIGH"}, {"question": "किस तकनीक का उपयोग एक प्रोटीन के folding intermediates और स्थानीय गतिशीलता को विश्लेषण करने के लिये प्रयोगशाला में सामान्यतः किया जाता है?", "options": ["X-ray crystallography हमेशा अस्थायी intermediates दिखाती है", "NMR spectroscopy जो प्रोटीन के डायनेमिक्स और folding intermediates की जानकारी दे सकती है", "agarose gel electrophoresis जो tertiary dynamics दिखाती है", "light microscopy प्रत्यक्ष रूप से atomic folding दिखाती है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "प्रोटीन इंजीनियरिंग के क्षेत्र में 'high-throughput screening' का क्या उद्देश्य है?", "options": ["एक-एक करके सभी variants पर लंबा समय खर्च करना", "हजारों वैरिएंट्स को तेज़ी से परख कर सबसे उपयुक्त functional variants का चयन करना", "केवल wild-type प्रोटीन का characterization करना", "cell-free systems से बचना"], "answer_index": 1, "explanation": "# प्रोटीन इंजीनियरिंग — High-throughput screening (HTS) का उद्देश्य (व्याख्या)\n- High-throughput screening (HTS) का मुख्य उद्देश्य है सुरक्षा और गुणधर्मों की जांच के लिए हजारों से लाखों प्रोटीन वैरिएंट्स को तेज़ी से परखना।\n- HTS में ऑटोमेटेड उपकरण और सूक्ष्म-आधारित असाईज़ का उपयोग करके प्रत्येक वैरिएंट का functional प्रदर्शन मापा जाता है (उदाहरण: एंजाइम एक्टिविटी, सब्सट्रेट विशेषता)।\n- इससे शोधकर्ता तेजी से उन वैरिएंट्स को पहचानते हैं जिनमें इच्छित गुण (जैसे अधिक स्थिरता, उच्च गतिविधि, या बदलती सब्सट्रेट विशिष्टता) होते हैं।\n- HTS डेटा क्वांटिटेटिव होता है; परिणामों को मेट्रिक्स (जैसे Vmax, Km, तापीय स्थिरता) के आधार पर रैंक और फ़िल्टर किया जाता है।\n- यह दृष्टिकोण रैंडम म्यूटागेनेसिस और लक्षित म्यूटेशन से उत्पन्न बड़े वैरिएंट-लाइब्रेरी को व्यवहारिक रूप से संभालने योग्य बनाता है।\n- HTS से चयनित बेहतर वैरिएंट्स को आगे के डीटेल्ड बायोकेमिकल और संरचनात्मक अध्ययन के लिए भेजा जाता है (lead selection → optimization)।\n- वैश्विक बायोफार्मा और औद्योगिक सेटिंग में HTS प्रोटीन इंजीनियरिंग को तेजी से रोग-उपचारक एंजाइम, बायोकैटलिस्ट और बायोप्रोडक्ट विकास में लागू करने में मदद करता है।\n- HTS की तीव्रता और मानकीकरण reproducibility बढ़ाते हैं और मानव-निर्भर बायोस्क्रीनिंग की तुलना में throughput और objectivity बेहतर रखते हैं।\n- HTS से मिलने वाले औसत/उच्च-प्रदर्शन वैरिएंट्स को बाद में इन-विवो या पायलट-स्तर पर परखे जाते हैं ताकि व्यवहारिक उपयोगिता और सुरक्षा सुनिश्चित की जा सके।\n- पेपर/परीक्षा उत्तर के लिये संक्षेप: \"HTS का उद्देश्य—हजारों वैरिएंट्स को तेज़ी से परखकर सबसे उपयुक्त functional variants का चयन करना, जिन्हें आगे अनुकूलन और अनुप्रयोग के लिये बढ़ाया जा सके।\"", "priority_tag": "HIGH"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U1-195 – मालवा — पोहा — जलेबी</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U1-195 – मालवा — पोहा — जलेबी</h1>
+        <div class="note">क्षेत्र: Malwa | सामग्री: नाश्ता संस्कृति—पर्यटन स्पर्श | 15-वर्षीय ट्रेंड: Low</div>
+      </div>
+      <div class="date">Updated: 08-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना  
+मालवा क्षेत्र (प्रमुख जिल्‍हे: इंदौर, उज्जैन, देवास, मंदसौर, रतलाम) की नाश्ता-परंपरा में पोहा–जलेबी का समेकित स्थान है; यह न केवल स्थानीय खान-पान का प्रतीक है बल्कि खाद्य-पर्यटन से जुड़े सामाजिक और आर्थिक सम्बंधों का सूचक भी है, अतः MPPSC के सांस्कृतिक व पर्यटन प्रश्नपत्रों के लिए उच्च-प्रासंगिक है।  
+
+# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि  
+मालवा का पोहा—जिसे स्थानीय रूप से ‘इंदौरी पोहा’ के रूप में भी जाना जाता है—परम्परागत दियासवाँ व व्यापारीबस्तियों (उदा. इंदौर का सराफा, लालबाग़ क्षेत्र) से जुड़ा है; उज्जैन जैसी आध्यात्मिक नगरीयों में भी यह मंदिर-प्रसाद और अनुष्ठानों के बाद नाश्ते के रूप में सर्व होता है, जिससे यह धार्मिक-लोकजीवन से निकटता दर्शाता है।  
+
+# पोहा—विवरण, उपभोग और समाजिक अर्थ  
+पोषकता में समृद्ध सूखे चावल (flattened rice), प्याज़, हरी मिर्च व हींग के संयोजन से बनने वाला पोहा वृद्ध व युवा दोनों वर्गों में सुबह का प्राथमिक नाश्ता रहा है; विशेषकर इंदौर में परिवारिक-व्यवसायिक संचार के दौरान पोहा छोटे दुकानों एवं चाय-तपरीयों से आर्थिक आजीविका का स्रोत बना हुआ है।  
+
+# जलेबी—स्थानीय शिल्प व व्यावसायिकता  
+गुड़/चीनी के घोल से तैयार जलेबी का निर्माण पारम्परिक तेल-पकाने की विधि पर आधारित है और अल्पव्यवसायी कढ़ाही-निर्यातों के माध्यम से स्थानीय बाजार में हस्तनिर्मित मिठाई के रूप में प्रसिद्ध है; मंदसौर व रतलाम जैसे बाजारों में त्यौहारों के समय जलेबी का वाणिज्यिक मांग उल्लेखनीय रूप से बढ़ता है।  
+
+# पर्यटन-स्पर्श और आर्थिक सम्बन्ध  
+एक ओर इंदौर का स्ट्रीट-फूड इकोसिस्टम (सराफा, चोर बाज़ार) राष्ट्रीय फूड-टूरिज्म के नक्शे पर उभर रहा है, दूसरी ओर मालवा में पोहा–जलेबी आधारित छोटे खानापान स्टॉल पर्यटन आकर्षण के रूप में औपचारिक प्रचार का लाभ कम उठाते रहे हैं; परिणामस्वरूप स्थानीय उद्यमियों को ब्रांडिंग, गुणवत्तापरक प्रशिक्षण व स्वच्छता सहायता की आवश्यकता है।  
+
+# समकालीन रुझान (पिछले 15 वर्ष) और चुनौतियाँ  
+पिछले 15 वर्षों में पोहा–जलेबी का पारंपरिक स्वरूप बना रहा पर इसका औद्योगिकीकरण व GI/ब्रांडिंग का लाभ सीमित रहा; चुनौतियाँ—हाइजीन मानक, ठेले-प्रशासनिक अनुमति, खाद्य सुरक्षा प्रशिक्षण और स्थानीय व्यंजनों का शहरीकरण—प्रमुख हैं, जिससे छोटे विक्रेता गैर-स्थायी आय के शिकार हैं।  
+
+# नीतिगत विकल्प एवं सुधार-प्रस्ताव  
+राज्य स्तर पर ‘मध्यप्रदेश फूड-कल्चर ट्रेल’ बनाकर मालवा के पोहा–जलेबी को लोक-खाना पर्यटन में शामिल करना चाहिए; साथ ही छोटे खाद्यउद्यमियों के लिए प्रशिक्षण (हाइजीन, पैकेजिंग), स्थानीय फेस्टिवल (उदा. इंदौर फूड-फेस्ट) और सांस्कृतिक-हेरिटेज सर्किट (उज्जैन—मालवा स्मारक) से लिंक कर आर्थिक लाभ सुनिश्चित किए जा सकते हैं।  
+
+# दीर्घकालीन प्रभाव और निष्कर्ष  
+यदि पोहा–जलेबी को सांस्कृतिक-पर्यटन नीति के अंग के रूप में संरचित किया जाए तो यह स्थानीय पहचान, छोटे उद्योगों की आय और मध्यप्रदेश के फूड-टूरिज्म दोनों को सुदृढ़ करेगा; अतः मध्यवर्ती नीतिगत हस्तक्षेपों के माध्यम से पारंपरिक स्वादों को संरक्षण व नवाचार से जोड़ा जाना आवश्यक है।  
+
+स्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  
+स्रोत 2: Arihant – &quot;Madhya Pradesh Samanya Gyan&quot;  
+स्रोत 3: Drishti IAS MPPSC (Bhopal) – &quot;Madhya Pradesh ka Itihas, Sanskriti evam Sahitya&quot;</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">MP Culture Dept, MP Lok Kala Akademi, MP Sahitya Akademी; TRI-MP, IGRMS Bhopal, Tribal Museum Bhopal; NCERT (कक्षा 6–12: इतिहास, भूगोल, सामाजिक विज्ञान); Books: Omkar Publication – 'MPPSC Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Parikshadham – 'Madhya Pradesh ka Itihas, Sanskriti evam Sahitya', Drishti IAS MPPSC (Bhopal) – MP History & Culture class notes, Kautilya / Prayas Academy – MPPSC MP History & Culture notes, MP Lok Kala Akademी publications, Sudhir Jha – 'MP Folk Culture', Tiwari/Mishra – 'MP Tribes', Shambhu Dayal / L.P. Tripathi – 'Tribal Life & Culture'</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U1-195 – मालवा — पोहा — जलेबी", "coverage_note": "क्षेत्र: Malwa | सामग्री: नाश्ता संस्कृति—पर्यटन स्पर्श | 15-वर्षीय ट्रेंड: Low", "vyakhya": "# प्रस्तावना  \nमालवा क्षेत्र (प्रमुख जिल्‍हे: इंदौर, उज्जैन, देवास, मंदसौर, रतलाम) की नाश्ता-परंपरा में पोहा–जलेबी का समेकित स्थान है; यह न केवल स्थानीय खान-पान का प्रतीक है बल्कि खाद्य-पर्यटन से जुड़े सामाजिक और आर्थिक सम्बंधों का सूचक भी है, अतः MPPSC के सांस्कृतिक व पर्यटन प्रश्नपत्रों के लिए उच्च-प्रासंगिक है।  \n\n# ऐतिहासिक व सांस्कृतिक पृष्ठभूमि  \nमालवा का पोहा—जिसे स्थानीय रूप से ‘इंदौरी पोहा’ के रूप में भी जाना जाता है—परम्परागत दियासवाँ व व्यापारीबस्तियों (उदा. इंदौर का सराफा, लालबाग़ क्षेत्र) से जुड़ा है; उज्जैन जैसी आध्यात्मिक नगरीयों में भी यह मंदिर-प्रसाद और अनुष्ठानों के बाद नाश्ते के रूप में सर्व होता है, जिससे यह धार्मिक-लोकजीवन से निकटता दर्शाता है।  \n\n# पोहा—विवरण, उपभोग और समाजिक अर्थ  \nपोषकता में समृद्ध सूखे चावल (flattened rice), प्याज़, हरी मिर्च व हींग के संयोजन से बनने वाला पोहा वृद्ध व युवा दोनों वर्गों में सुबह का प्राथमिक नाश्ता रहा है; विशेषकर इंदौर में परिवारिक-व्यवसायिक संचार के दौरान पोहा छोटे दुकानों एवं चाय-तपरीयों से आर्थिक आजीविका का स्रोत बना हुआ है।  \n\n# जलेबी—स्थानीय शिल्प व व्यावसायिकता  \nगुड़/चीनी के घोल से तैयार जलेबी का निर्माण पारम्परिक तेल-पकाने की विधि पर आधारित है और अल्पव्यवसायी कढ़ाही-निर्यातों के माध्यम से स्थानीय बाजार में हस्तनिर्मित मिठाई के रूप में प्रसिद्ध है; मंदसौर व रतलाम जैसे बाजारों में त्यौहारों के समय जलेबी का वाणिज्यिक मांग उल्लेखनीय रूप से बढ़ता है।  \n\n# पर्यटन-स्पर्श और आर्थिक सम्बन्ध  \nएक ओर इंदौर का स्ट्रीट-फूड इकोसिस्टम (सराफा, चोर बाज़ार) राष्ट्रीय फूड-टूरिज्म के नक्शे पर उभर रहा है, दूसरी ओर मालवा में पोहा–जलेबी आधारित छोटे खानापान स्टॉल पर्यटन आकर्षण के रूप में औपचारिक प्रचार का लाभ कम उठाते रहे हैं; परिणामस्वरूप स्थानीय उद्यमियों को ब्रांडिंग, गुणवत्तापरक प्रशिक्षण व स्वच्छता सहायता की आवश्यकता है।  \n\n# समकालीन रुझान (पिछले 15 वर्ष) और चुनौतियाँ  \nपिछले 15 वर्षों में पोहा–जलेबी का पारंपरिक स्वरूप बना रहा पर इसका औद्योगिकीकरण व GI/ब्रांडिंग का लाभ सीमित रहा; चुनौतियाँ—हाइजीन मानक, ठेले-प्रशासनिक अनुमति, खाद्य सुरक्षा प्रशिक्षण और स्थानीय व्यंजनों का शहरीकरण—प्रमुख हैं, जिससे छोटे विक्रेता गैर-स्थायी आय के शिकार हैं।  \n\n# नीतिगत विकल्प एवं सुधार-प्रस्ताव  \nराज्य स्तर पर ‘मध्यप्रदेश फूड-कल्चर ट्रेल’ बनाकर मालवा के पोहा–जलेबी को लोक-खाना पर्यटन में शामिल करना चाहिए; साथ ही छोटे खाद्यउद्यमियों के लिए प्रशिक्षण (हाइजीन, पैकेजिंग), स्थानीय फेस्टिवल (उदा. इंदौर फूड-फेस्ट) और सांस्कृतिक-हेरिटेज सर्किट (उज्जैन—मालवा स्मारक) से लिंक कर आर्थिक लाभ सुनिश्चित किए जा सकते हैं।  \n\n# दीर्घकालीन प्रभाव और निष्कर्ष  \nयदि पोहा–जलेबी को सांस्कृतिक-पर्यटन नीति के अंग के रूप में संरचित किया जाए तो यह स्थानीय पहचान, छोटे उद्योगों की आय और मध्यप्रदेश के फूड-टूरिज्म दोनों को सुदृढ़ करेगा; अतः मध्यवर्ती नीतिगत हस्तक्षेपों के माध्यम से पारंपरिक स्वादों को संरक्षण व नवाचार से जोड़ा जाना आवश्यक है।  \n\nस्रोत 1: NCERT History / Fine Arts – सम्बंधित अध्याय  \nस्रोत 2: Arihant – \"Madhya Pradesh Samanya Gyan\"  \nस्रोत 3: Drishti IAS MPPSC (Bhopal) – \"Madhya Pradesh ka Itihas, Sanskriti evam Sahitya\"", "mcqs": [{"question": "मालवा क्षेत्र में प्रातःकालीन प्रसिद्ध नाश्ता 'पोहा-जलेबी' विशेषकर किस शहर के साथ पारंपरिक रूप से जुड़ा माना जाता है?", "options": ["खंडवा", "इंदौर", "रतलाम", "धार"], "answer_index": 1, "explanation": "# व्याख्या: मालवा का प्रातःकालीन प्रसिद्ध नाश्ता \"पोहा–जलेबी\" — उत्तर: इंदौर\n- इंदौर शहर जिलावार और मालवा-नेची हुई संस्कृति का प्रमुख केंद्र होने के कारण पारंपरिक रूप से 'पोहा–जलेबी' के जुड़ाव के लिए जाना जाता है।\n- इंदौर की स्थानीय नाश्तागृह परंपरा में सुबह का समय पोहा (चिउड़ा) और जलेबी खाने की रिवायत लंबे समय से प्रचलित है।\n- इंदौर की पोहा-प्रस्तुति में अक्सर चटनी, हरी मिर्च, हरा धनिया, और बेसन/नमकीन (फर्सान/सेव) का प्रयोग होता है, जो इसे मालवा शैली से अलग पहचान देता है।\n- जलेबी इंदौर के बाजारों और नाश्ते की दुकानों पर खास तौर पर ताजी और कुरकुरी बनकर परोसी जाती है; यह संयोजन स्थानीय स्वाद-प्राथमिकता का प्रतीक बन चुका है।\n- इंदौर में पोहा–जलेबी का संबंध न केवल घरों तक सीमित है बल्कि ठेले, छोटे ढाबे और प्रसिद्ध नाश्ता बाज़ारों में सुबह-शाम दोनों समय सामाजिक और आर्थिक गतिविधि का हिस्सा है।\n- यह संयोजन इंदौर की शहरिक पहचान और पाक-परंपरा (culinary identity) का सांस्कृतिक प्रतीक माना जाता है, जिसे लोकजीवन और पर्यटन दोनों में उद्धृत किया जाता है।\n- एमपी के राज्य-स्तरीय निबंध/नक्‍शों में इंदौर का पोहा–जलेबी जोड़ने का उपयोग स्थानीय सांस्कृतिक विशेषता के उदाहरण के रूप में प्रभावशाली तरीके से किया जा सकता है।\n- उत्तर में इंदौर का नाम देते समय संक्षेप में उल्लेख कर सकते हैं: \"इंदौर — मालवा क्षेत्र का प्रमुख शहरी केंद्र जहाँ पोहा–जलेबी पारंपरिक नाश्ता के रूप में प्रसिद्ध है।\"\n- mains उत्तर के बिंदुओं में इसका उपयोग: (1) स्थानीय संस्कृति/परंपरा का उदाहरण, (2) शहर की पहचान एवं पर्यटन आकर्षण, (3) सूक्ष्म अर्थव्यवस्था व रूटीन-व्यापार के संदर्भ में बताकर जोड़ा जा सकता है।\n- तथ्यगत रूप से ध्यान रखें कि पोहा–जलेबी का उल्लेख इंदौर से पारंपरिक रूप से जुड़ा माना जाता है और इसे इंदौर की नाश्ता-संस्कृति का संक्षिप्त संकेतक के रूप में पेश किया जा सकता है।", "priority_tag": "HIGH"}, {"question": "इंदौर के किस प्रसिद्ध खाद्य बाजार/गली को रात में स्ट्रीट फूड के लिए एवं जलेबी सहित विविध व्यंजनों के लिए जाना जाता है?", "options": ["खाना-खज़ाना चौक", "सराफा बाजार", "चौक बाजार", "लालबाग"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर में सुबह के नाश्ते के लिये प्रसिद्ध बाज़ार 'छप्पन दुकान' का नाम किस बात से जुड़ा है?", "options": ["56 प्रकार के व्यंजनों से", "56 दुकानों की परंपरा से", "56 साल पुराना होने से", "56 किलोमीटर दूरी से"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा-निर्वाह संस्कृति में 'कांदे की पोहा' किस मुख्य सामग्री के साथ बनती है जो इसे स्थानीय स्वाद देती है?", "options": ["सोयाबीन", "प्याज़", "नारियल", "दही"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा क्षेत्र में पोहा पर प्रायः किस तले हुए कुरकुरे तत्व को ऊपर से परोसा जाता है जिससे कुरकुरापन आता है?", "options": ["मूँगफली", "सेव", "सूखे मेवे", "भुना चना"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "इंदौर में सुबह के समय पोहा-जलेबी की जोड़ी के लिये लोकप्रिय शिविर/ठेला संस्कृति को पर्यटन दृष्टि से प्रमुख बनानेवाला कौन सा पहलू माना जाता है?", "options": ["सभ्य और बैठने के बड़े हॉल", "रात्रि-कालीन ट्रेडिशनल व्यापार", "स्थानीय स्ट्रीट फूड की विविधता और सुलभता", "सरकारी सब्सिडी"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा के पारंपरिक पोहे में किस प्रकार का चावल (चिउरा) उपयोग में आता है?", "options": ["पकाया हुआ चावल", "सूखा हुआ चिवड़ा (फ्लैटेड राइस)", "बासमती चावल", "चावल का आटा"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा क्षेत्र के किस ऐतिहासिक स्थल के निकट पर्यटक स्थानीय भोजन-अनुभव के लिये मंडू और इंदौर दोनों के भ्रमण को जोड़ते हैं?", "options": ["खजुराहो", "मांडू (मांडू के किले और इमारतें)", "भोपाल झील", "भोपाल मंदिर"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा-संस्कृति के नाश्ते में पोहे के साथ आमतौर पर किस ताज़े हरे मसाले का प्रयोग किया जाता है जो स्वाद को बढ़ाता है?", "options": ["पुदीना", "धनिया (हरी)", "बेसिल (तुलसी)", "अजवाइन"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "जलेबी की तैयार प्रक्रिया में किस प्रकार का आटा और किस माध्यम से जलेबी का घेरा बनाया जाता है?", "options": ["गेहूँ का आटा और भाप में पकाना", "बेसन का घोल और माइक्रोवेव में", "मैदा/आटा का खमीरयुक्त घोल और तली हुई परत बनाकर तलना", "चावल का आटा और भूनकर"], "answer_index": 2, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा क्षेत्र के नाश्ते-संस्कृति को पर्यटन की दृष्टि से प्रोत्साहित करने हेतु किस प्रकार की गतिविधियाँ स्थानीय स्तर पर अक्सर आयोजित की जाती हैं?", "options": ["व्यवसायिक व्यापार मेले सिर्फ टेक्सटाइल पर", "खाद्य-फेस्टिवल और स्ट्रीट फूड टूर", "खेती-यंत्र प्रदर्शनी", "औद्योगिक निवेश सम्मेलन"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा के पारंपरिक पोहा में निम्न में से कौन-सा स्वाद तत्व सामान्यतः संतुलन के लिये जोड़ा जाता है?", "options": ["मीठा (शक्कर)", "खट्टा (नींबू)", "तेल का स्वाद", "कड़वा (पेट्रोल)"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "इंदौर के किस प्रमुख सांस्कृतिक-पर्यटन स्थल के संयोजन से 'फूड टूर' को आकर्षक बनाया जाता है (नाश्ते के बाद पर्यटक चलते हैं)?", "options": ["ग्वालियर का किला", "काउंट्री गार्डन इंदौर", "लालबाग़ पैलेस", "अनिल कपूर म्यूजियम"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा क्षेत्र में पोहा-वर्गीय नाश्ते का पारंपरिक सर्वेक्षण करने पर किस समुदाय/जनसंस्कृति के सुबह के नाश्ते में इसकी प्रमुखता देखी जाती है?", "options": ["कोरबा लोक", "सामान्य शहरी और ग्रामीण मध्यस्थ वर्ग", "पूर्वोत्तर आदिवासी समूह", "दक्खिन के मराठा परिवार"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा के नाश्ते-संस्कृति में 'पोहा-जलेबी' के संयोजन को सामाजिक संदर्भ में किस अवसर पर विशेषकर देखा जाता है?", "options": ["विवाह की समारोह में मुख्य भोजन", "सुबह के रोज़मर्रा के नाश्ते तथा मेहमाननवाज़ी में", "दिवाली की पूजा का प्रसाद", "फसल कटाई का रात्रिभोज"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा क्षेत्र के पर्यटन प्रचार में स्थानीय खान-पान को प्रदर्शित करने के लिये राज्य सरकार अथवा स्थानीय निकाय आमतौर पर क्या कराते हैं?", "options": ["परंपरागत व्यंजनों पर फूड फेस्टिवल और कुकिंग वर्कशॉप आयोजित करना", "केवल औद्योगिक निवेश पर जोर देना", "विदेशी रेस्तरां खोलने के लिये सब्सिडी", "स्थानीय भोजन पर प्रतिबन्ध"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा-स्टाइल पोहा और जलेबी के संयोजन का ऐतिहासिक संदर्भ बताना कठिन है; किन्तु आज के संदर्भ में यह संयोजन किस प्रकार से सांस्कृतिक पहचान बन चुका है?", "options": ["केवल धार्मिक अनुष्ठानों का हिस्सा", "क्षेत्रीय नाश्ता-परंपरा और स्ट्रीट फूड आइकॉन्स में एक पहचान", "विदेशी पर्यटकों के लिये मुख्य अनुष्ठान", "सिर्फ़ शाही भोज में उपयोगी"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा क्षेत्र में पोहा बेचने वाले कई छोटे ठेलों/दुकानों को स्थानीय रूप में किस शब्द से संदर्भित किया जा सकता है (अक्सर इंदौर में देखा जाता है)?", "options": ["चौपाल", "ढाबा", "ठेला/स्टॉल", "हॉटल चेन"], "answer_index": 2, "explanation": "", "priority_tag": "LOW"}, {"question": "इंदौर के किस क्षेत्र को 'फूड हब' और छोटे-छोटे नाश्ते की दुकानों के लिये विशेष रूप से विख्यात माना जाता है जो पर्यटकों को भी आकर्षित करता है?", "options": ["राजीव गाँधी नगर", "पालासिया (जहाँ छप्पन दुकान स्थित है)", "नई बाजार", "बायपास रोड"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा की जनजातीय व ग्रामीण-खाद्य-परंपराओं पर ध्यान देने पर किस प्रकार के स्थानीय अन्न/बीज पर आधारित व्यंजन सामान्य रूप से मिलते हैं?", "options": ["अधिकतर समुद्री भोजन", "स्थानीय अनाज और फलियों पर आधारित सरल व्यंजन", "आइसक्रीम और पैस्ट्री", "दूध-आधारित विदेशी मिठाइयाँ"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा क्षेत्र में पर्यटक प्रलोभन के लिए 'नाश्ता-त्रिमूर्ति' जैसा कोई आधिकारिक शब्द न होकर भी, किस संयोजन को स्थानीय रूप से सबसे अधिक लोकप्रिय माना जाता है?", "options": ["दाल-बाटी-चूरमा", "पोहा-जलेबी-चाय", "सेंडविच-पिज्जा-पास्ता", "रसगुल्ला-भलू-हलवा"], "answer_index": 1, "explanation": "# मालवा — पोहा‑जलेबी‑चाय (व्याख्या — MPPSC परीक्षा हेतु उपयोगी बिंदु)\n- मालवा क्षेत्र में नाश्ते के पारंपरिक संयोजन के रूप में सबसे प्रचलित और लोकप्रीय सेट: **पोहा — जलेबी — चाय**।\n- विशेष रूप से इंदौर (Malwa का प्रमुख शहरी केन्द्र) में पोहा‑जलेबी का सुबह का पंजिकृत बाजार‑व्यवहार और स्ट्रीट‑फूड परंपरा है।\n- पोहा: चिपका हुआ सादा चावल के फ्लैक्स (flattened rice) का नम और हल्का तड़का, धनिया, हरी मिर्च, नींबू और कभी‑कभी बेसन/सेव से सजाकर परोसा जाता है; आसानी से तैयार होने योग्य और स्थानीय नाश्ते का मुख्य तत्व।\n- जलेबी: तली हुई मैदागी जाली को चीनी‑शरबत में भिगोकर मीठा और कुरकुरा बनाया जाता है; स्थानीय नाश्ते में पोहे के साथ परोसे जाने पर स्वाद और ऊर्जा दोनों जोड़ती है।\n- चाय (अक्सर तेज/कड़क अदरक‑इलायची चाय): पोहा‑जलेबी के साथ पेय के रूप में सर्वाधिकार वाली चाय का सेवन सांस लेने, पाचन और ऊर्जा के लिए सामान्य व्यवहार है।\n- यह संयोजन सुबह के स्थानीय बाजारों, रेल/बस स्टेशनों, दुकान‑समूहों और तीर्थस्थलों पर व्यापक रूप से उपलब्ध रहता है, जिससे पर्यटनियों को सुविधा और स्थानीय अनुभव दोनों मिलते हैं।\n- पोहा‑जलेबी‑चाय के स्टॉल छोटे विक्रेताओं की आय का महत्वपूर्ण स्रोत हैं; नाश्ता‑संस्कृति स्थानीय अर्थव्यवस्था और स्ट्रीट‑फूड नेटवर्क से जुड़ी हुई है।\n- पर्यटक प्रलोभन के रूप में यह संयोजन स्थानीय खाद्य‑पहचान (culinary identity) का संकेत देता है और खाद्य‑परिभ्रमण (food trails) में शामिल करने योग्य स्थायी तत्व माना जाता है।\n- सांस्कृतिक संदर्भ में यह संयोजन पारंपरिक शहर‑जीवन और सुबह‑समय के सामाजिक मिलने‑जुलने के रीति‑रिवाजों को दर्शाता है; उत्सव/मेला/तीज‑त्योहारों में सुबह के नाश्ते के रूप में सामान्य है।\n- परोसने का पारंपरिक तरीका और प्रस्तुति (प्लेट/कागज़ की थाली, अलग‑अलग कटिंग/सेव/नींबू) स्थानीय स्वाद‑प्राथमिकताओं और व्यंजनों की पहचान को कायम रखता है।\n- प्रशासनिक या पर्यटन प्रचार में इस नाश्ते को स्थानीय ब्रांडिंग और शहर‑प्रमोशन्स (breakfast walks/food festivals) में शामिल कर अतिथि‑आकर्षण बढ़ाया जा सकता है; मैनिफेस्टो/नीति लेखों में इसे सांस्कृतिक‑पर्यटन लिंक के रूप में उद्धृत किया जा सकता है।\n- Mains के उत्तर में उपयोग के लिए सीधे बिंदु: (1) स्थानीय संस्कृति‑प्रतीक, (2) आर्थिक लाभ — छोटे विक्रेता/एमएसएमई, (3) पर्यटन‑ब्रांडिंग का साधन, (4) सार्वजनिक स्थानों पर भोजन‑व्यवस्था और स्वच्छता‑प्रबंध पर नीतिगत सुझाव।", "priority_tag": "HIGH"}, {"question": "मालवा के पारंपरिक नाश्ते में पोहा बनाते समय किस तरह का तेल पारंपरिक रूप से उपयोग किया जाता है जो स्वाद दे?", "options": ["सरसों का तेल", "मक्खन", "तिल का तेल", "नीर का तेल"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा-क्षेत्रीय भोजन-परंपरा और पर्यटन से जुड़ा कौन-सा कथन सर्वाधिक सटीक है?", "options": ["स्थानीय व्यंजन केवल घरों तक सीमित हैं और पर्यटन से जुड़ते ही समाप्त हो जाते हैं", "स्थानीय स्ट्रीट फूड और पारंपरिक नाश्ता पर्यटन आकर्षण का स्थायी घटक बन चुके हैं", "पर्यटन ने स्थानीय खान-पान को पूरी तरह विदेशी बना दिया है", "मालवा में नाश्ता संस्कृति का कोई अस्तित्व नहीं है"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "इंदौर में सुबह के नाश्ते के रूप में पोहा और जलेबी की जोड़ी का स्वाद जनता में मशहूर हुआ — यह प्रसंग स्थानीय मीडिया और फूड ब्लॉगरों ने किस प्रकार दर्शाया है?", "options": ["ठंडा और कम लोकप्रिय", "स्थानीय पहचान और 'फूड-कल्चर' आइकन के रूप में", "एक समय की कमर्शियल प्रवंचना", "कठोर स्वास्थ्य-खतरनाक चीज"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा की नाश्ता-संस्कृति पर शोध करते समय पर्यटक-आकर्षण के रूप में 'फूड वॉक' का लाभ क्या बताया जाता है?", "options": ["स्थानीय बोली को बदलना", "स्थानीय खान-पान और इतिहास का अनुभव कराना", "केवल विदेशी रेस्तरां को प्रमोट करना", "कृषि भूमि का विनियमन"], "answer_index": 1, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा क्षेत्र के किस त्योहार/समारोह में सुबह के पारंपरिक नाश्ते (जैसे पोहा) की मेज़बानी विशेषकर आम देखने को मिलती है?", "options": ["होली और स्थानीय मेलों/भंडारों के दौरान", "क्रिसमस पर", "नया साल प्रत्यक्ष रूप से", "सिर्फ औद्योगिक मेलों में"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा के पारंपरिक नाश्ते का प्रसार बढ़ने पर स्थानीय अर्थव्यवस्था को क्या लाभ मिलता है?", "options": ["स्थानीय खाद्य-व्यवसायों तथा छोटे विक्रेताओं को आय का स्रोत", "केवल आयात बढ़ता है", "स्थानीय संस्कृति का विनाश", "किसी भी तरह का लाभ नहीं"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "मालवा में परोसे जाने वाले पोहे में अक्सर किस किस्म की नमक/मसाला विशेषता होती है जो स्थानीय स्वाद को दर्शाती है?", "options": ["ज्यादा मीठा मसाला", "हल्का-मीठा व खट्टा (नींबू) संतुलन", "अतिशय तीखा मिर्च-आधारित", "सिर्फ़ कड़वा स्वाद"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "मालवा में पोहा-जलेबी की लोकप्रियता के कारण किस प्रकार के छोटे व्यवसायों का विकास विशेषकर देखा गया है?", "options": ["कृषि मशीनरी वर्कशॉप", "स्ट्रीट फूड स्टॉल्स और छोटे नाश्ता-दुकान", "हवाई सेवा कंपनियाँ", "भारी लोहारखाना"], "answer_index": 1, "explanation": "", "priority_tag": "LOW"}, {"question": "निम्न में से कौन-सा कथन मालवा-नाश्ता संस्कृति के पर्यटन मूल्यांकन के संदर्भ में सबसे अधिक यथार्थ है?", "options": ["स्थानीय नाश्ता पर केंद्रित टूरिज़्म से सांस्कृतिक विनिमय और आर्थिक लाभ दोनों मिलते हैं", "नाश्ता आधारित पर्यटन से स्थानीय संस्कृति डूब जाती है", "पर्यटन ने केवल स्थानीय नाश्तों को महँगा कर दिया है और कोई लाभ नहीं हुआ", "नाश्ता संस्कृति पर्यटन में कोई भूमिका नहीं निभाती"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>

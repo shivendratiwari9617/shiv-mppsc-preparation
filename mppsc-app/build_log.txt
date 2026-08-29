@@ -1,0 +1,4 @@
+[?25l[0G[+] build 2/2
+ [32m✔[0m Image mppsc-app-backend  [32mBuilt[0m                                           [34m4.0s[0m
+ [32m✔[0m Image mppsc-app-frontend [32mBuilt[0m                                           [34m4.0s[0m
+[?25h

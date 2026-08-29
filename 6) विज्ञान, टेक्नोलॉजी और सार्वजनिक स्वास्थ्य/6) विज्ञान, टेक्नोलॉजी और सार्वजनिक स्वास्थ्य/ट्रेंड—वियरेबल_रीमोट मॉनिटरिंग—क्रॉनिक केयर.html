@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>U6-161 – ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग—क्रॉनिक केयर</title>
+<style>
+:root {
+  --ok:#1b5e20;
+  --bad:#b71c1c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f7f7f7;
+  --border:#e5e7eb;
+  --accent:#0f766e;
+}
+html,body {
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:#111;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  max-width:1100px;
+  margin:24px auto;
+  padding:0 16px;
+}
+.hdr {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+.top-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+h1 {
+  font-size:1.6rem;
+  margin:0 0 4px;
+}
+.date {
+  font-size:0.9rem;
+  color:#4b5563;
+}
+.note {
+  color:#374151;
+  font-size:0.95rem;
+  margin-top:4px;
+}
+.meta {
+  color:#6b7280;
+  font-size:0.9rem;
+  margin-top:6px;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:12px 0;
+}
+.qhdr {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.qno {
+  font-weight:600;
+  color:#111;
+}
+.pill {
+  display:inline-block;
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  font-size:0.72rem;
+  padding:1px 8px;
+  border-radius:999px;
+}
+.opt {
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:background 0.15s ease,border-color 0.15s ease;
+}
+.opt input {
+  margin-right:10px;
+}
+.opt.correct {
+  background:#e8f5e9;
+  border-color:#c8e6c9;
+}
+.opt.wrong {
+  background:#ffebee;
+  border-color:#ffcdd2;
+}
+.actions {
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {
+  border-color:#cbd5e1;
+}
+.expl {
+  display:none;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  white-space:pre-wrap;
+}
+.footer {
+  background:#fff;
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  margin-top:24px;
+}
+.h2 {
+  font-size:1.1rem;
+  color:#0f172a;
+  margin:0 0 8px;
+}
+.src {
+  color:#0f172a;
+}
+.count {
+  color:#334155;
+  font-weight:600;
+}
+.vyakhya-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hdr">
+    <div class="top-row">
+      <div>
+        <h1>U6-161 – ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग—क्रॉनिक केयर</h1>
+        <div class="note">क्षेत्र: Global/India | सामग्री: हृदय/शुगर—डेटा-चालित फॉलो-अप। | 15-वर्षीय ट्रेंड: High</div>
+      </div>
+      <div class="date">Updated: 16-12-2025</div>
+    </div>
+    <div class="meta">
+      कुल MCQ: <span class="count" id="qcount"></span> |
+      सही: <span class="count" id="correct">0</span> |
+      गलत: <span class="count" id="wrong">0</span>
+    </div>
+  </div>
+
+  <div class="vyakhya-card">
+    <button class="btn" onclick="toggleVyakhya()">पूर्ण व्याख्या (Vyakhya) दिखाएँ / छुपाएँ</button>
+    <div id="vyakhya" class="expl"># प्रस्तावना
+- ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग क्रॉनिक केयर का मतलब लगातार सेंसर-आधारित डेटा के जरिये रोगियों (हृदय/डायबिटीज) का दूरस्थ निगरानी और प्रबंध है; ABDM/NDHM के Health ID और Consent Manager जैसे घटक क्लिनिकल-डेटा साझा करने में आधार बना रहे हैं, जिससे राष्ट्रीय स्तर पर पहचान-संबद्ध रिमोट केयर सम्भव हुआ है।  
+- यह MPPSC के Public Health/Science-Technology क्षेत्र में महत्वपूर्ण है क्योंकि eSanjeevani (nationwide telemedicine scale-up 2020) और CoWIN (2021 vaccination platform) जैसे digital interventions ने स्वास्थ्य-सेवा पहुँच व डेटा-फ्लो के मॉडल दिखाए हैं, जो क्रॉनिक केयर के लिए नीति-निर्धारण का आधार बनते हैं।
+
+## अवधारणा व वैज्ञानिक आधार
+- वियरेबल उपकरण (जैसे continuous glucose monitors—CGM और wearable ECG patches) लगातार ग्लूकोज़/रिदम डेटा देते हैं; ये उपकरण Bluetooth/LoRa जैसे कम-ऊर्जा वायरलेस प्रोटोकॉल का उपयोग करते हैं, जिससे मोबाइल-एप और HIE-CM (Health Information Exchange–Consent Manager) के माध्यम से क्लिनिकल रिकार्ड में रीयल‑टाइम इंटीग्रेशन संभव होता है।  
+- डेटा-ड्रिवन फॉलो‑अप में टाइम-सीरीज़ एल्गोरिद्म (trend analysis), threshold-based alerting और clinical decision support systems (CDSS) शामिल होते हैं; भारत में NDHM के API और interoperable standards से इलेक्ट्रॉनिक मेडिकल रिकॉर्ड्स (EMR) और मोबाइल‑स्रोत डेटा का मैचिंग सम्भव होता है।  
+- सेंसर-डेटा की गुणवत्ता के लिए FDA/CE‑equivalence मानक विश्व स्तर पर उपयोग होते हैं; भारत में ICMR/clinical validation studies की आवश्यकता होती है, क्योंकि स्थानीय आबादी व उपयोग के संदर्भ में device-validation का प्रत्यक्ष प्रभाव क्लिनिकल निर्णय-निर्माण पर पड़ता है।
+
+## अनुप्रयोग—हृदय (Cardiac)
+- वियरेबल ECG patches व स्मार्टवॉच‑आधारित AF (atrial fibrillation) detection الگोरिद्म से पैटर्न‑आधारित alerts मिलते हैं; ऐसे डेटा को Health ID के जरिए इलेक्ट्रॉनिक पाथवे में जोड़कर tertiary care referral और eSanjeevani पर cardiology teleconsultation का त्वरित समन्वय किया जा सकता है।  
+- remote blood-pressure monitoring devices और RPM (remote patient monitoring) प्लेटफॉर्म से post-MI या heart‑failure के readmission rates घटाने के वैश्विक सबूत हैं; भारत में NHM/CHC‑level पोर्टल पर समेकित RPM डेटा से district-level surveillance और resource allocation बेहतर होता है।  
+- device-to-clinic data pipelines में HIE‑CM consent logs रिकॉर्ड होते हैं, जिससे medicolegal ट्रैकिंग व patient-controlled sharing सुनिश्चित होता है और cardiology care pathways में evidence-based escalation triggers लागू होते हैं।
+
+## अनुप्रयोग—शुगर (Diabetes)
+- CGM + smartphone integration से time-in-range और hypoglycemia alerts के माध्यम से intensive insulin titration और dose-adjustment संभव है; ABDM के interoperability stack से CGM‑डेटा national registries में अनामिक रूप में जुड़कर population-level glycaemic trend analysis की अनुमति देता है।  
+- मोबाइल‑एप आधारित diabetes coaching और automated reminders को eSanjeevani की teleconsultation लिंक्स से जोड़कर multidisciplinary team‑based management (diabetes educator + dietician + physician) लागू किया जा सकता है; इससे rural follow-up adherence और medication titration में सुधार दिखता है।  
+- data-driven risk stratification algorithms को NHM‑level registries के longitudinal डेटा से ट्रेन किया जा सकता है, जिससे high-risk diabetic foot/retinopathy के लिए targeted screening pathways (local PHC alerts) तैयार होते हैं।
+
+## नीति/संस्थागत ढाँचा व गवर्नेंस
+- ABDM/NDHM के घटक—Health ID, Health Records Registry, Consent Manager और HIE‑CM—इंटरऑपरेबिलिटी और patient-mediated data-sharing के लिए राष्ट्रीय फ्रेमवर्क देते हैं; इससे निजी व सार्वजनिक सिस्टम के बीच क्लिनिकल-डेटा portability संभव होती है।  
+- गोपनीयता व सुरक्षा हेतु NDHM architecture में consent logs और audit trails अनिवार्य हैं; इसके आलावा MoHFW/ICMR दिशा-निर्देशों के अनुरूप clinical validation और ethical oversight (institutional review) की आवश्यकता नीति‑निर्माण में जोड़ी जा रही है।  
+- राष्ट्रीय स्तर पर eSanjeevani (telemedicine) व state-level digital health initiatives को ABDM APIs से जोड़ना healthcare access equity बढ़ाता है, परन्तु governance में interoperability compliance, data stewardship और liability frameworks स्पष्ट करने की आवश्यकता रहती है।
+
+## सामाजिक-आर्थिक प्रभाव और लाभ
+- दूरस्थ मॉनिटरिंग से tertiary referral और अस्थायी हॉस्पिटल विज़िट घटते हैं; CoWIN एवं eSanjeevani के उदाहरण से पता चलता है कि डिजिटल प्लेटफॉर्म स्वास्थ्य-सेवा वितरण लागत और time-to-care घटा सकते हैं, जो कम-आय वाले घरोँ में chronic care continuity सुनिश्चित करता है।  
+- Health ID आधारित longitudinal रिकॉर्डिंग सेโรज़‑financial protection व outcome-measurement संभव है—NHM‑level programs के साथ लिंक होने पर targeted subsidies और outcome‑based financing के लिए प्रमाणिक डेटा उपलब्ध होता है।  
+- ग्रामीण व digitale divide के कारण smartphone/Internet‑access सीमाएँ हैं; इसलिए public‑private partnerships और state‑run telemedicine hubs (eSanjeevani hubs) के माध्यम से last‑mile connectivity और device-subsidies की नीति आवश्यक है।
+
+## जोखिम, चुनौतियाँ व नैतिक मुद्दे
+- डेटा‑सुरक्षा व निजता जोखिम: centralized Record linkage बिना मजबूत consent management और encryption के misuse का खतरा बढ़ाता है; NDHM ने consent framework रखा है, पर implementation‑level encryption/audit की सुदृढ़ता आवश्यक है।  
+- बायोमेडिकल वैलिडेशन और क्लिनिकल‑इंटीग्रेशन की कमी: वियरेबल के accuracy drift और algorithmic bias global studies में दिखे हैं; भारत में ICMR/NCDC निर्देशन से local validation और regulatory approval pathways आवश्यक हैं।  
+- इन्फ्रास्ट्रक्चर व मानव संसाधन की कमी: continuous monitoring से उत्पन्न डेटा‑बोझ (data deluge) का clinical triage नहीं होगा तो false alerts और clinician burnout बढ़ेंगे; इसलिए automated triage rules और NHM‑supported training modules बनाना जरूरी है।
+
+## समाधान व वे-फ़ॉरवर्ड (Way Forward)
+- नीति‑स्तर पर: ABDM‑आधारित प्रधानमन्त्री interoperability और consent-first approach को मजबूत करते हुए NDHM APIs के जरिये certified device‑integrations के लिए mandatory validation certificates लागू करें; साथ ही district‑level telehealth hubs (eSanjeevani model) को RPM back-end से जोड़ें।  
+- टेक्नोलॉजी‑स्तर पर: device manufacturers के लिए India‑specific clinical validation trials (ICMR/NHM सहयोग) और edge‑processing (on-device analytics) से data‑transmission को सीमित कर privacy-preserving analytics अपनाएँ।  
+- सिस्टम‑स्तर पर: primary‑care workforce को RPM dashboards और CDSS के साथ प्रशिक्षित करें, NHM के cadre के लिए accredited online courses चलाएँ और Health ID‑linked registries से population-level risk stratification के आधार पर proactive screening 정책 अपनाएँ।
+
+## निष्कर्ष
+- वियरेबल/रीमोट मॉनिटरिंग ने पिछले 15 वर्षों में क्रॉनिक केयर (हृदय/शुगर) में डेटा-चालित फॉलो‑अप के लिये एक व्यवहार्य तकनीकी-नीतिगत मार्ग प्रस्तुत किया है; ABDM/NDHM घटक (Health ID, Consent Manager, HIE‑CM) व eSanjeevani/CoWIN जैसे प्लेटफॉर्म ने डिजिटल इन्फ्रास्ट्रक्चर का प्रारम्भ कर दिया है।  
+- परिणामस्वरूप, regulated device-integration, मजबूत consent‑based governance और capacity‑building पर ध्यान देकर देश में equitable, secure और evidence‑driven chronic care delivery सुनिश्चित की जा सकती है — दीर्घकाल में morbidity और स्वास्थ्य‑व्यय दोनों में कमी लाने की क्षमता के साथ।
+
+स्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  
+स्रोत 2: Lucent / Arihant – General Science / Science &amp; Technology (relevant section)  
+स्रोत 3: MoHFW, NHM, ICMR, NCDC, ABDM (आधिकारिक पोर्टल) / WHO</div>
+  </div>
+
+  <div id="mcq-root"></div>
+
+  <div class="footer">
+    <div class="h2">Trusted Sources (Books + Portals)</div>
+    <div class="src">NCERT कक्षा 6–12 Science (Physics/Chemistry/Biology) + Biology (Class 11–12) के core chapters; NCERT कक्षा 11–12 Political Science/Indian Economy के selected chapters (Health, governance, welfare संदर्भ हेतु जहाँ लागू हो); Lucent – General Science (Physics/Chemistry/Biology) + Arihant – General Science/Science & Tech (objective revision); PIB + Press Information Bureau releases (scheme/mission updates के लिए); Govt authorized portals: MoHFW + NHM (public health programmes), ICMR (guidelines/research briefs), NCDC (diseases/surveillance), CDSCO (drugs/vaccines regulation), DBT + DST (science missions), ISRO/DoS (space & applications), MeitY (digital/tech initiatives), WHO India (public health standards/definitions), MP Health Dept/NHM MP (MP-specific implementation).</div>
+  </div>
+</div>
+<script>
+// RAW payload jo Python se aa raha hai
+const RAW = {"topic_title": "U6-161 – ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग—क्रॉनिक केयर", "coverage_note": "क्षेत्र: Global/India | सामग्री: हृदय/शुगर—डेटा-चालित फॉलो-अप। | 15-वर्षीय ट्रेंड: High", "vyakhya": "# प्रस्तावना\n- ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग क्रॉनिक केयर का मतलब लगातार सेंसर-आधारित डेटा के जरिये रोगियों (हृदय/डायबिटीज) का दूरस्थ निगरानी और प्रबंध है; ABDM/NDHM के Health ID और Consent Manager जैसे घटक क्लिनिकल-डेटा साझा करने में आधार बना रहे हैं, जिससे राष्ट्रीय स्तर पर पहचान-संबद्ध रिमोट केयर सम्भव हुआ है।  \n- यह MPPSC के Public Health/Science-Technology क्षेत्र में महत्वपूर्ण है क्योंकि eSanjeevani (nationwide telemedicine scale-up 2020) और CoWIN (2021 vaccination platform) जैसे digital interventions ने स्वास्थ्य-सेवा पहुँच व डेटा-फ्लो के मॉडल दिखाए हैं, जो क्रॉनिक केयर के लिए नीति-निर्धारण का आधार बनते हैं।\n\n## अवधारणा व वैज्ञानिक आधार\n- वियरेबल उपकरण (जैसे continuous glucose monitors—CGM और wearable ECG patches) लगातार ग्लूकोज़/रिदम डेटा देते हैं; ये उपकरण Bluetooth/LoRa जैसे कम-ऊर्जा वायरलेस प्रोटोकॉल का उपयोग करते हैं, जिससे मोबाइल-एप और HIE-CM (Health Information Exchange–Consent Manager) के माध्यम से क्लिनिकल रिकार्ड में रीयल‑टाइम इंटीग्रेशन संभव होता है।  \n- डेटा-ड्रिवन फॉलो‑अप में टाइम-सीरीज़ एल्गोरिद्म (trend analysis), threshold-based alerting और clinical decision support systems (CDSS) शामिल होते हैं; भारत में NDHM के API और interoperable standards से इलेक्ट्रॉनिक मेडिकल रिकॉर्ड्स (EMR) और मोबाइल‑स्रोत डेटा का मैचिंग सम्भव होता है।  \n- सेंसर-डेटा की गुणवत्ता के लिए FDA/CE‑equivalence मानक विश्व स्तर पर उपयोग होते हैं; भारत में ICMR/clinical validation studies की आवश्यकता होती है, क्योंकि स्थानीय आबादी व उपयोग के संदर्भ में device-validation का प्रत्यक्ष प्रभाव क्लिनिकल निर्णय-निर्माण पर पड़ता है।\n\n## अनुप्रयोग—हृदय (Cardiac)\n- वियरेबल ECG patches व स्मार्टवॉच‑आधारित AF (atrial fibrillation) detection الگोरिद्म से पैटर्न‑आधारित alerts मिलते हैं; ऐसे डेटा को Health ID के जरिए इलेक्ट्रॉनिक पाथवे में जोड़कर tertiary care referral और eSanjeevani पर cardiology teleconsultation का त्वरित समन्वय किया जा सकता है।  \n- remote blood-pressure monitoring devices और RPM (remote patient monitoring) प्लेटफॉर्म से post-MI या heart‑failure के readmission rates घटाने के वैश्विक सबूत हैं; भारत में NHM/CHC‑level पोर्टल पर समेकित RPM डेटा से district-level surveillance और resource allocation बेहतर होता है।  \n- device-to-clinic data pipelines में HIE‑CM consent logs रिकॉर्ड होते हैं, जिससे medicolegal ट्रैकिंग व patient-controlled sharing सुनिश्चित होता है और cardiology care pathways में evidence-based escalation triggers लागू होते हैं।\n\n## अनुप्रयोग—शुगर (Diabetes)\n- CGM + smartphone integration से time-in-range और hypoglycemia alerts के माध्यम से intensive insulin titration और dose-adjustment संभव है; ABDM के interoperability stack से CGM‑डेटा national registries में अनामिक रूप में जुड़कर population-level glycaemic trend analysis की अनुमति देता है।  \n- मोबाइल‑एप आधारित diabetes coaching और automated reminders को eSanjeevani की teleconsultation लिंक्स से जोड़कर multidisciplinary team‑based management (diabetes educator + dietician + physician) लागू किया जा सकता है; इससे rural follow-up adherence और medication titration में सुधार दिखता है।  \n- data-driven risk stratification algorithms को NHM‑level registries के longitudinal डेटा से ट्रेन किया जा सकता है, जिससे high-risk diabetic foot/retinopathy के लिए targeted screening pathways (local PHC alerts) तैयार होते हैं।\n\n## नीति/संस्थागत ढाँचा व गवर्नेंस\n- ABDM/NDHM के घटक—Health ID, Health Records Registry, Consent Manager और HIE‑CM—इंटरऑपरेबिलिटी और patient-mediated data-sharing के लिए राष्ट्रीय फ्रेमवर्क देते हैं; इससे निजी व सार्वजनिक सिस्टम के बीच क्लिनिकल-डेटा portability संभव होती है।  \n- गोपनीयता व सुरक्षा हेतु NDHM architecture में consent logs और audit trails अनिवार्य हैं; इसके आलावा MoHFW/ICMR दिशा-निर्देशों के अनुरूप clinical validation और ethical oversight (institutional review) की आवश्यकता नीति‑निर्माण में जोड़ी जा रही है।  \n- राष्ट्रीय स्तर पर eSanjeevani (telemedicine) व state-level digital health initiatives को ABDM APIs से जोड़ना healthcare access equity बढ़ाता है, परन्तु governance में interoperability compliance, data stewardship और liability frameworks स्पष्ट करने की आवश्यकता रहती है।\n\n## सामाजिक-आर्थिक प्रभाव और लाभ\n- दूरस्थ मॉनिटरिंग से tertiary referral और अस्थायी हॉस्पिटल विज़िट घटते हैं; CoWIN एवं eSanjeevani के उदाहरण से पता चलता है कि डिजिटल प्लेटफॉर्म स्वास्थ्य-सेवा वितरण लागत और time-to-care घटा सकते हैं, जो कम-आय वाले घरोँ में chronic care continuity सुनिश्चित करता है।  \n- Health ID आधारित longitudinal रिकॉर्डिंग सेโรज़‑financial protection व outcome-measurement संभव है—NHM‑level programs के साथ लिंक होने पर targeted subsidies और outcome‑based financing के लिए प्रमाणिक डेटा उपलब्ध होता है।  \n- ग्रामीण व digitale divide के कारण smartphone/Internet‑access सीमाएँ हैं; इसलिए public‑private partnerships और state‑run telemedicine hubs (eSanjeevani hubs) के माध्यम से last‑mile connectivity और device-subsidies की नीति आवश्यक है।\n\n## जोखिम, चुनौतियाँ व नैतिक मुद्दे\n- डेटा‑सुरक्षा व निजता जोखिम: centralized Record linkage बिना मजबूत consent management और encryption के misuse का खतरा बढ़ाता है; NDHM ने consent framework रखा है, पर implementation‑level encryption/audit की सुदृढ़ता आवश्यक है।  \n- बायोमेडिकल वैलिडेशन और क्लिनिकल‑इंटीग्रेशन की कमी: वियरेबल के accuracy drift और algorithmic bias global studies में दिखे हैं; भारत में ICMR/NCDC निर्देशन से local validation और regulatory approval pathways आवश्यक हैं।  \n- इन्फ्रास्ट्रक्चर व मानव संसाधन की कमी: continuous monitoring से उत्पन्न डेटा‑बोझ (data deluge) का clinical triage नहीं होगा तो false alerts और clinician burnout बढ़ेंगे; इसलिए automated triage rules और NHM‑supported training modules बनाना जरूरी है।\n\n## समाधान व वे-फ़ॉरवर्ड (Way Forward)\n- नीति‑स्तर पर: ABDM‑आधारित प्रधानमन्त्री interoperability और consent-first approach को मजबूत करते हुए NDHM APIs के जरिये certified device‑integrations के लिए mandatory validation certificates लागू करें; साथ ही district‑level telehealth hubs (eSanjeevani model) को RPM back-end से जोड़ें।  \n- टेक्नोलॉजी‑स्तर पर: device manufacturers के लिए India‑specific clinical validation trials (ICMR/NHM सहयोग) और edge‑processing (on-device analytics) से data‑transmission को सीमित कर privacy-preserving analytics अपनाएँ।  \n- सिस्टम‑स्तर पर: primary‑care workforce को RPM dashboards और CDSS के साथ प्रशिक्षित करें, NHM के cadre के लिए accredited online courses चलाएँ और Health ID‑linked registries से population-level risk stratification के आधार पर proactive screening 정책 अपनाएँ।\n\n## निष्कर्ष\n- वियरेबल/रीमोट मॉनिटरिंग ने पिछले 15 वर्षों में क्रॉनिक केयर (हृदय/शुगर) में डेटा-चालित फॉलो‑अप के लिये एक व्यवहार्य तकनीकी-नीतिगत मार्ग प्रस्तुत किया है; ABDM/NDHM घटक (Health ID, Consent Manager, HIE‑CM) व eSanjeevani/CoWIN जैसे प्लेटफॉर्म ने डिजिटल इन्फ्रास्ट्रक्चर का प्रारम्भ कर दिया है।  \n- परिणामस्वरूप, regulated device-integration, मजबूत consent‑based governance और capacity‑building पर ध्यान देकर देश में equitable, secure और evidence‑driven chronic care delivery सुनिश्चित की जा सकती है — दीर्घकाल में morbidity और स्वास्थ्य‑व्यय दोनों में कमी लाने की क्षमता के साथ।\n\nस्रोत 1: NCERT (कक्षा 6–12) – Science के संबंधित अध्याय  \nस्रोत 2: Lucent / Arihant – General Science / Science & Technology (relevant section)  \nस्रोत 3: MoHFW, NHM, ICMR, NCDC, ABDM (आधिकारिक पोर्टल) / WHO", "mcqs": [{"question": "वियरेबल (wearable) डिवाइस का सबसे सटीक सामान्य परिभाषा कौन-सा है?", "options": ["ऐसा इलेक्ट्रॉनिक डिवाइस जो व्यक्ति पर पहना जा सके और निरन्तर स्वास्थ्य/फिजियोलॉजी डेटा मापे", "कोई भी मोबाइल ऐप जो स्वास्थ्य से संबंधित सूचना दिखाता हो", "हॉस्पिटल में लगने वाला निगरानी उपकरण जो केवल क्लिनिकल सेटअप में काम करे", "रिमोट सर्वर पर चलने वाला स्वास्थ्य-रिकॉर्ड मैनेजमेंट सॉफ्टवेयर"], "answer_index": 0, "explanation": "# वियरेबल डिवाइस — सटीक परिभाषा और व्याख्या (MPPSC Prelims 2026 के लिए)\n**परिभाषा (संक्षेप):** ऐसा इलेक्ट्रॉनिक डिवाइस जो व्यक्ति पर पहना जा सके और निरन्तर स्वास्थ्य/फिजियोलॉजी डेटा मापे।\n- वियरेबल का प्राथमिक गुण यह है कि उसे शरीर के साथ लगातार संपर्क या निकटता में रखा जाता है, ताकि समय-समय पर स्वतः माप और डेटा संग्रह हो सके।\n- यह डिवाइस शारीरिक संकेतों (physiological signals) जैसे हृदयगति, श्वास दर, त्वचा तापमान, रक्त-ऑक्सीजन स्तर, गतिविधि/स्टेप काउंट आदि को लगातार रिकॉर्ड कर सकता है।\n- सेंसर्स (जैसे ECG, PPG, तापमान सेंसर, एक्सेलेरोमीटर) का उपयोग करके रीयल‑टाइम या नियोजित अंतराल पर माप करता है; मापन की आवृत्ति और फिडेलिटी क्लिनिकल उपयोग के अनुसार भिन्न होती है।\n- वियरेबल का लक्ष्य सुसंगत निगरानी (continuous monitoring) है, जिससे क्रॉनिक रोगों (जैसे हृदय रोग, श्वास संबंधी विकार, डायबिटीज‑संबंधी पैरामीटर) का दीर्घकालीन ट्रेंड मिल सके।\n- डेटा लॉगिंग के साथ-साथ कई वियरेबल वास्तविक‑समय अलर्ट/नोटिफिकेशन दे सकते हैं जब कोई पैरा मीटर पूर्वनिर्धारित सीमा से बाहर जाए।\n- ऐसे उपकरणों में पोर्टेबिलिटी, पहनने की सुविधा और शरीर अनुकूल डिजाइन जरूरी होते हैं ताकि उपयोगकर्ता नियमित रूप से उन्हें पहने रहें।\n- वियरेबल्स अक्सर ब्लूटूथ/वायरलेस माध्यम से स्मार्टफोन या क्लाउड प्लेटफॉर्म से जुड़ते हैं, जिससे दूरस्थ मॉनिटरिंग और स्वास्थ्य सेवा प्रदाताओं को डेटा साझा करना संभव होता है।\n- मापन की विश्वसनीयता के लिए सेंसिंग प्रोटोकॉल, कैलिब्रेशन और डेटा क्वालिटी‑कंट्रोल आवश्यक होते हैं; क्लिनिकल‑ग्रेड वियरेबल्स में इन मानकों पर कड़ा ध्यान दिया जाता है।\n- निजता और डेटा सुरक्षा वियरेबल्स के अनिवार्य पहलू हैं, क्योंकि निरन्तर स्वास्थ्य डेटा संवेदनशील होता है और संगठित निगरानी/एनालिटिक्स में उपयोग होता है।\n- नीतिगत और सार्वजनिक स्वास्थ्य परिप्रेक्ष्य से वियरेबल्स क्रॉनिक केयर में रोगी‑केंद्रित निगरानी, रिमोट क्लिनिकल फैसिलिटेशन और हेल्थ‑आउटकम्स पर प्रभाव डालने की क्षमता रखते हैं।\n- परीक्षा के उत्तर में संक्षेप में कहा जा सकता है: \"वियरेबल डिवाइस वह पहनने योग्य इलेक्ट्रॉनिक उपकरण है जो व्यक्ति पर रहते हुए निरन्तर स्वास्थ्य या फिजियोलॉजी संबंधी संकेतों को मापता और रिकॉर्ड करता।\"", "priority_tag": "VERY_HIGH"}, {"question": "निम्न में से कौन-सा सेंसिंग तकनीक वियरेबल डिवाइसों में हृदय-धड़क का मापन करने के लिए सामान्यतः उपयोग की जाती है?", "options": ["Pulse oximetry आधारित PPG (Photoplethysmography)", "X-ray इमेजिंग", "Mass spectrometry", "Electroencephalography (EEG)"], "answer_index": 0, "explanation": "# व्याख्या: Pulse oximetry आधारित PPG (Photoplethysmography) — हृदय‑धड़कन मापन के लिए वियरेबल/रिमोट मॉनिटरिंग\n- Photoplethysmography (PPG) प्रकाश के माध्यम से रक्त‑वॉल्यूम में आवर्ती परिवर्तन को नापने वाली सेंसिंग पद्धति है; यह हृदय‑धड़कन का अनौपचारिक और लगातार संकेत देती है।\n- PPG सेंसर में सामान्यतः एक प्रकाश स्रोत (LED) और एक प्रकाश‑सेंसिंग डिटेक्टर (फोटो‑डायोड/फोटो‑रेसिस्ट) होता है; प्रकाश त्वचा‑ऊतक से परावर्तित/प्रविष्ट होकर डिटेक्टर तक पहुँचता है।\n- हर हृदय संकुचन पर आयतन में परिवर्तन से PPG सिग्नल में पल्स‑फेज दिखाई देता है; इन पिकों के बीच का अंतर समय सीधे हृदय‑दर (BPM) में परिवर्तित किया जाता है।\n- PPG सिग्नल दो घटकों में होता है: एक AC कम्पोनेंट (पल्स‑सम्बन्धी) जो दिल की धड़कन दर्शाता है और एक DC कम्पोनेंट (बेसलाइन) जो ऊतक व रक्त की समग्र अभिवृद्धि दर्शाता है।\n- वियरेबल उपकरणों में हार्ट‑रेट निकालने के लिए पिक‑डिटेक्शन या टाइम‑डोमेन्स विश्लेषण का उपयोग होता है; सिग्नल‑फिल्टरिंग व पीक‑डिटेक्शन एल्गोरिथ्म वास्तविक‑समय BPM प्रदान करते हैं।\n- PPG से ऑक्सीजन सैचुरेशन (SpO2) भी नापी जा सकती है; स्पेशलाइज्ड डिवाइस दो तरंगदैर्घ्य (रेड व इनफ्रारेड) की तुलना कर ऑक्सीजन सैचुरेशन निकालते हैं, पर हार्ट‑रेट के लिए सिंगल‑वavelength PPG पर्याप्त है।\n- वियरेबल एकीकरण के फायदे: गैर‑इनवेसिव, लागत प्रभावी, लगातार (continuous) निगरानी, बैटरी‑सक्षम हार्डवेयर और मोबाइल/क्लाउड पर रीयल‑टाइम डेटा ट्रांसमिशन जो क्रॉनिक केयर रिमोट मॉनिटरिंग के लिए उपयुक्त हैं।\n- सीमाएँ और प्रबंधन: मोशन‑आर्टिफ़ैक्ट, त्वचा‑टोन, कपड़े की मोटाई और बाहरी प्रकाश से शोर आता है — इन्हें सिग्नल‑प्रोसेसिंग, मूवमेंट‑सेंसर समेकन और एल्गोरिथ्मिक कलैकुलेशन से कम किया जाता है।\n- सेंसिंग साइट्स: कलाई, उंगली, कान का लब, या तोक का उपयोग होता है; प्रत्येक साइट पर सिग्नल‑आकृति व विश्वसनीयता अलग होती है, इसलिए क्लीनिकल उपयोग के अनुसार स्थान चुनना जरूरी है।\n- तकनीकी जरूरतें: विश्वसनीय हृदय‑दर गणना के लिए उपयुक्त सैंपलिंग‑रेट (आम तौर पर ≥25–50 Hz), बैंडपास फिल्टरिंग और रियल‑टाइम पिक‑डिटेक्शन एल्गोरिथ्म आवश्यक होते हैं।\n- क्रॉनिक केयर में उपयोग: लगातार PPG‑आधारित HR ट्रैकिंग एरिथमिया स्क्रीनिंग, ट्रेंड‑मॉनिटरिंग, सलाह आधारित दवा‑सुधार और दूरस्थ क्लिनिक पर निर्णय समर्थन में सहायक है।\n- नियम व मान्यता‑संदर्भ: क्लिनिकल/डायग्नोस्टिक उपयोग के लिए PPG‑आधारित वियरेबल्स का वेलिडेशन और रेगुलेटरी मानक आवश्यक होते हैं ताकि सटीकता व रोगी‑सुरक्षा सुनिश्चित हो।\n- Mains उत्तर हेतु उठाने योग्य बिंदु (MP‑संदर्भ): MP में दूरस्थ क्रॉनिक केयर के लिए PPG‑वियरेबल का समावेश — प्राथमिक स्वास्थ्य केन्द्रों से कनेक्टिविटी, निगरानी‑डेटा का एनालिटिक्स, तथा ग्रामीण टीमें/आशा कार्यकर्ताओं के साथ समन्वय।", "priority_tag": "HIGH"}, {"question": "रिमोट पेशेंट मॉनिटरिंग (Remote Patient Monitoring - RPM) का मुख्य उद्देश्य कौन-सा है?", "options": ["रोगी के स्वास्थ्य संकेतों को दूरस्थ रूप से मापकर क्लीनिकल टीम को डेटा उपलब्ध कराना", "हॉस्पिटल में रोगियों की संख्या बढ़ाना", "केवल चिकित्सा अनुसंधान के लिए रिकॉर्ड इकट्ठा करना", "ओन्लाइन दवा बेचने के लिये मरीज की पहचान करना"], "answer_index": 0, "explanation": "# रिमोट पेशेंट मॉनिटरिंग (RPM) — मुख्य उद्देश्य की व्याख्या\n- रिमोट पेशेंट मॉनिटरिंग का मुख्य उद्देश्य रोगी के शारीरिक स्वास्थ्य संकेतों (जैसे हृदय गति, रक्तचाप, SpO2, ग्लाइसेमिया, तापमान) को दूरस्थ रूप से मापना और रिकॉर्ड करना है।\n- ये मापन सेंसर्स/वियरेबल उपकरण या होम-डायग्नोस्टिक डिवाइस द्वारा ऑटोमेटिक रूप से और नियमित अंतराल पर होते हैं।\n- मापे गए डेटा को सुरक्षित डिजिटल तरीके से क्लीनिकल टीम (डॉक्टर/नर्स/केयर मैनेजर) को भेजा जाता है ताकि रियल‑टाइम या समीक्षित निगरानी संभव हो।\n- प्रमुख उद्देश्य यह सुनिश्चित करना है कि क्लीनिकल टीम को रोगी की स्थिति पर सतत, वस्तुनिष्ठ और समयानुकूल जानकारी उपलब्ध हो।\n- RPM की जानकारी से चिकित्सीय निर्णय (दवा समायोजन, अगला फॉलो‑अप, आपातकालीन हस्तक्षेप) को तेज़ और सटीक बनाया जा सकता है।\n- यह मॉडल रोगी के स्वास्थ्य में धीरे‑धीरे होने वाले परिवर्तनों का जल्दी पता लगाने में मदद करता है, जिससे क्रॉनिक केयर में जटिलताओं की रोकथाम सम्भव होती है।\n- डेटा संग्रह और ट्रेंड विश्लेषण से रोगी‑स्तर पर स्वचालित चेतावनियाँ (threshold breaches) व क्लीनिकल प्राथमिकताएँ बन सकती हैं।\n- RPM का उद्देश्य अस्पताल में अनावश्यक भर्ती कम करना और समुदाय/घर के स्तर पर निरंतर क्लीनिकल निगरानी सुनिश्चित करना है।\n- सुरक्षा और गोपनीयता के अनुपालन के साथ प्रामाणिक, समयबद्ध और व्यवस्थित डेटा उपलब्ध कराना RPM का अनिवार्य घटक है।\n- RPM क्लीनिकल टीम को दूरस्थ रूप से रोगी के ट्रेंड और कार्यप्रणालीपरक जानकारी देता है, जिससे दीर्घकालिक देखभाल योजनाओं का अनुकूलन संभव होता है।", "priority_tag": "VERY_HIGH"}, {"question": "ग्लूकोज़ के निरन्तर मापन (Continuous Glucose Monitoring - CGM) उपकरण आमतौर पर किस सिद्धांत पर कार्य करते हैं?", "options": ["त्वचा के नीचे कमजोर सेंसिंग प्रोब द्वारा इंटरस्टिशियल फ्लुइड में ग्लूकोज़ का मापन", "रक्त में ग्लूकोज़ का X-ray स्कैन", "निचले पैर के तापमान के आधार पर शुगर का अनुमान", "रक्त के नमूनों को प्रतिदिन लैब में भेजकर ही मापन"], "answer_index": 0, "explanation": "# व्याख्या — CGM का कार्य सिद्धांत (एक ही अवधारणा पर केंद्रित)\n- CGM उपकरणों का मूल सिद्धांत यह है कि वे त्वचा के नीचे लगे एक सूक्ष्म सेंसिंग प्रॉब से इंटरस्टिशियल फ्लुइड (ISF) में ग्लूकोज़ का सतत् मापन करते हैं।\n- यह प्रॉब त्वचा के उपरोक्त (subcutaneous) ऊतक में थोड़ी गहराई पर इन्सर्ट किया जाता है ताकि ISF तक पहुँच सके; प्रॉब बाहरी यूनिट से तार या वायरलेस तरीके से जुड़ा रहता है।\n- सेंसिंग तत्व आमतौर पर एक एंजाइम-आधारित इलेक्ट्रोकेमिकल सेन्सर होता है (उदाहरण: ग्लूकोज़ ऑक्सिडेस), जो ISF में मौजूद ग्लूकोज़ के साथ रासायनिक अभिक्रिया कर विद्युत संकेत उत्पन्न करता है।\n- उत्पन्न होने वाला विद्युत धारा या वोल्टेज सीधे तौर पर ISF ग्लूकोज़ की सांद्रता के अनुपाती होता है; डिवाइस इसे डिजिटल सिग्नल में रूपान्तरित कर रीयल-टाइम वैल्यू देता है।\n- रक्त में ग्लूकोज़ और ISF में ग्लूकोज़ के बीच समयान्तर (lag) सामान्यतः कुछ मिनटों का होता है (आमतौर पर ~5–15 मिनट), इसलिए CGM डेटा को ट्रेंड-आधारित समझना ज़रूरी है न कि केवल एकल बिंदु।\n- CGM सिस्टम सामान्यतः समय-समय पर कैलीब्रेशन या निर्माता-निर्देशित स्व-कैलिब्रेशन की व्यवस्था रखते हैं ताकि ISF संकेत और वास्तविक ग्लूकोज़ स्तर के बीच समन्वय बना रहे।\n- सेंसर की जीवन अवधि सीमित होती है (कुछ दिनों से लेकर कुछ हफ्तों तक) और इसके बदलने/नवीनीकरण की प्रक्रिया सुरक्षित तरीके से करनी होती है।\n- CGM यूनिट में डेटा प्रोसेसिंग, अलर्ट/अनोमैली डिटेक्शन और ट्रेंड-ग्राफ बनाना शामिल होता है; कई डिवाइस रीयल-टाइम डेटा ब्लूटूथ/सेलुलर के जरिए मोबाइल ऐप या क्लाउड में भेजते हैं।\n- लगातार CGM द्वारा प्राप्त ट्रेंड-डाटा क्रॉनिक केयर में दवा समायोजन, हाइपोग्लाइसीमिया/हाइपरग्लाइसीमिया अलर्ट और दीर्घकालिक उपचार योजना बनाने में उपयोगी होता है क्योंकि यह ISF में मापे गए ग्लूकोज़ के सतत परिवर्तनों को दिखाता है।\n- क्लिनिकल सेटिंग और पब्लिक-हेल्थ नीतियों में CGM के प्रभावशील उपयोग के लिए प्रशिक्षण, सेंसर-प्रतिस्थापन लॉजिस्टिक्स और डेटा गोपनीयता/इंटीग्रेशन नीतियाँ आवश्यक होती हैं।", "priority_tag": "VERY_HIGH"}, {"question": "वियरेबल और रिमोट मॉनिटरिंग में डेटा ट्रांसमिशन के लिए सबसे कम ऊर्जा खर्च करने वाली और व्यापक रूप से उपयोग की जाने वाली वायरलेस तकनीक कौन-सी है?", "options": ["Bluetooth Low Energy (BLE)", "Wi‑Fi 6", "Satellite communication", "NFC (Near Field Communication) केवल"], "answer_index": 0, "explanation": "# व्याख्या: Bluetooth Low Energy (BLE) — वियरेबल/रिमोट मॉनिटरिंग के लिए ऊर्जा-कुशल वायरलेस तकनीक\n- Bluetooth Low Energy (BLE) विशेष रूप से कम ऊर्जा खपत के लिए डिजाइन किया गया IEEE-आधारित वायरलेस प्रोटोकॉल है, जिसे बैटरी-पावर्ड वियरेबल डिवाइसों के लिए अनुकूलित किया गया है।\n- BLE का ऑपरेशन कम ड्यूटी-साइकिल पर आधारित होता है: डिवाइस अधिकांश समय नींद (sleep) में रहते हैं और केवल आवश्यक ट्रांसमिशन/रिसेप्शन के लिए जागते हैं, जिससे ऊर्जा बचत होती है।\n- सामान्य हार्डवेयर में BLE का रेडियो ट्रांसमिशन करंट आम तौर पर मिलिमीपरएम्पियर (mA) स्तर पर होता है जबकि idle/sleep करंट माइक्रोपरएम्पियर (µA) तक कम रहता है; इससे छोटे बैटरी सेल पर भी लंबे समय तक संचालन संभव होता है।\n- BLE में कनेक्शन इंटरवल और एडवर्टाइजिंग इंटरवल को कॉन्फ़िगर करके ऊर्जा उपयोग और डाटा ताजा होने की आवृत्ति के बीच संतुलन बनाया जा सकता है — जो क्रॉनिक केयर मॉनिटरिंग में बैटरी लाइफ बढ़ाने के लिए महत्वपूर्ण है।\n- BLE का प्रोटोकॉल स्टैक GATT (Generic Attribute Profile) पर आधारित है; यह छोटे पैकेट्स में संवेदनशील स्वास्थ्य डेटा (जैसे हार्ट रेट, ब्लड ग्लूकोज़) सुसंगत और संरचित रूप में ट्रांसमिट करने के लिए उपयुक्त है।\n- नवीन BLE संस्करणों (जैसे BLE 5.x) ने उच्च डेटा रेट (2 Mbps) और लंबी रेंज के लिए कोडेड PHY मोड जोड़ा है, जिससे विभिन्न अनुप्रयोगों — निकट-रेंज वियरेबल से लेकर रूम-लेवल मॉनिटरिंग तक — कवर होते हैं।\n- BLE का व्यापक पारिस्थितिकी तंत्र (स्मार्टफोन, टैबलेट, गेटवे) उपलब्धता से सीधे मरीज के स्मार्टफोन के माध्यम से रिमोट रिपोर्टिंग और क्लाउड-अपलिंक सुलभ होते हैं, जो क्रॉनिक केयर के निरंतर निगरानी व अलर्टिंग के लिए उपयोगी है।\n- BLE पर लागू सुरक्षा सुविधाएँ (एडवर्टाइजिंग स्कैनिंग नियंत्रण, जोड़े जाने की विधियाँ, एन्क्रिप्शन/ऑथेंटिकेशन) HIPAA/नैशनल गाइडलाइन्स के अनुरूप संवेदनशील स्वास्थ्य डेटा की बुनियादी रक्षा का अवसर देती हैं; परन्तु इम्प्लीमेंटेशन पर ध्यान आवश्यक है।\n- ऊर्जा-कुशल प्रोफाइल डिजाइन (डेटा बंडलिंग, अनावश्यक कनेक्शन बंद करना, लो-पावर सेंसर ड्राइविंग) के साथ BLE डिवाइस कई महीनों तक बैटरी पर चल सकते हैं, जो दीर्घकालिक क्रॉनिक मॉनिटरिंग के लिए व्यावहारिक बनाता है।\n- रोगी-केन्द्रित वियरेबल्स और घरेलू रिमोट मॉनिटरिंग सेटअप में BLE का उपयोग सहज इंटरऑपरेबिलिटी, छोटा आकार और कम रख-रखाव (कम बार चार्ज करने की आवश्यकता) प्रदान करता है, इसलिए यह ऊर्जा-कुशल और व्यापक रूप से अपनाई जाने वाली तकनीक मानी जाती है।", "priority_tag": "HIGH"}, {"question": "ट्रेंड—वियरेबल/रीमोट मॉनिटरिंग—क्रॉनिक केयर में 'फीडबैक-लूप' का क्या मतलब है?", "options": ["सेंसर द्वारा एकत्रित डेटा का क्लिनिशियन/सिस्टम द्वारा विश्लेषण और फिर रोगी के लिए नियंत्रित हस्तक्षेप भेजना", "सिर्फ डेटा संग्रह करना और उसे आर्काइव में स्टोर करना", "केवल अलार्म सेट कर देना बिना क्लिनिकल इंटरवेंशन के", "डिवाइस का बैटरी-लोप होने पर स्वतः बंद होना"], "answer_index": 0, "explanation": "# **विवरण (व्यार्थ — VYAKHYA): 'फीडबैक‑लूप' का अर्थ — ट्रेंड/वियरेबल/रीमोट मॉनिटरिंग में**\n- फीडबैक‑लूप का मूल अर्थ: रोगी से लगे वियरेबल/रिमोट सेंसर द्वारा प्राप्त वास्तविक‑समय या पास्ट‑टाइम सीरिज डेटा का विश्लेषण कर उस पर निर्णायक क्रिया भेजना।\n- इसमें तीन मुख्य घटक होते हैं: (1) डेटा कलेक्शन (सेंसर), (2) डेटा प्रोसेसिंग/डिसेशन‑सपोर्ट (क्लिनिशियन या स्वचालित सिस्टम), और (3) नियंत्रित हस्तक्षेप (इलाज, दवा समायोजन, अलर्ट)।\n- सेंसर डेटा में आम उदाहरण: हृदय गति, रक्तचाप, ब्लड ग्लूकोज ट्रेंड, SpO2, गतिविधि‑लेवल; ये ट्रेंड्स निर्णय के लिए इनपुट होते हैं।\n- प्रोसेसिंग चरण में समय‑श्रृंखला विश्लेषण, थ्रेशोल्ड‑आधारित अलर्ट और ट्रेंड‑डिरेक्शन पहचान शामिल होती है ताकि फॉल्स‑अलार्म कम हों।\n- क्लिनिशियन‑इंटरवेंशन हो सकती है: दवा‑डोज समायोजन का सुझाव, टेली‑कंसल्टेशन, या आपातकालीन निर्देश; सिस्टम‑आधारित इंटरवेंशन में स्वचालित डिवाइस‑एक्शन भी संभव है।\n- फीडबैक‑लूप का उद्देश्य प्राथमिक: रोगी के स्वास्थ्य में परिवर्तन का शीघ्र प्रतिक्रिया तथा क्रॉनिक केयर में आवश्यक ट्रेंड‑आधारित प्रबंधन सुनिश्चित करना।\n- प्रभावी लूप के लिए आवश्यक है: डेटा की विश्वसनीयता, समयानुकूल एनालिटिक्स, स्पष्ट क्लिनिकल प्रोटोकॉल और सुरक्षित कम्युनिकेशन चैनल।\n- निगरानी‑लूप की जाँच में आइटम‑आधारित वैधता: सेंसिंग फ्रीक्वेंसी, लैटेंसी (डेटा से निर्णय तक), और इंटरवेंशन की प्रभावशीलता मापी जाती है।\n- प्रोग्रामेटिक रूप से यह लूप व्यक्तिगत (patient‑centric) तथा पब्लिक‑हेल्थ दृष्टि से दोनों के लिए उपयोगी है — रोगी स्तर पर उपचार अनुकूलन; सिस्टम स्तर पर ट्रेंड‑आधार पर संसाधन नियोजन।\n- कानूनित और नैदानिक रूप से इसे लागू करने पर डेटा गोपनीयता, इंटिग्रिटी और क्लिनिकल रेगुलेटरी एक्सेप्टेंस का पालन अनिवार्य है।\n- Mains में उपयोग हेतु सीधा बिंदु: “फीडबैक‑लूप = सेंसर → प्रोसेसिंग (क्लिनिशियन/एआई) → नियंत्रित इंटरवेंशन (रोगी को भेजा गया कार्य/दवा/अलर्ट)” — इसे एक‑लाइन परिभाषा और 2–3 वैधानिक/प्रैक्टिकल शर्तें जोड़कर लिखें।\n- त्वरित रिविजन‑नोट: प्रभावशीलता के लिए सुनिश्चित करें — सेंसिंग की सटीकता, रियल‑टाइम एनालिटिक्स, क्लिनिकल प्रोटोकॉल और गोपनीय संचार; यही फीडबैक‑लूप की व्यावहारिक परिभाषा और कार्यविधि है।", "priority_tag": "HIGH"}, {"question": "डिजिटल हेल्थ के संदर्भ में 'interoperability' का सर्वश्रेष्ठ अर्थ क्या है?", "options": ["विभिन्न स्वास्थ्य आईटी प्रणालियाँ आपस में डेटा को समझ कर सुरक्षित तरीके से आदान‑प्रदान कर सकें", "सिर्फ एक ही उत्पाद विक्रेता के उपकरणों का उपयोग होना", "डेटा को केवल स्थानीय डिवाइस पर स्टोर करना", "हेल्थकेयर डेटा को सार्वजनिक रूप से खोल देना"], "answer_index": 0, "explanation": "# व्याख्या — \"Interoperability\" (डिजिटल हेल्थ में)\n**मुख्यार्थ:** विभिन्न स्वास्थ्य IT प्रणालियाँ आपस में डेटा को समझ कर सुरक्षित तरीके से आदान‑प्रदान कर सकें।\n- Interoperability का अर्थ है कि अलग‑अलग इलेक्ट्रॉनिक स्वास्थ्य रिकॉर्ड, लैब सिस्टम, मोबाइल एप, वियरबल और रिमोट मॉनिटरिंग डिवाइस एक सामान्य अर्थ के साथ डेटा भेजें और प्राप्त करें।\n- यह केवल डेटा ट्रांसफर नहीं बल्कि डेटा की संरचना, अर्थ (semantics) और उपयोग के नियमों का मेल करना भी है ताकि प्राप्त सिस्टम सही तरीके से व्याख्या कर सके।\n- Interoperability में तकनीकी (टेक्निकल), सेमांटिक (semantic) और संस्थागत/प्रोसेस स्तर शामिल होते हैं — यानी कनेक्टिविटी, डेटा समझ और कार्यप्रवाह की नीतियाँ।\n- सुरक्षित आदान‑प्रदान के लिए मानकीकृत डेटा फॉर्मैट (जैसे मीडिया/क्लिनिकल स्टैंडर्ड) और मानक इंटरफेस (APIs) आवश्यक होते हैं।\n- रोगी‑केंद्रित लगातार क्रॉनिक केयर के लिए मरीज के वियरबल डेटा, टेलीमेडिसिन रिकॉर्ड और रिमोट मॉनिटरिंग सूचनाएँ interoperable हों तो behandel continuity सुनिश्चित होती है।\n- Interoperability से देखभाल में दोगुनी मेहनत, गलतफहमी और डेटा प्रवेश की पुनरावृत्ति कम होती है, जिससे निर्णय तेज़ और सटीक बनते हैं।\n- डेटा सुरक्षा और गोपनीयता के नियम (एन्क्रिप्शन, एक्सेस कंट्रोल, ऑडिट ट्रेल) interoperable सिस्टम के अनिवार्य घटक हैं ताकि आदान‑प्रदान सुरक्षित रहे।\n- नीति‑स्तर पर इंटरऑपरेबिलिटी के लिए मानक अपनाना, प्रमाणन और कम्प्लायंस फ्रेमवर्क आवश्यक होते हैं ताकि सिस्टम आपस में भरोसेमंद ढंग से जुड़ सकें।\n- राष्ट्रीय और क्षेत्रीय स्वास्थ्य कार्यक्रमों में interoperability होने पर रोगी इतिहास, वैक्सीनेशन रिकॉर्ड और निगरानी डेटा तत्काल और विश्वसनीय रूप से उपलब्ध हो जाते हैं।\n- इंटरऑपरेबिलिटी से स्वास्थ्य सेवा में स्केल‑अप (जैसे राज्य/राष्ट्रीय स्तर पर क्रॉनिक केयर मॉनिटरिंग) आसान होता है क्योंकि नए उपकरण और एप्लिकेशन बिना बड़े बदलाव के जुड़ सकते हैं।\n- संक्षेप में: डिजिटल हेल्थ में interoperability का लक्ष्य है — विभिन्न सिस्टमों के बीच अर्थपूर्ण, सुरक्षित और मानकीकृत डेटा आदान‑प्रदान ताकि रोगी‑केन्द्रित, निरंतर और परिणामोन्मुखी क्रॉनिक केयर संभव हो सके।", "priority_tag": "VERY_HIGH"}, {"question": "भारत के संदर्भ में वियरेबल/रिमोट मॉनिटरिंग डेटा को राष्ट्रीय डिजिटल स्वास्थ्य इकाई के साथ जोड़ने का प्रमुख पहल कौन-सा है?", "options": ["Ayushman Bharat Digital Mission (ABDM)", "National Health Policy 2017", "Make in India", "Startup India"], "answer_index": 0, "explanation": "# **विषय: Ayushman Bharat Digital Mission (ABDM) — वियरेबल/रिमोट मॉनिटरिंग डेटा जोड़ने का प्रमुख पहलू (MPPSC परीक्षा हेतु व्याख्या)**\n- **ABDM का मुख्य उद्देश्य** है नागरिकों के स्वास्थ्य से संबंधित डिजिटल इकोसिस्टम बनाना ताकि व्यक्तियों के स्वास्थ्य डेटा का सुरक्षित, interoperable और नियंत्रित आदान-प्रदान संभव हो सके।\n- **Health ID / ABHA**: प्रत्येक व्यक्ति के लिए एक विशिष्ट Health ID (ABHA) बनाया जाता है, जिसके माध्यम से वियरेबल या रिमोट मॉनिटरिंग से जुड़े स्वास्थ्य रिकॉर्ड को व्यक्ति से जोड़ा और पहचाना जा सकता है।\n- **HIP–HIU आर्किटेक्चर**: ABDM में Health Information Provider (HIP) और Health Information User (HIU) का ढांचा है — वियरेबल प्रदाता HIP के रूप में डेटा उपलब्ध करवा सकता है और चिकित्सक/सेवा प्रदाता HIU के रूप में उस डेटा का उपयोग कर सकते हैं।\n- **मानकीकृत डेटा फॉर्मैट और इंटरऑपरेबिलिटी**: ABDM खुले मानकों (जैसे FHIR इत्यादि) पर आधारित है, जिससे वियरेबल उपकरणों से आए डेटा का समरूप रूपांतरण और विभिन्न स्वास्थ्य प्रणालियों में संगतता सुनिश्चित होती है।\n- **कंसेंट मैकेनिज्म (Health Data Consent Manager)**: मरीज की स्पष्ट अनुमति के बिना वियरेबल डेटा दूसरे HIU/HIP के साथ साझा नहीं होता; ABDM में डिजिटल कंसेंट और लॉगिंग का सुव्यवस्थित प्रावधान है।\n- **सुरक्षा और गोपनीयता**: ABDM में प्रमाणिकरण, एन्क्रिप्शन और रोल‑बेस्ड एक्सेस नियंत्रण का तंत्र है ताकि रिमोट मॉनिटरिंग डेटा सुरक्षित तरीके से स्टोर और ट्रांसमिट हो सके।\n- **लॉन्गिट्यूडिनल हेल्थ रिकॉर्ड्स**: वियरेबल से निरंतर डेटा जोड़कर व्यक्तिगत स्वास्थ्य का समयानुसार रिकॉर्ड बनता है, जो क्रॉनिक केयर (जैसे मधुमेह, हृदय रोग) के दीर्घकालिक प्रबंधन के लिए उपयोगी होता है।\n- **इकोसिस्टम और स्केलिंग**: ABDM डिज़ाइन ऐसा है कि निजी वियरेबल निर्माता, हेल्थ‑टेक कंपनियाँ और सार्वजनिक स्वास्थ्य संस्थाएँ HIP/HIU के रूप में ऑनबोर्ड होकर डेटा इंटीग्रेशन को स्केल कर सकती हैं।\n- **निगरानी और क्लिनिकल निर्णय समर्थन**: ABDM के माध्यम से संगृहीत रिमोट मॉनिटरिंग डेटा को क्लिनिकल वर्कफ्लो में शामिल करके चिकित्सीय निर्णय, अलर्ट और टेलिहेल्थ सेवाओं का समर्थन किया जा सकता है।\n- **राज्य-स्तर समन्वय (MP के लिए उपयोगी बिंदु)**: राज्य स्वास्थ्य विभाग और NHM स्तर पर ABDM के साथ वियरेबल डेटा इंटीग्रेशन से राज्य‑विशिष्ट क्रॉनिक केयर प्रोग्रामों में रीयल‑टाइम मॉनिटरिंग और रिपोर्टिंग संभव होती है।\n- **सर्वव्यापी पहुँच और निगरानी सक्षम करना**: ABDM पर आधारित इंटीग्रेशन से ग्रामीण/दूरस्थ क्षेत्रों में तैनात स्वास्थ्य कार्यकर्ता व स्थानीय क्लिनिक वियरेबल डेटा के जरिए बेहतर देखरेख और रेफरल निर्णय ले सकते हैं।\n- **प्रमाणन एवं रेगुलेटरी अनुपालन**: ABDM के सिद्धांतों के अंतर्गत HIP/HIU और वियरेबल प्रदाताओं को डेटा सुरक्षा एवं गोपनीयता मानकों का पालन करना अनिवार्य है, जिससे क्रॉनिक केयर डेटा का वैधानिक और नैतिक उपयोग सुनिश्चित होता है।", "priority_tag": "HIGH"}, {"question": "रिमोट मॉनिटरिंग द्वारा क्रॉनिक रोगी प्रबंधन में 'भविष्यवाणी संबंधी विश्लेषण' (predictive analytics) का क्या लाभ है?", "options": ["संभावित अस्थिरताएँ पहले पहचान कर पूर्ववर्ती हस्तक्षेप संभव बनाना", "सिर्फ पिछले वर्ष के खर्चों का आकलन करना", "अस्पताल भर्ती को अनिवार्य बनाना", "रोगी की पहचान छुपाना"], "answer_index": 0, "explanation": "# व्याख्या — रिमोट मॉनिटरिंग में Predictive Analytics का लाभ\n(प्रश्न लक्षित उत्तर: संभावित अस्थिरताएँ पहले पहचान कर पूर्ववर्ती हस्तक्षेप संभव बनाना)\n- Predictive analytics निरंतर रिमोट-सेंसर डेटा (हार्ट रेट, ब्लड ग्लूकोज़, ब्लड प्रेशर, SpO2 आदि) में पैटर्न पहचान कर आगामी अस्थिरता के संकेत पहले पहचानता है।\n- समय पर चेतावनी मिलने पर उपचारकर्ता या केयर टीम पूर्ववर्ती (preemptive) हस्तक्षेप कर सकती है — दवा समायोजन, टेली-कंसल्ट या गृह-आधारित निगरानी बढ़ाना।\n- इससे तीव्र-विकास (acute exacerbations) की घटना और आकस्मिक अस्पताल-भर्ती (hospital admissions) घटाने में मदद मिलती है, जिससे रोगी जोखिम कम होता है।\n- Predictive मॉडल रोगी-विशिष्ट ट्रेंड (longitudinal trends) का उपयोग कर व्यक्तिगत जोखिम प्रोफाइल बनाते हैं, इसलिए हस्तक्षेप लक्षित और प्रभावी होते हैं।\n- जोखिम-स्तर के पूर्वानुमान से प्राथमिक स्वास्थ्य व जिला स्तर पर संसाधन (हाई-रिस्क मरीजों के लिए होम-वीज़िट, अस्पताल बेड रिजर्वेशन) की बेहतर नियोजन-सक्षमता होती है।\n- समय पर हस्तक्षेप से जटिलताओं (complications) और दीर्घकालिक लागतों में कमी आती है, जो सार्वजनिक स्वास्थ्य बजट और परिवार दोनों पर सकारात्मक प्रभाव डालती है।\n- मैत्रिक प्रोटोकॉल (alert thresholds) व क्लिनिकल मार्गदर्शक के साथ predictive alerts चिकित्सकीय निर्णय-निर्माण में सहायता करते हैं और प्रतिक्रिया का मानकीकरण संभव बनाते हैं।\n- क्षेत्र-स्तरीय निगरानी में संचयी डेटा का एनालिटिक्स ट्रेंड-आधारित समूह जोखिम पहचान कर सामुदायिक हस्तक्षेपों (स्क्रीनिंग, शैक्षिक कार्यक्रम) को प्राथमिकता देता है।\n- रिमोट predictive systems से रोगी आत्म-प्रबंधन भी सुदृढ़ होता है — समय से अलर्ट मिलने पर रोगी जीवनशैली व दवा-अनुपालन सुधार सकता है।\n- क्लिनिक/हॉस्पिटल को जोखिम-आधारित ट्रायज समाधान मिलते हैं, जिससे आपातकालीन विभाग पर भार कम और देखभाल निरंतरता बेहतर होती है।\n- तकनीकी व नैतिक मानकों के साथ validated predictive मॉडल के इस्तेमाल से निर्णय-समर्थन सुरक्षित और ट्रांसपेरेंट रहता है, जो क्लिनिकल ट्रस्ट बढ़ाता है।\n- MP जैसे राज्य स्तर पर रिमोट predictive निगरानी अपनाने से ग्रामीण व दूरस्थ क्षेत्रों में समय पर हस्तक्षेप की पहुँच बढ़ सकती है, जिससे स्थानीय स्वास्थ्य प्रणालियों की क्षमता सुधारती है।", "priority_tag": "HIGH"}, {"question": "निम्न में से कौन-सा टेक्नोलॉजी स्टैक का घटक वियरेबल से क्लाउड तक सुरक्षित डेटा ट्रांसमिशन में आवश्यक नहीं है?", "options": ["कम्प्रेशन के बिना खुला प्लेन टेक्स्ट ट्रांसमिशन", "एन्क्रिप्शन", "अथेन्टिकेशन और एक्सेस कंट्रोल", "डेटा इंटीग्रिटी जांच (checksum/hash)"], "answer_index": 0, "explanation": "# व्याख्या — “कम्प्रेशन के बिना खुला प्लेन टेक्स्ट ट्रांसमिशन” (क्यों आवश्यक नहीं है)\n- खुला प्लेन टेक्स्ट ट्रांसमिशन का अभिप्राय वह डेटा है जो किसी एन्क्रिप्शन या टैम्पर-प्रूफिंग के बिना भेजा जाता है; यह सुरक्षा आवश्यकताओं के विरुद्ध है।\n- क्रॉनिक केयर में संवेदनशील स्वास्थ्य डेटा (जैसे निदान, दवा, बायोमेट्रिक संकेत) की गोपनीयता प्राथमिक आवश्यकता है; प्लेन टेक्स्ट भेजने से यह गोपनीयता बाधित होती है।\n- सुरक्षित डेटा ट्रांसमिशन के मूल सिद्धांतों में गोपनीयता (confidentiality), सत्यापन (authentication) और अखंडता (integrity) शामिल हैं; प्लेन टेक्स्ट इन सिद्धांतों को पूरा नहीं करता।\n- वियरेबल से क्लाउड तक विश्वसनीय चैनल के लिए एन्क्रिप्शन (Transport/End-to-End, जैसे TLS or DTLS) आवश्यक है; बिना एन्क्रिप्शन के प्लेन टेक्स्ट भेजना स्वीकार्य अभ्यास नहीं है।\n- डेटा कम्प्रेशन स्वाभाविक रूप से ट्रांसमिशन दक्षता बढ़ा सकती है, पर कम्प्रेशन का होना/न होना सुरक्षा की अनिवार्यता नहीं बदलता; सुरक्षा के लिए एन्क्रिप्शन आवश्यक है।\n- प्लेन टेक्स्ट ट्रांसमिशन पर मैन-इन-द-मिडल, ईवेसड्रॉपिंग और डेटा मोडिफिकेशन का जोखिम अधिक रहता है, जो क्लिनिकल निर्णयों और मरीज की सुरक्षा पर प्रतिकूल प्रभाव डाल सकता है।\n- विनियमन और गोपनीयता मानदंड (हेल्थ डेटा प्रोटेक्शन) निजी और सार्वजनिक स्वास्थ्य कार्यक्रमों में सुरक्षित ट्रांसमिशन को अनिवार्य करते हैं; प्लेन टेक्स्ट अनुपालन में विफलता है।\n- वियरेबल उपकरणों में बैंडविड्थ/ऊर्जा सीमाएँ ध्यान में रखते हुए भी हल यह है कि लाइटवेट क्रिप्टो और सिक्योर प्रोटोकॉल अपनाए जाएँ; प्लेन टेक्स्ट को अपनाकर सुरक्षा को त्यागना समाधान नहीं है।\n- एंड-टू-एंड एन्क्रिप्शन और प्रमाणन मेकैनिज्म (डिजिटल सर्टिफिकेट, प्रोटोकोल हैंडशेक) क्लाउड पर डेटा की खोज व उपयोग के समय भी भरोसेमंद पहुँच सुनिश्चित करते हैं; प्लेन टेक्स्ट में यह संभव नहीं।\n- लॉगिंग और ऑडिट के लिए भी डेटा को ट्रांसजिट में सुरक्षित रखना आवश्यक है ताकि संशोधन/डेटा लीक्स की पहचान हो सके; प्लेन टेक्स्ट ट्रांसमिशन ऐसी ट्रेसबिलिटी को कमजोर कर देता है।\n- इसलिए, वियरेबल→क्लाउड सुरक्षित ट्रांसमिशन में “कम्प्रेशन के बिना खुला प्लेन टेक्स्ट ट्रांसमिशन” आवश्यक या स्वीकार्य तत्व नहीं है; इसे प्राथमिकता के साथ रोका और प्रतिस्थापित किया जाना चाहिए।", "priority_tag": "VERY_HIGH"}, {"question": "हृदय रोग के रिमोट मॉनिटरिंग में 'ECG' डेटा की सबसे महत्वपूर्ण चिकित्सीय उपयोगिता क्या है?", "options": ["अरिद्मिया और इस्केमिक परिवर्तनों का पहचान व निगरानी", "रक्त शर्करा का मापन", "लिवर फंक्शन का आकलन", "हड्डी घनत्व की जाँच"], "answer_index": 0, "explanation": "# व्याख्या — हृदय रोग के रिमोट मॉनिटरिंग में ECG का सबसे महत्वपूर्ण चिकित्सीय उपयोग: अरिद्मिया और इस्केमिक परिवर्तनों की पहचान व निगरानी\n- ECG रिमोट मॉनिटरिंग का प्राथमिक चिकित्सीय लक्ष्य हृदय की लय (Rhythm) और इलेक्ट्रिकल सक्रियता में असामान्यताएँ — विशेषकर अरिद्मिया — का शीघ्र पता लगाना है।\n- अरिद्मिया में विकारों की श्रेणियाँ जैसे अफ़िब्रिलेशन, ब्रैडीकार्डिया, टैचीकार्डिया, और गतिशील पल्स-रहित विद्युत गतिविधि ECG पर स्पष्ट रूप से दिखाई देती हैं।\n- रिमोट ECG सतत या ऑन्क्स-डिमांड रिकॉर्डिंग से पारंपरिक क्लिनिक विज़िट पर नहीं पकड़े जाने वाले पारोक्सिस्मल (आकस्मिक) अरिद्मिया का पता चलता है।\n- इस्केमिक परिवर्तन—विशेषकर ST‑सेगमेंट उन्नयन/अवनमन और T‑वेव उलटाव—ECG पर प्रत्यक्ष संकेत देते हैं जो मायोकार्डियल इन्फार्क्शन या अंगविहीनजन को इंगित कर सकते हैं।\n- रिमोट ECG प्रणालियाँ वास्तविक‑समय अलर्ट भेजकर तत्काल चिकित्सा हस्तक्षेप (उदा. प्राथमिक PCI या thrombolysis के निर्णय) की समयबद्धता बढ़ाती हैं।\n- लंबे समय की निगरानी से दवाओं (एंटीअरिदमिक, एंटीकोआगुलेंट) के प्रभावों और डोज समायोजन की आवश्यकता का मूल्यांकन सुस्पष्ट होता है।\n- हार्ट‑रिदम और इस्केमिक ट्रेंड्स का डिजिटल लॉग अस्पताल के बाहर रोगी प्रबंधन, जीपी और स्पेशलिस्ट के बीच साझा संदर्भ और मेडिकेशन हिस्ट्री के लिए उपयोगी होता है।\n- कई रिमोट ECG डिवाइस मल्टी‑लीड या सीरियल सिंगल‑लीड रिकॉर्डिंग में तकनीकी सीमाएँ दिखाते हैं; परन्तु बार-बार/लगातार रिकॉर्डिंग से अरिद्मिया और गतिशील इस्केमिक पैटर्न का भरोसेमंद पता चलता है।\n- मानसिक/सिम्प्टम‑डायरी के साथ सिंक्रोनाइज्ड ECG डेटा से सिम्टॉम‑रिलेटेड इवेंट (चेस्ट पेन, बेहोशी) और ECG परिवर्तन के बीच कारण‑परिणाम स्थापित करने में मदद मिलती है।\n- सार्वजनिक स्वास्थ्य और प्राइमरी केयर सेटिंग में रिमोट ECG निगरानी अस्थायी/दूरदराज क्षेत्रों में उच्च‑जोखिम मरीजों की समय पर पहचान करने व रेफ़रल प्रक्रिया को तेज करने में सहायक है।\n- फैली हुई डेटा से चिकित्सकीय निर्णयों के लिए ट्रेंड‑आधारित जोखिम आकलन संभव होता है — एकल पठार से अधिक, लगातार परिवर्तन और आवृत्ति‑बाध्यता अधिक नैदानिक महत्त्व रखती हैं।", "priority_tag": "VERY_HIGH"}, {"question": "वियरेबल उपकरणों में 'FDA 510(k)' या CE मार्क जैसी मान्यता का मुख्य कारण क्या है?", "options": ["स्वास्थ्य-संबंधी डिवाइस की सुरक्षा और कार्यक्षमता का नियामक मूल्यांकन", "उत्पाद के लिए बाजार में निःशुल्क विज्ञापन", "उत्पाद को सीधा डॉक्टर के बिना बेचने की अनुमति", "डिवाइस की बैटरी लाइफ बढ़ाने के लिए"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "रिमोट मॉनिटरिंग सिस्टम में 'latency' का क्या प्रभाव हो सकता है?", "options": ["रीयल‑टाइम अलार्म और तात्कालिक क्लिनिकल निर्णयों में देरी", "डेटा की अधिक सटीकता स्वतः बढ़ना", "डिवाइस का वजन कम होना", "सेंसर की बैटरी ऑटोचार्जिंग"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में ग्रामीण क्षेत्र में क्रॉनिक केयर के लिए वियरेबल/रिमोट मॉनिटरिंग अपनाने में सबसे प्रमुख चुनौती कौन-सी मानी जाती है?", "options": ["बुनियादी डिजिटल अवसंरचना और विश्वसनीय नेटवर्क की कमी", "अस्पतालों की अधिकता", "रोगों की अनुपस्थिति", "डिवाइस का बहुत सस्ता होना"], "answer_index": 0, "explanation": "# व्याख्या — बुनियादी डिजिटल अवसंरचना और विश्वसनीय नेटवर्क की कमी (मुख्य चुनौती)\n- **परिभाषा-संदर्भ:** ग्रामीण स्थानों में वियरेबल/रिमोट मॉनिटरिंग तब प्रभावी होती है जब निरंतर डेटा ट्रांसमिशन के लिए सुदृढ़ मोबाइल/इंटरनेट कनेक्टिविटी उपलब्ध हो; यही बुनियादी डिजिटल अवसंरचना है।\n- **कवरेज की अनियमितता:** कई ग्रामीण क्षेत्र में मोबाइल नेटवर्क कवरेज या ब्रॉडबैंड उपलब्धता सीमित/अनियमित है, जिससे रीयल‑टाइम मॉनिटरिंग और अलर्ट की विश्वसनीयता प्रभावित होती है।\n- **डेटा ट्रांसमिशन की गति और विलम्ब:** लो-बैंडविड्थ और उच्च लेटेंसी वाले कनेक्शन के कारण संवहनीय स्वास्थ्य संकेतों (जैसे ECG, स्पाइरोमैट्री) का ठीक‑ठाक ट्रांसमिशन और प्रोसेसिंग बाधित होता है।\n- **पावर/इलेक्ट्रिसिटी की सीमाएँ:** नेटवर्क नोड्स और उपयोगकर्ता उपकरण दोनों के लिए स्थिर बिजली की कमी है; बार-बार चार्ज करना/डिवाइस डाउन होने से मॉनिटरिंग व्यवधान होता है।\n- **डिवाइस‑नेटवर्क इंटरऑपरेबिलिटी:** ग्रामीण हेल्थ सिस्टम में प्रयुक्त उपकरणों और स्थानीय नेटवर्क/क्लाउड सर्विसेज के बीच मानकीकृत कनेक्टिविटी और प्रोटोकॉल की कमी डेटा एक्सचेंज को बाधित करती है।\n- **स्थानीय आईटी/नेटवर्क मेंटेनेंस क्षमता की कमी:** नेटवर्क अवसंरचना में खराबी आने पर त्वरित मरम्मत/ट्यूनिंग के लिए स्थानीय तकनीकी क्षमता न होने से सेवा समय लंबा होता है।\n- **डेटा सुरक्षा और गोपनीयता के तकनीकी उपायों का अभाव:** कमजोर नेटवर्क पर एन्क्रिप्शन या सुरक्षित चैनल नहीं होने से संवेदनशील स्वास्थ्य डेटा की सुरक्षा पर प्रश्न उठते हैं; यह संस्थागत अपनाने में बाधा है।\n- **केंद्र‑कड़ी सेवाओं के साथ एकीकरण में कठिनाई:** सरकारी ई‑हेल्थ प्लेटफॉर्म और PHC/CHC के रिकॉर्ड्स के साथ रीयल‑टाइम डेटा समेकित करने में नेटवर्क‑आधारित इंटरफेस की निर्भरता प्रमुख बाधा बनती है।\n- **कोस्ट‑इम्पैक्ट:** नेटवर्क विस्तार और विश्वसनीय कनेक्शन बनाए रखने की लागत (टावर, बैकहॉल, ऑपरेशन्स) छोटे स्वास्थ्य कार्यक्रमों के लिए बाधक होती है, जिससे डिवाइस उपलब्ध कराना भी सीमित रहता है।\n- **आपातकालीन प्रतिक्रिया का जोखिम:** नेटवर्क अस्थिरता के कारण क्रॉनिक मरीजों के अचानक बिगड़ने पर समय पर अलर्ट न पहुँचने का जोखिम बढ़ता है, जिससे क्लीनिकल उपयोगिता घटती है।\n- **स्केलेबिलिटी और दीर्घकालिक टिकाऊपन:** सतत और विस्तृत वियरेबल प्रोग्राम लागू करने के लिए पहले से मौजूद ट्रांसमिशन इन्फ्रास्ट्रक्चर का स्थिर और विस्तृत होना आवश्यक है; इसके बिना पायलट से स्केल‑अप सम्भव नहीं।\n- **नीति और नियमन का तकनीकी फोकस:** नेटवर्क‑सक्षम स्वास्थ्य सेवाओं के लिए ग्राम्य क्षेत्र में ब्रॉडबैंड विस्तार, स्पेक्ट्रम नीति और डिजिटल स्वास्थ्य नेटवर्किंग पर स्पष्ट तकनीकी दिशानिर्देश आवश्यक हैं; अवसंरचना के बिना नीति का लाभ सीमित रह जाता है।", "priority_tag": "HIGH"}, {"question": "वियरेबल उपकरणों द्वारा मापी जाने वाली 'SpO2' किसे दर्शाती है?", "options": ["परिधीय ऑक्सीजन सैचुरेशन (oxygen saturation of hemoglobin)", "रक्त में ग्लूकोज़ की प्रतिशतता", "हृदय का ईसीजी रिडिंग", "रक्तचाप का डायस्टोलिक मान"], "answer_index": 0, "explanation": "# VYAKHYA: SpO2 — परिधीय ऑक्सीजन सैचुरेशन (वियरेबल मॉनिटरिंग)\n- SpO2 का पूर्ण रूप Peripheral Oxygen Saturation है, जो हेमोग्लोबिन में ऑक्सीजन बूँदों (oxygen-bound hemoglobin) का प्रतिशत दर्शाता है।\n- यह माप दर्शाती है कि कुल हेमोग्लोबिन में से कितना हिस्सा ऑक्सीजन से संतृप्त है; सामान्य वयस्कों में यह सामान्यतः 95%–100% रहता है।\n- वियरेबल और पोर्टेबल पल्स-ऑक्सीमीटर प्रकाश-आधारित (पल्स ऑक्सिमीट्री) सिद्धांत पर काम करते हैं: वे त्वचा के जरिए रेड और इन्फ्रारेड प्रकाश भेजकर प्रसारित/परावर्तित प्रकाश मापते हैं।\n- स्पेक्ट्रल अवशोषण के आधार पर ऑक्सीमीटरoxyhemoglobin (HbO2) और deoxyhemoglobin (HHb) के अनुपात का आकलन करके SpO2 निकालते हैं।\n- SpO2 एक प्रतिशतात्मक संकेतक है, ये सीधे रक्त में घुले हुए ऑक्सीजन (PaO2) का मान नहीं देता, बल्कि हेमोग्लोबिन पर बंधी ऑक्सीजन की सैचुरेशन बताता है।\n- पल्स-ऑक्सीमीटर से मिलने वाला SpO2 गैर-इनवेसिव, त्वरित और निरंतर निगरानी के लिए उपयुक्त है, इसलिए क्रॉनिक केयर व टेलीमेडिसिन सेटिंग्स में उपयोगी है।\n- SpO2 के सटीकता पर विकारक कारक: खराब परिसंचरण (कम पल्प), कवरे शब्द (नाखून पॉलिश), मूवमेंट आर्टिफैक्ट, बाहरी प्रकाश और कार्बोक्सी/मिथेमोग्लोबिन जैसी अवस्था प्रभावित कर सकती हैं।\n- क्लीनिकली, SpO2 के घटने का अर्थ हाइपोक्सीज़ के संकेत से है और यह ऑक्सीजन थेरेपी, रिफरल या आगे की गैस-गैस विश्लेषण (ABG) की आवश्यकता का संकेत दे सकता है।\n- वियरेबल SpO2 मॉनिटरिंग से घर पर क्रॉनिक रोगियों (जैसे COPD, दिल की विफलता) में ट्रेंड देख कर अचानक गिरावट का जल्दी पता लग सकता है और इंटरवेंशन समय रहते किया जा सकता है।\n- MPPSC Mains के लिए उठाने योग्य बिंदु: SpO2 को परिभाषित करके बताएं कि यह हेमोग्लोबिन पर बंधी ऑक्सीजन का प्रतिशत है, गैर-इनवेसिव आधार पर मापा जाता है, क्रॉनिक केयर में निरंतर मॉनिटरिंग और ट्रेंड एनालिसिस के लिए उपयोगी है।", "priority_tag": "VERY_HIGH"}, {"question": "निम्न में से कौन-सा मॉनिटरिंग मॉडल क्रॉनिक रोग प्रबंधन में 'स्वयं-प्रबंध' को बल देता है और वियरेबल डेटा का उपयोग करता है?", "options": ["Patient-centered self-management with remote monitoring", "Only episodic face-to-face clinic visits", "Paper-based prescription renewal without data", "Hospital-centric inpatient monitoring only"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "डेटा‑ड्रिवन फॉलो‑अप के सन्दर्भ में 'alert fatigue' का अर्थ क्या है?", "options": ["अत्यधिक अलार्म के कारण क्लिनिशियनों/प्रोवाइडरों का महत्वपूर्ण अलार्मों को नजरअंदाज कर देना", "फार्मासिस्ट द्वारा गलत दवा देना", "रोगी का वियरेबल पहनना भूल जाना", "सॉफ्टवेयर के बार-बार क्रैश होना"], "answer_index": 0, "explanation": "# व्याख्या: 'alert fatigue' — डेटा‑ड्रिवन फॉलो‑अप के संदर्भ में अर्थ (MPPSC Prelims 2026 हेतु)\n- Alert fatigue उस स्थिति को कहते हैं जब क्लिनिशियनों/प्रोवाइडरों लगातार और अत्यधिक अलार्म/नोटिफिकेशन प्राप्त करने के कारण महत्वपूर्ण अलार्मों को अनदेखा या टाल देते हैं।\n- यह phenomenon तब उत्पन्न होता है जब डिजिटल मॉनिटरिंग सिस्टम (वियरेबल, रिमोट मॉनिटरिंग) से बार‑बार कम‑महत्त्व के अलार्म भी आ रहे हों और संकेतों की मात्रा नियंत्रित न हो।\n- अलार्म की बार‑बारी उपस्थिति प्रोवाइडर के ध्यान को कम कर देती है, जिससे सचमुच खतरनाक संकेतों की पहचान में देरी हो सकती है।\n- डेटा‑ड्रिवन फॉलो‑अप में alert fatigue का परिणाम रोगी सुरक्षा जोखिम (delayed intervention, missed deterioration) और क्लिनिकल निर्णय की गुणवत्ता पर नकारात्मक प्रभाव होता है।\n- यह समस्या विशेषकर क्रॉनिक केयर सेटिंग्स में अधिक होती है जहाँ निरन्तर निगरानी और बार‑बार अलर्ट सामान्य होते हैं।\n- Alert fatigue का निदान करने में अलार्म‑दर की निगरानी, false‑positive/low‑utility alerts का विश्लेषण, और प्रोवाइडर फीडबैक उपयोगी माने जाते हैं।\n- रोकथाम के उपायों में अलार्म प्राथमिकता निर्धारण, thresholds का अनुकूलन, स्मार्ट एल्गोरिद्म द्वारा महत्वहीन अलार्म छानना और कस्टमाइज़ेबल नोटिफिकेशन शामिल हैं।\n- प्रणालीगत उपायों में अलार्म की समेकित प्रस्तुति (dashboard), इन्टेग्रेटेड वर्कफ्लो और प्रशिक्षण/प्रोटोकॉल का समावेश alert fatigue को कम करता है।\n- मापन‑सूचक (metrics) जैसे प्रति‑प्रोवाइडर प्रति‑घंटा अलार्म संख्या, समय के साथ अनुत्तरित अलार्म का प्रतिशत और अलार्म‑संदर्भित मेडिकल इवेंट्स की दर से समस्या का आकलन होता है।\n- नीति और संचालन दोनों स्तर पर alert fatigue को संबोधित करना आवश्यक है ताकि डेटा‑ड्रिवन फॉलो‑अप का लाभ (प्रारंभिक पहचान, समय पर हस्तक्षेप) सुरक्षित और प्रभावी रूप से हासिल हो सके।", "priority_tag": "HIGH"}, {"question": "वियरेबल फोर क्रॉनिक केयर: HIPAA जैसे गोपनीयता मानदंड किस प्रकार प्रासंगिक होते हैं?", "options": ["मरीज के स्वास्थ्य डेटा के संग्रह, ट्रांसमिशन और स्टोरेज में गोपनीयता और सुरक्षा सुनिश्चित करने हेतु", "डिवाइस की हार्डवेयर विश्वसनीयता बढ़ाने हेतु", "सेंसर की सटीकता नापने हेतु", "डिवाइस की बैटरी को बचाने हेतु"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्न में से कौन-सा वियरेबल संकेत क्रॉनिक रेस्पिरेटरी रोग (जैसे COPD) के दूरस्थ प्रबंधन में सीधे उपयोगी होता है?", "options": ["Respiratory rate और SpO2", "हड्डी घनत्व", "बालों की मोटाई", "दन्त स्वच्छता सूचक"], "answer_index": 0, "explanation": "# व्याख्या — वियरेबल संकेत: Respiratory Rate और SpO2 (क्रॉनिक रेस्पिरेटरी रोग के रिमोट प्रबंधन हेतु)\n- **Respiratory Rate (श्वास‑दर)**: श्वास‑दर सीधे श्वसन कार्य का तात्कालिक संकेत देती है; COPD जैसे रोगियों में अचानक बढ़ती श्वास‑दर रोग की तीव्रता (exacerbation) का प्रारम्भिक संकेत हो सकती है।\n- **SpO2 (परिफेरल ऑक्सीजनेशन)**: स्पंदकीय ऑक्सीमेट्री द्वारा मिली SpO2 माप अंगों तक ऑक्सीजन पहुँच का त्वरित और प्रत्यक्ष संकेत है; क्रॉनिक रेस्पिरेटरी रोग में हाइपोक्सीया की निगरानी के लिए महत्वपूर्ण।\n- **रिमोट मॉनिटरिंग उपयोगिता**: Wearable/remote sensors से निरंतर या आवृत्त मापन (continuous/intermittent) से घर पर रोगी की अवस्था में असामान्य परिवर्तन समय रहते पकड़े जा सकते हैं, जिससे अस्पताल में भर्ती या गंभीर संकट रोका जा सकता है।\n- **ट्रेंड‑आधारित निर्णय**: एक‑दो वैल्यू की बजाय समय के साथ Respiratory Rate और SpO2 के ट्रेंड से exacerbation, उपचार प्रतिक्रिया और ऑक्सीजन आवश्यकता का आकलन किया जाता है।\n- **प्राथमिक चेतावनी संकेत (red flags)**: लगातार घटती SpO2 (जैसे ≤92% सामान्य COPD प्रबंधन सीमा के सन्दर्भ में) या तेज़ी से बढ़ती Respiratory Rate रोग बिगड़ने का संकेत होते हैं और तात्कालिक क्लिनिकल हस्तक्षेप बतलाते हैं।\n- **क्लिनिकल इंटीग्रेशन**: ये मापांकन अन्य लक्षणों (सांस लेने में कठिनाई, थकान, सायनोसिस), फिजिकल मापन और चिकित्सीय इतिहास के साथ मिलाकर निर्णय‑निर्माण में प्रयुक्त होते हैं; अकेले संख्या पर निर्भरता सीमित हो सकती है।\n- **टेक्निकल सीमा और गुणवत्ता**: वियरेबल से मिलने वाले SpO2 और Respiratory Rate पर आर्टिफैक्ट, मूवमेंट, खराब सिग्नल या त्वचा टोन से प्रभाव पड़ सकता है—इसलिए डिवाइस की कैलिब्रेशन और डेटा क्वालिटी की जाँच आवश्यक है।\n- **हेल्थ सिस्टम उपयोग (MP‑संदर्भ में)**: प्राइमरी केयर और टेलीहेल्थ सेट‑अप में निरंतर SpO2/Respiratory Rate मॉनिटरिंग से घरेलू ऑक्सीजन उपयोग, समय पर रेफरल और संसाधन‑प्राथमिकता में सुधार संभव है।\n- **प्रोटोकॉल और ट्रिगर‑पॉइंट्स**: स्थानीय क्लिनिकल गाइडलाइन्स के अनुरूप SpO2 और Respiratory Rate के थ्रेशहोल्ड तय किये जाते हैं ताकि दूरस्थ निगरानी से स्वचालित अलर्ट और प्रोटोकॉल आधारित कार्रवाई हो सके।\n- **रोकथाम और प्रबंधन रणनीति**: ट्रेंड‑आधारित मॉनिटरिंग से exacerbation की शीघ्र पहचान पर दवा समायोजन, फिजियोथेरेपी या ऑक्सीजन थैरेपी लागू कर क्रॉनिक देखभाल का आउटकम बेहतर किया जा सकता है।\n- **डेटा‑इंटरप्रेटेशन में शिक्षा**: रोगी और प्राथमिक स्वास्थ्यकर्मियों को SpO2/Respiratory Rate की सीमाओं, सामान्य रेंज और अलर्ट संकेतों की शिक्षा देने से दूरस्थ प्रबंधन अधिक प्रभावी और सुरक्षित बनता है।\n- **नैतिकता और गोपनीयता**: रिमोट मॉनिटरिंग डेटा का उपयोग स्थानीय नीतियों और गोपनीयता मानकों के तहत सुरक्षित रूप से होना चाहिए ताकि नैतिक और कानूनी अनुपालन बना रहे।", "priority_tag": "HIGH"}, {"question": "वियरेबल‑आधारित क्रॉनिक केयर में 'data provenance' से क्या आशय है?", "options": ["डेटा की उत्पत्ति, संग्रह का समय और संशोधन का ट्रैक जिससे डेटा की विश्वसनीयता प्रमाणित हो", "डेटा का केवल संपीड़न", "सेंसर्स की कीमत का हिसाब", "डेटा को सार्वजनिक रूप से उपलब्ध कराना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "भारत में जिला/राज्य स्तर पर रिमोट मॉनिटरिंग को प्रणालीगत रूप से लागू करने पर कौन‑सा प्रशासनिक लाभ अपेक्षित है?", "options": ["हॉस्पिटल आगमन को प्राथमिकता अनुसार व्यवस्थात करना और सीमित संसाधनों का लक्षित उपयोग", "स्वास्थ्य बजट स्वतः बढ़ना", "नए अस्पताल खोलना आवश्यक होना", "रोगी को क्लिनिक में अधिक समय बिताना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "वियरेबल सेंसर के लिए 'sensor fusion' का क्या अर्थ है?", "options": ["एकाधिक सेंसर्स के डेटा को मिलाकर अधिक भरोसेमंद और समग्र संकेत निकालना", "सिर्फ एक सेंसिंग तकनीक का उपयोग", "सेंसर को फ्यूज़ करके उसे एक शारीरिक यूनिट बनाना", "सेंसर को बार-बार बदलना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "रिमोट मॉनिटरिंग एप्लिकेशन में 'edge computing' क्यों उपयोगी माना जाता है?", "options": ["डिवाइस के निकट डेटा प्रोसेस करके लेटेंसी घटाना और बैंडविड्थ बचाना", "सिर्फ क्लाउड पर निर्भरता बढ़ाना", "बिजली उपभोग को बढ़ाना", "डेटा को बिना प्रोसेस के भेजना"], "answer_index": 0, "explanation": "# व्याख्या — रिमोट मॉनिटरिंग में Edge Computing के उपयोग का कारण\n(टिप: प्रश्न का केंद्र — \"डिवाइस के निकट डेटा प्रोसेस करके लेटेंसी घटाना और बैंडविड्थ बचाना\")\n- Edge computing का मूल सिद्धांत यह है कि डेटा को डिवाइस या उसके नजदीकी नोड पर प्रोसेस किया जाए, जिससे नेटवर्क पर भेजने के लिए कम कच्चा डेटा बचे।\n- क्रॉनिक केयर वियरेबल्स (जैसे हार्ट रेट, ब्लड ग्लूकोज सेंसर) में लगातार उच्च-करेता डेटा जनरेशन होती है; स्थानीय प्रोसेसिंग से केवल सार-सार और अलार्म भेजे जाते हैं, बैंडविड्थ बचती है।\n- लो लेटेन्सी: जीवन-समर्थन या आपातकालीन अलार्म के लिए त्वरित निर्णय (threshold detection, arrhythmia detection) डिवाइस पर ही कर लिए जाते हैं, जिससे डॉक्टरी हस्तक्षेप जल्दी संभव होता है।\n- नेटवर्क अविश्वसनीय/स्लो कनेक्शन वाले ग्रामीण या बांटी हुई स्वास्थ्य प्रणालियों में भी डिवाइस‑साइड प्रोसेसिंग से निरंतर निगरानी संभव रहती है।\n- बैटरी व ऊर्जा-आधारित सीमाओं में भी कम डेटा ट्रांसमिशन से ऊर्जा की बचत होती है, जिससे वियरेबल्स की लाइफ और निरन्तरता बढ़ती है।\n- डेटा चयन और समरीकरण (feature extraction, compression) एज पर होने से क्लाउड-स्टोरेज की लागत और बैंडविड्थ उपयोग दोनों घटते हैं।\n- प्राथमिक सुरक्षा और गोपनीयता‑संधारण एज पर ही संभाव है — संवेदनशील कच्चे स्वास्थ्य संकेत स्थानीय रूप से रह सकते हैं और केवल आवश्यक सार भेजा जाता है।\n- स्केलेबिलिटी: केंद्रीकृत सर्वर पर लोड घटने से बड़े पैमाने पर रोगियों की निगरानी व्यवस्थाएँ आर्थिक और तकनीकी रूप से सम्भव होती हैं।\n- मशीन‑लर्निंग मॉडल का हल्का संस्करण (on-device inference) एज पर चलाकर वास्तविक‑समय जोखिम स्कोरिंग की जा सकती है, बिना लगातार क्लाउड कॉल के।\n- स्वास्थ्य प्रबंधन के लिए त्वरित इंटरवेंशन और लोकल काउन्सेलिंग के संकेत तुरंत उपलब्ध होने से क्रॉनिक रोगों के प्रतिकूल परिणाम कम हो सकते हैं।\n- राज्य/जिला स्वास्थ्य कार्यक्रमों में रिमोट मॉनिटरिंग को लागू करते समय एज‑आधारित समाधानों से नेटवर्क लागत और सर्वर‑इन्फ्रास्ट्रक्चर की आवश्यकता घटती है, जिससे व्यावहारिकता और निरंतरता बढ़ती है।\n- कुल मिलाकर, डिवाइस‑नजदीक प्रोसेसिंग रिमोट मॉनिटरिंग की विश्वसनीयता, गति, लागत‑प्रभावशीलता और रोगी‑सुरक्षा में सीधे सुधार लाती है — यही कारण है कि इसे उपयोगी माना जाता है।", "priority_tag": "HIGH"}, {"question": "निम्नलिखित में से कौन-सा कथन सही है regarding 'medical device lifecycle' वियरेबल्स के लिए?", "options": ["डिज़ाइन → क्लीनिकल वैलिडेशन → अनुमोदन/कम्प्लायंस → पोस्ट‑मार्केट निगरानी", "कोई परीक्षण जरूरी नहीं, सीधे बिक्री संभव है", "केवल बैटरी का परीक्षण ही पर्याप्त है", "एक बार अनुमोदन पर कोई पोस्ट‑मार्केट चरण नहीं होता"], "answer_index": 0, "explanation": "# व्याख्या — मेडिकल डिवाइस लाइफसाइकल (वियरेबल्स)\n**सही सिक्वेंस:** डिज़ाइन → क्लीनिकल वैलिडेशन → अनुमोदन/कम्प्लायंस → पोस्ट‑मार्केट निगरानी\n- डिज़ाइन चरण में उपयोगकर्ता आवश्यकताएँ, मेडिकल उपयोग‑केस, तकनीकी स्पेसिफिकेशन और जोखिम‑विश्लेषण (hazard analysis) स्पष्ट किए जाते हैं; वियरेबल्स के लिए फॉर्म‑फैक्टर, बैटरी, सेंसर सटीकता और biocompatibility महत्वपूर्ण होते हैं।\n- डिज़ाइन फेज में एक दस्तावेज़ित डिज़ाइन कंट्रोल प्रक्रिया रखनी चाहिए जिसमें requirements, design outputs, verification और validation के रिकॉर्ड शामिल हों।\n- क्लीनिकल वैलिडेशन का उद्देश्य यह साबित करना है कि वियरेबल का मेजरमेंट/डायग्नोस्टिक आउटपुट वास्तविक रोगी सेटिंग में clinically meaningful और संवैधानिक रूप से सुरक्षित है; इसमें प्रोटोकॉल, नैतिक स्वीकृति और उपयुक्त सैंपल साइज आवश्यक होते हैं।\n- क्लीनिकल स्टडी/पायलट में डेटा क्वालिटी, सेंसर‑कैलिब्रेशन, संदर्भ मान (gold standard) के साथ तुलना और उपयुक्त सांख्यिकीय विश्लेषण शामिल होते हैं ताकि संवेदनशीलता/विशेषता और मैदानी व्यवहारिता (feasibility) सिद्ध हो।\n- अनुमोदन/कम्प्लायंस चरण में डिवाइस की risk classification के अनुसार रजिस्ट्रेशन और लाइसेंसिंग आवश्यक होती है; मेडिकल‑डिवाइस गुणवत्ता प्रबंधन सिस्टम (जैसे ISO 13485) और तकनीकी दस्तावेज (technical file/ design dossier) जमा किए जाते हैं।\n- सॉफ्टवेयर‑एज़‑अ‑मेडिकल‑डिवाइस (SaMD) या इम्बेडेड सॉफ्टवेयर के लिए सॉफ्टवेयर वेरिफिकेशन, वैलिडेशन, साइबर‑सिक्योरिटी और डेटा‑प्राइवेसी नियमों का पालन अनिवार्य है; अपडेट्स के लिए change control प्रक्रिया होनी चाहिए।\n- अनुमोदन के बाद मार्केट‑एंट्री पर लेबलिंग, उपयोगकर्ता मैनुअल, क्लीनिकल संकेत/contraindications और post‑market vigilance प्रक्रिया निर्धारित करनी होती है।\n- पोस्ट‑मार्केट निगरानी में adverse event reporting, field performance monitoring, periodic safety update reports और रीयल‑वर्ल्ड एविडेंस के संग्रह से डिवाइस की दीर्घकालिक सुरक्षा-सुधार सुनिश्चित होते हैं।\n- रीकॉल, फील्ड‑सर्वे, सॉफ्टवेयर पैच और यूजर‑इन्फोमेरेशन के माध्यम से कोई भी सिस्टेमिक समस्या रेस्पॉन्ड की जाती है; यह प्रक्रिया traceability (UDI) और complaints handling से जुड़ी रहती है।\n- वियरेबल्स के लिए interoperability और डेटा स्टैण्डर्ड (फॉर्मैट/प्रोटोकॉल) का देख‑रेख जरूरी है जिससे सार्वजनिक स्वास्थ्य निगरानी और इलेक्ट्रॉनिक हेल्थ रिकॉर्ड से समेकन संभव हो।\n- नियामकीय अनुपालन के दौरान स्थानीय कानूनी आवश्यकताओं (क्लेम्स, प्रमोशन, reimbursement संबंधी नियम) और clinical performance evidence का सुसंगत अभिलेख मुख्य होते हैं।\n- समग्रतः यह लाइफसाइकल‑आधारित दृष्टिकोण (Design → Clinical validation → Approval/Compliance → Post‑market surveillance) वियरेबल्स की सुरक्षा, प्रभावशीलता और सार्वजनिक स्वास्थ्य के लिए विश्वसनीयता सुनिश्चित करता है।", "priority_tag": "HIGH"}, {"question": "ABDM जैसे राष्ट्रीय डिजिटल स्वास्थ्य ढाँचे में वियरेबल‑जनित डेटा का सबसे उपयुक्त प्राथमिक उपयोग कौन सा है?", "options": ["रोगी के डिजिटल स्वास्थ्य रिकॉर्ड से समेकित कर क्लिनिकल निर्णयों का समर्थन करना", "वियरेबल निर्माता के मार्केटिंग उद्देश्यों के लिए बेच देना", "सभी नागरिकों के लिए अनिवार्य सार्वजनिक प्रदर्शन", "डेटा को केवल स्थानीय मोबाइल में रखें और साझा न करें"], "answer_index": 0, "explanation": "# व्याख्या — ABDM में वियरेबल‑जनित डेटा का प्राथमिक उपयोग\n**सही अवधारणा:** रोगी के डिजिटल स्वास्थ्य रिकॉर्ड से समेकित कर क्लिनिकल निर्णयों का समर्थन करना\n- वियरेबल उपकरणों (जैसे हार्ट‑रेट मॉनिटर, ग्लूकोज लोन्‍ग‑टर्म ट्रैकर) से प्राप्त डेटा को रोगी के डिजिटल स्वास्थ्य रिकॉर्ड (DHR) में जोड़ने से चिकित्सक को लगातार और समयानुकूल रोगी‑संबंधी जानकारी मिलती है।\n- समेकित डेटा में समय‑श्रंखला (trend) जानकारी होती है, जो एक‑बार की जांच से मिलने वाले स्नैपशॉट के स्थान पर रोगी के स्वास्थ्य के चलन का सही चित्र दिखाती है।\n- ABDM जैसा ढाँचा इंटरऑपरैबिलिटी मानक (APIs, FHIR जैसे) प्रदान करता है, जिससे वियरेबल डेटा सुरक्षित तरीके से DHR में जोड़कर क्लिनिकल निर्णय प्रक्रिया में प्रयोग के योग्य बनता है।\n- वियरेबल‑डेटा का उपयोग जोखिम पहचान, रोग प्रगति‑मॉनिटरिंग और उपचार प्रभाव (treatment response) के मूल्यांकन के लिए किया जा सकता है, जिससे चिकित्सकीय निर्णय अधिक सटीक होते हैं।\n- समेकित रिकॉर्ड में वियरेबल‑डेटा के साथ अन्य स्रोतों (लैब रिपोर्ट, इमेजिंग, क्लिनिकल नोट्स) का संयोजन चिकित्सक को व्यापक संदर्भ देता है और निर्णय‑निर्धारण की विश्वसनीयता बढ़ाता है।\n- असली‑समय या नजदीकी‑असली‑समय अलर्ट/नोटिफिकेशन संभाव्य खतरे (जैसे लगातार उच्च ग्लूकोज या अनियमित हृदय‑ताल) पर चिकित्सक को त्वरित हस्तक्षेप हेतु सूचित करते हैं।\n- डेटा गुणवत्ता (मेटाडेटा, टैगिंग, टाइमस्टैम्प, कैलिब्रेशन सूचना) और गोपनीयता‑प्रबंधन ABDM के तहत संरचित होने पर क्लिनिकल उपयोगिता सुनिश्चित रहती है।\n- समेकित डिजिटल रिकॉर्ड पर आधारित निर्णय चिकित्सा इतिहास के साथ तुलना कर के अनुसूचित फॉलो‑अप, दवा समायोजन और व्यक्तिगत नर्सिंग/कर्रिचेयर योजनाएँ सटीक बनाने में मदद करते हैं।\n- वियरेबल‑डेटा के ट्रेंड्स का दस्तावेजीकरण Mains शैली उत्तरों में रोग‑प्रबंधन नीति, निगरानी रणनीति और प्रदेश‑स्तरीय कार्यान्वयन (जैसे MP में डिजिटल हेल्थ इंटीग्रेशन) के समर्थन में सीधी बिंदु‑आधारित सिफारिश बनने योग्य है।\n- समेकित रिकॉर्ड में एग्रीगेटेड वियरेबल‑डेटा सार्वजनिक स्वास्थ्य निगरानी और उच्च‑जोखिम जनसंख्या पहचान के लिए अनुकूल होते हुए क्लिनिकल निर्णय‑समूहों को बेहतर प्रमाण‑आधारित निर्देश देते हैं।\n- ABDM के अंतर्गत वियरेबल‑डेटा का प्राथमिक उद्देश्य क्लिनिकल निर्णयों का समर्थन होना चाहिए, न कि सिर्फ डेटा संग्रह — इसलिए डेटा सुसंगत, उपयोग‑योग्य और नैदानिक संदर्भ में समेकित होना आवश्यक है।", "priority_tag": "VERY_HIGH"}, {"question": "वियरेबल/रीमोट मॉनिटरिंग अध्ययनों में 'validation' और 'verification' में अंतर क्या है?", "options": ["Verification: स्पेसिफिकेशन के अनुसार निर्माण; Validation: उपयोगकर्ता की ज़रूरतों के अनुसार कार्य करना", "Verification और Validation दोनों एक ही हैं", "Verification केवल सॉफ़्टवेयर के लिए और Validation केवल हार्डवेयर के लिए", "Verification डेटा गोपनीयता पर केंद्रित है और Validation बैटरी जीवन पर"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्न में से कौन‑सा वियरेबल संकेत डायबेटिक मरीजों के दूरस्थ प्रबंधन में प्रत्यक्ष रूप से उपयोगी माना जाता है?", "options": ["Blood glucose via SMBG/CGM", "ECG waveform केवल", "हृदय की मात्रा (cardiac output) जो स्टेप काउंट से जुड़ी हो", "बालों की झड़न दर"], "answer_index": 0, "explanation": "# व्याख्या: Blood glucose via SMBG/CGM (डायबेटिक मरीजों के दूरस्थ प्रबंधन में प्रत्यक्ष उपयोगी वियरेबल संकेत)\n- Blood glucose (रक्त शर्करा) को सीधे मापने वाले उपकरण जैसे SMBG (Self‑Monitoring of Blood Glucose) और CGM (Continuous Glucose Monitoring) डायबिटीज़ के दूरस्थ प्रबंधन के लिए प्राथमिक और प्रत्यक्ष बायोमेट्रिक संकेत हैं।\n- SMBG में रोगी फिंगर‑प्रिक द्वारा ब्लड ड्रॉप पर ग्लूकोमीटर का उपयोग करके तत्काल ग्लूकोज़ मान प्राप्त करता है; यह टाइप‑1 और टाइप‑2 दोनों में औषधि और आहार समायोजन के लिए उपयोगी है।\n- CGM छोटे इंसर्टेड सेंसर के माध्यम से इंटरस्टिशियल फ्लूइड में ग्लूकोज़ को लगातार रिकॉर्ड करता है और 5–15 मिनट के अन्तराल पर ट्रेंड देता है; यह हाइपोग्लाइसीमिया/हाइपरग्लाइसीमिया के शीघ्र चेतावनी संकेत प्रदान करता है।\n- CGM डेटा में रियल‑टाइम अलर्ट और ट्रेंड‑ग्राफ होते हैं, जो चिकित्सक और रोगी को दूरस्थ रूप से प्रोएक्टिव उपचार निर्णय (इंसुलिन टाइट्रेशन, डोज समायोजन) लेने में सक्षम बनाते हैं।\n- SMBG/CGM से प्राप्त समय‑हीट‑इन‑रेंज (Time in Range), मैडियन ग्लूकोज़ और ग्लाइकेटेड हेमोग्लोबिन (HbA1c) के सह‑संदर्भ से रोग नियंत्रण का वस्तुनिष्ठ आकलन संभव होता है।\n- CGM का डेटा मोबाइल/क्लाउड पर साझा कर चिकित्सा टीम के पास दूरस्थ मॉनिटरिंग, दूरस्थ परामर्श और इंजुरी ट्रेंड‑आधारित इंटरवेंशन का तंत्र स्थापित किया जा सकता है।\n- स्वास्थ्य कार्यक्रमों में SMBG/CGM के उपयोग से रोगी स्व-प्रबंधन, दवा‑अनुपालन और आकस्मिक आपातकालीन अस्पताल‑भर्ती की आवृत्ति घट सकती है; पर लागत, संवर्धित प्रशिक्षण और सप्लाई‑चेन विचार आवश्यक हैं।\n- ग्रामीण या संसाधन‑सीमित सेटिंग में SMBG अधिक किफायती और व्यवहार्य विकल्प है; CGM तत्काल ट्रेंड और अलर्ट के कारण उच्च‑जोखिम मामलों (जैसे गर्भावस्था, टाइप‑1) में प्राथमिकता पाता है।\n- डेटा गोपनीयता, interoperability (ईएचआर/टेलीमेडिसिन प्लेटफ़ॉर्म के साथ) और मानकीकृत रिपोर्टिंग प्रारूप दूरस्थ प्रबंधन की विश्वसनीयता के लिए आवश्यक हैं।\n- प्रदेश/राज्य स्तर पर प्राथमिक स्वास्थ्य केन्द्रों एवं नर्सिंग स्टेशनों में SMBG किट और प्रशिक्षण उपलब्ध कराने से डायबिटीज़ चक्र के दूरस्थ निगरानी नेटवर्क को सुदृढ़ किया जा सकता है।\n- नीति‑निर्माण में SMBG/CGM के लिए लागत‑लाभ विश्लेषण, लक्षित आबादी (उच्च जोखिम, गर्भावस्था, युवा टाइप‑1) और प्रौद्योगिकीय मानक तय कर के स्केल‑अप पर निर्णय लिया जाना चाहिए।\n- परीक्षा/मेन्स में उठाने के लिए संक्षेप बिंदु: SMBG/CGM = प्रत्यक्ष ग्लूकोज़ मापन; CGM = सतत ट्रेंड, अलर्ट और दूरस्थ डेटा शेयरिंग; दोनों रोग‑निगरानी व दूरस्थ प्रबंधन के लिए केंद्रीय उपकरण।", "priority_tag": "VERY_HIGH"}, {"question": "रिमोट मॉनिटरिंग प्रोग्राम के लिए 'सामाजिक स्वीकृति' (social acceptance) को बढ़ाने हेतु कौन-सा उपाय सबसे प्रभावी माना जाता है?", "options": ["उपयोगकर्ता‑अनुकूल इंटरफेस और डेटा गोपनीयता की स्पष्ट नीति", "डिवाइस की कीमत बढ़ा देना", "डिवाइस को अनिवार्य कर देना बिना परामर्श के", "सेंसर्स की संख्या घटा देना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}, {"question": "निम्न में से कौन‑सा कथन सही है regarding 'battery lifetime' वियरेबल्स के लिए प्रभावी डिजाइन में?", "options": ["लो‑पावर सप्लाई, सेंसिंग फ्रीक्वेंसी का ऑप्टिमाइज़ेशन और डेटा सिंकिंग की रणनीति बैटरी‑लाइफ सुधारते हैं", "केवल बैटरी का आकार बढ़ाना ही समाधान है", "बैटरी‑लाइफ डिजाइन का स्वास्थ्य प्रबंधन पर कोई प्रभाव नहीं", "सेंसर की संख्या बढ़ाना बैटरी‑लाइफ बढ़ाता है"], "answer_index": 0, "explanation": "", "priority_tag": "LOW"}, {"question": "रिमोट मॉनिटरिंग में 'clinical escalation protocol' का उद्देश्य क्या होता है?", "options": ["नियत सीमा‑क्रॉस होने पर स्वचालित या मानवीय रूप से उपयुक्त चिकित्सा कदमों का संकेत/कार्रवाई निर्धारित करना", "सिर्फ डेटा को लॉग करना बिना किसी कार्रवाई के", "डिवाइस को री‑बूट करना", "रोगी की बीमा जानकारी बदलना"], "answer_index": 0, "explanation": "# व्याख्या: रिमोट मॉनिटरिंग में \"clinical escalation protocol\" — उद्देश्य और कार्यप्रणाली\n- Clinical escalation protocol का मूल उद्देश्य यह सुनिश्चित करना है कि किसी रोगी के मॉनिटर किए जा रहे पैरामीटर नियत सीमाएँ (thresholds) पार करते ही उपयुक्त चिकित्सा कार्रवाई त্বরित रूप से शुरू हो सके।\n- यह प्रोटोकॉल नैदानिक संकेतों/डेटा में असामान्य परिवर्तन पर ऑटोमेटेड अलर्ट और/या मानवीय हस्तक्षेप के लिए स्पष्ट ट्रिगर और कार्रवाई सूची निर्धारित करता है।\n- प्रोटोकॉल में संकेतों की गंभीरता के स्तर (उदाहरण: चेतावनी, तात्कालिक, आपात) की परिभाषा और प्रत्येक स्तर पर आवश्यक कदमों का क्रमबद्ध विवरण शामिल होता है।\n- इसमें किसे सूचित करना है (रोगी, परिवार, दीवार्ड क्लिनिशियन, टेलीहेल्थ टीम, प्राथमिक स्वास्थ्य केंद्र) और किस माध्यम से (SMS, कॉल, इमरजेंसी नोटिफिकेशन) यह स्पष्ट रूप से उल्लेखित रहता है।\n- Clinical escalation protocol में सामंजस्यित रूटिंग और रेफरल पथ (प्राथमिक देखभाल → जिला अस्पताल → तृतीयक सुविधा) शामिल होते हैं ताकि आवश्यकता अनुसार भविष्यवर्ती और उच्च स्तरीय चिकित्सा उपलब्ध हो सके।\n- प्रोटोकॉल डेटा वैलिडेशन और फॉल्स-पॉज़िटिव नियंत्रण के नियम भी रखते हैं, जिससे अनावश्यक अलर्ट और संसाधन खर्च कम होते हैं।\n- राज्य/जिला स्वास्थ्य प्रणालियों के संदर्भ में यह प्रोटोकॉल स्थानीय स्वास्थ्य कार्यकर्ताओं, एंबुलेंस सेवा और जिला अस्पतालों के साथ जोड़कर क्षमता के अनुरूप समन्वय सुनिश्चित करता है।\n- नियमित ऑडिट तथा प्रोटोकॉल-आधारित फीडबैक मैकेनिज्म तय किए जाते हैं ताकि ट्रिगर सीमा, संचार चैनल और कार्रवाई के समय में सुधार किया जा सके।\n- कानूनी और नैतिक मानकों के अनुरूप निर्णय‑लेने के अधिकार और जिम्मेदारियाँ (कौन अंतिम चिकित्सा निर्णय लेगा) प्रोटोकॉल में स्पष्ट रूप से परिभाषित होते हैं।\n- स्थिर तथा लोकप्रिय क्रॉनिक केयर मॉडलों में इस प्रोटोकॉल का उद्देश्य रोगी सुरक्षा बढ़ाना, समय पर हस्तक्षेप सुनिश्चित करना और अस्पताल में आकस्मिक भर्ती एवं जटिलताओं को घटाना होता है।\n- प्रोटोकॉल को डिजिटल रिमोट मॉनिटरिंग प्लेटफ़ॉर्म के साथ इंटरऑपरेबल बनाना आवश्यक है ताकि अलर्ट्स, रिकॉर्ड और रेफरल स्वतः लॉग हों और ट्रेसबिलिटी बनी रहे।\n- प्रशिक्षण‑आधारित अनुपालन सुनिश्चित करने के लिए मरीजों और स्वास्थ्यकर्मियों दोनों के लिए संक्षिप्त SOP और क्रियात्मक निर्देश प्रोटोकॉल का अभिन्न हिस्सा होते हैं।", "priority_tag": "HIGH"}, {"question": "वियरेबल/रिमोट मॉनिटरिंग के संदर्भ में 'clinical validity' का अर्थ क्या है?", "options": ["मापा गया संकेत चिकित्सीय निर्णयों के लिए उपयुक्त और भरोसेमंद होना", "डिवाइस का बाह्य आकार आकर्षक होना", "सेंसर का केवल प्रयोगशाला में काम करना", "उत्पाद की पैकेजिंग की सुंदरता"], "answer_index": 0, "explanation": "# व्याख्या: \"Clinical validity\" — वियरेबल/रिमोट मॉनिटरिंग के संदर्भ में क्या है\n- **परिभाषा (सार)**: क्लिनिकल वैलिडिटी का अर्थ है कि वियरेबल द्वारा मापा गया संकेत चिकित्सकीय निर्णय लेने के लिए उपयुक्त और भरोसेमंद होना।\n- **माप का अर्थवत्ता**: मापा गया संकेत उस क्लीनिकल स्थिति या बायोमार्कर के साथ तार्किक और सांख्यिकीय रूप से संबंधित होना चाहिए जिसे वह संकेत दर्शाता है।\n- **गोल्ड स्टैण्डर्ड से सहसम्बंध**: वैलिडिटी में उस डिवाइस द्वारा दिए गए परिणाम का मानक (gold standard) नैदानिक परीक्षणों से अच्छा सहसम्बंध दिखाना आवश्यक है।\n- **सटीकता (accuracy) और विश्वसनीयता (reliability)**: संकेत में दोषरहित सटीकता और दोहराए जाने पर स्थिर परिणाम होना जरूरी है ताकि इलाज/निगरानी आधारित निर्णय सुरक्षित हों।\n- **संवेदनशीलता-विशेषता का महत्व**: क्लिनिकल वैलिडिटी वास्तविक रोग-स्थिति पहचानने में पर्याप्त संवेदनशीलता और रोग-रहित को सही तरीके से असंवेदनशील रखने की क्षमता (विशेषता) दिखाती है।\n- **निरूपकता (predictive value)**: नपता संकेत उपचार या रोग की प्रगति के अनुमान में चिकित्सीय रूप से उपयोगी पूर्वानुमानिक जानकारी देता है।\n- **संदर्भ-निर्भरता (context of use)**: वैलिडिटी को उस जनसंख्या, रोग-स्थिति, और उपयोग के क्लिनिकल परिदृश्य के अनुरूप मूल्यांकित किया जाता है — बच्चों, बुजुर्गों या कॉमॉर्बिड शख्सियतों में अलग आकलन हो सकता है।\n- **प्रमाणीकरण के लिए आकडे़ व अध्ययन**: क्लिनिकल वैलिडिटी स्थापित करने हेतु प्रतिबद्ध नुमूने (clinical validation studies), तुलनात्मक परीक्षण और सांख्यिकीय विश्लेषण आवश्यक हैं।\n- **इंटरप्रिटेशन के नियम (thresholds)**: संकेत के क्लिनिकल निर्णय-परक थ्रेशहोल्ड स्पष्ट और वैज्ञानिक रूप से परिभाषित होने चाहिए ताकि इलाजीय कार्रवाई सुस्पष्ट हो।\n- **डिवाइस परफॉर्मेंस मेट्रिक्स**: बायोसिग्नल की सीमाएं (noise, artefacts), माप आवृत्ति और सिग्नल-प्रोसेसिंग का असर वैलिडिटी पर स्पष्ट रूप से परखा जाए।\n- **निगरानी और फॉलो-अप प्रभाव**: वैलिड संकेत से चिकित्सीय निगरानी आवृत्ति, दवा समायोजन या हस्तक्षेप के निर्णय वैध रूप से तय किए जा सकते हैं।\n- **नियामक और नैदानिक प्रभाव**: क्लिनिकल वैलिडिटी का होना ही यह दर्शाता है कि वियरेबल का डेटा चिकित्सकीय प्रोटोकॉल और स्वास्थ्य प्रणाली में भरोसेमंद तरीके से उपयोग हो सकता है।", "priority_tag": "VERY_HIGH"}, {"question": "निम्न में से कौन‑सा रोल राज्य स्वास्थ्य विभाग के लिये वियरेबल-आधारित क्रॉनिक केयर रोलआउट में अपेक्षाकृत महत्वपूर्ण है?", "options": ["नीतिगत मार्गदर्शन, लोकल इन्फ्रास्ट्रक्चर सपोर्ट और ट्रेनिंग‑प्रोटोकॉल बनाना", "हर नागरिक को मुफ्त स्मार्टवॉच बांटना", "नियमित रूप से मेडिकल रिसर्च को प्रतिबंधित करना", "प्राइवेट कंपनी को डेटा बिना अनुबंध के दे देना"], "answer_index": 0, "explanation": "", "priority_tag": "MEDIUM"}]};
+
+// MCQ array ko normalize karo: ya to array, ya RAW.mcqs
+const MCQS = Array.isArray(RAW) ? RAW : (RAW && Array.isArray(RAW.mcqs) ? RAW.mcqs : []);
+
+let correctCount = 0;
+let wrongCount = 0;
+
+function toggleVyakhya() {
+  const v = document.getElementById('vyakhya');
+  if (!v) return;
+  const show = (v.style.display === '' || v.style.display === 'none');
+  v.style.display = show ? 'block' : 'none';
+}
+
+// Robust correct index resolver (multiple field names support)
+function getCorrectIndex(item) {
+  let raw = null;
+
+  if (item.hasOwnProperty('correct_answer_index')) {
+    raw = item.correct_answer_index;
+  } else if (item.hasOwnProperty('answer_index')) {
+    raw = item.answer_index;
+  } else if (item.hasOwnProperty('correctIndex')) {
+    raw = item.correctIndex;
+  } else if (item.hasOwnProperty('correct')) {
+    raw = item.correct;
+  }
+
+  const num = Number(raw);
+  if (!Number.isInteger(num)) return null;
+
+  const optLen = Array.isArray(item.options) ? item.options.length : 0;
+  if (num < 0 || num >= optLen) return null;
+
+  return num;
+}
+
+function renderMCQs() {
+  const root = document.getElementById('mcq-root');
+  root.innerHTML = '';
+
+  correctCount = 0;
+  wrongCount = 0;
+  const cEl = document.getElementById('correct');
+  const wEl = document.getElementById('wrong');
+  if (cEl) cEl.textContent = '0';
+  if (wEl) wEl.textContent = '0';
+
+  const qcountEl = document.getElementById('qcount');
+  if (qcountEl) qcountEl.textContent = MCQS.length;
+
+  MCQS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'qhdr';
+
+    const qno = document.createElement('div');
+    qno.className = 'qno';
+    qno.textContent = 'प्रश्न ' + (idx + 1) + '. ' + (item.question || '');
+    head.appendChild(qno);
+
+    // Priority pill
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    const p = item.priority_tag || item.priority || 'HIGH';
+    pill.textContent = 'Priority: ' + p;
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    const correctIndex = getCorrectIndex(item);
+
+    (item.options || []).forEach((optText, oi) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_' + idx;
+      input.value = oi;
+
+      input.addEventListener('change', () => {
+        // is question ke saare options se purani classes hatao
+        Array.from(opts.children).forEach(l => l.classList.remove('correct', 'wrong'));
+
+        if (correctIndex === null) {
+          // agar correct index nahi mila
+          label.classList.add('wrong');
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+          opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+          return;
+        }
+
+        if (oi === correctIndex) {
+          // सही option चुना
+          label.classList.add('correct');
+          correctCount += 1;
+          const cSpan = document.getElementById('correct');
+          if (cSpan) cSpan.textContent = correctCount;
+        } else {
+          // गलत चुना → ये लाल + सही वाला हरा
+          label.classList.add('wrong');
+          if (opts.children[correctIndex]) {
+            opts.children[correctIndex].classList.add('correct');
+          }
+          wrongCount += 1;
+          const wSpan = document.getElementById('wrong');
+          if (wSpan) wSpan.textContent = wrongCount;
+        }
+
+        // इस सवाल को lock कर दो
+        opts.querySelectorAll('input[type="radio"]').forEach(r => { r.disabled = true; });
+      });
+
+      const span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      opts.appendChild(label);
+    });
+
+    card.appendChild(opts);
+
+    // Explanation / Vyakhya
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'व्याख्या दिखाएँ / छुपाएँ';
+
+    const expl = document.createElement('div');
+    expl.className = 'expl';
+
+    const explText =
+      (item.explanation && item.explanation.toString().trim() !== '')
+        ? item.explanation
+        : (item.vyakhya && item.vyakhya.toString().trim() !== '')
+          ? item.vyakhya
+          : 'व्याख्या उपलब्ध नहीं है।';
+
+    expl.textContent = explText;
+
+    btn.addEventListener('click', () => {
+      const show = (expl.style.display === 'none' || expl.style.display === '');
+      expl.style.display = show ? 'block' : 'none';
+    });
+
+    actions.appendChild(btn);
+    card.appendChild(actions);
+    card.appendChild(expl);
+
+    root.appendChild(card);
+  });
+}
+
+renderMCQs();
+</script>
+</body>
+</html>
