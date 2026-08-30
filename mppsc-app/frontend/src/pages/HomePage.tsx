@@ -1,11 +1,47 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { api, OverviewStats, UnitSummary } from '../api/client';
-import { Loading, ErrorState } from '../components/Feedback';
-import StatCard from '../components/StatCard';
+import { ErrorState, Loading } from '../components/Feedback';
 import ProgressBar from '../components/ProgressBar';
+import StatCard from '../components/StatCard';
 import { useStartSession } from '../hooks/useStartSession';
+
+const pyqYearSummary = [
+  { year: 2020, total: 100, full: 81, partial: 18, missing: 1, currentAffairs: 11 },
+  { year: 2021, total: 100, full: 82, partial: 15, missing: 3, currentAffairs: 8 },
+  { year: 2022, total: 100, full: 79, partial: 20, missing: 1, currentAffairs: 9 },
+  { year: 2023, total: 100, full: 76, partial: 21, missing: 3, currentAffairs: 12 },
+  { year: 2024, total: 100, full: 72, partial: 25, missing: 3, currentAffairs: 12 },
+  { year: 2025, total: 100, full: 65, partial: 28, missing: 7, currentAffairs: 9 },
+  { year: 2026, total: 100, full: 69, partial: 25, missing: 6, currentAffairs: 8 },
+];
+
+const pyqUnitSummary = [
+  { unit: 'Unit 1', name: 'MP इतिहास, संस्कृति व साहित्य', total: 58, full: 35, partial: 23, missing: 0 },
+  { unit: 'Unit 2', name: 'भारत का इतिहास', total: 80, full: 75, partial: 5, missing: 0 },
+  { unit: 'Unit 3', name: 'भारत व MP का भूगोल', total: 117, full: 111, partial: 6, missing: 0 },
+  { unit: 'Unit 4', name: 'संवैधानिक तंत्र', total: 114, full: 114, partial: 0, missing: 0 },
+  { unit: 'Unit 5', name: 'अर्थव्यवस्था', total: 62, full: 35, partial: 17, missing: 10 },
+  { unit: 'Unit 6', name: 'विज्ञान, टेक्नोलॉजी व स्वास्थ्य', total: 66, full: 33, partial: 15, missing: 18 },
+  { unit: 'Unit 7', name: 'पर्यावरण, जैवविविधता, SDGs, आपदा', total: 32, full: 32, partial: 0, missing: 0 },
+  { unit: 'Unit 8', name: 'समसामयिकी', total: 70, full: 1, partial: 69, missing: 0 },
+  { unit: 'Unit 9', name: 'ICT', total: 57, full: 47, partial: 10, missing: 0 },
+  { unit: 'Unit 10', name: 'जनजातीय विरासत, लोक-संस्कृति', total: 44, full: 41, partial: 3, missing: 0 },
+];
+
+const pyqTotals = pyqYearSummary.reduce(
+  (totals, year) => ({
+    total: totals.total + year.total,
+    full: totals.full + year.full,
+    partial: totals.partial + year.partial,
+    missing: totals.missing + year.missing,
+    currentAffairs: totals.currentAffairs + year.currentAffairs,
+  }),
+  { total: 0, full: 0, partial: 0, missing: 0, currentAffairs: 0 }
+);
+
+const coveragePercent = (value: number, total: number) => (total > 0 ? Math.round((value / total) * 100) : 0);
 
 export default function HomePage() {
   const overviewQ = useQuery({
@@ -39,6 +75,8 @@ export default function HomePage() {
   const stats = overviewQ.data!;
   const units = unitsQ.data!;
   const goalPct = stats.dailyGoal > 0 ? Math.min(100, Math.round((stats.todayAttempted / stats.dailyGoal) * 100)) : 0;
+  const pyqNotFull = pyqTotals.partial + pyqTotals.missing;
+  const pyqCurrentAffairsShare = coveragePercent(pyqTotals.currentAffairs, pyqNotFull);
 
   return (
     <div className="space-y-8">
@@ -105,6 +143,122 @@ export default function HomePage() {
           <div className="font-semibold">Bookmarks</div>
           <div className="text-xs text-slate-500 dark:text-slate-400">{stats.bookmarksCount} saved</div>
         </Link>
+      </section>
+
+      <section className="card p-5 space-y-5">
+        <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 className="text-xl font-bold">PYQ Coverage</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              2020–2026 Paper I compared with your study notes
+            </p>
+          </div>
+          <div className="text-sm font-semibold text-brand-700 dark:text-brand-300">
+            {coveragePercent(pyqTotals.full, pyqTotals.total)}% fully covered
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-3">
+            <div className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Checked</div>
+            <div className="text-2xl font-extrabold">{pyqTotals.total}</div>
+            <div className="text-xs text-slate-500 dark:text-slate-400">7 papers</div>
+          </div>
+          <div className="rounded-lg border border-emerald-200 bg-emerald-50 dark:border-emerald-900 dark:bg-emerald-950/30 p-3">
+            <div className="text-xs uppercase tracking-wide text-emerald-700 dark:text-emerald-300">In Notes</div>
+            <div className="text-2xl font-extrabold text-emerald-700 dark:text-emerald-300">{pyqTotals.full}</div>
+            <div className="text-xs text-emerald-700/80 dark:text-emerald-300/80">Available / Full</div>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-900 dark:bg-amber-950/30 p-3">
+            <div className="text-xs uppercase tracking-wide text-amber-700 dark:text-amber-300">Partial</div>
+            <div className="text-2xl font-extrabold text-amber-700 dark:text-amber-300">{pyqTotals.partial}</div>
+            <div className="text-xs text-amber-700/80 dark:text-amber-300/80">Thin exact facts</div>
+          </div>
+          <div className="rounded-lg border border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950/30 p-3">
+            <div className="text-xs uppercase tracking-wide text-red-700 dark:text-red-300">Missing</div>
+            <div className="text-2xl font-extrabold text-red-700 dark:text-red-300">{pyqTotals.missing}</div>
+            <div className="text-xs text-red-700/80 dark:text-red-300/80">Need new notes</div>
+          </div>
+          <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-3">
+            <div className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-300">Current Affairs</div>
+            <div className="text-2xl font-extrabold text-blue-700 dark:text-blue-300">{pyqTotals.currentAffairs}</div>
+            <div className="text-xs text-blue-700/80 dark:text-blue-300/80">{pyqCurrentAffairsShare}% of not full</div>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-sm">
+            <thead className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              <tr className="border-b border-slate-200 dark:border-slate-800">
+                <th className="py-2 pr-3 text-left">Year</th>
+                <th className="px-3 py-2 text-right">Total</th>
+                <th className="px-3 py-2 text-right">In Notes</th>
+                <th className="px-3 py-2 text-right">Partial</th>
+                <th className="px-3 py-2 text-right">Missing</th>
+                <th className="px-3 py-2 text-right">Not Full</th>
+                <th className="px-3 py-2 text-right">Current Affairs</th>
+                <th className="pl-3 py-2 text-right">Other Gap</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              {pyqYearSummary.map((year) => {
+                const notFull = year.partial + year.missing;
+                const otherGap = notFull - year.currentAffairs;
+
+                return (
+                  <tr key={year.year}>
+                    <td className="py-2 pr-3 font-semibold">{year.year}</td>
+                    <td className="px-3 py-2 text-right">{year.total}</td>
+                    <td className="px-3 py-2 text-right text-emerald-700 dark:text-emerald-300">{year.full}</td>
+                    <td className="px-3 py-2 text-right text-amber-700 dark:text-amber-300">{year.partial}</td>
+                    <td className="px-3 py-2 text-right text-red-700 dark:text-red-300">{year.missing}</td>
+                    <td className="px-3 py-2 text-right font-semibold">{notFull}</td>
+                    <td className="px-3 py-2 text-right text-blue-700 dark:text-blue-300">{year.currentAffairs}</td>
+                    <td className="pl-3 py-2 text-right">{otherGap}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="rounded-lg border border-blue-200 bg-blue-50/70 p-3 text-sm text-blue-900 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-100">
+          Current affairs accounts for {pyqTotals.currentAffairs} of {pyqNotFull} not-fully-covered PYQ
+          questions. Adding yearly current-affairs MCQs will reduce the partial/missing count fastest.
+        </div>
+
+        <div>
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <h3 className="font-bold">Unit-wise PYQ Coverage</h3>
+            <span className="text-xs text-slate-500 dark:text-slate-400">All years combined</span>
+          </div>
+          <div className="grid gap-2">
+            {pyqUnitSummary.map((unit) => {
+              const fullPct = coveragePercent(unit.full, unit.total);
+              const partialPct = coveragePercent(unit.partial, unit.total);
+              const missingPct = Math.max(0, 100 - fullPct - partialPct);
+
+              return (
+                <div key={unit.unit} className="rounded-lg border border-slate-200 dark:border-slate-800 p-3">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0">
+                      <div className="text-xs font-semibold text-brand-600 dark:text-brand-400">{unit.unit}</div>
+                      <div className="font-semibold leading-snug">{unit.name}</div>
+                    </div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400 shrink-0">
+                      {unit.full}/{unit.partial}/{unit.missing} of {unit.total}
+                    </div>
+                  </div>
+                  <div className="mt-2 flex h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+                    <div className="bg-emerald-500" style={{ width: `${fullPct}%` }} />
+                    <div className="bg-amber-400" style={{ width: `${partialPct}%` }} />
+                    <div className="bg-red-500" style={{ width: `${missingPct}%` }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       <section>
