@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { prisma } from '../db';
-import { shuffleArray } from '../utils/shuffle';
-import { nextBoxAfter, computeNextDueDate } from '../utils/leitner';
+import { computeNextDueDate, nextBoxAfter } from '../utils/leitner';
 import { getSetting, startOfDay } from '../utils/settings';
+import { shuffleArray } from '../utils/shuffle';
 
 const router = Router();
 

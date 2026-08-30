@@ -1,5 +1,5 @@
-import { runImportLogged } from '../import/importContent';
 import { prisma } from '../db';
+import { runImportLogged } from '../import/importContent';
 
 async function main() {
   console.log('Starting MPPSC content import...');

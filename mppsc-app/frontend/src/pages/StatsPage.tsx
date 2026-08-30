@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { api, DailyStatRow } from '../api/client';
-import { Loading, ErrorState } from '../components/Feedback';
+import { ErrorState, Loading } from '../components/Feedback';
 
 interface UnitStatRow {
   unitId: number;

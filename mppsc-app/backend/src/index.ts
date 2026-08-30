@@ -1,15 +1,15 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 
-import unitsRouter from './routes/units';
-import topicsRouter from './routes/topics';
-import sessionsRouter from './routes/sessions';
+import adminRouter from './routes/admin';
 import bookmarksRouter from './routes/bookmarks';
 import reviewRouter from './routes/review';
 import searchRouter from './routes/search';
-import statsRouter from './routes/stats';
+import sessionsRouter from './routes/sessions';
 import settingsRouter from './routes/settings';
-import adminRouter from './routes/admin';
+import statsRouter from './routes/stats';
+import topicsRouter from './routes/topics';
+import unitsRouter from './routes/units';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 4000;

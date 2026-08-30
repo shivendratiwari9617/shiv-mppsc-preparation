@@ -1,16 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import BookmarksPage from './pages/BookmarksPage';
+import DuePage from './pages/DuePage';
 import HomePage from './pages/HomePage';
-import UnitPage from './pages/UnitPage';
 import MockSetupPage from './pages/MockSetupPage';
 import PracticeSessionPage from './pages/PracticeSessionPage';
 import ResultsPage from './pages/ResultsPage';
-import WrongDeckPage from './pages/WrongDeckPage';
-import DuePage from './pages/DuePage';
-import BookmarksPage from './pages/BookmarksPage';
 import SearchPage from './pages/SearchPage';
-import StatsPage from './pages/StatsPage';
 import SettingsPage from './pages/SettingsPage';
+import StatsPage from './pages/StatsPage';
+import UnitPage from './pages/UnitPage';
+import WrongDeckPage from './pages/WrongDeckPage';
 
 export default function App() {
   return (
