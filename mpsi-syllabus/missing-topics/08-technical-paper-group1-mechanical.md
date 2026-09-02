@@ -4,16 +4,65 @@
 Currently: **0 topics.** Entirely outside the current material's domain (engineering, not general studies).
 Only relevant if you are specifically targeting the SI-Ordnance post.
 
-1. इंजीनियरिंग मैकेनिक्स — बल, संतुलन, घर्षण
-2. सामग्री की शक्ति (Strength of Materials) — प्रतिबल, विकृति, बीम
-3. थर्मोडायनामिक्स के नियम
-4. ताप अंतरण (Heat transfer) — चालन, संवहन, विकिरण
-5. आंतरिक दहन इंजन (IC Engines) — पेट्रोल/डीजल इंजन कार्यप्रणाली
-6. द्रव यांत्रिकी (Fluid Mechanics) — दाब, प्रवाह, बर्नूली प्रमेय
-7. मशीन डिजाइन के मूल सिद्धांत
-8. मशीन तत्व — गियर, बेयरिंग, कपलिंग
-9. निर्माण प्रक्रियाएं — कास्टिंग, वेल्डिंग, मशीनिंग
-10. मापन विज्ञान (Metrology) व गुणवत्ता नियंत्रण
-11. रेफ्रिजरेशन एवं वातानुकूलन के मूल सिद्धांत
-12. औद्योगिक इंजीनियरिंग व प्रबंधन के मूल तत्व
-13. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं (पद-विशिष्ट)
+1. बल तंत्र, परिणामी बल एवं संतुलन (Force systems, resultant, equilibrium)
+2. घर्षण के नियम — घर्षण कोण, घर्षण शंकु (Laws of friction)
+3. केन्द्रक, गुरुत्व केन्द्र व जड़त्व आघूर्ण (Centroid, centre of gravity & moment of inertia)
+4. ट्रस व फ्रेम विश्लेषण (Analysis of trusses & frames)
+5. संवेग व आघात — रैखिक व कोणीय (Momentum & impact — linear & angular)
+6. प्रतिबल-विकृति संबंध, हुक का नियम (Stress-strain relationship, Hooke's law)
+7. अपरूपण बल व बंकन आघूर्ण आरेख — SFD व BMD (Shear force & bending moment diagrams)
+8. बीम में बंकन प्रतिबल, मरोड़ व विक्षेपण (Bending stress, torsion & deflection of beams)
+9. पतले सिलेंडर / प्रेशर वेसल के मूल सिद्धांत (Thin cylinders / pressure vessels)
+10. धातुओं के यांत्रिक गुण — कठोरता, तन्यता, दृढ़ता (Mechanical properties of metals)
+11. मिश्रधातु व इस्पात के प्रकार (Alloys & types of steel)
+12. ताप उपचार प्रक्रियाएं — एनीलिंग, नॉर्मलाइजिंग, हार्डनिंग, टेम्परिंग (Heat treatment processes)
+13. ऊष्मागतिकी के नियम — शून्यवाँ, प्रथम व द्वितीय नियम (Laws of thermodynamics)
+14. वायु मानक चक्र — कार्नो, ऑटो, डीजल चक्र (Air standard cycles)
+15. ताप अंतरण — चालन, संवहन, विकिरण (Heat transfer — conduction, convection, radiation)
+16. ऊष्मा विनिमायक (Heat exchangers)
+17. पेट्रोल व डीजल इंजन कार्यप्रणाली — 2-स्ट्रोक/4-स्ट्रोक (Working of IC engines)
+18. इंजन के भाग — पिस्टन, क्रैंकशाफ्ट, वाल्व टाइमिंग (Engine components)
+19. कार्बुरेटर व ईंधन इंजेक्शन प्रणाली (Carburetor & fuel injection system)
+20. द्रव के गुण व दाब मापन (Fluid properties & pressure measurement)
+21. सांतत्य समीकरण व बर्नूली प्रमेय (Continuity equation & Bernoulli's theorem)
+22. पाइप प्रवाह में हानियाँ (Losses in pipe flow)
+23. केन्द्रापसारी व रेसीप्रोकेटिंग पंप, अक्षीय पंप व पंखे (Centrifugal, reciprocating & axial pumps/fans)
+24. टर्बाइन के प्रकार — पेल्टन, फ्रांसिस, कपलान (Types of turbines)
+25. समतल यंत्रों का विस्थापन, वेग व त्वरण विश्लेषण — स्लाइडर-क्रैंक मेकेनिज्म (Kinematics of plane mechanisms — slider-crank velocity & acceleration analysis)
+26. कैम व फॉलोअर (Cams & followers)
+27. गियर व गियर ट्रेन (Gears & gear trains)
+28. गवर्नर (Governors)
+29. फ्लाईव्हील (Flywheel)
+30. घूर्णन भागों का संतुलन (Balancing of rotating masses)
+31. गायरोस्कोपिक गति (Gyroscopic motion)
+32. यांत्रिक कंपन (Mechanical vibrations)
+33. बेल्ट, रस्सी व चेन ड्राइव (Belt, rope & chain drives)
+34. मशीन डिजाइन के मूल सिद्धांत — सुरक्षा गुणांक (Design basics & factor of safety)
+35. वेल्डेड व रिवेटेड जोड़ों का डिजाइन (Design of welded & riveted joints)
+36. शाफ्ट व स्पर गियर डिजाइन (Shaft & spur gear design)
+37. क्लच व ब्रेक — डिजाइन के मूल सिद्धांत (Clutches & brakes — design basics)
+38. मशीन तत्व — बेयरिंग व कपलिंग (Bearings & couplings)
+39. चाबी, कील व फास्टनर (Keys, cotter joints & fasteners)
+40. ऑर्थोग्राफिक प्रोजेक्शन (Orthographic projection)
+41. सेक्शनल व्यू व डायमेंशनिंग (Sectional views & dimensioning)
+42. कास्टिंग प्रक्रिया (Casting process)
+43. वेल्डिंग के प्रकार (Types of welding)
+44. मशीनिंग प्रक्रियाएं — टर्निंग, मिलिंग, ड्रिलिंग (Machining — turning, milling, drilling)
+45. धातु काटने का सिद्धांत, टूल ज्यामिति व टूल लाइफ (Mechanics of metal cutting, tool geometry & tool life)
+46. ग्राइंडिंग व फिनिशिंग प्रक्रियाएं (Grinding & finishing processes)
+47. जिग व फिक्सचर डिजाइन के मूल सिद्धांत (Jigs & fixtures design basics)
+48. अपारंपरिक मशीनिंग — EDM, ECM (Non-conventional machining)
+49. CAD/CAM के बुनियादी सिद्धांत (Basics of CAD/CAM)
+50. मापन उपकरण — वर्नियर कैलिपर, माइक्रोमीटर (Measuring instruments)
+51. सीमा, फिट व सहनशीलता (Limits, fits & tolerances)
+52. बॉयलर के प्रकार व माउंटिंग्स (Types of boilers & mountings)
+53. स्टीम टर्बाइन के मूल सिद्धांत (Steam turbine basics)
+54. रेफ्रिजरेशन चक्र — वाष्प संपीड़न चक्र (Vapour compression refrigeration cycle)
+55. वातानुकूलन के मूल सिद्धांत (Basics of air conditioning)
+56. ऑटोमोबाइल ट्रांसमिशन व चेसिस (Automobile transmission & chassis)
+57. ब्रेकिंग सिस्टम व स्टीयरिंग (Braking system & steering)
+58. औद्योगिक प्रबंधन के मूल सिद्धांत (Basics of industrial management)
+59. उत्पादन योजना व नियंत्रण (Production planning & control)
+60. प्लांट लेआउट व कार्य अध्ययन (Plant layout & work study)
+61. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं — हथियार तंत्र (पद-विशिष्ट)
+62. आयुध रखरखाव व निरीक्षण से जुड़े तकनीकी पहलू (पद-विशिष्ट)

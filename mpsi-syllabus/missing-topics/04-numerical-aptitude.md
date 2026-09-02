@@ -27,19 +27,26 @@ Currently: **0 topics** in the study material. New subject area — build from s
 17. साझेदारी (Partnership) — अनुपात आधारित प्रश्न
 18. मिश्रण एवं आरोपण (Mixture and alligation)
 19. समय एवं कार्य (Time and work)
-20. समय, चाल एवं दूरी (Time, speed and distance) — नाव-धारा व रेल आधारित प्रश्न सहित
+20. पाइप एवं टंकी (Pipes and cisterns)
+21. समय, चाल एवं दूरी (Time, speed and distance) — नाव-धारा व रेल आधारित प्रश्न सहित
+22. आयु संबंधी समस्याएं (Age-based problems)
 
 ## लाभ-हानि, प्रतिशत, छूट, ब्याज (item iv)
-21. प्रतिशत (Percentage)
-22. लाभ एवं हानि (Profit and loss)
-23. छूट (Discount) — क्रमिक छूट सहित
-24. साधारण ब्याज (Simple interest)
-25. चक्रवृद्धि ब्याज (Compound interest)
+23. प्रतिशत (Percentage)
+24. लाभ एवं हानि (Profit and loss)
+25. छूट (Discount) — क्रमिक छूट सहित
+26. साधारण ब्याज (Simple interest)
+27. चक्रवृद्धि ब्याज (Compound interest)
 
 ## क्षेत्रमिति (item v)
-26. क्षेत्रफल — त्रिभुज, चतुर्भुज, वृत्त, समांतर चतुर्भुज
-27. परिमाप (Perimeter)
-28. आयतन एवं पृष्ठीय क्षेत्रफल — घन, घनाभ, बेलन, शंकु, गोला
+28. क्षेत्रफल — त्रिभुज, चतुर्भुज, वृत्त, समांतर चतुर्भुज
+29. परिमाप (Perimeter)
+30. आयतन एवं पृष्ठीय क्षेत्रफल — घन, घनाभ, बेलन, शंकु, गोला
+
+## बीजगणित, ज्यामिति एवं त्रिकोणमिति (RRB व MPPSC पाठ्यक्रम — MP SI के item iv/v के "आदि" में शामिल संभावित)
+31. बीजगणित — रैखिक व द्विघात समीकरण, बीजीय सर्वसमिकाएं (Elementary algebra — linear & quadratic equations, identities)
+32. ज्यामिति — त्रिभुज, वृत्त, चतुर्भुज के गुण, रेखा एवं कोण (Geometry — properties of triangles, circles, quadrilaterals)
+33. त्रिकोणमिति — मूल अनुपात, ऊंचाई एवं दूरी (Trigonometry — basic ratios, heights and distances)
 
 ## तार्किक शक्ति, विश्लेषणात्मक क्षमता व समस्या समाधान (item vi)
-29. see `03-reasoning-analytical-ability.md` — इस उप-विषय का ओवरलैप वहाँ कवर किया गया है।
+34. see `03-reasoning-analytical-ability.md` — इस उप-विषय का ओवरलैप वहाँ कवर किया गया है।
