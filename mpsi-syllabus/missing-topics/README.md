@@ -14,9 +14,14 @@ the existing unit folders.
 | [05-indian-society.md](05-indian-society.md) | भारतीय समाज | Mains Paper-I Part-क (part of 150 marks) | 🟠 Medium |
 | [06-internal-security-police-role.md](06-internal-security-police-role.md) | आंतरिक सुरक्षा / पुलिस की भूमिका | Mains Paper-II Part-क (part of 150 marks) | 🟠 Medium |
 | [07-basic-computer-knowledge-gap.md](07-basic-computer-knowledge-gap.md) | बुनियादी कंप्यूटर ज्ञान (gap on top of existing Unit 9) | Prelims subject 8 | 🟡 Low |
-| [08-technical-paper-group1-mechanical.md](08-technical-paper-group1-mechanical.md) | मैकेनिकल इंजीनियरिंग | Mains Paper-III, Group-1 (SI-Ordnance post only) | 🟢 Optional |
-| [09-technical-paper-group2-maths-physics-chemistry.md](09-technical-paper-group2-maths-physics-chemistry.md) | गणित/भौतिकी/रसायन | Mains Paper-III, Group-2 (SI-Fingerprint/FSL/Photo posts only) | 🟢 Optional |
+| [08-technical-paper-group1-mechanical.md](08-technical-paper-group1-mechanical.md) | मैकेनिकल इंजीनियरिंग | Mains Paper-III, Group-1 (SI-Ordnance post) | 🔴 High — target post |
+| [09-additional-gaps-in-covered-units.md](09-additional-gaps-in-covered-units.md) | Colonial urbanization (Unit 2), pressure groups (Unit 4), thin traveler coverage (Unit 2) | Mains Paper-I, both parts | 🟡 Low — narrow named clauses inside otherwise-full units |
 
 Everything else in the MPSI syllabus (History, Geography, Science, Civics/Polity, Current Affairs, Economy,
 Environment, general ICT/cyber fundamentals) is already well covered by the existing Unit 1–10 study material —
-see the coverage report for the full item-by-item mapping.
+see the coverage report for the full item-by-item mapping. This list was re-audited line-by-line against the
+official syllabus text on 2026-09-02 (see the coverage report's "100% verification" section) — file 09 above is
+the result of that second pass.
+
+> Group-2 (Fingerprint/CID/Photo — Maths/Physics/Chemistry) was dropped from this list: not applicable when
+> targeting the SI-Ordnance post with a Mechanical Engineering background.

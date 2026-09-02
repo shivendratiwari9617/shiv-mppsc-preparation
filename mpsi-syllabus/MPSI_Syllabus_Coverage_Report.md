@@ -42,7 +42,7 @@ Analytical ability, Reasoning — items 1/2/3/9 above are really 3 subjects sinc
 
 | Sub-item | Coverage | Verdict |
 |---|---|---|
-| i. भारतीय इतिहास (हड़प्पा → संविधान निर्माण) | ✅ Full | Unit 2 covers this exact span (Harappa, Maurya, Gupta, Harsha, medieval travellers, Bhakti-Sufi, Vijayanagar, Mughals, East India Co., 1857, colonial urbanisation, Gandhi/national movement, constitution-making) in detail. |
+| i. भारतीय इतिहास (हड़प्पा → संविधान निर्माण) | ⚠️ Partial | Unit 2 covers this exact span in depth (Harappa, Maurya, Gupta, Harsha, Bhakti-Sufi, Vijayanagar, Mughals, East India Co., 1857, Gandhi/national movement, constitution-making). Two named sub-clauses verified missing on re-audit: **colonial urbanisation & town planning** (zero topics), and **11th–14th-c. traveler accounts** are thin — one combined topic (U2-100) covers Ibn Battuta/Abdur Razzaq but not Al-Biruni or Marco Polo. → [`missing-topics/09-additional-gaps-in-covered-units.md`](missing-topics/09-additional-gaps-in-covered-units.md) |
 | ii. स्वतंत्रता के बाद समेकन एवं पुनर्गठन | ✅ Full | Unit 2 (U2-089 रियासतों का एकीकरण, U2-091 राज्य पुनर्गठन अधिनियम 1956). |
 | iii. भारतीय समाज की मुख्य विशेषताएं, विविधता | ❌ None | No dedicated "Indian society" topic cluster anywhere. |
 | iv. भारत/MP जनसांख्यिकी, MP जनजातियाँ | ⚠️ Partial | MP-tribe content lives in Unit 10 (134 topics) — good. Generic India/MP **demographics** (census trends, sex ratio, dependency ratio, migration) has no dedicated cluster. |
@@ -53,7 +53,8 @@ Analytical ability, Reasoning — items 1/2/3/9 above are really 3 subjects sinc
 
 | Sub-item | Coverage | Verdict |
 |---|---|---|
-| i–vii (Constitution history/features/amendments, Centre-State, separation of powers, Parliament/state legislature, executive/judiciary, welfare schemes for weaker sections, poverty & hunger) | ✅ Full | **Unit 4 is exceptionally thorough here** — 212 topics covering nearly every sub-item verbatim (e.g. U4-001–U4-015 constitution/rights, U4-016–U4-039 Parliament/executive/state legislature, U4-026–U4-030 judiciary, U4-033 federalism, U4-045/U4-160 welfare schemes for vulnerable groups). No meaningful gap. |
+| i–iv, vi–vii (Constitution history/features/amendments, Centre-State, separation of powers, Parliament/state legislature, welfare schemes for weaker sections, poverty & hunger) | ✅ Full | **Unit 4 is exceptionally thorough here** — 212 topics covering nearly every sub-item verbatim (e.g. U4-001–U4-015 constitution/rights, U4-016–U4-039 Parliament/executive/state legislature, U4-033 federalism, U4-045/U4-160 welfare schemes for vulnerable groups). |
+| v. कार्यपालिका/न्यायपालिका संरचना — **दबाव समूह और औपचारिक/अनौपचारिक संघ, राजनीति में उनकी भूमिका** | ⚠️ Partial | Executive/judiciary structure itself: ✅ Full (U4-017–U4-030). But the specific clause on **pressure groups and formal/informal associations' role in politics** is verified missing — zero topics for lobbying, interest groups, civil-society/NGO advocacy, or media-as-pressure-group. → [`missing-topics/09-additional-gaps-in-covered-units.md`](missing-topics/09-additional-gaps-in-covered-units.md) |
 
 ### प्रश्नपत्र-II — सामान्य अध्ययन (300 अंक)
 
@@ -85,10 +86,9 @@ Analytical ability, Reasoning — items 1/2/3/9 above are really 3 subjects sinc
 | Group | Subject | Coverage |
 |---|---|---|
 | समूह-1 (उप निरीक्षक — आयुध / Ordnance) | Mechanical Engineering | ❌ None — entirely outside the current material's scope. |
-| समूह-2 (उप निरीक्षक — अंगुली चिन्ह / FSL / फोटो) | Mathematics, Physics, Chemistry | ❌ None — entirely outside the current material's scope. |
 
-These two technical papers only apply to specific technical posts within the SI cadre, not to the general/non-technical
-Sub-Inspector post, so they're the lowest priority unless you're targeting one of those specific posts.
+Group-2 (उप निरीक्षक — अंगुली चिन्ह / FSL / फोटो, Mathematics/Physics/Chemistry) is intentionally excluded from
+tracking here — not applicable to a Mechanical Engineering background targeting the SI-Ordnance (समूह-1) post.
 
 ---
 
@@ -101,6 +101,32 @@ Sub-Inspector post, so they're the lowest priority unless you're targeting one o
 | 🟠 Medium | Police/internal-security theme (Mains Paper-II Part-A, items viii–xiii) | Roughly half of a 150-mark section | SI-specific; not in MPPSC GS at all. |
 | 🟠 Medium | Indian Society (Mains Paper-I Part-A, items iii, v, vi) | Roughly half of a 150-mark section | Standalone theme, currently untouched. |
 | 🟡 Low | Basic computer knowledge (Prelims #8 gap) | Part of the 100-mark Prelims | Unit 9 already covers the conceptual half; only the "office suite / everyday computer use" half is missing. |
-| 🟢 Optional | Mechanical Engineering / Maths-Physics-Chemistry (Paper III) | 300 marks, but only for 2 specific technical posts | Only needed if targeting Ordnance or Fingerprint/FSL/Photo posts. |
+| 🔴 High — target post | Mechanical Engineering (Paper III, Group-1) | 300 marks | Needed for the SI-Ordnance post (Mechanical Engineering background). |
+| 🟡 Low | Colonial urbanization/town planning + pressure groups (2 named sub-clauses inside otherwise-Full Units 2 & 4) | Small fraction of two 150-mark sections | Narrow — a handful of MCQs' worth each, not a whole subject. |
 
 Granular topic-by-topic breakdowns for every "Missing"/"Partial" row above are in **[`missing-topics/`](./missing-topics)**.
+
+---
+
+## 100% verification pass (2026-09-02)
+
+After the first pass above, every syllabus clause was re-walked individually and grep-checked against
+`SYLLABUS_COVERAGE.md` line by line (not eyeballed) to confirm nothing smaller than a whole-subject gap had
+been missed inside the units already marked "✅ Full". Explicitly re-verified as **actually present** (not just
+assumed): IPR (U6-095), nanomaterials (U6-068), biotechnology/CRISPR (U6-039, U6-079, U6-085), AI (U9-043,
+U8-023/103/134), robotics (U6-083), remote sensing/GIS/GPS (U9-065–U9-067). Two clauses came back with **zero**
+matches under every reasonable phrasing tried and are now captured in
+[`missing-topics/09-additional-gaps-in-covered-units.md`](missing-topics/09-additional-gaps-in-covered-units.md):
+
+1. **औपनिवेशिक नगरीकरण तथा नगर योजना** (colonial urbanization & town planning) — a named clause inside Mains
+   Paper-I Part-क item i, sitting between "1857 का विद्रोह" and "महात्मा गांधी" in the official text.
+2. **दबाव समूह और औपचारिक/अनौपचारिक संघ, राजनीति में उनकी भूमिका** (pressure groups & formal/informal
+   associations' role in politics) — a named clause inside Mains Paper-I Part-ख item v.
+
+Plus one **thin-not-absent** note: the syllabus's "11th–14th century traveler accounts" clause is served by a
+single combined Unit-2 topic (U2-100) spanning Megasthenes through Abdur Razzaq — real but shallow for that
+specific century window, and missing Al-Biruni/Marco Polo by name.
+
+With these three additions, **every atomic clause in the official syllabus text now maps to either an existing
+unit topic-code range or a line item in `missing-topics/`** — there is no remaining syllabus clause with no
+tracked home on either side of that ledger.
