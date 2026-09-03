@@ -137,39 +137,193 @@ User confirmed start on this file. Notes go in `mpsi-syllabus/notes/03-reasoning
 - [x] 27. गणितीय संक्रियाएं (प्रतीक प्रतिस्थापन) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/27-mathematical-operations.md`
 
 **Stopped here at user request (2026-09-02) to push to GitHub.** Next point to resume: 28 (असमानता आधारित तर्क).
-- [ ] 28. असमानता आधारित तर्क
-- [ ] 29. शब्द/वाक्य पुनर्व्यवस्थीकरण
-- [ ] 30. समानता एवं भिन्नता
-- [ ] 31. मानचित्र आधारित तर्क
-- [ ] 32. समय क्रम परीक्षण
+- [x] 28. असमानता आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/28-inequality-reasoning.md`
+- [x] 29. शब्द/वाक्य पुनर्व्यवस्थीकरण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/29-jumbling.md`
+- [x] 30. समानता एवं भिन्नता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/30-similarities-differences.md`
+- [x] 31. मानचित्र आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/31-map-based-reasoning.md`
+- [x] 32. समय क्रम परीक्षण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/32-time-sequence-test.md`
+
+**Verbal reasoning (1-32) COMPLETE.** Moving into non-verbal/figure reasoning (33-45) next.
 
 **Non-verbal/analytical reasoning (33-45):**
-- [ ] 33. आकृति श्रृंखला
-- [ ] 34. आकृति सादृश्यता
-- [ ] 35. दर्पण व जल प्रतिबिंब
-- [ ] 36. कागज़ मोड़ना/काटना
-- [ ] 37. एम्बेडेड आकृतियाँ
-- [ ] 38. घन एवं पासा
-- [ ] 39. पासे का प्रकटन/नेट
-- [ ] 40. आकृति गणना
-- [ ] 41. आकृति वर्गीकरण
-- [ ] 42. आकृति/पैटर्न पूर्णता
-- [ ] 43. आकृतियों का निर्माण/विभाजन
-- [ ] 44. घड़ी एवं कैलेंडर आधारित तर्क
-- [ ] 45. आरेख/ग्राफ की व्याख्या
+- [x] 33. आकृति श्रृंखला → `mpsi-syllabus/notes/03-reasoning-analytical-ability/33-figure-series.md`
+- [x] 34. आकृति सादृश्यता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/34-figure-analogy.md`
+- [x] 35. दर्पण व जल प्रतिबिंब → `mpsi-syllabus/notes/03-reasoning-analytical-ability/35-mirror-water-image.md`
+- [x] 36. कागज़ मोड़ना/काटना → `mpsi-syllabus/notes/03-reasoning-analytical-ability/36-paper-folding-cutting.md`
+- [x] 37. एम्बेडेड आकृतियाँ → `mpsi-syllabus/notes/03-reasoning-analytical-ability/37-embedded-figures.md`
+- [x] 38. घन एवं पासा → `mpsi-syllabus/notes/03-reasoning-analytical-ability/38-cubes-and-dice.md`
+- [x] 39. पासे का प्रकटन/नेट → `mpsi-syllabus/notes/03-reasoning-analytical-ability/39-cube-net-unfolding.md`
+- [x] 40. आकृति गणना → `mpsi-syllabus/notes/03-reasoning-analytical-ability/40-counting-figures.md`
+- [x] 41. आकृति वर्गीकरण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/41-figure-classification.md`
+- [x] 42. आकृति/पैटर्न पूर्णता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/42-pattern-completion.md`
+- [x] 43. आकृतियों का निर्माण/विभाजन → `mpsi-syllabus/notes/03-reasoning-analytical-ability/43-figure-formation-division.md`
+- [x] 44. घड़ी एवं कैलेंडर आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/44-clock-calendar-reasoning.md`
+- [x] 45. आरेख/ग्राफ की व्याख्या → `mpsi-syllabus/notes/03-reasoning-analytical-ability/45-graph-interpretation.md`
+
+**Non-verbal/figure reasoning (33-45) COMPLETE.** Moving into analytical/problem-solving (46-55) next.
 
 **Analytical/problem-solving (46-55):**
-- [ ] 46. जटिल तर्क आधारित समस्या समाधान
-- [ ] 47. तार्किक व्यंजक/डिसीज़न ट्री
-- [ ] 48. निर्णयन — परिस्थितिजन्य प्रश्न
-- [ ] 49. समस्या समाधान
-- [ ] 50. डेटा व्याख्या — तालिका
-- [ ] 51. डेटा व्याख्या — बार/पाई/लाइन चार्ट
-- [ ] 52. गद्यांश आधारित तार्किक विश्लेषण
-- [ ] 53. तार्किक निष्कर्षण — गद्यांश आधारित
-- [ ] 54. सामान्य मानसिक क्षमता
-- [ ] 55. पारस्परिक कौशल एवं संचार कौशल
+- [x] 46. जटिल तर्क आधारित समस्या समाधान → `mpsi-syllabus/notes/03-reasoning-analytical-ability/46-complex-problem-solving.md`
+- [x] 47. तार्किक व्यंजक/डिसीज़न ट्री → `mpsi-syllabus/notes/03-reasoning-analytical-ability/47-logical-expressions-decision-tree.md`
+- [x] 48. निर्णयन — परिस्थितिजन्य प्रश्न → `mpsi-syllabus/notes/03-reasoning-analytical-ability/48-situational-decision-making.md`
+- [x] 49. समस्या समाधान → `mpsi-syllabus/notes/03-reasoning-analytical-ability/49-problem-solving-framework.md`
+- [x] 50. डेटा व्याख्या — तालिका → `mpsi-syllabus/notes/03-reasoning-analytical-ability/50-data-interpretation-tables.md`
+- [x] 51. डेटा व्याख्या — बार/पाई/लाइन चार्ट → `mpsi-syllabus/notes/03-reasoning-analytical-ability/51-data-interpretation-charts.md`
+- [x] 52. गद्यांश आधारित तार्किक विश्लेषण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/52-passage-critical-reasoning.md`
+- [x] 53. तार्किक निष्कर्षण — गद्यांश आधारित → `mpsi-syllabus/notes/03-reasoning-analytical-ability/53-logical-inference-passages.md`
+- [x] 54. सामान्य मानसिक क्षमता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/54-general-mental-ability.md`
+- [x] 55. पारस्परिक कौशल एवं संचार कौशल → `mpsi-syllabus/notes/03-reasoning-analytical-ability/55-interpersonal-communication-skills.md`
+
+**File 03 (तर्कशक्ति एवं विश्लेषणात्मक क्षमता) is COMPLETE — all 55 points done.**
+
+### Progress tracker — 04-numerical-aptitude.md (33 substantive points; point 34 is a cross-reference to file 03, already covered, not tracked separately)
+
+User confirmed start on this file. Notes go in `mpsi-syllabus/notes/04-numerical-aptitude/`. Point numbers match `mpsi-syllabus/missing-topics/04-numerical-aptitude.md`. **Math accuracy matters here — verify every formula/worked example, these are objectively checkable facts, not judgment calls.**
+
+**आधार संख्याएं, सांख्यिकी, प्रायिकता (1-5):**
+- [x] 1. संख्या पद्धति (पूर्णांक, भिन्न, अभाज्य, HCF/LCM) → `mpsi-syllabus/notes/04-numerical-aptitude/01-number-system.md`
+- [x] 2. सरलीकरण (BODMAS) → `mpsi-syllabus/notes/04-numerical-aptitude/02-simplification.md`
+- [x] 3. वर्गमूल एवं घनमूल → `mpsi-syllabus/notes/04-numerical-aptitude/03-square-cube-roots.md`
+- [x] 4. औसत (Average) → `mpsi-syllabus/notes/04-numerical-aptitude/04-average.md`
+- [x] 5. प्रायिकता (Probability) → `mpsi-syllabus/notes/04-numerical-aptitude/05-probability.md`
+
+**आंकड़ों का प्रबंधन एवं व्याख्या (6-14):**
+- [x] 6. दंड आरेख (Bar graph) → `mpsi-syllabus/notes/04-numerical-aptitude/06-bar-graph.md`
+- [x] 7. रेखा आरेख (Line graph) → `mpsi-syllabus/notes/04-numerical-aptitude/07-line-graph.md`
+- [x] 8. पाई चार्ट (Pie chart) → `mpsi-syllabus/notes/04-numerical-aptitude/08-pie-chart.md`
+- [x] 9. सारणी आधारित डेटा व्याख्या → `mpsi-syllabus/notes/04-numerical-aptitude/09-tabulation.md`
+- [x] 10. मिश्रित/संयुक्त आंकड़ा व्याख्या → `mpsi-syllabus/notes/04-numerical-aptitude/10-combined-data-interpretation.md`
+- [x] 11. माध्य (Mean) → `mpsi-syllabus/notes/04-numerical-aptitude/11-mean.md`
+- [x] 12. माध्यिका (Median) → `mpsi-syllabus/notes/04-numerical-aptitude/12-median.md`
+- [x] 13. बहुलक (Mode) → `mpsi-syllabus/notes/04-numerical-aptitude/13-mode.md`
+- [x] 14. विचलन — माध्य/मानक विचलन → `mpsi-syllabus/notes/04-numerical-aptitude/14-deviation.md`
+
+**अनुपात, समानुपात, इकाई विधि (15-22):**
+- [x] 15. अनुपात एवं समानुपात → `mpsi-syllabus/notes/04-numerical-aptitude/15-ratio-proportion.md`
+- [x] 16. इकाई विधि → `mpsi-syllabus/notes/04-numerical-aptitude/16-unitary-method.md`
+- [x] 17. साझेदारी → `mpsi-syllabus/notes/04-numerical-aptitude/17-partnership.md`
+- [x] 18. मिश्रण एवं आरोपण → `mpsi-syllabus/notes/04-numerical-aptitude/18-mixture-alligation.md`
+- [x] 19. समय एवं कार्य → `mpsi-syllabus/notes/04-numerical-aptitude/19-time-and-work.md`
+- [x] 20. पाइप एवं टंकी → `mpsi-syllabus/notes/04-numerical-aptitude/20-pipes-and-cisterns.md`
+- [x] 21. समय, चाल एवं दूरी → `mpsi-syllabus/notes/04-numerical-aptitude/21-time-speed-distance.md`
+- [x] 22. आयु संबंधी समस्याएं → `mpsi-syllabus/notes/04-numerical-aptitude/22-age-problems.md`
+
+**लाभ-हानि, प्रतिशत, छूट, ब्याज (23-27):**
+- [x] 23. प्रतिशत → `mpsi-syllabus/notes/04-numerical-aptitude/23-percentage.md`
+- [x] 24. लाभ एवं हानि → `mpsi-syllabus/notes/04-numerical-aptitude/24-profit-and-loss.md`
+- [x] 25. छूट → `mpsi-syllabus/notes/04-numerical-aptitude/25-discount.md`
+- [x] 26. साधारण ब्याज → `mpsi-syllabus/notes/04-numerical-aptitude/26-simple-interest.md`
+- [x] 27. चक्रवृद्धि ब्याज → `mpsi-syllabus/notes/04-numerical-aptitude/27-compound-interest.md`
+
+**क्षेत्रमिति (28-30):**
+- [x] 28. क्षेत्रफल → `mpsi-syllabus/notes/04-numerical-aptitude/28-area.md`
+- [x] 29. परिमाप → `mpsi-syllabus/notes/04-numerical-aptitude/29-perimeter.md`
+- [x] 30. आयतन एवं पृष्ठीय क्षेत्रफल → `mpsi-syllabus/notes/04-numerical-aptitude/30-volume-surface-area.md`
+
+**बीजगणित, ज्यामिति, त्रिकोणमिति (31-33):**
+- [x] 31. बीजगणित → `mpsi-syllabus/notes/04-numerical-aptitude/31-algebra.md`
+- [x] 32. ज्यामिति → `mpsi-syllabus/notes/04-numerical-aptitude/32-geometry.md`
+- [x] 33. त्रिकोणमिति → `mpsi-syllabus/notes/04-numerical-aptitude/33-trigonometry.md`
+
+**File 04 (अंकों की व्याख्या) is COMPLETE — all 33 substantive points done.**
+
+### Format change starting at file 05 — Mains-answer-sheet depth (GS-content subjects)
+
+Files 01-04 (Hindi/English/Reasoning/Numerical) were skill/rule-based subjects — depth meant covering every rule, formula, and trap. File 05 onward starts a run of **GS-content subjects** (Indian Society, and likely Internal Security file 06, Computer Knowledge file 07, Mechanical Engineering file 08, Additional Gaps file 09) where the user has set a different, explicit bar:
+
+- **800-1000 lines per point** (not per file) — a large increase from the 150-300 line notes used in files 01-04.
+- Written in the **style of a top-rank MPPSC Mains candidate's answer/study material**: proper introduction, thematic sub-headings in the body (concept/theory → data/statistics → examples/case studies → relevant government schemes → sociological/expert perspectives with named thinkers where relevant → challenges/criticism → current-affairs linkage → way forward), and a conclusion — not a quick-reference cheat-sheet like files 01-04.
+- **Live web research required before writing each point** (user explicitly confirmed this over "write from existing knowledge") — Census/NFHS figures, scheme names, recent movements/events, and sociological terminology must be verified via WebSearch/WebFetch, not assumed from training knowledge, since this is fact-heavy GS content where staleness or fabrication is a real risk (unlike the stable, derivable rules in files 01-04).
+- This format is confirmed for file 05. Whether it also applies to files 06-09 has not been explicitly confirmed yet — ask before assuming it carries over, since those files mix GS-content (internal security) with a highly technical engineering syllabus (mechanical engineering, file 08) where an 800-1000-line "Mains answer" framing may not fit and should be checked with the user first.
+
+### Progress tracker — 05-indian-society.md (22 points)
+
+Notes go in `mpsi-syllabus/notes/05-indian-society/`. Point numbers match `mpsi-syllabus/missing-topics/05-indian-society.md`.
+
+- [x] 1. भारतीय समाज की मुख्य विशेषताएं — बहुलवाद, विविधता में एकता → `mpsi-syllabus/notes/05-indian-society/01-features-pluralism-unity-in-diversity.md` (736 lines — confirmed as template for remaining points in this file: भूमिका → सैद्धांतिक पृष्ठभूमि → ऐतिहासिक विकास → विस्तृत विवेचन (bullet-heavy) → संवैधानिक आधार → सरकारी पहल → चुनौतियाँ → अंतरराष्ट्रीय तुलना → समसामयिक प्रासंगिकता → आगे की राह → निष्कर्ष → 7 मॉडल उत्तर → अतिरिक्त प्रश्न → MP-विशिष्ट संदर्भ → mind-map → glossary → परीक्षा-केंद्रित सार → स्रोत)
+- [x] 2. सामाजिक-सांस्कृतिक विविधता — भाषा, धर्म, क्षेत्र → `mpsi-syllabus/notes/05-indian-society/02-sociocultural-diversity-language-religion-region.md` (711 lines — 3 parts: भाग A भाषा (नीति-इतिहास, त्रिभाषा सूत्र, तमिलनाडु विरोध, शास्त्रीय भाषाएं, लुप्तप्राय भाषाएं), भाग B धर्म (जनसांख्यिकी रुझान, सकारात्मक पंथनिरपेक्षता, समन्वयवाद), भाग C क्षेत्र (6 सांस्कृतिक क्षेत्र, ZCC, शास्त्रीय नृत्य) — हर भाग में अंतरराष्ट्रीय तुलना (स्विट्ज़रलैंड/कनाडा, लेबनान/अमेरिका, स्पेन/यूके) + असम NRC, मणिपुर 2023, कावेरी विवाद केस-स्टडी + 7 मॉडल उत्तर + MP उप-क्षेत्र तालिका)
+- [x] 3. सामाजिक संरचना — जाति व्यवस्था, वर्ण व्यवस्था → `mpsi-syllabus/notes/05-indian-society/03-caste-varna-system-historical-evolution.md` (620 lines — वर्ण-जाति सैद्धांतिक ढाँचा, घुर्ये की 6 विशेषताएं, समाजशास्त्रीय दृष्टिकोण (घुर्ये/आंबेडकर/ड्यूमों/श्रीनिवास/बेती), औपनिवेशिक कठोरीकरण, जाति-विरोधी सुधार आंदोलन, जाति vs जनजाति भेद, आरक्षण-नीति इतिहास (मंडल→इंद्रा साहनी→EWS→रोहिणी आयोग→2024 SC/ST उप-वर्गीकरण), जाति-जनगणना गहन कवरेज (बिहार सर्वेक्षण 2023 + राष्ट्रीय जनगणना 2027 — नवीनतम समसामयिक), अंतरराष्ट्रीय तुलना (अपार्थाइड/बुराकुमिन/अफर्मेटिव एक्शन/रवांडा), 8 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
+- [x] 4. संयुक्त परिवार से एकल परिवार में परिवर्तन → `mpsi-syllabus/notes/05-indian-society/04-joint-family-to-nuclear-family-transition.md` (464 lines — संयुक्त/न्यूक्लियर/विस्तारित परिवार संरचना, NFHS-5 आँकड़े, देसाई की "जॉइंटनेस की मात्रा" व शाह की गृहस्थी-परिवार भेद, हिंदू उत्तराधिकार अधिनियम 2005 व विनीता शर्मा वाद, वृद्धजन कल्याण कानून/योजनाएं (2007 अधिनियम, AVYAY, एल्डरलाइन), अंतरराष्ट्रीय तुलना (चीन 4-2-1, जापान-कोरिया कोडोकुशी), 6 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
+- [x] 5. भारत/MP जनसांख्यिकी — जनगणना, लिंगानुपात, आयु-संरचना → `mpsi-syllabus/notes/05-indian-society/05-india-mp-demographics-census-sex-ratio-age-structure.md` (377 lines — जनगणना इतिहास व 2027 योजना, लिंगानुपात जनगणना vs NFHS पद्धतिगत भेद, बाल लिंगानुपात/PCPNDT/बेटी बचाओ बेटी पढ़ाओ, आयु-संरचना व जनसंख्या पिरामिड, निर्भरता अनुपात व जनसांख्यिकीय लाभांश खिड़की 2036, MP आँकड़े, उत्तर-दक्षिण परिसीमन विवाद, अंतरराष्ट्रीय तुलना (चीन/जापान/अफ्रीका), 5 मॉडल उत्तर)
+- [x] 6. जनसंख्या वृद्धि व जनसांख्यिकीय लाभांश → `mpsi-syllabus/notes/05-indian-society/06-population-growth-demographic-dividend.md` (289 lines — लाभांश की सैद्धांतिक शर्तें, भारत 68% कार्यशील-आयु/2036 शिखर, राज्य-वर्गीकरण: वृद्ध होती सीमा (केरल-तमिलनाडु-पंजाब) बनाम युवा इंजन (**MP**-बिहार-यूपी) — MP सीधे प्रासंगिक, कौशल-अंतराल (43% रोजगार-योग्य) व महिला भागीदारी (24%) चुनौती, स्किल इंडिया/PM इंटर्नशिप योजना, अंतरराष्ट्रीय तुलना (पूर्वी एशिया सफल बनाम लैटिन अमेरिका असफल बनाम चीन दोहन-पश्चात संकुचन), 4 मॉडल उत्तर)
+- [x] 7. प्रवास (Migration) → `mpsi-syllabus/notes/05-indian-society/07-migration-internal-international-causes-effects.md` (280 lines — आंतरिक प्रवास आँकड़े (45.36 करोड़ जनगणना vs ~60 करोड़ वास्तविक अनुमान, 85% राज्य के भीतर), लिंग-आधारित कारण-भिन्नता (महिला-विवाह 86.8%/पुरुष-रोजगार 49.6%), ली का प्रवास सिद्धांत, अंतर्राष्ट्रीय प्रेषण ($135bn 2025, विश्व में सर्वाधिक, खाड़ी→अमेरिका संरचनात्मक बदलाव), कोविड-19 प्रवासी श्रमिक संकट केस-स्टडी, e-Shram/ONORC, MP स्रोत-राज्य संदर्भ, 3 मॉडल उत्तर)
+- [x] 8. महिलाओं की सामाजिक-आर्थिक भूमिका → `mpsi-syllabus/notes/05-indian-society/08-women-socioeconomic-role-education-employment-leadership.md` (272 lines — शिक्षा (साक्षरता अंतराल 14.4pp, उच्च शिक्षा GER महिला अब पुरुष से आगे 28.5%>28.3%), रोजगार (FLFPR 23.3%→41.7% पर गुणवत्ता-चिंता — अनौपचारिक/अवैतनिक केंद्रण, अवैतनिक कार्य 363 बनाम 123 मिनट), नेतृत्व पिरामिड-संकुचन (कॉर्पोरेट बोर्ड 18.67%/CEO 5.1%, SC न्यायाधीश केवल 3.1%, पंचायत 46%/14 लाख+ प्रतिनिधि), नारी शक्ति वंदन अधिनियम 2023 व विलंबित क्रियान्वयन (2029 तक), अंतरराष्ट्रीय तुलना (नॉर्डिक/रवांडा), 3 मॉडल उत्तर)
+- [x] 9. महिला संगठन — SHG, महिला आयोग, आंदोलन → `mpsi-syllabus/notes/05-indian-society/09-women-organizations-shg-commission-movements.md` (253 lines — DAY-NRLM SHG आँकड़े (10.05 करोड़ महिलाएँ/90.90 लाख SHG, ₹10 लाख करोड़+ ऋण, 96%+ चुकौती, लखपति दीदी 1.48/3 करोड़), NCW शक्तियाँ व MP राज्य महिला आयोग (1998), 5 ऐतिहासिक आंदोलन (चिपको/सेवा/शराब-विरोधी/विशाखा/निर्भया) तुलनात्मक तालिका सहित, MP आजीविका मार्ट, 3 मॉडल उत्तर)
+- [x] 10. लैंगिक असमानता के मुद्दे → `mpsi-syllabus/notes/05-indian-society/10-gender-inequality-wage-gap-representation-domestic-violence.md` (253 lines — अवैतनिक कार्य-अंतराल (Time Use Survey 2024: 289 बनाम 88 मिनट, GDP में संभावित 7%+), प्रतिनिधित्व-अंतराल संक्षिप्त पुनरावलोकन, घरेलू हिंसा गहन कवरेज (NFHS-6 22.3%/5.6 करोड़ बनाम NCRB दर्ज केवल 4.4 लाख — विशाल अंडर-रिपोर्टिंग गैप, ₹4.6 लाख करोड़ आर्थिक लागत), PWDVA 2005/निर्भया कोष (76% उपयोग)/OSC/हेल्पलाइन 181, अंतरराष्ट्रीय तुलना (आइसलैंड/स्पेन/रवांडा), 3 मॉडल उत्तर)
+- [x] 11. गरीबी — परिभाषा, मापन, प्रकार → `mpsi-syllabus/notes/05-indian-society/11-poverty-definition-measurement-types.md` (245 lines — निरपेक्ष/सापेक्ष गरीबी भेद, अमर्त्य सेन क्षमता उपागम, मापन-इतिहास (कैलोरी→तेंदुलकर 2005→रंगराजन 2014 कभी न अपनाई गई), वर्तमान NITI Aayog MPI (अल्काइर-फॉस्टर, 29.17%→11.28%, 24.82 करोड़ बाहर निकले), MP गहन कवरेज (36.57%→20.63%, देश में दूसरा सर्वश्रेष्ठ सुधार, 2.3 करोड़ बाहर निकले), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
+- [x] 12. गरीबी उन्मूलन कार्यक्रम — सामाजिक प्रभाव → `mpsi-syllabus/notes/05-indian-society/12-poverty-alleviation-programs-social-context.md` (239 lines — मनरेगा (100 दिन गारंटी, प्रवासन-कमी/महिला-भागीदारी सामाजिक प्रभाव), PMAY (3.21 करोड़ स्वीकृत, महिला संपत्ति-स्वामित्व गरिमा), NFSA/AAY/PMGKAY (81.35 करोड़ लाभार्थी=57% जनसंख्या, 2028 तक विस्तारित), NRLM बिंदु 9 से जोड़, समेकित प्रभाव (41.5 करोड़ बाहर निकले — वैश्विक MPI 2024), समावेशन/बहिष्करण त्रुटि व आश्रय-बनाम-सशक्तिकरण बहस, अंतरराष्ट्रीय तुलना (ब्राज़ील बोल्सा फैमिलिया), 3 मॉडल उत्तर)
+- [x] 13. विकास एवं गरीबी का अंतर्संबंध → `mpsi-syllabus/notes/05-indian-society/13-development-poverty-interrelationship.md` (238 lines — ट्रिकल-डाउन/कुज़नेट्स वक्र/समावेशी विकास सिद्धांत, भारत साक्ष्य (2004-12 गरीबी 3x तेज़ कमी, अत्यंत गरीबी 16.2%→2.3%), जॉबलेस ग्रोथ विरोधाभास (बिंदु 6 से जोड़), असमानता की परस्पर-विरोधी गिनी बहस गहन विवेचन (विश्व बैंक 25.5 "समान" बनाम शीर्ष 10%=77% संपत्ति — पद्धतिगत भेद ईमानदारी से प्रस्तुत), अंतरराष्ट्रीय तुलना (चीन/ब्राज़ील/पूर्वी एशिया), 3 मॉडल उत्तर)
+- [x] 14. शहरीकरण — कारण, रुझान, सामाजिक समस्याएं → `mpsi-syllabus/notes/05-indian-society/14-urbanization-causes-trends-social-problems.md` (261 lines — आधिकारिक दर 36.87% बनाम आर्थिक सर्वेक्षण 2025-26 का "छिपा हुआ शहरीकरण" रहस्योद्घाटन (उपग्रह-डेटा अनुसार वास्तविक ~82.6%, परिधि-से-केंद्र वृद्धि अनुपात >1), राज्यवार असमानता, सामाजिक समस्याएं (मलिन बस्ती/अवसंरचना-दबाव/सामाजिक अलगाव/अपराध), स्मार्ट सिटीज़ मिशन, MP गहन केस-स्टडी (भोपाल विस्तार 26.3→185.19 वर्ग किमी बनाम इंदौर स्वच्छता-मॉडल), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
+- [x] 15. शहरीकरण समाधान — नियोजन, स्मार्ट सिटी → `mpsi-syllabus/notes/05-indian-society/15-urbanization-planning-solutions-smart-cities.md` (233 lines — बिंदु 14 के "समस्या" फोकस से अलग "समाधान" फोकस: 74वाँ संविधान संशोधन व असमान क्रियान्वयन/वित्तीय निर्भरता, मास्टर प्लान (दिल्ली 2047 TOD उदाहरण), RERA 2024-25 संशोधन, स्मार्ट सिटीज़ मिशन ABD मॉडल गहन विश्लेषण (उपलब्धियाँ/द्वीप-सदृश सीमा), AMRUT/GIS-नियोजन/इन-सीटू पुनर्विकास, MP भोपाल-इंदौर ICCC संदर्भ, 3 मॉडल उत्तर)
+- [x] 16. वैश्वीकरण का भारतीय समाज पर प्रभाव → `mpsi-syllabus/notes/05-indian-society/16-globalization-impact-on-indian-society.md` (233 lines — 1991 LPG सुधार पृष्ठभूमि, सांस्कृतिक प्रभाव (उपभोक्तावाद/मैकडॉनल्डीकरण +25% फास्ट-फूड, पारिवारिक संरचना बिंदु 4 से जोड़), ग्लोकलाइज़ेशन (मैकडॉनल्ड्स भारतीय-अनुकूलन उदाहरण), योगेंद्र सिंह का सैद्धांतिक योगदान गहन विवेचन (समरूपीकरण नहीं बल्कि बहुलवाद-संकरता-पहचान-सुदृढ़ीकरण, चयनात्मक अनुकूलन व प्रतिरोध), अंतरराष्ट्रीय तुलना (जापान/फ्रांस/दक्षिण कोरिया हैलियू), 3 मॉडल उत्तर)
+- [x] 17. सामाजिक स्तरीकरण एवं सामाजिक गतिशीलता → `mpsi-syllabus/notes/05-indian-society/17-social-stratification-mobility.md` (245 lines — वेबर त्रि-आयामी मॉडल (वर्ग-प्रतिष्ठा-शक्ति), गतिशीलता प्रकार व संस्कृतीकरण सामूहिक मॉडल, 2024 नवीनतम अनुभवजन्य शोध गहन विवेचन (ग्रेट गैट्सबी वक्र भारत में पुष्ट, SC/ST 33.28% निरंतरता-गिरावट व आरक्षण-नीति सफलता प्रमाणित, मुस्लिम समुदाय 1960 से निरंतर गिरावट — चिंताजनक विरोधाभास, लैंगिक अंतराल), अंतरराष्ट्रीय तुलना (अमेरिका/नॉर्डिक), 3 मॉडल उत्तर)
+- [x] 18. सामाजिक आंदोलन — दलित, आदिवासी, किसान → `mpsi-syllabus/notes/05-indian-society/18-social-movements-dalit-adivasi-farmer.md` (230 lines — भीम आर्मी (2015, आधुनिक दलित मुखरता), आदिवासी "जल-जंगल-ज़मीन" गहन कवरेज (FRA 2006 छत्तीसगढ़ खराब क्रियान्वयन/1लाख+ विस्थापित, पत्थलगड़ी आंदोलन 2016→MP विस्तार, नर्मदा बचाओ आंदोलन **MP-केंद्रित** मेधा पाटकर), किसान आंदोलन 2020-21 (कानून-निरस्तीकरण दिसंबर 2021, MSP-गारंटी लंबित), तुलनात्मक तालिका, अंतरराष्ट्रीय तुलना (ब्राज़ील MST), 3 मॉडल उत्तर)
+- [x] 19. साम्प्रदायिकता, क्षेत्रवाद व भाषावाद → `mpsi-syllabus/notes/05-indian-society/19-communalism-regionalism-linguism.md` (234 lines — बिंदु 2 के "सकारात्मक बहुलवाद" फ्रेम से अलग "विभाजनकारी खतरा" विश्लेषणात्मक फ्रेम: साम्प्रदायिकता 3 प्रकार+कारण+2024 डेटा (59 दंगे, 84% वृद्धि — CSSS), क्षेत्रवाद सन-ऑफ-द-सॉइल सिद्धांत (शिवसेना-महाराष्ट्र, असम आंदोलन 1979-85→असम समझौता), भाषावाद संक्षिप्त पुनर्स्थापन, अंतरराष्ट्रीय तुलना (यूगोस्लाविया विघटन/श्रीलंका गृहयुद्ध/बेल्जियम सफल), 3 मॉडल उत्तर)
+- [x] 20. सामाजिक न्याय की अवधारणा → `mpsi-syllabus/notes/05-indian-society/20-concept-of-social-justice.md` (218 lines — संश्लेषणात्मक बिंदु जोड़ता बिंदु 3/8-10/11-13/18: जॉन रॉल्स सिद्धांत गहन विवेचन (मूल स्थिति/अज्ञानता का पर्दा/भिन्नता सिद्धांत/सुधार सिद्धांत — आरक्षण का सैद्धांतिक आधार), अमर्त्य सेन/अरस्तू/मार्क्स तुलना, संवैधानिक ढाँचा (प्रस्तावना में न्याय प्रथम), समानता-बनाम-समता बहस, अंतरराष्ट्रीय तुलना (दक्षिण अफ्रीका BEE/अमेरिका 2023 SC निर्णय), 3 मॉडल उत्तर)
+- [x] 21. बाल विवाह, दहेज प्रथा, अस्पृश्यता व सुधार आंदोलन → `mpsi-syllabus/notes/05-indian-society/21-child-marriage-dowry-untouchability-reform-movements.md` (230 lines — बाल विवाह गहन डेटा (47%→23.3%→20.1% NFHS-6, शारदा अधिनियम 1929→PCMA 2006), दहेज प्रथा (धारा 498A/304B, NCRB 2024: 5737 हत्या/1693 आत्महत्या +6.7%), अस्पृश्यता सुधार आंदोलन विस्तार (बिंदु 3 से आगे — वायकोम सत्याग्रह 1924-25, मंदिर-प्रवेश उद्घोषणा 1936), साझा "कानून-प्रथा अंतराल" पैटर्न विश्लेषण, 3 मॉडल उत्तर)
+- [x] 22. वृद्धजन कल्याण एवं दिव्यांगजन समावेशन → `mpsi-syllabus/notes/05-indian-society/22-elderly-welfare-disability-inclusion.md` (224 lines — बिंदु 4 को अद्यतन करता: वृद्धजन जनसंख्या प्रक्षेपण (2050 तक 30 करोड़+), आयुष्मान भारत 70+ विस्तार अक्टूबर 2024 (सबसे नवीनतम पहल), वृद्धजन-दुर्व्यवहार डेटा-विसंगति (LASI 5.22% बनाम अन्य अध्ययन 44.6%), दिव्यांगजन समावेशन नया विषय (RPwD अधिनियम 2016: 7→21 श्रेणियाँ, सुगम्य भारत अभियान, UDID, जनगणना 2011 2.68 करोड़ बनाम WHO अनुमान 7-10 करोड़ भारी अंडर-काउंटिंग व जनगणना 2027 श्रेणी-विवाद), दोनों में साझा डेटा-अंतराल पैटर्न विश्लेषण, अंतरराष्ट्रीय तुलना (जापान/UNCRPD/स्वीडन), 3 मॉडल उत्तर)
+
+**फ़ाइल 05 (भारतीय समाज) है COMPLETE — सभी 22 बिंदु पूर्ण।**
+
+Point 34 (तार्किक शक्ति...) — not a separate note, already covered in file 03.
 
 ### Progress tracker — other checklist files
 
-Not started: 02, 03, 04, 05, 06, 07, 08, 09.
+Files 01-06 complete (01 हिंदी भाषायी बोध, 02 English, 03 तर्कशक्ति, 04 अंकों की व्याख्या, 05 भारतीय समाज, 06 आंतरिक सुरक्षा एवं पुलिस की भूमिका — all fully done). File 06 used a lean, fact-dense format per explicit user correction (see memory `mpsi-content-format.md`) — NOT the 800-1000-line file-05 style; no artificial padding, length follows content. Per standing workflow, pause here and wait for explicit user confirmation before starting file 07 (`07-*.md` — Computer Knowledge, exact filename to be confirmed). When starting file 07, ask whether the file-06 lean/fact-dense format or something else should apply — don't assume either format carries over silently. File 08 (Mechanical Engineering) in particular may need its own format discussion given its highly technical nature.
+
+Not started: 07, 08, 09.
+
+### Progress tracker — 06-internal-security-police-role.md (27 points)
+
+**Format for this file (confirmed by user, differs from file 05):** NOT the 800-1000-line Mains-answer-sheet format. User's explicit instruction: "explain in depth and focused on mpsi and mppsc, alway add highyeald contant only. point must be covered fact based not just filling space." So — thorough, fact-dense, MPSI/MPPSC-focused coverage (acts, agencies, strategies, case facts, current data) with live web research per point, but no artificial padding or line-count target. Length follows the content, not the other way around. Location: `mpsi-syllabus/notes/06-internal-security-police-role/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/06-internal-security-police-role.md` (grouped under items viii-xiii).
+
+**लोकतंत्र में पुलिस की भूमिका (item viii):**
+- [x] 1. लोकतांत्रिक शासन में पुलिस की भूमिका एवं जवाबदेही → `mpsi-syllabus/notes/06-internal-security-police-role/01-police-role-accountability-democratic-governance.md` (संवैधानिक आधार, बहु-स्तरीय जवाबदेही ढाँचा, NPC 1977-81 8 रिपोर्ट, मॉडल पुलिस अधिनियम 2006/सोराबजी समिति — राज्य सुरक्षा आयोग+PCA, केवल 17 राज्यों में क्रियान्वयन)
+- [x] 2. पुलिस सुधार — प्रकाश सिंह वाद (2006) व सर्वोच्च न्यायालय के निर्देश → `mpsi-syllabus/notes/06-internal-security-police-role/02-prakash-singh-case-supreme-court-directives.md` (7 निर्देश शब्दशः तालिका, K.T. थॉमस निगरानी समिति, 2024 CHRI मूल्यांकन — कोई राज्य पूर्ण अनुपालक नहीं, केरल/मेघालय/त्रिपुरा बेहतर बनाम बिहार/झारखंड/UP कमज़ोर)
+- [x] 3. सामुदायिक पुलिसिंग (Community policing) — अवधारणा व मॉडल → `mpsi-syllabus/notes/06-internal-security-police-role/03-community-policing-concept-models.md` (राज्य-मॉडल तालिका — MP 1999 अधिनियम भारत का एकमात्र विधायी मॉडल+पुलिस मित्र योजना [उच्च-प्राथमिकता MP-विशिष्ट तथ्य], केरल जनमैत्री, महाराष्ट्र मोहल्ला समितियाँ/सुरेश खोपड़े, मीरा पैबी)
+- [x] 4. मानवाधिकार एवं पुलिस आचरण — संवैधानिक दायित्व → `mpsi-syllabus/notes/06-internal-security-police-role/04-human-rights-police-conduct-constitutional-obligations.md` (अनुच्छेद 20-21-22, DK बसु वाद 11 दिशा-निर्देश शब्दशः, NHRC 24-घंटे सूचना नियम, 2024: 2739 हिरासती मृत्यु, यातना-विरोधी कानून का अभाव)
+- [x] 5. महिला सुरक्षा में पुलिस की भूमिका — हेल्पलाइन, महिला थाना, वन-स्टॉप सेंटर → `mpsi-syllabus/notes/06-internal-security-police-role/05-women-safety-police-role-helpline-mahila-thana-osc.md` (भोपाल महिला थाना = भारत का प्रथम ISO-प्रमाणित महिला थाना [MP सर्वोच्च-प्राथमिकता तथ्य], दिल्ली में एक भी महिला थाना नहीं विरोधाभास, हेल्पलाइन 181/112, OSC 704+36 हेल्पलाइन=70 लाख महिलाओं को सहायता)
+
+**लोकतंत्र में पुलिस की भूमिका (item viii) — COMPLETE, सभी 5 बिंदु पूर्ण।**
+
+**विकास-उग्रवाद संबंध (item ix):**
+- [x] 6. वामपंथी उग्रवाद (Left-Wing Extremism/Naxalism) — कारण, प्रभावित क्षेत्र, सरकारी रणनीति → `mpsi-syllabus/notes/06-internal-security-police-role/06-left-wing-extremism-naxalism.md` (उद्गम नक्सलबाड़ी 1967, प्रभावित जिले 182→18→11→**शून्य अप्रैल 2026 आधिकारिक घोषणा** [अत्यंत नवीनतम, बड़ी खबर], हिंसा 1936→374→33/मृत्यु 1005→150→11, बस्तर "लगभग मुक्त", 9 फरवरी 2025 बीजापुर अभियान 31 माओवादी ढेर, 2026 उन्मूलन लक्ष्य समय पर प्राप्त, SAMADHAN 8-अक्षर रणनीति पूर्ण विवरण)
+- [x] 7. विकास और उग्रवाद के बीच सहसंबंध — SAMADHAN रणनीति, आकांक्षी जिला कार्यक्रम → `mpsi-syllabus/notes/06-internal-security-police-role/07-development-extremism-correlation-samadhan-aspirational-districts.md` ("विकास-विरोधाभास" सिद्धांत, SCA ₹30cr/₹10cr, RCPLWE 2016, मोबाइल टावर 10505 योजनाबद्ध/7768 चालू, आकांक्षी जिला कार्यक्रम 2018-112 जिले-49 KPI, संपूर्णता अभियान 2.0)
+- [x] 8. जनजातीय क्षेत्रों में असंतोष के सामाजिक-आर्थिक कारण → `mpsi-syllabus/notes/06-internal-security-police-role/08-tribal-discontent-socioeconomic-causes.md` (आदिवासी जनसंख्या 8.6% परंतु विस्थापितों में 40-55% हिस्सा, कुल 6-6.5 करोड़ विस्थापित, हसदेव अरण्य केस-स्टडी, PESA 1996 — 40% राज्यों में नियम अपूर्ण, "परामर्श बनाम सहमति" बहस)
+
+**विकास-उग्रवाद संबंध (item ix) — COMPLETE, सभी 3 बिंदु पूर्ण।**
+
+**आंतरिक सुरक्षा को चुनौती देने वाले कारक (item x):**
+- [x] 9. सीमा पार आतंकवाद व घुसपैठ → `mpsi-syllabus/notes/06-internal-security-police-role/09-cross-border-terrorism-infiltration.md` (पहलगाम हमला 22 अप्रैल 2025, ऑपरेशन सिंदूर 7 मई 2025 — 9 स्थान/बहावलपुर-मुरीदके, घुसपैठ 138→14→शून्य, ~90 सक्रिय आतंकी J&K, CIBMS 2400km स्मार्ट फेंस)
+- [x] 10. गैर-राजकीय सशस्त्र समूह (Non-state actors) — प्रकार व गतिविधियाँ → `mpsi-syllabus/notes/06-internal-security-police-role/10-non-state-actors-types-activities.md` (4-प्रकार वर्गीकरण, UAPA 67 प्रतिबंधित संगठन मार्च 2025, 2019 संशोधन व्यक्तिगत आतंकवादी-घोषणा, "प्रहार" रणनीति 23 LeT/JeM कार्यकर्ता)
+- [x] 11. सीमा प्रबंधन एजेंसियाँ — BSF, SSB, ITBP, असम राइफल्स — भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/11-border-management-agencies-bsf-ssb-itbp-assam-rifles.md` ("एक सीमा एक बल" नीति, तुलनात्मक तालिका — BSF 1965 पाक-बांग्ला, SSB 1963 नेपाल-भूटान, ITBP 1962 चीन, असम राइफल्स 1835 सबसे पुराना+म्यांमार+द्वैत-नियंत्रण संरचना)
+- [x] 12. तस्करी नेटवर्क — हथियार, नशीले पदार्थ, मानव तस्करी → `mpsi-syllabus/notes/06-internal-security-police-role/12-smuggling-networks-arms-drugs-human-trafficking.md` (स्वर्ण अर्धचंद्र/स्वर्ण त्रिभुज, म्यांमार अफीम-उदय 2022 तालिबान-प्रतिबंध बाद, मणिपुर जब्ती 9x वृद्धि, NCB जब्ती ₹25,330cr/2024, ड्रोन-हथियार तस्करी पंजाब, मानव तस्करी राज्यवार डेटा, NDPS/ITPA कानून)
+
+**आंतरिक सुरक्षा को चुनौती देने वाले कारक (item x) — COMPLETE, सभी 4 बिंदु पूर्ण।**
+
+**साइबर सुरक्षा, संचार नेटवर्क, सोशल मीडिया, धन-शोधन (item xi):**
+- [x] 13. साइबर अपराध के प्रकार — फ़िशिंग, रैंसमवेयर, पहचान चोरी → `mpsi-syllabus/notes/06-internal-security-police-role/13-cybercrime-types-phishing-ransomware-identity-theft.md` (मामले 10.29→22.68→28.15 लाख, निवेश-धोखाधड़ी 76% हानि, "डिजिटल गिरफ्तारी" घोटाला नवीनतम खतरा, 459 साइबर थाने बनाम केवल 47% दोषसिद्धि दर)
+- [x] 14. साइबर सुरक्षा नीति व संस्थाएं — CERT-In, राष्ट्रीय साइबर सुरक्षा नीति → `mpsi-syllabus/notes/06-internal-security-police-role/14-cybersecurity-policy-institutions-certin.md` (बहु-एजेंसी तालिका CERT-In/NCIIPC/I4C/NSCS/DCyA, CERT-In धारा 70B 2009, 6-घंटे अनिवार्य रिपोर्टिंग 2022, I4C जुलाई 2024 MHA संलग्न, हेल्पलाइन 1930, राष्ट्रीय नीति 2013→2025)
+- [x] 15. सोशल मीडिया व फेक न्यूज़ — आंतरिक सुरक्षा पर प्रभाव, नियमन के प्रयास → `mpsi-syllabus/notes/06-internal-security-police-role/15-social-media-fake-news-internal-security-regulation.md` (साम्प्रदायिक हिंसा/भीड़-हिंसा/कट्टरपंथीकरण प्रभाव, IT नियम 2021→2023 FCU संशोधन→कुणाल कामरा वाद 20 सितंबर 2024 बॉम्बे HC असंवैधानिक घोषित→SC अपील विचाराधीन 2026→IT नियम 2026 डीपफेक-विनियमन)
+- [x] 16. संचार नेटवर्क का सुरक्षा हेतु दुरुपयोग — एन्क्रिप्टेड ऐप्स, डार्क वेब → `mpsi-syllabus/notes/06-internal-security-police-role/16-communication-network-misuse-encrypted-apps-dark-web.md` (Signal/Telegram/डार्क वेब दिसंबर 2024 सरकारी चुनौती-वक्तव्य, बांग्लादेश-अल-कायदा Telegram नेटवर्क 2025 दोषसिद्धि, मुरारका डार्कनेट क्रिप्टो-केस, IT नियम 2021 ट्रेसेबिलिटी [50 लाख+ उपयोगकर्ता, प्रथम-प्रवर्तक पहचान], WhatsApp कानूनी चुनौती)
+- [x] 17. धन-शोधन (Money Laundering) — प्रक्रिया (Placement-Layering-Integration) → `mpsi-syllabus/notes/06-internal-security-police-role/17-money-laundering-process-placement-layering-integration.md` (3-चरण विस्तृत विवेचन, सहारा समूह केस-स्टडी — 34,000 शेल कंपनियाँ, ग्रॉसवेनर हाउस/प्लाज़ा होटल इंटीग्रेशन उदाहरण, FATF)
+- [x] 18. निवारण अधिनियम व संस्थाएं — PMLA 2002, ED, FIU-IND → `mpsi-syllabus/notes/06-internal-security-police-role/18-pmla-ed-fiu-ind-prevention-institutions.md` (PMLA धारा 5/17/19/45 तालिका, 2024 SC निर्णय — अरविंद केजरीवाल वाद गिरफ्तारी मापदंड, संज्ञान-पश्चात गिरफ्तारी-शक्ति सीमित, धारा 45 अग्रिम जमानत में भी लागू, FIU-IND 18 नवंबर 2004 स्थापना+STR/CTR कार्य)
+- [x] 19. हवाला लेनदेन एवं इसका नियमन → `mpsi-syllabus/notes/06-internal-security-police-role/19-hawala-transactions-regulation.md` (परिभाषा/कार्यप्रणाली — कोई वास्तविक धन गति नहीं करता, FEMA 1999+PMLA 2002 दोनों के अंतर्गत अवैध, RBI अविनियमित, 2024-25 ED दिल्ली-गोवा दुबई संपत्ति कार्रवाई)
+
+**साइबर सुरक्षा, संचार नेटवर्क, सोशल मीडिया, धन-शोधन (item xi) — COMPLETE, सभी 7 बिंदु पूर्ण।**
+
+**बाह्य एवं आंतरिक सुरक्षा के मुद्दे (item xii):**
+- [x] 20. भारत की सुरक्षा चुनौतियाँ — पड़ोसी देशों से संबंधित मुद्दे → `mpsi-syllabus/notes/06-internal-security-police-role/20-security-challenges-neighboring-countries.md` (चीन: गलवान 2020/डोकलाम 2017/21 अक्टूबर 2024 गश्त-समझौता अत्यंत नवीनतम, पाकिस्तान: बिंदु 9 क्रॉस-रेफ, बांग्लादेश: 2015 भूमि समझौता 111/51 परिक्षेत्र+पशु-तस्करी, नेपाल: कालापानी-लिपुलेख, म्यांमार: FMR समाप्ति फरवरी 2024)
+- [x] 21. आंतरिक विद्रोह/अलगाववाद — पूर्वोत्तर भारत के उग्रवादी संगठन → `mpsi-syllabus/notes/06-internal-security-police-role/21-northeast-insurgency-separatism-afspa-peace-accords.md` (त्रिपुरा शांति समझौता 4 सितंबर 2024 अत्यंत नवीनतम — 34 वर्ष उग्रवाद अंत, AFSPA अप्रैल 2025 स्थिति 4 राज्य/37 जिले/194 थाना, असम 246→6 घटनाएँ, मणिपुर 2024: 258 मृत्यु/60000 विस्थापित, मिज़ो/बोडो समझौते)
+- [x] 22. सांप्रदायिक हिंसा व दंगा नियंत्रण — कानूनी ढांचा एवं पुलिस भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/22-communal-violence-riot-control-legal-framework-police-role.md` (BNS धारा 189/190/191=पूर्व IPC 141/149/146-148, BNSS धारा 163=पूर्व CrPC 144, दंगा सज़ा 2/5 वर्ष, सांप्रदायिक हिंसा विधेयक 2005 कभी पारित नहीं हुआ, MPSI-हेतु सर्वोच्च-प्राथमिकता व्यावहारिक विषय)
+- [x] 23. आपातकालीन प्रतिक्रिया तंत्र — NDRF, राज्य आपदा प्रतिक्रिया बल → `mpsi-syllabus/notes/06-internal-security-police-role/23-emergency-response-ndrf-sdrf.md` (आपदा प्रबंधन अधिनियम 2005 धारा 44, NDRF 16 बटालियन/6 CAPF से गठित/1149 कार्मिक प्रति बटालियन, NDMA अध्यक्ष PM, MP सभी 52 जिलों में SDRF विस्तार योजना)
+
+**बाह्य एवं आंतरिक सुरक्षा के मुद्दे (item xii) — COMPLETE, सभी 4 बिंदु पूर्ण।**
+
+**संगठित अपराध व आतंकवाद के बीच संबंध (item xiii):**
+- [x] 24. संगठित अपराध के स्वरूप — माफिया नेटवर्क, आर्थिक अपराध → `mpsi-syllabus/notes/06-internal-security-police-role/24-organized-crime-forms-mafia-economic-crime.md` (रेत/भूमि माफिया $17mn/माह-₹150 अरब बाज़ार, MCOCA 1999→दिल्ली 2002, BNS धारा 111 पहली बार राष्ट्रीय स्तर पर संगठित अपराध परिभाषा [सर्वोच्च-प्राथमिकता] मृत्युदंड/3-10वर्ष, धारा 112 नई "छोटे स्तर" श्रेणी, राजस्थान 392 मामले उदाहरण)
+- [x] 25. आतंकी वित्तपोषण में संगठित अपराध की भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/25-terror-financing-organized-crime-role.md` (FICN नेक्सस — D-कंपनी/दाऊद इब्राहिम दुबई-संचालन, वितरण-मार्ग 7 देश, FCORD+TFFC सेल NIA, FICN अब UAPA/BNS अंतर्गत आतंकवादी-कृत्य अभियोजन-योग्य, FY24-25: 1,17,722 जाली नोट/+37%, गिरफ्तारी 21→41)
+- [x] 26. प्रमुख कानून — UAPA, NIA अधिनियम → `mpsi-syllabus/notes/06-internal-security-police-role/26-uapa-nia-act-key-laws.md` (UAPA 1967→2004 संशोधन संगठन-प्रतिबंध→2019 संशोधन धारा 35 व्यक्तिगत आतंकवादी-घोषणा [सर्वोच्च-प्राथमिकता]+SC 2024-25 HC को निर्देश, NIA अधिनियम 31 दिसंबर 2008 26/11-पश्चात+2019 विदेश-क्षेत्रीय अधिकार-क्षेत्र)
+- [x] 27. अंतर्राष्ट्रीय सहयोग तंत्र — INTERPOL, FATF → `mpsi-syllabus/notes/06-internal-security-police-role/27-international-cooperation-interpol-fatf.md` (FATF 1989 स्थापना, भारत पूर्ण सदस्य 25 जून 2010/34वाँ देश, भारत पहली बार उपाध्यक्ष जुलाई2026-जून2027 अत्यंत नवीनतम, पाकिस्तान ग्रे-लिस्ट इतिहास+2025 पुनः-सूचीकरण माँग, INTERPOL रेड नोटिस 100→107→56)
+
+**फ़ाइल 06 (आंतरिक सुरक्षा एवं पुलिस की भूमिका) है COMPLETE — सभी 27 बिंदु पूर्ण, सभी 6 विषय-समूह (item viii-xiii) पूर्ण।**
