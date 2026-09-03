@@ -269,9 +269,141 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 
 ### Progress tracker — other checklist files
 
-Files 01-06 complete (01 हिंदी भाषायी बोध, 02 English, 03 तर्कशक्ति, 04 अंकों की व्याख्या, 05 भारतीय समाज, 06 आंतरिक सुरक्षा एवं पुलिस की भूमिका — all fully done). File 06 used a lean, fact-dense format per explicit user correction (see memory `mpsi-content-format.md`) — NOT the 800-1000-line file-05 style; no artificial padding, length follows content. Per standing workflow, pause here and wait for explicit user confirmation before starting file 07 (`07-*.md` — Computer Knowledge, exact filename to be confirmed). When starting file 07, ask whether the file-06 lean/fact-dense format or something else should apply — don't assume either format carries over silently. File 08 (Mechanical Engineering) in particular may need its own format discussion given its highly technical nature.
+**All 9 checklist files are now COMPLETE** (01 हिंदी भाषायी बोध, 02 English, 03 तर्कशक्ति, 04 अंकों की व्याख्या, 05 भारतीय समाज, 06 आंतरिक सुरक्षा एवं पुलिस की भूमिका, 07 बुनियादी कंप्यूटर ज्ञान, 08 तकनीकी पेपर — मैकेनिकल इंजीनियरिंग, 09 Additional Gaps in Covered Units). **The MPSI/MP-govt missing-topics note-authoring project is finished** — every checklist point across all 9 files has a corresponding deep-dive Markdown note. Any further work here would be revision/expansion of existing notes, not new checklist points.
 
-Not started: 07, 08, 09.
+### Progress tracker — 09-additional-gaps-in-covered-units.md (3 items, 20 sub-topics)
+
+**Format:** Same lean/fact-dense, web-verified style as files 06-08 (not the heavy 800-1000-line file-05 style) — user said "must cover facts." Unlike files 01-08, this checklist isn't numbered 1-N flat points; it has **3 named gap-items** (each a specific missing sub-clause inside an otherwise-covered Mains Paper-I unit), each with a "topics to add" sub-list. One file was written per item (not per sub-topic), since each item's sub-topics form one cohesive subject. This is **MPPSC Mains-level GS content** (history/polity), not MPSI-technical — web-verified all checkable facts (Act years, founding dates of organisations, traveller dates) via WebSearch rather than assuming from memory, consistent with the file-05/06/07 rule for fact-heavy GS content.
+
+- [x] 1. औपनिवेशिक नगरीकरण तथा नगर योजना → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/01-colonial-urbanization-town-planning.md` (all 7 sub-topics: presidency towns, civil lines vs native town, cantonments, Bombay Municipal Corporation Act 1888, hill stations incl. MP's पचमढ़ी, railway towns Jamalpur/Kharagpur, Jamshedpur — web-verified Act year, TISCO 1912/naming 1919)
+- [x] 2. दबाव समूह एवं औपचारिक/अनौपचारिक संघ → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/02-pressure-groups-formal-informal-associations.md` (all 7 sub-topics: pressure group types, lobbying methods, FICCI 1927/CII roots-1895-renamed-1992, AITUC 1920/INTUC 1947/BMS 1955 with party affiliations, civil society/NGO/FCRA, formal vs informal association, media as informal pressure group, pressure group vs political party distinction — all founding dates web-verified)
+- [x] 3. मध्यकालीन यात्री विवरण — विस्तार (thin, not absent) → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/03-medieval-travellers-al-biruni-marco-polo.md` (sub-topics 8-10: Al-Biruni/Kitab-ul-Hind methodology, Marco Polo Deccan/Malabar merchant account, comparative analysis with Ibn Battuta/Abdur Razzaq across 4 travellers' era/role/focus — web-verified)
+
+**फ़ाइल 09 (अतिरिक्त सूक्ष्म अंतराल) है COMPLETE — सभी 3 आइटम, 20 उप-विषय पूर्ण।**
+
+### Progress tracker — 08-technical-paper-group1-mechanical.md (62 points)
+
+**Format for this file (confirmed by user, differs from files 06/07):** User explicitly asked for **stricter rules** than files 06/07, given this content is also shared with RRB (Railway) technical-paper syllabus, not just MPSI. Confirmed via AskUserQuestion at file start:
+- **Language**: English-primary, with Hindi terms given once per concept for syllabus-matching — not Hindi-primary with English in parentheses (the style used in files 01-07). Matches how mechanical engineering is actually taught/tested even in Hindi-medium prep.
+- **Depth**: "Lean formula+fact sheet" — key definitions, formulas, standard values/units, and the 3-5 facts that actually recur in objective (MCQ, -ve marking) papers; no derivations/proofs, no artificial padding. User reinforced mid-file ("all points must be deeply covered based on facts and importancy") — interpreted as full, non-compressed coverage of every sub-topic *within* a point's stated scope, not padding beyond it.
+- **Points 61-62** (vague, post-specific "Ordnance/weapon-system mechanical concepts" and "Ordnance maintenance & inspection," not standard ME curriculum): user chose "best-effort from general ordnance/small-arms engineering knowledge, flagged as unverified" over skipping — both files carry an explicit ⚠️ caveat banner stating there is no confirmed official SI-Ordnance syllabus/paper source, and recommending official department material be prioritized if available.
+- Every point verified against standard, stable undergraduate mechanical-engineering textbook knowledge (statics, SOM, thermo, fluid mechanics, TOM, machine design, manufacturing, metrology are universal/stable content not requiring live web search, same treatment as file 04's numerical aptitude) — no numeric/factual web-verification was needed for this file, unlike files 05-07.
+- Location: `mpsi-syllabus/notes/08-technical-paper-group1-mechanical/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/08-technical-paper-group1-mechanical.md`.
+- **Scope note**: This paper (Paper III) is only for the SI-Ordnance post specifically (300 marks, 100 objective questions, -1/3 negative marking) — not general MPSI/MPPSC. Per user, the content is written to serve RRB JE/ALP/Technician and other PSC technical papers too, since they draw from the same standard mechanical engineering objective syllabus.
+
+**Engineering Mechanics (1-5):**
+- [x] 1. बल तंत्र, परिणामी बल एवं संतुलन → `01-force-systems-resultant-equilibrium.md` (parallelogram/triangle/polygon law, moments, couples, Lami's theorem)
+- [x] 2. घर्षण के नियम → `02-laws-of-friction.md` (laws of static/kinetic friction, μ=tanφ, angle of repose, cone of friction)
+- [x] 3. केन्द्रक, गुरुत्व केन्द्र व जड़त्व आघूर्ण → `03-centroid-centre-of-gravity-moment-of-inertia.md` (standard I formulas, parallel/perpendicular axis theorems)
+- [x] 4. ट्रस व फ्रेम विश्लेषण → `04-analysis-of-trusses-frames.md` (m=2j-3, method of joints/sections, zero-force member rules)
+- [x] 5. संवेग व आघात → `05-momentum-impact-linear-angular.md` (coefficient of restitution, elastic/inelastic collision, angular momentum conservation)
+
+**Strength of Materials (6-9):**
+- [x] 6. प्रतिबल-विकृति संबंध, हुक का नियम → `06-stress-strain-hookes-law.md` (E=2G(1+μ)=3K(1-2μ), stress-strain curve, ductile vs brittle)
+- [x] 7. SFD व BMD → `07-shear-force-bending-moment-diagrams.md` (dM/dx=V, standard cases: cantilever/SSB with point load/UDL)
+- [x] 8. बंकन प्रतिबल, मरोड़ व विक्षेपण → `08-bending-stress-torsion-deflection-of-beams.md` (M/I=σ/y=E/R, T/J=τ/r=Gθ/L, standard deflection formulas)
+- [x] 9. पतले सिलेंडर / प्रेशर वेसल → `09-thin-cylinders-pressure-vessels.md` (σh=pd/2t, σl=pd/4t, σh=2σl)
+
+**Material Science (10-12):**
+- [x] 10. धातुओं के यांत्रिक गुण → `10-mechanical-properties-of-metals.md` (ductility vs malleability, Brinell/Rockwell/Vickers, Izod/Charpy, fatigue/creep)
+- [x] 11. मिश्रधातु व इस्पात के प्रकार → `11-alloys-types-of-steel.md` (steel vs CI carbon-content boundary, grey/white/malleable/SG cast iron, stainless steel Cr role)
+- [x] 12. ताप उपचार प्रक्रियाएं → `12-heat-treatment-processes.md` (annealing/normalizing/hardening/tempering comparison table, case hardening methods)
+
+**Thermodynamics (13-16):**
+- [x] 13. ऊष्मागतिकी के नियम → `13-laws-of-thermodynamics.md` (Zeroth/First/Second law, Kelvin-Planck/Clausius statements, PMM1/PMM2, entropy)
+- [x] 14. वायु मानक चक्र → `14-air-standard-cycles.md` (Carnot/Otto/Diesel cycle efficiency formulas, η_Carnot>η_Otto>η_Diesel)
+- [x] 15. ताप अंतरण → `15-heat-transfer-conduction-convection-radiation.md` (Fourier's law, Newton's law of cooling, Stefan-Boltzmann law)
+- [x] 16. ऊष्मा विनिमायक → `16-heat-exchangers.md` (parallel vs counter flow, LMTD, shell-and-tube/plate types)
+
+**IC Engines (17-19):**
+- [x] 17. पेट्रोल व डीजल इंजन कार्यप्रणाली → `17-working-of-ic-engines.md` (4-stroke vs 2-stroke, SI vs CI comparison)
+- [x] 18. इंजन के भाग → `18-engine-components.md` (piston/crankshaft/camshaft, valve timing, valve overlap)
+- [x] 19. कार्बुरेटर व ईंधन इंजेक्शन प्रणाली → `19-carburetor-fuel-injection-system.md` (venturi principle, A:F ratio 14.7:1, CRDI)
+
+**Fluid Mechanics (20-24):**
+- [x] 20. द्रव के गुण व दाब मापन → `20-fluid-properties-pressure-measurement.md` (Newton's law of viscosity, Pascal's law, P=ρgh, manometers)
+- [x] 21. सांतत्य समीकरण व बर्नूली प्रमेय → `21-continuity-equation-bernoullis-theorem.md` (A1V1=A2V2, Bernoulli's equation, Reynolds number)
+- [x] 22. पाइप प्रवाह में हानियाँ → `22-losses-in-pipe-flow.md` (Darcy-Weisbach, major vs minor losses, HGL/TEL)
+- [x] 23. केन्द्रापसारी व रेसीप्रोकेटिंग पंप → `23-centrifugal-reciprocating-axial-pumps-fans.md` (priming, cavitation, single/double-acting, fan/blower/compressor)
+- [x] 24. टर्बाइन के प्रकार → `24-types-of-turbines.md` (impulse vs reaction, Pelton/Francis/Kaplan head-discharge table)
+
+**Theory of Machines (25-33):**
+- [x] 25. समतल यंत्रों का विस्थापन, वेग व त्वरण विश्लेषण → `25-kinematics-slider-crank-mechanism.md` (Grübler's equation, n=l/r, max velocity/acceleration points)
+- [x] 26. कैम व फॉलोअर → `26-cams-and-followers.md` (follower/cam types, cycloidal motion = smoothest)
+- [x] 27. गियर व गियर ट्रेन → `27-gears-and-gear-trains.md` (module matching requirement, simple/compound/epicyclic trains)
+- [x] 28. गवर्नर → `28-governors.md` (governor vs flywheel distinction, Watt/Porter/Proell/Hartnell, hunting/isochronism)
+- [x] 29. फ्लाईव्हील → `29-flywheel.md` (K.E.=½Iω², Cs, ΔE=Iω²mean·Cs)
+- [x] 30. घूर्णन भागों का संतुलन → `30-balancing-of-rotating-masses.md` (static vs dynamic balancing, Σmr=0 and Σmrl=0)
+- [x] 31. गायरोस्कोपिक गति → `31-gyroscopic-motion.md` (Cg=Iωωp, ship pitch/yaw cross-coupling)
+- [x] 32. यांत्रिक कंपन → `32-mechanical-vibrations.md` (ωn=√(k/m), resonance, damping ratio classification)
+- [x] 33. बेल्ट, रस्सी व चेन ड्राइव → `33-belt-rope-chain-drives.md` (T1/T2=e^μθ, chordal action, belt vs chain vs gear comparison)
+
+**Machine Design (34-39):**
+- [x] 34. मशीन डिजाइन के मूल सिद्धांत — सुरक्षा गुणांक → `34-machine-design-basics-factor-of-safety.md` (FoS definition, stress concentration, failure theories)
+- [x] 35. वेल्डेड व रिवेटेड जोड़ों का डिजाइन → `35-design-of-welded-riveted-joints.md` (riveted failure modes, fillet weld throat=0.707h)
+- [x] 36. शाफ्ट व स्पर गियर डिजाइन → `36-shaft-spur-gear-design.md` (shaft vs axle, equivalent torque/moment, Lewis equation)
+- [x] 37. क्लच व ब्रेक → `37-clutches-and-brakes.md` (clutch types, self-energizing/self-locking, drum vs disc brake)
+- [x] 38. मशीन तत्व — बेयरिंग व कपलिंग → `38-bearings-and-couplings.md` (rolling vs sliding bearing, hydrodynamic lubrication, coupling vs clutch, L10 life)
+- [x] 39. चाबी, कील व फास्टनर → `39-keys-cotter-joints-fasteners.md` (key vs cotter distinction, feather key, minor diameter for bolt strength)
+
+**Manufacturing & Engineering Drawing (40-51):**
+- [x] 40. ऑर्थोग्राफिक प्रोजेक्शन → `40-orthographic-projection.md` (First-angle = India/BIS standard, line types)
+- [x] 41. सेक्शनल व्यू व डायमेंशनिंग → `41-sectional-views-dimensioning.md` (hatching conventions, non-hatched elements, dimensioning systems)
+- [x] 42. कास्टिंग प्रक्रिया → `42-casting-process.md` (cope/drag, riser vs core, pattern allowances, casting defects)
+- [x] 43. वेल्डिंग के प्रकार → `43-types-of-welding.md` (SMAW/MIG/TIG, resistance welding, brazing vs soldering 450°C threshold)
+- [x] 44. मशीनिंग प्रक्रियाएं → `44-machining-turning-milling-drilling.md` (lathe parts, up vs down milling, reaming vs boring, drill point angle 118°)
+- [x] 45. धातु काटने का सिद्धांत, टूल ज्यामिति व टूल लाइफ → `45-mechanics-of-metal-cutting-tool-geometry-tool-life.md` (chip types, Taylor's tool life equation VTⁿ=C)
+- [x] 46. ग्राइंडिंग व फिनिशिंग प्रक्रियाएं → `46-grinding-finishing-processes.md` (Al2O3 vs SiC abrasive, self-sharpening, honing/lapping)
+- [x] 47. जिग व फिक्सचर डिजाइन के मूल सिद्धांत → `47-jigs-fixtures-design-basics.md` (jig guides tool vs fixture holds work, 3-2-1 principle)
+- [x] 48. अपारंपरिक मशीनिंग — EDM, ECM → `48-non-conventional-machining-edm-ecm.md` (dielectric vs electrolyte, tool wear comparison, USM for non-conductive)
+- [x] 49. CAD/CAM के बुनियादी सिद्धांत → `49-basics-of-cad-cam.md` (wireframe/surface/solid model, G-code vs M-code)
+- [x] 50. मापन उपकरण → `50-measuring-instruments.md` (vernier LC=1MSD-1VSD=0.1mm, micrometer LC=pitch/divisions=0.01mm)
+- [x] 51. सीमा, फिट व सहनशीलता → `51-limits-fits-tolerances.md` (clearance/interference/transition fit, hole basis system standard)
+
+**Thermal Engineering (52-55):**
+- [x] 52. बॉयलर के प्रकार व माउंटिंग्स → `52-types-of-boilers-mountings.md` (fire-tube vs water-tube, mountings vs accessories distinction)
+- [x] 53. स्टीम टर्बाइन के मूल सिद्धांत → `53-steam-turbine-basics.md` (impulse vs reaction, velocity vs pressure compounding)
+- [x] 54. रेफ्रिजरेशन चक्र — वाष्प संपीड़न चक्र → `54-vapour-compression-refrigeration-cycle.md` (4 components/processes, cooling happens at evaporator, COP>1, COP_HP=COP_ref+1)
+- [x] 55. वातानुकूलन के मूल सिद्धांत → `55-basics-of-air-conditioning.md` (DBT≥WBT≥DPT, psychrometry, sensible vs latent load)
+
+**Automobile Engineering (56-57):**
+- [x] 56. ऑटोमोबाइल ट्रांसमिशन व चेसिस → `56-automobile-transmission-chassis.md` (body-on-frame vs unitary, gearbox/differential/synchromesh)
+- [x] 57. ब्रेकिंग सिस्टम व स्टीयरिंग → `57-braking-system-steering.md` (hydraulic braking via Pascal's law, ABS, Ackermann steering — inner wheel turns more)
+
+**Industrial Management (58-60):**
+- [x] 58. औद्योगिक प्रबंधन के मूल सिद्धांत → `58-basics-of-industrial-management.md` (Taylor scientific management vs Fayol 14 principles)
+- [x] 59. उत्पादन योजना व नियंत्रण → `59-production-planning-control.md` (routing→scheduling→loading→dispatching→follow-up→inspection, job/batch/mass/continuous production)
+- [x] 60. प्लांट लेआउट व कार्य अध्ययन → `60-plant-layout-work-study.md` (process vs product vs fixed-position layout, method study + time study)
+
+**Ordnance-specific — post-specific, unverified against official syllabus (flagged with ⚠️ caveat in both files, per user decision):**
+- [x] 61. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं → `61-ordnance-weapon-system-mechanical-concepts.md` (recoil=momentum conservation, rifling=gyroscopic stabilization, firearm operating mechanism types — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
+- [x] 62. आयुध रखरखाव व निरीक्षण से जुड़े तकनीकी पहलू → `62-ordnance-maintenance-inspection-technical-aspects.md` (preventive maintenance, NDT methods, Go/No-Go gauging — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
+
+**फ़ाइल 08 (तकनीकी पेपर — मैकेनिकल इंजीनियरिंग) है COMPLETE — सभी 62 बिंदु पूर्ण।**
+
+### Progress tracker — 07-basic-computer-knowledge-gap.md (17 points)
+
+**Format for this file:** Lean, fact-dense (same family as file 06) but with two explicit refinements the user gave mid-file — (1) prefer English technical terms directly (Home/Insert tabs, SUM/AVERAGE, Impact/Non-Impact Printer, LAN/WAN) rather than forcing Hindi translations with English only in parentheses, and (2) add explanatory prose (how/why something works) around the fact-tables, not just bare bullet facts — applied retroactively to points 1-4 after the user flagged point 4 (output devices) as too table-only. No artificial 800-1000-line padding — length follows content. Numeric/current-specific facts (storage capacities, UPI/NEFT/RTGS/IMPS limits, MP Online/e-District portal history) web-verified; stable universal facts (generations, device classifications, shortcut keys) written from verified textbook knowledge. Location: `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/07-basic-computer-knowledge-gap.md`. Unit 9 (ICT) already covers CPU/OS internals/networking protocols/cybersecurity fundamentals in depth — this file stays strictly at the "everyday computer/office use" layer, not duplicating those.
+
+- [x] 1. कंप्यूटर की पीढ़ियाँ (Generations I-V) → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/01-computer-generations.md`
+- [x] 2. कंप्यूटर के प्रकार — सुपर, मेनफ्रेम, मिनी, माइक्रो → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/02-types-of-computers.md`
+- [x] 3. इनपुट डिवाइस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/03-input-devices.md` (कीबोर्ड/माउस/स्कैनर/OMR/OCR/MICR सहित)
+- [x] 4. आउटपुट डिवाइस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/04-output-devices.md` (मॉनिटर प्रकार, Impact/Non-Impact प्रिंटर, प्लॉटर)
+- [x] 5. स्टोरेज डिवाइस — क्षमता व अंतर → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/05-storage-devices.md` (HDD/SSD/पेन ड्राइव/CD-DVD, वेब-सत्यापित क्षमताएं)
+- [x] 6. सॉफ्टवेयर के प्रकार → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/06-types-of-software.md` (System बनाम Application, Compiler/Interpreter)
+- [x] 7. Windows GUI बेसिक्स → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/07-windows-gui-basics.md` (फाइल/फोल्डर प्रबंधन, कंट्रोल पैनल, टास्कबार)
+- [x] 8. MS Word → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/08-ms-word.md` (रिबन टैब, मेल मर्ज, शॉर्टकट)
+- [x] 9. MS Excel → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/09-ms-excel.md` (SUM/AVERAGE/IF/VLOOKUP, सेल फॉर्मेटिंग, चार्ट, शॉर्टकट)
+- [x] 10. MS PowerPoint → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/10-ms-powerpoint.md` (Transition बनाम Animation अंतर, Views, शॉर्टकट)
+- [x] 11. इंटरनेट व ईमेल → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/11-internet-email.md` (Browser बनाम Search Engine, CC/BCC, अटैचमेंट)
+- [x] 12. सामान्य कीबोर्ड शॉर्टकट → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/12-common-keyboard-shortcuts.md` (Universal shortcuts, Clipboard अवधारणा)
+- [x] 13. कंप्यूटर वायरस व एंटीवायरस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/13-computer-virus-antivirus.md` (बुनियादी स्तर — Unit 9 के गहन cybersecurity से अलग, Virus/Worm/Trojan/Ransomware वर्गीकरण)
+- [x] 14. फाइल एक्सटेंशन → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/14-file-extensions.md` (.docx/.xlsx/.pdf/.jpg आदि वर्गीकृत सूची)
+- [x] 15. नेटवर्किंग शब्दावली — दैनिक-उपयोग स्तर → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/15-networking-terminology.md` (LAN/MAN/WAN/PAN, Modem बनाम Router)
+- [x] 16. डिजिटल भुगतान — UPI, नेट बैंकिंग, मोबाइल बैंकिंग → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/16-digital-payments.md` (NPCI/UPI सीमा ₹1 लाख/दिन वेब-सत्यापित, NEFT/RTGS/IMPS तुलना)
+- [x] 17. सरकारी ई-सेवाएं — MP ऑनलाइन, e-District → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/17-mp-egovernance-portals.md` (MP देश का प्रथम Lok Seva Guarantee Act 2010 राज्य — वेब-सत्यापित, MPOnline 2006 MPSEDC+TCS JV)
+
+**फ़ाइल 07 (बुनियादी कंप्यूटर ज्ञान) है COMPLETE — सभी 17 बिंदु पूर्ण।**
 
 ### Progress tracker — 06-internal-security-police-role.md (27 points)
 
