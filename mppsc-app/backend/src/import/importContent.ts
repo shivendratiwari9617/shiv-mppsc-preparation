@@ -225,32 +225,3 @@ export async function runImport(): Promise<ImportResult> {
 
   return { unitsFound: unitDirs.length, topicsFound, questionsFound, errors };
 }
-
-/**
- * Runs the importer while recording an ImportLog row, so the Settings page /
- * admin API can show "last import" status and history.
- */
-export async function runImportLogged(): Promise<{ logId: number } & ImportResult> {
-  const log = await prisma.importLog.create({ data: { status: 'RUNNING' } });
-  try {
-    const result = await runImport();
-    await prisma.importLog.update({
-      where: { id: log.id },
-      data: {
-        status: 'SUCCESS',
-        finishedAt: new Date(),
-        unitsFound: result.unitsFound,
-        topicsFound: result.topicsFound,
-        questionsFound: result.questionsFound,
-        message: result.errors.length ? `${result.errors.length} warning(s). ${result.errors.slice(0, 20).join(' | ')}` : null,
-      },
-    });
-    return { logId: log.id, ...result };
-  } catch (e: any) {
-    await prisma.importLog.update({
-      where: { id: log.id },
-      data: { status: 'FAILED', finishedAt: new Date(), message: e?.message || String(e) },
-    });
-    throw e;
-  }
-}

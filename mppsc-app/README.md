@@ -8,6 +8,10 @@ revision, mock tests, bookmarks, search, and progress statistics — all running
 - 🏠 **Home dashboard** — total MCQs across all units, per-unit MCQ counts, attempted/accuracy, streaks, daily goal.
 - 📚 **Unit & topic browsing** — drill into any unit to see its topics and per-topic progress.
 - 📝 **Practice mode** — practice a whole unit or a single topic, shuffled, with instant feedback + explanations.
+- 📝 **MPSI Notes** — deep-dive Markdown study notes (`mpsi-syllabus/notes/`), browsable by category with a
+  mark-as-read toggle and prev/next navigation.
+- ✅ **Syllabus Checklist** — the full official MPPSC Prelims syllabus (`mppsc-syllabus/prelims/`) as a per-topic
+  checklist, with checkboxes tracked per item and progress bars per file/unit.
 - ⏱️ **Mock test mode** — timed tests across one or all units, optionally filtered by priority tag.
 - 🔁 **Leitner spaced-repetition** — questions you get wrong resurface sooner; a "Revision Due" queue schedules
   reviews at increasing intervals (1 → 3 → 7 → 14 days) as you answer correctly.
@@ -36,22 +40,26 @@ docker compose up --build
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:3000/api/* (proxied) or http://localhost:4000/api/* directly
 
-On first boot, the database will be empty. Click **"Import MCQ Content"** on the home page (or go to
-Settings → "Re-import Content") to scan the MCQ HTML files and populate all units/topics/questions.
-Alternatively, run it from the CLI:
+On first boot, the database will be empty. Click **"Import Content"** on the home page (or go to
+Settings → "Re-import Content") to scan the content folders and populate all units/topics/questions, MPSI
+notes, and the syllabus checklist in one go. Alternatively, run it from the CLI:
 
 ```bash
 docker compose exec backend npm run import
 ```
 
 The importer is safe to re-run at any time — it updates content in place and preserves all your practice
-history, bookmarks, and revision schedule.
+history, bookmarks, revision schedule, read/checked state on notes and checklist items. It can take several
+minutes on a first run given the volume of content (1,700+ MCQ topics, 270+ notes, 2,000+ checklist items).
 
 ### Content source
 
-The backend container mounts the parent folder (the `Structured-units` workspace root, one level above
-`mppsc-app`) read-only at `/content`, and auto-detects the numbered unit folders (e.g. `1) मध्यप्रदेश का इतिहास...`
-through `10) MP की जनजातीय...`). No changes are made to your original HTML files.
+The backend container mounts the parent folder (the workspace root, one level above `mppsc-app`) read-only at
+`/content`. It auto-detects three separate content trees there, no changes are ever made to the source files:
+
+- **MCQ practice content** — numbered unit folders (`1) मध्यप्रदेश का इतिहास...` through `10) MP की जनजातीय...`).
+- **MPSI study notes** — `mpsi-syllabus/notes/<NN-category>/<NN-point>.md`.
+- **Syllabus checklist** — `mppsc-syllabus/prelims/<unit-NN-... or paper-N-...>/**/*.md`.
 
 ### Configuration
 

@@ -125,3 +125,73 @@ export interface DailyStatRow {
   wrongCount: number;
   goalMet: boolean;
 }
+
+// --- MPSI study notes ---
+
+export interface NoteCategorySummary {
+  id: number;
+  code: string;
+  name: string;
+  slug: string;
+  fileCount: number;
+  readCount: number;
+}
+
+export interface NoteFileSummary {
+  id: number;
+  title: string;
+  orderIndex: number;
+  isRead: boolean;
+}
+
+export interface NoteCategoryDetail {
+  category: { id: number; code: string; name: string };
+  files: NoteFileSummary[];
+}
+
+export interface NoteFileDetail {
+  id: number;
+  title: string;
+  content: string;
+  isRead: boolean;
+  category: { id: number; name: string };
+  prev: { id: number; title: string } | null;
+  next: { id: number; title: string } | null;
+}
+
+// --- Full MPPSC syllabus checklist ---
+
+export interface ChecklistUnitSummary {
+  id: number;
+  code: string;
+  name: string;
+  fileCount: number;
+  itemCount: number;
+  checkedCount: number;
+}
+
+export interface ChecklistFileSummary {
+  id: number;
+  title: string;
+  groupLabel: string | null;
+  itemCount: number;
+  checkedCount: number;
+}
+
+export interface ChecklistUnitDetail {
+  unit: { id: number; code: string; name: string };
+  files: ChecklistFileSummary[];
+}
+
+export interface ChecklistItemRow {
+  id: number;
+  label: string;
+  text: string;
+  heading: string | null;
+  isChecked: boolean;
+}
+
+export interface ChecklistFileDetail {
+  file: { id: number; title: string; groupLabel: string | null; unit: { id: number; name: string } };
+  items: ChecklistItemRow[];
+}

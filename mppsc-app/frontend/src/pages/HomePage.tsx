@@ -59,11 +59,14 @@ export default function HomePage() {
     mutationFn: async () => (await api.post('/admin/import')).data,
     onSuccess: (data: any) => {
       setImportLog(
-        `Imported ${data.unitsFound} units, ${data.topicsFound} topics, ${data.questionsFound} questions.` +
+        `Imported ${data.unitsFound} units, ${data.topicsFound} topics, ${data.questionsFound} questions, ` +
+          `${data.notesFound} MPSI notes, ${data.checklistItemsFound} checklist items.` +
           (data.errors?.length ? ` (${data.errors.length} warnings)` : '')
       );
       queryClient.invalidateQueries({ queryKey: ['stats'] });
       queryClient.invalidateQueries({ queryKey: ['units'] });
+      queryClient.invalidateQueries({ queryKey: ['notes'] });
+      queryClient.invalidateQueries({ queryKey: ['checklist'] });
     },
   });
 
@@ -85,11 +88,11 @@ export default function HomePage() {
           <div className="text-3xl">📥</div>
           <h2 className="text-lg font-bold">No content imported yet</h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-            Click below to scan the mounted MCQ content folder and import all units, topics and questions into the
-            database.
+            Click below to scan the mounted content folder and import all units/topics/questions, MPSI study notes,
+            and the full MPPSC syllabus checklist into the database.
           </p>
           <button className="btn-primary" disabled={importMutation.isPending} onClick={() => importMutation.mutate()}>
-            {importMutation.isPending ? 'Importing… this can take a minute' : 'Import MCQ Content'}
+            {importMutation.isPending ? 'Importing… this can take a minute' : 'Import Content'}
           </button>
           {importLog && <p className="text-sm text-brand-700 dark:text-brand-300">{importLog}</p>}
           {importMutation.isError && <ErrorState message={(importMutation.error as any)?.message || 'Import failed'} />}

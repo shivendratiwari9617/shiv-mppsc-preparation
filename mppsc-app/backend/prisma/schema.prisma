@@ -122,12 +122,92 @@ model Setting {
 }
 
 model ImportLog {
-  id             Int       @id @default(autoincrement())
-  startedAt      DateTime  @default(now())
-  finishedAt     DateTime?
-  status         String    @default("RUNNING")
-  unitsFound     Int       @default(0)
-  topicsFound    Int       @default(0)
-  questionsFound Int       @default(0)
-  message        String?
+  id                  Int       @id @default(autoincrement())
+  startedAt           DateTime  @default(now())
+  finishedAt          DateTime?
+  status              String    @default("RUNNING")
+  unitsFound          Int       @default(0)
+  topicsFound         Int       @default(0)
+  questionsFound      Int       @default(0)
+  notesFound          Int       @default(0)
+  checklistItemsFound Int       @default(0)
+  message             String?
+}
+
+// --- MPSI deep-dive study notes (mpsi-syllabus/notes/) ---
+// Plain Markdown reading content, separate from the MCQ practice flow above.
+// Categories don't map onto the MPPSC Unit model — they follow the MPSI
+// missing-topics taxonomy (Hindi, English, Reasoning, Numerical Aptitude, ...).
+model NoteCategory {
+  id         Int        @id @default(autoincrement())
+  code       String     @unique
+  name       String
+  slug       String     @unique
+  orderIndex Int
+  files      NoteFile[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model NoteFile {
+  id         Int          @id @default(autoincrement())
+  categoryId Int
+  category   NoteCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title      String
+  sourceFile String       @unique
+  content    String
+  orderIndex Int
+  isRead     Boolean      @default(false)
+  readAt     DateTime?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@index([categoryId])
+}
+
+// --- Full MPPSC syllabus checklist (mppsc-syllabus/prelims/) ---
+// Pure topic lists (numbered lines, no explanations) with per-item
+// "studied" checkboxes. ChecklistUnit mirrors the official syllabus units
+// (and Paper II), independent of the MCQ Unit model above.
+model ChecklistUnit {
+  id         Int             @id @default(autoincrement())
+  code       String          @unique
+  name       String
+  slug       String          @unique
+  orderIndex Int
+  files      ChecklistFile[]
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+}
+
+model ChecklistFile {
+  id         Int             @id @default(autoincrement())
+  unitId     Int
+  unit       ChecklistUnit   @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  title      String
+  groupLabel String?
+  sourceFile String          @unique
+  orderIndex Int
+  items      ChecklistItem[]
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  @@index([unitId])
+}
+
+model ChecklistItem {
+  id         Int           @id @default(autoincrement())
+  fileId     Int
+  file       ChecklistFile @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  orderIndex Int
+  label      String
+  text       String
+  heading    String?
+  isChecked  Boolean       @default(false)
+  checkedAt  DateTime?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@unique([fileId, orderIndex])
+  @@index([fileId])
 }

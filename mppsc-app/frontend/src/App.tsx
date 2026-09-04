@@ -1,9 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import BookmarksPage from './pages/BookmarksPage';
+import ChecklistFilePage from './pages/ChecklistFilePage';
+import ChecklistPage from './pages/ChecklistPage';
+import ChecklistUnitPage from './pages/ChecklistUnitPage';
 import DuePage from './pages/DuePage';
 import HomePage from './pages/HomePage';
 import MockSetupPage from './pages/MockSetupPage';
+import NoteCategoryPage from './pages/NoteCategoryPage';
+import NoteFilePage from './pages/NoteFilePage';
+import NotesPage from './pages/NotesPage';
 import PracticeSessionPage from './pages/PracticeSessionPage';
 import ResultsPage from './pages/ResultsPage';
 import SearchPage from './pages/SearchPage';
@@ -27,6 +33,12 @@ export default function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/stats" element={<StatsPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/notes" element={<NotesPage />} />
+        <Route path="/notes/categories/:id" element={<NoteCategoryPage />} />
+        <Route path="/notes/files/:id" element={<NoteFilePage />} />
+        <Route path="/checklist" element={<ChecklistPage />} />
+        <Route path="/checklist/units/:id" element={<ChecklistUnitPage />} />
+        <Route path="/checklist/files/:id" element={<ChecklistFilePage />} />
         <Route path="*" element={<div className="text-center py-20 text-slate-500">Page not found.</div>} />
       </Route>
     </Routes>
