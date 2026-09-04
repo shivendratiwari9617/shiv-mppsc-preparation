@@ -459,3 +459,40 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 - [x] 27. अंतर्राष्ट्रीय सहयोग तंत्र — INTERPOL, FATF → `mpsi-syllabus/notes/06-internal-security-police-role/27-international-cooperation-interpol-fatf.md` (FATF 1989 स्थापना, भारत पूर्ण सदस्य 25 जून 2010/34वाँ देश, भारत पहली बार उपाध्यक्ष जुलाई2026-जून2027 अत्यंत नवीनतम, पाकिस्तान ग्रे-लिस्ट इतिहास+2025 पुनः-सूचीकरण माँग, INTERPOL रेड नोटिस 100→107→56)
 
 **फ़ाइल 06 (आंतरिक सुरक्षा एवं पुलिस की भूमिका) है COMPLETE — सभी 27 बिंदु पूर्ण, सभी 6 विषय-समूह (item viii-xiii) पूर्ण।**
+
+## Separate project: mppsc-syllabus/ — pure topic-listing of the full official MPPSC syllabus
+
+This is a **distinct project** from `mpsi-syllabus/` above — not deep content, a pure **topic checklist** (titles only, no explanations/answers) of the complete official MPPSC syllabus, organized unit-wise, one file per official syllabus sub-bullet, **Hindi only**. Source: `Syllabus/Exam_Plan_and_Syllabus_State_Service_Examination_2026_Dated_05_01_2026.pdf` (text layer is corrupted/unusable for Hindi — pages were rendered to PNGs via `pypdfium2`+`Pillow` and read visually; Prelims Paper I/II syllabus, pages 7-10, is English-only in the source and was translated to Hindi for these files).
+
+**Scope corrections learned the hard way (see memory `mppsc-syllabus-list-vs-content.md`):** list only — no MCQ/explanation content; cover the **complete** official syllabus regardless of what's already in the existing 10-unit DB (don't filter down to only "gaps"); **Hindi only** for all topic/point text; folder-per-unit with one file per official syllabus bullet, not a flat per-unit file; each unit expanded to genuine topper-level granularity (not just the ~9 broad official bullet lines) by cross-referencing `SYLLABUS_COVERAGE.md` (the existing 1,743-item MCQ inventory), the `gaps/unitN_gaps.md` files, and additional standard-knowledge topics a top-rank candidate would need even if absent from both.
+
+**Workflow per unit (established and repeated for Units 1-10):** (1) read the unit's line range in `SYLLABUS_COVERAGE.md`; (2) categorize every existing DB item into the unit's official syllabus bullets, one file per bullet; (3) fold in known gaps from `gaps/unitN_gaps.md`; (4) add extra general-knowledge topics a topper needs beyond the DB; (5) audit — full manual line-by-line cross-check for Units 1-3, Grep spot-check + full line-by-line for Unit 10 — to catch omissions, fixing any found.
+
+**Status: `prelims/` — all 10 units COMPLETE** (~1,960 numbered topic lines total):
+- `prelims/unit-01-mp-history-culture-literature/` — 9 files
+- `prelims/unit-02-india-history/` — 6 files
+- `prelims/unit-03-india-mp-geography/` — 14 files (`bharat-ka-bhugol/` 7 + `mp-ka-bhugol/` 7)
+- `prelims/unit-04-constitutional-system/` — 9 files
+- `prelims/unit-05-economy/` — 9 files
+- `prelims/unit-06-science-technology-public-health/` — 7 files
+- `prelims/unit-07-environment-biodiversity-sdg-disaster/` — 3 files
+- `prelims/unit-08-current-affairs/` — 3 files
+- `prelims/unit-09-ict/` — 5 files
+- `prelims/unit-10-mp-tribal-heritage-folk-culture/` — 5 files (full line-by-line audit against all 134 DB items done; one gap found and fixed — U10-129 लोक-संगीत फेस्ट/युवा बैंड फ्यूजन added to file 05 as item 16अ)
+
+**Post-completion audit (2026-09-04):** Ran an automated cross-reference script (token-match) comparing every DB item in `SYLLABUS_COVERAGE.md` against the authored files for Units 2-10, then manually verified every flagged candidate. Most flags were false positives (Hindi files transliterate English DB terms, e.g. "Supervised/Unsupervised" → "सुपरवाइज्ड/अनसुपरवाइज्ड", so literal-string matching missed them). Units 2, 3, 9 came back completely clean; Unit 8's ~101 flags were all traced to genuine coverage elsewhere (schemes like Smart City/AMRUT/Jal Jeevan Mission correctly live under Economy/Geography/Health units, not duplicated into Current Affairs). Four genuine gaps found and fixed:
+- Unit 4 (`02-sangheeya-karyapalika-rashtrapati-sansad.md`): added item 35 — the three Parliamentary financial committees compared (Estimates Committee, Committee on Public Undertakings vs. PAC; only PAC existed before).
+- Unit 4 (`08-tristariya-panchayati-raj-nagarik-prashasan.md`, serving a Unit-5-flagged item): added item 25अ — municipal property tax Annual Rateable Value (ARR) basis and collection efficiency.
+- Unit 6 (`01-vigyan-shakhayen-pratham-gyan.md`): added items 46अ-46आ — nuclear reactor types (PHWR/BWR/Fast Breeder) and India's three-stage nuclear programme (Homi Bhabha plan) — was entirely missing, a high-yield GS gap.
+- Unit 7 (`03-pradushan-prakritik-aapdayen-prabandhan.md`): added item 14अ — environmental economics (externalities, Pigouvian tax, polluter-pays principle).
+
+**Prelims Paper II (General Aptitude Test / CSAT-style) — DONE.** Converted from the old flat `paper-2-general-aptitude-test.md` (deleted) into `prelims/paper-2-general-aptitude-test/` with one file per official syllabus bullet (all 8 bullets from the official 2026 syllabus, page 10):
+- `01-bodh-comprehension.md`, `02-jivan-shailee-pratikari-shakti.md`, `03-sanchar-kaushal.md`, `04-tarkik-tarkashakti-vishleshanatmak-kshamata.md`, `05-nirnayan-samasya-samadhan.md`, `06-samanya-mansik-kshamata.md`, `07-sankhyatmakta-aankada-vyakhya.md`, `08-hindi-bhasha-bodh-kaushal.md`.
+- Files 04 (reasoning) and 07 (numeracy/DI) are reference-lists that point into the already-complete `mpsi-syllabus/notes/03-reasoning-analytical-ability/` (55 points) and `mpsi-syllabus/notes/04-numerical-aptitude/` (33 points) rather than duplicating content, since those topics are already deep-covered there.
+- File 02 ("जीवन शैली एवं प्रतिकारी शक्ति / Life Style and Counter Force") carries an explicit ⚠️ caveat: this exact phrasing appears verbatim in the official 2026 syllabus PDF but has no standard/established CSAT meaning in any secondary source — a WebSearch surfaced a conflicting claim that this topic was "removed" from the 2026 syllabus, which contradicts the primary-source PDF already in this repo (dated 2026-01-05) that was read visually page-by-page; the primary source was trusted over the secondary summary, and the file's topic list is flagged as best-effort literal interpretation pending confirmation closer to exam time.
+- File 08 (Hindi bhasha bodh, Class-10 level) cross-references `mpsi-syllabus/notes/01-hindi-bhasha-bodh/` rather than duplicating.
+
+**Not yet done (not explicitly requested — ask before starting):**
+- `mains/paper-1-...md` through `paper-6-...md` — 6 flat files, official-syllabus transcription only (Hindi Mains source + English restatement cross-checked); headers only partially converted to Hindi (paper-1 only, then abandoned mid-way); not yet expanded/audited since there's no Mains equivalent of `SYLLABUS_COVERAGE.md` to cross-reference against.
+- `mppsc-syllabus/README.md` — stale, still describes the deleted `prelims-gaps/` folder instead of the current `prelims/unit-NN-.../` structure.
+- Nothing in `mppsc-syllabus/` has been committed/pushed yet.
