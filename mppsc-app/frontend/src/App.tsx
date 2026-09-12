@@ -11,6 +11,10 @@ import NoteCategoryPage from './pages/NoteCategoryPage';
 import NoteFilePage from './pages/NoteFilePage';
 import NotesPage from './pages/NotesPage';
 import PracticeSessionPage from './pages/PracticeSessionPage';
+import PrelimsNoteFilePage from './pages/PrelimsNoteFilePage';
+import PrelimsNotesPage from './pages/PrelimsNotesPage';
+import PrelimsNoteTopicPage from './pages/PrelimsNoteTopicPage';
+import PrelimsNoteUnitPage from './pages/PrelimsNoteUnitPage';
 import ResultsPage from './pages/ResultsPage';
 import SearchPage from './pages/SearchPage';
 import SettingsPage from './pages/SettingsPage';
@@ -39,6 +43,10 @@ export default function App() {
         <Route path="/checklist" element={<ChecklistPage />} />
         <Route path="/checklist/units/:id" element={<ChecklistUnitPage />} />
         <Route path="/checklist/files/:id" element={<ChecklistFilePage />} />
+        <Route path="/prelims-notes" element={<PrelimsNotesPage />} />
+        <Route path="/prelims-notes/units/:id" element={<PrelimsNoteUnitPage />} />
+        <Route path="/prelims-notes/topics/:id" element={<PrelimsNoteTopicPage />} />
+        <Route path="/prelims-notes/files/:id" element={<PrelimsNoteFilePage />} />
         <Route path="*" element={<div className="text-center py-20 text-slate-500">Page not found.</div>} />
       </Route>
     </Routes>

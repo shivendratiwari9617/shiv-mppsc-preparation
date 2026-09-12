@@ -16,6 +16,7 @@ interface ImportLog {
   questionsFound: number;
   notesFound: number;
   checklistItemsFound: number;
+  prelimsNotesFound: number;
   message: string | null;
 }
 
@@ -46,6 +47,7 @@ export default function SettingsPage() {
       queryClient.invalidateQueries({ queryKey: ['stats'] });
       queryClient.invalidateQueries({ queryKey: ['notes'] });
       queryClient.invalidateQueries({ queryKey: ['checklist'] });
+      queryClient.invalidateQueries({ queryKey: ['prelims-notes'] });
     },
   });
 
@@ -88,14 +90,14 @@ export default function SettingsPage() {
       <div className="card p-5 space-y-3">
         <h2 className="font-bold">Content Import</h2>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Scans the mounted content folder and (re)imports all units/topics/questions, MPSI study notes, and the full
-          MPPSC syllabus checklist. Safe to re-run — existing progress is preserved.
+          Scans the mounted content folder and (re)imports all units/topics/questions, MPSI study notes, the full
+          MPPSC syllabus checklist, and the fact-based Prelims notes. Safe to re-run — existing progress is preserved.
         </p>
         {lastImport && (
           <p className="text-xs text-slate-500 dark:text-slate-400">
             Last run: {new Date(lastImport.startedAt).toLocaleString()} — {lastImport.status} — {lastImport.unitsFound} units,{' '}
             {lastImport.topicsFound} topics, {lastImport.questionsFound} questions, {lastImport.notesFound} notes,{' '}
-            {lastImport.checklistItemsFound} checklist items
+            {lastImport.checklistItemsFound} checklist items, {lastImport.prelimsNotesFound} Prelims notes
             {lastImport.message ? ` — ${lastImport.message}` : ''}
           </p>
         )}

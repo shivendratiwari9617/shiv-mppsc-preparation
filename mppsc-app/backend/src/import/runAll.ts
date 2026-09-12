@@ -2,6 +2,7 @@ import { prisma } from '../db';
 import { runChecklistImport } from './importChecklist';
 import { runImport } from './importContent';
 import { runNotesImport } from './importNotes';
+import { runPrelimsNotesImport } from './importPrelimsNotes';
 
 export interface FullImportResult {
   unitsFound: number;
@@ -9,18 +10,21 @@ export interface FullImportResult {
   questionsFound: number;
   notesFound: number;
   checklistItemsFound: number;
+  prelimsNotesFound: number;
   errors: string[];
 }
 
 /**
- * Runs all three content importers — MCQ practice content, MPSI study notes,
- * and the full MPPSC syllabus checklist — so a single "Import" action keeps
- * everything in the app in sync with the repo.
+ * Runs all four content importers — MCQ practice content, MPSI study notes,
+ * the full MPPSC syllabus checklist, and the fact-based Prelims content
+ * notes — so a single "Import" action keeps everything in the app in sync
+ * with the repo.
  */
 export async function runFullImport(): Promise<FullImportResult> {
   const mcq = await runImport();
   const notes = await runNotesImport();
   const checklist = await runChecklistImport();
+  const prelimsNotes = await runPrelimsNotesImport();
 
   return {
     unitsFound: mcq.unitsFound,
@@ -28,7 +32,8 @@ export async function runFullImport(): Promise<FullImportResult> {
     questionsFound: mcq.questionsFound,
     notesFound: notes.notesFound,
     checklistItemsFound: checklist.itemsFound,
-    errors: [...mcq.errors, ...notes.errors, ...checklist.errors],
+    prelimsNotesFound: prelimsNotes.notesFound,
+    errors: [...mcq.errors, ...notes.errors, ...checklist.errors, ...prelimsNotes.errors],
   };
 }
 
@@ -46,6 +51,7 @@ export async function runFullImportLogged(): Promise<{ logId: number } & FullImp
         questionsFound: result.questionsFound,
         notesFound: result.notesFound,
         checklistItemsFound: result.checklistItemsFound,
+        prelimsNotesFound: result.prelimsNotesFound,
         message: result.errors.length
           ? `${result.errors.length} warning(s). ${result.errors.slice(0, 20).join(' | ')}`
           : null,

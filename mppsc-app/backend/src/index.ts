@@ -5,6 +5,7 @@ import adminRouter from './routes/admin';
 import bookmarksRouter from './routes/bookmarks';
 import checklistRouter from './routes/checklist';
 import notesRouter from './routes/notes';
+import prelimsNotesRouter from './routes/prelimsNotes';
 import reviewRouter from './routes/review';
 import searchRouter from './routes/search';
 import sessionsRouter from './routes/sessions';
@@ -32,6 +33,7 @@ app.use('/api/settings', settingsRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/notes', notesRouter);
 app.use('/api/checklist', checklistRouter);
+app.use('/api/prelims-notes', prelimsNotesRouter);
 
 app.use((req, res) => {
   res.status(404).json({ error: `Not found: ${req.method} ${req.path}` });

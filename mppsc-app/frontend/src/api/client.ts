@@ -195,3 +195,49 @@ export interface ChecklistFileDetail {
   file: { id: number; title: string; groupLabel: string | null; unit: { id: number; name: string } };
   items: ChecklistItemRow[];
 }
+
+// --- Fact-based MPPSC Prelims content notes ---
+
+export interface PrelimsNoteUnitSummary {
+  id: number;
+  code: string;
+  name: string;
+  topicCount: number;
+  noteCount: number;
+  readCount: number;
+}
+
+export interface PrelimsNoteTopicSummary {
+  id: number;
+  title: string;
+  groupLabel: string | null;
+  noteCount: number;
+  readCount: number;
+}
+
+export interface PrelimsNoteUnitDetail {
+  unit: { id: number; code: string; name: string };
+  topics: PrelimsNoteTopicSummary[];
+}
+
+export interface PrelimsNoteFileSummary {
+  id: number;
+  title: string;
+  orderIndex: number;
+  isRead: boolean;
+}
+
+export interface PrelimsNoteTopicDetail {
+  topic: { id: number; title: string; groupLabel: string | null; unit: { id: number; name: string } };
+  files: PrelimsNoteFileSummary[];
+}
+
+export interface PrelimsNoteFileDetail {
+  id: number;
+  title: string;
+  content: string;
+  isRead: boolean;
+  topic: { id: number; title: string; unit: { id: number; name: string } };
+  prev: { id: number; title: string } | null;
+  next: { id: number; title: string } | null;
+}

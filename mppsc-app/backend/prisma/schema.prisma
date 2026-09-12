@@ -131,6 +131,7 @@ model ImportLog {
   questionsFound      Int       @default(0)
   notesFound          Int       @default(0)
   checklistItemsFound Int       @default(0)
+  prelimsNotesFound   Int       @default(0)
   message             String?
 }
 
@@ -210,4 +211,52 @@ model ChecklistItem {
 
   @@unique([fileId, orderIndex])
   @@index([fileId])
+}
+
+// --- Fact-based MPPSC Prelims content notes (mppsc-syllabus/prelims-notes/) ---
+// One deep, NCERT-primary-sourced Markdown note per numbered item in the
+// corresponding mppsc-syllabus/prelims/ checklist file. Structurally mirrors
+// ChecklistUnit -> ChecklistFile -> ChecklistItem (same units, same topic
+// files), but each leaf is a full note with its own read-tracking (like
+// NoteFile) rather than just a checkbox.
+model PrelimsNoteUnit {
+  id         Int                @id @default(autoincrement())
+  code       String             @unique
+  name       String
+  slug       String             @unique
+  orderIndex Int
+  topics     PrelimsNoteTopic[]
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @updatedAt
+}
+
+model PrelimsNoteTopic {
+  id         Int               @id @default(autoincrement())
+  unitId     Int
+  unit       PrelimsNoteUnit   @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  title      String
+  groupLabel String?
+  dirPath    String            @unique
+  orderIndex Int
+  files      PrelimsNoteFile[]
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@index([unitId])
+}
+
+model PrelimsNoteFile {
+  id         Int              @id @default(autoincrement())
+  topicId    Int
+  topic      PrelimsNoteTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  title      String
+  sourceFile String           @unique
+  content    String
+  orderIndex Int
+  isRead     Boolean          @default(false)
+  readAt     DateTime?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([topicId])
 }
