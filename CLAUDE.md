@@ -379,7 +379,17 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 - [x] 61. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं → `61-ordnance-weapon-system-mechanical-concepts.md` (recoil=momentum conservation, rifling=gyroscopic stabilization, firearm operating mechanism types — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
 - [x] 62. आयुध रखरखाव व निरीक्षण से जुड़े तकनीकी पहलू → `62-ordnance-maintenance-inspection-technical-aspects.md` (preventive maintenance, NDT methods, Go/No-Go gauging — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
 
-**फ़ाइल 08 (तकनीकी पेपर — मैकेनिकल इंजीनियरिंग) है COMPLETE — सभी 62 बिंदु पूर्ण।**
+**Gap-fill addition (2026-09-13) — points 63-70, added after cross-checking against MP-ESB Group-3 (Sub-Engineer Mechanical, समूह-03) and RRB-JE/SSC-JE Mechanical Engineering syllabi.** Points 1-60 were built solely against the MPSI SI-Ordnance Paper III syllabus; MP-ESB doesn't publish a granular topic list for its Group-3 technical papers (only a 100-mark "तकनीकी ट्रेड पर आधारित" line), so RRB-JE CBT-2/SSC-JE Paper-II — the two most standardized published diploma-level Mechanical objective syllabi — were used as the benchmark. Web-verified via search; 8 genuine, distinctly-named recurring topics found absent from 1-60:
+- [x] 63. स्तंभ (Columns/Struts) एवं स्प्रिंग → `63-columns-struts-springs.md` (Euler's Pcr=π²EI/Le², effective-length end-condition table, slenderness ratio, Rankine's empirical formula, helical-spring stiffness k=Gd⁴/8D³n, Wahl's factor, series-softer/parallel-stiffer spring combination)
+- [x] 64. धातु फॉर्मिंग प्रक्रियाएं → `64-metal-forming-forging-rolling-extrusion.md` (hot-vs-cold-working recrystallization-temperature distinction, forging types drop/press/upset, rolling-mill configurations two/three/four-high/cluster, direct-vs-indirect extrusion, wire drawing)
+- [x] 65. पाउडर मेटलर्जी → `65-powder-metallurgy.md` (process sequence powder-production→blending→compaction→sintering-below-melting-point, self-lubricating-bearings classic application, tungsten-carbide-tool-tips high-melting-point rationale)
+- [x] 66. पावर प्लांट इंजीनियरिंग → `66-power-plant-engineering-rankine-cycle-types.md` (power-plant-types table thermal/hydro/nuclear/diesel/gas/combined-cycle, Rankine-cycle 4-process table, reheat+regeneration efficiency-improvement, Brayton cycle, combined-cycle/cogeneration)
+- [x] 67. स्टीम नोज़ल एवं कम्प्रेसर → `67-steam-nozzles-compressors.md` (convergent-vs-Laval nozzle, steam critical-pressure-ratio≈0.58, reciprocating-vs-centrifugal-compressor table, multi-staging/intercooling rationale, isothermal-least-work-vs-adiabatic-most-work)
+- [x] 68. संक्षारण → `68-corrosion-types-prevention.md` (electrochemical anode/cathode mechanism, 6-type classification uniform/pitting/galvanic/crevice/intergranular/SCC, sacrificial-anode zinc/magnesium cathodic-protection, stainless-steel passive-chromium-oxide-film)
+- [x] 69. औद्योगिक अभियांत्रिकी — PERT/CPM/इन्वेंटरी/ब्रेक-ईवन → `69-industrial-engineering-pert-cpm-inventory-breakeven.md` (PERT-probabilistic-vs-CPM-deterministic table, te=(to+4tm+tp)/6, critical-path-zero-float, EOQ=√(2DCo/Ch), break-even-units=FC/(SP-VC))
+- [x] 70. उन्नत मेट्रोलॉजी → `70-advanced-metrology-gdt-spc.md` (GD&T 5-category form/orientation/location/runout/profile table, form-needs-no-datum, X-bar-R-variable-vs-p-c-chart-attribute, Cp=(USL-LSL)/6σ-vs-Cpk-accounts-for-centering, CMM/laser-interferometer/sine-bar)
+
+**फ़ाइल 08 (तकनीकी पेपर — मैकेनिकल इंजीनियरिंग) है COMPLETE — मूल 60 सामान्य-बिंदु + 2 Ordnance-विशिष्ट + 8 MP-ESB/RRB-gap-fill बिंदु = कुल 70 बिंदु पूर्ण।**
 
 ### Progress tracker — 07-basic-computer-knowledge-gap.md (17 points)
 

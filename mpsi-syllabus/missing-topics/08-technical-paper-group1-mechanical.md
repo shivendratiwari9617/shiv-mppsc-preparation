@@ -66,3 +66,16 @@ Only relevant if you are specifically targeting the SI-Ordnance post.
 60. प्लांट लेआउट व कार्य अध्ययन (Plant layout & work study)
 61. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं — हथियार तंत्र (पद-विशिष्ट)
 62. आयुध रखरखाव व निरीक्षण से जुड़े तकनीकी पहलू (पद-विशिष्ट)
+
+### Points 63-70: added 2026-09-13, gap-check against RRB-JE / SSC-JE Mechanical Engineering official-style syllabi
+
+Points 1-60 above were built against the MPSI SI-Ordnance Paper III syllabus specifically. Cross-checked against the two most standardized published benchmarks for this class of diploma-level Mechanical objective paper (RRB-JE CBT-2 and SSC-JE Paper-II, since MPESB itself does not publish a granular topic-wise breakdown for its Group-3 technical papers) — the following topics recur as distinct, commonly-tested sections in both but were absent above:
+
+63. स्तंभ (Columns/Struts) एवं स्प्रिंग — Strength of Materials (Euler's buckling formula, स्लेंडरनेस रेशियो, हेलिकल/लीफ स्प्रिंग)
+64. धातु फॉर्मिंग प्रक्रियाएं — फोर्जिंग, रोलिंग, एक्सट्रूज़न, ड्राइंग (Metal Forming Processes)
+65. पाउडर मेटलर्जी के मूल सिद्धांत (Powder Metallurgy basics)
+66. पावर प्लांट इंजीनियरिंग — रैंकिन चक्र, विद्युत संयंत्रों के प्रकार, कोजनरेशन (Power Plant Engineering)
+67. स्टीम नोज़ल एवं कम्प्रेसर (Steam Nozzles & Compressors)
+68. संक्षारण — प्रकार एवं रोकथाम (Corrosion — types & prevention)
+69. औद्योगिक अभियांत्रिकी — PERT/CPM, इन्वेंटरी नियंत्रण (EOQ), ब्रेक-ईवन विश्लेषण (Industrial Engineering — network analysis, inventory, break-even)
+70. उन्नत मेट्रोलॉजी — GD&T, सांख्यिकीय प्रक्रिया नियंत्रण (SPC), CMM/लेज़र इंटरफेरोमीटर (Advanced Metrology)
