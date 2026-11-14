@@ -1,6 +1,6 @@
 # MP — सोयाबीन प्रोसेसिंग/ऑयल-क्रशिंग क्लस्टर
 
-**स्रोत:** SOPA (Soybean Processors Association of India)/checklist-बिंदु-1 से क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता (SOPA-मुख्यालय-इंदौर क्लासिक-MCQ)
+**स्रोत:** SOPA (Soybean Processors Association of India)/checklist-बिंदु-1 से क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता (SOPA-मुख्यालय-इंदौर क्लासिक-MCQ)
 
 ## 1. SOPA — मुख्यालय-इंदौर — अत्यंत उच्च-प्राथमिकता, MCQ-योग्य
 

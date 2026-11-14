@@ -1,6 +1,6 @@
 # Basel Norms — पूँजी पर्याप्तता/CRAR
 
-**स्रोत:** RBI Master Circular/Basel Committee, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता (RBI-11.5%-बनाम-Basel-10.5%-भेद क्लासिक-MCQ)
+**स्रोत:** RBI Master Circular/Basel Committee, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता (RBI-11.5%-बनाम-Basel-10.5%-भेद क्लासिक-MCQ)
 
 ## 1. Basel-III — 3-स्तंभ — अत्यंत उच्च-प्राथमिकता, MCQ-योग्य
 

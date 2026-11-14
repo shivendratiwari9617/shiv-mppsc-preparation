@@ -90,7 +90,7 @@ export default function SettingsPage() {
       <div className="card p-5 space-y-3">
         <h2 className="font-bold">Content Import</h2>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Scans the mounted content folder and (re)imports all units/topics/questions, MPSI study notes, the full
+          Scans the mounted content folder and (re)imports all units/topics/questions, MPESB study notes, the full
           MPPSC syllabus checklist, and the fact-based Prelims notes. Safe to re-run — existing progress is preserved.
         </p>
         {lastImport && (

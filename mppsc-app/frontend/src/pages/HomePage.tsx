@@ -60,7 +60,7 @@ export default function HomePage() {
     onSuccess: (data: any) => {
       setImportLog(
         `Imported ${data.unitsFound} units, ${data.topicsFound} topics, ${data.questionsFound} questions, ` +
-          `${data.notesFound} MPSI notes, ${data.checklistItemsFound} checklist items, ${data.prelimsNotesFound} Prelims notes.` +
+          `${data.notesFound} MPESB notes, ${data.checklistItemsFound} checklist items, ${data.prelimsNotesFound} Prelims notes.` +
           (data.errors?.length ? ` (${data.errors.length} warnings)` : '')
       );
       queryClient.invalidateQueries({ queryKey: ['stats'] });
@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="text-3xl">📥</div>
           <h2 className="text-lg font-bold">No content imported yet</h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-            Click below to scan the mounted content folder and import all units/topics/questions, MPSI study notes,
+            Click below to scan the mounted content folder and import all units/topics/questions, MPESB study notes,
             the full MPPSC syllabus checklist, and the fact-based Prelims notes into the database.
           </p>
           <button className="btn-primary" disabled={importMutation.isPending} onClick={() => importMutation.mutate()}>

@@ -1,6 +1,6 @@
 # नागरिक विज्ञान (Citizen Science) — डेटा/निगरानी गुणवत्ता
 
-**स्रोत:** Bird Count India/SeasonWatch, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता
+**स्रोत:** Bird Count India/SeasonWatch, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता
 
 ## 1. नागरिक-विज्ञान — अवधारणा — MCQ-योग्य
 

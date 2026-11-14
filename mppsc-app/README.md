@@ -8,7 +8,7 @@ revision, mock tests, bookmarks, search, and progress statistics — all running
 - 🏠 **Home dashboard** — total MCQs across all units, per-unit MCQ counts, attempted/accuracy, streaks, daily goal.
 - 📚 **Unit & topic browsing** — drill into any unit to see its topics and per-topic progress.
 - 📝 **Practice mode** — practice a whole unit or a single topic, shuffled, with instant feedback + explanations.
-- 📝 **MPSI Notes** — deep-dive Markdown study notes (`mpsi-syllabus/notes/`), browsable by category with a
+- 📝 **MPESB Notes** — deep-dive Markdown study notes (`mpesb-syllabus/notes/`), browsable by category with a
   mark-as-read toggle and prev/next navigation.
 - ✅ **Syllabus Checklist** — the full official MPPSC Prelims syllabus (`mppsc-syllabus/prelims/`) as a per-topic
   checklist, with checkboxes tracked per item and progress bars per file/unit.
@@ -41,7 +41,7 @@ docker compose up --build
 - Backend API: http://localhost:3000/api/* (proxied) or http://localhost:4000/api/* directly
 
 On first boot, the database will be empty. Click **"Import Content"** on the home page (or go to
-Settings → "Re-import Content") to scan the content folders and populate all units/topics/questions, MPSI
+Settings → "Re-import Content") to scan the content folders and populate all units/topics/questions, MPESB
 notes, and the syllabus checklist in one go. Alternatively, run it from the CLI:
 
 ```bash
@@ -58,7 +58,7 @@ The backend container mounts the parent folder (the workspace root, one level ab
 `/content`. It auto-detects three separate content trees there, no changes are ever made to the source files:
 
 - **MCQ practice content** — numbered unit folders (`1) मध्यप्रदेश का इतिहास...` through `10) MP की जनजातीय...`).
-- **MPSI study notes** — `mpsi-syllabus/notes/<NN-category>/<NN-point>.md`.
+- **MPESB study notes** — `mpesb-syllabus/notes/<NN-category>/<NN-point>.md`.
 - **Syllabus checklist** — `mppsc-syllabus/prelims/<unit-NN-... or paper-N-...>/**/*.md`.
 
 ### Configuration

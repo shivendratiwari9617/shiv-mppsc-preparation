@@ -1,6 +1,6 @@
 # समावेशी विकास (Inclusive Growth) — वित्त/भौतिक/मानव पूँजी तालमेल
 
-**स्रोत:** NITI Aayog "Bharatiya Model of Inclusive Growth: Sabka Vikas"/checklist-बिंदु-6 से क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता
+**स्रोत:** NITI Aayog "Bharatiya Model of Inclusive Growth: Sabka Vikas"/checklist-बिंदु-6 से क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता
 
 ## 1. checklist-बिंदु-6 से संबंध — क्रॉस-रेफ
 

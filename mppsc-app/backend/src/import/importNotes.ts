@@ -3,11 +3,11 @@ import path from 'path';
 import { prisma } from '../db';
 
 const CONTENT_DIR = process.env.CONTENT_DIR || '/content';
-const NOTES_ROOT = path.join(CONTENT_DIR, 'mpsi-syllabus', 'notes');
+const NOTES_ROOT = path.join(CONTENT_DIR, 'mpesb-syllabus', 'notes');
 // Matches category folders like "01-hindi-bhasha-bodh" or "09-additional-gaps-in-covered-units"
 const CATEGORY_DIR_RE = /^(\d+)-(.+)$/;
 
-// Fixed, known set of MPSI missing-topics categories — not derivable from the
+// Fixed, known set of MPESB missing-topics categories — not derivable from the
 // folder slug alone (several are English titles, others need proper Hindi spacing).
 const CATEGORY_NAMES: Record<string, string> = {
   '01': 'हिंदी भाषायी बोध',

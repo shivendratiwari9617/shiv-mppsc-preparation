@@ -135,9 +135,9 @@ model ImportLog {
   message             String?
 }
 
-// --- MPSI deep-dive study notes (mpsi-syllabus/notes/) ---
+// --- MPESB deep-dive study notes (mpesb-syllabus/notes/) ---
 // Plain Markdown reading content, separate from the MCQ practice flow above.
-// Categories don't map onto the MPPSC Unit model — they follow the MPSI
+// Categories don't map onto the MPPSC Unit model — they follow the MPESB
 // missing-topics taxonomy (Hindi, English, Reasoning, Numerical Aptitude, ...).
 model NoteCategory {
   id         Int        @id @default(autoincrement())

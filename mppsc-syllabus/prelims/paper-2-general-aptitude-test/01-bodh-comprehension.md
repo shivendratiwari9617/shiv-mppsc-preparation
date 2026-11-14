@@ -1,6 +1,6 @@
 # बोध (Comprehension)
 
-स्रोत: आधिकारिक पाठ्यक्रम बिंदु 1। (नोट: यह प्रश्नपत्र-II का सामान्य/अंग्रेजी-मिश्रित गद्यांश-बोध खंड है — हिंदी-विशिष्ट गद्यांश-बोध हेतु बिंदु 8 व `mpsi-syllabus/notes/01-hindi-bhasha-bodh/21-apathit-gadyansh.md` देखें; अंग्रेज़ी गद्यांश-बोध हेतु `mpsi-syllabus/notes/02-english-language-comprehension/19-reading-comprehension.md` देखें।)
+स्रोत: आधिकारिक पाठ्यक्रम बिंदु 1। (नोट: यह प्रश्नपत्र-II का सामान्य/अंग्रेजी-मिश्रित गद्यांश-बोध खंड है — हिंदी-विशिष्ट गद्यांश-बोध हेतु बिंदु 8 व `mpesb-syllabus/notes/01-hindi-bhasha-bodh/21-apathit-gadyansh.md` देखें; अंग्रेज़ी गद्यांश-बोध हेतु `mpesb-syllabus/notes/02-english-language-comprehension/19-reading-comprehension.md` देखें।)
 
 ## गद्यांश के प्रकार
 1. तथ्यात्मक/सूचनात्मक गद्यांश

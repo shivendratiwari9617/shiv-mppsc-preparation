@@ -1,6 +1,6 @@
 # यांत्रिकी के मूल सिद्धांत — बल/घर्षण/टॉर्क
 
-**स्रोत:** NCERT कक्षा-XI भौतिकी (Laws of Motion, Mechanical Properties) — cross-ref mpsi-syllabus/notes/08-technical-paper-group1-mechanical/01-force-systems, /02-laws-of-friction (इंजीनियरिंग-गहराई हेतु)
+**स्रोत:** NCERT कक्षा-XI भौतिकी (Laws of Motion, Mechanical Properties) — cross-ref mpesb-syllabus/notes/08-technical-paper-group1-mechanical/01-force-systems, /02-laws-of-friction (इंजीनियरिंग-गहराई हेतु)
 
 ## 1. बल (Force) — न्यूटन के गति-नियम (अत्यंत उच्च-प्राथमिकता, MCQ-योग्य)
 

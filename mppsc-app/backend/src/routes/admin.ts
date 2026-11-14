@@ -5,7 +5,7 @@ import { runFullImportLogged } from '../import/runAll';
 const router = Router();
 
 // POST /api/admin/import - scans the mounted content folder and (re)imports all
-// MCQs, MPSI study notes, and the MPPSC syllabus checklist.
+// MCQs, MPESB study notes, and the MPPSC syllabus checklist.
 // Safe to re-run: existing rows are matched by file path (+ position) and updated in place.
 router.post('/import', async (req, res) => {
   req.setTimeout(0); // large imports (1000+ files) can take a while

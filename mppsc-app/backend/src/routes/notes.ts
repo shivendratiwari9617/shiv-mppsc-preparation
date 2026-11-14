@@ -3,7 +3,7 @@ import { prisma } from '../db';
 
 const router = Router();
 
-// GET /api/notes - list all MPSI note categories with file/read counts
+// GET /api/notes - list all MPESB note categories with file/read counts
 router.get('/', async (_req, res) => {
   const categories = await prisma.noteCategory.findMany({
     orderBy: { orderIndex: 'asc' },

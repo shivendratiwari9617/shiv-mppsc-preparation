@@ -11,7 +11,7 @@ export default function NotesPage() {
   });
 
   if (categoriesQ.isLoading) return <Loading label="Loading notes…" />;
-  if (categoriesQ.isError) return <ErrorState message="Could not load MPSI notes." />;
+  if (categoriesQ.isError) return <ErrorState message="Could not load MPESB notes." />;
 
   const categories = categoriesQ.data!;
   const totalFiles = categories.reduce((s, c) => s + c.fileCount, 0);
@@ -20,9 +20,9 @@ export default function NotesPage() {
   return (
     <div className="space-y-6">
       <section>
-        <h1 className="text-2xl font-extrabold mb-1">MPSI Notes 📝</h1>
+        <h1 className="text-2xl font-extrabold mb-1">MPESB Notes 📝</h1>
         <p className="text-slate-500 dark:text-slate-400">
-          Deep-dive study notes for MPSI/MP-govt exam gaps — {totalFiles} notes, {totalRead} read so far.
+          Deep-dive study notes for MPESB/MP-govt exam gaps — {totalFiles} notes, {totalRead} read so far.
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function NotesPage() {
           <div className="text-3xl">📥</div>
           <h2 className="text-lg font-bold">No notes imported yet</h2>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Go to Home and click "Import Content" to load the notes from <code>mpsi-syllabus/notes/</code>.
+            Go to Home and click "Import Content" to load the notes from <code>mpesb-syllabus/notes/</code>.
           </p>
         </div>
       )}

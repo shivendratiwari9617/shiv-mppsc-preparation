@@ -126,7 +126,7 @@ export interface DailyStatRow {
   goalMet: boolean;
 }
 
-// --- MPSI study notes ---
+// --- MPESB study notes ---
 
 export interface NoteCategorySummary {
   id: number;

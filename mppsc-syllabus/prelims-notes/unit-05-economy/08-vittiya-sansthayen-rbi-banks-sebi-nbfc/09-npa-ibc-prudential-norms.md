@@ -1,6 +1,6 @@
 # NPAs/IBC/प्रूडेंशियल नॉर्म्स
 
-**स्रोत:** RBI "Trend and Progress of Banking in India 2024-25", checklist-Unit-5/file-07/बिंदु-115-से-क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता (GNPA-दशक-निम्नतम-स्तर क्लासिक-MCQ)
+**स्रोत:** RBI "Trend and Progress of Banking in India 2024-25", checklist-Unit-5/file-07/बिंदु-115-से-क्रॉस-रेफ, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता (GNPA-दशक-निम्नतम-स्तर क्लासिक-MCQ)
 
 ## 1. NPA — परिभाषा — अत्यंत उच्च-प्राथमिकता, MCQ-योग्य
 

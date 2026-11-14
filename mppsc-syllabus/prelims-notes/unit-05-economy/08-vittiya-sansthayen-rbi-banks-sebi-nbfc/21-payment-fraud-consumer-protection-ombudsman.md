@@ -1,6 +1,6 @@
 # Payment Fraud/Consumer Protection — ओम्बुड्समैन
 
-**स्रोत:** RBI Integrated Ombudsman Scheme 2021, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता (12नवंबर2021-शुभारंभ-3-योजना-एकीकरण क्लासिक-MCQ)
+**स्रोत:** RBI Integrated Ombudsman Scheme 2021, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता (12नवंबर2021-शुभारंभ-3-योजना-एकीकरण क्लासिक-MCQ)
 
 ## 1. checklist-बिंदु-20 से संबंध — क्रॉस-रेफ
 

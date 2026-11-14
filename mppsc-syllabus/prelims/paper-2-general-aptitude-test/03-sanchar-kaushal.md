@@ -29,8 +29,8 @@
 18. सार्वजनिक भाषण (Public Speaking) — मूल सिद्धांत
 
 ## आधिकारिक/प्रशासनिक संचार
-19. कार्यालयीन पत्राचार — शासकीय पत्र, ज्ञापन, परिपत्र (देखें `mpsi-syllabus/notes/01-hindi-bhasha-bodh/23-patra-lekhan.md`)
-20. सरकारी/कार्यालयीन शब्दावली (देखें `mpsi-syllabus/notes/01-hindi-bhasha-bodh/24-karyalayin-shabdavali.md`)
+19. कार्यालयीन पत्राचार — शासकीय पत्र, ज्ञापन, परिपत्र (देखें `mpesb-syllabus/notes/01-hindi-bhasha-bodh/23-patra-lekhan.md`)
+20. सरकारी/कार्यालयीन शब्दावली (देखें `mpesb-syllabus/notes/01-hindi-bhasha-bodh/24-karyalayin-shabdavali.md`)
 21. जन-संपर्क में संचार — जनता के साथ प्रशासनिक अंतःक्रिया
 
 ## डिजिटल संचार

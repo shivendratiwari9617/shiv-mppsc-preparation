@@ -1,6 +1,6 @@
 # निर्णयन एवं समस्या समाधान (Decision Making and Problem Solving)
 
-स्रोत: आधिकारिक पाठ्यक्रम बिंदु 5। विस्तृत आधार हेतु `mpsi-syllabus/notes/03-reasoning-analytical-ability/25-decision-making.md`, `47-logical-expressions-decision-tree.md`, `48-situational-decision-making.md`, `49-problem-solving-framework.md` देखें।
+स्रोत: आधिकारिक पाठ्यक्रम बिंदु 5। विस्तृत आधार हेतु `mpesb-syllabus/notes/03-reasoning-analytical-ability/25-decision-making.md`, `47-logical-expressions-decision-tree.md`, `48-situational-decision-making.md`, `49-problem-solving-framework.md` देखें।
 
 ## निर्णयन के मूल सिद्धांत
 1. निर्णयन प्रक्रिया के चरण — समस्या पहचान → विकल्प उत्पन्न करना → मूल्यांकन → चयन → क्रियान्वयन → प्रतिपुष्टि

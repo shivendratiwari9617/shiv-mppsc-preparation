@@ -15,7 +15,7 @@ export interface FullImportResult {
 }
 
 /**
- * Runs all four content importers — MCQ practice content, MPSI study notes,
+ * Runs all four content importers — MCQ practice content, MPESB study notes,
  * the full MPPSC syllabus checklist, and the fact-based Prelims content
  * notes — so a single "Import" action keeps everything in the app in sync
  * with the repo.

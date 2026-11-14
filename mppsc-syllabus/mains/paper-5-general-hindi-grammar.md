@@ -30,9 +30,9 @@ This paper is graduation-level in difficulty. Structured as mark-scheme categori
 
 **टीप (नोट):** प्रश्नपत्र के उत्तर देने का माध्यम केवल हिन्दी है, चूँकि इसका उद्देश्य अभ्यर्थी की हिन्दी भाषा की अभिव्यक्ति एवं सामान्य हिन्दी के ज्ञान का परीक्षण करना है।
 
-**Cross-reference note:** Much of category (घ), (ड़), and general grammar concepts already overlap substantially with `mpsi-syllabus/notes/01-hindi-bhasha-bodh/` (सन्धि, समास, मुहावरे-लोकोक्तियाँ, पर्यायवाची, विलोम, तत्सम-तद्भव, वर्तनी, विराम चिह्न, वाक्य रचना — all already have deep notes there). What is genuinely new/Mains-specific and not yet covered anywhere in this repo:
-- रस के अंग एवं प्रकार, छंद (दोहा/सोरठा/चौपाई) — Mains-specific, not in mpsi file 01 (which covers रस/छंद/अलंकार only as a brief "मूल परिचय" combined point)
+**Cross-reference note:** Much of category (घ), (ड़), and general grammar concepts already overlap substantially with `mpesb-syllabus/notes/01-hindi-bhasha-bodh/` (सन्धि, समास, मुहावरे-लोकोक्तियाँ, पर्यायवाची, विलोम, तत्सम-तद्भव, वर्तनी, विराम चिह्न, वाक्य रचना — all already have deep notes there). What is genuinely new/Mains-specific and not yet covered anywhere in this repo:
+- रस के अंग एवं प्रकार, छंद (दोहा/सोरठा/चौपाई) — Mains-specific, not in mpesb file 01 (which covers रस/छंद/अलंकार only as a brief "मूल परिचय" combined point)
 - अनुवाद (हिन्दी↔अंग्रेजी वाक्य अनुवाद, प्रशासनिक मानक शब्दावली अनुवाद) — genuinely new
 - पल्लवन (भाव-विस्तार/paraphrasing technique) — genuinely new
-- मध्यप्रदेश की प्रमुख बोलियाँ — मालवी, निमाड़ी, बघेली, बुंदेली (dialect-specific grammar/vocabulary, distinct from mpsi file 01's general Hindi) — genuinely new
-- शब्द शक्तियाँ (अभिधा/लक्षणा/व्यंजना) — not covered in mpsi file 01
+- मध्यप्रदेश की प्रमुख बोलियाँ — मालवी, निमाड़ी, बघेली, बुंदेली (dialect-specific grammar/vocabulary, distinct from mpesb file 01's general Hindi) — genuinely new
+- शब्द शक्तियाँ (अभिधा/लक्षणा/व्यंजना) — not covered in mpesb file 01

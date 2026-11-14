@@ -5,7 +5,7 @@ import { useDarkMode } from '../hooks/useDarkMode';
 const links = [
   { to: '/', label: 'Home', end: true },
   { to: '/mock', label: 'Mock Test' },
-  { to: '/notes', label: 'MPSI Notes' },
+  { to: '/notes', label: 'MPESB Notes' },
   { to: '/checklist', label: 'Syllabus Checklist' },
   { to: '/prelims-notes', label: 'Prelims Notes' },
   { to: '/review/wrong', label: 'Wrong Answers' },

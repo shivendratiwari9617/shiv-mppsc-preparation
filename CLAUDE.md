@@ -4,9 +4,9 @@ This repo has two layers:
 1. **Existing MPPSC study material** — 10 unit folders at repo root (`"1) मध्यप्रदेश का इतिहास..."` through `"10) MP की जनजातीय..."`), each holding one `.html` file per topic. These are already complete; don't touch them.
 2. **mppsc-app** (`mppsc-app/`) — a full-stack tracker (Node/Prisma backend + frontend) that imports those `.html` files at runtime. `mppsc-app/backend/src/import/importContent.ts` walks every top-level directory matching `^(\d+)\)\s*(.+)$` under `CONTENT_DIR`, recurses for `.html` files, and extracts a `const RAW = {...}` JS object from each one.
 
-## Current task: MPSI missing-topics build-out
+## Current task: MPESB missing-topics build-out
 
-`mpsi-syllabus/missing-topics/` holds 9 checklist files (`01-hindi-bhasha-bodh.md` … `09-additional-gaps-in-covered-units.md`) — topic titles only, no content yet, for MPSI (Sub-Inspector) syllabus areas the existing 10 units don't cover (see `mpsi-syllabus/missing-topics/README.md`).
+`mpesb-syllabus/missing-topics/` holds 9 checklist files (`01-hindi-bhasha-bodh.md` … `09-additional-gaps-in-covered-units.md`) — topic titles only, no content yet, for MPESB (Sub-Inspector) syllabus areas the existing 10 units don't cover (see `mpesb-syllabus/missing-topics/README.md`).
 
 We are authoring real content for these, one topic file at a time, **one checklist point at a time**, as deep standalone Markdown notes (not the app's MCQ/HTML format — see "File format" below for why that was tried first and dropped).
 
@@ -20,8 +20,8 @@ We are authoring real content for these, one topic file at a time, **one checkli
 
 ### Content rules
 
-- **Scope: MPSI, broadened to all MP government job exams.** These checklist points are officially MPSI gaps, but the actual content (Hindi/English grammar, reasoning, aptitude) is shared ground across essentially every MP state exam — MPPSC, Vyapam/ESB exams, Patwari, MP Police, etc. Per explicit user instruction, write with enough depth that the note serves any of those exams, not just the narrow MPSI wording — don't artificially trim a rule or sub-type because "would MPSI specifically ask this." Still stay within genuinely examinable competitive-exam ground — don't wander into academic trivia no state exam would ever ask.
-- **High-yield, but exhaustive within that scope.** Cover every rule/sub-rule/exception that actually recurs in MPPSC/MPSI-style papers for the point at hand — depth matters more than brevity. Don't cap example counts artificially; give enough examples per rule (5–10+) that the pattern is unmistakable, plus a self-test word list.
+- **Scope: MPESB, broadened to all MP government job exams.** These checklist points are officially MPESB gaps, but the actual content (Hindi/English grammar, reasoning, aptitude) is shared ground across essentially every MP state exam — MPPSC, Vyapam/ESB exams, Patwari, MP Police, etc. Per explicit user instruction, write with enough depth that the note serves any of those exams, not just the narrow MPESB wording — don't artificially trim a rule or sub-type because "would MPESB specifically ask this." Still stay within genuinely examinable competitive-exam ground — don't wander into academic trivia no state exam would ever ask.
+- **High-yield, but exhaustive within that scope.** Cover every rule/sub-rule/exception that actually recurs in MPPSC/MPESB-style papers for the point at hand — depth matters more than brevity. Don't cap example counts artificially; give enough examples per rule (5–10+) that the pattern is unmistakable, plus a self-test word list.
 - **Double-check factual/grammatical accuracy** (sandhi rules, idioms, formulas, etc.) against standard, uncontroversial textbook sources before writing — these are unambiguous rule-based topics, not areas for invention. Never leave reasoning artifacts ("not sure", "correct?") in the final file — resolve or drop them before writing.
 - Prefer well-established textbook rules/examples over obscure named sub-rules with shaky examples — accuracy over exhaustiveness-for-its-own-sake.
 
@@ -29,201 +29,201 @@ We are authoring real content for these, one topic file at a time, **one checkli
 
 **First attempt used the existing unit-folder interactive-HTML/MCQ format** (`const RAW = {topic_title, coverage_note, vyakhya, mcqs[]}`, ingested by `mppsc-app/backend/src/import/importContent.ts`) so new content would drop into the existing app pipeline. **The user rejected this**: capping content at ~15 MCQs with short explanations lost too much material — for exam-safe depth on a topic like Sandhi, the actual content (all sub-rules, all exception cases, enough examples to see every pattern) doesn't fit that shape. That attempt (a generator script + one JSON content file + one generated `.html`) was deleted from the repo.
 
-**Current format:** one plain Markdown file per checklist point, as deep and complete as the point warrants — no MCQ count target, no artificial length cap. Structure freely (definitions → sub-rules with rule + example tables → exceptions → a quick-revision chart → a self-test word/example list → an "most important for the exam" closing list). See `mpsi-syllabus/notes/01-hindi-bhasha-bodh/01-sandhi.md` for the worked pattern to follow for every subsequent point.
+**Current format:** one plain Markdown file per checklist point, as deep and complete as the point warrants — no MCQ count target, no artificial length cap. Structure freely (definitions → sub-rules with rule + example tables → exceptions → a quick-revision chart → a self-test word/example list → an "most important for the exam" closing list). See `mpesb-syllabus/notes/01-hindi-bhasha-bodh/01-sandhi.md` for the worked pattern to follow for every subsequent point.
 
-Location: `mpsi-syllabus/notes/<NN-topic-slug>/<point-number>-<point-slug>.md`, mirroring the numbering in the corresponding `mpsi-syllabus/missing-topics/<NN-topic-slug>.md` checklist.
+Location: `mpesb-syllabus/notes/<NN-topic-slug>/<point-number>-<point-slug>.md`, mirroring the numbering in the corresponding `mpesb-syllabus/missing-topics/<NN-topic-slug>.md` checklist.
 
-**Update (2026-09-04): this content IS now wired into mppsc-app** — as its own native "MPSI Notes" content type (a Markdown reader with per-note read tracking), not converted into MCQs. See "mppsc-app integration" below for how.
+**Update (2026-09-04): this content IS now wired into mppsc-app** — as its own native "MPESB Notes" content type (a Markdown reader with per-note read tracking), not converted into MCQs. See "mppsc-app integration" below for how.
 
 ### Progress tracker — 01-hindi-bhasha-bodh.md (28 points)
 
-Point numbers match the numbered list in `mpsi-syllabus/missing-topics/01-hindi-bhasha-bodh.md`.
+Point numbers match the numbered list in `mpesb-syllabus/missing-topics/01-hindi-bhasha-bodh.md`.
 
-- [x] 1. संधि — स्वर, व्यंजन, विसर्ग संधि → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/01-sandhi.md`
-- [x] 2. समास — तत्पुरुष, द्वंद्व, बहुव्रीहि, अव्ययीभाव, द्विगु, कर्मधारय → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/02-samas.md`
-- [x] 3. उपसर्ग — संस्कृत, हिंदी व उर्दू-फारसी उपसर्ग सूची → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/03-upsarg.md`
-- [x] 4. प्रत्यय — कृत् प्रत्यय व तद्धित प्रत्यय → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/04-pratyay.md`
-- [x] 5. संज्ञा — भेद, लिंग, वचन, कारक → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/05-sangya.md`
-- [x] 6. सर्वनाम — भेद व प्रयोग → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/06-sarvanam.md`
-- [x] 7. विशेषण — भेद व तुलना → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/07-visheshan.md`
-- [x] 8. क्रिया — सकर्मक/अकर्मक, काल, वाच्य → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/08-kriya.md`
-- [x] 9. वाक्य रचना — सरल/संयुक्त/मिश्र वाक्य; वाक्य-शुद्धि → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/09-vakya-rachna.md`
-- [x] 10. मुहावरे व लोकोक्तियाँ → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/10-muhavare-lokoktiyan.md`
-- [x] 11. पर्यायवाची शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/11-paryayvachi.md`
-- [x] 12. विलोम शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/12-vilom.md`
-- [x] 13. अनेकार्थी शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/13-anekarthi.md`
-- [x] 14. अनेक शब्दों के लिए एक शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/14-anek-shabdon-ek-shabd.md`
-- [x] 15. शब्द-युग्म → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/15-shabd-yugm.md`
-- [x] 16. तत्सम-तद्भव शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/16-tatsam-tadbhav.md`
-- [x] 17. देशज व विदेशी (आगत) शब्द → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/17-deshaj-videshi.md`
-- [x] 18. वर्तनी की शुद्ध-अशुद्ध पहचान → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/18-vartani.md`
-- [x] 19. विराम चिह्न → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/19-viram-chinh.md`
-- [x] 20. मात्रा संबंधी त्रुटियाँ → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/20-matra-truti.md`
-- [x] 21. अपठित गद्यांश → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/21-apathit-gadyansh.md`
-- [x] 22. अपठित पद्यांश → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/22-apathit-padyansh.md`
-- [x] 23. पत्र लेखन के प्रारूप → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/23-patra-lekhan.md`
-- [x] 24. सरकारी/कार्यालयीन हिंदी शब्दावली → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/24-karyalayin-shabdavali.md`
-- [x] 25. रस, छंद, अलंकार — मूल परिचय → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/25-ras-chhand-alankar.md`
-- [x] 26. हिंदी भाषा का इतिहास व बोलियाँ → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/26-hindi-itihas-boliyan.md`
-- [x] 27. वाच्य परिवर्तन एवं वाक्य परिवर्तन → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/27-vachya-vakya-parivartan.md`
-- [x] 28. शब्द शुद्धि → `mpsi-syllabus/notes/01-hindi-bhasha-bodh/28-shabd-shuddhi.md`
+- [x] 1. संधि — स्वर, व्यंजन, विसर्ग संधि → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/01-sandhi.md`
+- [x] 2. समास — तत्पुरुष, द्वंद्व, बहुव्रीहि, अव्ययीभाव, द्विगु, कर्मधारय → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/02-samas.md`
+- [x] 3. उपसर्ग — संस्कृत, हिंदी व उर्दू-फारसी उपसर्ग सूची → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/03-upsarg.md`
+- [x] 4. प्रत्यय — कृत् प्रत्यय व तद्धित प्रत्यय → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/04-pratyay.md`
+- [x] 5. संज्ञा — भेद, लिंग, वचन, कारक → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/05-sangya.md`
+- [x] 6. सर्वनाम — भेद व प्रयोग → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/06-sarvanam.md`
+- [x] 7. विशेषण — भेद व तुलना → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/07-visheshan.md`
+- [x] 8. क्रिया — सकर्मक/अकर्मक, काल, वाच्य → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/08-kriya.md`
+- [x] 9. वाक्य रचना — सरल/संयुक्त/मिश्र वाक्य; वाक्य-शुद्धि → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/09-vakya-rachna.md`
+- [x] 10. मुहावरे व लोकोक्तियाँ → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/10-muhavare-lokoktiyan.md`
+- [x] 11. पर्यायवाची शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/11-paryayvachi.md`
+- [x] 12. विलोम शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/12-vilom.md`
+- [x] 13. अनेकार्थी शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/13-anekarthi.md`
+- [x] 14. अनेक शब्दों के लिए एक शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/14-anek-shabdon-ek-shabd.md`
+- [x] 15. शब्द-युग्म → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/15-shabd-yugm.md`
+- [x] 16. तत्सम-तद्भव शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/16-tatsam-tadbhav.md`
+- [x] 17. देशज व विदेशी (आगत) शब्द → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/17-deshaj-videshi.md`
+- [x] 18. वर्तनी की शुद्ध-अशुद्ध पहचान → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/18-vartani.md`
+- [x] 19. विराम चिह्न → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/19-viram-chinh.md`
+- [x] 20. मात्रा संबंधी त्रुटियाँ → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/20-matra-truti.md`
+- [x] 21. अपठित गद्यांश → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/21-apathit-gadyansh.md`
+- [x] 22. अपठित पद्यांश → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/22-apathit-padyansh.md`
+- [x] 23. पत्र लेखन के प्रारूप → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/23-patra-lekhan.md`
+- [x] 24. सरकारी/कार्यालयीन हिंदी शब्दावली → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/24-karyalayin-shabdavali.md`
+- [x] 25. रस, छंद, अलंकार — मूल परिचय → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/25-ras-chhand-alankar.md`
+- [x] 26. हिंदी भाषा का इतिहास व बोलियाँ → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/26-hindi-itihas-boliyan.md`
+- [x] 27. वाच्य परिवर्तन एवं वाक्य परिवर्तन → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/27-vachya-vakya-parivartan.md`
+- [x] 28. शब्द शुद्धि → `mpesb-syllabus/notes/01-hindi-bhasha-bodh/28-shabd-shuddhi.md`
 
 **File 01 (हिंदी भाषायी बोध) is COMPLETE — all 28 points done.**
 
 ### Progress tracker — 02-english-language-comprehension.md (26 points)
 
-User confirmed start on this file. Notes go in `mpsi-syllabus/notes/02-english-language-comprehension/`. Point numbers match `mpsi-syllabus/missing-topics/02-english-language-comprehension.md`.
+User confirmed start on this file. Notes go in `mpesb-syllabus/notes/02-english-language-comprehension/`. Point numbers match `mpesb-syllabus/missing-topics/02-english-language-comprehension.md`.
 
-- [x] 1. Parts of speech → `mpsi-syllabus/notes/02-english-language-comprehension/01-parts-of-speech.md`
-- [x] 2. Tenses → `mpsi-syllabus/notes/02-english-language-comprehension/02-tenses.md`
-- [x] 3. Subject-verb agreement rules → `mpsi-syllabus/notes/02-english-language-comprehension/03-subject-verb-agreement.md`
-- [x] 4. Active and Passive voice conversion → `mpsi-syllabus/notes/02-english-language-comprehension/04-active-passive-voice.md`
-- [x] 5. Direct and Indirect (Reported) speech → `mpsi-syllabus/notes/02-english-language-comprehension/05-direct-indirect-speech.md`
-- [x] 6. Articles → `mpsi-syllabus/notes/02-english-language-comprehension/06-articles.md`
-- [x] 7. Prepositions → `mpsi-syllabus/notes/02-english-language-comprehension/07-prepositions.md`
-- [x] 8. Conjunctions and connectors → `mpsi-syllabus/notes/02-english-language-comprehension/08-conjunctions-connectors.md`
-- [x] 9. Modals → `mpsi-syllabus/notes/02-english-language-comprehension/09-modals.md`
-- [x] 10. Synonyms → `mpsi-syllabus/notes/02-english-language-comprehension/10-synonyms.md`
-- [x] 11. Antonyms → `mpsi-syllabus/notes/02-english-language-comprehension/11-antonyms.md`
-- [x] 12. One-word substitution → `mpsi-syllabus/notes/02-english-language-comprehension/12-one-word-substitution.md`
-- [x] 13. Idioms and phrases → `mpsi-syllabus/notes/02-english-language-comprehension/13-idioms-phrases.md`
-- [x] 14. Spotting errors → `mpsi-syllabus/notes/02-english-language-comprehension/14-spotting-errors.md`
-- [x] 15. Sentence improvement / correction → `mpsi-syllabus/notes/02-english-language-comprehension/15-sentence-improvement.md`
-- [x] 16. Fill in the blanks → `mpsi-syllabus/notes/02-english-language-comprehension/16-fill-in-the-blanks.md`
-- [x] 17. Spellings — commonly confused/misspelled words → `mpsi-syllabus/notes/02-english-language-comprehension/17-spellings.md`
-- [x] 18. Homophones and commonly confused words → `mpsi-syllabus/notes/02-english-language-comprehension/18-homophones-confused-words.md`
-- [x] 19. Reading comprehension — unseen passages → `mpsi-syllabus/notes/02-english-language-comprehension/19-reading-comprehension.md`
-- [x] 20. Cloze test → `mpsi-syllabus/notes/02-english-language-comprehension/20-cloze-test.md`
-- [x] 21. Sentence rearrangement / para jumbles → `mpsi-syllabus/notes/02-english-language-comprehension/21-sentence-rearrangement.md`
-- [x] 22. Word formation — prefixes and suffixes → `mpsi-syllabus/notes/02-english-language-comprehension/22-word-formation.md`
-- [x] 23. Punctuation rules → `mpsi-syllabus/notes/02-english-language-comprehension/23-punctuation-rules.md`
-- [x] 24. Degrees of comparison → `mpsi-syllabus/notes/02-english-language-comprehension/24-degrees-of-comparison.md`
-- [x] 25. Common administrative/official English vocabulary → `mpsi-syllabus/notes/02-english-language-comprehension/25-administrative-vocabulary.md`
-- [x] 26. Antonym-in-context and synonym-in-context questions → `mpsi-syllabus/notes/02-english-language-comprehension/26-synonym-antonym-in-context.md`
+- [x] 1. Parts of speech → `mpesb-syllabus/notes/02-english-language-comprehension/01-parts-of-speech.md`
+- [x] 2. Tenses → `mpesb-syllabus/notes/02-english-language-comprehension/02-tenses.md`
+- [x] 3. Subject-verb agreement rules → `mpesb-syllabus/notes/02-english-language-comprehension/03-subject-verb-agreement.md`
+- [x] 4. Active and Passive voice conversion → `mpesb-syllabus/notes/02-english-language-comprehension/04-active-passive-voice.md`
+- [x] 5. Direct and Indirect (Reported) speech → `mpesb-syllabus/notes/02-english-language-comprehension/05-direct-indirect-speech.md`
+- [x] 6. Articles → `mpesb-syllabus/notes/02-english-language-comprehension/06-articles.md`
+- [x] 7. Prepositions → `mpesb-syllabus/notes/02-english-language-comprehension/07-prepositions.md`
+- [x] 8. Conjunctions and connectors → `mpesb-syllabus/notes/02-english-language-comprehension/08-conjunctions-connectors.md`
+- [x] 9. Modals → `mpesb-syllabus/notes/02-english-language-comprehension/09-modals.md`
+- [x] 10. Synonyms → `mpesb-syllabus/notes/02-english-language-comprehension/10-synonyms.md`
+- [x] 11. Antonyms → `mpesb-syllabus/notes/02-english-language-comprehension/11-antonyms.md`
+- [x] 12. One-word substitution → `mpesb-syllabus/notes/02-english-language-comprehension/12-one-word-substitution.md`
+- [x] 13. Idioms and phrases → `mpesb-syllabus/notes/02-english-language-comprehension/13-idioms-phrases.md`
+- [x] 14. Spotting errors → `mpesb-syllabus/notes/02-english-language-comprehension/14-spotting-errors.md`
+- [x] 15. Sentence improvement / correction → `mpesb-syllabus/notes/02-english-language-comprehension/15-sentence-improvement.md`
+- [x] 16. Fill in the blanks → `mpesb-syllabus/notes/02-english-language-comprehension/16-fill-in-the-blanks.md`
+- [x] 17. Spellings — commonly confused/misspelled words → `mpesb-syllabus/notes/02-english-language-comprehension/17-spellings.md`
+- [x] 18. Homophones and commonly confused words → `mpesb-syllabus/notes/02-english-language-comprehension/18-homophones-confused-words.md`
+- [x] 19. Reading comprehension — unseen passages → `mpesb-syllabus/notes/02-english-language-comprehension/19-reading-comprehension.md`
+- [x] 20. Cloze test → `mpesb-syllabus/notes/02-english-language-comprehension/20-cloze-test.md`
+- [x] 21. Sentence rearrangement / para jumbles → `mpesb-syllabus/notes/02-english-language-comprehension/21-sentence-rearrangement.md`
+- [x] 22. Word formation — prefixes and suffixes → `mpesb-syllabus/notes/02-english-language-comprehension/22-word-formation.md`
+- [x] 23. Punctuation rules → `mpesb-syllabus/notes/02-english-language-comprehension/23-punctuation-rules.md`
+- [x] 24. Degrees of comparison → `mpesb-syllabus/notes/02-english-language-comprehension/24-degrees-of-comparison.md`
+- [x] 25. Common administrative/official English vocabulary → `mpesb-syllabus/notes/02-english-language-comprehension/25-administrative-vocabulary.md`
+- [x] 26. Antonym-in-context and synonym-in-context questions → `mpesb-syllabus/notes/02-english-language-comprehension/26-synonym-antonym-in-context.md`
 
 **File 02 (English Language Comprehension) is COMPLETE — all 26 points done.**
 
 ### Progress tracker — 03-reasoning-analytical-ability.md (55 points)
 
-User confirmed start on this file. Notes go in `mpsi-syllabus/notes/03-reasoning-analytical-ability/`. Point numbers match `mpsi-syllabus/missing-topics/03-reasoning-analytical-ability.md`. Note: points 33-45 (non-verbal/figure reasoning) are described via rules/text since plain Markdown can't render real figure images — each note explains the underlying logic (rotation rules, cube-face rules, folding rules) that lets you solve any such figure set, and flags that visual practice with an actual figure-set book is still needed alongside the note.
+User confirmed start on this file. Notes go in `mpesb-syllabus/notes/03-reasoning-analytical-ability/`. Point numbers match `mpesb-syllabus/missing-topics/03-reasoning-analytical-ability.md`. Note: points 33-45 (non-verbal/figure reasoning) are described via rules/text since plain Markdown can't render real figure images — each note explains the underlying logic (rotation rules, cube-face rules, folding rules) that lets you solve any such figure set, and flags that visual practice with an actual figure-set book is still needed alongside the note.
 
 **Verbal reasoning (1-32):**
-- [x] 1. कोडिंग-डिकोडिंग → `mpsi-syllabus/notes/03-reasoning-analytical-ability/01-coding-decoding.md`
-- [x] 2. रक्त संबंध → `mpsi-syllabus/notes/03-reasoning-analytical-ability/02-blood-relations.md`
-- [x] 3. दिशा एवं दूरी परीक्षण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/03-direction-distance-test.md`
-- [x] 4. रैंकिंग/क्रम व्यवस्था → `mpsi-syllabus/notes/03-reasoning-analytical-ability/04-ranking-order.md`
-- [x] 5. तुलनात्मक तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/05-comparative-reasoning.md`
-- [x] 6. वर्णमाला परीक्षण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/06-alphabet-test.md`
-- [x] 7. श्रृंखला — अक्षर/संख्या/मिश्रित → `mpsi-syllabus/notes/03-reasoning-analytical-ability/07-series.md`
-- [x] 8. श्रृंखला में लुप्त पद → `mpsi-syllabus/notes/03-reasoning-analytical-ability/08-missing-terms.md`
-- [x] 9. सादृश्यता (Analogy) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/09-analogy.md`
-- [x] 10. वर्गीकरण / विजातीय शब्द → `mpsi-syllabus/notes/03-reasoning-analytical-ability/10-classification-odd-one-out.md`
-- [x] 11. शब्द निर्माण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/11-word-formation.md`
-- [x] 12. न्याय-निगमन / स्थापन (Syllogism) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/12-syllogism.md`
-- [x] 13. कथन-निष्कर्ष → `mpsi-syllabus/notes/03-reasoning-analytical-ability/13-statement-conclusion.md`
-- [x] 14. कथन-मान्यता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/14-statement-assumption.md`
-- [x] 15. कथन-कार्यवाही → `mpsi-syllabus/notes/03-reasoning-analytical-ability/15-statement-course-of-action.md`
-- [x] 16. कथन-तर्क (सशक्त/निर्बल) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/16-statement-argument.md`
-- [x] 17. अभिकथन-कारण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/17-assertion-reason.md`
-- [x] 18. कारण-प्रभाव → `mpsi-syllabus/notes/03-reasoning-analytical-ability/18-cause-effect.md`
-- [x] 19. पात्रता परीक्षण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/19-eligibility-test.md`
-- [x] 20. पंक्ति व्यवस्था (seating arrangement) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/20-seating-arrangement.md`
-- [x] 21. पहेली (Puzzle test) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/21-puzzle-test.md`
-- [x] 22. इनपुट-आउटपुट → `mpsi-syllabus/notes/03-reasoning-analytical-ability/22-input-output.md`
-- [x] 23. वेन आरेख → `mpsi-syllabus/notes/03-reasoning-analytical-ability/23-venn-diagrams.md`
-- [x] 24. डेटा पर्याप्तता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/24-data-sufficiency.md`
-- [x] 25. निर्णयन → `mpsi-syllabus/notes/03-reasoning-analytical-ability/25-decision-making.md`
-- [x] 26. शब्दों का तार्किक क्रम → `mpsi-syllabus/notes/03-reasoning-analytical-ability/26-logical-sequence-of-words.md`
-- [x] 27. गणितीय संक्रियाएं (प्रतीक प्रतिस्थापन) → `mpsi-syllabus/notes/03-reasoning-analytical-ability/27-mathematical-operations.md`
+- [x] 1. कोडिंग-डिकोडिंग → `mpesb-syllabus/notes/03-reasoning-analytical-ability/01-coding-decoding.md`
+- [x] 2. रक्त संबंध → `mpesb-syllabus/notes/03-reasoning-analytical-ability/02-blood-relations.md`
+- [x] 3. दिशा एवं दूरी परीक्षण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/03-direction-distance-test.md`
+- [x] 4. रैंकिंग/क्रम व्यवस्था → `mpesb-syllabus/notes/03-reasoning-analytical-ability/04-ranking-order.md`
+- [x] 5. तुलनात्मक तर्क → `mpesb-syllabus/notes/03-reasoning-analytical-ability/05-comparative-reasoning.md`
+- [x] 6. वर्णमाला परीक्षण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/06-alphabet-test.md`
+- [x] 7. श्रृंखला — अक्षर/संख्या/मिश्रित → `mpesb-syllabus/notes/03-reasoning-analytical-ability/07-series.md`
+- [x] 8. श्रृंखला में लुप्त पद → `mpesb-syllabus/notes/03-reasoning-analytical-ability/08-missing-terms.md`
+- [x] 9. सादृश्यता (Analogy) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/09-analogy.md`
+- [x] 10. वर्गीकरण / विजातीय शब्द → `mpesb-syllabus/notes/03-reasoning-analytical-ability/10-classification-odd-one-out.md`
+- [x] 11. शब्द निर्माण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/11-word-formation.md`
+- [x] 12. न्याय-निगमन / स्थापन (Syllogism) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/12-syllogism.md`
+- [x] 13. कथन-निष्कर्ष → `mpesb-syllabus/notes/03-reasoning-analytical-ability/13-statement-conclusion.md`
+- [x] 14. कथन-मान्यता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/14-statement-assumption.md`
+- [x] 15. कथन-कार्यवाही → `mpesb-syllabus/notes/03-reasoning-analytical-ability/15-statement-course-of-action.md`
+- [x] 16. कथन-तर्क (सशक्त/निर्बल) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/16-statement-argument.md`
+- [x] 17. अभिकथन-कारण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/17-assertion-reason.md`
+- [x] 18. कारण-प्रभाव → `mpesb-syllabus/notes/03-reasoning-analytical-ability/18-cause-effect.md`
+- [x] 19. पात्रता परीक्षण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/19-eligibility-test.md`
+- [x] 20. पंक्ति व्यवस्था (seating arrangement) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/20-seating-arrangement.md`
+- [x] 21. पहेली (Puzzle test) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/21-puzzle-test.md`
+- [x] 22. इनपुट-आउटपुट → `mpesb-syllabus/notes/03-reasoning-analytical-ability/22-input-output.md`
+- [x] 23. वेन आरेख → `mpesb-syllabus/notes/03-reasoning-analytical-ability/23-venn-diagrams.md`
+- [x] 24. डेटा पर्याप्तता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/24-data-sufficiency.md`
+- [x] 25. निर्णयन → `mpesb-syllabus/notes/03-reasoning-analytical-ability/25-decision-making.md`
+- [x] 26. शब्दों का तार्किक क्रम → `mpesb-syllabus/notes/03-reasoning-analytical-ability/26-logical-sequence-of-words.md`
+- [x] 27. गणितीय संक्रियाएं (प्रतीक प्रतिस्थापन) → `mpesb-syllabus/notes/03-reasoning-analytical-ability/27-mathematical-operations.md`
 
 **Stopped here at user request (2026-09-02) to push to GitHub.** Next point to resume: 28 (असमानता आधारित तर्क).
-- [x] 28. असमानता आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/28-inequality-reasoning.md`
-- [x] 29. शब्द/वाक्य पुनर्व्यवस्थीकरण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/29-jumbling.md`
-- [x] 30. समानता एवं भिन्नता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/30-similarities-differences.md`
-- [x] 31. मानचित्र आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/31-map-based-reasoning.md`
-- [x] 32. समय क्रम परीक्षण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/32-time-sequence-test.md`
+- [x] 28. असमानता आधारित तर्क → `mpesb-syllabus/notes/03-reasoning-analytical-ability/28-inequality-reasoning.md`
+- [x] 29. शब्द/वाक्य पुनर्व्यवस्थीकरण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/29-jumbling.md`
+- [x] 30. समानता एवं भिन्नता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/30-similarities-differences.md`
+- [x] 31. मानचित्र आधारित तर्क → `mpesb-syllabus/notes/03-reasoning-analytical-ability/31-map-based-reasoning.md`
+- [x] 32. समय क्रम परीक्षण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/32-time-sequence-test.md`
 
 **Verbal reasoning (1-32) COMPLETE.** Moving into non-verbal/figure reasoning (33-45) next.
 
 **Non-verbal/analytical reasoning (33-45):**
-- [x] 33. आकृति श्रृंखला → `mpsi-syllabus/notes/03-reasoning-analytical-ability/33-figure-series.md`
-- [x] 34. आकृति सादृश्यता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/34-figure-analogy.md`
-- [x] 35. दर्पण व जल प्रतिबिंब → `mpsi-syllabus/notes/03-reasoning-analytical-ability/35-mirror-water-image.md`
-- [x] 36. कागज़ मोड़ना/काटना → `mpsi-syllabus/notes/03-reasoning-analytical-ability/36-paper-folding-cutting.md`
-- [x] 37. एम्बेडेड आकृतियाँ → `mpsi-syllabus/notes/03-reasoning-analytical-ability/37-embedded-figures.md`
-- [x] 38. घन एवं पासा → `mpsi-syllabus/notes/03-reasoning-analytical-ability/38-cubes-and-dice.md`
-- [x] 39. पासे का प्रकटन/नेट → `mpsi-syllabus/notes/03-reasoning-analytical-ability/39-cube-net-unfolding.md`
-- [x] 40. आकृति गणना → `mpsi-syllabus/notes/03-reasoning-analytical-ability/40-counting-figures.md`
-- [x] 41. आकृति वर्गीकरण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/41-figure-classification.md`
-- [x] 42. आकृति/पैटर्न पूर्णता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/42-pattern-completion.md`
-- [x] 43. आकृतियों का निर्माण/विभाजन → `mpsi-syllabus/notes/03-reasoning-analytical-ability/43-figure-formation-division.md`
-- [x] 44. घड़ी एवं कैलेंडर आधारित तर्क → `mpsi-syllabus/notes/03-reasoning-analytical-ability/44-clock-calendar-reasoning.md`
-- [x] 45. आरेख/ग्राफ की व्याख्या → `mpsi-syllabus/notes/03-reasoning-analytical-ability/45-graph-interpretation.md`
+- [x] 33. आकृति श्रृंखला → `mpesb-syllabus/notes/03-reasoning-analytical-ability/33-figure-series.md`
+- [x] 34. आकृति सादृश्यता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/34-figure-analogy.md`
+- [x] 35. दर्पण व जल प्रतिबिंब → `mpesb-syllabus/notes/03-reasoning-analytical-ability/35-mirror-water-image.md`
+- [x] 36. कागज़ मोड़ना/काटना → `mpesb-syllabus/notes/03-reasoning-analytical-ability/36-paper-folding-cutting.md`
+- [x] 37. एम्बेडेड आकृतियाँ → `mpesb-syllabus/notes/03-reasoning-analytical-ability/37-embedded-figures.md`
+- [x] 38. घन एवं पासा → `mpesb-syllabus/notes/03-reasoning-analytical-ability/38-cubes-and-dice.md`
+- [x] 39. पासे का प्रकटन/नेट → `mpesb-syllabus/notes/03-reasoning-analytical-ability/39-cube-net-unfolding.md`
+- [x] 40. आकृति गणना → `mpesb-syllabus/notes/03-reasoning-analytical-ability/40-counting-figures.md`
+- [x] 41. आकृति वर्गीकरण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/41-figure-classification.md`
+- [x] 42. आकृति/पैटर्न पूर्णता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/42-pattern-completion.md`
+- [x] 43. आकृतियों का निर्माण/विभाजन → `mpesb-syllabus/notes/03-reasoning-analytical-ability/43-figure-formation-division.md`
+- [x] 44. घड़ी एवं कैलेंडर आधारित तर्क → `mpesb-syllabus/notes/03-reasoning-analytical-ability/44-clock-calendar-reasoning.md`
+- [x] 45. आरेख/ग्राफ की व्याख्या → `mpesb-syllabus/notes/03-reasoning-analytical-ability/45-graph-interpretation.md`
 
 **Non-verbal/figure reasoning (33-45) COMPLETE.** Moving into analytical/problem-solving (46-55) next.
 
 **Analytical/problem-solving (46-55):**
-- [x] 46. जटिल तर्क आधारित समस्या समाधान → `mpsi-syllabus/notes/03-reasoning-analytical-ability/46-complex-problem-solving.md`
-- [x] 47. तार्किक व्यंजक/डिसीज़न ट्री → `mpsi-syllabus/notes/03-reasoning-analytical-ability/47-logical-expressions-decision-tree.md`
-- [x] 48. निर्णयन — परिस्थितिजन्य प्रश्न → `mpsi-syllabus/notes/03-reasoning-analytical-ability/48-situational-decision-making.md`
-- [x] 49. समस्या समाधान → `mpsi-syllabus/notes/03-reasoning-analytical-ability/49-problem-solving-framework.md`
-- [x] 50. डेटा व्याख्या — तालिका → `mpsi-syllabus/notes/03-reasoning-analytical-ability/50-data-interpretation-tables.md`
-- [x] 51. डेटा व्याख्या — बार/पाई/लाइन चार्ट → `mpsi-syllabus/notes/03-reasoning-analytical-ability/51-data-interpretation-charts.md`
-- [x] 52. गद्यांश आधारित तार्किक विश्लेषण → `mpsi-syllabus/notes/03-reasoning-analytical-ability/52-passage-critical-reasoning.md`
-- [x] 53. तार्किक निष्कर्षण — गद्यांश आधारित → `mpsi-syllabus/notes/03-reasoning-analytical-ability/53-logical-inference-passages.md`
-- [x] 54. सामान्य मानसिक क्षमता → `mpsi-syllabus/notes/03-reasoning-analytical-ability/54-general-mental-ability.md`
-- [x] 55. पारस्परिक कौशल एवं संचार कौशल → `mpsi-syllabus/notes/03-reasoning-analytical-ability/55-interpersonal-communication-skills.md`
+- [x] 46. जटिल तर्क आधारित समस्या समाधान → `mpesb-syllabus/notes/03-reasoning-analytical-ability/46-complex-problem-solving.md`
+- [x] 47. तार्किक व्यंजक/डिसीज़न ट्री → `mpesb-syllabus/notes/03-reasoning-analytical-ability/47-logical-expressions-decision-tree.md`
+- [x] 48. निर्णयन — परिस्थितिजन्य प्रश्न → `mpesb-syllabus/notes/03-reasoning-analytical-ability/48-situational-decision-making.md`
+- [x] 49. समस्या समाधान → `mpesb-syllabus/notes/03-reasoning-analytical-ability/49-problem-solving-framework.md`
+- [x] 50. डेटा व्याख्या — तालिका → `mpesb-syllabus/notes/03-reasoning-analytical-ability/50-data-interpretation-tables.md`
+- [x] 51. डेटा व्याख्या — बार/पाई/लाइन चार्ट → `mpesb-syllabus/notes/03-reasoning-analytical-ability/51-data-interpretation-charts.md`
+- [x] 52. गद्यांश आधारित तार्किक विश्लेषण → `mpesb-syllabus/notes/03-reasoning-analytical-ability/52-passage-critical-reasoning.md`
+- [x] 53. तार्किक निष्कर्षण — गद्यांश आधारित → `mpesb-syllabus/notes/03-reasoning-analytical-ability/53-logical-inference-passages.md`
+- [x] 54. सामान्य मानसिक क्षमता → `mpesb-syllabus/notes/03-reasoning-analytical-ability/54-general-mental-ability.md`
+- [x] 55. पारस्परिक कौशल एवं संचार कौशल → `mpesb-syllabus/notes/03-reasoning-analytical-ability/55-interpersonal-communication-skills.md`
 
 **File 03 (तर्कशक्ति एवं विश्लेषणात्मक क्षमता) is COMPLETE — all 55 points done.**
 
 ### Progress tracker — 04-numerical-aptitude.md (33 substantive points; point 34 is a cross-reference to file 03, already covered, not tracked separately)
 
-User confirmed start on this file. Notes go in `mpsi-syllabus/notes/04-numerical-aptitude/`. Point numbers match `mpsi-syllabus/missing-topics/04-numerical-aptitude.md`. **Math accuracy matters here — verify every formula/worked example, these are objectively checkable facts, not judgment calls.**
+User confirmed start on this file. Notes go in `mpesb-syllabus/notes/04-numerical-aptitude/`. Point numbers match `mpesb-syllabus/missing-topics/04-numerical-aptitude.md`. **Math accuracy matters here — verify every formula/worked example, these are objectively checkable facts, not judgment calls.**
 
 **आधार संख्याएं, सांख्यिकी, प्रायिकता (1-5):**
-- [x] 1. संख्या पद्धति (पूर्णांक, भिन्न, अभाज्य, HCF/LCM) → `mpsi-syllabus/notes/04-numerical-aptitude/01-number-system.md`
-- [x] 2. सरलीकरण (BODMAS) → `mpsi-syllabus/notes/04-numerical-aptitude/02-simplification.md`
-- [x] 3. वर्गमूल एवं घनमूल → `mpsi-syllabus/notes/04-numerical-aptitude/03-square-cube-roots.md`
-- [x] 4. औसत (Average) → `mpsi-syllabus/notes/04-numerical-aptitude/04-average.md`
-- [x] 5. प्रायिकता (Probability) → `mpsi-syllabus/notes/04-numerical-aptitude/05-probability.md`
+- [x] 1. संख्या पद्धति (पूर्णांक, भिन्न, अभाज्य, HCF/LCM) → `mpesb-syllabus/notes/04-numerical-aptitude/01-number-system.md`
+- [x] 2. सरलीकरण (BODMAS) → `mpesb-syllabus/notes/04-numerical-aptitude/02-simplification.md`
+- [x] 3. वर्गमूल एवं घनमूल → `mpesb-syllabus/notes/04-numerical-aptitude/03-square-cube-roots.md`
+- [x] 4. औसत (Average) → `mpesb-syllabus/notes/04-numerical-aptitude/04-average.md`
+- [x] 5. प्रायिकता (Probability) → `mpesb-syllabus/notes/04-numerical-aptitude/05-probability.md`
 
 **आंकड़ों का प्रबंधन एवं व्याख्या (6-14):**
-- [x] 6. दंड आरेख (Bar graph) → `mpsi-syllabus/notes/04-numerical-aptitude/06-bar-graph.md`
-- [x] 7. रेखा आरेख (Line graph) → `mpsi-syllabus/notes/04-numerical-aptitude/07-line-graph.md`
-- [x] 8. पाई चार्ट (Pie chart) → `mpsi-syllabus/notes/04-numerical-aptitude/08-pie-chart.md`
-- [x] 9. सारणी आधारित डेटा व्याख्या → `mpsi-syllabus/notes/04-numerical-aptitude/09-tabulation.md`
-- [x] 10. मिश्रित/संयुक्त आंकड़ा व्याख्या → `mpsi-syllabus/notes/04-numerical-aptitude/10-combined-data-interpretation.md`
-- [x] 11. माध्य (Mean) → `mpsi-syllabus/notes/04-numerical-aptitude/11-mean.md`
-- [x] 12. माध्यिका (Median) → `mpsi-syllabus/notes/04-numerical-aptitude/12-median.md`
-- [x] 13. बहुलक (Mode) → `mpsi-syllabus/notes/04-numerical-aptitude/13-mode.md`
-- [x] 14. विचलन — माध्य/मानक विचलन → `mpsi-syllabus/notes/04-numerical-aptitude/14-deviation.md`
+- [x] 6. दंड आरेख (Bar graph) → `mpesb-syllabus/notes/04-numerical-aptitude/06-bar-graph.md`
+- [x] 7. रेखा आरेख (Line graph) → `mpesb-syllabus/notes/04-numerical-aptitude/07-line-graph.md`
+- [x] 8. पाई चार्ट (Pie chart) → `mpesb-syllabus/notes/04-numerical-aptitude/08-pie-chart.md`
+- [x] 9. सारणी आधारित डेटा व्याख्या → `mpesb-syllabus/notes/04-numerical-aptitude/09-tabulation.md`
+- [x] 10. मिश्रित/संयुक्त आंकड़ा व्याख्या → `mpesb-syllabus/notes/04-numerical-aptitude/10-combined-data-interpretation.md`
+- [x] 11. माध्य (Mean) → `mpesb-syllabus/notes/04-numerical-aptitude/11-mean.md`
+- [x] 12. माध्यिका (Median) → `mpesb-syllabus/notes/04-numerical-aptitude/12-median.md`
+- [x] 13. बहुलक (Mode) → `mpesb-syllabus/notes/04-numerical-aptitude/13-mode.md`
+- [x] 14. विचलन — माध्य/मानक विचलन → `mpesb-syllabus/notes/04-numerical-aptitude/14-deviation.md`
 
 **अनुपात, समानुपात, इकाई विधि (15-22):**
-- [x] 15. अनुपात एवं समानुपात → `mpsi-syllabus/notes/04-numerical-aptitude/15-ratio-proportion.md`
-- [x] 16. इकाई विधि → `mpsi-syllabus/notes/04-numerical-aptitude/16-unitary-method.md`
-- [x] 17. साझेदारी → `mpsi-syllabus/notes/04-numerical-aptitude/17-partnership.md`
-- [x] 18. मिश्रण एवं आरोपण → `mpsi-syllabus/notes/04-numerical-aptitude/18-mixture-alligation.md`
-- [x] 19. समय एवं कार्य → `mpsi-syllabus/notes/04-numerical-aptitude/19-time-and-work.md`
-- [x] 20. पाइप एवं टंकी → `mpsi-syllabus/notes/04-numerical-aptitude/20-pipes-and-cisterns.md`
-- [x] 21. समय, चाल एवं दूरी → `mpsi-syllabus/notes/04-numerical-aptitude/21-time-speed-distance.md`
-- [x] 22. आयु संबंधी समस्याएं → `mpsi-syllabus/notes/04-numerical-aptitude/22-age-problems.md`
+- [x] 15. अनुपात एवं समानुपात → `mpesb-syllabus/notes/04-numerical-aptitude/15-ratio-proportion.md`
+- [x] 16. इकाई विधि → `mpesb-syllabus/notes/04-numerical-aptitude/16-unitary-method.md`
+- [x] 17. साझेदारी → `mpesb-syllabus/notes/04-numerical-aptitude/17-partnership.md`
+- [x] 18. मिश्रण एवं आरोपण → `mpesb-syllabus/notes/04-numerical-aptitude/18-mixture-alligation.md`
+- [x] 19. समय एवं कार्य → `mpesb-syllabus/notes/04-numerical-aptitude/19-time-and-work.md`
+- [x] 20. पाइप एवं टंकी → `mpesb-syllabus/notes/04-numerical-aptitude/20-pipes-and-cisterns.md`
+- [x] 21. समय, चाल एवं दूरी → `mpesb-syllabus/notes/04-numerical-aptitude/21-time-speed-distance.md`
+- [x] 22. आयु संबंधी समस्याएं → `mpesb-syllabus/notes/04-numerical-aptitude/22-age-problems.md`
 
 **लाभ-हानि, प्रतिशत, छूट, ब्याज (23-27):**
-- [x] 23. प्रतिशत → `mpsi-syllabus/notes/04-numerical-aptitude/23-percentage.md`
-- [x] 24. लाभ एवं हानि → `mpsi-syllabus/notes/04-numerical-aptitude/24-profit-and-loss.md`
-- [x] 25. छूट → `mpsi-syllabus/notes/04-numerical-aptitude/25-discount.md`
-- [x] 26. साधारण ब्याज → `mpsi-syllabus/notes/04-numerical-aptitude/26-simple-interest.md`
-- [x] 27. चक्रवृद्धि ब्याज → `mpsi-syllabus/notes/04-numerical-aptitude/27-compound-interest.md`
+- [x] 23. प्रतिशत → `mpesb-syllabus/notes/04-numerical-aptitude/23-percentage.md`
+- [x] 24. लाभ एवं हानि → `mpesb-syllabus/notes/04-numerical-aptitude/24-profit-and-loss.md`
+- [x] 25. छूट → `mpesb-syllabus/notes/04-numerical-aptitude/25-discount.md`
+- [x] 26. साधारण ब्याज → `mpesb-syllabus/notes/04-numerical-aptitude/26-simple-interest.md`
+- [x] 27. चक्रवृद्धि ब्याज → `mpesb-syllabus/notes/04-numerical-aptitude/27-compound-interest.md`
 
 **क्षेत्रमिति (28-30):**
-- [x] 28. क्षेत्रफल → `mpsi-syllabus/notes/04-numerical-aptitude/28-area.md`
-- [x] 29. परिमाप → `mpsi-syllabus/notes/04-numerical-aptitude/29-perimeter.md`
-- [x] 30. आयतन एवं पृष्ठीय क्षेत्रफल → `mpsi-syllabus/notes/04-numerical-aptitude/30-volume-surface-area.md`
+- [x] 28. क्षेत्रफल → `mpesb-syllabus/notes/04-numerical-aptitude/28-area.md`
+- [x] 29. परिमाप → `mpesb-syllabus/notes/04-numerical-aptitude/29-perimeter.md`
+- [x] 30. आयतन एवं पृष्ठीय क्षेत्रफल → `mpesb-syllabus/notes/04-numerical-aptitude/30-volume-surface-area.md`
 
 **बीजगणित, ज्यामिति, त्रिकोणमिति (31-33):**
-- [x] 31. बीजगणित → `mpsi-syllabus/notes/04-numerical-aptitude/31-algebra.md`
-- [x] 32. ज्यामिति → `mpsi-syllabus/notes/04-numerical-aptitude/32-geometry.md`
-- [x] 33. त्रिकोणमिति → `mpsi-syllabus/notes/04-numerical-aptitude/33-trigonometry.md`
+- [x] 31. बीजगणित → `mpesb-syllabus/notes/04-numerical-aptitude/31-algebra.md`
+- [x] 32. ज्यामिति → `mpesb-syllabus/notes/04-numerical-aptitude/32-geometry.md`
+- [x] 33. त्रिकोणमिति → `mpesb-syllabus/notes/04-numerical-aptitude/33-trigonometry.md`
 
 **File 04 (अंकों की व्याख्या) is COMPLETE — all 33 substantive points done.**
 
@@ -238,30 +238,30 @@ Files 01-04 (Hindi/English/Reasoning/Numerical) were skill/rule-based subjects �
 
 ### Progress tracker — 05-indian-society.md (22 points)
 
-Notes go in `mpsi-syllabus/notes/05-indian-society/`. Point numbers match `mpsi-syllabus/missing-topics/05-indian-society.md`.
+Notes go in `mpesb-syllabus/notes/05-indian-society/`. Point numbers match `mpesb-syllabus/missing-topics/05-indian-society.md`.
 
-- [x] 1. भारतीय समाज की मुख्य विशेषताएं — बहुलवाद, विविधता में एकता → `mpsi-syllabus/notes/05-indian-society/01-features-pluralism-unity-in-diversity.md` (736 lines — confirmed as template for remaining points in this file: भूमिका → सैद्धांतिक पृष्ठभूमि → ऐतिहासिक विकास → विस्तृत विवेचन (bullet-heavy) → संवैधानिक आधार → सरकारी पहल → चुनौतियाँ → अंतरराष्ट्रीय तुलना → समसामयिक प्रासंगिकता → आगे की राह → निष्कर्ष → 7 मॉडल उत्तर → अतिरिक्त प्रश्न → MP-विशिष्ट संदर्भ → mind-map → glossary → परीक्षा-केंद्रित सार → स्रोत)
-- [x] 2. सामाजिक-सांस्कृतिक विविधता — भाषा, धर्म, क्षेत्र → `mpsi-syllabus/notes/05-indian-society/02-sociocultural-diversity-language-religion-region.md` (711 lines — 3 parts: भाग A भाषा (नीति-इतिहास, त्रिभाषा सूत्र, तमिलनाडु विरोध, शास्त्रीय भाषाएं, लुप्तप्राय भाषाएं), भाग B धर्म (जनसांख्यिकी रुझान, सकारात्मक पंथनिरपेक्षता, समन्वयवाद), भाग C क्षेत्र (6 सांस्कृतिक क्षेत्र, ZCC, शास्त्रीय नृत्य) — हर भाग में अंतरराष्ट्रीय तुलना (स्विट्ज़रलैंड/कनाडा, लेबनान/अमेरिका, स्पेन/यूके) + असम NRC, मणिपुर 2023, कावेरी विवाद केस-स्टडी + 7 मॉडल उत्तर + MP उप-क्षेत्र तालिका)
-- [x] 3. सामाजिक संरचना — जाति व्यवस्था, वर्ण व्यवस्था → `mpsi-syllabus/notes/05-indian-society/03-caste-varna-system-historical-evolution.md` (620 lines — वर्ण-जाति सैद्धांतिक ढाँचा, घुर्ये की 6 विशेषताएं, समाजशास्त्रीय दृष्टिकोण (घुर्ये/आंबेडकर/ड्यूमों/श्रीनिवास/बेती), औपनिवेशिक कठोरीकरण, जाति-विरोधी सुधार आंदोलन, जाति vs जनजाति भेद, आरक्षण-नीति इतिहास (मंडल→इंद्रा साहनी→EWS→रोहिणी आयोग→2024 SC/ST उप-वर्गीकरण), जाति-जनगणना गहन कवरेज (बिहार सर्वेक्षण 2023 + राष्ट्रीय जनगणना 2027 — नवीनतम समसामयिक), अंतरराष्ट्रीय तुलना (अपार्थाइड/बुराकुमिन/अफर्मेटिव एक्शन/रवांडा), 8 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
-- [x] 4. संयुक्त परिवार से एकल परिवार में परिवर्तन → `mpsi-syllabus/notes/05-indian-society/04-joint-family-to-nuclear-family-transition.md` (464 lines — संयुक्त/न्यूक्लियर/विस्तारित परिवार संरचना, NFHS-5 आँकड़े, देसाई की "जॉइंटनेस की मात्रा" व शाह की गृहस्थी-परिवार भेद, हिंदू उत्तराधिकार अधिनियम 2005 व विनीता शर्मा वाद, वृद्धजन कल्याण कानून/योजनाएं (2007 अधिनियम, AVYAY, एल्डरलाइन), अंतरराष्ट्रीय तुलना (चीन 4-2-1, जापान-कोरिया कोडोकुशी), 6 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
-- [x] 5. भारत/MP जनसांख्यिकी — जनगणना, लिंगानुपात, आयु-संरचना → `mpsi-syllabus/notes/05-indian-society/05-india-mp-demographics-census-sex-ratio-age-structure.md` (377 lines — जनगणना इतिहास व 2027 योजना, लिंगानुपात जनगणना vs NFHS पद्धतिगत भेद, बाल लिंगानुपात/PCPNDT/बेटी बचाओ बेटी पढ़ाओ, आयु-संरचना व जनसंख्या पिरामिड, निर्भरता अनुपात व जनसांख्यिकीय लाभांश खिड़की 2036, MP आँकड़े, उत्तर-दक्षिण परिसीमन विवाद, अंतरराष्ट्रीय तुलना (चीन/जापान/अफ्रीका), 5 मॉडल उत्तर)
-- [x] 6. जनसंख्या वृद्धि व जनसांख्यिकीय लाभांश → `mpsi-syllabus/notes/05-indian-society/06-population-growth-demographic-dividend.md` (289 lines — लाभांश की सैद्धांतिक शर्तें, भारत 68% कार्यशील-आयु/2036 शिखर, राज्य-वर्गीकरण: वृद्ध होती सीमा (केरल-तमिलनाडु-पंजाब) बनाम युवा इंजन (**MP**-बिहार-यूपी) — MP सीधे प्रासंगिक, कौशल-अंतराल (43% रोजगार-योग्य) व महिला भागीदारी (24%) चुनौती, स्किल इंडिया/PM इंटर्नशिप योजना, अंतरराष्ट्रीय तुलना (पूर्वी एशिया सफल बनाम लैटिन अमेरिका असफल बनाम चीन दोहन-पश्चात संकुचन), 4 मॉडल उत्तर)
-- [x] 7. प्रवास (Migration) → `mpsi-syllabus/notes/05-indian-society/07-migration-internal-international-causes-effects.md` (280 lines — आंतरिक प्रवास आँकड़े (45.36 करोड़ जनगणना vs ~60 करोड़ वास्तविक अनुमान, 85% राज्य के भीतर), लिंग-आधारित कारण-भिन्नता (महिला-विवाह 86.8%/पुरुष-रोजगार 49.6%), ली का प्रवास सिद्धांत, अंतर्राष्ट्रीय प्रेषण ($135bn 2025, विश्व में सर्वाधिक, खाड़ी→अमेरिका संरचनात्मक बदलाव), कोविड-19 प्रवासी श्रमिक संकट केस-स्टडी, e-Shram/ONORC, MP स्रोत-राज्य संदर्भ, 3 मॉडल उत्तर)
-- [x] 8. महिलाओं की सामाजिक-आर्थिक भूमिका → `mpsi-syllabus/notes/05-indian-society/08-women-socioeconomic-role-education-employment-leadership.md` (272 lines — शिक्षा (साक्षरता अंतराल 14.4pp, उच्च शिक्षा GER महिला अब पुरुष से आगे 28.5%>28.3%), रोजगार (FLFPR 23.3%→41.7% पर गुणवत्ता-चिंता — अनौपचारिक/अवैतनिक केंद्रण, अवैतनिक कार्य 363 बनाम 123 मिनट), नेतृत्व पिरामिड-संकुचन (कॉर्पोरेट बोर्ड 18.67%/CEO 5.1%, SC न्यायाधीश केवल 3.1%, पंचायत 46%/14 लाख+ प्रतिनिधि), नारी शक्ति वंदन अधिनियम 2023 व विलंबित क्रियान्वयन (2029 तक), अंतरराष्ट्रीय तुलना (नॉर्डिक/रवांडा), 3 मॉडल उत्तर)
-- [x] 9. महिला संगठन — SHG, महिला आयोग, आंदोलन → `mpsi-syllabus/notes/05-indian-society/09-women-organizations-shg-commission-movements.md` (253 lines — DAY-NRLM SHG आँकड़े (10.05 करोड़ महिलाएँ/90.90 लाख SHG, ₹10 लाख करोड़+ ऋण, 96%+ चुकौती, लखपति दीदी 1.48/3 करोड़), NCW शक्तियाँ व MP राज्य महिला आयोग (1998), 5 ऐतिहासिक आंदोलन (चिपको/सेवा/शराब-विरोधी/विशाखा/निर्भया) तुलनात्मक तालिका सहित, MP आजीविका मार्ट, 3 मॉडल उत्तर)
-- [x] 10. लैंगिक असमानता के मुद्दे → `mpsi-syllabus/notes/05-indian-society/10-gender-inequality-wage-gap-representation-domestic-violence.md` (253 lines — अवैतनिक कार्य-अंतराल (Time Use Survey 2024: 289 बनाम 88 मिनट, GDP में संभावित 7%+), प्रतिनिधित्व-अंतराल संक्षिप्त पुनरावलोकन, घरेलू हिंसा गहन कवरेज (NFHS-6 22.3%/5.6 करोड़ बनाम NCRB दर्ज केवल 4.4 लाख — विशाल अंडर-रिपोर्टिंग गैप, ₹4.6 लाख करोड़ आर्थिक लागत), PWDVA 2005/निर्भया कोष (76% उपयोग)/OSC/हेल्पलाइन 181, अंतरराष्ट्रीय तुलना (आइसलैंड/स्पेन/रवांडा), 3 मॉडल उत्तर)
-- [x] 11. गरीबी — परिभाषा, मापन, प्रकार → `mpsi-syllabus/notes/05-indian-society/11-poverty-definition-measurement-types.md` (245 lines — निरपेक्ष/सापेक्ष गरीबी भेद, अमर्त्य सेन क्षमता उपागम, मापन-इतिहास (कैलोरी→तेंदुलकर 2005→रंगराजन 2014 कभी न अपनाई गई), वर्तमान NITI Aayog MPI (अल्काइर-फॉस्टर, 29.17%→11.28%, 24.82 करोड़ बाहर निकले), MP गहन कवरेज (36.57%→20.63%, देश में दूसरा सर्वश्रेष्ठ सुधार, 2.3 करोड़ बाहर निकले), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
-- [x] 12. गरीबी उन्मूलन कार्यक्रम — सामाजिक प्रभाव → `mpsi-syllabus/notes/05-indian-society/12-poverty-alleviation-programs-social-context.md` (239 lines — मनरेगा (100 दिन गारंटी, प्रवासन-कमी/महिला-भागीदारी सामाजिक प्रभाव), PMAY (3.21 करोड़ स्वीकृत, महिला संपत्ति-स्वामित्व गरिमा), NFSA/AAY/PMGKAY (81.35 करोड़ लाभार्थी=57% जनसंख्या, 2028 तक विस्तारित), NRLM बिंदु 9 से जोड़, समेकित प्रभाव (41.5 करोड़ बाहर निकले — वैश्विक MPI 2024), समावेशन/बहिष्करण त्रुटि व आश्रय-बनाम-सशक्तिकरण बहस, अंतरराष्ट्रीय तुलना (ब्राज़ील बोल्सा फैमिलिया), 3 मॉडल उत्तर)
-- [x] 13. विकास एवं गरीबी का अंतर्संबंध → `mpsi-syllabus/notes/05-indian-society/13-development-poverty-interrelationship.md` (238 lines — ट्रिकल-डाउन/कुज़नेट्स वक्र/समावेशी विकास सिद्धांत, भारत साक्ष्य (2004-12 गरीबी 3x तेज़ कमी, अत्यंत गरीबी 16.2%→2.3%), जॉबलेस ग्रोथ विरोधाभास (बिंदु 6 से जोड़), असमानता की परस्पर-विरोधी गिनी बहस गहन विवेचन (विश्व बैंक 25.5 "समान" बनाम शीर्ष 10%=77% संपत्ति — पद्धतिगत भेद ईमानदारी से प्रस्तुत), अंतरराष्ट्रीय तुलना (चीन/ब्राज़ील/पूर्वी एशिया), 3 मॉडल उत्तर)
-- [x] 14. शहरीकरण — कारण, रुझान, सामाजिक समस्याएं → `mpsi-syllabus/notes/05-indian-society/14-urbanization-causes-trends-social-problems.md` (261 lines — आधिकारिक दर 36.87% बनाम आर्थिक सर्वेक्षण 2025-26 का "छिपा हुआ शहरीकरण" रहस्योद्घाटन (उपग्रह-डेटा अनुसार वास्तविक ~82.6%, परिधि-से-केंद्र वृद्धि अनुपात >1), राज्यवार असमानता, सामाजिक समस्याएं (मलिन बस्ती/अवसंरचना-दबाव/सामाजिक अलगाव/अपराध), स्मार्ट सिटीज़ मिशन, MP गहन केस-स्टडी (भोपाल विस्तार 26.3→185.19 वर्ग किमी बनाम इंदौर स्वच्छता-मॉडल), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
-- [x] 15. शहरीकरण समाधान — नियोजन, स्मार्ट सिटी → `mpsi-syllabus/notes/05-indian-society/15-urbanization-planning-solutions-smart-cities.md` (233 lines — बिंदु 14 के "समस्या" फोकस से अलग "समाधान" फोकस: 74वाँ संविधान संशोधन व असमान क्रियान्वयन/वित्तीय निर्भरता, मास्टर प्लान (दिल्ली 2047 TOD उदाहरण), RERA 2024-25 संशोधन, स्मार्ट सिटीज़ मिशन ABD मॉडल गहन विश्लेषण (उपलब्धियाँ/द्वीप-सदृश सीमा), AMRUT/GIS-नियोजन/इन-सीटू पुनर्विकास, MP भोपाल-इंदौर ICCC संदर्भ, 3 मॉडल उत्तर)
-- [x] 16. वैश्वीकरण का भारतीय समाज पर प्रभाव → `mpsi-syllabus/notes/05-indian-society/16-globalization-impact-on-indian-society.md` (233 lines — 1991 LPG सुधार पृष्ठभूमि, सांस्कृतिक प्रभाव (उपभोक्तावाद/मैकडॉनल्डीकरण +25% फास्ट-फूड, पारिवारिक संरचना बिंदु 4 से जोड़), ग्लोकलाइज़ेशन (मैकडॉनल्ड्स भारतीय-अनुकूलन उदाहरण), योगेंद्र सिंह का सैद्धांतिक योगदान गहन विवेचन (समरूपीकरण नहीं बल्कि बहुलवाद-संकरता-पहचान-सुदृढ़ीकरण, चयनात्मक अनुकूलन व प्रतिरोध), अंतरराष्ट्रीय तुलना (जापान/फ्रांस/दक्षिण कोरिया हैलियू), 3 मॉडल उत्तर)
-- [x] 17. सामाजिक स्तरीकरण एवं सामाजिक गतिशीलता → `mpsi-syllabus/notes/05-indian-society/17-social-stratification-mobility.md` (245 lines — वेबर त्रि-आयामी मॉडल (वर्ग-प्रतिष्ठा-शक्ति), गतिशीलता प्रकार व संस्कृतीकरण सामूहिक मॉडल, 2024 नवीनतम अनुभवजन्य शोध गहन विवेचन (ग्रेट गैट्सबी वक्र भारत में पुष्ट, SC/ST 33.28% निरंतरता-गिरावट व आरक्षण-नीति सफलता प्रमाणित, मुस्लिम समुदाय 1960 से निरंतर गिरावट — चिंताजनक विरोधाभास, लैंगिक अंतराल), अंतरराष्ट्रीय तुलना (अमेरिका/नॉर्डिक), 3 मॉडल उत्तर)
-- [x] 18. सामाजिक आंदोलन — दलित, आदिवासी, किसान → `mpsi-syllabus/notes/05-indian-society/18-social-movements-dalit-adivasi-farmer.md` (230 lines — भीम आर्मी (2015, आधुनिक दलित मुखरता), आदिवासी "जल-जंगल-ज़मीन" गहन कवरेज (FRA 2006 छत्तीसगढ़ खराब क्रियान्वयन/1लाख+ विस्थापित, पत्थलगड़ी आंदोलन 2016→MP विस्तार, नर्मदा बचाओ आंदोलन **MP-केंद्रित** मेधा पाटकर), किसान आंदोलन 2020-21 (कानून-निरस्तीकरण दिसंबर 2021, MSP-गारंटी लंबित), तुलनात्मक तालिका, अंतरराष्ट्रीय तुलना (ब्राज़ील MST), 3 मॉडल उत्तर)
-- [x] 19. साम्प्रदायिकता, क्षेत्रवाद व भाषावाद → `mpsi-syllabus/notes/05-indian-society/19-communalism-regionalism-linguism.md` (234 lines — बिंदु 2 के "सकारात्मक बहुलवाद" फ्रेम से अलग "विभाजनकारी खतरा" विश्लेषणात्मक फ्रेम: साम्प्रदायिकता 3 प्रकार+कारण+2024 डेटा (59 दंगे, 84% वृद्धि — CSSS), क्षेत्रवाद सन-ऑफ-द-सॉइल सिद्धांत (शिवसेना-महाराष्ट्र, असम आंदोलन 1979-85→असम समझौता), भाषावाद संक्षिप्त पुनर्स्थापन, अंतरराष्ट्रीय तुलना (यूगोस्लाविया विघटन/श्रीलंका गृहयुद्ध/बेल्जियम सफल), 3 मॉडल उत्तर)
-- [x] 20. सामाजिक न्याय की अवधारणा → `mpsi-syllabus/notes/05-indian-society/20-concept-of-social-justice.md` (218 lines — संश्लेषणात्मक बिंदु जोड़ता बिंदु 3/8-10/11-13/18: जॉन रॉल्स सिद्धांत गहन विवेचन (मूल स्थिति/अज्ञानता का पर्दा/भिन्नता सिद्धांत/सुधार सिद्धांत — आरक्षण का सैद्धांतिक आधार), अमर्त्य सेन/अरस्तू/मार्क्स तुलना, संवैधानिक ढाँचा (प्रस्तावना में न्याय प्रथम), समानता-बनाम-समता बहस, अंतरराष्ट्रीय तुलना (दक्षिण अफ्रीका BEE/अमेरिका 2023 SC निर्णय), 3 मॉडल उत्तर)
-- [x] 21. बाल विवाह, दहेज प्रथा, अस्पृश्यता व सुधार आंदोलन → `mpsi-syllabus/notes/05-indian-society/21-child-marriage-dowry-untouchability-reform-movements.md` (230 lines — बाल विवाह गहन डेटा (47%→23.3%→20.1% NFHS-6, शारदा अधिनियम 1929→PCMA 2006), दहेज प्रथा (धारा 498A/304B, NCRB 2024: 5737 हत्या/1693 आत्महत्या +6.7%), अस्पृश्यता सुधार आंदोलन विस्तार (बिंदु 3 से आगे — वायकोम सत्याग्रह 1924-25, मंदिर-प्रवेश उद्घोषणा 1936), साझा "कानून-प्रथा अंतराल" पैटर्न विश्लेषण, 3 मॉडल उत्तर)
-- [x] 22. वृद्धजन कल्याण एवं दिव्यांगजन समावेशन → `mpsi-syllabus/notes/05-indian-society/22-elderly-welfare-disability-inclusion.md` (224 lines — बिंदु 4 को अद्यतन करता: वृद्धजन जनसंख्या प्रक्षेपण (2050 तक 30 करोड़+), आयुष्मान भारत 70+ विस्तार अक्टूबर 2024 (सबसे नवीनतम पहल), वृद्धजन-दुर्व्यवहार डेटा-विसंगति (LASI 5.22% बनाम अन्य अध्ययन 44.6%), दिव्यांगजन समावेशन नया विषय (RPwD अधिनियम 2016: 7→21 श्रेणियाँ, सुगम्य भारत अभियान, UDID, जनगणना 2011 2.68 करोड़ बनाम WHO अनुमान 7-10 करोड़ भारी अंडर-काउंटिंग व जनगणना 2027 श्रेणी-विवाद), दोनों में साझा डेटा-अंतराल पैटर्न विश्लेषण, अंतरराष्ट्रीय तुलना (जापान/UNCRPD/स्वीडन), 3 मॉडल उत्तर)
+- [x] 1. भारतीय समाज की मुख्य विशेषताएं — बहुलवाद, विविधता में एकता → `mpesb-syllabus/notes/05-indian-society/01-features-pluralism-unity-in-diversity.md` (736 lines — confirmed as template for remaining points in this file: भूमिका → सैद्धांतिक पृष्ठभूमि → ऐतिहासिक विकास → विस्तृत विवेचन (bullet-heavy) → संवैधानिक आधार → सरकारी पहल → चुनौतियाँ → अंतरराष्ट्रीय तुलना → समसामयिक प्रासंगिकता → आगे की राह → निष्कर्ष → 7 मॉडल उत्तर → अतिरिक्त प्रश्न → MP-विशिष्ट संदर्भ → mind-map → glossary → परीक्षा-केंद्रित सार → स्रोत)
+- [x] 2. सामाजिक-सांस्कृतिक विविधता — भाषा, धर्म, क्षेत्र → `mpesb-syllabus/notes/05-indian-society/02-sociocultural-diversity-language-religion-region.md` (711 lines — 3 parts: भाग A भाषा (नीति-इतिहास, त्रिभाषा सूत्र, तमिलनाडु विरोध, शास्त्रीय भाषाएं, लुप्तप्राय भाषाएं), भाग B धर्म (जनसांख्यिकी रुझान, सकारात्मक पंथनिरपेक्षता, समन्वयवाद), भाग C क्षेत्र (6 सांस्कृतिक क्षेत्र, ZCC, शास्त्रीय नृत्य) — हर भाग में अंतरराष्ट्रीय तुलना (स्विट्ज़रलैंड/कनाडा, लेबनान/अमेरिका, स्पेन/यूके) + असम NRC, मणिपुर 2023, कावेरी विवाद केस-स्टडी + 7 मॉडल उत्तर + MP उप-क्षेत्र तालिका)
+- [x] 3. सामाजिक संरचना — जाति व्यवस्था, वर्ण व्यवस्था → `mpesb-syllabus/notes/05-indian-society/03-caste-varna-system-historical-evolution.md` (620 lines — वर्ण-जाति सैद्धांतिक ढाँचा, घुर्ये की 6 विशेषताएं, समाजशास्त्रीय दृष्टिकोण (घुर्ये/आंबेडकर/ड्यूमों/श्रीनिवास/बेती), औपनिवेशिक कठोरीकरण, जाति-विरोधी सुधार आंदोलन, जाति vs जनजाति भेद, आरक्षण-नीति इतिहास (मंडल→इंद्रा साहनी→EWS→रोहिणी आयोग→2024 SC/ST उप-वर्गीकरण), जाति-जनगणना गहन कवरेज (बिहार सर्वेक्षण 2023 + राष्ट्रीय जनगणना 2027 — नवीनतम समसामयिक), अंतरराष्ट्रीय तुलना (अपार्थाइड/बुराकुमिन/अफर्मेटिव एक्शन/रवांडा), 8 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
+- [x] 4. संयुक्त परिवार से एकल परिवार में परिवर्तन → `mpesb-syllabus/notes/05-indian-society/04-joint-family-to-nuclear-family-transition.md` (464 lines — संयुक्त/न्यूक्लियर/विस्तारित परिवार संरचना, NFHS-5 आँकड़े, देसाई की "जॉइंटनेस की मात्रा" व शाह की गृहस्थी-परिवार भेद, हिंदू उत्तराधिकार अधिनियम 2005 व विनीता शर्मा वाद, वृद्धजन कल्याण कानून/योजनाएं (2007 अधिनियम, AVYAY, एल्डरलाइन), अंतरराष्ट्रीय तुलना (चीन 4-2-1, जापान-कोरिया कोडोकुशी), 6 मॉडल उत्तर, MP-विशिष्ट संदर्भ)
+- [x] 5. भारत/MP जनसांख्यिकी — जनगणना, लिंगानुपात, आयु-संरचना → `mpesb-syllabus/notes/05-indian-society/05-india-mp-demographics-census-sex-ratio-age-structure.md` (377 lines — जनगणना इतिहास व 2027 योजना, लिंगानुपात जनगणना vs NFHS पद्धतिगत भेद, बाल लिंगानुपात/PCPNDT/बेटी बचाओ बेटी पढ़ाओ, आयु-संरचना व जनसंख्या पिरामिड, निर्भरता अनुपात व जनसांख्यिकीय लाभांश खिड़की 2036, MP आँकड़े, उत्तर-दक्षिण परिसीमन विवाद, अंतरराष्ट्रीय तुलना (चीन/जापान/अफ्रीका), 5 मॉडल उत्तर)
+- [x] 6. जनसंख्या वृद्धि व जनसांख्यिकीय लाभांश → `mpesb-syllabus/notes/05-indian-society/06-population-growth-demographic-dividend.md` (289 lines — लाभांश की सैद्धांतिक शर्तें, भारत 68% कार्यशील-आयु/2036 शिखर, राज्य-वर्गीकरण: वृद्ध होती सीमा (केरल-तमिलनाडु-पंजाब) बनाम युवा इंजन (**MP**-बिहार-यूपी) — MP सीधे प्रासंगिक, कौशल-अंतराल (43% रोजगार-योग्य) व महिला भागीदारी (24%) चुनौती, स्किल इंडिया/PM इंटर्नशिप योजना, अंतरराष्ट्रीय तुलना (पूर्वी एशिया सफल बनाम लैटिन अमेरिका असफल बनाम चीन दोहन-पश्चात संकुचन), 4 मॉडल उत्तर)
+- [x] 7. प्रवास (Migration) → `mpesb-syllabus/notes/05-indian-society/07-migration-internal-international-causes-effects.md` (280 lines — आंतरिक प्रवास आँकड़े (45.36 करोड़ जनगणना vs ~60 करोड़ वास्तविक अनुमान, 85% राज्य के भीतर), लिंग-आधारित कारण-भिन्नता (महिला-विवाह 86.8%/पुरुष-रोजगार 49.6%), ली का प्रवास सिद्धांत, अंतर्राष्ट्रीय प्रेषण ($135bn 2025, विश्व में सर्वाधिक, खाड़ी→अमेरिका संरचनात्मक बदलाव), कोविड-19 प्रवासी श्रमिक संकट केस-स्टडी, e-Shram/ONORC, MP स्रोत-राज्य संदर्भ, 3 मॉडल उत्तर)
+- [x] 8. महिलाओं की सामाजिक-आर्थिक भूमिका → `mpesb-syllabus/notes/05-indian-society/08-women-socioeconomic-role-education-employment-leadership.md` (272 lines — शिक्षा (साक्षरता अंतराल 14.4pp, उच्च शिक्षा GER महिला अब पुरुष से आगे 28.5%>28.3%), रोजगार (FLFPR 23.3%→41.7% पर गुणवत्ता-चिंता — अनौपचारिक/अवैतनिक केंद्रण, अवैतनिक कार्य 363 बनाम 123 मिनट), नेतृत्व पिरामिड-संकुचन (कॉर्पोरेट बोर्ड 18.67%/CEO 5.1%, SC न्यायाधीश केवल 3.1%, पंचायत 46%/14 लाख+ प्रतिनिधि), नारी शक्ति वंदन अधिनियम 2023 व विलंबित क्रियान्वयन (2029 तक), अंतरराष्ट्रीय तुलना (नॉर्डिक/रवांडा), 3 मॉडल उत्तर)
+- [x] 9. महिला संगठन — SHG, महिला आयोग, आंदोलन → `mpesb-syllabus/notes/05-indian-society/09-women-organizations-shg-commission-movements.md` (253 lines — DAY-NRLM SHG आँकड़े (10.05 करोड़ महिलाएँ/90.90 लाख SHG, ₹10 लाख करोड़+ ऋण, 96%+ चुकौती, लखपति दीदी 1.48/3 करोड़), NCW शक्तियाँ व MP राज्य महिला आयोग (1998), 5 ऐतिहासिक आंदोलन (चिपको/सेवा/शराब-विरोधी/विशाखा/निर्भया) तुलनात्मक तालिका सहित, MP आजीविका मार्ट, 3 मॉडल उत्तर)
+- [x] 10. लैंगिक असमानता के मुद्दे → `mpesb-syllabus/notes/05-indian-society/10-gender-inequality-wage-gap-representation-domestic-violence.md` (253 lines — अवैतनिक कार्य-अंतराल (Time Use Survey 2024: 289 बनाम 88 मिनट, GDP में संभावित 7%+), प्रतिनिधित्व-अंतराल संक्षिप्त पुनरावलोकन, घरेलू हिंसा गहन कवरेज (NFHS-6 22.3%/5.6 करोड़ बनाम NCRB दर्ज केवल 4.4 लाख — विशाल अंडर-रिपोर्टिंग गैप, ₹4.6 लाख करोड़ आर्थिक लागत), PWDVA 2005/निर्भया कोष (76% उपयोग)/OSC/हेल्पलाइन 181, अंतरराष्ट्रीय तुलना (आइसलैंड/स्पेन/रवांडा), 3 मॉडल उत्तर)
+- [x] 11. गरीबी — परिभाषा, मापन, प्रकार → `mpesb-syllabus/notes/05-indian-society/11-poverty-definition-measurement-types.md` (245 lines — निरपेक्ष/सापेक्ष गरीबी भेद, अमर्त्य सेन क्षमता उपागम, मापन-इतिहास (कैलोरी→तेंदुलकर 2005→रंगराजन 2014 कभी न अपनाई गई), वर्तमान NITI Aayog MPI (अल्काइर-फॉस्टर, 29.17%→11.28%, 24.82 करोड़ बाहर निकले), MP गहन कवरेज (36.57%→20.63%, देश में दूसरा सर्वश्रेष्ठ सुधार, 2.3 करोड़ बाहर निकले), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
+- [x] 12. गरीबी उन्मूलन कार्यक्रम — सामाजिक प्रभाव → `mpesb-syllabus/notes/05-indian-society/12-poverty-alleviation-programs-social-context.md` (239 lines — मनरेगा (100 दिन गारंटी, प्रवासन-कमी/महिला-भागीदारी सामाजिक प्रभाव), PMAY (3.21 करोड़ स्वीकृत, महिला संपत्ति-स्वामित्व गरिमा), NFSA/AAY/PMGKAY (81.35 करोड़ लाभार्थी=57% जनसंख्या, 2028 तक विस्तारित), NRLM बिंदु 9 से जोड़, समेकित प्रभाव (41.5 करोड़ बाहर निकले — वैश्विक MPI 2024), समावेशन/बहिष्करण त्रुटि व आश्रय-बनाम-सशक्तिकरण बहस, अंतरराष्ट्रीय तुलना (ब्राज़ील बोल्सा फैमिलिया), 3 मॉडल उत्तर)
+- [x] 13. विकास एवं गरीबी का अंतर्संबंध → `mpesb-syllabus/notes/05-indian-society/13-development-poverty-interrelationship.md` (238 lines — ट्रिकल-डाउन/कुज़नेट्स वक्र/समावेशी विकास सिद्धांत, भारत साक्ष्य (2004-12 गरीबी 3x तेज़ कमी, अत्यंत गरीबी 16.2%→2.3%), जॉबलेस ग्रोथ विरोधाभास (बिंदु 6 से जोड़), असमानता की परस्पर-विरोधी गिनी बहस गहन विवेचन (विश्व बैंक 25.5 "समान" बनाम शीर्ष 10%=77% संपत्ति — पद्धतिगत भेद ईमानदारी से प्रस्तुत), अंतरराष्ट्रीय तुलना (चीन/ब्राज़ील/पूर्वी एशिया), 3 मॉडल उत्तर)
+- [x] 14. शहरीकरण — कारण, रुझान, सामाजिक समस्याएं → `mpesb-syllabus/notes/05-indian-society/14-urbanization-causes-trends-social-problems.md` (261 lines — आधिकारिक दर 36.87% बनाम आर्थिक सर्वेक्षण 2025-26 का "छिपा हुआ शहरीकरण" रहस्योद्घाटन (उपग्रह-डेटा अनुसार वास्तविक ~82.6%, परिधि-से-केंद्र वृद्धि अनुपात >1), राज्यवार असमानता, सामाजिक समस्याएं (मलिन बस्ती/अवसंरचना-दबाव/सामाजिक अलगाव/अपराध), स्मार्ट सिटीज़ मिशन, MP गहन केस-स्टडी (भोपाल विस्तार 26.3→185.19 वर्ग किमी बनाम इंदौर स्वच्छता-मॉडल), अंतरराष्ट्रीय तुलना, 3 मॉडल उत्तर)
+- [x] 15. शहरीकरण समाधान — नियोजन, स्मार्ट सिटी → `mpesb-syllabus/notes/05-indian-society/15-urbanization-planning-solutions-smart-cities.md` (233 lines — बिंदु 14 के "समस्या" फोकस से अलग "समाधान" फोकस: 74वाँ संविधान संशोधन व असमान क्रियान्वयन/वित्तीय निर्भरता, मास्टर प्लान (दिल्ली 2047 TOD उदाहरण), RERA 2024-25 संशोधन, स्मार्ट सिटीज़ मिशन ABD मॉडल गहन विश्लेषण (उपलब्धियाँ/द्वीप-सदृश सीमा), AMRUT/GIS-नियोजन/इन-सीटू पुनर्विकास, MP भोपाल-इंदौर ICCC संदर्भ, 3 मॉडल उत्तर)
+- [x] 16. वैश्वीकरण का भारतीय समाज पर प्रभाव → `mpesb-syllabus/notes/05-indian-society/16-globalization-impact-on-indian-society.md` (233 lines — 1991 LPG सुधार पृष्ठभूमि, सांस्कृतिक प्रभाव (उपभोक्तावाद/मैकडॉनल्डीकरण +25% फास्ट-फूड, पारिवारिक संरचना बिंदु 4 से जोड़), ग्लोकलाइज़ेशन (मैकडॉनल्ड्स भारतीय-अनुकूलन उदाहरण), योगेंद्र सिंह का सैद्धांतिक योगदान गहन विवेचन (समरूपीकरण नहीं बल्कि बहुलवाद-संकरता-पहचान-सुदृढ़ीकरण, चयनात्मक अनुकूलन व प्रतिरोध), अंतरराष्ट्रीय तुलना (जापान/फ्रांस/दक्षिण कोरिया हैलियू), 3 मॉडल उत्तर)
+- [x] 17. सामाजिक स्तरीकरण एवं सामाजिक गतिशीलता → `mpesb-syllabus/notes/05-indian-society/17-social-stratification-mobility.md` (245 lines — वेबर त्रि-आयामी मॉडल (वर्ग-प्रतिष्ठा-शक्ति), गतिशीलता प्रकार व संस्कृतीकरण सामूहिक मॉडल, 2024 नवीनतम अनुभवजन्य शोध गहन विवेचन (ग्रेट गैट्सबी वक्र भारत में पुष्ट, SC/ST 33.28% निरंतरता-गिरावट व आरक्षण-नीति सफलता प्रमाणित, मुस्लिम समुदाय 1960 से निरंतर गिरावट — चिंताजनक विरोधाभास, लैंगिक अंतराल), अंतरराष्ट्रीय तुलना (अमेरिका/नॉर्डिक), 3 मॉडल उत्तर)
+- [x] 18. सामाजिक आंदोलन — दलित, आदिवासी, किसान → `mpesb-syllabus/notes/05-indian-society/18-social-movements-dalit-adivasi-farmer.md` (230 lines — भीम आर्मी (2015, आधुनिक दलित मुखरता), आदिवासी "जल-जंगल-ज़मीन" गहन कवरेज (FRA 2006 छत्तीसगढ़ खराब क्रियान्वयन/1लाख+ विस्थापित, पत्थलगड़ी आंदोलन 2016→MP विस्तार, नर्मदा बचाओ आंदोलन **MP-केंद्रित** मेधा पाटकर), किसान आंदोलन 2020-21 (कानून-निरस्तीकरण दिसंबर 2021, MSP-गारंटी लंबित), तुलनात्मक तालिका, अंतरराष्ट्रीय तुलना (ब्राज़ील MST), 3 मॉडल उत्तर)
+- [x] 19. साम्प्रदायिकता, क्षेत्रवाद व भाषावाद → `mpesb-syllabus/notes/05-indian-society/19-communalism-regionalism-linguism.md` (234 lines — बिंदु 2 के "सकारात्मक बहुलवाद" फ्रेम से अलग "विभाजनकारी खतरा" विश्लेषणात्मक फ्रेम: साम्प्रदायिकता 3 प्रकार+कारण+2024 डेटा (59 दंगे, 84% वृद्धि — CSSS), क्षेत्रवाद सन-ऑफ-द-सॉइल सिद्धांत (शिवसेना-महाराष्ट्र, असम आंदोलन 1979-85→असम समझौता), भाषावाद संक्षिप्त पुनर्स्थापन, अंतरराष्ट्रीय तुलना (यूगोस्लाविया विघटन/श्रीलंका गृहयुद्ध/बेल्जियम सफल), 3 मॉडल उत्तर)
+- [x] 20. सामाजिक न्याय की अवधारणा → `mpesb-syllabus/notes/05-indian-society/20-concept-of-social-justice.md` (218 lines — संश्लेषणात्मक बिंदु जोड़ता बिंदु 3/8-10/11-13/18: जॉन रॉल्स सिद्धांत गहन विवेचन (मूल स्थिति/अज्ञानता का पर्दा/भिन्नता सिद्धांत/सुधार सिद्धांत — आरक्षण का सैद्धांतिक आधार), अमर्त्य सेन/अरस्तू/मार्क्स तुलना, संवैधानिक ढाँचा (प्रस्तावना में न्याय प्रथम), समानता-बनाम-समता बहस, अंतरराष्ट्रीय तुलना (दक्षिण अफ्रीका BEE/अमेरिका 2023 SC निर्णय), 3 मॉडल उत्तर)
+- [x] 21. बाल विवाह, दहेज प्रथा, अस्पृश्यता व सुधार आंदोलन → `mpesb-syllabus/notes/05-indian-society/21-child-marriage-dowry-untouchability-reform-movements.md` (230 lines — बाल विवाह गहन डेटा (47%→23.3%→20.1% NFHS-6, शारदा अधिनियम 1929→PCMA 2006), दहेज प्रथा (धारा 498A/304B, NCRB 2024: 5737 हत्या/1693 आत्महत्या +6.7%), अस्पृश्यता सुधार आंदोलन विस्तार (बिंदु 3 से आगे — वायकोम सत्याग्रह 1924-25, मंदिर-प्रवेश उद्घोषणा 1936), साझा "कानून-प्रथा अंतराल" पैटर्न विश्लेषण, 3 मॉडल उत्तर)
+- [x] 22. वृद्धजन कल्याण एवं दिव्यांगजन समावेशन → `mpesb-syllabus/notes/05-indian-society/22-elderly-welfare-disability-inclusion.md` (224 lines — बिंदु 4 को अद्यतन करता: वृद्धजन जनसंख्या प्रक्षेपण (2050 तक 30 करोड़+), आयुष्मान भारत 70+ विस्तार अक्टूबर 2024 (सबसे नवीनतम पहल), वृद्धजन-दुर्व्यवहार डेटा-विसंगति (LASI 5.22% बनाम अन्य अध्ययन 44.6%), दिव्यांगजन समावेशन नया विषय (RPwD अधिनियम 2016: 7→21 श्रेणियाँ, सुगम्य भारत अभियान, UDID, जनगणना 2011 2.68 करोड़ बनाम WHO अनुमान 7-10 करोड़ भारी अंडर-काउंटिंग व जनगणना 2027 श्रेणी-विवाद), दोनों में साझा डेटा-अंतराल पैटर्न विश्लेषण, अंतरराष्ट्रीय तुलना (जापान/UNCRPD/स्वीडन), 3 मॉडल उत्तर)
 
 **फ़ाइल 05 (भारतीय समाज) है COMPLETE — सभी 22 बिंदु पूर्ण।**
 
@@ -269,27 +269,27 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 
 ### Progress tracker — other checklist files
 
-**All 9 checklist files are now COMPLETE** (01 हिंदी भाषायी बोध, 02 English, 03 तर्कशक्ति, 04 अंकों की व्याख्या, 05 भारतीय समाज, 06 आंतरिक सुरक्षा एवं पुलिस की भूमिका, 07 बुनियादी कंप्यूटर ज्ञान, 08 तकनीकी पेपर — मैकेनिकल इंजीनियरिंग, 09 Additional Gaps in Covered Units). **The MPSI/MP-govt missing-topics note-authoring project is finished** — every checklist point across all 9 files has a corresponding deep-dive Markdown note. Any further work here would be revision/expansion of existing notes, not new checklist points.
+**All 9 checklist files are now COMPLETE** (01 हिंदी भाषायी बोध, 02 English, 03 तर्कशक्ति, 04 अंकों की व्याख्या, 05 भारतीय समाज, 06 आंतरिक सुरक्षा एवं पुलिस की भूमिका, 07 बुनियादी कंप्यूटर ज्ञान, 08 तकनीकी पेपर — मैकेनिकल इंजीनियरिंग, 09 Additional Gaps in Covered Units). **The MPESB/MP-govt missing-topics note-authoring project is finished** — every checklist point across all 9 files has a corresponding deep-dive Markdown note. Any further work here would be revision/expansion of existing notes, not new checklist points.
 
 ### Progress tracker — 09-additional-gaps-in-covered-units.md (3 items, 20 sub-topics)
 
-**Format:** Same lean/fact-dense, web-verified style as files 06-08 (not the heavy 800-1000-line file-05 style) — user said "must cover facts." Unlike files 01-08, this checklist isn't numbered 1-N flat points; it has **3 named gap-items** (each a specific missing sub-clause inside an otherwise-covered Mains Paper-I unit), each with a "topics to add" sub-list. One file was written per item (not per sub-topic), since each item's sub-topics form one cohesive subject. This is **MPPSC Mains-level GS content** (history/polity), not MPSI-technical — web-verified all checkable facts (Act years, founding dates of organisations, traveller dates) via WebSearch rather than assuming from memory, consistent with the file-05/06/07 rule for fact-heavy GS content.
+**Format:** Same lean/fact-dense, web-verified style as files 06-08 (not the heavy 800-1000-line file-05 style) — user said "must cover facts." Unlike files 01-08, this checklist isn't numbered 1-N flat points; it has **3 named gap-items** (each a specific missing sub-clause inside an otherwise-covered Mains Paper-I unit), each with a "topics to add" sub-list. One file was written per item (not per sub-topic), since each item's sub-topics form one cohesive subject. This is **MPPSC Mains-level GS content** (history/polity), not MPESB-technical — web-verified all checkable facts (Act years, founding dates of organisations, traveller dates) via WebSearch rather than assuming from memory, consistent with the file-05/06/07 rule for fact-heavy GS content.
 
-- [x] 1. औपनिवेशिक नगरीकरण तथा नगर योजना → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/01-colonial-urbanization-town-planning.md` (all 7 sub-topics: presidency towns, civil lines vs native town, cantonments, Bombay Municipal Corporation Act 1888, hill stations incl. MP's पचमढ़ी, railway towns Jamalpur/Kharagpur, Jamshedpur — web-verified Act year, TISCO 1912/naming 1919)
-- [x] 2. दबाव समूह एवं औपचारिक/अनौपचारिक संघ → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/02-pressure-groups-formal-informal-associations.md` (all 7 sub-topics: pressure group types, lobbying methods, FICCI 1927/CII roots-1895-renamed-1992, AITUC 1920/INTUC 1947/BMS 1955 with party affiliations, civil society/NGO/FCRA, formal vs informal association, media as informal pressure group, pressure group vs political party distinction — all founding dates web-verified)
-- [x] 3. मध्यकालीन यात्री विवरण — विस्तार (thin, not absent) → `mpsi-syllabus/notes/09-additional-gaps-in-covered-units/03-medieval-travellers-al-biruni-marco-polo.md` (sub-topics 8-10: Al-Biruni/Kitab-ul-Hind methodology, Marco Polo Deccan/Malabar merchant account, comparative analysis with Ibn Battuta/Abdur Razzaq across 4 travellers' era/role/focus — web-verified)
+- [x] 1. औपनिवेशिक नगरीकरण तथा नगर योजना → `mpesb-syllabus/notes/09-additional-gaps-in-covered-units/01-colonial-urbanization-town-planning.md` (all 7 sub-topics: presidency towns, civil lines vs native town, cantonments, Bombay Municipal Corporation Act 1888, hill stations incl. MP's पचमढ़ी, railway towns Jamalpur/Kharagpur, Jamshedpur — web-verified Act year, TISCO 1912/naming 1919)
+- [x] 2. दबाव समूह एवं औपचारिक/अनौपचारिक संघ → `mpesb-syllabus/notes/09-additional-gaps-in-covered-units/02-pressure-groups-formal-informal-associations.md` (all 7 sub-topics: pressure group types, lobbying methods, FICCI 1927/CII roots-1895-renamed-1992, AITUC 1920/INTUC 1947/BMS 1955 with party affiliations, civil society/NGO/FCRA, formal vs informal association, media as informal pressure group, pressure group vs political party distinction — all founding dates web-verified)
+- [x] 3. मध्यकालीन यात्री विवरण — विस्तार (thin, not absent) → `mpesb-syllabus/notes/09-additional-gaps-in-covered-units/03-medieval-travellers-al-biruni-marco-polo.md` (sub-topics 8-10: Al-Biruni/Kitab-ul-Hind methodology, Marco Polo Deccan/Malabar merchant account, comparative analysis with Ibn Battuta/Abdur Razzaq across 4 travellers' era/role/focus — web-verified)
 
 **फ़ाइल 09 (अतिरिक्त सूक्ष्म अंतराल) है COMPLETE — सभी 3 आइटम, 20 उप-विषय पूर्ण।**
 
 ### Progress tracker — 08-technical-paper-group1-mechanical.md (62 points)
 
-**Format for this file (confirmed by user, differs from files 06/07):** User explicitly asked for **stricter rules** than files 06/07, given this content is also shared with RRB (Railway) technical-paper syllabus, not just MPSI. Confirmed via AskUserQuestion at file start:
+**Format for this file (confirmed by user, differs from files 06/07):** User explicitly asked for **stricter rules** than files 06/07, given this content is also shared with RRB (Railway) technical-paper syllabus, not just MPESB. Confirmed via AskUserQuestion at file start:
 - **Language**: English-primary, with Hindi terms given once per concept for syllabus-matching — not Hindi-primary with English in parentheses (the style used in files 01-07). Matches how mechanical engineering is actually taught/tested even in Hindi-medium prep.
 - **Depth**: "Lean formula+fact sheet" — key definitions, formulas, standard values/units, and the 3-5 facts that actually recur in objective (MCQ, -ve marking) papers; no derivations/proofs, no artificial padding. User reinforced mid-file ("all points must be deeply covered based on facts and importancy") — interpreted as full, non-compressed coverage of every sub-topic *within* a point's stated scope, not padding beyond it.
 - **Points 61-62** (vague, post-specific "Ordnance/weapon-system mechanical concepts" and "Ordnance maintenance & inspection," not standard ME curriculum): user chose "best-effort from general ordnance/small-arms engineering knowledge, flagged as unverified" over skipping — both files carry an explicit ⚠️ caveat banner stating there is no confirmed official SI-Ordnance syllabus/paper source, and recommending official department material be prioritized if available.
 - Every point verified against standard, stable undergraduate mechanical-engineering textbook knowledge (statics, SOM, thermo, fluid mechanics, TOM, machine design, manufacturing, metrology are universal/stable content not requiring live web search, same treatment as file 04's numerical aptitude) — no numeric/factual web-verification was needed for this file, unlike files 05-07.
-- Location: `mpsi-syllabus/notes/08-technical-paper-group1-mechanical/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/08-technical-paper-group1-mechanical.md`.
-- **Scope note**: This paper (Paper III) is only for the SI-Ordnance post specifically (300 marks, 100 objective questions, -1/3 negative marking) — not general MPSI/MPPSC. Per user, the content is written to serve RRB JE/ALP/Technician and other PSC technical papers too, since they draw from the same standard mechanical engineering objective syllabus.
+- Location: `mpesb-syllabus/notes/08-technical-paper-group1-mechanical/<NN-topic-slug>.md`. Point numbers match `mpesb-syllabus/missing-topics/08-technical-paper-group1-mechanical.md`.
+- **Scope note**: This paper (Paper III) is only for the SI-Ordnance post specifically (300 marks, 100 objective questions, -1/3 negative marking) — not general MPESB/MPPSC. Per user, the content is written to serve RRB JE/ALP/Technician and other PSC technical papers too, since they draw from the same standard mechanical engineering objective syllabus.
 
 **Engineering Mechanics (1-5):**
 - [x] 1. बल तंत्र, परिणामी बल एवं संतुलन → `01-force-systems-resultant-equilibrium.md` (parallelogram/triangle/polygon law, moments, couples, Lami's theorem)
@@ -379,7 +379,7 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 - [x] 61. आयुध/हथियार प्रणाली से संबंधित मैकेनिकल अवधारणाएं → `61-ordnance-weapon-system-mechanical-concepts.md` (recoil=momentum conservation, rifling=gyroscopic stabilization, firearm operating mechanism types — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
 - [x] 62. आयुध रखरखाव व निरीक्षण से जुड़े तकनीकी पहलू → `62-ordnance-maintenance-inspection-technical-aspects.md` (preventive maintenance, NDT methods, Go/No-Go gauging — general engineering knowledge, NOT sourced from an official SI-Ordnance paper)
 
-**Gap-fill addition (2026-09-13) — points 63-70, added after cross-checking against MP-ESB Group-3 (Sub-Engineer Mechanical, समूह-03) and RRB-JE/SSC-JE Mechanical Engineering syllabi.** Points 1-60 were built solely against the MPSI SI-Ordnance Paper III syllabus; MP-ESB doesn't publish a granular topic list for its Group-3 technical papers (only a 100-mark "तकनीकी ट्रेड पर आधारित" line), so RRB-JE CBT-2/SSC-JE Paper-II — the two most standardized published diploma-level Mechanical objective syllabi — were used as the benchmark. Web-verified via search; 8 genuine, distinctly-named recurring topics found absent from 1-60:
+**Gap-fill addition (2026-09-13) — points 63-70, added after cross-checking against MP-ESB Group-3 (Sub-Engineer Mechanical, समूह-03) and RRB-JE/SSC-JE Mechanical Engineering syllabi.** Points 1-60 were built solely against the MPESB SI-Ordnance Paper III syllabus; MP-ESB doesn't publish a granular topic list for its Group-3 technical papers (only a 100-mark "तकनीकी ट्रेड पर आधारित" line), so RRB-JE CBT-2/SSC-JE Paper-II — the two most standardized published diploma-level Mechanical objective syllabi — were used as the benchmark. Web-verified via search; 8 genuine, distinctly-named recurring topics found absent from 1-60:
 - [x] 63. स्तंभ (Columns/Struts) एवं स्प्रिंग → `63-columns-struts-springs.md` (Euler's Pcr=π²EI/Le², effective-length end-condition table, slenderness ratio, Rankine's empirical formula, helical-spring stiffness k=Gd⁴/8D³n, Wahl's factor, series-softer/parallel-stiffer spring combination)
 - [x] 64. धातु फॉर्मिंग प्रक्रियाएं → `64-metal-forming-forging-rolling-extrusion.md` (hot-vs-cold-working recrystallization-temperature distinction, forging types drop/press/upset, rolling-mill configurations two/three/four-high/cluster, direct-vs-indirect extrusion, wire drawing)
 - [x] 65. पाउडर मेटलर्जी → `65-powder-metallurgy.md` (process sequence powder-production→blending→compaction→sintering-below-melting-point, self-lubricating-bearings classic application, tungsten-carbide-tool-tips high-melting-point rationale)
@@ -393,86 +393,86 @@ Point 34 (तार्किक शक्ति...) — not a separate note, alr
 
 ### Progress tracker — 07-basic-computer-knowledge-gap.md (17 points)
 
-**Format for this file:** Lean, fact-dense (same family as file 06) but with two explicit refinements the user gave mid-file — (1) prefer English technical terms directly (Home/Insert tabs, SUM/AVERAGE, Impact/Non-Impact Printer, LAN/WAN) rather than forcing Hindi translations with English only in parentheses, and (2) add explanatory prose (how/why something works) around the fact-tables, not just bare bullet facts — applied retroactively to points 1-4 after the user flagged point 4 (output devices) as too table-only. No artificial 800-1000-line padding — length follows content. Numeric/current-specific facts (storage capacities, UPI/NEFT/RTGS/IMPS limits, MP Online/e-District portal history) web-verified; stable universal facts (generations, device classifications, shortcut keys) written from verified textbook knowledge. Location: `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/07-basic-computer-knowledge-gap.md`. Unit 9 (ICT) already covers CPU/OS internals/networking protocols/cybersecurity fundamentals in depth — this file stays strictly at the "everyday computer/office use" layer, not duplicating those.
+**Format for this file:** Lean, fact-dense (same family as file 06) but with two explicit refinements the user gave mid-file — (1) prefer English technical terms directly (Home/Insert tabs, SUM/AVERAGE, Impact/Non-Impact Printer, LAN/WAN) rather than forcing Hindi translations with English only in parentheses, and (2) add explanatory prose (how/why something works) around the fact-tables, not just bare bullet facts — applied retroactively to points 1-4 after the user flagged point 4 (output devices) as too table-only. No artificial 800-1000-line padding — length follows content. Numeric/current-specific facts (storage capacities, UPI/NEFT/RTGS/IMPS limits, MP Online/e-District portal history) web-verified; stable universal facts (generations, device classifications, shortcut keys) written from verified textbook knowledge. Location: `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/<NN-topic-slug>.md`. Point numbers match `mpesb-syllabus/missing-topics/07-basic-computer-knowledge-gap.md`. Unit 9 (ICT) already covers CPU/OS internals/networking protocols/cybersecurity fundamentals in depth — this file stays strictly at the "everyday computer/office use" layer, not duplicating those.
 
-- [x] 1. कंप्यूटर की पीढ़ियाँ (Generations I-V) → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/01-computer-generations.md`
-- [x] 2. कंप्यूटर के प्रकार — सुपर, मेनफ्रेम, मिनी, माइक्रो → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/02-types-of-computers.md`
-- [x] 3. इनपुट डिवाइस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/03-input-devices.md` (कीबोर्ड/माउस/स्कैनर/OMR/OCR/MICR सहित)
-- [x] 4. आउटपुट डिवाइस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/04-output-devices.md` (मॉनिटर प्रकार, Impact/Non-Impact प्रिंटर, प्लॉटर)
-- [x] 5. स्टोरेज डिवाइस — क्षमता व अंतर → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/05-storage-devices.md` (HDD/SSD/पेन ड्राइव/CD-DVD, वेब-सत्यापित क्षमताएं)
-- [x] 6. सॉफ्टवेयर के प्रकार → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/06-types-of-software.md` (System बनाम Application, Compiler/Interpreter)
-- [x] 7. Windows GUI बेसिक्स → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/07-windows-gui-basics.md` (फाइल/फोल्डर प्रबंधन, कंट्रोल पैनल, टास्कबार)
-- [x] 8. MS Word → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/08-ms-word.md` (रिबन टैब, मेल मर्ज, शॉर्टकट)
-- [x] 9. MS Excel → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/09-ms-excel.md` (SUM/AVERAGE/IF/VLOOKUP, सेल फॉर्मेटिंग, चार्ट, शॉर्टकट)
-- [x] 10. MS PowerPoint → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/10-ms-powerpoint.md` (Transition बनाम Animation अंतर, Views, शॉर्टकट)
-- [x] 11. इंटरनेट व ईमेल → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/11-internet-email.md` (Browser बनाम Search Engine, CC/BCC, अटैचमेंट)
-- [x] 12. सामान्य कीबोर्ड शॉर्टकट → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/12-common-keyboard-shortcuts.md` (Universal shortcuts, Clipboard अवधारणा)
-- [x] 13. कंप्यूटर वायरस व एंटीवायरस → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/13-computer-virus-antivirus.md` (बुनियादी स्तर — Unit 9 के गहन cybersecurity से अलग, Virus/Worm/Trojan/Ransomware वर्गीकरण)
-- [x] 14. फाइल एक्सटेंशन → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/14-file-extensions.md` (.docx/.xlsx/.pdf/.jpg आदि वर्गीकृत सूची)
-- [x] 15. नेटवर्किंग शब्दावली — दैनिक-उपयोग स्तर → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/15-networking-terminology.md` (LAN/MAN/WAN/PAN, Modem बनाम Router)
-- [x] 16. डिजिटल भुगतान — UPI, नेट बैंकिंग, मोबाइल बैंकिंग → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/16-digital-payments.md` (NPCI/UPI सीमा ₹1 लाख/दिन वेब-सत्यापित, NEFT/RTGS/IMPS तुलना)
-- [x] 17. सरकारी ई-सेवाएं — MP ऑनलाइन, e-District → `mpsi-syllabus/notes/07-basic-computer-knowledge-gap/17-mp-egovernance-portals.md` (MP देश का प्रथम Lok Seva Guarantee Act 2010 राज्य — वेब-सत्यापित, MPOnline 2006 MPSEDC+TCS JV)
+- [x] 1. कंप्यूटर की पीढ़ियाँ (Generations I-V) → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/01-computer-generations.md`
+- [x] 2. कंप्यूटर के प्रकार — सुपर, मेनफ्रेम, मिनी, माइक्रो → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/02-types-of-computers.md`
+- [x] 3. इनपुट डिवाइस → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/03-input-devices.md` (कीबोर्ड/माउस/स्कैनर/OMR/OCR/MICR सहित)
+- [x] 4. आउटपुट डिवाइस → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/04-output-devices.md` (मॉनिटर प्रकार, Impact/Non-Impact प्रिंटर, प्लॉटर)
+- [x] 5. स्टोरेज डिवाइस — क्षमता व अंतर → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/05-storage-devices.md` (HDD/SSD/पेन ड्राइव/CD-DVD, वेब-सत्यापित क्षमताएं)
+- [x] 6. सॉफ्टवेयर के प्रकार → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/06-types-of-software.md` (System बनाम Application, Compiler/Interpreter)
+- [x] 7. Windows GUI बेसिक्स → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/07-windows-gui-basics.md` (फाइल/फोल्डर प्रबंधन, कंट्रोल पैनल, टास्कबार)
+- [x] 8. MS Word → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/08-ms-word.md` (रिबन टैब, मेल मर्ज, शॉर्टकट)
+- [x] 9. MS Excel → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/09-ms-excel.md` (SUM/AVERAGE/IF/VLOOKUP, सेल फॉर्मेटिंग, चार्ट, शॉर्टकट)
+- [x] 10. MS PowerPoint → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/10-ms-powerpoint.md` (Transition बनाम Animation अंतर, Views, शॉर्टकट)
+- [x] 11. इंटरनेट व ईमेल → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/11-internet-email.md` (Browser बनाम Search Engine, CC/BCC, अटैचमेंट)
+- [x] 12. सामान्य कीबोर्ड शॉर्टकट → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/12-common-keyboard-shortcuts.md` (Universal shortcuts, Clipboard अवधारणा)
+- [x] 13. कंप्यूटर वायरस व एंटीवायरस → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/13-computer-virus-antivirus.md` (बुनियादी स्तर — Unit 9 के गहन cybersecurity से अलग, Virus/Worm/Trojan/Ransomware वर्गीकरण)
+- [x] 14. फाइल एक्सटेंशन → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/14-file-extensions.md` (.docx/.xlsx/.pdf/.jpg आदि वर्गीकृत सूची)
+- [x] 15. नेटवर्किंग शब्दावली — दैनिक-उपयोग स्तर → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/15-networking-terminology.md` (LAN/MAN/WAN/PAN, Modem बनाम Router)
+- [x] 16. डिजिटल भुगतान — UPI, नेट बैंकिंग, मोबाइल बैंकिंग → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/16-digital-payments.md` (NPCI/UPI सीमा ₹1 लाख/दिन वेब-सत्यापित, NEFT/RTGS/IMPS तुलना)
+- [x] 17. सरकारी ई-सेवाएं — MP ऑनलाइन, e-District → `mpesb-syllabus/notes/07-basic-computer-knowledge-gap/17-mp-egovernance-portals.md` (MP देश का प्रथम Lok Seva Guarantee Act 2010 राज्य — वेब-सत्यापित, MPOnline 2006 MPSEDC+TCS JV)
 
 **फ़ाइल 07 (बुनियादी कंप्यूटर ज्ञान) है COMPLETE — सभी 17 बिंदु पूर्ण।**
 
 ### Progress tracker — 06-internal-security-police-role.md (27 points)
 
-**Format for this file (confirmed by user, differs from file 05):** NOT the 800-1000-line Mains-answer-sheet format. User's explicit instruction: "explain in depth and focused on mpsi and mppsc, alway add highyeald contant only. point must be covered fact based not just filling space." So — thorough, fact-dense, MPSI/MPPSC-focused coverage (acts, agencies, strategies, case facts, current data) with live web research per point, but no artificial padding or line-count target. Length follows the content, not the other way around. Location: `mpsi-syllabus/notes/06-internal-security-police-role/<NN-topic-slug>.md`. Point numbers match `mpsi-syllabus/missing-topics/06-internal-security-police-role.md` (grouped under items viii-xiii).
+**Format for this file (confirmed by user, differs from file 05):** NOT the 800-1000-line Mains-answer-sheet format. User's explicit instruction: "explain in depth and focused on mpesb and mppsc, alway add highyeald contant only. point must be covered fact based not just filling space." So — thorough, fact-dense, MPESB/MPPSC-focused coverage (acts, agencies, strategies, case facts, current data) with live web research per point, but no artificial padding or line-count target. Length follows the content, not the other way around. Location: `mpesb-syllabus/notes/06-internal-security-police-role/<NN-topic-slug>.md`. Point numbers match `mpesb-syllabus/missing-topics/06-internal-security-police-role.md` (grouped under items viii-xiii).
 
 **लोकतंत्र में पुलिस की भूमिका (item viii):**
-- [x] 1. लोकतांत्रिक शासन में पुलिस की भूमिका एवं जवाबदेही → `mpsi-syllabus/notes/06-internal-security-police-role/01-police-role-accountability-democratic-governance.md` (संवैधानिक आधार, बहु-स्तरीय जवाबदेही ढाँचा, NPC 1977-81 8 रिपोर्ट, मॉडल पुलिस अधिनियम 2006/सोराबजी समिति — राज्य सुरक्षा आयोग+PCA, केवल 17 राज्यों में क्रियान्वयन)
-- [x] 2. पुलिस सुधार — प्रकाश सिंह वाद (2006) व सर्वोच्च न्यायालय के निर्देश → `mpsi-syllabus/notes/06-internal-security-police-role/02-prakash-singh-case-supreme-court-directives.md` (7 निर्देश शब्दशः तालिका, K.T. थॉमस निगरानी समिति, 2024 CHRI मूल्यांकन — कोई राज्य पूर्ण अनुपालक नहीं, केरल/मेघालय/त्रिपुरा बेहतर बनाम बिहार/झारखंड/UP कमज़ोर)
-- [x] 3. सामुदायिक पुलिसिंग (Community policing) — अवधारणा व मॉडल → `mpsi-syllabus/notes/06-internal-security-police-role/03-community-policing-concept-models.md` (राज्य-मॉडल तालिका — MP 1999 अधिनियम भारत का एकमात्र विधायी मॉडल+पुलिस मित्र योजना [उच्च-प्राथमिकता MP-विशिष्ट तथ्य], केरल जनमैत्री, महाराष्ट्र मोहल्ला समितियाँ/सुरेश खोपड़े, मीरा पैबी)
-- [x] 4. मानवाधिकार एवं पुलिस आचरण — संवैधानिक दायित्व → `mpsi-syllabus/notes/06-internal-security-police-role/04-human-rights-police-conduct-constitutional-obligations.md` (अनुच्छेद 20-21-22, DK बसु वाद 11 दिशा-निर्देश शब्दशः, NHRC 24-घंटे सूचना नियम, 2024: 2739 हिरासती मृत्यु, यातना-विरोधी कानून का अभाव)
-- [x] 5. महिला सुरक्षा में पुलिस की भूमिका — हेल्पलाइन, महिला थाना, वन-स्टॉप सेंटर → `mpsi-syllabus/notes/06-internal-security-police-role/05-women-safety-police-role-helpline-mahila-thana-osc.md` (भोपाल महिला थाना = भारत का प्रथम ISO-प्रमाणित महिला थाना [MP सर्वोच्च-प्राथमिकता तथ्य], दिल्ली में एक भी महिला थाना नहीं विरोधाभास, हेल्पलाइन 181/112, OSC 704+36 हेल्पलाइन=70 लाख महिलाओं को सहायता)
+- [x] 1. लोकतांत्रिक शासन में पुलिस की भूमिका एवं जवाबदेही → `mpesb-syllabus/notes/06-internal-security-police-role/01-police-role-accountability-democratic-governance.md` (संवैधानिक आधार, बहु-स्तरीय जवाबदेही ढाँचा, NPC 1977-81 8 रिपोर्ट, मॉडल पुलिस अधिनियम 2006/सोराबजी समिति — राज्य सुरक्षा आयोग+PCA, केवल 17 राज्यों में क्रियान्वयन)
+- [x] 2. पुलिस सुधार — प्रकाश सिंह वाद (2006) व सर्वोच्च न्यायालय के निर्देश → `mpesb-syllabus/notes/06-internal-security-police-role/02-prakash-singh-case-supreme-court-directives.md` (7 निर्देश शब्दशः तालिका, K.T. थॉमस निगरानी समिति, 2024 CHRI मूल्यांकन — कोई राज्य पूर्ण अनुपालक नहीं, केरल/मेघालय/त्रिपुरा बेहतर बनाम बिहार/झारखंड/UP कमज़ोर)
+- [x] 3. सामुदायिक पुलिसिंग (Community policing) — अवधारणा व मॉडल → `mpesb-syllabus/notes/06-internal-security-police-role/03-community-policing-concept-models.md` (राज्य-मॉडल तालिका — MP 1999 अधिनियम भारत का एकमात्र विधायी मॉडल+पुलिस मित्र योजना [उच्च-प्राथमिकता MP-विशिष्ट तथ्य], केरल जनमैत्री, महाराष्ट्र मोहल्ला समितियाँ/सुरेश खोपड़े, मीरा पैबी)
+- [x] 4. मानवाधिकार एवं पुलिस आचरण — संवैधानिक दायित्व → `mpesb-syllabus/notes/06-internal-security-police-role/04-human-rights-police-conduct-constitutional-obligations.md` (अनुच्छेद 20-21-22, DK बसु वाद 11 दिशा-निर्देश शब्दशः, NHRC 24-घंटे सूचना नियम, 2024: 2739 हिरासती मृत्यु, यातना-विरोधी कानून का अभाव)
+- [x] 5. महिला सुरक्षा में पुलिस की भूमिका — हेल्पलाइन, महिला थाना, वन-स्टॉप सेंटर → `mpesb-syllabus/notes/06-internal-security-police-role/05-women-safety-police-role-helpline-mahila-thana-osc.md` (भोपाल महिला थाना = भारत का प्रथम ISO-प्रमाणित महिला थाना [MP सर्वोच्च-प्राथमिकता तथ्य], दिल्ली में एक भी महिला थाना नहीं विरोधाभास, हेल्पलाइन 181/112, OSC 704+36 हेल्पलाइन=70 लाख महिलाओं को सहायता)
 
 **लोकतंत्र में पुलिस की भूमिका (item viii) — COMPLETE, सभी 5 बिंदु पूर्ण।**
 
 **विकास-उग्रवाद संबंध (item ix):**
-- [x] 6. वामपंथी उग्रवाद (Left-Wing Extremism/Naxalism) — कारण, प्रभावित क्षेत्र, सरकारी रणनीति → `mpsi-syllabus/notes/06-internal-security-police-role/06-left-wing-extremism-naxalism.md` (उद्गम नक्सलबाड़ी 1967, प्रभावित जिले 182→18→11→**शून्य अप्रैल 2026 आधिकारिक घोषणा** [अत्यंत नवीनतम, बड़ी खबर], हिंसा 1936→374→33/मृत्यु 1005→150→11, बस्तर "लगभग मुक्त", 9 फरवरी 2025 बीजापुर अभियान 31 माओवादी ढेर, 2026 उन्मूलन लक्ष्य समय पर प्राप्त, SAMADHAN 8-अक्षर रणनीति पूर्ण विवरण)
-- [x] 7. विकास और उग्रवाद के बीच सहसंबंध — SAMADHAN रणनीति, आकांक्षी जिला कार्यक्रम → `mpsi-syllabus/notes/06-internal-security-police-role/07-development-extremism-correlation-samadhan-aspirational-districts.md` ("विकास-विरोधाभास" सिद्धांत, SCA ₹30cr/₹10cr, RCPLWE 2016, मोबाइल टावर 10505 योजनाबद्ध/7768 चालू, आकांक्षी जिला कार्यक्रम 2018-112 जिले-49 KPI, संपूर्णता अभियान 2.0)
-- [x] 8. जनजातीय क्षेत्रों में असंतोष के सामाजिक-आर्थिक कारण → `mpsi-syllabus/notes/06-internal-security-police-role/08-tribal-discontent-socioeconomic-causes.md` (आदिवासी जनसंख्या 8.6% परंतु विस्थापितों में 40-55% हिस्सा, कुल 6-6.5 करोड़ विस्थापित, हसदेव अरण्य केस-स्टडी, PESA 1996 — 40% राज्यों में नियम अपूर्ण, "परामर्श बनाम सहमति" बहस)
+- [x] 6. वामपंथी उग्रवाद (Left-Wing Extremism/Naxalism) — कारण, प्रभावित क्षेत्र, सरकारी रणनीति → `mpesb-syllabus/notes/06-internal-security-police-role/06-left-wing-extremism-naxalism.md` (उद्गम नक्सलबाड़ी 1967, प्रभावित जिले 182→18→11→**शून्य अप्रैल 2026 आधिकारिक घोषणा** [अत्यंत नवीनतम, बड़ी खबर], हिंसा 1936→374→33/मृत्यु 1005→150→11, बस्तर "लगभग मुक्त", 9 फरवरी 2025 बीजापुर अभियान 31 माओवादी ढेर, 2026 उन्मूलन लक्ष्य समय पर प्राप्त, SAMADHAN 8-अक्षर रणनीति पूर्ण विवरण)
+- [x] 7. विकास और उग्रवाद के बीच सहसंबंध — SAMADHAN रणनीति, आकांक्षी जिला कार्यक्रम → `mpesb-syllabus/notes/06-internal-security-police-role/07-development-extremism-correlation-samadhan-aspirational-districts.md` ("विकास-विरोधाभास" सिद्धांत, SCA ₹30cr/₹10cr, RCPLWE 2016, मोबाइल टावर 10505 योजनाबद्ध/7768 चालू, आकांक्षी जिला कार्यक्रम 2018-112 जिले-49 KPI, संपूर्णता अभियान 2.0)
+- [x] 8. जनजातीय क्षेत्रों में असंतोष के सामाजिक-आर्थिक कारण → `mpesb-syllabus/notes/06-internal-security-police-role/08-tribal-discontent-socioeconomic-causes.md` (आदिवासी जनसंख्या 8.6% परंतु विस्थापितों में 40-55% हिस्सा, कुल 6-6.5 करोड़ विस्थापित, हसदेव अरण्य केस-स्टडी, PESA 1996 — 40% राज्यों में नियम अपूर्ण, "परामर्श बनाम सहमति" बहस)
 
 **विकास-उग्रवाद संबंध (item ix) — COMPLETE, सभी 3 बिंदु पूर्ण।**
 
 **आंतरिक सुरक्षा को चुनौती देने वाले कारक (item x):**
-- [x] 9. सीमा पार आतंकवाद व घुसपैठ → `mpsi-syllabus/notes/06-internal-security-police-role/09-cross-border-terrorism-infiltration.md` (पहलगाम हमला 22 अप्रैल 2025, ऑपरेशन सिंदूर 7 मई 2025 — 9 स्थान/बहावलपुर-मुरीदके, घुसपैठ 138→14→शून्य, ~90 सक्रिय आतंकी J&K, CIBMS 2400km स्मार्ट फेंस)
-- [x] 10. गैर-राजकीय सशस्त्र समूह (Non-state actors) — प्रकार व गतिविधियाँ → `mpsi-syllabus/notes/06-internal-security-police-role/10-non-state-actors-types-activities.md` (4-प्रकार वर्गीकरण, UAPA 67 प्रतिबंधित संगठन मार्च 2025, 2019 संशोधन व्यक्तिगत आतंकवादी-घोषणा, "प्रहार" रणनीति 23 LeT/JeM कार्यकर्ता)
-- [x] 11. सीमा प्रबंधन एजेंसियाँ — BSF, SSB, ITBP, असम राइफल्स — भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/11-border-management-agencies-bsf-ssb-itbp-assam-rifles.md` ("एक सीमा एक बल" नीति, तुलनात्मक तालिका — BSF 1965 पाक-बांग्ला, SSB 1963 नेपाल-भूटान, ITBP 1962 चीन, असम राइफल्स 1835 सबसे पुराना+म्यांमार+द्वैत-नियंत्रण संरचना)
-- [x] 12. तस्करी नेटवर्क — हथियार, नशीले पदार्थ, मानव तस्करी → `mpsi-syllabus/notes/06-internal-security-police-role/12-smuggling-networks-arms-drugs-human-trafficking.md` (स्वर्ण अर्धचंद्र/स्वर्ण त्रिभुज, म्यांमार अफीम-उदय 2022 तालिबान-प्रतिबंध बाद, मणिपुर जब्ती 9x वृद्धि, NCB जब्ती ₹25,330cr/2024, ड्रोन-हथियार तस्करी पंजाब, मानव तस्करी राज्यवार डेटा, NDPS/ITPA कानून)
+- [x] 9. सीमा पार आतंकवाद व घुसपैठ → `mpesb-syllabus/notes/06-internal-security-police-role/09-cross-border-terrorism-infiltration.md` (पहलगाम हमला 22 अप्रैल 2025, ऑपरेशन सिंदूर 7 मई 2025 — 9 स्थान/बहावलपुर-मुरीदके, घुसपैठ 138→14→शून्य, ~90 सक्रिय आतंकी J&K, CIBMS 2400km स्मार्ट फेंस)
+- [x] 10. गैर-राजकीय सशस्त्र समूह (Non-state actors) — प्रकार व गतिविधियाँ → `mpesb-syllabus/notes/06-internal-security-police-role/10-non-state-actors-types-activities.md` (4-प्रकार वर्गीकरण, UAPA 67 प्रतिबंधित संगठन मार्च 2025, 2019 संशोधन व्यक्तिगत आतंकवादी-घोषणा, "प्रहार" रणनीति 23 LeT/JeM कार्यकर्ता)
+- [x] 11. सीमा प्रबंधन एजेंसियाँ — BSF, SSB, ITBP, असम राइफल्स — भूमिका → `mpesb-syllabus/notes/06-internal-security-police-role/11-border-management-agencies-bsf-ssb-itbp-assam-rifles.md` ("एक सीमा एक बल" नीति, तुलनात्मक तालिका — BSF 1965 पाक-बांग्ला, SSB 1963 नेपाल-भूटान, ITBP 1962 चीन, असम राइफल्स 1835 सबसे पुराना+म्यांमार+द्वैत-नियंत्रण संरचना)
+- [x] 12. तस्करी नेटवर्क — हथियार, नशीले पदार्थ, मानव तस्करी → `mpesb-syllabus/notes/06-internal-security-police-role/12-smuggling-networks-arms-drugs-human-trafficking.md` (स्वर्ण अर्धचंद्र/स्वर्ण त्रिभुज, म्यांमार अफीम-उदय 2022 तालिबान-प्रतिबंध बाद, मणिपुर जब्ती 9x वृद्धि, NCB जब्ती ₹25,330cr/2024, ड्रोन-हथियार तस्करी पंजाब, मानव तस्करी राज्यवार डेटा, NDPS/ITPA कानून)
 
 **आंतरिक सुरक्षा को चुनौती देने वाले कारक (item x) — COMPLETE, सभी 4 बिंदु पूर्ण।**
 
 **साइबर सुरक्षा, संचार नेटवर्क, सोशल मीडिया, धन-शोधन (item xi):**
-- [x] 13. साइबर अपराध के प्रकार — फ़िशिंग, रैंसमवेयर, पहचान चोरी → `mpsi-syllabus/notes/06-internal-security-police-role/13-cybercrime-types-phishing-ransomware-identity-theft.md` (मामले 10.29→22.68→28.15 लाख, निवेश-धोखाधड़ी 76% हानि, "डिजिटल गिरफ्तारी" घोटाला नवीनतम खतरा, 459 साइबर थाने बनाम केवल 47% दोषसिद्धि दर)
-- [x] 14. साइबर सुरक्षा नीति व संस्थाएं — CERT-In, राष्ट्रीय साइबर सुरक्षा नीति → `mpsi-syllabus/notes/06-internal-security-police-role/14-cybersecurity-policy-institutions-certin.md` (बहु-एजेंसी तालिका CERT-In/NCIIPC/I4C/NSCS/DCyA, CERT-In धारा 70B 2009, 6-घंटे अनिवार्य रिपोर्टिंग 2022, I4C जुलाई 2024 MHA संलग्न, हेल्पलाइन 1930, राष्ट्रीय नीति 2013→2025)
-- [x] 15. सोशल मीडिया व फेक न्यूज़ — आंतरिक सुरक्षा पर प्रभाव, नियमन के प्रयास → `mpsi-syllabus/notes/06-internal-security-police-role/15-social-media-fake-news-internal-security-regulation.md` (साम्प्रदायिक हिंसा/भीड़-हिंसा/कट्टरपंथीकरण प्रभाव, IT नियम 2021→2023 FCU संशोधन→कुणाल कामरा वाद 20 सितंबर 2024 बॉम्बे HC असंवैधानिक घोषित→SC अपील विचाराधीन 2026→IT नियम 2026 डीपफेक-विनियमन)
-- [x] 16. संचार नेटवर्क का सुरक्षा हेतु दुरुपयोग — एन्क्रिप्टेड ऐप्स, डार्क वेब → `mpsi-syllabus/notes/06-internal-security-police-role/16-communication-network-misuse-encrypted-apps-dark-web.md` (Signal/Telegram/डार्क वेब दिसंबर 2024 सरकारी चुनौती-वक्तव्य, बांग्लादेश-अल-कायदा Telegram नेटवर्क 2025 दोषसिद्धि, मुरारका डार्कनेट क्रिप्टो-केस, IT नियम 2021 ट्रेसेबिलिटी [50 लाख+ उपयोगकर्ता, प्रथम-प्रवर्तक पहचान], WhatsApp कानूनी चुनौती)
-- [x] 17. धन-शोधन (Money Laundering) — प्रक्रिया (Placement-Layering-Integration) → `mpsi-syllabus/notes/06-internal-security-police-role/17-money-laundering-process-placement-layering-integration.md` (3-चरण विस्तृत विवेचन, सहारा समूह केस-स्टडी — 34,000 शेल कंपनियाँ, ग्रॉसवेनर हाउस/प्लाज़ा होटल इंटीग्रेशन उदाहरण, FATF)
-- [x] 18. निवारण अधिनियम व संस्थाएं — PMLA 2002, ED, FIU-IND → `mpsi-syllabus/notes/06-internal-security-police-role/18-pmla-ed-fiu-ind-prevention-institutions.md` (PMLA धारा 5/17/19/45 तालिका, 2024 SC निर्णय — अरविंद केजरीवाल वाद गिरफ्तारी मापदंड, संज्ञान-पश्चात गिरफ्तारी-शक्ति सीमित, धारा 45 अग्रिम जमानत में भी लागू, FIU-IND 18 नवंबर 2004 स्थापना+STR/CTR कार्य)
-- [x] 19. हवाला लेनदेन एवं इसका नियमन → `mpsi-syllabus/notes/06-internal-security-police-role/19-hawala-transactions-regulation.md` (परिभाषा/कार्यप्रणाली — कोई वास्तविक धन गति नहीं करता, FEMA 1999+PMLA 2002 दोनों के अंतर्गत अवैध, RBI अविनियमित, 2024-25 ED दिल्ली-गोवा दुबई संपत्ति कार्रवाई)
+- [x] 13. साइबर अपराध के प्रकार — फ़िशिंग, रैंसमवेयर, पहचान चोरी → `mpesb-syllabus/notes/06-internal-security-police-role/13-cybercrime-types-phishing-ransomware-identity-theft.md` (मामले 10.29→22.68→28.15 लाख, निवेश-धोखाधड़ी 76% हानि, "डिजिटल गिरफ्तारी" घोटाला नवीनतम खतरा, 459 साइबर थाने बनाम केवल 47% दोषसिद्धि दर)
+- [x] 14. साइबर सुरक्षा नीति व संस्थाएं — CERT-In, राष्ट्रीय साइबर सुरक्षा नीति → `mpesb-syllabus/notes/06-internal-security-police-role/14-cybersecurity-policy-institutions-certin.md` (बहु-एजेंसी तालिका CERT-In/NCIIPC/I4C/NSCS/DCyA, CERT-In धारा 70B 2009, 6-घंटे अनिवार्य रिपोर्टिंग 2022, I4C जुलाई 2024 MHA संलग्न, हेल्पलाइन 1930, राष्ट्रीय नीति 2013→2025)
+- [x] 15. सोशल मीडिया व फेक न्यूज़ — आंतरिक सुरक्षा पर प्रभाव, नियमन के प्रयास → `mpesb-syllabus/notes/06-internal-security-police-role/15-social-media-fake-news-internal-security-regulation.md` (साम्प्रदायिक हिंसा/भीड़-हिंसा/कट्टरपंथीकरण प्रभाव, IT नियम 2021→2023 FCU संशोधन→कुणाल कामरा वाद 20 सितंबर 2024 बॉम्बे HC असंवैधानिक घोषित→SC अपील विचाराधीन 2026→IT नियम 2026 डीपफेक-विनियमन)
+- [x] 16. संचार नेटवर्क का सुरक्षा हेतु दुरुपयोग — एन्क्रिप्टेड ऐप्स, डार्क वेब → `mpesb-syllabus/notes/06-internal-security-police-role/16-communication-network-misuse-encrypted-apps-dark-web.md` (Signal/Telegram/डार्क वेब दिसंबर 2024 सरकारी चुनौती-वक्तव्य, बांग्लादेश-अल-कायदा Telegram नेटवर्क 2025 दोषसिद्धि, मुरारका डार्कनेट क्रिप्टो-केस, IT नियम 2021 ट्रेसेबिलिटी [50 लाख+ उपयोगकर्ता, प्रथम-प्रवर्तक पहचान], WhatsApp कानूनी चुनौती)
+- [x] 17. धन-शोधन (Money Laundering) — प्रक्रिया (Placement-Layering-Integration) → `mpesb-syllabus/notes/06-internal-security-police-role/17-money-laundering-process-placement-layering-integration.md` (3-चरण विस्तृत विवेचन, सहारा समूह केस-स्टडी — 34,000 शेल कंपनियाँ, ग्रॉसवेनर हाउस/प्लाज़ा होटल इंटीग्रेशन उदाहरण, FATF)
+- [x] 18. निवारण अधिनियम व संस्थाएं — PMLA 2002, ED, FIU-IND → `mpesb-syllabus/notes/06-internal-security-police-role/18-pmla-ed-fiu-ind-prevention-institutions.md` (PMLA धारा 5/17/19/45 तालिका, 2024 SC निर्णय — अरविंद केजरीवाल वाद गिरफ्तारी मापदंड, संज्ञान-पश्चात गिरफ्तारी-शक्ति सीमित, धारा 45 अग्रिम जमानत में भी लागू, FIU-IND 18 नवंबर 2004 स्थापना+STR/CTR कार्य)
+- [x] 19. हवाला लेनदेन एवं इसका नियमन → `mpesb-syllabus/notes/06-internal-security-police-role/19-hawala-transactions-regulation.md` (परिभाषा/कार्यप्रणाली — कोई वास्तविक धन गति नहीं करता, FEMA 1999+PMLA 2002 दोनों के अंतर्गत अवैध, RBI अविनियमित, 2024-25 ED दिल्ली-गोवा दुबई संपत्ति कार्रवाई)
 
 **साइबर सुरक्षा, संचार नेटवर्क, सोशल मीडिया, धन-शोधन (item xi) — COMPLETE, सभी 7 बिंदु पूर्ण।**
 
 **बाह्य एवं आंतरिक सुरक्षा के मुद्दे (item xii):**
-- [x] 20. भारत की सुरक्षा चुनौतियाँ — पड़ोसी देशों से संबंधित मुद्दे → `mpsi-syllabus/notes/06-internal-security-police-role/20-security-challenges-neighboring-countries.md` (चीन: गलवान 2020/डोकलाम 2017/21 अक्टूबर 2024 गश्त-समझौता अत्यंत नवीनतम, पाकिस्तान: बिंदु 9 क्रॉस-रेफ, बांग्लादेश: 2015 भूमि समझौता 111/51 परिक्षेत्र+पशु-तस्करी, नेपाल: कालापानी-लिपुलेख, म्यांमार: FMR समाप्ति फरवरी 2024)
-- [x] 21. आंतरिक विद्रोह/अलगाववाद — पूर्वोत्तर भारत के उग्रवादी संगठन → `mpsi-syllabus/notes/06-internal-security-police-role/21-northeast-insurgency-separatism-afspa-peace-accords.md` (त्रिपुरा शांति समझौता 4 सितंबर 2024 अत्यंत नवीनतम — 34 वर्ष उग्रवाद अंत, AFSPA अप्रैल 2025 स्थिति 4 राज्य/37 जिले/194 थाना, असम 246→6 घटनाएँ, मणिपुर 2024: 258 मृत्यु/60000 विस्थापित, मिज़ो/बोडो समझौते)
-- [x] 22. सांप्रदायिक हिंसा व दंगा नियंत्रण — कानूनी ढांचा एवं पुलिस भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/22-communal-violence-riot-control-legal-framework-police-role.md` (BNS धारा 189/190/191=पूर्व IPC 141/149/146-148, BNSS धारा 163=पूर्व CrPC 144, दंगा सज़ा 2/5 वर्ष, सांप्रदायिक हिंसा विधेयक 2005 कभी पारित नहीं हुआ, MPSI-हेतु सर्वोच्च-प्राथमिकता व्यावहारिक विषय)
-- [x] 23. आपातकालीन प्रतिक्रिया तंत्र — NDRF, राज्य आपदा प्रतिक्रिया बल → `mpsi-syllabus/notes/06-internal-security-police-role/23-emergency-response-ndrf-sdrf.md` (आपदा प्रबंधन अधिनियम 2005 धारा 44, NDRF 16 बटालियन/6 CAPF से गठित/1149 कार्मिक प्रति बटालियन, NDMA अध्यक्ष PM, MP सभी 52 जिलों में SDRF विस्तार योजना)
+- [x] 20. भारत की सुरक्षा चुनौतियाँ — पड़ोसी देशों से संबंधित मुद्दे → `mpesb-syllabus/notes/06-internal-security-police-role/20-security-challenges-neighboring-countries.md` (चीन: गलवान 2020/डोकलाम 2017/21 अक्टूबर 2024 गश्त-समझौता अत्यंत नवीनतम, पाकिस्तान: बिंदु 9 क्रॉस-रेफ, बांग्लादेश: 2015 भूमि समझौता 111/51 परिक्षेत्र+पशु-तस्करी, नेपाल: कालापानी-लिपुलेख, म्यांमार: FMR समाप्ति फरवरी 2024)
+- [x] 21. आंतरिक विद्रोह/अलगाववाद — पूर्वोत्तर भारत के उग्रवादी संगठन → `mpesb-syllabus/notes/06-internal-security-police-role/21-northeast-insurgency-separatism-afspa-peace-accords.md` (त्रिपुरा शांति समझौता 4 सितंबर 2024 अत्यंत नवीनतम — 34 वर्ष उग्रवाद अंत, AFSPA अप्रैल 2025 स्थिति 4 राज्य/37 जिले/194 थाना, असम 246→6 घटनाएँ, मणिपुर 2024: 258 मृत्यु/60000 विस्थापित, मिज़ो/बोडो समझौते)
+- [x] 22. सांप्रदायिक हिंसा व दंगा नियंत्रण — कानूनी ढांचा एवं पुलिस भूमिका → `mpesb-syllabus/notes/06-internal-security-police-role/22-communal-violence-riot-control-legal-framework-police-role.md` (BNS धारा 189/190/191=पूर्व IPC 141/149/146-148, BNSS धारा 163=पूर्व CrPC 144, दंगा सज़ा 2/5 वर्ष, सांप्रदायिक हिंसा विधेयक 2005 कभी पारित नहीं हुआ, MPESB-हेतु सर्वोच्च-प्राथमिकता व्यावहारिक विषय)
+- [x] 23. आपातकालीन प्रतिक्रिया तंत्र — NDRF, राज्य आपदा प्रतिक्रिया बल → `mpesb-syllabus/notes/06-internal-security-police-role/23-emergency-response-ndrf-sdrf.md` (आपदा प्रबंधन अधिनियम 2005 धारा 44, NDRF 16 बटालियन/6 CAPF से गठित/1149 कार्मिक प्रति बटालियन, NDMA अध्यक्ष PM, MP सभी 52 जिलों में SDRF विस्तार योजना)
 
 **बाह्य एवं आंतरिक सुरक्षा के मुद्दे (item xii) — COMPLETE, सभी 4 बिंदु पूर्ण।**
 
 **संगठित अपराध व आतंकवाद के बीच संबंध (item xiii):**
-- [x] 24. संगठित अपराध के स्वरूप — माफिया नेटवर्क, आर्थिक अपराध → `mpsi-syllabus/notes/06-internal-security-police-role/24-organized-crime-forms-mafia-economic-crime.md` (रेत/भूमि माफिया $17mn/माह-₹150 अरब बाज़ार, MCOCA 1999→दिल्ली 2002, BNS धारा 111 पहली बार राष्ट्रीय स्तर पर संगठित अपराध परिभाषा [सर्वोच्च-प्राथमिकता] मृत्युदंड/3-10वर्ष, धारा 112 नई "छोटे स्तर" श्रेणी, राजस्थान 392 मामले उदाहरण)
-- [x] 25. आतंकी वित्तपोषण में संगठित अपराध की भूमिका → `mpsi-syllabus/notes/06-internal-security-police-role/25-terror-financing-organized-crime-role.md` (FICN नेक्सस — D-कंपनी/दाऊद इब्राहिम दुबई-संचालन, वितरण-मार्ग 7 देश, FCORD+TFFC सेल NIA, FICN अब UAPA/BNS अंतर्गत आतंकवादी-कृत्य अभियोजन-योग्य, FY24-25: 1,17,722 जाली नोट/+37%, गिरफ्तारी 21→41)
-- [x] 26. प्रमुख कानून — UAPA, NIA अधिनियम → `mpsi-syllabus/notes/06-internal-security-police-role/26-uapa-nia-act-key-laws.md` (UAPA 1967→2004 संशोधन संगठन-प्रतिबंध→2019 संशोधन धारा 35 व्यक्तिगत आतंकवादी-घोषणा [सर्वोच्च-प्राथमिकता]+SC 2024-25 HC को निर्देश, NIA अधिनियम 31 दिसंबर 2008 26/11-पश्चात+2019 विदेश-क्षेत्रीय अधिकार-क्षेत्र)
-- [x] 27. अंतर्राष्ट्रीय सहयोग तंत्र — INTERPOL, FATF → `mpsi-syllabus/notes/06-internal-security-police-role/27-international-cooperation-interpol-fatf.md` (FATF 1989 स्थापना, भारत पूर्ण सदस्य 25 जून 2010/34वाँ देश, भारत पहली बार उपाध्यक्ष जुलाई2026-जून2027 अत्यंत नवीनतम, पाकिस्तान ग्रे-लिस्ट इतिहास+2025 पुनः-सूचीकरण माँग, INTERPOL रेड नोटिस 100→107→56)
+- [x] 24. संगठित अपराध के स्वरूप — माफिया नेटवर्क, आर्थिक अपराध → `mpesb-syllabus/notes/06-internal-security-police-role/24-organized-crime-forms-mafia-economic-crime.md` (रेत/भूमि माफिया $17mn/माह-₹150 अरब बाज़ार, MCOCA 1999→दिल्ली 2002, BNS धारा 111 पहली बार राष्ट्रीय स्तर पर संगठित अपराध परिभाषा [सर्वोच्च-प्राथमिकता] मृत्युदंड/3-10वर्ष, धारा 112 नई "छोटे स्तर" श्रेणी, राजस्थान 392 मामले उदाहरण)
+- [x] 25. आतंकी वित्तपोषण में संगठित अपराध की भूमिका → `mpesb-syllabus/notes/06-internal-security-police-role/25-terror-financing-organized-crime-role.md` (FICN नेक्सस — D-कंपनी/दाऊद इब्राहिम दुबई-संचालन, वितरण-मार्ग 7 देश, FCORD+TFFC सेल NIA, FICN अब UAPA/BNS अंतर्गत आतंकवादी-कृत्य अभियोजन-योग्य, FY24-25: 1,17,722 जाली नोट/+37%, गिरफ्तारी 21→41)
+- [x] 26. प्रमुख कानून — UAPA, NIA अधिनियम → `mpesb-syllabus/notes/06-internal-security-police-role/26-uapa-nia-act-key-laws.md` (UAPA 1967→2004 संशोधन संगठन-प्रतिबंध→2019 संशोधन धारा 35 व्यक्तिगत आतंकवादी-घोषणा [सर्वोच्च-प्राथमिकता]+SC 2024-25 HC को निर्देश, NIA अधिनियम 31 दिसंबर 2008 26/11-पश्चात+2019 विदेश-क्षेत्रीय अधिकार-क्षेत्र)
+- [x] 27. अंतर्राष्ट्रीय सहयोग तंत्र — INTERPOL, FATF → `mpesb-syllabus/notes/06-internal-security-police-role/27-international-cooperation-interpol-fatf.md` (FATF 1989 स्थापना, भारत पूर्ण सदस्य 25 जून 2010/34वाँ देश, भारत पहली बार उपाध्यक्ष जुलाई2026-जून2027 अत्यंत नवीनतम, पाकिस्तान ग्रे-लिस्ट इतिहास+2025 पुनः-सूचीकरण माँग, INTERPOL रेड नोटिस 100→107→56)
 
 **फ़ाइल 06 (आंतरिक सुरक्षा एवं पुलिस की भूमिका) है COMPLETE — सभी 27 बिंदु पूर्ण, सभी 6 विषय-समूह (item viii-xiii) पूर्ण।**
 
 ## Separate project: mppsc-syllabus/ — pure topic-listing of the full official MPPSC syllabus
 
-This is a **distinct project** from `mpsi-syllabus/` above — not deep content, a pure **topic checklist** (titles only, no explanations/answers) of the complete official MPPSC syllabus, organized unit-wise, one file per official syllabus sub-bullet, **Hindi only**. Source: `Syllabus/Exam_Plan_and_Syllabus_State_Service_Examination_2026_Dated_05_01_2026.pdf` (text layer is corrupted/unusable for Hindi — pages were rendered to PNGs via `pypdfium2`+`Pillow` and read visually; Prelims Paper I/II syllabus, pages 7-10, is English-only in the source and was translated to Hindi for these files).
+This is a **distinct project** from `mpesb-syllabus/` above — not deep content, a pure **topic checklist** (titles only, no explanations/answers) of the complete official MPPSC syllabus, organized unit-wise, one file per official syllabus sub-bullet, **Hindi only**. Source: `Syllabus/Exam_Plan_and_Syllabus_State_Service_Examination_2026_Dated_05_01_2026.pdf` (text layer is corrupted/unusable for Hindi — pages were rendered to PNGs via `pypdfium2`+`Pillow` and read visually; Prelims Paper I/II syllabus, pages 7-10, is English-only in the source and was translated to Hindi for these files).
 
 **Scope corrections learned the hard way (see memory `mppsc-syllabus-list-vs-content.md`):** list only — no MCQ/explanation content; cover the **complete** official syllabus regardless of what's already in the existing 10-unit DB (don't filter down to only "gaps"); **Hindi only** for all topic/point text; folder-per-unit with one file per official syllabus bullet, not a flat per-unit file; each unit expanded to genuine topper-level granularity (not just the ~9 broad official bullet lines) by cross-referencing `SYLLABUS_COVERAGE.md` (the existing 1,743-item MCQ inventory), the `gaps/unitN_gaps.md` files, and additional standard-knowledge topics a top-rank candidate would need even if absent from both.
 
@@ -498,9 +498,9 @@ This is a **distinct project** from `mpsi-syllabus/` above — not deep content,
 
 **Prelims Paper II (General Aptitude Test / CSAT-style) — DONE.** Converted from the old flat `paper-2-general-aptitude-test.md` (deleted) into `prelims/paper-2-general-aptitude-test/` with one file per official syllabus bullet (all 8 bullets from the official 2026 syllabus, page 10):
 - `01-bodh-comprehension.md`, `02-jivan-shailee-pratikari-shakti.md`, `03-sanchar-kaushal.md`, `04-tarkik-tarkashakti-vishleshanatmak-kshamata.md`, `05-nirnayan-samasya-samadhan.md`, `06-samanya-mansik-kshamata.md`, `07-sankhyatmakta-aankada-vyakhya.md`, `08-hindi-bhasha-bodh-kaushal.md`.
-- Files 04 (reasoning) and 07 (numeracy/DI) are reference-lists that point into the already-complete `mpsi-syllabus/notes/03-reasoning-analytical-ability/` (55 points) and `mpsi-syllabus/notes/04-numerical-aptitude/` (33 points) rather than duplicating content, since those topics are already deep-covered there.
+- Files 04 (reasoning) and 07 (numeracy/DI) are reference-lists that point into the already-complete `mpesb-syllabus/notes/03-reasoning-analytical-ability/` (55 points) and `mpesb-syllabus/notes/04-numerical-aptitude/` (33 points) rather than duplicating content, since those topics are already deep-covered there.
 - File 02 ("जीवन शैली एवं प्रतिकारी शक्ति / Life Style and Counter Force") carries an explicit ⚠️ caveat: this exact phrasing appears verbatim in the official 2026 syllabus PDF but has no standard/established CSAT meaning in any secondary source — a WebSearch surfaced a conflicting claim that this topic was "removed" from the 2026 syllabus, which contradicts the primary-source PDF already in this repo (dated 2026-01-05) that was read visually page-by-page; the primary source was trusted over the secondary summary, and the file's topic list is flagged as best-effort literal interpretation pending confirmation closer to exam time.
-- File 08 (Hindi bhasha bodh, Class-10 level) cross-references `mpsi-syllabus/notes/01-hindi-bhasha-bodh/` rather than duplicating.
+- File 08 (Hindi bhasha bodh, Class-10 level) cross-references `mpesb-syllabus/notes/01-hindi-bhasha-bodh/` rather than duplicating.
 
 **Final full re-audit (2026-09-04, all 10 units, stricter threshold):** Per explicit user request to verify line-by-line one more time across every unit and to proactively strengthen higher-weightage/trending units, re-ran the cross-reference script at a stricter 0.65 token-match threshold (up from 0.5) across all 10 units, then manually verified every flag via Grep. Units 1, 2, 3, 5, 6, 7, 9, 10 came back fully clean (all flags confirmed as already covered). Three more genuine gaps found and fixed:
 - Unit 4 (`06-rashtriya-kshetriya-aayog-sansthayen.md`): added item 7अ — Centrally Sponsored Schemes vs. Central Sector Schemes fund-sharing/expenditure distinction.
@@ -520,18 +520,18 @@ This weightage judgment (Current Affairs/Unit 8 and MP-specific recurring events
 
 **Committed/pushed:** all of `mppsc-syllabus/` (2 commits, `feature/mppsc-app` branch — `e847b99` for the initial 10-unit + Paper II build, `bd37dc7` for the final audit fixes and weightage additions).
 
-## mppsc-app integration (2026-09-04) — MPSI Notes + Syllabus Checklist wired into the tracker app
+## mppsc-app integration (2026-09-04) — MPESB Notes + Syllabus Checklist wired into the tracker app
 
-Both `mpsi-syllabus/notes/` (deep Markdown notes) and `mppsc-syllabus/prelims/` (topic checklist) are now imported into and served by `mppsc-app`, as two **new, separate content types** alongside the existing MCQ-practice flow — not converted into MCQs (that was explicitly rejected earlier for the notes; the checklist was never meant to be MCQs either).
+Both `mpesb-syllabus/notes/` (deep Markdown notes) and `mppsc-syllabus/prelims/` (topic checklist) are now imported into and served by `mppsc-app`, as two **new, separate content types** alongside the existing MCQ-practice flow — not converted into MCQs (that was explicitly rejected earlier for the notes; the checklist was never meant to be MCQs either).
 
-**Design decisions** (confirmed via AskUserQuestion before building): full read/checked progress tracking for both (not just browsing); two new top-level nav sections ("MPSI Notes", "Syllabus Checklist") rather than folding into existing Unit pages, since `mpsi-syllabus/notes/`'s 9 categories use the MPSI missing-topics taxonomy and don't map onto the app's existing 10 MCQ units; content imported into Postgres via new importer scripts (mirroring the existing MCQ importer's pattern) rather than read from disk at request time.
+**Design decisions** (confirmed via AskUserQuestion before building): full read/checked progress tracking for both (not just browsing); two new top-level nav sections ("MPESB Notes", "Syllabus Checklist") rather than folding into existing Unit pages, since `mpesb-syllabus/notes/`'s 9 categories use the MPESB missing-topics taxonomy and don't map onto the app's existing 10 MCQ units; content imported into Postgres via new importer scripts (mirroring the existing MCQ importer's pattern) rather than read from disk at request time.
 
 **Schema** (`mppsc-app/backend/prisma/schema.prisma`): two new independent model pairs, structurally parallel to the existing `Unit → Topic → Question`:
 - `NoteCategory → NoteFile` (notes). `NoteFile.isRead`/`readAt` track progress directly on the row (no join table, matching this app's existing single-user/no-auth design — there's no `User` model anywhere in this schema).
 - `ChecklistUnit → ChecklistFile → ChecklistItem` (checklist). `ChecklistFile.groupLabel` holds the Hindi label for nested subfolder cases (currently only unit-03's भारत/MP geography split). `ChecklistItem.isChecked`/`checkedAt`/`heading` (the `##` section a numbered line falls under) track progress and context directly on the row.
 - `ImportLog` gained `notesFound`/`checklistItemsFound` columns alongside the existing MCQ counts.
 
-**Importers** (`mppsc-app/backend/src/import/`): `importNotes.ts` walks `${CONTENT_DIR}/mpsi-syllabus/notes/<NN-category>/*.md`, extracting each file's title from its first `# ` heading and using a hardcoded `CATEGORY_NAMES` map for the 9 known category display names (folder slugs are romanized, not display-ready). `importChecklist.ts` walks `${CONTENT_DIR}/mppsc-syllabus/prelims/<unit-NN-... | paper-N-...>/**/*.md` (recursing through nested subfolders like unit-03's two geography sub-groups), parsing numbered lines (`ITEM_RE = /^(\d+[^\s.]*)\.\s+(.+)$/`, matches both `"1."` and `"16अ."` label styles) with their governing `## ` heading, using a hardcoded `UNIT_NAMES` map for proper Hindi unit names. Both are idempotent (upsert by `sourceFile`/`[fileId, orderIndex]`, same pattern as the existing MCQ importer) and both got a real content-shape spot-check (verified via direct Prisma queries and raw HTTP calls against the running containers, not just "it compiled") before being considered done. `runAll.ts` orchestrates all three importers (MCQ + notes + checklist) under one `ImportLog` row — `POST /api/admin/import` and `npm run import` (backend CLI) both now run the full combined import; the old MCQ-only `runImportLogged` was removed from `importContent.ts` since nothing needs MCQ-only import anymore.
+**Importers** (`mppsc-app/backend/src/import/`): `importNotes.ts` walks `${CONTENT_DIR}/mpesb-syllabus/notes/<NN-category>/*.md`, extracting each file's title from its first `# ` heading and using a hardcoded `CATEGORY_NAMES` map for the 9 known category display names (folder slugs are romanized, not display-ready). `importChecklist.ts` walks `${CONTENT_DIR}/mppsc-syllabus/prelims/<unit-NN-... | paper-N-...>/**/*.md` (recursing through nested subfolders like unit-03's two geography sub-groups), parsing numbered lines (`ITEM_RE = /^(\d+[^\s.]*)\.\s+(.+)$/`, matches both `"1."` and `"16अ."` label styles) with their governing `## ` heading, using a hardcoded `UNIT_NAMES` map for proper Hindi unit names. Both are idempotent (upsert by `sourceFile`/`[fileId, orderIndex]`, same pattern as the existing MCQ importer) and both got a real content-shape spot-check (verified via direct Prisma queries and raw HTTP calls against the running containers, not just "it compiled") before being considered done. `runAll.ts` orchestrates all three importers (MCQ + notes + checklist) under one `ImportLog` row — `POST /api/admin/import` and `npm run import` (backend CLI) both now run the full combined import; the old MCQ-only `runImportLogged` was removed from `importContent.ts` since nothing needs MCQ-only import anymore.
 
 **Routes**: `backend/src/routes/notes.ts` (`GET /api/notes`, `GET /api/notes/categories/:id`, `GET /api/notes/files/:id` with prev/next, `PATCH /api/notes/files/:id/read`) and `backend/src/routes/checklist.ts` (`GET /api/checklist/units`, `GET /api/checklist/units/:id`, `GET /api/checklist/files/:id`, `PATCH /api/checklist/items/:id/check`, `PATCH /api/checklist/files/:id/check-all`), registered in `index.ts`.
 
@@ -541,22 +541,22 @@ Both `mpsi-syllabus/notes/` (deep Markdown notes) and `mppsc-syllabus/prelims/` 
 
 **Known environment note, not a code issue**: this machine currently has an unrelated Docker Compose project (`sc_frontend` etc., a different "social-commerce-platform" stack) already bound to host port 3000, which collides with `mppsc-app/docker-compose.yml`'s frontend port mapping. `docker-compose.yml` was left unchanged (still `3000:80`, matching the README) — the port was only temporarily remapped during verification and reverted; the currently-running local `mppsc-app-frontend-1` container may still be bound to a temporary port from that test rather than 3000 depending on whether it's been restarted since. If port 3000 is unavailable next time this app is started, that's this other project, not a bug here.
 
-**Not yet done for this integration (not requested):** no way to add/edit MPSI notes or checklist items from the UI (read/check-only, matching the "these are separate corpora, edit the source .md files" model used everywhere else in this repo); no search integration (the existing `/search` page only searches MCQ questions); no stats-page integration for notes/checklist progress (Stats page still only covers MCQ practice).
+**Not yet done for this integration (not requested):** no way to add/edit MPESB notes or checklist items from the UI (read/check-only, matching the "these are separate corpora, edit the source .md files" model used everywhere else in this repo); no search integration (the existing `/search` page only searches MCQ questions); no stats-page integration for notes/checklist progress (Stats page still only covers MCQ practice).
 
 ## Third project: mppsc-syllabus/prelims-notes/ — fact-based MPPSC Prelims content notes (NCERT-primary)
 
-Started 2026-09-05, a **distinct third layer** from both `mpsi-syllabus/notes/` (MPSI/all-govt-exam-scoped deep notes) and `mppsc-syllabus/prelims/` (pure topic-only checklists, no content). This one is genuine explanatory content, but with a much stricter sourcing/accuracy bar than either of the other two.
+Started 2026-09-05, a **distinct third layer** from both `mpesb-syllabus/notes/` (MPESB/all-govt-exam-scoped deep notes) and `mppsc-syllabus/prelims/` (pure topic-only checklists, no content). This one is genuine explanatory content, but with a much stricter sourcing/accuracy bar than either of the other two.
 
 **Confirmed via AskUserQuestion before starting** (given the scope difference between the two options was ~25x):
 - **Granularity — one point = one numbered checklist item** from the existing `mppsc-syllabus/prelims/unit-NN-.../*.md` files (not one whole checklist file). E.g. item "11. दिल्ली सल्तनत — दास/खिलजी/तुगलक/सैयद/लोदी" becomes one note, not the entire multi-topic file it lives in. Total scope: ~2,180 notes (the full checklist item count across all 10 units + Paper II) — a genuinely very long-running project.
 - **Location — `mppsc-syllabus/prelims-notes/`**, a sibling of `mppsc-syllabus/prelims/`, mirroring its `unit-NN-.../` folder names. Within each unit, one **sub-folder per existing checklist file** (e.g. `01-pramukh-ghatnayen-rajvansh/`), and inside that, **one `.md` file per numbered item** in that checklist file, named by a slug of the item text (e.g. `01-maurya-shasan-malwa-ashok-laghu-shilalekh.md`).
 
-**Workflow (revised 2026-09-05 — now matches `mpsi-syllabus/notes/` pacing):** the user initially asked for a stop-and-confirm after every single point, then explicitly relaxed this after point 3: *"continue point notes dont wait for permesion, but dont move without permesion when you are moving to next topic."* Current rule: within one checklist file (= one "topic", e.g. `01-pramukh-ghatnayen-rajvansh.md`), work straight through every remaining numbered point without pausing for confirmation — report each briefly and continue. Only stop and wait for explicit permission when the current checklist file's points are exhausted and the next step would be moving to a **different checklist file** (the next "topic"). This now mirrors the `mpsi-syllabus/notes/` pacing rule exactly — don't revert to per-point pausing within a file unless the user asks again.
+**Workflow (revised 2026-09-05 — now matches `mpesb-syllabus/notes/` pacing):** the user initially asked for a stop-and-confirm after every single point, then explicitly relaxed this after point 3: *"continue point notes dont wait for permesion, but dont move without permesion when you are moving to next topic."* Current rule: within one checklist file (= one "topic", e.g. `01-pramukh-ghatnayen-rajvansh.md`), work straight through every remaining numbered point without pausing for confirmation — report each briefly and continue. Only stop and wait for explicit permission when the current checklist file's points are exhausted and the next step would be moving to a **different checklist file** (the next "topic"). This now mirrors the `mpesb-syllabus/notes/` pacing rule exactly — don't revert to per-point pausing within a file unless the user asks again.
 
 **Content rules (strict, corrected once already — see memory `mppsc-prelims-notes-fact-density.md`):**
 - **100% facts only, zero filler.** Line count (the user's own framing: "100 to 500 lines based on topics") is a *description of the expected range*, not a target — never pad a note toward 100+ lines if the real fact-set for that point is genuinely shorter (e.g. 60-90 lines). Every line must be a real, checkable fact; interpretive/connective prose that isn't itself a fact (drawing a conclusion, bridging two facts with commentary) gets trimmed or converted to a direct factual statement. This was corrected once already after a first draft was padded from 86 lines toward 100 with a semi-interpretive addition — don't repeat that.
 - **NCERT (latest editions) is the primary source.** For points NCERT doesn't cover at the required granularity (true for almost anything MP-specific, since NCERT is a national-level text) — cite a genuinely authoritative supplementary source (ASI official records, standard scholarly reference works, state government publications) explicitly in a "स्रोत" line at the top of the note, rather than silently mixing sourcing quality.
-- **Verify checkable facts via WebSearch/WebFetch before writing** — this is unambiguous fact-recall content (dates, districts, discoverers, edict classifications), not judgment-call synthesis, so treat it the way file-05/06/07 of the `mpsi-syllabus` project treated fact-heavy GS content: don't write from unverified memory when a fact is checkable. The first note (below) caught and corrected a commonly-repeated stale fact this way (Rupnath's district is Katni, not Jabalpur — Katni split off from Jabalpur in 1998, but older sources still say Jabalpur).
+- **Verify checkable facts via WebSearch/WebFetch before writing** — this is unambiguous fact-recall content (dates, districts, discoverers, edict classifications), not judgment-call synthesis, so treat it the way file-05/06/07 of the `mpesb-syllabus` project treated fact-heavy GS content: don't write from unverified memory when a fact is checkable. The first note (below) caught and corrected a commonly-repeated stale fact this way (Rupnath's district is Katni, not Jabalpur — Katni split off from Jabalpur in 1998, but older sources still say Jabalpur).
 - Framing throughout: "top one rank" depth — exhaustive within the point's actual scope, but scope itself must stay tight to what the point specifically asks about; don't scope-creep into adjacent points' territory.
 
 ### Progress tracker — unit-01-mp-history-culture-literature
@@ -1377,7 +1377,7 @@ User ने स्पष्ट स्वीकृति दी। **यह फ�
 - 04-e-governance
 - 05-internet-social-networking
 
-**फ़ॉर्मेट-निर्णय (AskUserQuestion द्वारा शुरुआत में तय):** उपयोगकर्ता ने **"Lean fact/formula sheet (mpsi file-08 Mechanical Engineering जैसा)"** चुना — GS-विषयों की 800+-पंक्ति Mains-answer-शैली नहीं, अपितु mpsi-syllabus file-08 (मैकेनिकल इंजीनियरिंग)/file-04 (संख्यात्मक अभियोग्यता) जैसी सघन तथ्य/फ़ॉर्मूला-शीट — क्योंकि कंप्यूटर-विज्ञान-मूल-सिद्धांत स्थिर/सार्वभौमिक-तकनीकी-ज्ञान हैं (करेंट-अफेयर्स-निर्भर नहीं), अतः भारी live-web-सत्यापन आवश्यक नहीं — NCERT कक्षा-XI/XII कंप्यूटर-विज्ञान पाठ्यक्रम + मानक/स्थिर CS-अवधारणाओं के विरुद्ध सत्यापन पर्याप्त, ठीक जैसे mpsi file-08/file-04 में हुआ था। **उपयोगकर्ता ने मध्य-टर्न स्पष्ट किया** — "lean" का अर्थ उथला नहीं: "make sure you are covering in depth I dont want to loss even single number from this unit" — प्रत्येक परीक्षा-योग्य उप-तथ्य/फ़ॉर्मूला/तुलना अवश्य कवर हो, बिना कृत्रिम-पैडिंग के।
+**फ़ॉर्मेट-निर्णय (AskUserQuestion द्वारा शुरुआत में तय):** उपयोगकर्ता ने **"Lean fact/formula sheet (mpesb file-08 Mechanical Engineering जैसा)"** चुना — GS-विषयों की 800+-पंक्ति Mains-answer-शैली नहीं, अपितु mpesb-syllabus file-08 (मैकेनिकल इंजीनियरिंग)/file-04 (संख्यात्मक अभियोग्यता) जैसी सघन तथ्य/फ़ॉर्मूला-शीट — क्योंकि कंप्यूटर-विज्ञान-मूल-सिद्धांत स्थिर/सार्वभौमिक-तकनीकी-ज्ञान हैं (करेंट-अफेयर्स-निर्भर नहीं), अतः भारी live-web-सत्यापन आवश्यक नहीं — NCERT कक्षा-XI/XII कंप्यूटर-विज्ञान पाठ्यक्रम + मानक/स्थिर CS-अवधारणाओं के विरुद्ध सत्यापन पर्याप्त, ठीक जैसे mpesb file-08/file-04 में हुआ था। **उपयोगकर्ता ने मध्य-टर्न स्पष्ट किया** — "lean" का अर्थ उथला नहीं: "make sure you are covering in depth I dont want to loss even single number from this unit" — प्रत्येक परीक्षा-योग्य उप-तथ्य/फ़ॉर्मूला/तुलना अवश्य कवर हो, बिना कृत्रिम-पैडिंग के।
 
 Notes जाएंगे `mppsc-syllabus/prelims-notes/unit-09-ict/<NN-checklist-slug>/`।
 
@@ -1447,7 +1447,7 @@ Notes जाएंगे `mppsc-syllabus/prelims-notes/unit-09-ict/<NN-checklist
 
 ### Checklist file 03 — `03-robotics-ai-cyber-suraksha.md` (19 points) — COMPLETE
 
-3 उप-खंड: कृत्रिम बुद्धिमत्ता/AI (1-3), रोबोटिक्स (4-6), साइबर सुरक्षा (7-19)। **उपयोगकर्ता ने बिंदु-13 (घटना-प्रतिक्रिया) खुला होने पर मध्य-टर्न पुनः-बल दिया: "you must need to cover facts that must help to crack mppsc and mpsi"** — इसके पश्चात बिंदु-13 को MP-राज्य-विशिष्ट साइबर-अवसंरचना-तथ्यों (State Cyber Police HQ, 52-ज़िला साइबर-सेल, e-Zero FIR 25दिसंबर2025/1,413 दर्ज-31मई2026तक, शिकायत-वृद्धि-आँकड़े) से सक्रिय-रूप से समृद्ध किया गया — यह पैटर्न (शुद्ध-तकनीकी-अवधारणा के साथ-साथ, जहाँ भी सम्भव हो, India/MP-विशिष्ट-नियामक/संस्थागत-तथ्य जोड़ना) शेष-बिंदुओं में भी लागू रहा जहाँ प्रासंगिक (बिंदु 3/14/17/18 पहले-से MeitY/UIDAI/RBI-सन्दर्भ सहित; बिंदु 19 में MPSDC-भोपाल तथ्य जोड़ा गया)।
+3 उप-खंड: कृत्रिम बुद्धिमत्ता/AI (1-3), रोबोटिक्स (4-6), साइबर सुरक्षा (7-19)। **उपयोगकर्ता ने बिंदु-13 (घटना-प्रतिक्रिया) खुला होने पर मध्य-टर्न पुनः-बल दिया: "you must need to cover facts that must help to crack mppsc and mpesb"** — इसके पश्चात बिंदु-13 को MP-राज्य-विशिष्ट साइबर-अवसंरचना-तथ्यों (State Cyber Police HQ, 52-ज़िला साइबर-सेल, e-Zero FIR 25दिसंबर2025/1,413 दर्ज-31मई2026तक, शिकायत-वृद्धि-आँकड़े) से सक्रिय-रूप से समृद्ध किया गया — यह पैटर्न (शुद्ध-तकनीकी-अवधारणा के साथ-साथ, जहाँ भी सम्भव हो, India/MP-विशिष्ट-नियामक/संस्थागत-तथ्य जोड़ना) शेष-बिंदुओं में भी लागू रहा जहाँ प्रासंगिक (बिंदु 3/14/17/18 पहले-से MeitY/UIDAI/RBI-सन्दर्भ सहित; बिंदु 19 में MPSDC-भोपाल तथ्य जोड़ा गया)।
 
 **कृत्रिम बुद्धिमत्ता/AI (1-3):**
 - [x] 1 AI बेसिक्स — सुपरवाइज्ड/अनसुपरवाइज्ड/रीइन्फोर्समेंट लर्निंग → `01-ai-basics-supervised-unsupervised-reinforcement-learning.md` (AI⊃ML⊃DL पदानुक्रम; 3-प्रकार-तुलनात्मक-तालिका; वर्गीकरण/प्रतिगमन; RL-शब्दावली एजेंट/वातावरण/पुरस्कार)
@@ -1504,7 +1504,7 @@ Notes जाएंगे `mppsc-syllabus/prelims-notes/unit-09-ict/<NN-checklist
 
 ### Checklist file 05 — `05-internet-social-networking.md` (9 points, Unit 9 की अंतिम फ़ाइल) — COMPLETE
 
-**उपयोगकर्ता ने बिंदु-1 खुला होने पर पुनः-बल दिया: "must cover only mppsc and mpsi axam focused fact notes"** — इस फ़ाइल के "इंटरनेट-मूल-ढाँचा" उप-खंड (1-5, OSI/IP/रूटिंग/DNS-HTTP/NAT) में शुद्ध-MCQ-योग्य-तथ्य/तुलनात्मक-तालिका-केंद्रित-शैली बनाए रखी गई (कोई generic-narrative-padding नहीं); "सोशल-नेटवर्किंग" उप-खंड (6-9) में प्रत्येक-बिंदु को भारत/MP-विशिष्ट वेब-सत्यापित-आँकड़ों से समृद्ध किया गया।
+**उपयोगकर्ता ने बिंदु-1 खुला होने पर पुनः-बल दिया: "must cover only mppsc and mpesb axam focused fact notes"** — इस फ़ाइल के "इंटरनेट-मूल-ढाँचा" उप-खंड (1-5, OSI/IP/रूटिंग/DNS-HTTP/NAT) में शुद्ध-MCQ-योग्य-तथ्य/तुलनात्मक-तालिका-केंद्रित-शैली बनाए रखी गई (कोई generic-narrative-padding नहीं); "सोशल-नेटवर्किंग" उप-खंड (6-9) में प्रत्येक-बिंदु को भारत/MP-विशिष्ट वेब-सत्यापित-आँकड़ों से समृद्ध किया गया।
 
 2 उप-खंड: इंटरनेट-मूल-ढाँचा (1-5, स्थिर-नेटवर्किंग-सिद्धांत), सोशल नेटवर्किंग प्लेटफॉर्म्स (6-9, भारत/MP-सन्दर्भ अनिवार्य)।
 
@@ -1536,7 +1536,7 @@ Notes जाएंगे `mppsc-syllabus/prelims-notes/unit-09-ict/<NN-checklist
 
 **कुल = 75 बिंदु/नोट्स, संपूर्ण Unit 9 के लिए।**
 
-**Unit 9 का फ़ॉर्मेट-निर्णय (शुरुआत में AskUserQuestion से तय, पूरे-Unit में सुसंगत-रूप से लागू)** — "Lean fact/formula sheet" शैली (mpsi file-08/file-04 जैसी) — GS-विषयों की भारी 800+-पंक्ति Mains-answer-शैली नहीं। स्थिर/सार्वभौमिक CS-अवधारणाएँ (नंबर-सिस्टम/OSI-मॉडल/एल्गोरिदम/क्रिप्टोग्राफ़ी आदि) NCERT कक्षा-XI/XII कंप्यूटर-विज्ञान-पाठ्यक्रम से; समसामयिक/भारत-नीति-विषय (5G-रोलआउट/DPDP-अधिनियम/UPI-आँकड़े/DigiLocker/UMANG/IT-नियम-2021-संशोधन आदि) WebSearch से सक्रिय-सत्यापित। **उपयोगकर्ता ने सत्र-भर बार-बार गहराई/तथ्य-पूर्णता पर बल दिया** ("don't lose even a single number," "cover facts that help crack mppsc and mpsi," "maintain the quality of notes") — इसके परिणाम-स्वरूप कई बिंदुओं को प्रारम्भिक-लेखन के तुरंत-बाद अतिरिक्त-शोध से समृद्ध किया गया (checklist-02/बिंदु-1-3 5G/स्पेक्ट्रम/सेल्युलर-इतिहास; checklist-03/बिंदु-13 MP-साइबर-अवसंरचना)।
+**Unit 9 का फ़ॉर्मेट-निर्णय (शुरुआत में AskUserQuestion से तय, पूरे-Unit में सुसंगत-रूप से लागू)** — "Lean fact/formula sheet" शैली (mpesb file-08/file-04 जैसी) — GS-विषयों की भारी 800+-पंक्ति Mains-answer-शैली नहीं। स्थिर/सार्वभौमिक CS-अवधारणाएँ (नंबर-सिस्टम/OSI-मॉडल/एल्गोरिदम/क्रिप्टोग्राफ़ी आदि) NCERT कक्षा-XI/XII कंप्यूटर-विज्ञान-पाठ्यक्रम से; समसामयिक/भारत-नीति-विषय (5G-रोलआउट/DPDP-अधिनियम/UPI-आँकड़े/DigiLocker/UMANG/IT-नियम-2021-संशोधन आदि) WebSearch से सक्रिय-सत्यापित। **उपयोगकर्ता ने सत्र-भर बार-बार गहराई/तथ्य-पूर्णता पर बल दिया** ("don't lose even a single number," "cover facts that help crack mppsc and mpesb," "maintain the quality of notes") — इसके परिणाम-स्वरूप कई बिंदुओं को प्रारम्भिक-लेखन के तुरंत-बाद अतिरिक्त-शोध से समृद्ध किया गया (checklist-02/बिंदु-1-3 5G/स्पेक्ट्रम/सेल्युलर-इतिहास; checklist-03/बिंदु-13 MP-साइबर-अवसंरचना)।
 
 ## Unit 6 — science-technology-public-health — prelims-notes (शुरू)
 
@@ -1684,7 +1684,7 @@ Notes जाएंगे `mppsc-syllabus/prelims-notes/unit-09-ict/<NN-checklist
 
 ### Checklist file 04 — `04-manav-sharir-sanrachna.md` (11 points) — user confirmed start, COMPLETE
 
-छोटी फ़ाइल — checklist अपने-आप स्वीकार करती है कि पूर्व-गैप-विश्लेषण में इस-बिंदु को शून्य-कवरेज चिह्नित किया गया था (मौजूदा-कवरेज में केवल कोशिका-जीव-विज्ञान मिला, अंग-तंत्र नहीं)। Notes गए `mppsc-syllabus/prelims-notes/unit-06-science-technology-public-health/04-manav-sharir-sanrachna/`। स्रोत — NCERT कक्षा-XI/XII जीव-विज्ञान (Digestion/Breathing/Body Fluids-Circulation/Excretory Products/Locomotion/Neural Control/Chemical Coordination/Human Reproduction अध्याय), सभी संख्यात्मक-तथ्य (फेफड़ा-आयतन/हड्डी-गणना/नेफ्रॉन-संख्या/मासिक-धर्म-चक्र आदि) वेब-सत्यापित। उपयोगकर्ता ने मध्य-टर्न "notes must be mppsc prelime and mpsi focused" + "must cover all facts" दोहराया — बिंदु-5 (तंत्रिका-तंत्र) को मेरु-तंत्रिका-क्षेत्रीय-विभाजन/न्यूरॉन-कार्यात्मक-प्रकार/माइलिन-आवरण/मस्तिष्कावरण-CSF जैसे अतिरिक्त MCQ-योग्य-तथ्यों से समृद्ध किया गया।
+छोटी फ़ाइल — checklist अपने-आप स्वीकार करती है कि पूर्व-गैप-विश्लेषण में इस-बिंदु को शून्य-कवरेज चिह्नित किया गया था (मौजूदा-कवरेज में केवल कोशिका-जीव-विज्ञान मिला, अंग-तंत्र नहीं)। Notes गए `mppsc-syllabus/prelims-notes/unit-06-science-technology-public-health/04-manav-sharir-sanrachna/`। स्रोत — NCERT कक्षा-XI/XII जीव-विज्ञान (Digestion/Breathing/Body Fluids-Circulation/Excretory Products/Locomotion/Neural Control/Chemical Coordination/Human Reproduction अध्याय), सभी संख्यात्मक-तथ्य (फेफड़ा-आयतन/हड्डी-गणना/नेफ्रॉन-संख्या/मासिक-धर्म-चक्र आदि) वेब-सत्यापित। उपयोगकर्ता ने मध्य-टर्न "notes must be mppsc prelime and mpesb focused" + "must cover all facts" दोहराया — बिंदु-5 (तंत्रिका-तंत्र) को मेरु-तंत्रिका-क्षेत्रीय-विभाजन/न्यूरॉन-कार्यात्मक-प्रकार/माइलिन-आवरण/मस्तिष्कावरण-CSF जैसे अतिरिक्त MCQ-योग्य-तथ्यों से समृद्ध किया गया।
 
 - [x] 1 कोशिका-संरचना (क्रॉस-रेफ) → `01-koshika-sanrachna-cross-ref.md` (checklist-फ़ाइल-01/बिंदु-14 का पूर्ण-नोट पहले-से-मौजूद; यहाँ केवल कोशिका→ऊतक→अंग→तंत्र पदानुक्रम+4-ऊतक-प्रकार जोड़े गए)
 - [x] 2 पाचन तंत्र → `02-pachan-tantra-ang-evam-karya.md` (आहार-नाल-पूर्ण-क्रम, 3-पाचक-ग्रंथियाँ+एंज़ाइम-तालिका, यकृत=सबसे-बड़ी-ग्रंथि, पीलिया/अल्सर)
@@ -1866,14 +1866,14 @@ Unit 6 की अंतिम एवं सबसे-विशाल checklist-�
 
 ### Checklist file 01 — `01-satat-vikas-sdg.md` (12 points) — user confirmed start, COMPLETE
 
-SDG-फ़्रेमवर्क-केंद्रित लघु-फ़ाइल। Notes गए `mppsc-syllabus/prelims-notes/unit-07-environment-biodiversity-sdg-disaster/01-satat-vikas-sdg/`। कई-बिंदु checklist-Unit-1/mpsi-file-05 (गरीबी/महिला-भूमिका/शहरीकरण) एवं checklist-Unit-6 (पोषण/WASH/ऊर्जा-प्रौद्योगिकी/स्वास्थ्य-नीति) की पहले-से-मौजूद-गहन-सामग्री से क्रॉस-रेफ, साथ-ही MP-विशिष्ट NITI Aayog SDG India Index 2023-24 आँकड़े वेब-सत्यापित।
+SDG-फ़्रेमवर्क-केंद्रित लघु-फ़ाइल। Notes गए `mppsc-syllabus/prelims-notes/unit-07-environment-biodiversity-sdg-disaster/01-satat-vikas-sdg/`। कई-बिंदु checklist-Unit-1/mpesb-file-05 (गरीबी/महिला-भूमिका/शहरीकरण) एवं checklist-Unit-6 (पोषण/WASH/ऊर्जा-प्रौद्योगिकी/स्वास्थ्य-नीति) की पहले-से-मौजूद-गहन-सामग्री से क्रॉस-रेफ, साथ-ही MP-विशिष्ट NITI Aayog SDG India Index 2023-24 आँकड़े वेब-सत्यापित।
 
 - [x] 1 SDGs — 17 लक्ष्य/169 टारगेट — फ्रेमवर्क → `01-sdg-17-lakshya-169-target-framework.md` (25सितंबर2015-अपनाया/193-देश; MDGs[8-लक्ष्य]-से-उत्तराधिकारी; NITI Aayog-भारत-नोडल-एजेंसी)
-- [x] 2 SDG-1/2/3 — गरीबी/शून्य भूख/स्वास्थ्य → `02-sdg-1-2-3-garibi-shunya-bhookh-swasthya-core-link.md` (mpsi-file-05-बिंदु-11-12+checklist-Unit-6/file-05/07-क्रॉस-रेफ)
-- [x] 3 SDG-4/5 — शिक्षा/लैंगिक समानता → `03-sdg-4-5-shiksha-laingik-samanta-manav-punji.md` (mpsi-file-05-बिंदु-8/10-क्रॉस-रेफ; **MP-SDG-Index-लैंगिक-समानता-सबसे-कमज़ोर-क्षेत्र<50**)
+- [x] 2 SDG-1/2/3 — गरीबी/शून्य भूख/स्वास्थ्य → `02-sdg-1-2-3-garibi-shunya-bhookh-swasthya-core-link.md` (mpesb-file-05-बिंदु-11-12+checklist-Unit-6/file-05/07-क्रॉस-रेफ)
+- [x] 3 SDG-4/5 — शिक्षा/लैंगिक समानता → `03-sdg-4-5-shiksha-laingik-samanta-manav-punji.md` (mpesb-file-05-बिंदु-8/10-क्रॉस-रेफ; **MP-SDG-Index-लैंगिक-समानता-सबसे-कमज़ोर-क्षेत्र<50**)
 - [x] 4 SDG-6 — जल/स्वच्छता — WASH → `04-sdg-6-jal-swachchta-wash-ekikaran.md` (checklist-Unit-6/file-07-बिंदु-16/37-39-क्रॉस-रेफ; MP-स्वच्छ-जल-स्कोर87)
 - [x] 5 SDG-7 — स्वच्छ ऊर्जा → `05-sdg-7-swachchh-urja-pahunch-vitta.md` (checklist-Unit-6/file-01-ऊर्जा-अनुभाग-क्रॉस-रेफ; **MP-स्वच्छ-ऊर्जा-स्कोर90-MP-का-सबसे-मज़बूत-क्षेत्र**)
-- [x] 6 SDG-11 — सतत शहर → `06-sdg-11-satat-shahar-kachra-parivahan-hariyali.md` (mpsi-file-05-बिंदु-14-15-क्रॉस-रेफ; MP-सतत-शहर-स्कोर86)
+- [x] 6 SDG-11 — सतत शहर → `06-sdg-11-satat-shahar-kachra-parivahan-hariyali.md` (mpesb-file-05-बिंदु-14-15-क्रॉस-रेफ; MP-सतत-शहर-स्कोर86)
 - [x] 7 SDG-12 — उत्तरदायी उपभोग — सर्कुलर अर्थव्यवस्था → `07-sdg-12-uttardayi-upbhog-circular-arthvyavastha.md` (checklist-Unit-7/file-03-3R/EPR-आगे-क्रॉस-रेफ)
 - [x] 8 SDG-13/14/15 — जलवायु/समुद्री/स्थलीय → `08-sdg-13-14-15-jalvayu-samudri-sthaliya-jivan.md` (SDG-14: 300cr+आजीविका-निर्भर/$3ट्रिलियन-बाज़ार/महासागर-90%+ऊष्मा-अवशोषण)
 - [x] 9 SDG-16/17 — शासन/साझेदारी → `09-sdg-16-17-shasan-sajhedari-data-vitta.md` (SDG-17="सक्षमकारी"-लक्ष्य, 5-स्तंभ)
@@ -1990,7 +1990,7 @@ SDG-फ़्रेमवर्क-केंद्रित लघु-फ़ा�
 - [x] 2 कौशल विकास — NSQF/अप्रेंटिसशिप — जॉब लिंक → `02-kaushal-vikas-nsqf-apprenticeship-job-link.md` (NSQF-8-स्तर, दिसंबर2013-शुभारंभ/जून2023-पुनः-अधिसूचित; Level-4=ट्रेड-अप्रेंटिस/Level-5=टेक्निशियन-अप्रेंटिस; NAPS-वजीफ़ा-वित्तीय-सहायता)
 - [x] 3 शिक्षा व्यय — स्कूल/उच्च शिक्षा — रिटर्न टू एजुकेशन → `03-shiksha-vyay-school-uchch-shiksha-return-to-education.md` (भारत-कुल-शिक्षा-व्यय~6.6%GDP[सार्वजनिक~4%+निजी~2.7%]; कोठारी-आयोग-6%-सार्वजनिक-व्यय-लक्ष्य-अभी-अप्राप्त)
 - [x] 4 स्वास्थ्य — प्राथमिक/द्वितीयक/तृतीयक — फाइनेंसिंग → `04-swasthya-prathmik-dwitiyak-tritiyak-financing.md` (checklist-Unit-6/file-07-बिंदु-1-क्रॉस-रेफ; OOPE-62.6%(2016-17)→47.1%(2019-20); NHP2017-लक्ष्य2.5%GDP-अपूर्ण)
-- [x] 5 जनसांख्यिकीय लाभांश (Demographic Dividend) — खिड़की/शर्तें → `05-jansankhyiye-labhansh-demographic-dividend-khidki-sharten.md` (mpsi-file-05-बिंदु-6-क्रॉस-रेफ; भारत-खिड़की2005-06→2055-56; निर्भरता-अनुपात64.6%[2011]→53.7%[2031-न्यूनतम]→54%[2036])
+- [x] 5 जनसांख्यिकीय लाभांश (Demographic Dividend) — खिड़की/शर्तें → `05-jansankhyiye-labhansh-demographic-dividend-khidki-sharten.md` (mpesb-file-05-बिंदु-6-क्रॉस-रेफ; भारत-खिड़की2005-06→2055-56; निर्भरता-अनुपात64.6%[2011]→53.7%[2031-न्यूनतम]→54%[2036])
 - [x] 6 स्किल इंडिया/डिजिटल स्किल — रोजगार गुणवत्ता (रुझान) → `06-skill-india-digital-skill-rozgar-gunvatta-rujhan.md` (India Skills Report2026-रोज़गार-योग्यता56.35%, पहली-बार5-वर्षों-में महिलाएँ-आगे; गिग-श्रमिक1.2करोड़[FY2025]→2.35करोड़[2030]; Code on Social Security2020-गिग-मान्यता)
 - [x] 7 MP-विशिष्ट शिक्षा परिणाम संकेतक → `07-mp-vishisht-shiksha-parinam-sanketak-saksharta-dropout-ger.md` (साक्षरता70.6%[2011, ~20.5pp-लैंगिक-अंतराल]; ⚠️NER-प्राथमिक63.9%[राष्ट्रीय76.9%]/माध्यमिक37.3%[राष्ट्रीय47.5%]-दोनों-राष्ट्रीय-औसत-से-कम)
 - [x] 8 MP-विशिष्ट स्वास्थ्य परिणाम संकेतक → `08-mp-vishisht-swasthya-parinam-sanketak-mmr-imr-kuposhan.md` (checklist-Unit-6/file-05-बिंदु-4-क्रॉस-रेफ; MMR175[2019-21]-भारत-सर्वाधिक-उच्च-में-से-एक; NFHS-5-IMR41.3-राष्ट्रीय-औसत-से-अधिक)
@@ -2057,7 +2057,7 @@ Notes गए `mppsc-syllabus/prelims-notes/unit-05-economy/06-mp-ipr-pragati/`�
 
 ### Checklist file 07 — `07-bhartiya-arthavyavastha-haliya-rujhan.md` (127 points — पूरे-प्रोजेक्ट की अब-तक की सबसे-बड़ी एकल-checklist-फ़ाइल, checklist-Unit-1/file-03 के 111-बिंदु का रिकॉर्ड तोड़ते हुए) — COMPLETE
 
-11 उप-खंड: आधारभूत अवधारणाएँ (1-10), राजकोषीय नीति एवं बजट (11-21), कराधान (22-28), मुद्रास्फीति एवं मूल्य (29-31), कृषि अर्थव्यवस्था (32-58), औद्योगिक अर्थव्यवस्था (59-74), सेवा क्षेत्र (75-80), अवसंरचना अर्थव्यवस्था (81-93), ऊर्जा अर्थव्यवस्था एवं पर्यावरण अर्थशास्त्र (94-98), रोजगार-गरीबी-सामाजिक क्षेत्र अर्थशास्त्र (99-112), डिजिटल अर्थव्यवस्था एवं समसामयिक रुझान (113-127)। Notes गए `mppsc-syllabus/prelims-notes/unit-05-economy/07-bhartiya-arthavyavastha-haliya-rujhan/`। इस फ़ाइल में बहुत-से-बिंदु checklist-Unit-1(इतिहास-संस्कृति)/Unit-6(विज्ञान-स्वास्थ्य)/Unit-7(पर्यावरण)/Unit-9(ICT)/mpsi-file-05 की पहले-से-मौजूद-गहन-सामग्री से **cross-ref** करते हुए लिखे गए, दोहराव-न्यूनतम रखते हुए नई-गहराई जोड़ी गई — यह पूरे-प्रोजेक्ट में सबसे-सघन-अंतर-यूनिट-cross-referencing वाली फ़ाइल रही।
+11 उप-खंड: आधारभूत अवधारणाएँ (1-10), राजकोषीय नीति एवं बजट (11-21), कराधान (22-28), मुद्रास्फीति एवं मूल्य (29-31), कृषि अर्थव्यवस्था (32-58), औद्योगिक अर्थव्यवस्था (59-74), सेवा क्षेत्र (75-80), अवसंरचना अर्थव्यवस्था (81-93), ऊर्जा अर्थव्यवस्था एवं पर्यावरण अर्थशास्त्र (94-98), रोजगार-गरीबी-सामाजिक क्षेत्र अर्थशास्त्र (99-112), डिजिटल अर्थव्यवस्था एवं समसामयिक रुझान (113-127)। Notes गए `mppsc-syllabus/prelims-notes/unit-05-economy/07-bhartiya-arthavyavastha-haliya-rujhan/`। इस फ़ाइल में बहुत-से-बिंदु checklist-Unit-1(इतिहास-संस्कृति)/Unit-6(विज्ञान-स्वास्थ्य)/Unit-7(पर्यावरण)/Unit-9(ICT)/mpesb-file-05 की पहले-से-मौजूद-गहन-सामग्री से **cross-ref** करते हुए लिखे गए, दोहराव-न्यूनतम रखते हुए नई-गहराई जोड़ी गई — यह पूरे-प्रोजेक्ट में सबसे-सघन-अंतर-यूनिट-cross-referencing वाली फ़ाइल रही।
 
 **आधारभूत अवधारणाएँ (1-10) — COMPLETE:** GDP/GNP/NNP/NDP; मूल्य-संवर्धन-बनाम-व्यय-पद्धति; क्षेत्रीय-योगदान-सांरचनात्मक-बदलाव; HDI/MPI; व्यापार-चक्र; हरित-नीला-सहभागी-विकास; CSO/NSS; ⚠️आधार-वर्ष-परिवर्तन(WPI-2022-23/CPI-2024=100-12फ़रवरी2026); समावेशी-विकास (**बिंदु-9 — user-फ़ीडबैक-पर सुधारा गया: मूल-रूप-से NITI Aayog "Sabka Vikas" पेपर का ग़लत-3-स्तंभ[वित्तीय-भौतिक-मानव-पूँजी]-फ़्रेमवर्क लिखा था, वास्तविक-फ़्रेमवर्क[Market Economics/Empowerment/Pragmatism] जोड़कर सुधारा, checklist की पूँजी-भाषा को वास्तविक-आँकड़ों[RBI FI-Index 43.4→70.0/PMJDY 55.98cr] से समर्थित रखा**); जनसांख्यिकीय-लाभांश।
 
@@ -2081,7 +2081,7 @@ Notes गए `mppsc-syllabus/prelims-notes/unit-05-economy/06-mp-ipr-pragati/`�
 
 **डिजिटल अर्थव्यवस्था एवं समसामयिक रुझान (113-127) — COMPLETE:** JAM-DBT-क्रांति; UPI-फिनटेक; IBC(⚠️रिकवरी-दर28.3%→36.6%, NCLT-30,600-लंबित); NBFC-IL&FS(⚠️सितंबर2018-पतन-₹91,000cr-ऋण); शिक्षा-स्वास्थ्य-व्यय-प्राथमिकताएँ; विमुद्रीकरण(⚠️8नवंबर2016-86%-मुद्रा-वापसी); कोविड-मैक्रो(⚠️FY2020-21-अंतिम-GDP-संकुचन6.6%, V-आकार-रिकवरी); डेटा-अर्थव्यवस्था(⚠️DPDP-नियम2025-18माह-चरणबद्ध); डिजिटल-क्रेडिट-एग्रीगेटर(RBI-डिजिटल-ऋण-निर्देश2025); रोज़गार-पैटर्न-शिफ्ट; Mudra-Standup(⚠️PMMY-10वर्ष-52करोड़+खाते); SHG-बैंक-लिंकेज-NRLM(मार्च2025-84.94लाख-क्रेडिट-लिंक्ड-SHG); District-Credit-Plan(लीड-बैंक-योजना); Venture-Debt-Angel(⚠️एंजल-टैक्स-समाप्ति-1अप्रैल2025-से); Cluster-Development(Hard-बनाम-Soft-हस्तक्षेप — checklist-फ़ाइल-07 का अंतिम-127वाँ-बिंदु)।
 
-**कार्यप्रणाली-नोट:** इस विशाल-127-बिंदु-फ़ाइल में उपयोगकर्ता ने 2 बार सीधा "missing facts" फ़ीडबैक दी (बिंदु-44-बीज-प्रणाली, बिंदु-98-WEF-नेक्सस) — दोनों-बार तुरंत खुले-बिंदु को अतिरिक्त-लक्षित-वेब-खोज से समृद्ध किया गया, कभी आगे बढ़ने या अस्पष्ट-आश्वासन देने से काम नहीं चलाया गया — यही इस पूरी परियोजना का सबसे-सुसंगत-रूप-से-दोहराया-गया व्यवहार-पैटर्न रहा है। फ़ाइल की विशालता (127 बिंदु, प्रोजेक्ट-रिकॉर्ड) के बावजूद हर-बिंदु में checklist-Unit-1/6/7/9/mpsi-file-05 की मौजूदा-सामग्री से सक्रिय-cross-referencing की गई ताकि दोहराव-न्यूनतम रहे और हर-नोट में नई-गहराई जुड़े।
+**कार्यप्रणाली-नोट:** इस विशाल-127-बिंदु-फ़ाइल में उपयोगकर्ता ने 2 बार सीधा "missing facts" फ़ीडबैक दी (बिंदु-44-बीज-प्रणाली, बिंदु-98-WEF-नेक्सस) — दोनों-बार तुरंत खुले-बिंदु को अतिरिक्त-लक्षित-वेब-खोज से समृद्ध किया गया, कभी आगे बढ़ने या अस्पष्ट-आश्वासन देने से काम नहीं चलाया गया — यही इस पूरी परियोजना का सबसे-सुसंगत-रूप-से-दोहराया-गया व्यवहार-पैटर्न रहा है। फ़ाइल की विशालता (127 बिंदु, प्रोजेक्ट-रिकॉर्ड) के बावजूद हर-बिंदु में checklist-Unit-1/6/7/9/mpesb-file-05 की मौजूदा-सामग्री से सक्रिय-cross-referencing की गई ताकि दोहराव-न्यूनतम रहे और हर-नोट में नई-गहराई जुड़े।
 
 **🎉🎉🎉 checklist-फ़ाइल 07 (Unit 5, 127 बिंदु) पूर्ण रूप से समाप्त — फ़ाइल-गणना सत्यापित (127)।**
 

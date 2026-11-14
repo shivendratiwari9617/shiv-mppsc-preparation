@@ -1,6 +1,6 @@
 # मध्यप्रदेश राज्य SDG विज़न दस्तावेज़ — मुख्य बिंदु
 
-**स्रोत:** State Planning Commission MP/niti.gov.in, वेब-सत्यापित — MPPSC/MPSI अत्यंत उच्च-प्राथमिकता ("Vision-to-Delivery Roadmap 2020-2025" MCQ-योग्य)
+**स्रोत:** State Planning Commission MP/niti.gov.in, वेब-सत्यापित — MPPSC/MPESB अत्यंत उच्च-प्राथमिकता ("Vision-to-Delivery Roadmap 2020-2025" MCQ-योग्य)
 
 ## 1. विज़न-दस्तावेज़ — विकास-यात्रा — अत्यंत उच्च-प्राथमिकता, MCQ-योग्य
 
